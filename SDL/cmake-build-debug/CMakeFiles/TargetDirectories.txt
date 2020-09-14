@@ -1,0 +1,3 @@
+C:/Users/husey/Desktop/CPP1Minor/SDL/cmake-build-debug/CMakeFiles/SDL2Test.dir
+C:/Users/husey/Desktop/CPP1Minor/SDL/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/husey/Desktop/CPP1Minor/SDL/cmake-build-debug/CMakeFiles/rebuild_cache.dir

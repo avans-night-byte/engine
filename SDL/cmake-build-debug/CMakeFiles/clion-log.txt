@@ -1,0 +1,4 @@
+C:\Users\husey\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\202.6397.106\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" C:\Users\husey\Desktop\CPP1Minor\SDL
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/husey/Desktop/CPP1Minor/SDL/cmake-build-debug
