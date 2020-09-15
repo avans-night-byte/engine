@@ -31,8 +31,11 @@ int main(int argc, char *argv[])
 //    SDL_DestroyWindow(window);
 //    SDL_Quit();
 
-    cout << "Fahk yuh cyka blaty" << endl;
-    cout << "FAHK YUH MARCO BITCH" << endl;
+    std::string name;
+
+    std::cout << "Please, enter your full name: ";
+    std::getline (std::cin,name);
+    std::cout << "Hello, " << name << "!\n";
 
     return 0;
 }
