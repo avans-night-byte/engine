@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/cmake,clion+all,c++
-# Edit at https://www.toptal.com/developers/gitignore?templates=cmake,clion+all,c++
+# Created by https://www.toptal.com/developers/gitignore/api/c++,cmake,clion+all,mercurial
+# Edit at https://www.toptal.com/developers/gitignore?templates=c++,cmake,clion+all,mercurial
 
 ### C++ ###
 # Prerequisites
@@ -142,4 +142,12 @@ _deps
 # External projects
 *-prefix/
 
-# End of https://www.toptal.com/developers/gitignore/api/cmake,clion+all,c++
+### Mercurial ###
+.hg/
+.hgignore
+.hgsigs
+.hgsub
+.hgsubstate
+.hgtags
+
+# End of https://www.toptal.com/developers/gitignore/api/c++,cmake,clion+all,mercurial
