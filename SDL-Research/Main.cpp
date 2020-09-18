@@ -26,16 +26,17 @@ int main(int argc, char *argv[])
     SDL_RenderClear(renderer);
     SDL_RenderPresent(renderer);
 
-    SDL_Delay(3000);
+
+
+    std::string name;
+
+    std::cout << "Please, enter your full name: ";
+    std::getline (std::cin,name);
+    std::cout << "Hello, " << name << "!\n";
+
 
     SDL_DestroyWindow(window);
     SDL_Quit();
-
-//    std::string name;
-//
-//    std::cout << "Please, enter your full name: ";
-//    std::getline (std::cin,name);
-//    std::cout << "Hello, " << name << "!\n";
 
     return 0;
 }
