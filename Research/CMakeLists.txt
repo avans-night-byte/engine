@@ -14,14 +14,13 @@ project(SDL2Test)
 
 
 add_subdirectory(${SDL2_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdl)
-
+add_subdirectory(${BOX2D_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/box2d)
 
 add_executable(SDL2Test Main.cpp)
 
 find_package(box2d REQUIRED)
 
 target_include_directories(SDL2Test PUBLIC ${SDL2_SOURCE_DIR}/include
-                                            ${BOX2D_SOURCE_DIR}/include/box2d)
+        ${BOX2D_SOURCE_DIR}/include/box2d)
 
-target_link_libraries(SDL2Test PRIVATE SDL2 box2d::box2d)
-include_directories ("${BOX2D_SOURCE_DIR}/include")
+target_link_libraries(SDL2Test PRIVATE SDL2 box2d)
