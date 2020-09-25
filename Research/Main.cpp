@@ -6,6 +6,8 @@
 #include <iostream>
 #include "SDL.h"
 
+#include "box2d.h"
+
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -37,6 +39,10 @@ int main(int argc, char *argv[])
 
     SDL_DestroyWindow(window);
     SDL_Quit();
+
+
+    b2Vec2 gravity(0.0f, -10.0f);
+    b2World world(gravity);
 
     return 0;
 }
