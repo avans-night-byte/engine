@@ -1,4 +1,10 @@
+#pragma once
+
+#include "input.hpp"
+
 class InputEngine {
-    virtual void update() = 0;
-    virtual struct getInput() = 0;
-}
+   public:
+    virtual void update() const = 0;
+    virtual struct input getInput() const = 0;
+    virtual ~InputEngine();
+};

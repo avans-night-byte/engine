@@ -5,6 +5,8 @@
 
 #include <cstddef>
 
+#include "Input/SDLInputEngine.hpp"
+
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
@@ -34,8 +36,9 @@ int main(int argc, char* args[]) {
             // Update the surface
             SDL_UpdateWindowSurface(window);
 
-            // Wait two seconds
-            // SDL_Delay(2000);
+            // Get Input
+            SDLInputEngine ie;
+            ie.getInput();
         }
     }
 
