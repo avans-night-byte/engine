@@ -5,7 +5,7 @@
 
 #include <cstddef>
 
-#include "Input/SDLInputEngine.hpp"
+#include "Input/Adapter/SDLInputEngineAdapter.hpp"
 
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
@@ -37,16 +37,16 @@ int main(int argc, char* args[]) {
             SDL_UpdateWindowSurface(window);
 
             // Get Input
-            SDLInputEngine ie;
-            ie.getInput();
+            SDLInputEngineAdapter adapter;
+            adapter.getInput();
         }
     }
 
     // Destroy window
-    SDL_DestroyWindow(window);
+    // SDL_DestroyWindow(window);
 
     // Quit SDL subsystems
-    SDL_Quit();
+    // SDL_Quit();
 
     return 0;
 }

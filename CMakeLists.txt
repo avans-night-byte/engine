@@ -14,7 +14,8 @@ project(SDL2Test)
 
 add_subdirectory(${SDL2_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
 
-add_executable(SDL2Test ./Engine/Main.cpp)
+add_executable(SDL2Test ./Engine/Main.cpp
+                        ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp)
 
 target_include_directories(SDL2Test PUBLIC ${SDL2_SOURCE_DIR}/include)
 target_link_libraries(SDL2Test SDL2)
