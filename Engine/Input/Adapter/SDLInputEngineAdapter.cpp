@@ -34,32 +34,33 @@ Input SDLInputEngineAdapter::getInput(SDL_Keycode keyEvent) const
     case SDLK_RIGHT:
         keyCode = "RIGHT";
         break;
+    case SDLK_SPACE:
+        keyCode = "SPACE";
+        break;
+    case SDLK_e:
+        keyCode = "E";
+        break;
+    case SDLK_q:
+        keyCode = "Q";
+        break;
     default:
         std::cout << "Unsupported Operation";
         // throw std::runtime_error("Unsupported Operation");
     }
 
-    // Print Key
-    printInput(keyCode);
-
-    // Do some magic ...
-
     // Return new input
-    return Input input{.x = 1, .y = 1, .keyCode = keyCode};
+    return Input{.x = 1, .y = 1, .keyCode = keyCode};
 }
 
-void SDLInputEngineAdapter::getInput() const
+Input SDLInputEngineAdapter::getInput() const
 {
     SDL_Event e;
 
-    while (true)
+    while (SDL_PollEvent(&e) != 0)
     {
-        while (SDL_PollEvent(&e) != 0)
+        if (e.type == SDL_KEYDOWN)
         {
-            if (e.type == SDL_KEYDOWN)
-            {
-                getInput(e.key.keysym.sym);
-            }
+            return getInput(e.key.keysym.sym);
         }
     }
 }

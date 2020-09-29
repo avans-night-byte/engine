@@ -1,4 +1,9 @@
-class InputEngine {
-    virtual void update() = 0;
-    virtual Input getInput() = 0;
-}
+#include "../../Engine/Input/Input.hpp"
+#include "../../Engine/Input/Adapter/SDLInputEngineAdapter.hpp"
+
+class InputAPI
+{
+public:
+    virtual Input getInput(SDLInputEngineAdapter adapter) const = 0;
+    virtual ~InputAPI() {}
+};

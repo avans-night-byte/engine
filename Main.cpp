@@ -1,18 +1,24 @@
 #include <stdio.h>
-
+#include <iostream>
 #include <cstddef>
+#include <string>
 
-#include "../SDL/include/SDL_video.h"
-#include "../SDL/include/SDL.h"
-#include "../SDL/include/SDL_surface.h"
-#include "Input/Adapter/SDLInputEngineAdapter.hpp"
+#include "./SDL/include/SDL_video.h"
+#include "./SDL/include/SDL.h"
+#include "./SDL/include/SDL_surface.h"
+
+#include "./Engine/Input/Adapter/SDLInputEngineAdapter.hpp"
+#include "./API/Input/EngineInputAPI.hpp"
+
+void gameLoop();
 
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
+SDL_Window *window = NULL;
+
 int main(int argc, char *args[])
 {
-    SDL_Window *window = NULL;
     SDL_Surface *surface = NULL;
 
     // Initialize SDL
@@ -43,17 +49,34 @@ int main(int argc, char *args[])
             // Update the surface
             SDL_UpdateWindowSurface(window);
 
-            // getInput starts the event handler loop
-            SDLInputEngineAdapter adapter;
-            adapter.getInput();
+            // Start temp game loop for development
+            gameLoop();
         }
     }
 
-    // Destroy window
-    SDL_DestroyWindow(window);
-
-    // Quit SDL subsystems
-    SDL_Quit();
-
     return 0;
+}
+
+void gameLoop()
+{
+    // Dependencies, we can inject those later
+    SDLInputEngineAdapter inputAdapter;
+    EngineInputAPI engineInputAPI;
+
+    // Loopert
+    while (true)
+    {
+        Input i = engineInputAPI.getInput(inputAdapter);
+
+        if (i.keyCode == "Q")
+        {
+            SDL_DestroyWindow(window);
+            SDL_Quit();
+            return;
+        }
+        else
+        {
+            std::cout << i.keyCode << std::endl;
+        }
+    }
 }
