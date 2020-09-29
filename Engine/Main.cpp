@@ -1,10 +1,10 @@
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_surface.h>
-#include <SDL2/SDL_video.h>
 #include <stdio.h>
 
 #include <cstddef>
 
+#include "../SDL/include//SDL_video.h"
+#include "../SDL/include/SDL.h"
+#include "../SDL/include/SDL_surface.h"
 #include "Input/Adapter/SDLInputEngineAdapter.hpp"
 
 const int SCREEN_WIDTH = 640;
