@@ -11,6 +11,7 @@
 #include "./API/Input/EngineInputAPI.hpp"
 
 void gameLoop();
+void debugLog(Input);
 
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
@@ -44,7 +45,7 @@ int main(int argc, char *args[])
 
             // Fill the surface white
             SDL_FillRect(surface, NULL,
-                         SDL_MapRGB(surface->format, 0x00, 0xFF, 0xFF));
+                         SDL_MapRGB(surface->format, 0x00, 0x00, 0xFF));
 
             // Update the surface
             SDL_UpdateWindowSurface(window);
@@ -63,10 +64,11 @@ void gameLoop()
     SDLInputEngineAdapter inputAdapter;
     EngineInputAPI engineInputAPI;
 
-    // Loopert
     while (true)
     {
         Input i = engineInputAPI.getInput(inputAdapter);
+
+        debugLog(i);
 
         if (i.keyCode == "Q")
         {
@@ -74,12 +76,14 @@ void gameLoop()
             SDL_Quit();
             return;
         }
-        else
-        {
-            std::cout << "device: " << i.device << std::endl;
-            std::cout << "keyCode: " << i.keyCode << std::endl;
-            std::cout << "x: " << i.x << std::endl;
-            std::cout << "y: " << i.y << std::endl;
-        }
     }
+}
+
+void debugLog(Input i)
+{
+    std::cout << std::endl;
+    std::cout << "device: " << i.device << std::endl;
+    std::cout << "keyCode: " << i.keyCode << std::endl;
+    std::cout << "x: " << i.x << std::endl;
+    std::cout << "y: " << i.y << std::endl;
 }
