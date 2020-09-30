@@ -1,8 +1,8 @@
-if (NOT EXISTS "/home/marco/Projects/Minor/Project/engine/build/install_manifest.txt")
-    message(FATAL_ERROR "Cannot find install manifest: \"/home/marco/Projects/Minor/Project/engine/build/install_manifest.txt\"")
-endif(NOT EXISTS "/home/marco/Projects/Minor/Project/engine/build/install_manifest.txt")
+if (NOT EXISTS "/home/ker0h/projects/c++/avans-engine/build/install_manifest.txt")
+    message(FATAL_ERROR "Cannot find install manifest: \"/home/ker0h/projects/c++/avans-engine/build/install_manifest.txt\"")
+endif(NOT EXISTS "/home/ker0h/projects/c++/avans-engine/build/install_manifest.txt")
 
-file(READ "/home/marco/Projects/Minor/Project/engine/build/install_manifest.txt" files)
+file(READ "/home/ker0h/projects/c++/avans-engine/build/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 foreach (file ${files})
     message(STATUS "Uninstalling \"$ENV{DESTDIR}${file}\"")
