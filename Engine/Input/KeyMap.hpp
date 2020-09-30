@@ -21,4 +21,5 @@ public:
       {SDL_BUTTON_LEFT, "MOUSE_BUTTON_LEFT"},
       {SDL_BUTTON_RIGHT, "MOUSE_BUTTON_RIGHT"},
   };
+  inline static std::map<SDL_Keycode, std::string> joystickMap = {};
 };

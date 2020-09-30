@@ -16,14 +16,9 @@ Input SDLInputEngineAdapter::getInput() const
     while (SDL_PollEvent(&e))
     {
         if (e.type == SDL_KEYDOWN)
-        {
             return getKeyInput(e.key.keysym.sym);
-        }
-
         if (e.type == SDL_MOUSEBUTTONDOWN)
-        {
             return getMouseInput(e);
-        }
     }
 }
 
