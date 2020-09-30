@@ -10,6 +10,7 @@ class SDLInputEngineAdapter : public InputEngineAdapter {
     void update() const override;
     void printInput(std::string input) const override;
     Input getInput() const override;
-    Input getInput(SDL_Keycode input) const override;
+    Input getKeyInput(SDL_Keycode input) const override;
+    Input getMouseInput(SDL_Event input) const override;
     ~SDLInputEngineAdapter(){};
 };

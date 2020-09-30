@@ -76,7 +76,10 @@ void gameLoop()
         }
         else
         {
-            std::cout << i.keyCode << std::endl;
+            std::cout << "device: " << i.device << std::endl;
+            std::cout << "keyCode: " << i.keyCode << std::endl;
+            std::cout << "x: " << i.x << std::endl;
+            std::cout << "y: " << i.y << std::endl;
         }
     }
 }
