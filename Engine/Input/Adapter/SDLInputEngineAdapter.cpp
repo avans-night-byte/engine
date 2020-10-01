@@ -8,7 +8,9 @@
 
 void debugLog(Input i);
 
-Input SDLInputEngineAdapter::getInput()
+SDL_GameController *gameController;
+
+Input SDLInputEngineAdapter::getInput() const
 {
     SDL_Event e;
 
@@ -20,6 +22,10 @@ Input SDLInputEngineAdapter::getInput()
             return getMouseInput(e);
         if (e.type == SDL_CONTROLLERBUTTONDOWN)
             return getControllerInput(e);
+        if (e.type == SDL_CONTROLLERDEVICEADDED)
+            openController(e.cdevice.which);
+        if (e.type == SDL_CONTROLLERDEVICEREMOVED)
+            closeController();
     }
 }
 
@@ -40,33 +46,27 @@ Input SDLInputEngineAdapter::getMouseInput(SDL_Event mouseEvent) const
         .device = Input::MOUSE, .x = mouseX, .y = mouseY, .keyCode = keyCode};
 }
 
-Input SDLInputEngineAdapter::getControllerInput(SDL_Event controllerEvent)
+Input SDLInputEngineAdapter::getControllerInput(SDL_Event controllerEvent) const
 {
     std::string keyCode = KeyMap::controllerMap[controllerEvent.cbutton.button];
     return Input{.device = Input::CONTROLLER, .x = -1, .y = -1, .keyCode = keyCode};
 }
 
-void SDLInputEngineAdapter::initializeControllers()
+void SDLInputEngineAdapter::openController(int deviceId) const
 {
-    if (SDL_NumJoysticks() < 1)
+    if (SDL_IsGameController(deviceId))
     {
-        std::cout << "There are no controllers plugged in" << std::endl;
+        gameController = SDL_GameControllerOpen(deviceId);
+        std::cout << "Controller Connected: " << SDL_GameControllerName(gameController) << std::endl;
     }
     else
     {
-        for (int i = 0; i < SDL_NumJoysticks(); i++)
-        {
-            if (SDL_IsGameController(i))
-            {
-                gameController = SDL_GameControllerOpen(i);
-                std::cout << "Initialized controllers:" << SDL_GameControllerName(gameController) << std::endl;
-                break;
-            }
-        }
+        std::cout << "Unsupported Controller: " << SDL_GameControllerName(gameController) << std::endl;
     }
 }
 
-void SDLInputEngineAdapter::closeController()
+void SDLInputEngineAdapter::closeController() const
 {
+    std::cout << "Controller Disconnected" << std::endl;
     SDL_GameControllerClose(gameController);
 }

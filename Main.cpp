@@ -68,9 +68,6 @@ void gameLoop()
     SDLInputEngineAdapter inputAdapter;
     EngineInputAPI engineInputAPI;
 
-    // Initialize controllers
-    engineInputAPI.initializeControllers(inputAdapter);
-
     while (true)
     {
         Input i = engineInputAPI.getInput(inputAdapter);
@@ -79,7 +76,6 @@ void gameLoop()
 
         if (i.keyCode == "Q" || i.keyCode == "CONTROLLER_BUTTON_SELECT")
         {
-            engineInputAPI.closeController(inputAdapter);
             SDL_DestroyWindow(window);
             SDL_Quit();
             return;
