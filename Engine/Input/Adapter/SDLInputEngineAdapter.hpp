@@ -7,7 +7,7 @@
 
 class SDLInputEngineAdapter : public InputEngineAdapter {
    public:
-    SDL_Joystick* gameController;
+    SDL_GameController* gameController;
 
     Input getInput() override;
     Input getKeyInput(SDL_Keycode input) const override;

@@ -18,21 +18,32 @@ const int SCREEN_HEIGHT = 480;
 
 SDL_Window *window = NULL;
 
-int main(int argc, char *args[]) {
+int main(int argc, char *args[])
+{
     SDL_Surface *surface = NULL;
 
     // Initialize SDL
-    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK) < 0) {
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK) < 0)
+    {
         printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
-    } else {
+    }
+    else
+    {
+
+        // Game Controller Mappings
+        SDL_GameControllerAddMappingsFromFile("gamecontrollers.txt");
+
         // Create window
         window = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED,
                                   SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH,
                                   SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
-        if (window == NULL) {
+        if (window == NULL)
+        {
             printf("Window could not be created! SDL_Error: %s\n",
                    SDL_GetError());
-        } else {
+        }
+        else
+        {
             // Get window surface
             surface = SDL_GetWindowSurface(window);
 
@@ -51,7 +62,8 @@ int main(int argc, char *args[]) {
     return 0;
 }
 
-void gameLoop() {
+void gameLoop()
+{
     // Dependencies, we can inject those later
     SDLInputEngineAdapter inputAdapter;
     EngineInputAPI engineInputAPI;
@@ -59,12 +71,14 @@ void gameLoop() {
     // Initialize controllers
     engineInputAPI.initializeControllers(inputAdapter);
 
-    while (true) {
+    while (true)
+    {
         Input i = engineInputAPI.getInput(inputAdapter);
 
         debugLog(i);
 
-        if (i.keyCode == "Q") {
+        if (i.keyCode == "Q")
+        {
             engineInputAPI.closeController(inputAdapter);
             SDL_DestroyWindow(window);
             SDL_Quit();
@@ -73,7 +87,8 @@ void gameLoop() {
     }
 }
 
-void debugLog(Input i) {
+void debugLog(Input i)
+{
     std::cout << std::endl;
     std::cout << "device: " << i.device << std::endl;
     std::cout << "keyCode: " << i.keyCode << std::endl;
