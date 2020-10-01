@@ -31,25 +31,25 @@ Input SDLInputEngineAdapter::getInput() const
 
 Input SDLInputEngineAdapter::getKeyInput(SDL_Keycode keyEvent) const
 {
-    std::string keyCode = KeyMap::keyboardMap[keyEvent];
+    InputAction keyMap = KeyMap::keyboardMap[keyEvent];
     return Input{
-        .device = Input::KEYBOARD, .x = -1, .y = -1, .keyCode = keyCode};
+        .device = Input::KEYBOARD, .x = -1, .y = -1, .keyMap = keyMap};
 }
 
 Input SDLInputEngineAdapter::getMouseInput(SDL_Event mouseEvent) const
 {
-    std::string keyCode = KeyMap::mouseMap[mouseEvent.button.button];
+    InputAction keyMap = KeyMap::mouseMap[mouseEvent.button.button];
     int mouseX = mouseEvent.button.x;
     int mouseY = mouseEvent.button.y;
 
     return Input{
-        .device = Input::MOUSE, .x = mouseX, .y = mouseY, .keyCode = keyCode};
+        .device = Input::MOUSE, .x = mouseX, .y = mouseY, .keyMap = keyMap};
 }
 
 Input SDLInputEngineAdapter::getControllerInput(SDL_Event controllerEvent) const
 {
-    std::string keyCode = KeyMap::controllerMap[controllerEvent.cbutton.button];
-    return Input{.device = Input::CONTROLLER, .x = -1, .y = -1, .keyCode = keyCode};
+    InputAction keyMap = KeyMap::controllerMap[controllerEvent.cbutton.button];
+    return Input{.device = Input::CONTROLLER, .x = -1, .y = -1, .keyMap = keyMap};
 }
 
 void SDLInputEngineAdapter::openController(int deviceId) const

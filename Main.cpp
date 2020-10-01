@@ -74,7 +74,7 @@ void gameLoop()
 
         debugLog(i);
 
-        if (i.keyCode == "Q" || i.keyCode == "CONTROLLER_BUTTON_SELECT")
+        if (i.keyMap.action == "QUIT")
         {
             SDL_DestroyWindow(window);
             SDL_Quit();
@@ -87,7 +87,8 @@ void debugLog(Input i)
 {
     std::cout << std::endl;
     std::cout << "device: " << i.device << std::endl;
-    std::cout << "keyCode: " << i.keyCode << std::endl;
+    std::cout << "keyCode: " << i.keyMap.code << std::endl;
+    std::cout << "action: " << i.keyMap.action << std::endl;
     std::cout << "x: " << i.x << std::endl;
     std::cout << "y: " << i.y << std::endl;
 }
