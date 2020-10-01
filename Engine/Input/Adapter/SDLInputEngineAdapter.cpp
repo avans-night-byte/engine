@@ -18,7 +18,7 @@ Input SDLInputEngineAdapter::getInput()
             return getKeyInput(e.key.keysym.sym);
         if (e.type == SDL_MOUSEBUTTONDOWN)
             return getMouseInput(e);
-        if (e.type == SDL_JOYBUTTONDOWN)
+        if (e.type == SDL_CONTROLLERBUTTONDOWN)
             return getControllerInput(e);
     }
 }
@@ -42,8 +42,7 @@ Input SDLInputEngineAdapter::getMouseInput(SDL_Event mouseEvent) const
 
 Input SDLInputEngineAdapter::getControllerInput(SDL_Event controllerEvent)
 {
-    std::cout << std::to_string(controllerEvent.jbutton.button) << std::endl;
-    std::string keyCode = KeyMap::controllerMap[controllerEvent.jbutton.button];
+    std::string keyCode = KeyMap::controllerMap[controllerEvent.cbutton.button];
     return Input{.device = Input::CONTROLLER, .x = -1, .y = -1, .keyCode = keyCode};
 }
 
@@ -63,10 +62,6 @@ void SDLInputEngineAdapter::initializeControllers()
                 std::cout << "Initialized controllers:" << SDL_GameControllerName(gameController) << std::endl;
                 break;
             }
-
-            // gameController = SDL_JoystickOpen(i);
-            // std::cout << "Initialized controllers:" << SDL_JoystickName(gameController) << std::endl;
-            // break;
         }
     }
 }

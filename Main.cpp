@@ -23,15 +23,15 @@ int main(int argc, char *args[])
     SDL_Surface *surface = NULL;
 
     // Initialize SDL
-    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK) < 0)
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_GAMECONTROLLER) < 0)
     {
         printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
     }
     else
     {
 
-        // Game Controller Mappings
-        SDL_GameControllerAddMappingsFromFile("gamecontrollers.txt");
+        // // Game Controller Mappings
+        // SDL_GameControllerAddMappingsFromFile("gamecontrollers.txt");
 
         // Create window
         window = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED,
@@ -77,7 +77,7 @@ void gameLoop()
 
         debugLog(i);
 
-        if (i.keyCode == "Q")
+        if (i.keyCode == "Q" || i.keyCode == "CONTROLLER_BUTTON_SELECT")
         {
             engineInputAPI.closeController(inputAdapter);
             SDL_DestroyWindow(window);
