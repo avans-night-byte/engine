@@ -32,6 +32,7 @@ public:
         {SDL_CONTROLLER_BUTTON_DPAD_DOWN, InputAction{.code = "CONTOLLER_DPAD_DOWN", .action = "DOWN"}},
         {SDL_CONTROLLER_BUTTON_DPAD_LEFT, InputAction{.code = "CONTOLLER_DPAD_LEFT", .action = "LEFT"}},
         {SDL_CONTROLLER_BUTTON_DPAD_RIGHT, InputAction{.code = "CONTOLLER_DPAD_RIGHT", .action = "RIGHT"}},
+        
     };
 
     /** Keymap for device 0: keyboard */

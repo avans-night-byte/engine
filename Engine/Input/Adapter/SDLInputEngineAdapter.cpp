@@ -18,6 +18,7 @@ SDL_GameController *gameController;
  * - SDL_MOUSEBUTTONDOWN, returns Input struct
  * - SDL_CONTROLLERDEVICEADDED, void
  * - SDL_CONTROLLERDEVICEREMOVED, void
+ * - SDL_QUIT, returns Input struct
  * 
  * @returns Input{device, x, y, keyMap}
  */
@@ -33,6 +34,8 @@ Input SDLInputEngineAdapter::getInput() const
             return getKeyInput(e.key.keysym.sym);
         case SDL_CONTROLLERBUTTONDOWN:
             return getControllerInput(e);
+        case SDL_CONTROLLERAXISMOTION:
+            return getControllerMotionInput(e);
         case SDL_MOUSEBUTTONDOWN:
             return getMouseInput(e);
 
@@ -42,6 +45,9 @@ Input SDLInputEngineAdapter::getInput() const
         case SDL_CONTROLLERDEVICEREMOVED:
             closeController();
             break;
+
+        case SDL_QUIT:
+            return Input{.device = Input::OTHER, .x = -1, .y = -1, .keyMap = InputAction{.code = "QUIT", .action = "QUIT"}};
 
         default:
             break;
@@ -88,6 +94,32 @@ Input SDLInputEngineAdapter::getControllerInput(SDL_Event controllerEvent) const
 {
     InputAction keyMap = KeyMap::controllerMap[controllerEvent.cbutton.button];
     return Input{.device = Input::CONTROLLER, .x = -1, .y = -1, .keyMap = keyMap};
+}
+
+// Note from drunk Marco to sober Marco: Don't forget to fix this.
+Input SDLInputEngineAdapter::getControllerMotionInput(SDL_Event controllerEvent) const
+{
+
+    std::string code = "";
+
+    if (controllerEvent.caxis.which == 0)
+    {
+        if (controllerEvent.caxis.axis == 0)
+        {
+            code = "WHICH_0_AXIS_0";
+        }
+        else if (controllerEvent.caxis.axis == 1)
+        {
+            code = "WHICH_1_AXIS_1";
+        }
+        else
+        {
+            code = "DEBUG_NO_LOG";
+            // No change from center
+        }
+    }
+
+    return Input{.device = Input::CONTROLLER, .x = -1, .y = -1, .keyMap = InputAction{.code = code}};
 }
 
 /**
