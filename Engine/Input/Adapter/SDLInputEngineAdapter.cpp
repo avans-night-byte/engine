@@ -6,8 +6,6 @@
 #include "../Input.hpp"
 #include "../KeyMap.hpp"
 
-void debugLog(Input i);
-
 SDL_GameController *gameController;
 
 Input SDLInputEngineAdapter::getInput() const

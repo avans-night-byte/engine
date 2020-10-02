@@ -15,8 +15,10 @@ project(NightByte)
 add_subdirectory(${SDL2_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
 
 add_executable(NightByte ./Main.cpp
-                        ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
-                        ./API/Input/EngineInputAPI.cpp)
+                         ./game/Game.cpp
+                         ./Engine/Engine.cpp
+                         ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
+                         ./API/Input/EngineInputAPI.cpp)
 
 target_include_directories(NightByte PUBLIC ${SDL2_SOURCE_DIR}/include)
 target_link_libraries(NightByte SDL2)
