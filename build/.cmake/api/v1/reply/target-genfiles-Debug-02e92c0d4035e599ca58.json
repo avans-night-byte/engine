@@ -1,0 +1,35 @@
+{
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target"
+		],
+		"files" : 
+		[
+			"SDL_image/external/libpng-1.6.37/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 279,
+				"parent" : 0
+			}
+		]
+	},
+	"id" : "genfiles::@4294998b8a7aa02144b7",
+	"name" : "genfiles",
+	"paths" : 
+	{
+		"build" : "build/sdlimage/external/libpng-1.6.37",
+		"source" : "SDL_image/external/libpng-1.6.37"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}
