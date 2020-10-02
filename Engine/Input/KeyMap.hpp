@@ -3,14 +3,21 @@
 
 #include "../../SDL/include/SDL_events.h"
 
+/**
+ *  Contains mappings for mouse, controller and keyboard.
+ *  A map contains a SDL_KeyCode and an InputAction struct.
+ */
 class KeyMap
 {
 public:
+    /** Keymap for device 1: mouse */
     inline static std::map<SDL_Keycode, InputAction> mouseMap = {
         {SDL_BUTTON_LEFT, InputAction{.code = "MOUSE_BUTTON_LEFT", .action = "CLICK_LEFT"}},
         {SDL_BUTTON_RIGHT, InputAction{.code = "MOUSE_BUTTON_RIGHT", .action = "CLICK_RIGHT"}},
     };
-    inline static std::map<Uint8, InputAction> controllerMap = {
+
+    /** Keymap for device 2: controller */
+    inline static std::map<SDL_Keycode, InputAction> controllerMap = {
         {SDL_CONTROLLER_BUTTON_A, InputAction{.code = "CONTROLLER_BUTTON_A", .action = "JUMP"}},
         {SDL_CONTROLLER_BUTTON_B, InputAction{.code = "CONTROLLER_BUTTON_B", .action = ""}},
         {SDL_CONTROLLER_BUTTON_X, InputAction{.code = "CONTROLLER_BUTTON_X", .action = ""}},
@@ -26,6 +33,8 @@ public:
         {SDL_CONTROLLER_BUTTON_DPAD_LEFT, InputAction{.code = "CONTOLLER_DPAD_LEFT", .action = "LEFT"}},
         {SDL_CONTROLLER_BUTTON_DPAD_RIGHT, InputAction{.code = "CONTOLLER_DPAD_RIGHT", .action = "RIGHT"}},
     };
+
+    /** Keymap for device 0: keyboard */
     inline static std::map<SDL_Keycode, InputAction> keyboardMap = {
         {SDLK_UP, InputAction{.code = "UP", .action = "UP"}},
         {SDLK_DOWN, InputAction{.code = "DOWN", .action = "DOWN"}},

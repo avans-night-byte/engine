@@ -5,6 +5,9 @@
 #include "../../../SDL/include/SDL_events.h"
 #include "InputEngineAdapter.hpp"
 
+/**
+ * SDL Compatible Input Adapter for user input.
+ */
 class SDLInputEngineAdapter : public InputEngineAdapter
 {
 public:
