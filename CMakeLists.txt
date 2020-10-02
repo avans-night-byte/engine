@@ -9,14 +9,14 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(SDL2_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/SDL)
 
 
-project(SDL2Test)
+project(NightByte)
 
 
 add_subdirectory(${SDL2_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
 
-add_executable(SDL2Test ./Main.cpp
+add_executable(NightByte ./Main.cpp
                         ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
                         ./API/Input/EngineInputAPI.cpp)
 
-target_include_directories(SDL2Test PUBLIC ${SDL2_SOURCE_DIR}/include)
-target_link_libraries(SDL2Test SDL2)
+target_include_directories(NightByte PUBLIC ${SDL2_SOURCE_DIR}/include)
+target_link_libraries(NightByte SDL2)

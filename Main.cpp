@@ -64,7 +64,6 @@ int main(int argc, char *args[])
 
 void gameLoop()
 {
-    // Dependencies, we can inject those later
     SDLInputEngineAdapter inputAdapter;
     EngineInputAPI engineInputAPI;
 
@@ -87,7 +86,7 @@ void debugLog(Input i)
 {
     std::cout << std::endl;
     std::cout << "device: " << i.device << std::endl;
-    std::cout << "keyCode: " << i.keyMap.code << std::endl;
+    std::cout << "code: " << i.keyMap.code << std::endl;
     std::cout << "action: " << i.keyMap.action << std::endl;
     std::cout << "x: " << i.x << std::endl;
     std::cout << "y: " << i.y << std::endl;

@@ -16,16 +16,22 @@ Input SDLInputEngineAdapter::getInput() const
 
     while (SDL_PollEvent(&e))
     {
-        if (e.type == SDL_KEYDOWN)
+        switch (e.type)
+        {
+        case SDL_KEYDOWN:
             return getKeyInput(e.key.keysym.sym);
-        if (e.type == SDL_MOUSEBUTTONDOWN)
-            return getMouseInput(e);
-        if (e.type == SDL_CONTROLLERBUTTONDOWN)
+        case SDL_CONTROLLERBUTTONDOWN:
             return getControllerInput(e);
-        if (e.type == SDL_CONTROLLERDEVICEADDED)
+        case SDL_MOUSEBUTTONDOWN:
+            return getMouseInput(e);
+
+        case SDL_CONTROLLERDEVICEADDED:
             openController(e.cdevice.which);
-        if (e.type == SDL_CONTROLLERDEVICEREMOVED)
+            break;
+        case SDL_CONTROLLERDEVICEREMOVED:
             closeController();
+            break;
+        }
     }
 }
 
@@ -69,4 +75,5 @@ void SDLInputEngineAdapter::closeController() const
 {
     std::cout << "Controller Disconnected" << std::endl;
     SDL_GameControllerClose(gameController);
+    gameController == NULL;
 }

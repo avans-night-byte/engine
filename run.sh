@@ -4,4 +4,4 @@ cmake -S . -B ./build/
 cd build
 make
 cd ..
-./build/bin/SDL2Test
+./build/bin/NightByte
