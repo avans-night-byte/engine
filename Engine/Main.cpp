@@ -122,6 +122,8 @@ public:
                 return (T*)it->second;
             }
         }
+
+        return nullptr;
     }
 
     // Get components by Entity.
