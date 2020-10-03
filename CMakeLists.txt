@@ -1,5 +1,7 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 3.5)
 set(CMAKE_CXX_STANDARD 17)
+project(SDL2Test)
+
 
 set(CMAKE_CURRENT_BINARY_DIR ./build)
 set(CMAKE_CURRENT_SOURCE_DIR .)
@@ -11,12 +13,9 @@ set(BOX2D_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/box2d)
 set(SDL2IMAGE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/SDL_image)
 
 
-project(SDL2Test)
-
 
 add_subdirectory(${SDL2_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdl)
 add_subdirectory(${SDL2IMAGE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdlimage)
-
 
 
 add_executable(SDL2Test ./Engine/Main.cpp)
@@ -24,6 +23,6 @@ find_package(box2d REQUIRED)
 
 
 target_include_directories(SDL2Test PUBLIC ${SDL2_SOURCE_DIR}/include
-        ${BOX2D_SOURCE_DIR}/include/box2d ${SDL2_SOURCE_DIR}/)
+        ${BOX2D_SOURCE_DIR}/include/box2d ${SDL2IMAGE_SOURCE_DIR}/)
 
 target_link_libraries(SDL2Test PRIVATE SDL2 box2d sdlimage)
