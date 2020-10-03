@@ -24,7 +24,7 @@ find_package(box2d REQUIRED)
 
 
 target_include_directories(SDL2Test PUBLIC ${SDL2_SOURCE_DIR}/include
-        ${BOX2D_SOURCE_DIR}/include/box2d)
+        ${BOX2D_SOURCE_DIR}/include/box2d ${SDL2IMAGE_SOURCE_DIR})
 
 
 target_link_libraries(SDL2Test PRIVATE SDL2 box2d SDL2::image)
