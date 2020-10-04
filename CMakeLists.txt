@@ -7,24 +7,29 @@ set(CMAKE_CURRENT_SOURCE_DIR .)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
-set(SDL2_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/SDL)
-set(BOX2D_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/box2d)
-set(SDL2IMAGE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/SDL_image)
+set(SDL2_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/SDL)
+set(BOX2D_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/box2d)
+set(SDL2IMAGE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/SDL_image)
 
-project(SDL2Test)
+project(NightByte)
 
 add_subdirectory(${SDL2_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdl)
 add_subdirectory(${BOX2D_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/box2d)
 add_subdirectory(${SDL2IMAGE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdlimage)
 
-add_executable(SDL2Test ./Engine/Main.cpp)
+add_executable(NightByte ./Main.cpp
+        ./Game/Game.cpp
+        ./Engine/Engine.cpp
+        ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
+        ./API/Input/EngineInputAPI.cpp)
+
 
 find_package(box2d REQUIRED)
 
 
 
-target_include_directories(SDL2Test PUBLIC ${SDL2_SOURCE_DIR}/include
+target_include_directories(NightByte PUBLIC ${SDL2_SOURCE_DIR}/include
         ${BOX2D_SOURCE_DIR}/include/box2d ${SDL2IMAGE_SOURCE_DIR})
 
 
-target_link_libraries(SDL2Test PRIVATE SDL2 box2d SDL2::image)
+target_link_libraries(NightByte PRIVATE SDL2 box2d SDL2::image)
