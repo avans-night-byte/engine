@@ -2,7 +2,7 @@
 
 // Dependencies
 #include "./Engine/Engine.hpp"
-#include "./game/Game.hpp"
+#include "./Game/Game.hpp"
 
 // Variables
 const int width = 640;

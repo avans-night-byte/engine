@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "../../../SDL/include/SDL_events.h"
+#include "SDL_events.h"
 #include "InputEngineAdapter.hpp"
 
 /**

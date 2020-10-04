@@ -1,11 +1,11 @@
 #include <iostream>
 
-#include "Engine.hpp"
+#include "./Engine.hpp"
 
 // Dependencies
-#include "../SDL/include/SDL.h"
-#include "../SDL/include/SDL_surface.h"
-#include "../SDL/include/SDL_video.h"
+#include "SDL.h"
+#include "SDL_surface.h"
+#include "SDL_video.h"
 
 // Variables
 SDL_Window *window = NULL;

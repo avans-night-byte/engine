@@ -1,7 +1,7 @@
 #include <map>
 #include <string>
 
-#include "../../SDL/include/SDL_events.h"
+#include "SDL_events.h"
 
 /**
  *  Contains mappings for mouse, controller and keyboard.

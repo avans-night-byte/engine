@@ -2,8 +2,8 @@
 
 #include <string>
 
-#include "../../../SDL/include/SDL.h"
-#include "../../../SDL/include/SDL_events.h"
+#include "SDL.h"
+#include "SDL_events.h"
 #include "../Input.hpp"
 
 /**

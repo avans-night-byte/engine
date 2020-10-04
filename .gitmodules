@@ -1,11 +1,11 @@
 [submodule "SDL"]
-	path = SDL
+	path = Libraries/SDL
 	url = https://github.com/spurious/SDL-mirror.git
 
 [submodule "box2d"]
-	path = box2d
+	path = Libraries/Box2D
 	url = https://github.com/erincatto/box2d.git
 	
 [submodule "game"]
-	path = game
+	path = Game
 	url = https://github.com/avans-night-byte/game.git

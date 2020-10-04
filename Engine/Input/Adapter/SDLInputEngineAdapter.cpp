@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include "../../../SDL/include/SDL_events.h"
+#include "SDL_events.h"
 #include "../Input.hpp"
 #include "../KeyMap.hpp"
 
