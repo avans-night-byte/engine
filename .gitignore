@@ -1,6 +1,8 @@
+### Extra stuff ###
+/build
 
-# Created by https://www.toptal.com/developers/gitignore/api/c++,cmake,clion+all,mercurial,visualstudio
-# Edit at https://www.toptal.com/developers/gitignore?templates=c++,cmake,clion+all,mercurial,visualstudio
+# Created by https://www.toptal.com/developers/gitignore/api/c++,cmake,mercurial,clion+all,visualstudio,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=c++,cmake,mercurial,clion+all,visualstudio,visualstudiocode
 
 ### C++ ###
 # Prerequisites
@@ -63,9 +65,21 @@
 .idea/**/gradle.xml
 .idea/**/libraries
 
+# Gradle and Maven with auto-import
+# When using Gradle or Maven with auto-import, you should exclude module files,
+# since they will be recreated, and may cause churn.  Uncomment if using
+# auto-import.
+# .idea/artifacts
+# .idea/compiler.xml
+# .idea/jarRepositories.xml
+# .idea/modules.xml
+# .idea/*.iml
+# .idea/modules
+# *.iml
+# *.ipr
+
 # CMake
 cmake-build-*/
-build/
 
 # Mongo Explorer plugin
 .idea/**/mongoSettings.xml
@@ -137,6 +151,19 @@ _deps
 .hgsub
 .hgsubstate
 .hgtags
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
 
 ### VisualStudio ###
 ## Ignore Visual Studio temporary files, build results, and
@@ -491,4 +518,4 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-# End of https://www.toptal.com/developers/gitignore/api/c++,cmake,clion+all,mercurial,visualstudio
+# End of https://www.toptal.com/developers/gitignore/api/c++,cmake,mercurial,clion+all,visualstudio,visualstudiocode
