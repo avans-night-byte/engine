@@ -4,3 +4,6 @@
 [submodule "box2d"]
 	path = box2d
 	url = https://github.com/erincatto/box2d.git
+[submodule "SDL_image"]
+	path = SDL_image
+	url = https://github.com/avans-night-byte/SDL_image

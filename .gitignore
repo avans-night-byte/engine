@@ -1,3 +1,4 @@
+build/
 
 # Created by https://www.toptal.com/developers/gitignore/api/c++,cmake,clion+all,mercurial,visualstudio
 # Edit at https://www.toptal.com/developers/gitignore?templates=c++,cmake,clion+all,mercurial,visualstudio
@@ -5,6 +6,10 @@
 ### C++ ###
 # Prerequisites
 *.d
+
+
+.vscode
+
 
 # Compiled Object files
 *.slo

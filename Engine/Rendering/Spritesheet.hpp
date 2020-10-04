@@ -1,4 +1,5 @@
 #include <SDL_render.h>
+#include <SDL_image.h>
 
 class Spritesheet{
     public:
