@@ -14,7 +14,7 @@ add_executable(NightByte ./Main.cpp
                          ./Game/Game.cpp
                          ./Engine/Engine.cpp
                          ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
-                         ./API/Input/EngineInputAPI.cpp API/Audio/AudioAPI.cpp Engine/Audio/Adapter/SDLAudioEngineAdapter.cpp Engine/Audio/Adapter/SDLAudioEngineAdapter.h)
+                         ./API/Input/EngineInputAPI.cpp API/Audio/AudioAPI.cpp Engine/Audio/Adapter/SDLAudioEngineAdapter.cpp Engine/Audio/Adapter/SDLAudioEngineAdapter.hpp Engine/Audio/AudioFile.cpp Engine/Audio/AudioFile.h)
 
 target_include_directories(NightByte PUBLIC ${SDL2_SOURCE_DIR}/include)
 target_link_libraries(NightByte SDL2)
