@@ -1,0 +1,14 @@
+//
+// Created by Storm on 05/10/2020.
+//
+
+#ifndef NIGHTBYTE_SDLAUDIOENGINEADAPTER_H
+#define NIGHTBYTE_SDLAUDIOENGINEADAPTER_H
+
+
+class SDLAudioEngineAdapter {
+
+};
+
+
+#endif //NIGHTBYTE_SDLAUDIOENGINEADAPTER_H
