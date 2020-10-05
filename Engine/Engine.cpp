@@ -9,6 +9,7 @@
 
 // Variables
 SDL_Window *window = NULL;
+SDL_Renderer *renderer = nullptr;
 
 /**
  * Initialize the game window
@@ -41,7 +42,7 @@ void Engine::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT)
     }
     else
     {
-      // Get window surface
+      /* Get window surface
       surface = SDL_GetWindowSurface(window);
 
       // Fill the surface white
@@ -50,8 +51,20 @@ void Engine::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT)
 
       // Update the surface
       SDL_UpdateWindowSurface(window);
+       */
+
+        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
+        SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+        SDL_RenderClear(renderer);
+        SDL_RenderPresent(renderer);
     }
   }
+}
+
+
+
+SDL_Renderer* Engine::getRenderer(){
+    return renderer;
 }
 
 /**
@@ -63,5 +76,6 @@ void Engine::closeWindow()
 {
   window = NULL;
   SDL_DestroyWindow(window);
+  SDL_DestroyRenderer(renderer);
   SDL_Quit();
 }

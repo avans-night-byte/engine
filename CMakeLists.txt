@@ -21,7 +21,8 @@ add_executable(NightByte ./Main.cpp
         ./Game/Game.cpp
         ./Engine/Engine.cpp
         ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
-        ./API/Input/EngineInputAPI.cpp)
+        ./Engine/Rendering/TextureManager.cpp
+        ./API/Input/EngineInputAPI.cpp Game/Components/Component.hpp Game/Components/RenderComponent.cpp Game/Components/RenderComponent.hpp Game/Components/WorldPositionComponent.cpp Game/Components/WorldPositionComponent.hpp)
 
 
 find_package(box2d REQUIRED)

@@ -6,10 +6,15 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <SDL_image.h>
+#include "./Rendering/TextureManager.hpp"
 
-#define SHAPE_SIZE 50
+#define SHAPE_SIZE 800
 
 using namespace std;
+
+
+
 typedef unsigned long EntityId;
 typedef int PlayerId;
 
@@ -49,42 +54,39 @@ void WorldPositionComponent::update() {
 
 }
 
+
 class RenderComponent : public Component {
     SDL_Renderer * renderer;
     WorldPositionComponent * position;
     SDL_Texture * model;
     int r,g,b;
+    char const* _texturePath;
+    TextureManager* textureManager;
 
 public:
     void update() override;
     void setColor(int red, int blue, int green) {
-      r = red;
-      b = blue;
-      g = green;
+        r = red;
+        b = blue;
+        g = green;
     }
     void render() {
-        SDL_Rect SrcR;
-        SDL_Rect DestR;
-
-        SrcR.x = 0;
-        SrcR.y = 0;
-        SrcR.w = SHAPE_SIZE;
-        SrcR.h = SHAPE_SIZE;
-
-        DestR.x = position->x;
-        DestR.y = position->y;
-        DestR.w = SHAPE_SIZE;
-        DestR.h = SHAPE_SIZE;
-
-
-        SDL_SetRenderDrawColor(renderer, r, g, b, SDL_ALPHA_OPAQUE);
-        SDL_RenderFillRect(renderer, &DestR);
+        textureManager->draw("sample", position->x, position->y, 859, 840, 1,0, renderer, SDL_FLIP_NONE);
     }
 
 public:
-    RenderComponent(EntityId id, WorldPositionComponent *positionComponent, SDL_Renderer *sdlRenderer)
+    RenderComponent(EntityId id, WorldPositionComponent *positionComponent, SDL_Renderer *sdlRenderer, char const* texturePath)
             : Component(id), position(positionComponent) {
         renderer = sdlRenderer;
+        _texturePath = texturePath;
+
+
+        textureManager = TextureManager::GetInstance();
+        bool textureLoad = textureManager->load(_texturePath, "sample", renderer);
+
+        if(textureLoad){
+
+        }
     }
 };
 
@@ -159,8 +161,7 @@ public:
         // Watch out for memory leaks.
         // No RenderComponent for invisibleObject.
         SDL_Init(SDL_INIT_VIDEO);
-
-         window = SDL_CreateWindow(
+        window = SDL_CreateWindow(
                 "SDL2Test",
                 SDL_WINDOWPOS_UNDEFINED,
                 SDL_WINDOWPOS_UNDEFINED,
@@ -177,13 +178,17 @@ public:
         /* Initiate the entities and add their respected components */
         EntityId visibleObject = createEntity();
         addComponent(visibleObject, new WorldPositionComponent(visibleObject));
+
+        getComponent<WorldPositionComponent>(visibleObject)->SetLocation(20,20);
         addComponent(visibleObject, new RenderComponent(visibleObject,
-                                                        getComponent<WorldPositionComponent>(visibleObject), sdlRenderer));
+                                                        getComponent<WorldPositionComponent>(visibleObject), sdlRenderer, "./mario.png"));
 
         EntityId otherObj = createEntity();
         addComponent(otherObj, new WorldPositionComponent(otherObj));
         addComponent(otherObj, new RenderComponent(otherObj, getComponent<WorldPositionComponent>(otherObj),
-                                                        sdlRenderer));
+                                                   sdlRenderer,"./mario.png"));
+
+
     }
 
     void gameLoop() {
@@ -193,10 +198,10 @@ public:
 
 
         auto * comp = getComponent<WorldPositionComponent>(1);
-        comp->SetLocation(200 + (count / 20)  , 200);
+        comp->SetLocation(20 + (count)  , 200);
 
         auto * comp1 = getComponent<WorldPositionComponent>(2);
-        comp1->SetLocation(200 + (count / 20)  , 400);
+        comp1->SetLocation(200 + (count)  , 400);
 
         // Move all position items to 100, 100 and render them after that.
         auto it = components.components.begin();

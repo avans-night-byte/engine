@@ -2,12 +2,17 @@
 
 Spritesheet::Spritesheet(char const *path, int row, int column)
 {
-    m_spritesheet_image = SDL_LoadBMP(path);
+    m_spritesheet_image = IMG_Load(path);
 
+
+
+    // Define the height/width of each sprite by rows/columns.
     m_clip.w = m_spritesheet_image->w / column;
     m_clip.h = m_spritesheet_image->h / row;
 }
 
+
+// Free the surface in order to free memory.
 Spritesheet::~Spritesheet()
 {
     SDL_FreeSurface(m_spritesheet_image);
