@@ -61,7 +61,7 @@ void Engine::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT)
  **/
 void Engine::closeWindow()
 {
-  window = NULL;
   SDL_DestroyWindow(window);
+  window = NULL;
   SDL_Quit();
 }
