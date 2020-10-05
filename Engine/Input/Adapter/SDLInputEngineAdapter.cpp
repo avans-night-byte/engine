@@ -131,6 +131,7 @@ void SDLInputEngineAdapter::openController(int deviceId) const
 {
     if (SDL_IsGameController(deviceId))
     {
+        gameController = NULL;
         gameController = SDL_GameControllerOpen(deviceId);
         std::cout << "Controller Connected: " << SDL_GameControllerName(gameController) << std::endl;
     }
