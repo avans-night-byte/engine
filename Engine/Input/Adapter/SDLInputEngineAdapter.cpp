@@ -47,7 +47,7 @@ Input SDLInputEngineAdapter::getInput() const
         case SDL_QUIT:
             return Input{.device = Input::OTHER, .x = -1, .y = -1, .keyMap = InputAction{.code = "QUIT", .action = "QUIT"}};
         default:
-            break;
+            return Input{ .device = Input::NONE, .x = -1, .y = -1, .keyMap = InputAction{.code = "", .action = ""} };
         }
     }
 }

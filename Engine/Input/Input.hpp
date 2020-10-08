@@ -19,7 +19,8 @@ struct Input
         KEYBOARD = 0,   /** Device 0: Keyboard */
         MOUSE = 1,      /** Device 1: Mouse */
         CONTROLLER = 2, /** Device 2: Controller */
-        OTHER = 3       /** Device 3: Other (e.g. the console) */
+        OTHER = 3,       /** Device 3: Other (e.g. the console) */
+        NONE = 4,
     } device;
     int x;              /** X coordinate within the window */
     int y;              /** Y coordinate within the window */
