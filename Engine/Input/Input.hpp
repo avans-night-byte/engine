@@ -16,6 +16,7 @@ struct Input
 {
     enum device /** Device the input was received from */
     {
+        NONE = -1,      /** Device -1: No Input */
         KEYBOARD = 0,   /** Device 0: Keyboard */
         MOUSE = 1,      /** Device 1: Mouse */
         CONTROLLER = 2, /** Device 2: Controller */

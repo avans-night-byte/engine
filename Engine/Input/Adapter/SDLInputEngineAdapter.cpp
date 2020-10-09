@@ -41,16 +41,18 @@ Input SDLInputEngineAdapter::getInput() const
 
         case SDL_CONTROLLERDEVICEADDED:
             openController(e.cdevice.which);
-            break;
+            return Input{
+                .device = Input::CONTROLLER, .x = -1, .y = -1, .keyMap = InputAction{.code = "CONTROLLER_DEVICE_ADDED", .action = ""}};
         case SDL_CONTROLLERDEVICEREMOVED:
             closeController();
-            break;
+            Input{
+                .device = Input::CONTROLLER, .x = -1, .y = -1, .keyMap = InputAction{.code = "CONTROLLER_DEVICE_REMOVED", .action = ""}};
 
         case SDL_QUIT:
             return Input{.device = Input::OTHER, .x = -1, .y = -1, .keyMap = InputAction{.code = "QUIT", .action = "QUIT"}};
 
         default:
-            break;
+            return Input{.device = Input::NONE, .x = -1, .y = -1, .keyMap = InputAction{.code = "", .action = ""}};
         }
     }
 }
@@ -131,6 +133,7 @@ void SDLInputEngineAdapter::openController(int deviceId) const
 {
     if (SDL_IsGameController(deviceId))
     {
+        gameController = NULL;
         gameController = SDL_GameControllerOpen(deviceId);
         std::cout << "Controller Connected: " << SDL_GameControllerName(gameController) << std::endl;
     }

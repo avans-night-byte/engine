@@ -74,8 +74,8 @@ SDL_Renderer* Engine::getRenderer(){
  **/
 void Engine::closeWindow()
 {
-  window = NULL;
   SDL_DestroyWindow(window);
   SDL_DestroyRenderer(renderer);
+  window = NULL;
   SDL_Quit();
 }
