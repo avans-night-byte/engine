@@ -9,6 +9,7 @@
 [submodule "game"]
 	path = Game
 	url = https://github.com/avans-night-byte/game.git
-[submodule ".\\Libraries\\SDL_mixer"]
-	path = .\\Libraries\\SDL_mixer
+
+[submodule "SDL_mixer"]
+	path = Libraries/SDL_mixer
 	url = https://github.com/SDL-mirror/SDL_mixer
