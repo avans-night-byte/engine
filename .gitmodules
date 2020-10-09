@@ -5,7 +5,7 @@
 [submodule "box2d"]
 	path = Libraries/Box2D
 	url = https://github.com/erincatto/box2d.git
-	
+
 [submodule "game"]
 	path = Game
 	url = https://github.com/avans-night-byte/game.git
@@ -13,3 +13,7 @@
 [submodule "SDL_mixer"]
 	path = Libraries/SDL_mixer
 	url = https://github.com/SDL-mirror/SDL_mixer
+
+[submodule "SDL_image"]
+	path = Libraries/SDL_image
+	url = https://github.com/avans-night-byte/SDL_image
