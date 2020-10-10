@@ -51,6 +51,8 @@ Input SDLInputEngineAdapter::getInput() const
             return Input{.device = Input::NONE, .x = -1, .y = -1, .keyMap = InputAction{.code = "", .action = ""}};
         }
     }
+
+    return Input{.device = Input::NONE, .x = -1, .y = -1, .keyMap = InputAction{.code = "", .action = ""}};
 }
 
 /**

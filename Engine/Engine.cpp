@@ -38,7 +38,7 @@ void Engine::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT)
     if (window == NULL)
     {
       printf("Window could not be created! SDL_Error: %s\n",
-             SDL_GetError());
+         SDL_GetError());
     }
     else
     {
