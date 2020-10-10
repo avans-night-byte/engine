@@ -27,12 +27,14 @@ add_executable(NightByte ./Main.cpp
         Engine/Audio/Adapter/SDLAudioEngineAdapter.hpp
         Engine/Audio/AudioFile.cpp Engine/Audio/AudioFile.h
         ./Game/Game.cpp
+        ./Engine/Rendering/Spritesheet.cpp
         ./Engine/Rendering/TextureManager.cpp
+        ./Engine/Rendering/Adapter/SDLRenderingAdaper.cpp
         Game/Components/Component.hpp
         Game/Components/RenderComponent.cpp
         Game/Components/RenderComponent.hpp
         Game/Components/WorldPositionComponent.cpp
-        Game/Components/WorldPositionComponent.hpp)
+        Game/Components/WorldPositionComponent.hpp API/Rendering/EngineRenderingAPI.hpp API/Rendering/EngineRenderingAPI.cpp)
 
 
 find_package(box2d REQUIRED)

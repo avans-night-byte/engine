@@ -6,9 +6,10 @@
 #include "SDL.h"
 #include "SDL_surface.h"
 #include "SDL_video.h"
+#include "SDL_render.h"
 
 // Variables
-SDL_Window *window = NULL;
+SDL_Window *window = nullptr;
 SDL_Renderer *renderer = nullptr;
 
 /**
@@ -53,7 +54,7 @@ void Engine::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT)
       SDL_UpdateWindowSurface(window);
        */
 
-        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
+        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
         SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
         SDL_RenderClear(renderer);
         SDL_RenderPresent(renderer);
@@ -74,8 +75,8 @@ SDL_Renderer* Engine::getRenderer(){
  **/
 void Engine::closeWindow()
 {
-  SDL_DestroyWindow(window);
-  SDL_DestroyRenderer(renderer);
-  window = NULL;
-  SDL_Quit();
+    SDL_DestroyWindow(window);
+    SDL_DestroyRenderer(renderer);
+    std::cout << SDL_GetError() << std::endl;
+    SDL_Quit();
 }

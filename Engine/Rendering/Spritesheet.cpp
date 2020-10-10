@@ -1,14 +1,15 @@
 #include "Spritesheet.hpp"
 #include "TextureManager.hpp"
 
-Spritesheet::Spritesheet(const char* path, std::string spriteSheetid, int row, int column, SDL_Renderer* renderer)
+Spritesheet::Spritesheet(const char* path, std::string spriteSheetid, int row, int column, int width, int height, SDL_Renderer* renderer)
 {
     textureId = spriteSheetid;
     sdlRenderer = renderer;
     TextureManager::GetInstance()->load(path, textureId, renderer);
+
     // Define the height/width of each sprite by rows/columns.
-    m_clip.w = m_spritesheet_image->w / column;
-    m_clip.h = m_spritesheet_image->h / row;
+    m_clip.w = width;
+    m_clip.h = height;
 }
 
 

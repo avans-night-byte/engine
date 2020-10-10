@@ -58,10 +58,14 @@ void TextureManager::draw(std::string textureId, int x, int y, int width, int he
     srcRect.w = destRect.w = width;
     srcRect.h = destRect.h = height;
 
+
+
+    destRect.h = destRect.h *scale;
+    destRect.w = destRect.w *scale;
+
     destRect.x = x;
     destRect.y = y;
 
-    SDL_Texture* txt = TextureMap[textureId];
 
     SDL_RenderCopyEx(renderer, TextureMap[textureId], &srcRect, &destRect,0,0, flip);
 }
@@ -88,6 +92,8 @@ void TextureManager::drawFrame(std::string id, SDL_Rect* srcRect, int x, int y, 
 
     destRect.x = x;
     destRect.y = y;
+    destRect.w = srcRect->w;
+    destRect.h = srcRect->h;
 
     SDL_RenderCopyEx(pRenderer, TextureMap[id], srcRect, &destRect, 0, 0, flip); //Load current frame on the buffer game.
 }
