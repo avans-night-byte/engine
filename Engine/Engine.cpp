@@ -75,8 +75,7 @@ SDL_Renderer* Engine::getRenderer(){
  **/
 void Engine::closeWindow()
 {
-    SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
-    std::cout << SDL_GetError() << std::endl;
+    SDL_DestroyWindow(window);
     SDL_Quit();
 }
