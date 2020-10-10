@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<wall xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schemas/Wall.xsd">
+    <!-- Specific properties -->
+    <name>PLACEHOLDER</name>
+    <level>1</level>
+    <baseHealth>100</baseHealth>
+
+    <upgradePath>
+        <cost>300</cost>
+        <!-- TODO HOW ARE WE GONNA REFERENCE THIS? -->
+        <upgradeTo>2</upgradeTo>
+    </upgradePath>
+
+
+    <!-- Common properties -->
+    <assets>
+        <base repeat="no-repeat">
+            <file>../assets/example.png</file>
+        </base>
+    </assets>
+
+    <collider hasCollision="true">
+        <size>
+            <width>1</width>
+            <height>1</height>
+        </size>
+    </collider>
+
+    <events>
+        <onEnter>
+            <soundAction>...</soundAction>
+            <loadAction>city1_1.xml</loadAction>
+        </onEnter>
+    </events>
+</wall>

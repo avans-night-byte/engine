@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="Common.xsd"/>
+
+    <xs:element name="wall">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="level" type="xs:int"/>
+                <xs:element name="baseHealth" type="xs:int"/>
+
+                <xs:element name="upgradePath">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="cost" type="xs:int"/>
+                            <xs:element name="upgradeTo" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element ref="assets" />
+                <xs:element ref="collider" />
+                <xs:element ref="events" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>
