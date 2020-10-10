@@ -9,5 +9,5 @@
 [submodule "game"]
 	path = Game
 	url = https://github.com/avans-night-byte/game.git
-	ignore = dirty
+	ignore = all
 	branch = develop
