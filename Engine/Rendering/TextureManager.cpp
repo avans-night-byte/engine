@@ -81,6 +81,18 @@ void TextureManager::drawFrame(std::string id, int x, int y, int width, int heig
     SDL_RenderCopyEx(pRenderer, TextureMap[id], &srcRect, &destRect, 0, 0, flip); //Load current frame on the buffer game.
 }
 
+
+void TextureManager::drawFrame(std::string id, SDL_Rect* srcRect, int x, int y, SDL_Renderer *pRenderer, SDL_RendererFlip flip)
+{
+    SDL_Rect destRect; //destination rectangle
+
+    destRect.x = x;
+    destRect.y = y;
+
+    SDL_RenderCopyEx(pRenderer, TextureMap[id], srcRect, &destRect, 0, 0, flip); //Load current frame on the buffer game.
+}
+
+
 void TextureManager::clearFromTextureMap(std::string id)
 {
     TextureMap.erase(id);
