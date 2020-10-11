@@ -1,7 +1,7 @@
 # Night Byte Engine
 
 <p align="center">
-  <img src="NightByte.png" style="max-height:400px;" />
+  <img src="NightByte.png" height="400px;" />
 </p>
 
 ## Run the executable
