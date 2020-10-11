@@ -30,6 +30,7 @@
     <xs:element name="events">
         <xs:complexType>
             <xs:sequence>
+                <!-- Triggered when the player enters the positions of entity -->
                 <xs:element name="onEnter" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
@@ -38,7 +39,35 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
+                <!-- Triggered when player leaves the position of entity -->
                 <xs:element name="onLeave" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
+                            <xs:element name="loadAction" type="xs:anyURI" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!-- Triggered when the entity is being attacked -->
+                <xs:element name="onAttacked" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
+                            <xs:element name="loadAction" type="xs:anyURI" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!-- Triggers when the entity has been destroyed -->
+                <xs:element name="onDestroyed" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
+                            <xs:element name="loadAction" type="xs:anyURI" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!-- Triggered when the entity attacks something else -->
+                <xs:element name="onAttack" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
@@ -49,6 +78,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
 
     <!-- Physics -->
     <xs:element name="collider">

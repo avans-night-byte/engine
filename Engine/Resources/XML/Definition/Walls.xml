@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <walls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schemas/Wall.xsd">
+    <className>NightByte.Engine.Entities.Wall</className>
     <!-- Level 1: Wood -->
     <wall>
         <!-- Specific properties -->
@@ -31,10 +32,9 @@
         </collider>
 
         <events>
-            <onEnter>
-                <soundAction>...</soundAction>
-                <loadAction>city1_1.xml</loadAction>
-            </onEnter>
+            <onAttacked>
+                <soundAction>../assets/wall_attack.ogg</soundAction>
+            </onAttacked>
         </events>
     </wall>
 
@@ -228,5 +228,4 @@
             </onEnter>
         </events>
     </wall>
-
 </walls>
