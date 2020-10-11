@@ -6,7 +6,7 @@
 
 ## Run the executable
 
-Run the latest executable provided in the `bin` folder or download the executable from the [latest release](https://github.com/avans-night-byte/engine/releases).
+Run the latest executable provided in the `builds` folder or download the executable from the [latest release](https://github.com/avans-night-byte/engine/releases).
 
 At this moment in time the application only returns given input to the console. Please start the executable from your terminal to see the Input functionality.
 
