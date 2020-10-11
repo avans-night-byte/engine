@@ -6,7 +6,7 @@
 git submodule update --remote
 
 # 2. Generate a makefile and buildfolder
-cmake -S . -B ./build/
+cmake -S . -B ./build -G "MinGW Makefiles"
 cd build
 
 # 3. Create a binary
