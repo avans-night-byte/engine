@@ -4,7 +4,7 @@
 # Dependencies: make, cmake, gcc/g++, git
 
 # 1. Pull/Update gitmodules
-git submodule update --remote
+git submodule update --recursive --init --remote
 
 # 2. Generate a makefile and buildfolder
 cmake -S . -B ./build/
