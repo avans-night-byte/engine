@@ -20,4 +20,4 @@ add_executable(NightByte ./Main.cpp
                          ./API/Input/EngineInputAPI.cpp)
 
 target_include_directories(NightByte PUBLIC ${SDL2_SOURCE_DIR}/include)
-target_link_libraries(NightByte SDL2)
+target_link_libraries(NightByte SDL2-static)
