@@ -5,8 +5,8 @@
  */
 struct InputAction
 {
-    std::string code;   /** Keycode returned form the Keymap */
-    std::string action; /** Action that is mapped to the keycode */
+    std::string code;   /**< Keycode returned form the Keymap */
+    std::string action; /**< Action that is mapped to the keycode */
 };
 
 /**
