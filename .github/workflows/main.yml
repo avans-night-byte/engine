@@ -14,8 +14,9 @@ jobs:
           sudo apt install gcc make cmake git
 
       - name: Pull Submodules
-        run: |
-          git submodule update --init --recursive --remote
+        uses: textbook/git-checkout-submodule-action@master
+        with:
+          remote: true
 
       - name: Build Project
         run: |
