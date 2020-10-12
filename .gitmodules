@@ -11,3 +11,6 @@
 	url = https://github.com/avans-night-byte/game.git
 	ignore = all
 	branch = develop
+[submodule "Libraries/SDL_mixer"]
+	path = Libraries/SDL_mixer
+	url = https://github.com/avans-night-byte/SDL_mixer.git
