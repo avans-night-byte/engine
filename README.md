@@ -21,3 +21,7 @@ Run `run.sh` from the root of the project or follow the [instructions on our wik
 ### Windows
 
 Run `run.bat` from the root of the project or follow the [instructions on our wiki](https://github.com/avans-night-byte/engine/wiki/Project-Setup-%5BWindows%5D)
+
+## Documentation
+- [Wiki](https://github.com/avans-night-byte/engine/wiki)
+- [Doxygen](https://avans-night-byte.github.io/engine)
