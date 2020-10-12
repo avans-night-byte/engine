@@ -12,6 +12,7 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt install gcc make cmake git
+          ls -als
 
       - name: Pull Submodules
         uses: textbook/git-checkout-submodule-action@master
