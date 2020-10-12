@@ -14,13 +14,12 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt install gcc make cmake git
-          tree
 
       # - name: Pull Submodules
       #   uses: textbook/git-checkout-submodule-action@master
       #   with:
       #     remote: true
-      
+
       - name: Checkout submodules
         shell: bash
         run: |
