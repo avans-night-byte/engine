@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.17)
 
 add_definitions("-DMUSIC_WAV")
+set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++ -static")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CURRENT_BINARY_DIR ./build)
@@ -23,9 +24,5 @@ add_executable(NightByte ./Main.cpp
         ./API/Input/EngineInputAPI.cpp
         ./API/Audio/AudioAPI.hpp)
 
-target_include_directories(NightByte PUBLIC
-        ${SDL2_SOURCE_DIR}/include
-        ${SDL2_MIXER_SOURCE_DIR}/include)
-
-
-target_link_libraries(NightByte SDL2 SDL2_mixer)
+target_include_directories(NightByte PUBLIC ${SDL2_SOURCE_DIR}/include)
+target_link_libraries(NightByte SDL2 SDL2_mixer winpthread)

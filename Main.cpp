@@ -11,16 +11,6 @@
 const int width = 640;
 const int height = 480;
 
-//The music that will be played
-Mix_Music *gMusic = nullptr;
-
-//The sound effects that will be used
-Mix_Chunk *gScratch = nullptr;
-Mix_Chunk *gHigh = nullptr;
-Mix_Chunk *gMedium = nullptr;
-Mix_Chunk *gLow = nullptr;
-
-// TODO: This should be moved to the engine
 int main(int argc, char *args[])
 {
     std::cout << "Hello, Night Byte" << std::endl;
