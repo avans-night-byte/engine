@@ -2,7 +2,7 @@ name: Doxygen Action
 
 on:
   push:
-    branches: [develop]
+    branches: [develop, feature/doxygen]
 
 jobs:
   build:
