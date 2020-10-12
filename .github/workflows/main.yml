@@ -1,4 +1,4 @@
-name: Doxygen Action
+name: Build Project
 
 on:
   push:
@@ -9,16 +9,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: |
+          sudo apt install gcc make cmake git
 
-      - name: Doxygen Action
-        uses: mattnotmitt/doxygen-action@v1.1.0
-        with:
-          doxyfile-path: "./Doxyfile"
-          working-directory: "." # default is .
+      - name: Pull Submodules
+        run: |
+          git submodule update --init --recursive --remote
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Build Project
+        run: |
+          cmake -S . -B ./build
+
+      - name: Build Executable
+        run: |
+          cd build
+          make
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./html
+          name: binaries
+          path: |
+            build/bin
