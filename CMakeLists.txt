@@ -24,5 +24,5 @@ add_executable(NightByte ./Main.cpp
         ./API/Input/EngineInputAPI.cpp
         ./API/Audio/AudioAPI.hpp)
 
-target_include_directories(NightByte PUBLIC ${SDL2_SOURCE_DIR}/include)
+target_include_directories(NightByte PUBLIC ${SDL2_SOURCE_DIR}/include ${SDL2_MIXER_SOURCE_DIR}/include)
 target_link_libraries(NightByte SDL2 SDL2_mixer winpthread)
