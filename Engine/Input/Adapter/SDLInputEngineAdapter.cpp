@@ -107,18 +107,42 @@ Input SDLInputEngineAdapter::getControllerInput(SDL_Event controllerEvent) const
  */
 Input SDLInputEngineAdapter::getControllerMotionInput(SDL_Event controllerEvent) const
 {
-
+    int deadZone = 8000;
+    
+    int x = 0;
+    int y = 0;
+    std::string action = "";
     std::string code = "";
 
-    if (controllerEvent.caxis.which == 0)
+    if (controllerEvent.caxis.which == 0) /** < Left Joystick */
     {
-        if (controllerEvent.caxis.axis == 0)
+        if (controllerEvent.caxis.axis == 0) /** < Left/Right axis */
         {
+            if (controllerEvent.caxis.value < -deadZone) /** < Left direction */
+            {
+                x = -1;
+                action = "LEFT_JOYSTICK_LEFT";
+            }
+            else if (controllerEvent.caxis.value > deadZone) /** < Right direction */
+            {
+                x = 1;
+                action = "LEFT_JOYSTICK_RIGHT";
+            }
+
             code = "WHICH_0_AXIS_0";
         }
-        else if (controllerEvent.caxis.axis == 1)
+        else if (controllerEvent.caxis.axis == 1) /** < Up/Down axis */
         {
-            code = "WHICH_1_AXIS_1";
+            if (controllerEvent.caxis.value < -deadZone) /** < Down direction */
+            {
+                y = -1;
+                action = "LEFT_JOYSTICK_DOWN";
+            }
+            else if (controllerEvent.caxis.value > deadZone) /** < Up direction */
+            {
+                y = 1;
+                action = "LEFT_JOYSTICK_UP";
+            }
         }
         else
         {
@@ -127,7 +151,7 @@ Input SDLInputEngineAdapter::getControllerMotionInput(SDL_Event controllerEvent)
         }
     }
 
-    return Input{.device = Input::CONTROLLER, .x = -1, .y = -1, .keyMap = InputAction{.code = code}};
+    return Input{.device = Input::CONTROLLER, .x = x, .y = y, .keyMap = InputAction{.code = code, .action = action}};
 }
 
 /**
