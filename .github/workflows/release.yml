@@ -5,7 +5,81 @@ on:
 name: Create new release
 
 jobs:
-  build:
+  build-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Check build folder cache
+        uses: actions/cache@v2
+        with:
+          path: build/
+          key: ${{ runner.os }}-cmake-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.OS }}-cmake-
+
+      - name: Checkout submodules
+        shell: bash
+        run: |
+          auth_header="$(git config --local --get http.https://github.com/.extraheader)"
+          git submodule sync --recursive
+          git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
+
+      - name: Build Project
+        run: |
+          cmake -S . -B ./build
+
+      - name: Build Executable
+        run: |
+          cd build
+          make
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: NightByte-Linux
+          path: |
+            build/bin
+
+  build-win:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Check build folder cache
+        uses: actions/cache@v2
+        with:
+          path: build/
+          key: ${{ runner.os }}-cmake-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.OS }}-cmake-
+
+      - name: Checkout submodules
+        shell: bash
+        run: |
+          auth_header="$(git config --local --get http.https://github.com/.extraheader)"
+          git submodule sync --recursive
+          git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
+
+      - name: Build Project
+        run: |
+          cmake -S . -B ./build -G "MinGW Makefiles"
+
+      - name: Build Executable
+        run: |
+          cd build
+          make
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: NightByte-Windows
+          path: |
+            build/bin
+
+  create_release:
     name: Upload Release Asset
     runs-on: ubuntu-latest
     steps:
@@ -14,7 +88,7 @@ jobs:
 
       - name: Build project # This would actually build your project, using zip for an example artifact
         run: |
-          zip --junk-paths my-artifact README.md
+          zip --junk-paths release.zip /build/bin
 
       - name: Create Release
         id: create_release
@@ -28,12 +102,12 @@ jobs:
           prerelease: false
 
       - name: Upload Release Asset
-        id: upload-release-asset 
+        id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: ./my-artifact.zip
-          asset_name: my-artifact.zip
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          asset_path: ./release.zip
+          asset_name: NightByte-${{ github.ref }}.zip
           asset_content_type: application/zip
