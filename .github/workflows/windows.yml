@@ -22,7 +22,7 @@ jobs:
             ${{ runner.os }}-chocolatey-
 
       - name: Get latest CMake and ninja
-        uses: lukka/get-cmake@latest        ⟸ THIS IS THE ONE LINER YOU NEED
+        uses: lukka/get-cmake@latest
 
       - name: Install Dependencies
         uses: crazy-max/ghaction-chocolatey@v1
