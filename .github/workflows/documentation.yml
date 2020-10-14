@@ -2,11 +2,12 @@ name: Generate Documentation
 
 on:
   push:
+    branches: [develop]
   pull_request:
-    branches: [develop, master]
+    branches: [develop]
 
 jobs:
-  build:
+  generate-docs:
     runs-on: ubuntu-latest
 
     steps:
