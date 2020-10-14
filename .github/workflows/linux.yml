@@ -13,15 +13,21 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install Dependencies
-        run: |
-          sudo apt install gcc make cmake git
+      - name: Check build folder cache
+        uses: actions/cache@v2
+        with:
+          path: build/
+          key: ${{ runner.os }}-cmake-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.OS }}-cmake-
+
+      # - name: Install Dependencies
+      #   run: |
+      #     sudo apt install gcc make cmake git
 
       - name: Checkout submodules
         shell: bash
         run: |
-          # If your submodules are configured to use SSH instead of HTTPS please uncomment the following line
-          # git config --global url."https://github.com/".insteadOf "git@github.com:"
           auth_header="$(git config --local --get http.https://github.com/.extraheader)"
           git submodule sync --recursive
           git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
