@@ -1,4 +1,4 @@
-name: Build Project
+name: Build Windows Project
 
 on:
   push:
@@ -7,45 +7,19 @@ on:
     branches: [develop]
 
 jobs:
-  build-linux:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Install Dependencies
-        run: |
-          sudo apt install gcc make cmake git
-
-      - name: Checkout submodules
-        shell: bash
-        run: |
-          # If your submodules are configured to use SSH instead of HTTPS please uncomment the following line
-          # git config --global url."https://github.com/".insteadOf "git@github.com:"
-          auth_header="$(git config --local --get http.https://github.com/.extraheader)"
-          git submodule sync --recursive
-          git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
-
-      - name: Build Project
-        run: |
-          cmake -S . -B ./build
-
-      - name: Build Executable
-        run: |
-          cd build
-          make
-
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: binaries
-          path: |
-            build/bin
   build-win:
     runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v2
+
+      - uses: actions/cache@v2
+        with:
+          path: C:\Users\runneradmin\AppData\Local\Temp\chocolatey
+          key: ${{ runner.os }}-chocolatey-${{ matrix.os }}-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-chocolatey-${{ matrix.os }}-
+            ${{ runner.os }}-chocolatey-
 
       - name: Install Dependencies
         uses: crazy-max/ghaction-chocolatey@v1
