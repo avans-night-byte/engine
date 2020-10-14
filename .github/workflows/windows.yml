@@ -21,10 +21,13 @@ jobs:
             ${{ runner.os }}-chocolatey-${{ matrix.os }}-
             ${{ runner.os }}-chocolatey-
 
+      - name: Get latest CMake and ninja
+        uses: lukka/get-cmake@latest        ⟸ THIS IS THE ONE LINER YOU NEED
+
       - name: Install Dependencies
         uses: crazy-max/ghaction-chocolatey@v1
         with:
-          args: install mingw make cmake git
+          args: install mingw make git
 
       - name: Checkout submodules
         shell: bash
@@ -37,7 +40,7 @@ jobs:
 
       - uses: actions/cache@v2
         with:
-          path: ./build
+          path: build/
           key: ${{ runner.os }}-cmake-${{ matrix.os }}-${{ github.sha }}
 
       - name: Build Project
