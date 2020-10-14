@@ -13,21 +13,21 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/cache@v2
-        with:
-          path: C:\Users\runneradmin\AppData\Local\Temp\chocolatey
-          key: ${{ runner.os }}-chocolatey-${{ matrix.os }}-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-chocolatey-${{ matrix.os }}-
-            ${{ runner.os }}-chocolatey-
+      # - uses: actions/cache@v2
+      #   with:
+      #     path: C:\Users\runneradmin\AppData\Local\Temp\chocolatey
+      #     key: ${{ runner.os }}-chocolatey-${{ matrix.os }}-${{ github.sha }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-chocolatey-${{ matrix.os }}-
+      #       ${{ runner.os }}-chocolatey-
 
-      - name: Get latest CMake and ninja
-        uses: lukka/get-cmake@latest
+      # - name: Get latest CMake and ninja
+      #   uses: lukka/get-cmake@latest
 
-      - name: Install Dependencies
-        uses: crazy-max/ghaction-chocolatey@v1
-        with:
-          args: install mingw make git
+      # - name: Install Dependencies
+      #   uses: crazy-max/ghaction-chocolatey@v1
+      #   with:
+      #     args: install mingw make git
 
       - name: Checkout submodules
         shell: bash
