@@ -30,7 +30,7 @@ jobs:
 
       - name: Build Project
         run: |
-        CXX=g++-9 CC=gcc-9 cmake -S . -B ./build
+          CXX=g++-9 CC=gcc-9 cmake -S . -B ./build
 
       - name: Build Executable
         run: |
