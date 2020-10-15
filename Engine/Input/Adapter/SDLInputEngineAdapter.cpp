@@ -117,61 +117,62 @@ Input SDLInputEngineAdapter::getControllerMotionInput(SDL_Event controllerEvent)
     if (controllerEvent.caxis.which == 0) 
     {
         /** Left Joystick */
-        if (controllerEvent.caxis.axis == SDL_CONTROLLER_AXIS_LEFTX) /** < Left/Right axis */
+        if (controllerEvent.caxis.axis == SDL_CONTROLLER_AXIS_LEFTX) /** Left/Right axis */
         {
-            if (controllerEvent.caxis.value < -deadZone) /** < Left direction */
+            if (controllerEvent.caxis.value < -deadZone) /** Left direction */
             {
                 x = -1;
                 code = "CONTROLLER_LEFT_JOYSTICK_LEFT";
                 action = "LEFT";
             }
-            else if (controllerEvent.caxis.value > deadZone) /** < Right direction */
+            else if (controllerEvent.caxis.value > deadZone) /** Right direction */
             {
                 x = 1;
                 code = "CONTROLLER_LEFT_JOYSTICK_RIGHT";
                 action = "RIGHT";
             }
         }
-        else if (controllerEvent.caxis.axis == SDL_CONTROLLER_AXIS_LEFTY) /** < Up/Down axis */
+        else if (controllerEvent.caxis.axis == SDL_CONTROLLER_AXIS_LEFTY) /** Up/Down axis */
         {
-            if (controllerEvent.caxis.value < -deadZone) /** < Up direction */
+            if (controllerEvent.caxis.value < -deadZone) /** Up direction */
             {
                 y = 1;
                 code = "CONTROLLER_LEFT_JOYSTICK_UP";
                 action = "UP";
             }
-            else if (controllerEvent.caxis.value > deadZone) /** < Down direction */
+            else if (controllerEvent.caxis.value > deadZone) /** Down direction */
             {
                 y = -1;
                 code = "CONTROLLER_LEFT_JOYSTICK_DOWN";
                 action = "DOWN";
             }
         }
+
         /** Right Joystick */
-        else if (controllerEvent.caxis.axis == SDL_CONTROLLER_AXIS_RIGHTX) /** < Left/Right axis */
+        else if (controllerEvent.caxis.axis == SDL_CONTROLLER_AXIS_RIGHTX) /** Left/Right axis */
         {
-            if (controllerEvent.caxis.value < -deadZone) /** < Left direction */
+            if (controllerEvent.caxis.value < -deadZone) /** Left direction */
             {
                 x = -1;
                 code = "CONTROLLER_RIGHT_JOYSTICK_LEFT";
                 action = "CAMERA_LEFT";
             }
-            else if (controllerEvent.caxis.value > deadZone) /** < Right direction */
+            else if (controllerEvent.caxis.value > deadZone) /** Right direction */
             {
                 x = 1;
                 code = "CONTROLLER_RIGHT_JOYSTICK_RIGHT";
                 action = "CAMERA_RIGHT";
             }
         }
-        else if (controllerEvent.caxis.axis == SDL_CONTROLLER_AXIS_RIGHTY) /** < Up/Down axis */
+        else if (controllerEvent.caxis.axis == SDL_CONTROLLER_AXIS_RIGHTY) /** Up/Down axis */
         {
-            if (controllerEvent.caxis.value < -deadZone) /** < Up direction */
+            if (controllerEvent.caxis.value < -deadZone) /** Up direction */
             {
                 y = 1;
                 code = "CONTROLLER_RIGHT_JOYSTICK_UP";
                 action = "CAMERA_UP";
             }
-            else if (controllerEvent.caxis.value > deadZone) /** < Down direction */
+            else if (controllerEvent.caxis.value > deadZone) /** Down direction */
             {
                 y = -1;
                 code = "CONTROLLER_RIGHT_JOYSTICK_DOWN";
