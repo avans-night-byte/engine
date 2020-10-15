@@ -122,13 +122,13 @@ Input SDLInputEngineAdapter::getControllerMotionInput(SDL_Event controllerEvent)
             if (controllerEvent.caxis.value < -deadZone) /** < Left direction */
             {
                 x = -1;
-                code = "LEFT_JOYSTICK_LEFT";
+                code = "CONTROLLER_LEFT_JOYSTICK_LEFT";
                 action = "LEFT";
             }
             else if (controllerEvent.caxis.value > deadZone) /** < Right direction */
             {
                 x = 1;
-                code = "LEFT_JOYSTICK_RIGHT";
+                code = "CONTROLLER_LEFT_JOYSTICK_RIGHT";
                 action = "RIGHT";
             }
         }
@@ -137,13 +137,13 @@ Input SDLInputEngineAdapter::getControllerMotionInput(SDL_Event controllerEvent)
             if (controllerEvent.caxis.value < -deadZone) /** < Up direction */
             {
                 y = 1;
-                code = "LEFT_JOYSTICK_UP";
+                code = "CONTROLLER_LEFT_JOYSTICK_UP";
                 action = "UP";
             }
             else if (controllerEvent.caxis.value > deadZone) /** < Down direction */
             {
                 y = -1;
-                code = "LEFT_JOYSTICK_DOWN";
+                code = "CONTROLLER_LEFT_JOYSTICK_DOWN";
                 action = "DOWN";
             }
         }
@@ -153,13 +153,13 @@ Input SDLInputEngineAdapter::getControllerMotionInput(SDL_Event controllerEvent)
             if (controllerEvent.caxis.value < -deadZone) /** < Left direction */
             {
                 x = -1;
-                code = "RIGHT_JOYSTICK_LEFT";
+                code = "CONTROLLER_RIGHT_JOYSTICK_LEFT";
                 action = "CAMERA_LEFT";
             }
             else if (controllerEvent.caxis.value > deadZone) /** < Right direction */
             {
                 x = 1;
-                code = "RIGHT_JOYSTICK_RIGHT";
+                code = "CONTROLLER_RIGHT_JOYSTICK_RIGHT";
                 action = "CAMERA_RIGHT";
             }
         }
@@ -168,13 +168,13 @@ Input SDLInputEngineAdapter::getControllerMotionInput(SDL_Event controllerEvent)
             if (controllerEvent.caxis.value < -deadZone) /** < Up direction */
             {
                 y = 1;
-                code = "RIGHT_JOYSTICK_UP";
+                code = "CONTROLLER_RIGHT_JOYSTICK_UP";
                 action = "CAMERA_UP";
             }
             else if (controllerEvent.caxis.value > deadZone) /** < Down direction */
             {
                 y = -1;
-                code = "RIGHT_JOYSTICK_DOWN";
+                code = "CONTROLLER_RIGHT_JOYSTICK_DOWN";
                 action = "CAMERA_DOWN";
             }
         }
