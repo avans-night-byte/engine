@@ -16,6 +16,8 @@ jobs:
       - name: Get Dependencies
         run: |
           sudo apt remove gcc-10
+          sudo apt remove g++-10
+          sud apt install g++-9
           sudo apt install gcc-9
 
       - name: Check build folder cache
