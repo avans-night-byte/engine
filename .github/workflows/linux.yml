@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Check build folder cache
         uses: actions/cache@v2
         with:
@@ -30,10 +30,7 @@ jobs:
 
       - name: Build Project
         run: |
-          CXX=g++-9 CC=gcc-9 cmake -S . -B ./build
-        env:
-          CC:   gcc-9
-          CXX:  g++-9
+          cmake -S . -B ./build
           
       - name: Build Executable
         run: |
