@@ -29,11 +29,8 @@ jobs:
           git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
 
       - name: Build Project
-        env:
-          CC: gcc-9
-          CXX: g++-9
         run: |
-          cmake -S . -B ./build
+        CXX=g++-9 CC=gcc-9 cmake -S . -B ./build
 
       - name: Build Executable
         run: |
