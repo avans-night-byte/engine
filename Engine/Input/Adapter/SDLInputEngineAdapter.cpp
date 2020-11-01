@@ -96,7 +96,13 @@ Input SDLInputEngineAdapter::getControllerInput(SDL_Event controllerEvent) const
     return Input{.device = Input::CONTROLLER, .x = -1, .y = -1, .keyMap = keyMap};
 }
 
-// Note from drunk Marco to sober Marco: Don't forget to fix this.
+/**
+ * Handles Axis motion events for the controller. 
+ * Note: At this time this only logs which axis was moved.
+ * 
+ * @param SDL_Event controllerEvent - SDL Event that was received.
+ * @returns Input{device, x, y, keyMap}
+ */
 Input SDLInputEngineAdapter::getControllerMotionInput(SDL_Event controllerEvent) const
 {
 

@@ -5,7 +5,7 @@
 [submodule "box2d"]
 	path = Libraries/Box2D
 	url = https://github.com/erincatto/box2d.git
-
+	
 [submodule "game"]
 	path = Game
 	url = https://github.com/avans-night-byte/game.git
