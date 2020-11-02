@@ -16,10 +16,6 @@ project(NightByte)
 
 add_subdirectory(${SDL2_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
 add_executable(NightByte ./Main.cpp
-        ./Libraries/RapidXML/rapidxml.hpp
-        ./Libraries/RapidXML/rapidxml_iterators.hpp
-        ./Libraries/RapidXML/rapidxml_print.hpp
-        ./Libraries/RapidXML/rapidxml_utils.hpp
         ./Game/Game.cpp
         ./Engine/Engine.cpp
         ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
