@@ -2,9 +2,6 @@
 
 #include "RenderingAPI.hpp"
 #include "../../Engine/Engine.hpp"
-
-
-
 /**
  * This class acts as a facade for the engine, it stores and references variables and constants needed for rendering
  * and resource allocation like textures.

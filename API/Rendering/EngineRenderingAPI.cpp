@@ -1,15 +1,9 @@
 #include "EngineRenderingAPI.hpp"
 #include "../../Engine/Engine.hpp"
 
-
-
-
-
-
 TextureManager *EngineRenderingAPI::GetTextureManager() {
     return RenderingEngineAdapter::GetTextureManager();
 }
-
 
 /**
  * @param path
@@ -49,6 +43,3 @@ EngineRenderingAPI::drawTexture(std::string textureId, int x, int y, int width, 
 bool EngineRenderingAPI::loadTexture(const char *path, std::string textureId) {
     return RenderingEngineAdapter::GetTextureManager()->load(path, textureId, _renderer);
 }
-
-
-
