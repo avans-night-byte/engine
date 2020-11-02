@@ -52,4 +52,4 @@ target_include_directories(NightByte PUBLIC ${SDL2_SOURCE_DIR}/include
         ${BOX2D_SOURCE_DIR}/include/box2d 
         ${SDL2IMAGE_SOURCE_DIR})
 
-target_link_libraries(NightByte PRIVATE SDL2 box2d SDL2::image)
+target_link_libraries(NightByte PRIVATE SDL2 box2d SDL2::image SDL2_mixer)
