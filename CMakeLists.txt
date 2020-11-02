@@ -42,6 +42,7 @@ add_executable(NightByte ./Main.cpp
 )
 
 find_package(box2d REQUIRED)
+find_package(SDL2 REQUIRED)
 
 target_include_directories(NightByte PUBLIC 
                                 ${SDL2_SOURCE_DIR}/include
@@ -53,5 +54,5 @@ if(MSVC OR MSYS OR MINGW)
 endif()
 
 if(UNIX AND NOT APPLE)
-  target_link_libraries(NightByte SDL2-static box2d SDL2::image)
+  target_link_libraries(NightByte SDL2 box2d SDL2::image)
 endif()
