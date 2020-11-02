@@ -5,8 +5,8 @@
  */
 struct InputAction
 {
-    std::string code;   /** Keycode returned form the Keymap */
-    std::string action; /** Action that is mapped to the keycode */
+    std::string code;   /**< Keycode returned form the Keymap */
+    std::string action; /**< Action that is mapped to the keycode */
 };
 
 /**
@@ -16,13 +16,13 @@ struct Input
 {
     enum device /** Device the input was received from */
     {
-        NONE = -1,      /** Device -1: No Input */
-        KEYBOARD = 0,   /** Device 0: Keyboard */
-        MOUSE = 1,      /** Device 1: Mouse */
-        CONTROLLER = 2, /** Device 2: Controller */
-        OTHER = 3       /** Device 3: Other (e.g. the console) */
+        NONE = -1,      /**< Device -1: No Input */
+        KEYBOARD = 0,   /**< Device 0: Keyboard */
+        MOUSE = 1,      /**< Device 1: Mouse */
+        CONTROLLER = 2, /**< Device 2: Controller */
+        OTHER = 3       /**< Device 3: Other (e.g. the console) */
     } device;
-    int x;              /** X coordinate within the window */
-    int y;              /** Y coordinate within the window */
-    InputAction keyMap; /** InputAction struct containing code and action */
+    int x;              /**< X coordinate within the window */
+    int y;              /**< Y coordinate within the window */
+    InputAction keyMap; /**< InputAction struct containing code and action */
 };

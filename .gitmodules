@@ -9,3 +9,9 @@
 [submodule "game"]
 	path = Game
 	url = https://github.com/avans-night-byte/game.git
+	ignore = all
+	branch = develop
+
+[submodule "SDL_image"]
+	path = Libraries/SDL_image
+	url = https://github.com/SDL-mirror/SDL_image

@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.17)
 
+set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++")
+
+set(CMAKE_C_COMPILER, gcc-9)
+set(CMAKE_CXX_COMPILER g++-9)
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CURRENT_BINARY_DIR ./build)
 set(CMAKE_CURRENT_SOURCE_DIR .)
@@ -21,4 +26,11 @@ add_executable(NightByte ./Main.cpp
         ./API/Input/EngineInputAPI.cpp)
 
 target_include_directories(NightByte PUBLIC ${SDL2_SOURCE_DIR}/include)
-target_link_libraries(NightByte SDL2)
+
+if(MSVC OR MSYS OR MINGW)
+  target_link_libraries(NightByte SDL2-static winpthread)
+endif()
+
+if(UNIX AND NOT APPLE)
+  target_link_libraries(NightByte SDL2-static)
+endif()
