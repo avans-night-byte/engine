@@ -69,29 +69,30 @@ $(function() {
 <div class="title">RenderingEngineAdapter.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SDL_render.h&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;SDL_image.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../TextureManager.hpp&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../Spritesheet.hpp&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classRenderingEngineAdapter.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRenderingEngineAdapter.html">RenderingEngineAdapter</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> drawTexture(std::string textureId, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <span class="keywordtype">double</span> scale, <span class="keywordtype">double</span> r,</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                     SDL_Renderer *renderer, SDL_RendererFlip flip = SDL_FLIP_NONE);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classSpritesheet.html">Spritesheet</a> *</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    createSpriteSheet(<span class="keywordtype">char</span> <span class="keyword">const</span> *path, std::string spriteSheetId, <span class="keywordtype">int</span> rows, <span class="keywordtype">int</span> columns, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                      SDL_Renderer *renderer);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">static</span> <a class="code" href="classTextureManager.html">TextureManager</a> *GetTextureManager();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;SDL_render.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;SDL_image.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;../TextureManager.hpp&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../Spritesheet.hpp&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classRenderingEngineAdapter.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRenderingEngineAdapter.html">RenderingEngineAdapter</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> drawTexture(std::string textureId, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <span class="keywordtype">double</span> scale, <span class="keywordtype">double</span> r,</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                     SDL_Renderer *renderer, SDL_RendererFlip flip = SDL_FLIP_NONE);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classSpritesheet.html">Spritesheet</a> *</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    createSpriteSheet(<span class="keywordtype">char</span> <span class="keyword">const</span> *path, std::string spriteSheetId, <span class="keywordtype">int</span> rows, <span class="keywordtype">int</span> columns, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                      SDL_Renderer *renderer);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">static</span> <a class="code" href="classTextureManager.html">TextureManager</a> *GetTextureManager();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassRenderingEngineAdapter_html"><div class="ttname"><a href="classRenderingEngineAdapter.html">RenderingEngineAdapter</a></div><div class="ttdef"><b>Definition:</b> RenderingEngineAdapter.hpp:10</div></div>
+<div class="ttc" id="aclassRenderingEngineAdapter_html"><div class="ttname"><a href="classRenderingEngineAdapter.html">RenderingEngineAdapter</a></div><div class="ttdef"><b>Definition:</b> RenderingEngineAdapter.hpp:11</div></div>
 <div class="ttc" id="aclassTextureManager_html"><div class="ttname"><a href="classTextureManager.html">TextureManager</a></div><div class="ttdef"><b>Definition:</b> TextureManager.hpp:11</div></div>
 <div class="ttc" id="aclassSpritesheet_html"><div class="ttname"><a href="classSpritesheet.html">Spritesheet</a></div><div class="ttdef"><b>Definition:</b> Spritesheet.hpp:4</div></div>
 <!-- start footer part -->
