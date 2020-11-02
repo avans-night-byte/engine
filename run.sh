@@ -6,13 +6,22 @@
 # 1. Pull/Update gitmodules
 git submodule update --recursive --init --remote
 
-# 2. Generate a makefile and buildfolder
+# 2. Box2D Installation
+cd Libraries/Box2D
+mkdir build
+cd build
+cmake -DBOX2D_BUILD_EXAMPLES=OFF -DBOX2D_BUILD_DOCS=ON ..
+cmake --build .
+sudo make install
+cd ../../../
+
+# 3. Generate a makefile and buildfolder
 cmake -S . -B ./build/
 cd build
 
-# 3. Create a binary
+# 4. Create a binary
 make
 cd bin
 
-# 4. Run the executable
+# 5. Run the executable
 ./NightByte
