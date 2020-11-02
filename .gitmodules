@@ -18,4 +18,4 @@
 
 [submodule "SDL_image"]
 	path = Libraries/SDL_image
-	url = https://github.com/SDL-mirror/SDL_image
+	url = https://github.com/avans-night-byte/SDL_image
