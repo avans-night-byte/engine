@@ -28,6 +28,16 @@ jobs:
           git submodule sync --recursive
           git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
 
+      - name: Install box2d Project
+        run: |
+          cd Libraries/Box2D
+          mkdir build
+          cd build
+          cmake -DBOX2D_BUILD_EXAMPLES=OFF -DBOX2D_BUILD_DOCS=ON ..
+          cmake --build .
+          sudo make install
+          cd ../../../
+
       - name: Build Project
         run: |
           cmake -S . -B ./build
