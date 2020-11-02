@@ -6,9 +6,11 @@
 #include "SDL.h"
 #include "SDL_surface.h"
 #include "SDL_video.h"
+#include "SDL_render.h"
 
 // Variables
-SDL_Window *window = NULL;
+SDL_Window *window = nullptr;
+SDL_Renderer *renderer = nullptr;
 
 /**
  * Initialize the game window
@@ -37,11 +39,11 @@ void Engine::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT)
     if (window == NULL)
     {
       printf("Window could not be created! SDL_Error: %s\n",
-             SDL_GetError());
+         SDL_GetError());
     }
     else
     {
-      // Get window surface
+      /* Get window surface
       surface = SDL_GetWindowSurface(window);
 
       // Fill the surface white
@@ -50,8 +52,20 @@ void Engine::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT)
 
       // Update the surface
       SDL_UpdateWindowSurface(window);
+       */
+
+        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+        SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+        SDL_RenderClear(renderer);
+        SDL_RenderPresent(renderer);
     }
   }
+}
+
+
+
+SDL_Renderer* Engine::getRenderer(){
+    return renderer;
 }
 
 /**
@@ -61,7 +75,7 @@ void Engine::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT)
  **/
 void Engine::closeWindow()
 {
-  SDL_DestroyWindow(window);
-  window = NULL;
-  SDL_Quit();
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
 }

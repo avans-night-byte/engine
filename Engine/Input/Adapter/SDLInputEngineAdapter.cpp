@@ -38,23 +38,21 @@ Input SDLInputEngineAdapter::getInput() const
             return getControllerMotionInput(e);
         case SDL_MOUSEBUTTONDOWN:
             return getMouseInput(e);
-
         case SDL_CONTROLLERDEVICEADDED:
             openController(e.cdevice.which);
             return Input{
                 .device = Input::CONTROLLER, .x = -1, .y = -1, .keyMap = InputAction{.code = "CONTROLLER_DEVICE_ADDED", .action = ""}};
         case SDL_CONTROLLERDEVICEREMOVED:
             closeController();
-            Input{
-                .device = Input::CONTROLLER, .x = -1, .y = -1, .keyMap = InputAction{.code = "CONTROLLER_DEVICE_REMOVED", .action = ""}};
-
+            return Input{ .device = Input::CONTROLLER, .x = -1, .y = -1, .keyMap = InputAction{.code = "CONTROLLER_DEVICE_REMOVED", .action = ""}};
         case SDL_QUIT:
             return Input{.device = Input::OTHER, .x = -1, .y = -1, .keyMap = InputAction{.code = "QUIT", .action = "QUIT"}};
-
         default:
             return Input{.device = Input::NONE, .x = -1, .y = -1, .keyMap = InputAction{.code = "", .action = ""}};
         }
     }
+
+    return Input{.device = Input::NONE, .x = -1, .y = -1, .keyMap = InputAction{.code = "", .action = ""}};
 }
 
 /**
