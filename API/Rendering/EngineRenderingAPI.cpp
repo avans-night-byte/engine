@@ -34,7 +34,6 @@ EngineRenderingAPI::drawTexture(std::string textureId, int x, int y, int width, 
     return _adapter.drawTexture(textureId, x, y, width, height, scale, r, _renderer, SDL_FLIP_NONE);
 }
 
-
 /**
  * @param path
  * @param textureId
