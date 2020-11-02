@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['other_27',['OTHER',['../structInput.html#a90f2398be06274fc301d15b7cb00f026a0ffa05fbba06c6715e8c361393a53e41',1,'Input']]]
+  ['night_20byte_20engine_29',['Night Byte Engine',['../index.html',1,'']]],
+  ['none_30',['NONE',['../structInput.html#a90f2398be06274fc301d15b7cb00f026ac27e2e633e6394c7b38434b8167b237d',1,'Input']]]
 ];
