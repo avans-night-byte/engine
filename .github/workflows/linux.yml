@@ -30,6 +30,7 @@ jobs:
 
       - name: Install box2d Project
         run: |
+          sudo apt-get install xorg-dev libglu1-mesa-dev
           cd Libraries/Box2D
           mkdir build
           cd build
