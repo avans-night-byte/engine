@@ -55,11 +55,6 @@ target_include_directories(NightByte PUBLIC
         ${SDL2IMAGE_SOURCE_DIR}
         ${XSD_INCLUDE_DIR})
 
-find_package(XercesC)
-if (XERCESC_FOUND)
-    message(cum)
-endif ()
-
 target_link_libraries(NightByte SDL2 box2d SDL2::image)
 
 if (MSVC OR MSYS OR MINGW)
