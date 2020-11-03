@@ -19,3 +19,6 @@
 [submodule "SDL_image"]
 	path = Libraries/SDL_image
 	url = https://github.com/avans-night-byte/SDL_image
+[submodule "Libraries/XercesC"]
+	path = Libraries/XercesC
+	url = https://github.com/apache/xerces-c.git
