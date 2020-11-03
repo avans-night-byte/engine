@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "./Engine.hpp"
-
+#include "./Resources/XML/Generated/wall.hxx"
 // Dependencies
 #include "SDL.h"
 #include "SDL_surface.h"
@@ -22,6 +22,10 @@ SDL_Renderer *renderer = nullptr;
  **/
 void Engine::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT)
 {
+  auto bruh = walls("C:\\Users\\Martijn\\Documents\\Avans\\Minor\\Engine\\Engine\\Resources\\XML\\Definition\\Walls.xml");
+
+  std::cout << bruh.className() << std::endl;
+
   SDL_Surface *surface = NULL;
 
   // Initialize SDL

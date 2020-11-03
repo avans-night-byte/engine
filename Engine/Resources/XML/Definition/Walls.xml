@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<walls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schemas/Wall.xsd">
+<walls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schemas/wall.xsd">
     <className>NightByte.Engine.Entities.Wall</className>
     <!-- Level 1: Wood -->
     <wall>

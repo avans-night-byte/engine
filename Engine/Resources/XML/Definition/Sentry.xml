@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<sentry  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schemas/Sentry.xsd">
+<sentry  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schemas/sentry.xsd">
     <!-- CONCEPT!!! -->
     <className>NightByte.Engine.Entities.Sentry</className>
     <assets>

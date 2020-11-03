@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="common.xsd"/>
+
+    <xs:element name="walls">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="className" type="xs:string"/>
+                <xs:element maxOccurs="unbounded" ref="wall"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="wall">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="level" type="xs:ID"/>
+                <xs:element name="baseHealth" type="xs:int"/>
+
+                <xs:element name="pricing">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="cost" type="xs:int"/>
+                            <xs:element name="upgrade" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="cost" type="xs:int"/>
+                                        <xs:element name="nextLevel" type="xs:IDREF"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="powers" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="restoresHP" type="xs:int"  minOccurs="0"/>
+                            <xs:element name="explosionImmune" type="xs:boolean" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element ref="assets"/>
+                <xs:element ref="collider"/>
+                <xs:element ref="events"/>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>
