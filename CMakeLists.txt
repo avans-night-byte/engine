@@ -10,13 +10,16 @@ set(SDL2_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/SDL)
 set(BOX2D_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/box2d)
 set(SDL2IMAGE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/SDL_image)
 set(XERCES_C_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/XercesC)
+set(LIBXSD_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/xsd)
 
 project(NightByte)
 
 add_subdirectory(${SDL2_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdl)
 add_subdirectory(${BOX2D_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/box2d)
 add_subdirectory(${SDL2IMAGE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdlimage)
-add_subdirectory(${XERCES_C_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
+add_subdirectory(${XERCES_C_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/xercesc)
+add_subdirectory(${LIBXSD_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/libxsd)
+
 
 add_executable(NightByte ./Main.cpp
         ./Game/Game.cpp
@@ -42,6 +45,6 @@ find_package(box2d REQUIRED)
 
 
 target_include_directories(NightByte PUBLIC ${SDL2_SOURCE_DIR}/include
-        ${BOX2D_SOURCE_DIR}/include/box2d ${SDL2IMAGE_SOURCE_DIR})
+        ${BOX2D_SOURCE_DIR}/include/box2d ${SDL2IMAGE_SOURCE_DIR} ${LIBXSD_SOURCE_DIR})
 
 target_link_libraries(NightByte PRIVATE SDL2 box2d SDL2::image)

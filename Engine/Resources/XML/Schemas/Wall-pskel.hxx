@@ -34,6 +34,10 @@
 #ifndef WALL_PSKEL_HXX
 #define WALL_PSKEL_HXX
 
+#ifndef XSD_CXX11
+#define XSD_CXX11
+#endif
+
 // Begin prologue.
 //
 //
