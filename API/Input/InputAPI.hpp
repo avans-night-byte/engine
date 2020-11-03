@@ -3,6 +3,6 @@
 
 class InputAPI {
    public:
-    virtual Input getInput(SDLInputEngineAdapter adapter) const = 0;
+    virtual Input getInput() const = 0;
     virtual ~InputAPI() {}
 };

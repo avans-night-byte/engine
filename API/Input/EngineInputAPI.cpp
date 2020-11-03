@@ -1,5 +1,9 @@
 #include "./EngineInputAPI.hpp"
 
-Input EngineInputAPI::getInput(SDLInputEngineAdapter adapter) const {
-    return adapter.getInput();
+EngineInputAPI::EngineInputAPI(InputEngineAdapter* adapter) : _adapter {adapter} {}
+Input EngineInputAPI::getInput() const {
+    return _adapter->getInput();
+}
+EngineInputAPI::~EngineInputAPI() {
+    delete _adapter;
 }
