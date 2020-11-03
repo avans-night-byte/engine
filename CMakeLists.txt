@@ -55,14 +55,15 @@ target_include_directories(NightByte PUBLIC
         ${SDL2IMAGE_SOURCE_DIR}
         ${XSD_INCLUDE_DIR})
 
-set(XERCESC_LIBS ${XERCESC_LIBS} ${XSD_DLL_DIR})
+WRAP_XSD(SERVER_XSDS_SRCS SERVER_XSDS_INCLUDE
+        ${XSD_OUTPUT_DIR}/schema/core/server ${SERVER_XSDS} OPTIONS
+        ${SERVER_XSD_ARGS})
+INCLUDE_DIRECTORIES(${SERVER_XSDS_INCLUDE})
 
 
-if (XERCESC_FOUND)
-    message(cum)
-endif ()
 
-target_link_libraries(NightByte SDL2 box2d SDL2::image ${XERCESC_LIBS})
+
+target_link_libraries(NightByte SDL2 box2d SDL2::image ${SERVER_SRCS} ${SERVER_XSDS_SRCS})
 
 if (MSVC OR MSYS OR MINGW)
     target_link_libraries(NightByte winpthread)
