@@ -33,7 +33,7 @@ void Engine::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT)
   {
 
     // Create window
-    window = SDL_CreateWindow("Tutorial", SDL_WINDOWPOS_UNDEFINED,
+    window = SDL_CreateWindow("NightByte", SDL_WINDOWPOS_UNDEFINED,
                               SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH,
                               SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
     if (window == NULL)
@@ -43,17 +43,6 @@ void Engine::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT)
     }
     else
     {
-      /* Get window surface
-      surface = SDL_GetWindowSurface(window);
-
-      // Fill the surface white
-      SDL_FillRect(surface, NULL,
-                   SDL_MapRGB(surface->format, 0x00, 0x00, 0xFF));
-
-      // Update the surface
-      SDL_UpdateWindowSurface(window);
-       */
-
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
         SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
         SDL_RenderClear(renderer);
@@ -61,8 +50,6 @@ void Engine::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT)
     }
   }
 }
-
-
 
 SDL_Renderer* Engine::getRenderer(){
     return renderer;
