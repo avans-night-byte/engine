@@ -55,7 +55,14 @@ target_include_directories(NightByte PUBLIC
         ${SDL2IMAGE_SOURCE_DIR}
         ${XSD_INCLUDE_DIR})
 
-target_link_libraries(NightByte SDL2 box2d SDL2::image)
+set(XERCESC_LIBS ${XERCESC_LIBS} ${XSD_DLL_DIR})
+
+
+if (XERCESC_FOUND)
+    message(cum)
+endif ()
+
+target_link_libraries(NightByte SDL2 box2d SDL2::image ${XERCESC_LIBS})
 
 if (MSVC OR MSYS OR MINGW)
     target_link_libraries(NightByte winpthread)
