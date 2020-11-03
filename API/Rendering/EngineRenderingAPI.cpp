@@ -1,7 +1,8 @@
 #include "EngineRenderingAPI.hpp"
 #include "../../Engine/Engine.hpp"
 
-TextureManager *EngineRenderingAPI::GetTextureManager() {
+TextureManager *EngineRenderingAPI::GetTextureManager()
+{
     return RenderingEngineAdapter::GetTextureManager();
 }
 
@@ -16,7 +17,8 @@ TextureManager *EngineRenderingAPI::GetTextureManager() {
  */
 Spritesheet *
 EngineRenderingAPI::createSpriteSheet(const char *path, std::string spriteSheetId, int rows, int columns, int width,
-                                      int height) {
+                                      int height)
+{
     return _adapter.createSpriteSheet(path, spriteSheetId, rows, columns, width, height, _renderer);
 }
 
@@ -29,8 +31,8 @@ EngineRenderingAPI::createSpriteSheet(const char *path, std::string spriteSheetI
  * @param scale
  * @param r
  */
-void
-EngineRenderingAPI::drawTexture(std::string textureId, int x, int y, int width, int height, double scale, double r) {
+void EngineRenderingAPI::drawTexture(std::string textureId, int x, int y, int width, int height, double scale, double r)
+{
     return _adapter.drawTexture(textureId, x, y, width, height, scale, r, _renderer, SDL_FLIP_NONE);
 }
 
@@ -39,6 +41,7 @@ EngineRenderingAPI::drawTexture(std::string textureId, int x, int y, int width, 
  * @param textureId
  * @return success
  */
-bool EngineRenderingAPI::loadTexture(const char *path, std::string textureId) {
+bool EngineRenderingAPI::loadTexture(const char *path, std::string textureId)
+{
     return RenderingEngineAdapter::GetTextureManager()->load(path, textureId, _renderer);
 }
