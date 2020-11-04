@@ -16,7 +16,7 @@ int main(int argc, char *args[])
 {
     std::cout << "Hello, Night Byte" << std::endl;
 
-    Engine::initWindow(width, height);
+    //Engine::initWindow(width, height);
     
 
     Game::gameLoop();

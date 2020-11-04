@@ -12,8 +12,6 @@ class SDLAudioEngineAdapter {
 public:
     SDLAudioEngineAdapter();
 
-    enum fileType { music, sound };
-
     std::vector<std::string> getAudioFiles();
     void playAudioFile(const std::string& name);
     void loadInMemory(const std::string &path, fileType type);

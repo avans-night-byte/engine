@@ -31,9 +31,7 @@ add_executable(NightByte ./Main.cpp
                          ./Game/Scenes/Menu/MainMenu.hpp
                          # Engine
                          ./Engine/Engine.cpp
-                         ./Engine/Audio/AudioFile.cpp
-                         ./Engine/Audio/AudioFile.h
-                         ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
+        ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
                          ./Engine/Audio/Adapter/SDLAudioEngineAdapter.cpp
                          ./Engine/Audio/Adapter/SDLAudioEngineAdapter.hpp
                          ./Engine/Rendering/Spritesheet.cpp
@@ -48,7 +46,7 @@ add_executable(NightByte ./Main.cpp
                          ./API/Audio/EngineAudioAPI.cpp
                          ./API/Engine/EngineWindowAPI.cpp
                          ./API/Engine/WindowAPI.hpp
-)
+        Engine/Audio/SoundType.h)
         
 
 
