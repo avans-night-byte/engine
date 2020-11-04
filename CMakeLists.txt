@@ -28,13 +28,14 @@ add_executable(NightByte ./Main.cpp
                          ./Game/Components/RenderComponent.hpp
                          ./Game/Components/WorldPositionComponent.cpp
                          ./Game/Components/WorldPositionComponent.hpp
-        # Engine
-        ./Engine/Engine.cpp
-        ./Engine/Audio/AudioFile.cpp
-        ./Engine/Audio/AudioFile.h
-        ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
-        ./Engine/Audio/Adapter/SDLAudioEngineAdapter.cpp
-        ./Engine/Audio/Adapter/SDLAudioEngineAdapter.hpp
+                         ./Game/Scenes/Menu/MainMenu.hpp
+                         # Engine
+                         ./Engine/Engine.cpp
+                         ./Engine/Audio/AudioFile.cpp
+                         ./Engine/Audio/AudioFile.h
+                         ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
+                         ./Engine/Audio/Adapter/SDLAudioEngineAdapter.cpp
+                         ./Engine/Audio/Adapter/SDLAudioEngineAdapter.hpp
                          ./Engine/Rendering/Spritesheet.cpp
                          ./Engine/Rendering/TextureManager.cpp
                          ./Engine/Rendering/Adapter/SDLRenderingAdaper.cpp
@@ -45,6 +46,8 @@ add_executable(NightByte ./Main.cpp
                          ./API/Rendering/EngineRenderingAPI.cpp
                          ./API/Audio/EngineAudioAPI.hpp 
                          ./API/Audio/EngineAudioAPI.cpp
+                         ./API/Engine/EngineWindowAPI.cpp
+                         ./API/Engine/WindowAPI.hpp
 )
         
 

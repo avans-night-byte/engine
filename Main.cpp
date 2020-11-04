@@ -1,6 +1,4 @@
 #include <iostream>
-
-
 // Dependencies
 #include "./Engine/Engine.hpp"
 #include "./Game/Game.hpp"
