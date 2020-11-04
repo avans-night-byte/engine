@@ -1,5 +1,5 @@
 #include "../../Engine/Input/Adapter/InputEngineAdapter.hpp"
-#include "InputAPI.hpp"
+#include "./InputAPI.hpp"
 
 /**
  * RAII class for managing it's adapter

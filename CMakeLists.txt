@@ -24,6 +24,7 @@ add_executable(NightByte ./Main.cpp
                          ./Game/Components/RenderComponent.hpp
                          ./Game/Components/WorldPositionComponent.cpp
                          ./Game/Components/WorldPositionComponent.hpp
+                         ./Game/Scenes/Menu/MainMenu.hpp
                          # Engine
                          ./Engine/Engine.cpp
                          ./Engine/Audio/AudioFile.cpp
@@ -39,6 +40,8 @@ add_executable(NightByte ./Main.cpp
                          ./API/Audio/AudioAPI.cpp
                          ./API/Rendering/EngineRenderingAPI.hpp
                          ./API/Rendering/EngineRenderingAPI.cpp
+                         ./API/Engine/EngineWindowAPI.cpp
+                         ./API/Engine/WindowAPI.hpp
 )
 
 find_package(box2d REQUIRED)
