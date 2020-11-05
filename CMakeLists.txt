@@ -9,14 +9,19 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(SDL2_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/SDL)
 set(BOX2D_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/Box2D)
 set(SDL2IMAGE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/SDL_image)
-set(LIBXSD_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/xsd)
+
+set(LIBXSD_SOURCE_DIR C:/Users/husey/Desktop/engine/Libraries/xsde-cmake-master)
+
+set(XERCES_LIBRARY_PATH "C:/Program Files (x86)/CodeSynthesis XSD 4.0/bin64/xerces-c_3_1_vc120.dll")
+set(XERCES_INCLUDE_DIR "C:/Program Files (x86)/CodeSynthesis XSD 4.0/include")
 
 project(NightByte)
 
 add_subdirectory(${SDL2_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdl)
 add_subdirectory(${BOX2D_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/box2d)
 add_subdirectory(${SDL2IMAGE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdlimage)
-add_subdirectory(${LIBXSD_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/libxsd)
+
+add_subdirectory(${LIBXSD_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/xsde)
 
 add_executable(NightByte ./Main.cpp
         # Game
@@ -53,17 +58,10 @@ target_include_directories(NightByte PUBLIC
         ${SDL2_SOURCE_DIR}/include
         ${BOX2D_SOURCE_DIR}/include/box2d
         ${SDL2IMAGE_SOURCE_DIR}
-        ${XSD_INCLUDE_DIR})
-
-WRAP_XSD(SERVER_XSDS_SRCS SERVER_XSDS_INCLUDE
-        ${XSD_OUTPUT_DIR}/schema/core/server ${SERVER_XSDS} OPTIONS
-        ${SERVER_XSD_ARGS})
-INCLUDE_DIRECTORIES(${SERVER_XSDS_INCLUDE})
+        "C:/Program Files (x86)/CodeSynthesis XSD 4.0/include/")
 
 
-
-
-target_link_libraries(NightByte SDL2 box2d SDL2::image ${SERVER_SRCS} ${SERVER_XSDS_SRCS})
+target_link_libraries(NightByte SDL2 box2d SDL2::image)
 
 if (MSVC OR MSYS OR MINGW)
     target_link_libraries(NightByte winpthread)
