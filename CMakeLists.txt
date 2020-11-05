@@ -24,28 +24,31 @@ add_subdirectory(${SDL2IMAGE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdlimage)
 add_subdirectory(${LIBXSD_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/xsde)
 
 add_executable(NightByte ./Main.cpp
-        # Game
-        ./Game/Game.cpp
-        ./Game/Components/Component.hpp
-        ./Game/Components/RenderComponent.cpp
-        ./Game/Components/RenderComponent.hpp
-        ./Game/Components/WorldPositionComponent.cpp
-        ./Game/Components/WorldPositionComponent.hpp
-        # Engine
-        ./Engine/Engine.cpp
-        ./Engine/Audio/AudioFile.cpp
-        ./Engine/Audio/AudioFile.h
-        ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
-        ./Engine/Audio/Adapter/SDLAudioEngineAdapter.cpp
-        ./Engine/Audio/Adapter/SDLAudioEngineAdapter.hpp
-        ./Engine/Rendering/Spritesheet.cpp
-        ./Engine/Rendering/TextureManager.cpp
-        ./Engine/Rendering/Adapter/SDLRenderingAdaper.cpp
-        # API
-        ./API/Input/EngineInputAPI.cpp
-        ./API/Audio/AudioAPI.cpp
-        ./API/Rendering/EngineRenderingAPI.hpp
-        ./API/Rendering/EngineRenderingAPI.cpp
+                         # Game 
+                         ./Game/Game.cpp
+                         ./Game/Components/Component.hpp
+                         ./Game/Components/RenderComponent.cpp
+                         ./Game/Components/RenderComponent.hpp
+                         ./Game/Components/WorldPositionComponent.cpp
+                         ./Game/Components/WorldPositionComponent.hpp
+                         ./Game/Scenes/Menu/MainMenu.hpp
+                         # Engine
+                         ./Engine/Engine.cpp
+                         ./Engine/Audio/AudioFile.cpp
+                         ./Engine/Audio/AudioFile.h
+                         ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
+                         ./Engine/Audio/Adapter/SDLAudioEngineAdapter.cpp
+                         ./Engine/Audio/Adapter/SDLAudioEngineAdapter.hpp
+                         ./Engine/Rendering/Spritesheet.cpp
+                         ./Engine/Rendering/TextureManager.cpp
+                         ./Engine/Rendering/Adapter/SDLRenderingAdaper.cpp
+                         # API
+                         ./API/Input/EngineInputAPI.cpp
+                         ./API/Audio/AudioAPI.cpp
+                         ./API/Rendering/EngineRenderingAPI.hpp
+                         ./API/Rendering/EngineRenderingAPI.cpp
+                         ./API/Engine/EngineWindowAPI.cpp
+                         ./API/Engine/WindowAPI.hpp
         # XML
         ./Engine/Resources/XML/Generated/wall.hxx
         ./Engine/Resources/XML/Generated/wall.cxx
