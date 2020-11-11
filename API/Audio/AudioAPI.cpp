@@ -3,15 +3,15 @@
 //
 #include "AudioAPI.hpp"
 
-void AudioAPI::playAudioFile(const std::string &name) {
-
+void AudioAPI::playFromMemory(const std::string &name) {
+    _adapter->playFromMemory(name);
 }
 
-std::vector<std::string> AudioAPI::getAudioFiles() {
+std::vector<std::string> AudioAPI::getAudioNames() {
     return std::vector<std::string>();
 }
 
-void AudioAPI::loadInMemory(const std::string &path, AudioAPI::fileType type) {
+void AudioAPI::loadInMemory(const std::string &path, AudioType &type) {
     _adapter->loadInMemory(path, type);
 }
 
@@ -19,7 +19,14 @@ AudioAPI::AudioAPI() {
     _adapter = new SDLAudioEngineAdapter;
 }
 
+void AudioAPI::playFromPath(const std::string &path, AudioType &type) {
+    SDLAudioEngineAdapter::playFromPath(path, type);
+
+}
+
 AudioAPI::~AudioAPI() {
     delete _adapter;
 }
+
+
 

@@ -42,11 +42,9 @@ add_executable(NightByte ./Main.cpp
                          ./API/Audio/AudioAPI.cpp
                          ./API/Rendering/EngineRenderingAPI.hpp
                          ./API/Rendering/EngineRenderingAPI.cpp
-                         ./API/Audio/EngineAudioAPI.hpp 
-                         ./API/Audio/EngineAudioAPI.cpp
-                         ./API/Engine/EngineWindowAPI.cpp
+        ./API/Engine/EngineWindowAPI.cpp
                          ./API/Engine/WindowAPI.hpp
-        Engine/Audio/SoundType.h)
+        Engine/Audio/AudioType.h)
         
 
 

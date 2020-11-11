@@ -3,18 +3,23 @@
 #include <vector>
 #include "SDL_mixer.h"
 #include "../../Engine/Audio/Adapter/SDLAudioEngineAdapter.hpp"
-#include "../../Engine/Audio/SoundType.h"
+#include "../../Engine/Audio/AudioType.h"
 
 class AudioAPI {
-    AudioAPI();
+
+public:
     ~AudioAPI();
 
+    AudioAPI();
 
+    static std::vector<std::string> getAudioNames();
 
-    std::vector<std::string> getAudioFiles();
-    void playAudioFile(const std::string& name);
-    void loadInMemory(const std::string& path, SoundType type);
+    void playFromMemory(const std::string &name);
+
+    static void playFromPath(const std::string &path, AudioType &type);
+
+    void loadInMemory(const std::string &path, AudioType &type);
 
 private:
-    SDLAudioEngineAdapter* _adapter;
+    SDLAudioEngineAdapter *_adapter;
 };
