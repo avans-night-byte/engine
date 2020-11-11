@@ -79,4 +79,31 @@ void SDLAudioEngineAdapter::playFromPath(const std::string &path, AudioType &typ
     }
 }
 
+void SDLAudioEngineAdapter::changeMasterVolume(int volume) {
+    Mix_Volume(-1, volume);
+    Mix_VolumeMusic(volume);
+}
+
+void SDLAudioEngineAdapter::changeChannelVolume(int channel, int volume) {
+    Mix_Volume(channel, volume);
+}
+
+void SDLAudioEngineAdapter::changeMusicVolume(int volume) {
+    Mix_VolumeMusic(volume);
+}
+
+int SDLAudioEngineAdapter::getChannelVolume(int channel) {
+    return Mix_Volume(channel, -1);
+}
+
+
+int SDLAudioEngineAdapter::getMusicVolume() {
+    return Mix_VolumeMusic(-1);
+}
+
+int SDLAudioEngineAdapter::getChannelsAverageVolume() {
+    return Mix_Volume(-1, -1);
+}
+
+
 

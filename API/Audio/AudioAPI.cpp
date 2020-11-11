@@ -24,9 +24,45 @@ void AudioAPI::playFromPath(const std::string &path, AudioType &type) {
 
 }
 
+void AudioAPI::changeMasterVolume(int volume) {
+    SDLAudioEngineAdapter::changeMasterVolume(volume);
+}
+
+void AudioAPI::changeChannelVolume(int channel, int volume) {
+    SDLAudioEngineAdapter::changeChannelVolume(channel, volume);
+}
+
+void AudioAPI::changeMusicVolume(int volume) {
+    SDLAudioEngineAdapter::changeMusicVolume(volume);
+}
+
+int AudioAPI::getChannelVolume(int channel) {
+    return SDLAudioEngineAdapter::getChannelVolume(channel);
+}
+
+int AudioAPI::getMusicVolume() {
+    return SDLAudioEngineAdapter::getMusicVolume();
+}
+
+int AudioAPI::getChannelsAverageVolume() {
+    return SDLAudioEngineAdapter::getChannelsAverageVolume();
+}
+
 AudioAPI::~AudioAPI() {
     delete _adapter;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

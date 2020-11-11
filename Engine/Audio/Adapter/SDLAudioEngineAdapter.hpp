@@ -21,6 +21,18 @@ public:
 
     void playFromMemory(const std::string &name);
 
+    static void changeMasterVolume(int volume);
+
+    static void changeChannelVolume(int channel, int volume);
+
+    static void changeMusicVolume(int volume);
+
+    static int getChannelsAverageVolume();
+
+    static int getChannelVolume(int channel);
+
+    static int getMusicVolume();
+
 private:
     //The music that will be played
     std::map<std::string, Mix_Music *> _globalMusic;

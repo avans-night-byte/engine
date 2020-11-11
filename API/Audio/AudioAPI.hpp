@@ -20,6 +20,19 @@ public:
 
     void loadInMemory(const std::string &path, AudioType &type);
 
+    static void changeMasterVolume(int volume);
+
+    static void changeChannelVolume(int channel, int volume);
+
+    static void changeMusicVolume(int volume);
+
+    static int getChannelsAverageVolume();
+
+    static int getChannelVolume(int channel);
+
+    static int getMusicVolume();
+
+
 private:
     SDLAudioEngineAdapter *_adapter;
 };
