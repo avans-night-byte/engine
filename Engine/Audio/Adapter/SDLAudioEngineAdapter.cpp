@@ -30,13 +30,15 @@ std::vector<std::string> SDLAudioEngineAdapter::getAudioNames() {
 }
 
 void SDLAudioEngineAdapter::playFromMemory(const std::string &name) {
-    Mix_Music *music = _globalMusic.at(name);
-    if (music != nullptr) {
+
+    if (_globalMusic.count(name) > 0) {
+        Mix_Music *music = _globalMusic.at(name);
         Mix_PlayMusic(music, 1);
         return;
     }
-    Mix_Chunk *soundEffect = _sounds.at(name);
-    if (soundEffect != nullptr) {
+
+    if (_sounds.count(name) > 0) {
+        Mix_Chunk *soundEffect = _sounds.at(name);
         Mix_PlayChannel(-1, soundEffect, 0);
     }
 
@@ -44,12 +46,17 @@ void SDLAudioEngineAdapter::playFromMemory(const std::string &name) {
 
 void SDLAudioEngineAdapter::loadInMemory(const std::string &path, AudioType &type) {
 
+    auto index = path.find_last_of('/');
+    if(index == std::string::npos) index = 0;
+
+    std::string name = path.substr(index, path.length());
+
     switch (type) {
         case music:
-            _globalMusic[path] = Mix_LoadMUS(path.c_str());
+            _globalMusic[name] = Mix_LoadMUS(path.c_str());
             break;
         case sound:
-            _sounds[path] = Mix_LoadWAV(path.c_str());
+            _sounds[name] = Mix_LoadWAV(path.c_str());
             break;
     }
 }

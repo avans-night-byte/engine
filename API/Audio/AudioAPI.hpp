@@ -12,7 +12,7 @@ public:
 
     AudioAPI();
 
-    static std::vector<std::string> getAudioNames();
+    std::vector<std::string> getAudioNames();
 
     void playFromMemory(const std::string &name);
 

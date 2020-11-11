@@ -8,7 +8,7 @@ void AudioAPI::playFromMemory(const std::string &name) {
 }
 
 std::vector<std::string> AudioAPI::getAudioNames() {
-    return std::vector<std::string>();
+    return _adapter->getAudioNames();
 }
 
 void AudioAPI::loadInMemory(const std::string &path, AudioType &type) {
