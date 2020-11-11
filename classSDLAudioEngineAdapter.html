@@ -63,6 +63,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classSDLAudioEngineAdapter-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SDLAudioEngineAdapter Class Reference</div>  </div>
@@ -71,12 +72,51 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ace1d1e850616ae4b01e54b81964666d2"><td class="memItemLeft" align="right" valign="top"><a id="ace1d1e850616ae4b01e54b81964666d2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getAudioFiles</b> ()</td></tr>
-<tr class="separator:ace1d1e850616ae4b01e54b81964666d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf2db6b3051a82183a11152d90eba7ff"><td class="memItemLeft" align="right" valign="top"><a id="acf2db6b3051a82183a11152d90eba7ff"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>playAudioFile</b> ()</td></tr>
-<tr class="separator:acf2db6b3051a82183a11152d90eba7ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a7fa2a4cb9c71bdc0c187ad9055c63c"><td class="memItemLeft" align="right" valign="top"><a id="a1a7fa2a4cb9c71bdc0c187ad9055c63c"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getAudioNames</b> ()</td></tr>
+<tr class="separator:a1a7fa2a4cb9c71bdc0c187ad9055c63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7a1fd781382b60a4768a633ec1a2e0e"><td class="memItemLeft" align="right" valign="top"><a id="ae7a1fd781382b60a4768a633ec1a2e0e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>loadInMemory</b> (const std::string &amp;path, AudioType &amp;type)</td></tr>
+<tr class="separator:ae7a1fd781382b60a4768a633ec1a2e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fe391b8b72a735c54669ac6deb2ba89"><td class="memItemLeft" align="right" valign="top"><a id="a6fe391b8b72a735c54669ac6deb2ba89"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>playFromPath</b> (const std::string &amp;path, AudioType &amp;type)</td></tr>
+<tr class="separator:a6fe391b8b72a735c54669ac6deb2ba89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad4ba62055cdd5787230383b278c62c7"><td class="memItemLeft" align="right" valign="top"><a id="aad4ba62055cdd5787230383b278c62c7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>playFromMemory</b> (const std::string &amp;name)</td></tr>
+<tr class="separator:aad4ba62055cdd5787230383b278c62c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:acb9f2c7453626881a7e1a8d94fae82ee"><td class="memItemLeft" align="right" valign="top"><a id="acb9f2c7453626881a7e1a8d94fae82ee"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>changeMasterVolume</b> (int volume)</td></tr>
+<tr class="separator:acb9f2c7453626881a7e1a8d94fae82ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a219f4f21593e3d1b54ca9ace0e868b8f"><td class="memItemLeft" align="right" valign="top"><a id="a219f4f21593e3d1b54ca9ace0e868b8f"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>changeChannelVolume</b> (int channel, int volume)</td></tr>
+<tr class="separator:a219f4f21593e3d1b54ca9ace0e868b8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2c4d31b1b46512ab96ee43ca0692b8e"><td class="memItemLeft" align="right" valign="top"><a id="af2c4d31b1b46512ab96ee43ca0692b8e"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>changeMusicVolume</b> (int volume)</td></tr>
+<tr class="separator:af2c4d31b1b46512ab96ee43ca0692b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a755fc7491f41997bacd06264074d91e5"><td class="memItemLeft" align="right" valign="top"><a id="a755fc7491f41997bacd06264074d91e5"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>getChannelsAverageVolume</b> ()</td></tr>
+<tr class="separator:a755fc7491f41997bacd06264074d91e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67070122dca2075bebbff0a480561869"><td class="memItemLeft" align="right" valign="top"><a id="a67070122dca2075bebbff0a480561869"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>getChannelVolume</b> (int channel)</td></tr>
+<tr class="separator:a67070122dca2075bebbff0a480561869"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee13c81b860242277a89f3993d312562"><td class="memItemLeft" align="right" valign="top"><a id="aee13c81b860242277a89f3993d312562"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>getMusicVolume</b> ()</td></tr>
+<tr class="separator:aee13c81b860242277a89f3993d312562"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2be86ae2ccf4b77598bc4f3c93fbd999"><td class="memItemLeft" align="right" valign="top"><a id="a2be86ae2ccf4b77598bc4f3c93fbd999"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>stopAudio</b> ()</td></tr>
+<tr class="separator:a2be86ae2ccf4b77598bc4f3c93fbd999"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affad599a24fe5f439441ed092ba40ff7"><td class="memItemLeft" align="right" valign="top"><a id="affad599a24fe5f439441ed092ba40ff7"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>stopMusic</b> ()</td></tr>
+<tr class="separator:affad599a24fe5f439441ed092ba40ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68f7ff8a08a1620d0297192bfee0c44b"><td class="memItemLeft" align="right" valign="top"><a id="a68f7ff8a08a1620d0297192bfee0c44b"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>stopSound</b> (int channel)</td></tr>
+<tr class="separator:a68f7ff8a08a1620d0297192bfee0c44b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aede2492c7160126709b48a43b2088e34"><td class="memItemLeft" align="right" valign="top"><a id="aede2492c7160126709b48a43b2088e34"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>stopSounds</b> ()</td></tr>
+<tr class="separator:aede2492c7160126709b48a43b2088e34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/Audio/Adapter/<a class="el" href="SDLAudioEngineAdapter_8hpp_source.html">SDLAudioEngineAdapter.hpp</a></li>

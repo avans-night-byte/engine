@@ -62,21 +62,21 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classEngine-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Engine Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a1549e2457045ed531c273033ea8b06bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a1549e2457045ed531c273033ea8b06bb">initWindow</a> (int SCREEN_WIDTH, int SCREEN_HEIGHT)</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a1549e2457045ed531c273033ea8b06bb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a1549e2457045ed531c273033ea8b06bb">initWindow</a> (int SCREEN_WIDTH, int SCREEN_HEIGHT)</td></tr>
 <tr class="separator:a1549e2457045ed531c273033ea8b06bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af10f694feeadd7137aa42c8a086dbbd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#af10f694feeadd7137aa42c8a086dbbd3">closeWindow</a> ()</td></tr>
+<tr class="memitem:af10f694feeadd7137aa42c8a086dbbd3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#af10f694feeadd7137aa42c8a086dbbd3">closeWindow</a> ()</td></tr>
 <tr class="separator:af10f694feeadd7137aa42c8a086dbbd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae42b73be55ab0fa034a0f7dea156cf9c"><td class="memItemLeft" align="right" valign="top"><a id="ae42b73be55ab0fa034a0f7dea156cf9c"></a>
-SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><b>getRenderer</b> ()</td></tr>
+static SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><b>getRenderer</b> ()</td></tr>
 <tr class="separator:ae42b73be55ab0fa034a0f7dea156cf9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -85,6 +85,9 @@ SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><b>getRenderer
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Engine::closeWindow </td>
@@ -93,6 +96,11 @@ SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><b>getRenderer
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Close the game window</p>
 <p>Clears the SDL_Window pointer in the <a class="el" href="classEngine.html">Engine</a> class and calls SDL_DestroyWindow &amp; SDL_Quit. </p>
@@ -104,6 +112,9 @@ SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><b>getRenderer
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Engine::initWindow </td>
@@ -123,6 +134,11 @@ SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><b>getRenderer
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Initialize the game window</p>
 <p>Stores a SDL_Window pointer in the <a class="el" href="classEngine.html">Engine</a> class.</p>

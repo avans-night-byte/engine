@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['audioengine_42',['AudioEngine',['../classAudioEngine.html',1,'']]],
-  ['audiofile_43',['AudioFile',['../classAudioFile.html',1,'']]]
+  ['audioapi_42',['AudioAPI',['../classAudioAPI.html',1,'']]],
+  ['audioengine_43',['AudioEngine',['../classAudioEngine.html',1,'']]]
 ];
