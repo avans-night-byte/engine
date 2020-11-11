@@ -16,9 +16,17 @@ public:
 
     void playFromMemory(const std::string &name);
 
-    static void playFromPath(const std::string &path, AudioType &type);
+    void playFromPath(const std::string &path, AudioType &type);
 
     void loadInMemory(const std::string &path, AudioType &type);
+
+    static void stopAudio();
+
+    static void stopMusic();
+
+    static void stopSound(int channel);
+
+    static void stopSounds();
 
     static void changeMasterVolume(int volume);
 

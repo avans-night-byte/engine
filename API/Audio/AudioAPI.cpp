@@ -3,6 +3,10 @@
 //
 #include "AudioAPI.hpp"
 
+AudioAPI::AudioAPI() {
+    _adapter = new SDLAudioEngineAdapter;
+}
+
 void AudioAPI::playFromMemory(const std::string &name) {
     _adapter->playFromMemory(name);
 }
@@ -15,12 +19,8 @@ void AudioAPI::loadInMemory(const std::string &path, AudioType &type) {
     _adapter->loadInMemory(path, type);
 }
 
-AudioAPI::AudioAPI() {
-    _adapter = new SDLAudioEngineAdapter;
-}
-
 void AudioAPI::playFromPath(const std::string &path, AudioType &type) {
-    SDLAudioEngineAdapter::playFromPath(path, type);
+    _adapter->playFromPath(path, type);
 
 }
 
@@ -48,9 +48,27 @@ int AudioAPI::getChannelsAverageVolume() {
     return SDLAudioEngineAdapter::getChannelsAverageVolume();
 }
 
+void AudioAPI::stopAudio() {
+    SDLAudioEngineAdapter::stopAudio();
+}
+
+void AudioAPI::stopMusic() {
+
+    SDLAudioEngineAdapter::stopMusic();
+}
+
+void AudioAPI::stopSound(int channel) {
+    SDLAudioEngineAdapter::stopSound(channel);
+}
+
+void AudioAPI::stopSounds() {
+    SDLAudioEngineAdapter::stopSounds();
+}
+
 AudioAPI::~AudioAPI() {
     delete _adapter;
 }
+
 
 
 

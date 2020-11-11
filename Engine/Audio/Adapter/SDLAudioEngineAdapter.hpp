@@ -17,7 +17,7 @@ public:
 
     void loadInMemory(const std::string &path, AudioType &type);
 
-    static void playFromPath(const std::string &path, AudioType &type);
+    void playFromPath(const std::string &path, AudioType &type);
 
     void playFromMemory(const std::string &name);
 
@@ -33,12 +33,21 @@ public:
 
     static int getMusicVolume();
 
+    static void stopAudio();
+
+    static void stopMusic();
+
+    static void stopSound(int channel);
+
+    static void stopSounds();
+
+
 private:
     //The music that will be played
     std::map<std::string, Mix_Music *> _globalMusic;
     std::map<std::string, Mix_Chunk *> _sounds;
 
-
+    Mix_Music* _lastPlayedMusic;
 };
 
 #endif //NIGHTBYTE_SDLAUDIOENGINEADAPTER_HPP

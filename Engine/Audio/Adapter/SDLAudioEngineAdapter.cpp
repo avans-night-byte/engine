@@ -7,6 +7,8 @@
 
 SDLAudioEngineAdapter::SDLAudioEngineAdapter() {
 
+    _lastPlayedMusic = Mix_LoadMUS("kda.vav");
+
     // TODO: Try higher frequency
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
         printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
@@ -32,8 +34,8 @@ std::vector<std::string> SDLAudioEngineAdapter::getAudioNames() {
 void SDLAudioEngineAdapter::playFromMemory(const std::string &name) {
 
     if (_globalMusic.count(name) > 0) {
-        Mix_Music *music = _globalMusic.at(name);
-        Mix_PlayMusic(music, 1);
+        _lastPlayedMusic = _globalMusic.at(name);
+        Mix_PlayMusic(_lastPlayedMusic, 1);
         return;
     }
 
@@ -41,13 +43,12 @@ void SDLAudioEngineAdapter::playFromMemory(const std::string &name) {
         Mix_Chunk *soundEffect = _sounds.at(name);
         Mix_PlayChannel(-1, soundEffect, 0);
     }
-
 }
 
 void SDLAudioEngineAdapter::loadInMemory(const std::string &path, AudioType &type) {
 
     auto index = path.find_last_of('/');
-    if(index == std::string::npos) index = 0;
+    if (index == std::string::npos) index = 0;
 
     std::string name = path.substr(index, path.length());
 
@@ -68,6 +69,7 @@ void SDLAudioEngineAdapter::playFromPath(const std::string &path, AudioType &typ
     switch (type) {
         case music:
             if (mixMusic != nullptr) {
+                _lastPlayedMusic = mixMusic;
                 Mix_PlayMusic(mixMusic, 1);
             }
             break;
@@ -96,13 +98,29 @@ int SDLAudioEngineAdapter::getChannelVolume(int channel) {
     return Mix_Volume(channel, -1);
 }
 
-
 int SDLAudioEngineAdapter::getMusicVolume() {
     return Mix_VolumeMusic(-1);
 }
 
 int SDLAudioEngineAdapter::getChannelsAverageVolume() {
     return Mix_Volume(-1, -1);
+}
+
+void SDLAudioEngineAdapter::stopAudio() {
+    Mix_CloseAudio();
+}
+
+void SDLAudioEngineAdapter::stopMusic() {
+    if (Mix_PlayingMusic())
+        Mix_HaltMusic();
+}
+
+void SDLAudioEngineAdapter::stopSound(int channel) {
+    Mix_HaltChannel(channel);
+}
+
+void SDLAudioEngineAdapter::stopSounds() {
+    Mix_HaltChannel(-1);
 }
 
 
