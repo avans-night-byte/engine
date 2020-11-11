@@ -8,13 +8,7 @@
 # XSD_FOUND, If false, don't try to use it.
 
 FIND_PATH(XSD_INCLUDE_DIR xsd/cxx/parser/elements.hxx PATH_SUFFIXES libxsd PATHS
-        "[HKEY_CURRENT_USER\\software\\xsd\\include]"
-        "[HKEY_CURRENT_USER]\\xsd\\include]"
-        /usr/local/include
-        /usr/include
-        $ENV{XSDDIR}/include
-        ${CMAKE_PREFIX_PATH}/include
-        "C:/Program Files (x86)/CodeSynthesis XSD 4.0/include"
+        "../Libraries/xsd-4.0.0-i686-windows/libxsd"
         )
 
 
@@ -22,12 +16,7 @@ FIND_PROGRAM(XSD_EXECUTABLE
         NAMES
         xsd xsdcxx
         PATHS
-        "[HKEY_CURRENT_USER\\xsd\\bin]"
-        /usr/local/bin
-        /usr/bin
-        ${CMAKE_PREFIX_PATH}/bin
-        "[HKEY_CURRENT_USER\\xsd\\bin]" $ENV{XSDDIR}/bin
-        "C:/Program Files (x86)/CodeSynthesis XSD 4.0/bin"
+        "../Libraries/xsd-4.0.0-i686-windows/bin"
         )
 
 # if the include and the program are found then we have it
