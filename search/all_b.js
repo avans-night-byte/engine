@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['renderingapi_33',['RenderingAPI',['../classRenderingAPI.html',1,'']]],
-  ['renderingengineadapter_34',['RenderingEngineAdapter',['../classRenderingEngineAdapter.html',1,'']]]
+  ['playfrommemory_41',['playFromMemory',['../classSDLAudioEngineAdapter.html#aad4ba62055cdd5787230383b278c62c7',1,'SDLAudioEngineAdapter']]],
+  ['playfrompath_42',['playFromPath',['../classSDLAudioEngineAdapter.html#a6fe391b8b72a735c54669ac6deb2ba89',1,'SDLAudioEngineAdapter']]]
 ];

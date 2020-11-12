@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['closewindow_63',['closeWindow',['../classEngine.html#af10f694feeadd7137aa42c8a086dbbd3',1,'Engine']]],
-  ['createspritesheet_64',['createSpriteSheet',['../classEngineRenderingAPI.html#a0b384fb2d80317daec4650f77928e69a',1,'EngineRenderingAPI']]]
+  ['changechannelvolume_78',['changeChannelVolume',['../classSDLAudioEngineAdapter.html#a219f4f21593e3d1b54ca9ace0e868b8f',1,'SDLAudioEngineAdapter']]],
+  ['changemastervolume_79',['changeMasterVolume',['../classSDLAudioEngineAdapter.html#acb9f2c7453626881a7e1a8d94fae82ee',1,'SDLAudioEngineAdapter']]],
+  ['changemusicvolume_80',['changeMusicVolume',['../classSDLAudioEngineAdapter.html#af2c4d31b1b46512ab96ee43ca0692b8e',1,'SDLAudioEngineAdapter']]],
+  ['closewindow_81',['closeWindow',['../classEngine.html#af10f694feeadd7137aa42c8a086dbbd3',1,'Engine']]],
+  ['createspritesheet_82',['createSpriteSheet',['../classEngineRenderingAPI.html#a0b384fb2d80317daec4650f77928e69a',1,'EngineRenderingAPI']]]
 ];
