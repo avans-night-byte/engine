@@ -54,8 +54,6 @@ public:
     static void toggleSound(int channel);
 
     static void toggleSounds();
-
-
 private:
     std::map<std::string, Mix_Music *> _musicTracks;
     std::map<std::string, Mix_Chunk *> _sounds;
