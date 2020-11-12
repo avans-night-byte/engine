@@ -1,6 +1,3 @@
-//
-// Created by Storm on 05/10/2020.
-//
 #include "AudioAPI.hpp"
 
 AudioAPI::AudioAPI() {
@@ -68,19 +65,3 @@ void AudioAPI::stopSounds() {
 AudioAPI::~AudioAPI() {
     delete _adapter;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -39,8 +39,6 @@ public:
     static int getChannelVolume(int channel);
 
     static int getMusicVolume();
-
-
 private:
     SDLAudioEngineAdapter *_adapter;
 };

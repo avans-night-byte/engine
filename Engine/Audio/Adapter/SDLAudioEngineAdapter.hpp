@@ -1,13 +1,12 @@
-//
-// Created by Storm on 05/10/2020.
-//
 #ifndef NIGHTBYTE_SDLAUDIOENGINEADAPTER_HPP
 #define NIGHTBYTE_SDLAUDIOENGINEADAPTER_HPP
 
-#include "SDL_mixer.h"
-#include "../AudioType.h"
 #include <iostream>
 #include <map>
+
+#include "SDL_mixer.h"
+#include "../AudioType.h"
+
 
 class SDLAudioEngineAdapter {
 public:

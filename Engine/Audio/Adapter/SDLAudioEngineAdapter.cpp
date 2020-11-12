@@ -1,7 +1,3 @@
-//
-// Created by Storm on 05/10/2020.
-//
-
 #include <vector>
 #include "SDLAudioEngineAdapter.hpp"
 
@@ -9,7 +5,6 @@ SDLAudioEngineAdapter::SDLAudioEngineAdapter() {
 
     _lastPlayedMusic = Mix_LoadMUS("kda.vav");
 
-    // TODO: Try higher frequency
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
         printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
     }
@@ -122,6 +117,3 @@ void SDLAudioEngineAdapter::stopSound(int channel) {
 void SDLAudioEngineAdapter::stopSounds() {
     Mix_HaltChannel(-1);
 }
-
-
-
