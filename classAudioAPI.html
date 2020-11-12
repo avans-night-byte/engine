@@ -72,6 +72,20 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a304eaaaa17f99ef401abfb4bea6fbfb6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioAPI.html#a304eaaaa17f99ef401abfb4bea6fbfb6">AudioAPI</a> ()</td></tr>
+<tr class="separator:a304eaaaa17f99ef401abfb4bea6fbfb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a957f559bbdf8527fac098d654054c202"><td class="memItemLeft" align="right" valign="top"><a id="a957f559bbdf8527fac098d654054c202"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AudioAPI</b> (const <a class="el" href="classAudioAPI.html">AudioAPI</a> &amp;other)=default</td></tr>
+<tr class="separator:a957f559bbdf8527fac098d654054c202"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad10375dcba32ea17a83de2728abcba0c"><td class="memItemLeft" align="right" valign="top"><a id="ad10375dcba32ea17a83de2728abcba0c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AudioAPI</b> (<a class="el" href="classAudioAPI.html">AudioAPI</a> &amp;&amp;other) noexcept=default</td></tr>
+<tr class="separator:ad10375dcba32ea17a83de2728abcba0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40af2f2c69e080679ac7d7ebb8b07dbc"><td class="memItemLeft" align="right" valign="top"><a id="a40af2f2c69e080679ac7d7ebb8b07dbc"></a>
+<a class="el" href="classAudioAPI.html">AudioAPI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classAudioAPI.html">AudioAPI</a> &amp;other)=default</td></tr>
+<tr class="separator:a40af2f2c69e080679ac7d7ebb8b07dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60eb30ec2012bb59146af7ae7c14205a"><td class="memItemLeft" align="right" valign="top"><a id="a60eb30ec2012bb59146af7ae7c14205a"></a>
+<a class="el" href="classAudioAPI.html">AudioAPI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classAudioAPI.html">AudioAPI</a> &amp;&amp;other) noexcept=default</td></tr>
+<tr class="separator:a60eb30ec2012bb59146af7ae7c14205a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfa2be178ca2a43cf91c15d9772fd272"><td class="memItemLeft" align="right" valign="top"><a id="abfa2be178ca2a43cf91c15d9772fd272"></a>
 std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getAudioNames</b> ()</td></tr>
 <tr class="separator:abfa2be178ca2a43cf91c15d9772fd272"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,7 +131,35 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><b>getChannelVolum
 <tr class="memitem:a31151e853969d38b30c1fd5e5fcb1bd8"><td class="memItemLeft" align="right" valign="top"><a id="a31151e853969d38b30c1fd5e5fcb1bd8"></a>
 static int&#160;</td><td class="memItemRight" valign="bottom"><b>getMusicVolume</b> ()</td></tr>
 <tr class="separator:a31151e853969d38b30c1fd5e5fcb1bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a160f0f7475062acb91011dc12c629361"><td class="memItemLeft" align="right" valign="top"><a id="a160f0f7475062acb91011dc12c629361"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>toggleMusic</b> ()</td></tr>
+<tr class="separator:a160f0f7475062acb91011dc12c629361"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae403d44f885ab5e1ff5b8008dbbd0664"><td class="memItemLeft" align="right" valign="top"><a id="ae403d44f885ab5e1ff5b8008dbbd0664"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>toggleSound</b> (int channel)</td></tr>
+<tr class="separator:ae403d44f885ab5e1ff5b8008dbbd0664"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bd65d280326a61657f159dae6740dbf"><td class="memItemLeft" align="right" valign="top"><a id="a1bd65d280326a61657f159dae6740dbf"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>toggleSounds</b> ()</td></tr>
+<tr class="separator:a1bd65d280326a61657f159dae6740dbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a304eaaaa17f99ef401abfb4bea6fbfb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a304eaaaa17f99ef401abfb4bea6fbfb6">&#9670;&nbsp;</a></span>AudioAPI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AudioAPI::AudioAPI </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A class that separates the adapter and the Game layer </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>API/Audio/<a class="el" href="AudioAPI_8hpp_source.html">AudioAPI.hpp</a></li>
 <li>API/Audio/AudioAPI.cpp</li>
