@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.17)
 set(CMAKE_CXX_STANDARD 17)
 
 add_definitions("-DMUSIC_WAV")
+add_definitions("--verbose")
 
 set(CMAKE_CURRENT_BINARY_DIR ./build)
 set(CMAKE_CURRENT_SOURCE_DIR .)
@@ -12,7 +13,7 @@ set(SDL2_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/SDL)
 set(BOX2D_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/Box2D)
 set(SDL2_MIXER_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/SDL_mixer)
 set(SDL2IMAGE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/SDL_image)
-set(Xsd_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/XSD)
+set(Xsd_DIR ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 project(NightByte)
 
@@ -33,8 +34,7 @@ add_executable(NightByte ./Main.cpp
         ./Game/Scenes/Menu/MainMenu.hpp
         # Engine
         ./Engine/Engine.cpp
-        ./Engine/Audio/AudioFile.cpp
-        ./Engine/Audio/AudioFile.h
+        ./Engine/Audio/AudioType.h
         ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
         ./Engine/Audio/Adapter/SDLAudioEngineAdapter.cpp
         ./Engine/Audio/Adapter/SDLAudioEngineAdapter.hpp
@@ -48,12 +48,11 @@ add_executable(NightByte ./Main.cpp
         ./API/Rendering/EngineRenderingAPI.cpp
         ./API/Engine/EngineWindowAPI.cpp
         ./API/Engine/WindowAPI.hpp
-        Engine/Audio/AudioType.h
         # XML
         ./Engine/Resources/XML/Generated/wall.hxx
         ./Engine/Resources/XML/Generated/wall.cxx
-        ./Engine/Resources/XML/Generated/common.hxx
         ./Engine/Resources/XML/Generated/common.cxx
+        ./Engine/Resources/XML/Generated/common.hxx
         )
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)

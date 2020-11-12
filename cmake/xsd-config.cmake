@@ -7,16 +7,15 @@
 # XSD_EXECUTABLE, the exe file
 # XSD_FOUND, If false, don't try to use it.
 
-FIND_PATH(XSD_INCLUDE_DIR xsd/cxx/parser/elements.hxx PATH_SUFFIXES libxsd PATHS
-        "../Libraries/xsd-4.0.0-i686-windows/libxsd"
+FIND_PATH(XSD_INCLUDE_DIR xsd/cxx/parser/elements.hxx PATH_SUFFIXES ../Libraries/XSD/libxsd PATHS
+        "./Libraries/XSD/libxsd"
         )
-
 
 FIND_PROGRAM(XSD_EXECUTABLE
         NAMES
         xsd xsdcxx
         PATHS
-        "../Libraries/xsd-4.0.0-i686-windows/bin"
+        "./Libraries/XSD/bin"
         )
 
 # if the include and the program are found then we have it
@@ -32,4 +31,4 @@ ENDIF(XSD_INCLUDE_DIR)
 MARK_AS_ADVANCED(
         XSD_INCLUDE_DIR
         XSD_EXECUTABLE
-) 
+)

@@ -31,8 +31,8 @@
 // in the accompanying FLOSSE file.
 //
 
-#ifndef COMMON_HXX
-#define COMMON_HXX
+#ifndef CXX_________ENGINE_RESOURCES_XML_SCHEMAS_COMMON_HXX
+#define CXX_________ENGINE_RESOURCES_XML_SCHEMAS_COMMON_HXX
 
 #ifndef XSD_CXX11
 #define XSD_CXX11
@@ -1570,4 +1570,4 @@ position_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
 //
 // End epilogue.
 
-#endif // COMMON_HXX
+#endif // CXX_________ENGINE_RESOURCES_XML_SCHEMAS_COMMON_HXX
