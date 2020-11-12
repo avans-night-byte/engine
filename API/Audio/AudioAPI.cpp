@@ -1,7 +1,15 @@
 #include "AudioAPI.hpp"
 
+/**
+ * A class that separates the adapter and the Game layer
+ */
+
 AudioAPI::AudioAPI() {
     _adapter = new SDLAudioEngineAdapter;
+}
+
+AudioAPI::~AudioAPI() {
+    delete _adapter;
 }
 
 void AudioAPI::playFromMemory(const std::string &name) {
@@ -62,6 +70,15 @@ void AudioAPI::stopSounds() {
     SDLAudioEngineAdapter::stopSounds();
 }
 
-AudioAPI::~AudioAPI() {
-    delete _adapter;
+void AudioAPI::toggleMusic() {
+    SDLAudioEngineAdapter::toggleMusic();
 }
+
+void AudioAPI::toggleSound(int channel) {
+    SDLAudioEngineAdapter::toggleSound(channel);
+}
+
+void AudioAPI::toggleSounds() {
+    SDLAudioEngineAdapter::toggleSounds();
+}
+

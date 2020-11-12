@@ -1,5 +1,4 @@
-#ifndef NIGHTBYTE_SDLAUDIOENGINEADAPTER_HPP
-#define NIGHTBYTE_SDLAUDIOENGINEADAPTER_HPP
+#pragma once
 
 #include <iostream>
 #include <map>
@@ -7,10 +6,20 @@
 #include "SDL_mixer.h"
 #include "../AudioType.h"
 
-
 class SDLAudioEngineAdapter {
 public:
+
     SDLAudioEngineAdapter();
+
+    ~SDLAudioEngineAdapter();
+
+    SDLAudioEngineAdapter(const SDLAudioEngineAdapter &other) = default;
+
+    SDLAudioEngineAdapter(SDLAudioEngineAdapter &&other) noexcept = default;
+
+    SDLAudioEngineAdapter &operator=(const SDLAudioEngineAdapter &other);
+
+    SDLAudioEngineAdapter &operator=(SDLAudioEngineAdapter &&other) noexcept = default;
 
     std::vector<std::string> getAudioNames();
 
@@ -40,13 +49,14 @@ public:
 
     static void stopSounds();
 
+    static void toggleMusic();
+
+    static void toggleSound(int channel);
+
+    static void toggleSounds();
+
 
 private:
-    //The music that will be played
-    std::map<std::string, Mix_Music *> _globalMusic;
+    std::map<std::string, Mix_Music *> _musicTracks;
     std::map<std::string, Mix_Chunk *> _sounds;
-
-    Mix_Music* _lastPlayedMusic;
 };
-
-#endif //NIGHTBYTE_SDLAUDIOENGINEADAPTER_HPP

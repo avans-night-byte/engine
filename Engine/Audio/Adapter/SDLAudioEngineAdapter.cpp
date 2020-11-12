@@ -1,10 +1,15 @@
 #include <vector>
 #include "SDLAudioEngineAdapter.hpp"
 
+/**
+ * A class that holds all the needed functions to load in and play music
+ *
+ * You can either choose to load a sound file directly from a file path or trough memory by adding it to a dictionary
+ *
+ * Some functions are declared static for easier sound managing and optimisation.
+ * Only loading and playing of a new file requires an instance of the object
+ */
 SDLAudioEngineAdapter::SDLAudioEngineAdapter() {
-
-    _lastPlayedMusic = Mix_LoadMUS("kda.vav");
-
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
         printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
     }
@@ -14,11 +19,21 @@ SDLAudioEngineAdapter::SDLAudioEngineAdapter() {
     }
 }
 
+SDLAudioEngineAdapter::~SDLAudioEngineAdapter() {
+    Mix_CloseAudio();
+    _musicTracks.clear();
+    _sounds.clear();
+}
+
+SDLAudioEngineAdapter &SDLAudioEngineAdapter::operator=(const SDLAudioEngineAdapter& other) {
+    return *this = SDLAudioEngineAdapter(other);
+}
+
 std::vector<std::string> SDLAudioEngineAdapter::getAudioNames() {
     std::vector<std::string> keys;
 
     //Get from global music
-    for (auto const &musicFile : _globalMusic)
+    for (auto const &musicFile : _musicTracks)
         keys.push_back(musicFile.first);
     for (auto const &soundFile : _sounds)
         keys.push_back(soundFile.first);
@@ -28,9 +43,9 @@ std::vector<std::string> SDLAudioEngineAdapter::getAudioNames() {
 
 void SDLAudioEngineAdapter::playFromMemory(const std::string &name) {
 
-    if (_globalMusic.count(name) > 0) {
-        _lastPlayedMusic = _globalMusic.at(name);
-        Mix_PlayMusic(_lastPlayedMusic, 1);
+    if (_musicTracks.count(name) > 0) {
+        Mix_Music* music = _musicTracks.at(name);
+        Mix_PlayMusic(music, 1);
         return;
     }
 
@@ -49,7 +64,7 @@ void SDLAudioEngineAdapter::loadInMemory(const std::string &path, AudioType &typ
 
     switch (type) {
         case music:
-            _globalMusic[name] = Mix_LoadMUS(path.c_str());
+            _musicTracks[name] = Mix_LoadMUS(path.c_str());
             break;
         case sound:
             _sounds[name] = Mix_LoadWAV(path.c_str());
@@ -64,7 +79,6 @@ void SDLAudioEngineAdapter::playFromPath(const std::string &path, AudioType &typ
     switch (type) {
         case music:
             if (mixMusic != nullptr) {
-                _lastPlayedMusic = mixMusic;
                 Mix_PlayMusic(mixMusic, 1);
             }
             break;
@@ -116,4 +130,25 @@ void SDLAudioEngineAdapter::stopSound(int channel) {
 
 void SDLAudioEngineAdapter::stopSounds() {
     Mix_HaltChannel(-1);
+}
+
+void SDLAudioEngineAdapter::toggleMusic() {
+    if(Mix_PausedMusic())
+        Mix_ResumeMusic();
+    else
+        Mix_PauseMusic();
+}
+
+void SDLAudioEngineAdapter::toggleSound(int channel) {
+    if(Mix_Paused(channel))
+        Mix_Pause(channel);
+    else
+        Mix_Resume(channel);
+}
+
+void SDLAudioEngineAdapter::toggleSounds() {
+    if(Mix_Paused(-1))
+        Mix_Pause(-1);
+    else
+        Mix_Resume(-1);
 }
