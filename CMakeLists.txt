@@ -37,14 +37,14 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Rendering/Spritesheet.cpp
         ./Engine/Rendering/TextureManager.cpp
         ./Engine/Rendering/Adapter/SDLRenderingAdaper.cpp
+        ./Engine/Audio/AudioType.h
         # API
         ./API/Input/EngineInputAPI.cpp
         ./API/Audio/AudioAPI.cpp
         ./API/Rendering/EngineRenderingAPI.hpp
         ./API/Rendering/EngineRenderingAPI.cpp
         ./API/Engine/EngineWindowAPI.cpp
-        ./API/Engine/WindowAPI.hpp
-        Engine/Audio/AudioType.h)
+        ./API/Engine/WindowAPI.hpp)
 
 find_package(box2d REQUIRED)
 
