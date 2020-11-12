@@ -7,6 +7,7 @@
 #include <SDL_render.h>
 #include <SDL_image.h>
 #include <map>
+#include <string>
 
 class TextureManager {
 private:

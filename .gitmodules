@@ -14,7 +14,7 @@
 
 [submodule "SDL_mixer"]
 	path = Libraries/SDL_mixer
-	url = https://github.com/SDL-mirror/SDL_mixer
+	url = https://github.com/avans-night-byte/SDL_mixer.git
 
 [submodule "SDL_image"]
 	path = Libraries/SDL_image
