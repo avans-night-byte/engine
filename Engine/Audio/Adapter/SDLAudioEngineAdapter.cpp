@@ -94,7 +94,7 @@ void SDLAudioEngineAdapter::loadInMemory(const std::string &path, AudioType &typ
 }
 
 /**
- * Uses the given path and type and immediately plays the file and throws it away after its done
+ * Immediately plays the file from the given path.
  * This is used for sounds that are uncommon and are only used in specific cases
  * @tparam std::string&
  * @param path
