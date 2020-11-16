@@ -29,6 +29,10 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/WorldPositionComponent.cpp
         ./Game/Components/WorldPositionComponent.hpp
         ./Game/Scenes/Menu/MainMenu.hpp
+        ./Game/Scenes/Example/ExampleScene.cpp
+        ./Game/Scenes/Example/ExampleScene.hpp
+        ./Game/Components/PhysicsComponent.cpp
+        ./Game/Components/PhysicsComponent.h
         # Engine
         ./Engine/Engine.cpp
         ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
@@ -38,13 +42,22 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Rendering/TextureManager.cpp
         ./Engine/Rendering/Adapter/SDLRenderingAdaper.cpp
         ./Engine/Audio/AudioType.h
+        ./Engine/Physics/PhysicsEngineAdapter.hpp
+        ./Engine/Physics/Box2DPhysicsEngineAdapter.hpp
+        ./Engine/Vector2.hpp
+        ./Engine/Physics/BodyType.hpp
+        ./Engine/Physics/Box2dPhysicsEngineAdapter.cpp
+        Engine/Physics/Debug/Box2dDrawDebug.hpp
         # API
         ./API/Input/EngineInputAPI.cpp
         ./API/Audio/AudioAPI.cpp
         ./API/Rendering/EngineRenderingAPI.hpp
         ./API/Rendering/EngineRenderingAPI.cpp
         ./API/Engine/EngineWindowAPI.cpp
-        ./API/Engine/WindowAPI.hpp)
+        ./API/Engine/WindowAPI.hpp
+        ./API/Physics/EnginePhysicsAPI.hpp
+        ./API/Physics/PhysicsAPI.hpp
+        )
 
 find_package(box2d REQUIRED)
 

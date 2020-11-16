@@ -1,12 +1,10 @@
-
 #pragma once
 
-#include <map>
-#include <SDL_render.h>
-#include "SDL_image.h"
 #include "../TextureManager.hpp"
-#include <iostream>
 #include "../Spritesheet.hpp"
+#include "../../Vector2.hpp"
+
+// TODO: Store the SDL_renderer here, in the engine instead of the API?
 
 class RenderingEngineAdapter {
 private:
@@ -19,4 +17,7 @@ public:
                       SDL_Renderer *renderer);
 
     static TextureManager *GetTextureManager();
+
+    void drawLine(const Vector2& begin, const Vector2& end, SDL_Renderer *renderer) const;
+    void drawSolidRectangle(const Vector2 &position, const Vector2 &size, SDL_Renderer *renderer) const;
 };

@@ -1,3 +1,4 @@
+#define SDL_MAIN_HANDLED
 #include <iostream>
 
 // Dependencies
@@ -11,7 +12,9 @@ const int height = 480;
 int main(int argc, char *args[]) {
     std::cout << "Hello, Night Byte" << std::endl;
 
-    Game::gameLoop();
+    Game* game = Game::getInstance();
+    game->initialize();
+    game->gameLoop();
 
     return 0;
 }
