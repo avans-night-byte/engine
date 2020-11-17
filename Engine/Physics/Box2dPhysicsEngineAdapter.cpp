@@ -10,7 +10,20 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType, Vector2 po
     b2PolygonShape box;
     box.SetAsBox(size.x, size.y);
 
-    body->CreateFixture(&box, 0.0f);
+
+    // Dynamic
+    if(bodyType == BodyType::Dynamic)
+    {
+        b2FixtureDef fixtureDef;
+        fixtureDef.shape = &box;
+        fixtureDef.density = 1.0f;
+        fixtureDef.friction = 1.0f;
+        body->CreateFixture(&fixtureDef);
+    }
+    else
+    {
+        body->CreateFixture(&box, 0.0f);
+    }
 
     bodies.push_back(body);
     return bodies.size() - 1;

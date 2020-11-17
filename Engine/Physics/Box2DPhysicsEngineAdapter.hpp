@@ -12,7 +12,7 @@ using namespace std;
 class Box2DPhysicsEngineAdapter : public PhysicsEngineAdapter{
 
 private:
-    b2World world = b2World(b2Vec2(0.0f, -10.0f));
+    b2World world = b2World(b2Vec2(0.0f, 9.6f));
     vector<b2Body *> bodies = vector<b2Body *>();
 
     unique_ptr<Box2dDrawDebug> drawDebug = nullptr;

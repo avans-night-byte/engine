@@ -1,5 +1,7 @@
 #pragma once
 
+typedef signed int int32;
+
 #include "../TextureManager.hpp"
 #include "../Spritesheet.hpp"
 #include "../../Vector2.hpp"
@@ -18,6 +20,7 @@ public:
 
     static TextureManager *GetTextureManager();
 
+    void drawRectangle(const Vector2 *vertices, int32 vertexCount, SDL_Renderer *renderer) const;
     void drawLine(const Vector2& begin, const Vector2& end, SDL_Renderer *renderer) const;
     void drawSolidRectangle(const Vector2 &position, const Vector2 &size, SDL_Renderer *renderer) const;
 };

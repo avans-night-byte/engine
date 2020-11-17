@@ -1,6 +1,8 @@
 #include <iostream>
 #include "RenderingEngineAdapter.hpp"
 
+typedef signed int int32;
+
 TextureManager *RenderingEngineAdapter::GetTextureManager() {
     return TextureManager::GetInstance();
 }
@@ -18,11 +20,28 @@ RenderingEngineAdapter::createSpriteSheet(char const *path, std::string spriteSh
     return new Spritesheet(path, spriteSheetId, rows, columns, width, height, renderer);
 }
 
+void RenderingEngineAdapter::drawRectangle(const Vector2 *vertices, int32 vertexCount, SDL_Renderer *renderer) const {
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+
+    SDL_FPoint points[vertexCount + 1];
+    for (int i = 0; i < vertexCount; ++i) {
+        SDL_FPoint p = SDL_FPoint();
+        p.x = vertices[i].x;
+        p.y = vertices[i].y;
+
+        points[i] = p;
+    }
+
+    Vector2 begin = Vector2(points[0].x, points[0].y);
+    Vector2 end = Vector2(points[3].x, points[3].y);
+
+    drawLine(begin, end, renderer);
+    SDL_RenderDrawLinesF(renderer, points, vertexCount);
+}
+
 void RenderingEngineAdapter::drawLine(const Vector2 &begin, const Vector2 &end, SDL_Renderer *renderer) const {
-    SDL_SetRenderDrawColor(renderer, 0, 255, 0, SDL_ALPHA_OPAQUE);
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
     SDL_RenderDrawLineF(renderer, begin.x, begin.y, end.x, end.y);
-    SDL_SetRenderDrawColor(renderer, 0, 255, 0, SDL_ALPHA_OPAQUE);
-    SDL_RenderPresent(renderer);
 }
 
 void RenderingEngineAdapter::drawSolidRectangle(const Vector2 &position,

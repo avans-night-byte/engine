@@ -69,6 +69,18 @@ target_include_directories(NightByte PUBLIC
 
 if (MSVC OR MSYS OR MINGW)
     target_link_libraries(NightByte SDL2 box2d SDL2::image winpthread SDL2_mixer)
+
+    set(dep "${CMAKE_CXX_COMPILER}/../libwinpthread-1.dll"
+            "${CMAKE_CXX_COMPILER}/../libgcc_s_seh-1.dll"
+            "${CMAKE_CXX_COMPILER}/../libstdc++-6.dll"
+            "${CMAKE_CXX_COMPILER}/../zlib1.dll")
+
+    foreach (file_i ${dep})
+        add_custom_command(TARGET NightByte POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E copy_if_different
+                ${file_i}
+                $<TARGET_FILE_DIR:NightByte>)
+    endforeach ()
 endif ()
 
 
