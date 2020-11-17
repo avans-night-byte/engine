@@ -3,7 +3,6 @@
 // Dependencies
 #include "./Game/Game.hpp"
 
-
 // Variables
 const int width = 640;
 const int height = 480;
