@@ -5,7 +5,7 @@
 #include "box2d.h"
 
 #include "PhysicsEngineAdapter.hpp"
-#include "Debug/Box2dDrawDebug.hpp"
+#include "PhysicsDebug//Box2dDrawDebug.hpp"
 
 using namespace std;
 
