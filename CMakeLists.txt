@@ -86,7 +86,9 @@ if (MSVC OR MSYS OR MINGW)
     set(dep "${CMAKE_CXX_COMPILER}/../libwinpthread-1.dll"
             "${CMAKE_CXX_COMPILER}/../libgcc_s_seh-1.dll"
             "${CMAKE_CXX_COMPILER}/../libstdc++-6.dll"
-            "${CMAKE_CXX_COMPILER}/../zlib1.dll")
+            "${CMAKE_CXX_COMPILER}/../zlib1.dll"
+            "${CMAKE_CXX_COMPILER}/../libssh2-1.dll"
+            "${CMAKE_CXX_COMPILER}/../libcurl-4.dll")
 
     foreach (file_i ${dep})
         add_custom_command(TARGET NightByte POST_BUILD
