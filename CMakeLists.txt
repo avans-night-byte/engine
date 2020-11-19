@@ -88,7 +88,22 @@ if (MSVC OR MSYS OR MINGW)
             "${CMAKE_CXX_COMPILER}/../libstdc++-6.dll"
             "${CMAKE_CXX_COMPILER}/../zlib1.dll"
             "${CMAKE_CXX_COMPILER}/../libssh2-1.dll"
-            "${CMAKE_CXX_COMPILER}/../libcurl-4.dll")
+            "${CMAKE_CXX_COMPILER}/../libcurl-4.dll"
+            "${CMAKE_CXX_COMPILER}/../libxerces-c-3-2.dll"
+            "${CMAKE_CXX_COMPILER}/../libicuuc67.dll"
+            "${CMAKE_CXX_COMPILER}/../libbrotlidec.dll"
+            "${CMAKE_CXX_COMPILER}/../libcrypto-1_1-x64.dll"
+            "${CMAKE_CXX_COMPILER}/../libidn2-0.dll"
+            "${CMAKE_CXX_COMPILER}/../libnghttp2-14.dll"
+            "${CMAKE_CXX_COMPILER}/../libpsl-5.dll"
+            "${CMAKE_CXX_COMPILER}/../libssl-1_1-x64.dll"
+            "${CMAKE_CXX_COMPILER}/../libicudt67.dll"
+            "${CMAKE_CXX_COMPILER}/../libzstd.dll"
+            "${CMAKE_CXX_COMPILER}/../libbrotlicommon.dll"
+            "${CMAKE_CXX_COMPILER}/../libiconv-2.dll"
+            "${CMAKE_CXX_COMPILER}/../libunistring-2.dll"
+            "${CMAKE_CXX_COMPILER}/../libintl-8.dll"
+            )
 
     foreach (file_i ${dep})
         add_custom_command(TARGET NightByte POST_BUILD
