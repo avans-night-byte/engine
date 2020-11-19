@@ -11,9 +11,9 @@ const int height = 480;
 int main(int argc, char *args[]) {
     std::cout << "Hello, Night Byte" << std::endl;
 
-    Game* game = Game::getInstance();
-    game->initialize();
-    game->gameLoop();
+//    Game* game = Game::getInstance();
+    Game::initialize();
+    Game::gameLoop();
 
     return 0;
 }

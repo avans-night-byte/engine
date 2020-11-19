@@ -46,5 +46,5 @@ bool EngineRenderingAPI::loadTexture(const char *path, std::string textureId)
 }
 
 const RenderingEngineAdapter &EngineRenderingAPI::GetRendererAdapter() const {
-    return _adapter;
+    return *_adapter;
 }
