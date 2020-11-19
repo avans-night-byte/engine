@@ -1,5 +1,7 @@
 #pragma once
 
+#include "string"
+
 /**
  * A structure to represent an input from the user.
  */

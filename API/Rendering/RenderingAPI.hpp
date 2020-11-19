@@ -7,4 +7,7 @@ class RenderingAPI {
     virtual Spritesheet *createSpriteSheet(char const *path, std::string spriteSheetId, int rows, int columns, int width, int height) = 0;
 
     virtual bool loadTexture(const char *path, std::string textureId) = 0;
+
+public:
+    [[nodiscard]] virtual const RenderingEngineAdapter& GetRendererAdapter() const = 0;
 };
