@@ -14,7 +14,6 @@ public:
         physicsEngineAdapter = make_unique<Box2DPhysicsEngineAdapter>();
     }
 
-public:
     void update(const float &timeStep, const int32 &velocityIterations, const int32 &positionIterations) override {
         physicsEngineAdapter->update(timeStep, velocityIterations, positionIterations);
     }
