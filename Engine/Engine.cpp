@@ -1,6 +1,6 @@
 #include <iostream>
 #include "./Engine.hpp"
-#include "./Resources/XML/Generated/wall.hxx"
+
 // Dependencies
 #include "SDL.h"
 #include "SDL_surface.h"

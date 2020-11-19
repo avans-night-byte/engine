@@ -1,9 +1,5 @@
-//
-// Created by sasch on 04/10/2020.
-//
+#pragma once
 
-#ifndef SDL2TEST_TEXTUREMANAGER_HPP
-#define SDL2TEST_TEXTUREMANAGER_HPP
 #include <SDL_render.h>
 #include <SDL_image.h>
 #include <map>
@@ -25,6 +21,3 @@ public:
 
     static TextureManager* GetInstance();
 };
-
-
-#endif //SDL2TEST_TEXTUREMANAGER_HPP
