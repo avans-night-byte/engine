@@ -8,7 +8,7 @@ class EngineInputAPI : public InputAPI {
     private:
     InputEngineAdapter* _adapter;
    public:
-    EngineInputAPI(InputEngineAdapter* adapter);
+    EngineInputAPI();
     Input getInput() const override;
     ~EngineInputAPI();
 };
