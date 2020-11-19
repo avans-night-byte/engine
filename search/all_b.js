@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['playfrommemory_41',['playFromMemory',['../classSDLAudioEngineAdapter.html#aad4ba62055cdd5787230383b278c62c7',1,'SDLAudioEngineAdapter']]],
-  ['playfrompath_42',['playFromPath',['../classSDLAudioEngineAdapter.html#a6fe391b8b72a735c54669ac6deb2ba89',1,'SDLAudioEngineAdapter']]]
+  ['other_42',['OTHER',['../structInput.html#a90f2398be06274fc301d15b7cb00f026a0ffa05fbba06c6715e8c361393a53e41',1,'Input']]]
 ];
