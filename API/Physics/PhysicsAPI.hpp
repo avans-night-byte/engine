@@ -5,15 +5,8 @@
 #include "../../Engine/Vector2.hpp"
 #include "../../Engine/Physics/PhysicsEngineAdapter.hpp"
 #include "../Rendering/RenderingAPI.hpp"
+#include "../RPosition.hpp"
 
-struct RPosition {
-    RPosition(const float &x, const float &y) : X(x), Y(y) {
-
-    }
-
-    const float &X;
-    const float &Y;
-};
 
 typedef unsigned int BodyId;
 
