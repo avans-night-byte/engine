@@ -47,7 +47,7 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Vector2.hpp
         ./Engine/Physics/BodyType.hpp
         ./Engine/Physics/Box2dPhysicsEngineAdapter.cpp
-        Engine/Physics/Debug/Box2dDrawDebug.hpp
+        Engine/Physics/PhysicsDebug/Box2dDrawDebug.hpp
         # API
         ./API/Input/EngineInputAPI.cpp
         ./API/Audio/AudioAPI.cpp
