@@ -24,6 +24,10 @@ public:
     Spritesheet *createSpriteSheet(char const *path, std::string spriteSheetId, int rows, int columns, int width,
                                    int height) override;
 
+    Spritesheet *createSpriteSheet(char const *path, char const *jsonPath, std::string spriteSheetId);
+
+    void createText(std::string fontName, const char* text, const int fontSize, SDL_Color color, std::string textureId);
+
     static TextureManager *GetTextureManager();
 
     bool loadTexture(const char *path, std::string textureId) override;

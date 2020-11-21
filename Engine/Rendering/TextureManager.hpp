@@ -10,6 +10,7 @@ private:
     std::map<std::string, SDL_Texture*> TextureMap;
     static TextureManager* instance;
 public:
+    ~TextureManager();
     SDL_Texture* GetTexture(std::string textureId);
     bool CreateTexture(SDL_Surface * surface, std::string textureId, SDL_Renderer* renderer);
     bool load(char const *path, std::string textureId, SDL_Renderer *renderer);

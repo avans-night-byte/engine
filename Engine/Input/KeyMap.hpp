@@ -37,6 +37,7 @@ public:
     /** Keymap for device 0: keyboard */
     inline static std::map<SDL_Keycode, InputAction> keyboardMap = {
             {SDLK_1,     InputAction{.code = "1", .action = "1"}},
+            {SDLK_2,     InputAction{.code = "2", .action = "2"}},
             {SDLK_UP,    InputAction{.code = "UP", .action = "UP"}},
             {SDLK_DOWN,  InputAction{.code = "DOWN", .action = "DOWN"}},
             {SDLK_LEFT,  InputAction{.code = "LEFT", .action = "LEFT"}},

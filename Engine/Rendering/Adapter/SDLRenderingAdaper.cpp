@@ -11,6 +11,8 @@ void
 RenderingEngineAdapter::drawTexture(std::string textureId, int x, int y, int width, int height, double scale, double r,
                                     SDL_Renderer *renderer, SDL_RendererFlip flip) {
     TextureManager *textureManager = TextureManager::GetInstance();
+
+
     return textureManager->draw(textureId, x, y, width, height, scale, r, renderer, flip);
 }
 
@@ -44,6 +46,8 @@ void RenderingEngineAdapter::drawLine(const Vector2 &begin, const Vector2 &end, 
     SDL_RenderDrawLineF(renderer, begin.x, begin.y, end.x, end.y);
 }
 
+
+
 void RenderingEngineAdapter::drawSolidRectangle(const Vector2 &position,
                                                 const Vector2 &size,
                                                 SDL_Renderer *renderer) const {
@@ -62,3 +66,19 @@ void RenderingEngineAdapter::drawSolidRectangle(const Vector2 &position,
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 }
+
+Spritesheet *
+RenderingEngineAdapter::createSpriteSheet(const char *path, const char *jsonPath, std::string spriteSheetId,
+                                          SDL_Renderer *renderer) {
+    return new Spritesheet(path, jsonPath, std::move(spriteSheetId), renderer);
+}
+
+
+void RenderingEngineAdapter::createText(std::string fontName, const char* text, const int fontSize, SDL_Color color, std::string textureId,  SDL_Renderer *renderer){
+    TTF_Font* font = TTF_OpenFont(fontName.c_str(), fontSize);
+    SDL_Surface* surfaceMessage = TTF_RenderText_Blended_Wrapped(font, text, color, 550);
+    RenderingEngineAdapter::GetTextureManager()->CreateTexture(surfaceMessage, std::move(textureId), renderer);
+    SDL_FreeSurface(surfaceMessage);
+}
+
+

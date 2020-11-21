@@ -9,6 +9,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 set(SDL2_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/SDL)
+set(SDL2TTF_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/SDL_ttf)
 set(BOX2D_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/Box2D)
 set(SDL2_MIXER_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/SDL_mixer)
 set(SDL2IMAGE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/SDL_image)
@@ -17,6 +18,7 @@ project(NightByte)
 
 add_subdirectory(${SDL2_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdl)
 add_subdirectory(${SDL2_MIXER_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdl_mixer)
+add_subdirectory(${SDL2TTF_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdlttf)
 add_subdirectory(${BOX2D_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/box2d)
 add_subdirectory(${SDL2IMAGE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdlimage)
 
@@ -29,6 +31,7 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/WorldPositionComponent.cpp
         ./Game/Components/WorldPositionComponent.hpp
         ./Game/Scenes/Menu/MainMenu.hpp
+        ./Game/Scenes/HelpMenu/HelpMenu.hpp
         ./Game/Scenes/Example/ExampleScene.cpp
         ./Game/Scenes/Example/ExampleScene.hpp
         ./Game/Components/PhysicsComponent.cpp
@@ -65,7 +68,8 @@ target_include_directories(NightByte PUBLIC
         ${SDL2_SOURCE_DIR}/include
         ${SDL2_MIXER_SOURCE_DIR}/include
         ${BOX2D_SOURCE_DIR}/include/box2d
-        ${SDL2IMAGE_SOURCE_DIR})
+        ${SDL2IMAGE_SOURCE_DIR}
+        ${SDL2TTF_SOURCE_DIR})
 
 if (MSVC OR MSYS OR MINGW)
     target_link_libraries(NightByte SDL2 box2d SDL2::image winpthread SDL2_mixer)
@@ -85,5 +89,5 @@ endif ()
 
 
 if (UNIX AND NOT APPLE)
-    target_link_libraries(NightByte SDL2 box2d SDL2::image SDL2_mixer)
+    target_link_libraries(NightByte SDL2 box2d SDL2::image SDL2_mixer SDL2_ttf)
 endif ()
