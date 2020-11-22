@@ -57,7 +57,7 @@ add_executable(NightByte ./Main.cpp
         ./API/Engine/WindowAPI.hpp
         ./API/Physics/EnginePhysicsAPI.hpp
         ./API/Physics/PhysicsAPI.hpp
-        ./API/RPosition.hpp)
+        ./API/RPosition.hpp Game/Scenes/Credits/Credits.cpp Game/Scenes/Credits/Credits.hpp)
 
 find_package(box2d REQUIRED)
 
