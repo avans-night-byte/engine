@@ -1,3 +1,5 @@
+#pragma once
+
 #include "../../Engine/Input/Adapter/InputEngineAdapter.hpp"
 #include "./InputAPI.hpp"
 
