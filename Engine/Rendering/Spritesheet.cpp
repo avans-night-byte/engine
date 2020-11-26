@@ -5,7 +5,8 @@
 
 
 //TODO: Load metadata from json file.
-Spritesheet::Spritesheet(const char* path, std::string spriteSheetid, int row, int column, int width, int height, SDL_Renderer* renderer)
+Spritesheet::Spritesheet(const char *path, std::string spriteSheetid, int width, int height,
+                         SDL_Renderer *renderer)
 {
     textureId = spriteSheetid;
     sdlRenderer = renderer;
@@ -17,12 +18,14 @@ Spritesheet::Spritesheet(const char* path, std::string spriteSheetid, int row, i
 }
 
 
+
 // Free the surface in order to free memory.
 Spritesheet::~Spritesheet()
 {
     SDL_FreeSurface(m_spritesheet_image);
     TextureManager::GetInstance()->clearFromTextureMap(textureId);
 }
+
 
 
 void Spritesheet::select_sprite(int x, int y, bool useJson, const std::string& spriteName)
@@ -43,6 +46,8 @@ void Spritesheet::select_sprite(int x, int y, bool useJson, const std::string& s
         m_clip.y = y * m_clip.h;
     }
 }
+
+
 
 void Spritesheet::draw_selected_sprite(int x, int y)
 {

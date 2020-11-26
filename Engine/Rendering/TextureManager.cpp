@@ -22,6 +22,7 @@ bool TextureManager::CreateTexture(SDL_Surface *surface, std::string textureId, 
         return false;
     }
 
+    SDL_FreeSurface(surface);
     TextureMap[textureId] = surfaceTexture;
     return true;
 }
@@ -104,6 +105,7 @@ void TextureManager::drawFrame(std::string id, SDL_Rect* srcRect, int x, int y, 
 
 void TextureManager::clearFromTextureMap(std::string id)
 {
+    SDL_DestroyTexture(TextureMap[id]);
     TextureMap.erase(id);
 }
 
@@ -111,9 +113,7 @@ TextureManager::~TextureManager() {
     std::map<std::string, SDL_Texture*>::iterator it;
     for ( it = TextureMap.begin(); it != TextureMap.end(); it++ )
     {
-        SDL_DestroyTexture(it->second);
-        std::cout << it->first << std::endl;
-        TextureMap.erase(it->first);
+        this->clearFromTextureMap(it->first);
     }
 }
 

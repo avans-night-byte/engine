@@ -29,7 +29,6 @@ EngineRenderingAPI::createSpriteSheet(const char *path, const char *jsonPath, st
     return _adapter->createSpriteSheet(path, jsonPath, std::move(spriteSheetId), _renderer);
 }
 
-
 void EngineRenderingAPI::createText(std::string fontName, const char* text, const int fontSize, SDL_Color color, std::string textureId){
     return _adapter->createText(fontName, text, fontSize, color, textureId, _renderer);
 }

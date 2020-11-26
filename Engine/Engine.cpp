@@ -44,7 +44,6 @@ void Engine::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT) {
             TTF_Init();
         }
 
-
     }
 }
 
