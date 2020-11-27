@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class Box2DPhysicsEngineAdapter : public PhysicsEngineAdapter{
+class Box2DPhysicsEngineAdapter : public PhysicsEngineAdapter {
 
 private:
     b2World world = b2World(b2Vec2(0.0f, 9.6f));
@@ -43,5 +43,5 @@ public:
         world.DestroyBody(bodies[bodyID]);
     }
 
-    void DebugDraw(const RenderingEngineAdapter& renderingAdapter, SDL_Renderer &renderer) override;
+    void DebugDraw(const RenderingEngineAdapter &renderingAdapter, SDL_Renderer &renderer) override;
 };

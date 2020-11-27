@@ -13,7 +13,6 @@ class Spritesheet{
 
     private:
         SDL_Rect     m_clip;
-        SDL_Surface *m_spritesheet_image;
         std::string textureId;
         SDL_Renderer* sdlRenderer;
 };

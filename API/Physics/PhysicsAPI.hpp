@@ -14,9 +14,9 @@ class PhysicsAPI {
 public:
     virtual void update(const float& timeStep, const int32& velocityIterations, const int32& positionIterations) = 0;
 
-    virtual unsigned int createStaticBody(BodyType bodyType, Vector2 position, Vector2 size) = 0;
+    virtual unsigned int createStaticBody(BodyType bodyType, Vector2 position, Vector2 size) const = 0;
 
-    virtual unsigned int createStaticBody(BodyType bodyType, Vector2 position, float radius) = 0;
+    virtual unsigned int createStaticBody(BodyType bodyType, Vector2 position, float radius) const = 0;
 
     virtual void destroyBody(BodyId bodyId) = 0;
 

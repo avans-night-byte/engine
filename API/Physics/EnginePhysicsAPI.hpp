@@ -18,12 +18,13 @@ public:
         physicsEngineAdapter->update(timeStep, velocityIterations, positionIterations);
     }
 
-    inline BodyId createStaticBody(BodyType bodyType, Vector2 position, Vector2 size) override {
+    // TODO: Create a Helper function for BodyId
+    inline BodyId createStaticBody(BodyType bodyType, Vector2 position, Vector2 size) const override {
         return physicsEngineAdapter->createBody(bodyType, position, size);
     }
 
-    inline BodyId createStaticBody(BodyType bodyType, Vector2 position, float radius) override {
-        return 0;
+    inline BodyId createStaticBody(BodyType bodyType, Vector2 position, float radius) const override {
+        return physicsEngineAdapter->createBody(bodyType, position, radius);
     }
 
     inline void destroyBody(BodyId bodyID) override {
