@@ -89,8 +89,8 @@ void TextureManager::drawFrame(std::string id, SDL_Rect* srcRect, int x, int y, 
 
     destRect.x = x;
     destRect.y = y;
-    destRect.w = srcRect->w * 2;
-    destRect.h = srcRect->h * 2;
+    destRect.w = srcRect->w;
+    destRect.h = srcRect->h;
     SDL_RenderCopyEx(pRenderer, TextureMap[id], srcRect, &destRect, 0, 0, flip); //Load current frame on the buffer game.
 }
 

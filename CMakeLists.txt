@@ -26,6 +26,8 @@ add_subdirectory(${TMXLITE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/tmxlite)
 
 
 
+
+
 add_executable(NightByte ./Main.cpp
         # Game
         ./Game/Game.cpp
@@ -71,8 +73,7 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Resources/XML/Generated/wall.cxx
         ./Engine/Resources/XML/Generated/common.cxx
         ./Engine/Resources/XML/Generated/common.hxx
-        ./Engine/Level1.cpp
-        Engine/Level1.hpp)
+        Engine/Rendering/Level.cpp Engine/Rendering/Level.hpp Game/Scenes/Level1/Level1.cpp Game/Scenes/Level1/Level1.hpp)
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)
 find_package(Xsd REQUIRED)

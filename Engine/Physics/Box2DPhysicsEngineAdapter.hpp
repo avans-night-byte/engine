@@ -35,6 +35,8 @@ public:
 
     BodyId createBody(BodyType bodyType, Vector2 position, float radius) override;
 
+    BodyId createBody(BodyType bodyType, Vector2 position, const std::vector<Vector2> &points) override;
+
     void referencePositionToBody(BodyId bodyId, float &x, float &y) override;
 
     inline RPosition getRPosition(BodyId bodyId) override;
