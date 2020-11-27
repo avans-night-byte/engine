@@ -37,6 +37,8 @@ add_executable(NightByte ./Main.cpp
         ./Game/Scenes/Menu/MainMenu.hpp
         ./Game/Scenes/Example/ExampleScene.cpp
         ./Game/Scenes/Example/ExampleScene.hpp
+        ./Game/Scenes/Credits/Credits.cpp
+        ./Game/Scenes/Credits/Credits.hpp
         ./Game/Components/PhysicsComponent.cpp
         ./Game/Components/PhysicsComponent.h
         # Engine
@@ -53,7 +55,7 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Vector2.hpp
         ./Engine/Physics/BodyType.hpp
         ./Engine/Physics/Box2dPhysicsEngineAdapter.cpp
-        Engine/Physics/PhysicsDebug/Box2dDrawDebug.hpp
+        ./Engine/Physics/PhysicsDebug/Box2dDrawDebug.hpp
         # API
         ./API/Input/EngineInputAPI.cpp
         ./API/Audio/AudioAPI.cpp
