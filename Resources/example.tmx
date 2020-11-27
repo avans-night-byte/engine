@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="2">
+ <tileset firstgid="1" source="Overworld.tsx"/>
+ <layer id="1" name="Base layer" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJy9lIEJAjEMRU8H0G10q0KXcRzdRtcwCoUQkp8fjwj3oQ13eT9prvOwbVPppuTFrCYplGOv/s0Yjfk767CMoWrxahpmPZy13bMMxPV8VBhZzsg/YrA5Mv9VRtQDlsHM7npfnq9W/LNGfUKMyK9mWB46D7aO6j9RZaw44z3yFs2vnePF0P1CZ6BjLAP5RXFmfjMG803XvZidx965Qgzm7qj2KmP86t+7s+7NeoiezXqJTsdenUWXZl1FbwwUQSs=
+  </data>
+ </layer>
+ <layer id="2" name="Prop Layer" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztlj1uwjAYhhOUCgrcADhDaekNKGcogZWegwBSu8A5+OvP0m6d4ACAgK1jp3YEdp5IHlAUm8bES8UrPcsn531sK5EyTljWi0GeYQ0msz47QjOxLWtqyx3XClcSUnAJachI1v3Q/6tw3CgcV1D09+Gvg5KYN+h7sKWPRXLcQxVcqEFdzLv092JyNMGDFrSho66VOlyFow8DGMIIxpqOwzwye4rpfZM5Xpm9BeZN7t2D1pH7/6sjLH26BzAMcWxgK9jBp6ZjRvccFiGOHLO8oADfmg5Vgo7swT7icpTpvBNU4PYER9fhm3Oi+aM63un/MOz4itiv43AuzDt04vcvDf8zrAyf4b9lD0O4Zrw=
+  </data>
+ </layer>
+ <objectgroup id="3" name="Object Layer">
+  <object id="1" x="184.004" y="79.6364">
+   <polygon points="0,0 -36.5275,19.5932 -36.9127,52.4828 -33.4697,52.5898 -33.1575,77.2667 33.3321,77.4545 33.1896,52.5267 37.2691,52.4859 36.5239,19.4053"/>
+  </object>
+ </objectgroup>
+</map>

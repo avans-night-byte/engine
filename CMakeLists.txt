@@ -7,11 +7,13 @@ set(CMAKE_CURRENT_BINARY_DIR ./build)
 set(CMAKE_CURRENT_SOURCE_DIR .)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(TMXLITE_STATIC_LIB TRUE)
 
 set(SDL2_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/SDL)
 set(BOX2D_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/Box2D)
 set(SDL2_MIXER_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/SDL_mixer)
 set(SDL2IMAGE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/SDL_image)
+set(TMXLITE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Libraries/tmxlite/tmxlite)
 set(Xsd_DIR ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 project(NightByte)
@@ -20,6 +22,8 @@ add_subdirectory(${SDL2_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdl)
 add_subdirectory(${SDL2_MIXER_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdl_mixer)
 add_subdirectory(${BOX2D_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/box2d)
 add_subdirectory(${SDL2IMAGE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdlimage)
+add_subdirectory(${TMXLITE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/tmxlite)
+
 
 
 add_executable(NightByte ./Main.cpp
@@ -65,7 +69,8 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Resources/XML/Generated/wall.cxx
         ./Engine/Resources/XML/Generated/common.cxx
         ./Engine/Resources/XML/Generated/common.hxx
-        )
+        ./Engine/Level1.cpp
+        Engine/Level1.hpp)
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)
 find_package(Xsd REQUIRED)
@@ -75,10 +80,11 @@ target_include_directories(NightByte PUBLIC
         ${BOX2D_SOURCE_DIR}/include/box2d
         ${SDL2_MIXER_SOURCE_DIR}/include
         ${SDL2IMAGE_SOURCE_DIR}
+        ${TMXLITE_SOURCE_DIR}
         ${XSD_INCLUDE_DIR})
 
 
-target_link_libraries(NightByte SDL2 box2d SDL2::image XercesC::XercesC SDL2_mixer)
+target_link_libraries(NightByte SDL2 box2d SDL2::image XercesC::XercesC SDL2_mixer tmxlite)
 
 if (MSVC OR MSYS OR MINGW)
     target_link_libraries(NightByte winpthread)

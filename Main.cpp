@@ -3,6 +3,7 @@
 
 // Dependencies
 #include "./Game/Game.hpp"
+#include "./Engine/Level1.hpp"
 
 // Variables
 const int width = 640;
@@ -13,6 +14,7 @@ int main(int argc, char *args[]) {
 
     Game::initialize();
     Game::gameLoop();
+
 
     return 0;
 }
