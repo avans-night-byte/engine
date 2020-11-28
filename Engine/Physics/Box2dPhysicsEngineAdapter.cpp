@@ -5,9 +5,12 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType, Vector2 po
     bodyDef.type = static_cast<b2BodyType>(static_cast<int>(bodyType));
     bodyDef.position.Set(position.x, position.y);
 
+    bodyDef.linearDamping = 0.1f;
+    bodyDef.angularDamping = 0.1f;
     b2Body *body = world.CreateBody(&bodyDef);
     b2PolygonShape box;
     box.SetAsBox(size.x, size.y);
+
 
     // Dynamic
     if(bodyType == BodyType::Dynamic)
@@ -16,6 +19,7 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType, Vector2 po
         fixtureDef.shape = &box;
         fixtureDef.density = 1.0f;
         fixtureDef.friction = 1.0f;
+
         body->CreateFixture(&fixtureDef);
     }
     else
@@ -31,7 +35,8 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType, Vector2 po
     b2BodyDef bodyDef;
     bodyDef.type = static_cast<b2BodyType>(static_cast<int>(bodyType));
     bodyDef.position.Set(position.x, position.y);
-
+    bodyDef.linearDamping = 0.1f;
+    bodyDef.angularDamping = 0.1f;
     b2Body *body = world.CreateBody(&bodyDef);
     b2CircleShape circle;
     circle.m_radius = radius;
