@@ -4,7 +4,7 @@
 #include "BodyType.hpp"
 #include "../../API/Physics/PhysicsAPI.hpp"
 #include "../Rendering/Adapter/RenderingEngineAdapter.hpp"
-
+#include <vector>
 
 typedef signed int int32;
 typedef unsigned int BodyId;
@@ -20,6 +20,8 @@ public:
     virtual void update(const float &timeStep, const int32 &velocityIterations, const int32 &positionIterations) = 0;
 
     virtual BodyId createBody(BodyType bodyType, Vector2 position, Vector2 size) = 0;
+
+    virtual BodyId createBody(BodyType bodyType, Vector2 position, const std::vector<Vector2> &points) = 0;
 
     virtual BodyId createBody(BodyType bodyType, Vector2 position, float radius) = 0;
 
