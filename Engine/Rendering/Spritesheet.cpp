@@ -28,7 +28,7 @@ void Spritesheet::select_sprite(int x, int y)
     m_clip.y = y * m_clip.h;
 }
 
-void Spritesheet::draw_selected_sprite(int x, int y)
+void Spritesheet::draw_selected_sprite(float x, float y)
 {
     return TextureManager::GetInstance()->drawFrame(textureId, &m_clip, x, y, sdlRenderer, SDL_FLIP_NONE);
 }

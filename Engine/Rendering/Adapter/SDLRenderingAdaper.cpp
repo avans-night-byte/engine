@@ -63,18 +63,25 @@ void RenderingEngineAdapter::drawLine(const Vector2 &begin, const Vector2 &end, 
 //}
 
 void RenderingEngineAdapter::drawCircle(const Vector2 &center, const float &radius, SDL_Renderer *renderer) const {
-    int x = center.x;
-    int y = center.y;
-    int iRadius = radius;
+    float x = center.x;
+    float y = center.y;
+    float iRadius = radius;
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-    for (int w = 0; w < iRadius * 2; w++) {
-        for (int h = 0; h < iRadius * 2; h++) {
-            int dx = iRadius - w; // horizontal offset
-            int dy = iRadius - h; // vertical offset
+    for (float w = 0; w < iRadius * 2; w++) {
+        for (float h = 0; h < iRadius * 2; h++) {
+            float dx = iRadius - w; // horizontal offset
+            float dy = iRadius - h; // vertical offset
             if ((dx * dx + dy * dy) <= (iRadius * iRadius)) {
-                SDL_RenderDrawPoint(renderer, x + dx, y + dy);
+                SDL_RenderDrawPointF(renderer, x + dx, y + dy);
             }
         }
     }
+
+    SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+    SDL_RenderDrawPointF(renderer, x, y);
+    SDL_RenderDrawPointF(renderer, x + 1, y);
+    SDL_RenderDrawPointF(renderer, x - 1, y);
+    SDL_RenderDrawPointF(renderer, x, y + 1);
+    SDL_RenderDrawPointF(renderer, x, y - 1);
 }

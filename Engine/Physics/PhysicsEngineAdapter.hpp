@@ -6,17 +6,15 @@
 #include "../Rendering/Adapter/RenderingEngineAdapter.hpp"
 
 
-
 typedef signed int int32;
 typedef unsigned int BodyId;
 struct RPosition;
 
 class PhysicsEngineAdapter {
 public:
-    PhysicsEngineAdapter()= default;
+    PhysicsEngineAdapter() = default;
 
-    virtual ~PhysicsEngineAdapter()
-    = default;;
+    virtual ~PhysicsEngineAdapter() = default;
 
 public:
     virtual void update(const float &timeStep, const int32 &velocityIterations, const int32 &positionIterations) = 0;
@@ -31,5 +29,11 @@ public:
 
     virtual void destroyBody(BodyId BodyID) = 0;
 
-    virtual void DebugDraw(const RenderingEngineAdapter& renderingAdapter, SDL_Renderer &renderer) = 0;
+    virtual void DebugDraw(const RenderingEngineAdapter &renderingAdapter, SDL_Renderer &renderer) = 0;
+
+    virtual void getVelocity(Vector2 &velocity, BodyId bodyId) const = 0;
+
+    virtual void setLinearVelocity(const BodyId bodyId, const Vector2 &vector2) = 0;
+
+    virtual void setFixedRotation(const BodyId bodyId, bool b) = 0;
 };

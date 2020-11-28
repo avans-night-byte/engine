@@ -50,7 +50,6 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType, Vector2 po
         body->CreateFixture(&circle, 0.0f);
     }
 
-
     bodies.push_back(body);
     return bodies.size() - 1;
 }
@@ -88,4 +87,20 @@ void Box2DPhysicsEngineAdapter::DebugDraw(const RenderingEngineAdapter& renderin
 void Box2DPhysicsEngineAdapter::update(const float &timeStep, const int32 &velocityIterations,
                                        const int32 &positionIterations) {
     world.Step(timeStep, velocityIterations, positionIterations);
+}
+
+void Box2DPhysicsEngineAdapter::setLinearVelocity(const BodyId bodyId, const Vector2 &vector2) {
+    b2Vec2 vel = b2Vec2(vector2.x, vector2.y);
+
+    bodies[bodyId]->SetLinearVelocity(vel);
+}
+
+void Box2DPhysicsEngineAdapter::getVelocity(Vector2 &velocity, BodyId bodyId) const {
+    b2Vec2 b2Vec2 = bodies[bodyId]->GetLinearVelocity();
+    velocity = Vector2(b2Vec2.x, b2Vec2.y);
+}
+
+void Box2DPhysicsEngineAdapter::setFixedRotation(const BodyId bodyId, bool b) {
+    b2Body *body = bodies[bodyId];
+    body->SetFixedRotation(b);
 }

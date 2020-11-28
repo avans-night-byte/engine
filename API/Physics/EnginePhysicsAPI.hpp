@@ -31,11 +31,23 @@ public:
         physicsEngineAdapter->destroyBody(bodyID);
     }
 
-    RPosition getRPosition(BodyId bodyId) override {
+    RPosition getRPosition(BodyId bodyId) const override {
         return physicsEngineAdapter->getRPosition(bodyId);
     }
 
     void DebugDraw(const RenderingAPI &renderingApi, SDL_Renderer& renderer) override {
         physicsEngineAdapter->DebugDraw(renderingApi.GetRendererAdapter(), renderer);
+    }
+
+    void GetVelocity(Vector2 &velocity, const BodyId bodyId) const override {
+        physicsEngineAdapter->getVelocity(velocity, bodyId);
+    }
+
+    void setLinearVelocity(const BodyId bodyId, const Vector2 &vector2) const override {
+        physicsEngineAdapter->setLinearVelocity(bodyId, vector2);
+    }
+
+    void setFixedRotation(const BodyId i, bool b) const override {
+        physicsEngineAdapter->setFixedRotation(i, b);
     }
 };

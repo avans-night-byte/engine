@@ -67,31 +67,31 @@ void TextureManager::draw(std::string textureId, int x, int y, int width, int he
     SDL_RenderCopyEx(renderer, TextureMap[textureId], &srcRect, &destRect,0,0, flip);
 }
 
-void TextureManager::drawFrame(std::string id, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer *pRenderer, SDL_RendererFlip flip)
+void TextureManager::drawFrame(std::string id, float x, float y, int width, int height, int currentRow, int currentFrame, SDL_Renderer *pRenderer, SDL_RendererFlip flip)
 {
     SDL_Rect srcRect; //source rectangle
-    SDL_Rect destRect; //destination rectangle
+    SDL_FRect destRect; //destination rectangle
 
     srcRect.x = width * currentFrame;
     srcRect.y = height * (currentRow - 1);
-    srcRect.w = destRect.w = width;
-    srcRect.h = destRect.h = height;
+    destRect.w = srcRect.w = width;
+    destRect.h = srcRect.h = height;
     destRect.x = x;
     destRect.y = y;
 
-    SDL_RenderCopyEx(pRenderer, TextureMap[id], &srcRect, &destRect, 0, 0, flip); //Load current frame on the buffer game.
+    SDL_RenderCopyExF(pRenderer, TextureMap[id], &srcRect, &destRect, 0, 0, flip); //Load current frame on the buffer game.
 }
 
 
-void TextureManager::drawFrame(std::string id, SDL_Rect* srcRect, int x, int y, SDL_Renderer *pRenderer, SDL_RendererFlip flip)
+void TextureManager::drawFrame(std::string id, SDL_Rect* srcRect, float x, float y, SDL_Renderer *pRenderer, SDL_RendererFlip flip)
 {
-    SDL_Rect destRect; //destination rectangle
+    SDL_FRect destRect; //destination rectangle
 
     destRect.x = x;
     destRect.y = y;
     destRect.w = srcRect->w;
     destRect.h = srcRect->h;
-    SDL_RenderCopyEx(pRenderer, TextureMap[id], srcRect, &destRect, 0, 0, flip); //Load current frame on the buffer game.
+    SDL_RenderCopyExF(pRenderer, TextureMap[id], srcRect, &destRect, 0, 0, flip); //Load current frame on the buffer game.
 }
 
 

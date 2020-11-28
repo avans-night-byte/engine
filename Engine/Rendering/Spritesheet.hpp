@@ -9,7 +9,7 @@ class Spritesheet{
         Spritesheet(const char* path, std::string spriteSheetid, int row, int column, int width, int height, SDL_Renderer* renderer);
         ~Spritesheet();
         void select_sprite(int x, int y);
-        void draw_selected_sprite(int x, int y);
+        void draw_selected_sprite(float x, float y);
 
     private:
         SDL_Rect     m_clip;

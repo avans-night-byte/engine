@@ -20,7 +20,13 @@ public:
 
     virtual void destroyBody(BodyId bodyId) = 0;
 
-    virtual RPosition getRPosition(BodyId bodyId) = 0;
+    virtual RPosition getRPosition(BodyId bodyId) const = 0;
 
     virtual void DebugDraw(const RenderingAPI &renderingApi, SDL_Renderer& renderer) = 0;
+
+    virtual void GetVelocity(Vector2 &velocity, const BodyId bodyId) const = 0;
+
+    virtual void setLinearVelocity(const BodyId bodyId, const Vector2 &vector2) const = 0;
+
+    virtual void setFixedRotation(const BodyId i, bool b) const = 0;
 };
