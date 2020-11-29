@@ -18,7 +18,7 @@ public:
 
     virtual unsigned int createStaticBody(BodyType bodyType, Vector2 position, float radius) const = 0;
 
-    virtual unsigned int createStaticBody(BodyType bodyType, Vector2 position, const std::vector<Vector2> &points) = 0;
+    virtual unsigned int createStaticBody(BodyType bodyType, Vector2 position, std::vector<Vector2> &points) const = 0;
 
     virtual void destroyBody(BodyId bodyId) = 0;
 

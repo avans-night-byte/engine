@@ -23,7 +23,7 @@ public:
         return physicsEngineAdapter->createBody(bodyType, position, size);
     }
 
-    inline BodyId createStaticBody(BodyType bodyType, Vector2 position, const std::vector<Vector2> &points) override {
+    inline BodyId createStaticBody(BodyType bodyType, Vector2 position, std::vector<Vector2> &points) const override {
         return physicsEngineAdapter->createBody(bodyType, position, points);
     }
 

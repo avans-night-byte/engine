@@ -32,7 +32,7 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType, Vector2 po
 }
 
 
-unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType, Vector2 position, const std::vector<Vector2>& points) {
+unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType, Vector2 position, std::vector<Vector2>& points) {
     b2BodyDef bodyDef;
     bodyDef.type = static_cast<b2BodyType>(static_cast<int>(bodyType));
 

@@ -9,6 +9,9 @@
 #include "../../API/Rendering/EngineRenderingAPI.hpp"
 #include "../../Game/Game.hpp"
 
+
+float scale = 4;
+
 Level::Level(const char * tmxPath, const char* spritesheetPath, const char*  spritesheetId, EngineRenderingAPI& engineRenderingAPI) {
     _tSpritesheet = engineRenderingAPI.createSpriteSheet(spritesheetPath,
                                                          spritesheetId, 40, 40, 16, 16);
@@ -35,25 +38,9 @@ void Level::render(EngineRenderingAPI& engineRenderingApi) {
 
     for (const auto &layer : layers) {
         if (layer->getType() == tmx::Layer::Type::Object) {
-//            const auto &objectLayer = layer->getLayerAs<tmx::ObjectGroup>();
-//            const auto &objects = objectLayer.getObjects();
-//            for (const auto &object : objects) {
-//                for (const auto &point : object.getPoints()) {
-//                    std::cout << point.x << " " << point.y << std::endl;
-//                }
-//            }
+
         } else if (layer->getType() == tmx::Layer::Type::Tile) {
             const auto tileLayer = layer->getLayerAs<tmx::TileLayer>();
-            //read out tile layer properties etc...
-
-//            for (const auto &chunk : tileLayer.getChunks()) {
-//                std::cout << chunk.position.x << " " << chunk.position.y << std::endl;
-//
-//                for (const auto &tile : chunk.tiles) {
-//                //    std::cout << tile.ID << " " << tile.flipFlags << std::endl;
-//                }
-//
-//            }
 
             auto map_dimensions = _tmap.getTileCount();
             auto rows = map_dimensions.y;
@@ -75,11 +62,11 @@ void Level::render(EngineRenderingAPI& engineRenderingApi) {
 
                     auto texture = _tSpriteMap[cur_gid];
 
-                    auto x_pos = x * 16;
-                    auto y_pos = y * 16;
+                    auto x_pos = x * (16 * scale);
+                    auto y_pos = y * (16 * scale);
 
                     _tSpritesheet->select_sprite((texture.x / 16) - 1, texture.y / 16);
-                    _tSpritesheet->draw_selected_sprite(x_pos, y_pos);
+                    _tSpritesheet->draw_selected_sprite(x_pos, y_pos, scale);
 
                 }
             }
@@ -101,19 +88,19 @@ void Level::initCollision(){
 
 
                 for (const auto &point : object.getPoints()) {
-                    points.push_back(Vector2(point.x, point.y));
+                    points.push_back(Vector2(point.x * scale, point.y * scale));
                 }
 
 
                 if(points.empty()){
                     // Rectangle
                     auto rect = object.getAABB();
-                    Game::getInstance()->getPhysicsAPI()->createStaticBody(BodyType::Static, Vector2(object.getPosition().x, object.getPosition().y), Vector2(rect.width/2, rect.height/2));
+                    Game::getInstance()->getPhysicsAPI()->createStaticBody(BodyType::Static, Vector2((object.getPosition().x * scale ) + (rect.width * scale) / 2, (object.getPosition().y * scale) + (rect.height * scale) / 2), Vector2(rect.width /2 * scale, rect.height/2 * scale));
                     continue;
                 }
 
 
-                Vector2 pos = Vector2(object.getPosition().x, object.getPosition().y);
+                Vector2 pos = Vector2(object.getPosition().x * scale, object.getPosition().y * scale);
                 Game::getInstance()->getPhysicsAPI()->createStaticBody(BodyType::Static, pos , points);
             }
         }

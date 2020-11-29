@@ -21,7 +21,7 @@ public:
 
     virtual BodyId createBody(BodyType bodyType, Vector2 position, Vector2 size) = 0;
 
-    virtual BodyId createBody(BodyType bodyType, Vector2 position, const std::vector<Vector2> &points) = 0;
+    virtual BodyId createBody(BodyType bodyType, Vector2 position, std::vector<Vector2> &points) = 0;
 
     virtual BodyId createBody(BodyType bodyType, Vector2 position, float radius) = 0;
 
