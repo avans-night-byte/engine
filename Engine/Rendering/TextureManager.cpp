@@ -83,7 +83,7 @@ void TextureManager::drawFrame(std::string id, float x, float y, int width, int 
 }
 
 
-void TextureManager::drawFrame(std::string id, SDL_Rect* srcRect, float x, float y, SDL_Renderer *pRenderer, SDL_RendererFlip flip)
+void TextureManager::drawFrame(std::string id, SDL_Rect* srcRect, float x, float y, SDL_Renderer *pRenderer, SDL_RendererFlip flip, float scale)
 {
     SDL_FRect destRect; //destination rectangle
 
