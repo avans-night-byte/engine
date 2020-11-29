@@ -24,10 +24,6 @@ add_subdirectory(${BOX2D_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/box2d)
 add_subdirectory(${SDL2IMAGE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdlimage)
 add_subdirectory(${TMXLITE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/tmxlite)
 
-
-
-
-
 add_executable(NightByte ./Main.cpp
         # Game
         ./Game/Game.cpp
@@ -75,6 +71,8 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Resources/XML/Generated/wall.cxx
         ./Engine/Resources/XML/Generated/common.cxx
         ./Engine/Resources/XML/Generated/common.hxx
+        ./Engine/Resources/XML/Generated/menu.cxx
+        ./Engine/Resources/XML/Generated/menu.hxx
         Engine/Rendering/Level.cpp Engine/Rendering/Level.hpp Game/Scenes/Level1/Level1.cpp Game/Scenes/Level1/Level1.hpp)
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)

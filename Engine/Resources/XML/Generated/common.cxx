@@ -85,6 +85,10 @@ operator= (value v)
 }
 
 
+// opacity
+// 
+
+
 // assets
 // 
 
@@ -266,6 +270,36 @@ onAttack (::std::unique_ptr< onAttack_type > x)
   this->onAttack_.set (std::move (x));
 }
 
+const events::onClick_optional& events::
+onClick () const
+{
+  return this->onClick_;
+}
+
+events::onClick_optional& events::
+onClick ()
+{
+  return this->onClick_;
+}
+
+void events::
+onClick (const onClick_type& x)
+{
+  this->onClick_.set (x);
+}
+
+void events::
+onClick (const onClick_optional& x)
+{
+  this->onClick_ = x;
+}
+
+void events::
+onClick (::std::unique_ptr< onClick_type > x)
+{
+  this->onClick_.set (std::move (x));
+}
+
 
 // collider
 // 
@@ -353,6 +387,98 @@ y (const y_type& x)
 }
 
 
+// size
+// 
+
+const size::width_type& size::
+width () const
+{
+  return this->width_.get ();
+}
+
+size::width_type& size::
+width ()
+{
+  return this->width_.get ();
+}
+
+void size::
+width (const width_type& x)
+{
+  this->width_.set (x);
+}
+
+const size::height_type& size::
+height () const
+{
+  return this->height_.get ();
+}
+
+size::height_type& size::
+height ()
+{
+  return this->height_.get ();
+}
+
+void size::
+height (const height_type& x)
+{
+  this->height_.set (x);
+}
+
+
+// color
+// 
+
+const color::hex_type& color::
+hex () const
+{
+  return this->hex_.get ();
+}
+
+color::hex_type& color::
+hex ()
+{
+  return this->hex_.get ();
+}
+
+void color::
+hex (const hex_type& x)
+{
+  this->hex_.set (x);
+}
+
+void color::
+hex (::std::unique_ptr< hex_type > x)
+{
+  this->hex_.set (std::move (x));
+}
+
+const color::opacity_type& color::
+opacity () const
+{
+  return this->opacity_.get ();
+}
+
+color::opacity_type& color::
+opacity ()
+{
+  return this->opacity_.get ();
+}
+
+void color::
+opacity (const opacity_type& x)
+{
+  this->opacity_.set (x);
+}
+
+void color::
+opacity (::std::unique_ptr< opacity_type > x)
+{
+  this->opacity_.set (std::move (x));
+}
+
+
 // base
 // 
 
@@ -414,34 +540,34 @@ repeat_default_value ()
 // onEnter
 // 
 
-const onEnter::soundAction_optional& onEnter::
-soundAction () const
+const onEnter::playSound_optional& onEnter::
+playSound () const
 {
-  return this->soundAction_;
+  return this->playSound_;
 }
 
-onEnter::soundAction_optional& onEnter::
-soundAction ()
+onEnter::playSound_optional& onEnter::
+playSound ()
 {
-  return this->soundAction_;
-}
-
-void onEnter::
-soundAction (const soundAction_type& x)
-{
-  this->soundAction_.set (x);
+  return this->playSound_;
 }
 
 void onEnter::
-soundAction (const soundAction_optional& x)
+playSound (const playSound_type& x)
 {
-  this->soundAction_ = x;
+  this->playSound_.set (x);
 }
 
 void onEnter::
-soundAction (::std::unique_ptr< soundAction_type > x)
+playSound (const playSound_optional& x)
 {
-  this->soundAction_.set (std::move (x));
+  this->playSound_ = x;
+}
+
+void onEnter::
+playSound (::std::unique_ptr< playSound_type > x)
+{
+  this->playSound_.set (std::move (x));
 }
 
 const onEnter::loadAction_optional& onEnter::
@@ -478,34 +604,34 @@ loadAction (::std::unique_ptr< loadAction_type > x)
 // onLeave
 // 
 
-const onLeave::soundAction_optional& onLeave::
-soundAction () const
+const onLeave::playSound_optional& onLeave::
+playSound () const
 {
-  return this->soundAction_;
+  return this->playSound_;
 }
 
-onLeave::soundAction_optional& onLeave::
-soundAction ()
+onLeave::playSound_optional& onLeave::
+playSound ()
 {
-  return this->soundAction_;
-}
-
-void onLeave::
-soundAction (const soundAction_type& x)
-{
-  this->soundAction_.set (x);
+  return this->playSound_;
 }
 
 void onLeave::
-soundAction (const soundAction_optional& x)
+playSound (const playSound_type& x)
 {
-  this->soundAction_ = x;
+  this->playSound_.set (x);
 }
 
 void onLeave::
-soundAction (::std::unique_ptr< soundAction_type > x)
+playSound (const playSound_optional& x)
 {
-  this->soundAction_.set (std::move (x));
+  this->playSound_ = x;
+}
+
+void onLeave::
+playSound (::std::unique_ptr< playSound_type > x)
+{
+  this->playSound_.set (std::move (x));
 }
 
 const onLeave::loadAction_optional& onLeave::
@@ -542,34 +668,34 @@ loadAction (::std::unique_ptr< loadAction_type > x)
 // onAttacked
 // 
 
-const onAttacked::soundAction_optional& onAttacked::
-soundAction () const
+const onAttacked::playSound_optional& onAttacked::
+playSound () const
 {
-  return this->soundAction_;
+  return this->playSound_;
 }
 
-onAttacked::soundAction_optional& onAttacked::
-soundAction ()
+onAttacked::playSound_optional& onAttacked::
+playSound ()
 {
-  return this->soundAction_;
-}
-
-void onAttacked::
-soundAction (const soundAction_type& x)
-{
-  this->soundAction_.set (x);
+  return this->playSound_;
 }
 
 void onAttacked::
-soundAction (const soundAction_optional& x)
+playSound (const playSound_type& x)
 {
-  this->soundAction_ = x;
+  this->playSound_.set (x);
 }
 
 void onAttacked::
-soundAction (::std::unique_ptr< soundAction_type > x)
+playSound (const playSound_optional& x)
 {
-  this->soundAction_.set (std::move (x));
+  this->playSound_ = x;
+}
+
+void onAttacked::
+playSound (::std::unique_ptr< playSound_type > x)
+{
+  this->playSound_.set (std::move (x));
 }
 
 const onAttacked::loadAction_optional& onAttacked::
@@ -606,34 +732,34 @@ loadAction (::std::unique_ptr< loadAction_type > x)
 // onDestroyed
 // 
 
-const onDestroyed::soundAction_optional& onDestroyed::
-soundAction () const
+const onDestroyed::playSound_optional& onDestroyed::
+playSound () const
 {
-  return this->soundAction_;
+  return this->playSound_;
 }
 
-onDestroyed::soundAction_optional& onDestroyed::
-soundAction ()
+onDestroyed::playSound_optional& onDestroyed::
+playSound ()
 {
-  return this->soundAction_;
-}
-
-void onDestroyed::
-soundAction (const soundAction_type& x)
-{
-  this->soundAction_.set (x);
+  return this->playSound_;
 }
 
 void onDestroyed::
-soundAction (const soundAction_optional& x)
+playSound (const playSound_type& x)
 {
-  this->soundAction_ = x;
+  this->playSound_.set (x);
 }
 
 void onDestroyed::
-soundAction (::std::unique_ptr< soundAction_type > x)
+playSound (const playSound_optional& x)
 {
-  this->soundAction_.set (std::move (x));
+  this->playSound_ = x;
+}
+
+void onDestroyed::
+playSound (::std::unique_ptr< playSound_type > x)
+{
+  this->playSound_.set (std::move (x));
 }
 
 const onDestroyed::loadAction_optional& onDestroyed::
@@ -670,34 +796,34 @@ loadAction (::std::unique_ptr< loadAction_type > x)
 // onAttack
 // 
 
-const onAttack::soundAction_optional& onAttack::
-soundAction () const
+const onAttack::playSound_optional& onAttack::
+playSound () const
 {
-  return this->soundAction_;
+  return this->playSound_;
 }
 
-onAttack::soundAction_optional& onAttack::
-soundAction ()
+onAttack::playSound_optional& onAttack::
+playSound ()
 {
-  return this->soundAction_;
-}
-
-void onAttack::
-soundAction (const soundAction_type& x)
-{
-  this->soundAction_.set (x);
+  return this->playSound_;
 }
 
 void onAttack::
-soundAction (const soundAction_optional& x)
+playSound (const playSound_type& x)
 {
-  this->soundAction_ = x;
+  this->playSound_.set (x);
 }
 
 void onAttack::
-soundAction (::std::unique_ptr< soundAction_type > x)
+playSound (const playSound_optional& x)
 {
-  this->soundAction_.set (std::move (x));
+  this->playSound_ = x;
+}
+
+void onAttack::
+playSound (::std::unique_ptr< playSound_type > x)
+{
+  this->playSound_.set (std::move (x));
 }
 
 const onAttack::loadAction_optional& onAttack::
@@ -731,40 +857,104 @@ loadAction (::std::unique_ptr< loadAction_type > x)
 }
 
 
-// size
+// onClick
 // 
 
-const size::width_type& size::
+const onClick::playSound_optional& onClick::
+playSound () const
+{
+  return this->playSound_;
+}
+
+onClick::playSound_optional& onClick::
+playSound ()
+{
+  return this->playSound_;
+}
+
+void onClick::
+playSound (const playSound_type& x)
+{
+  this->playSound_.set (x);
+}
+
+void onClick::
+playSound (const playSound_optional& x)
+{
+  this->playSound_ = x;
+}
+
+void onClick::
+playSound (::std::unique_ptr< playSound_type > x)
+{
+  this->playSound_.set (std::move (x));
+}
+
+const onClick::loadScene_optional& onClick::
+loadScene () const
+{
+  return this->loadScene_;
+}
+
+onClick::loadScene_optional& onClick::
+loadScene ()
+{
+  return this->loadScene_;
+}
+
+void onClick::
+loadScene (const loadScene_type& x)
+{
+  this->loadScene_.set (x);
+}
+
+void onClick::
+loadScene (const loadScene_optional& x)
+{
+  this->loadScene_ = x;
+}
+
+void onClick::
+loadScene (::std::unique_ptr< loadScene_type > x)
+{
+  this->loadScene_.set (std::move (x));
+}
+
+
+// size1
+// 
+
+const size1::width_type& size1::
 width () const
 {
   return this->width_.get ();
 }
 
-size::width_type& size::
+size1::width_type& size1::
 width ()
 {
   return this->width_.get ();
 }
 
-void size::
+void size1::
 width (const width_type& x)
 {
   this->width_.set (x);
 }
 
-const size::height_type& size::
+const size1::height_type& size1::
 height () const
 {
   return this->height_.get ();
 }
 
-size::height_type& size::
+size1::height_type& size1::
 height ()
 {
   return this->height_.get ();
 }
 
-void size::
+void size1::
 height (const height_type& x)
 {
   this->height_.set (x);
@@ -846,6 +1036,60 @@ _xsd_repeatType_indexes_[4] =
   ::repeatType::repeat_x,
   ::repeatType::repeat_y
 };
+
+// opacity
+//
+
+opacity::
+opacity (const ::xml_schema::float_& _xsd_float__base)
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base)
+{
+}
+
+opacity::
+opacity (const opacity& x,
+         ::xml_schema::flags f,
+         ::xml_schema::container* c)
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c)
+{
+}
+
+opacity::
+opacity (const ::xercesc::DOMElement& e,
+         ::xml_schema::flags f,
+         ::xml_schema::container* c)
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f, c)
+{
+}
+
+opacity::
+opacity (const ::xercesc::DOMAttr& a,
+         ::xml_schema::flags f,
+         ::xml_schema::container* c)
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (a, f, c)
+{
+}
+
+opacity::
+opacity (const ::std::string& s,
+         const ::xercesc::DOMElement* e,
+         ::xml_schema::flags f,
+         ::xml_schema::container* c)
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (s, e, f, c)
+{
+}
+
+opacity* opacity::
+_clone (::xml_schema::flags f,
+        ::xml_schema::container* c) const
+{
+  return new class opacity (*this, f, c);
+}
+
+opacity::
+~opacity ()
+{
+}
 
 // assets
 //
@@ -956,7 +1200,8 @@ events ()
   onLeave_ (this),
   onAttacked_ (this),
   onDestroyed_ (this),
-  onAttack_ (this)
+  onAttack_ (this),
+  onClick_ (this)
 {
 }
 
@@ -969,7 +1214,8 @@ events (const events& x,
   onLeave_ (x.onLeave_, f, this),
   onAttacked_ (x.onAttacked_, f, this),
   onDestroyed_ (x.onDestroyed_, f, this),
-  onAttack_ (x.onAttack_, f, this)
+  onAttack_ (x.onAttack_, f, this),
+  onClick_ (x.onClick_, f, this)
 {
 }
 
@@ -982,7 +1228,8 @@ events (const ::xercesc::DOMElement& e,
   onLeave_ (this),
   onAttacked_ (this),
   onDestroyed_ (this),
-  onAttack_ (this)
+  onAttack_ (this),
+  onClick_ (this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
   {
@@ -1071,6 +1318,20 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
       }
     }
 
+    // onClick
+    //
+    if (n.name () == "onClick" && n.namespace_ ().empty ())
+    {
+      ::std::unique_ptr< onClick_type > r (
+        onClick_traits::create (i, f, this));
+
+      if (!this->onClick_)
+      {
+        this->onClick_.set (::std::move (r));
+        continue;
+      }
+    }
+
     break;
   }
 }
@@ -1093,6 +1354,7 @@ operator= (const events& x)
     this->onAttacked_ = x.onAttacked_;
     this->onDestroyed_ = x.onDestroyed_;
     this->onAttack_ = x.onAttack_;
+    this->onClick_ = x.onClick_;
   }
 
   return *this;
@@ -1341,6 +1603,236 @@ position::
 {
 }
 
+// size
+//
+
+size::
+size (const width_type& width,
+      const height_type& height)
+: ::xml_schema::type (),
+  width_ (width, this),
+  height_ (height, this)
+{
+}
+
+size::
+size (const size& x,
+      ::xml_schema::flags f,
+      ::xml_schema::container* c)
+: ::xml_schema::type (x, f, c),
+  width_ (x.width_, f, this),
+  height_ (x.height_, f, this)
+{
+}
+
+size::
+size (const ::xercesc::DOMElement& e,
+      ::xml_schema::flags f,
+      ::xml_schema::container* c)
+: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+  width_ (this),
+  height_ (this)
+{
+  if ((f & ::xml_schema::flags::base) == 0)
+  {
+    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+    this->parse (p, f);
+  }
+}
+
+void size::
+parse (::xsd::cxx::xml::dom::parser< char >& p,
+       ::xml_schema::flags f)
+{
+  for (; p.more_content (); p.next_content (false))
+  {
+    const ::xercesc::DOMElement& i (p.cur_element ());
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (i));
+
+    // width
+    //
+    if (n.name () == "width" && n.namespace_ ().empty ())
+    {
+      if (!width_.present ())
+      {
+        this->width_.set (width_traits::create (i, f, this));
+        continue;
+      }
+    }
+
+    // height
+    //
+    if (n.name () == "height" && n.namespace_ ().empty ())
+    {
+      if (!height_.present ())
+      {
+        this->height_.set (height_traits::create (i, f, this));
+        continue;
+      }
+    }
+
+    break;
+  }
+
+  if (!width_.present ())
+  {
+    throw ::xsd::cxx::tree::expected_element< char > (
+      "width",
+      "");
+  }
+
+  if (!height_.present ())
+  {
+    throw ::xsd::cxx::tree::expected_element< char > (
+      "height",
+      "");
+  }
+}
+
+size* size::
+_clone (::xml_schema::flags f,
+        ::xml_schema::container* c) const
+{
+  return new class size (*this, f, c);
+}
+
+size& size::
+operator= (const size& x)
+{
+  if (this != &x)
+  {
+    static_cast< ::xml_schema::type& > (*this) = x;
+    this->width_ = x.width_;
+    this->height_ = x.height_;
+  }
+
+  return *this;
+}
+
+size::
+~size ()
+{
+}
+
+// color
+//
+
+color::
+color (const hex_type& hex,
+       const opacity_type& opacity)
+: ::xml_schema::type (),
+  hex_ (hex, this),
+  opacity_ (opacity, this)
+{
+}
+
+color::
+color (const color& x,
+       ::xml_schema::flags f,
+       ::xml_schema::container* c)
+: ::xml_schema::type (x, f, c),
+  hex_ (x.hex_, f, this),
+  opacity_ (x.opacity_, f, this)
+{
+}
+
+color::
+color (const ::xercesc::DOMElement& e,
+       ::xml_schema::flags f,
+       ::xml_schema::container* c)
+: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+  hex_ (this),
+  opacity_ (this)
+{
+  if ((f & ::xml_schema::flags::base) == 0)
+  {
+    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+    this->parse (p, f);
+  }
+}
+
+void color::
+parse (::xsd::cxx::xml::dom::parser< char >& p,
+       ::xml_schema::flags f)
+{
+  for (; p.more_content (); p.next_content (false))
+  {
+    const ::xercesc::DOMElement& i (p.cur_element ());
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (i));
+
+    // hex
+    //
+    if (n.name () == "hex" && n.namespace_ ().empty ())
+    {
+      ::std::unique_ptr< hex_type > r (
+        hex_traits::create (i, f, this));
+
+      if (!hex_.present ())
+      {
+        this->hex_.set (::std::move (r));
+        continue;
+      }
+    }
+
+    // opacity
+    //
+    if (n.name () == "opacity" && n.namespace_ ().empty ())
+    {
+      ::std::unique_ptr< opacity_type > r (
+        opacity_traits::create (i, f, this));
+
+      if (!opacity_.present ())
+      {
+        this->opacity_.set (::std::move (r));
+        continue;
+      }
+    }
+
+    break;
+  }
+
+  if (!hex_.present ())
+  {
+    throw ::xsd::cxx::tree::expected_element< char > (
+      "hex",
+      "");
+  }
+
+  if (!opacity_.present ())
+  {
+    throw ::xsd::cxx::tree::expected_element< char > (
+      "opacity",
+      "");
+  }
+}
+
+color* color::
+_clone (::xml_schema::flags f,
+        ::xml_schema::container* c) const
+{
+  return new class color (*this, f, c);
+}
+
+color& color::
+operator= (const color& x)
+{
+  if (this != &x)
+  {
+    static_cast< ::xml_schema::type& > (*this) = x;
+    this->hex_ = x.hex_;
+    this->opacity_ = x.opacity_;
+  }
+
+  return *this;
+}
+
+color::
+~color ()
+{
+}
+
 // base
 //
 
@@ -1464,7 +1956,7 @@ base::
 onEnter::
 onEnter ()
 : ::xml_schema::type (),
-  soundAction_ (this),
+  playSound_ (this),
   loadAction_ (this)
 {
 }
@@ -1474,7 +1966,7 @@ onEnter (const onEnter& x,
          ::xml_schema::flags f,
          ::xml_schema::container* c)
 : ::xml_schema::type (x, f, c),
-  soundAction_ (x.soundAction_, f, this),
+  playSound_ (x.playSound_, f, this),
   loadAction_ (x.loadAction_, f, this)
 {
 }
@@ -1484,7 +1976,7 @@ onEnter (const ::xercesc::DOMElement& e,
          ::xml_schema::flags f,
          ::xml_schema::container* c)
 : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  soundAction_ (this),
+  playSound_ (this),
   loadAction_ (this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -1504,16 +1996,16 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
     const ::xsd::cxx::xml::qualified_name< char > n (
       ::xsd::cxx::xml::dom::name< char > (i));
 
-    // soundAction
+    // playSound
     //
-    if (n.name () == "soundAction" && n.namespace_ ().empty ())
+    if (n.name () == "playSound" && n.namespace_ ().empty ())
     {
-      ::std::unique_ptr< soundAction_type > r (
-        soundAction_traits::create (i, f, this));
+      ::std::unique_ptr< playSound_type > r (
+        playSound_traits::create (i, f, this));
 
-      if (!this->soundAction_)
+      if (!this->playSound_)
       {
-        this->soundAction_.set (::std::move (r));
+        this->playSound_.set (::std::move (r));
         continue;
       }
     }
@@ -1549,7 +2041,7 @@ operator= (const onEnter& x)
   if (this != &x)
   {
     static_cast< ::xml_schema::type& > (*this) = x;
-    this->soundAction_ = x.soundAction_;
+    this->playSound_ = x.playSound_;
     this->loadAction_ = x.loadAction_;
   }
 
@@ -1567,7 +2059,7 @@ onEnter::
 onLeave::
 onLeave ()
 : ::xml_schema::type (),
-  soundAction_ (this),
+  playSound_ (this),
   loadAction_ (this)
 {
 }
@@ -1577,7 +2069,7 @@ onLeave (const onLeave& x,
          ::xml_schema::flags f,
          ::xml_schema::container* c)
 : ::xml_schema::type (x, f, c),
-  soundAction_ (x.soundAction_, f, this),
+  playSound_ (x.playSound_, f, this),
   loadAction_ (x.loadAction_, f, this)
 {
 }
@@ -1587,7 +2079,7 @@ onLeave (const ::xercesc::DOMElement& e,
          ::xml_schema::flags f,
          ::xml_schema::container* c)
 : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  soundAction_ (this),
+  playSound_ (this),
   loadAction_ (this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -1607,16 +2099,16 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
     const ::xsd::cxx::xml::qualified_name< char > n (
       ::xsd::cxx::xml::dom::name< char > (i));
 
-    // soundAction
+    // playSound
     //
-    if (n.name () == "soundAction" && n.namespace_ ().empty ())
+    if (n.name () == "playSound" && n.namespace_ ().empty ())
     {
-      ::std::unique_ptr< soundAction_type > r (
-        soundAction_traits::create (i, f, this));
+      ::std::unique_ptr< playSound_type > r (
+        playSound_traits::create (i, f, this));
 
-      if (!this->soundAction_)
+      if (!this->playSound_)
       {
-        this->soundAction_.set (::std::move (r));
+        this->playSound_.set (::std::move (r));
         continue;
       }
     }
@@ -1652,7 +2144,7 @@ operator= (const onLeave& x)
   if (this != &x)
   {
     static_cast< ::xml_schema::type& > (*this) = x;
-    this->soundAction_ = x.soundAction_;
+    this->playSound_ = x.playSound_;
     this->loadAction_ = x.loadAction_;
   }
 
@@ -1670,7 +2162,7 @@ onLeave::
 onAttacked::
 onAttacked ()
 : ::xml_schema::type (),
-  soundAction_ (this),
+  playSound_ (this),
   loadAction_ (this)
 {
 }
@@ -1680,7 +2172,7 @@ onAttacked (const onAttacked& x,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
 : ::xml_schema::type (x, f, c),
-  soundAction_ (x.soundAction_, f, this),
+  playSound_ (x.playSound_, f, this),
   loadAction_ (x.loadAction_, f, this)
 {
 }
@@ -1690,7 +2182,7 @@ onAttacked (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
 : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  soundAction_ (this),
+  playSound_ (this),
   loadAction_ (this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -1710,16 +2202,16 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
     const ::xsd::cxx::xml::qualified_name< char > n (
       ::xsd::cxx::xml::dom::name< char > (i));
 
-    // soundAction
+    // playSound
     //
-    if (n.name () == "soundAction" && n.namespace_ ().empty ())
+    if (n.name () == "playSound" && n.namespace_ ().empty ())
     {
-      ::std::unique_ptr< soundAction_type > r (
-        soundAction_traits::create (i, f, this));
+      ::std::unique_ptr< playSound_type > r (
+        playSound_traits::create (i, f, this));
 
-      if (!this->soundAction_)
+      if (!this->playSound_)
       {
-        this->soundAction_.set (::std::move (r));
+        this->playSound_.set (::std::move (r));
         continue;
       }
     }
@@ -1755,7 +2247,7 @@ operator= (const onAttacked& x)
   if (this != &x)
   {
     static_cast< ::xml_schema::type& > (*this) = x;
-    this->soundAction_ = x.soundAction_;
+    this->playSound_ = x.playSound_;
     this->loadAction_ = x.loadAction_;
   }
 
@@ -1773,7 +2265,7 @@ onAttacked::
 onDestroyed::
 onDestroyed ()
 : ::xml_schema::type (),
-  soundAction_ (this),
+  playSound_ (this),
   loadAction_ (this)
 {
 }
@@ -1783,7 +2275,7 @@ onDestroyed (const onDestroyed& x,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
 : ::xml_schema::type (x, f, c),
-  soundAction_ (x.soundAction_, f, this),
+  playSound_ (x.playSound_, f, this),
   loadAction_ (x.loadAction_, f, this)
 {
 }
@@ -1793,7 +2285,7 @@ onDestroyed (const ::xercesc::DOMElement& e,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
 : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  soundAction_ (this),
+  playSound_ (this),
   loadAction_ (this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -1813,16 +2305,16 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
     const ::xsd::cxx::xml::qualified_name< char > n (
       ::xsd::cxx::xml::dom::name< char > (i));
 
-    // soundAction
+    // playSound
     //
-    if (n.name () == "soundAction" && n.namespace_ ().empty ())
+    if (n.name () == "playSound" && n.namespace_ ().empty ())
     {
-      ::std::unique_ptr< soundAction_type > r (
-        soundAction_traits::create (i, f, this));
+      ::std::unique_ptr< playSound_type > r (
+        playSound_traits::create (i, f, this));
 
-      if (!this->soundAction_)
+      if (!this->playSound_)
       {
-        this->soundAction_.set (::std::move (r));
+        this->playSound_.set (::std::move (r));
         continue;
       }
     }
@@ -1858,7 +2350,7 @@ operator= (const onDestroyed& x)
   if (this != &x)
   {
     static_cast< ::xml_schema::type& > (*this) = x;
-    this->soundAction_ = x.soundAction_;
+    this->playSound_ = x.playSound_;
     this->loadAction_ = x.loadAction_;
   }
 
@@ -1876,7 +2368,7 @@ onDestroyed::
 onAttack::
 onAttack ()
 : ::xml_schema::type (),
-  soundAction_ (this),
+  playSound_ (this),
   loadAction_ (this)
 {
 }
@@ -1886,7 +2378,7 @@ onAttack (const onAttack& x,
           ::xml_schema::flags f,
           ::xml_schema::container* c)
 : ::xml_schema::type (x, f, c),
-  soundAction_ (x.soundAction_, f, this),
+  playSound_ (x.playSound_, f, this),
   loadAction_ (x.loadAction_, f, this)
 {
 }
@@ -1896,7 +2388,7 @@ onAttack (const ::xercesc::DOMElement& e,
           ::xml_schema::flags f,
           ::xml_schema::container* c)
 : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  soundAction_ (this),
+  playSound_ (this),
   loadAction_ (this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -1916,16 +2408,16 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
     const ::xsd::cxx::xml::qualified_name< char > n (
       ::xsd::cxx::xml::dom::name< char > (i));
 
-    // soundAction
+    // playSound
     //
-    if (n.name () == "soundAction" && n.namespace_ ().empty ())
+    if (n.name () == "playSound" && n.namespace_ ().empty ())
     {
-      ::std::unique_ptr< soundAction_type > r (
-        soundAction_traits::create (i, f, this));
+      ::std::unique_ptr< playSound_type > r (
+        playSound_traits::create (i, f, this));
 
-      if (!this->soundAction_)
+      if (!this->playSound_)
       {
-        this->soundAction_.set (::std::move (r));
+        this->playSound_.set (::std::move (r));
         continue;
       }
     }
@@ -1961,7 +2453,7 @@ operator= (const onAttack& x)
   if (this != &x)
   {
     static_cast< ::xml_schema::type& > (*this) = x;
-    this->soundAction_ = x.soundAction_;
+    this->playSound_ = x.playSound_;
     this->loadAction_ = x.loadAction_;
   }
 
@@ -1973,32 +2465,135 @@ onAttack::
 {
 }
 
-// size
+// onClick
 //
 
-size::
-size (const width_type& width,
-      const height_type& height)
+onClick::
+onClick ()
+: ::xml_schema::type (),
+  playSound_ (this),
+  loadScene_ (this)
+{
+}
+
+onClick::
+onClick (const onClick& x,
+         ::xml_schema::flags f,
+         ::xml_schema::container* c)
+: ::xml_schema::type (x, f, c),
+  playSound_ (x.playSound_, f, this),
+  loadScene_ (x.loadScene_, f, this)
+{
+}
+
+onClick::
+onClick (const ::xercesc::DOMElement& e,
+         ::xml_schema::flags f,
+         ::xml_schema::container* c)
+: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+  playSound_ (this),
+  loadScene_ (this)
+{
+  if ((f & ::xml_schema::flags::base) == 0)
+  {
+    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+    this->parse (p, f);
+  }
+}
+
+void onClick::
+parse (::xsd::cxx::xml::dom::parser< char >& p,
+       ::xml_schema::flags f)
+{
+  for (; p.more_content (); p.next_content (false))
+  {
+    const ::xercesc::DOMElement& i (p.cur_element ());
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (i));
+
+    // playSound
+    //
+    if (n.name () == "playSound" && n.namespace_ ().empty ())
+    {
+      ::std::unique_ptr< playSound_type > r (
+        playSound_traits::create (i, f, this));
+
+      if (!this->playSound_)
+      {
+        this->playSound_.set (::std::move (r));
+        continue;
+      }
+    }
+
+    // loadScene
+    //
+    if (n.name () == "loadScene" && n.namespace_ ().empty ())
+    {
+      ::std::unique_ptr< loadScene_type > r (
+        loadScene_traits::create (i, f, this));
+
+      if (!this->loadScene_)
+      {
+        this->loadScene_.set (::std::move (r));
+        continue;
+      }
+    }
+
+    break;
+  }
+}
+
+onClick* onClick::
+_clone (::xml_schema::flags f,
+        ::xml_schema::container* c) const
+{
+  return new class onClick (*this, f, c);
+}
+
+onClick& onClick::
+operator= (const onClick& x)
+{
+  if (this != &x)
+  {
+    static_cast< ::xml_schema::type& > (*this) = x;
+    this->playSound_ = x.playSound_;
+    this->loadScene_ = x.loadScene_;
+  }
+
+  return *this;
+}
+
+onClick::
+~onClick ()
+{
+}
+
+// size1
+//
+
+size1::
+size1 (const width_type& width,
+       const height_type& height)
 : ::xml_schema::type (),
   width_ (width, this),
   height_ (height, this)
 {
 }
 
-size::
-size (const size& x,
-      ::xml_schema::flags f,
-      ::xml_schema::container* c)
+size1::
+size1 (const size1& x,
+       ::xml_schema::flags f,
+       ::xml_schema::container* c)
 : ::xml_schema::type (x, f, c),
   width_ (x.width_, f, this),
   height_ (x.height_, f, this)
 {
 }
 
-size::
-size (const ::xercesc::DOMElement& e,
-      ::xml_schema::flags f,
-      ::xml_schema::container* c)
+size1::
+size1 (const ::xercesc::DOMElement& e,
+       ::xml_schema::flags f,
+       ::xml_schema::container* c)
 : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
   width_ (this),
   height_ (this)
@@ -2010,7 +2605,7 @@ size (const ::xercesc::DOMElement& e,
   }
 }
 
-void size::
+void size1::
 parse (::xsd::cxx::xml::dom::parser< char >& p,
        ::xml_schema::flags f)
 {
@@ -2060,15 +2655,15 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
   }
 }
 
-size* size::
+size1* size1::
 _clone (::xml_schema::flags f,
         ::xml_schema::container* c) const
 {
-  return new class size (*this, f, c);
+  return new class size1 (*this, f, c);
 }
 
-size& size::
-operator= (const size& x)
+size1& size1::
+operator= (const size1& x)
 {
   if (this != &x)
   {
@@ -2080,8 +2675,8 @@ operator= (const size& x)
   return *this;
 }
 
-size::
-~size ()
+size1::
+~size1 ()
 {
 }
 
@@ -3150,6 +3745,538 @@ position_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
     n.name (),
     n.namespace_ (),
     "position",
+    "");
+}
+
+::std::unique_ptr< ::size >
+size_ (const ::std::string& u,
+       ::xml_schema::flags f,
+       const ::xml_schema::properties& p)
+{
+  ::xsd::cxx::xml::auto_initializer i (
+    (f & ::xml_schema::flags::dont_initialize) == 0,
+    (f & ::xml_schema::flags::keep_dom) == 0);
+
+  ::xsd::cxx::tree::error_handler< char > h;
+
+  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+    ::xsd::cxx::xml::dom::parse< char > (
+      u, h, p, f));
+
+  h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
+
+  return ::std::unique_ptr< ::size > (
+    ::size_ (
+      std::move (d), f | ::xml_schema::flags::own_dom, p));
+}
+
+::std::unique_ptr< ::size >
+size_ (const ::std::string& u,
+       ::xml_schema::error_handler& h,
+       ::xml_schema::flags f,
+       const ::xml_schema::properties& p)
+{
+  ::xsd::cxx::xml::auto_initializer i (
+    (f & ::xml_schema::flags::dont_initialize) == 0,
+    (f & ::xml_schema::flags::keep_dom) == 0);
+
+  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+    ::xsd::cxx::xml::dom::parse< char > (
+      u, h, p, f));
+
+  if (!d.get ())
+    throw ::xsd::cxx::tree::parsing< char > ();
+
+  return ::std::unique_ptr< ::size > (
+    ::size_ (
+      std::move (d), f | ::xml_schema::flags::own_dom, p));
+}
+
+::std::unique_ptr< ::size >
+size_ (const ::std::string& u,
+       ::xercesc::DOMErrorHandler& h,
+       ::xml_schema::flags f,
+       const ::xml_schema::properties& p)
+{
+  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+    ::xsd::cxx::xml::dom::parse< char > (
+      u, h, p, f));
+
+  if (!d.get ())
+    throw ::xsd::cxx::tree::parsing< char > ();
+
+  return ::std::unique_ptr< ::size > (
+    ::size_ (
+      std::move (d), f | ::xml_schema::flags::own_dom, p));
+}
+
+::std::unique_ptr< ::size >
+size_ (::std::istream& is,
+       ::xml_schema::flags f,
+       const ::xml_schema::properties& p)
+{
+  ::xsd::cxx::xml::auto_initializer i (
+    (f & ::xml_schema::flags::dont_initialize) == 0,
+    (f & ::xml_schema::flags::keep_dom) == 0);
+
+  ::xsd::cxx::xml::sax::std_input_source isrc (is);
+  return ::size_ (isrc, f, p);
+}
+
+::std::unique_ptr< ::size >
+size_ (::std::istream& is,
+       ::xml_schema::error_handler& h,
+       ::xml_schema::flags f,
+       const ::xml_schema::properties& p)
+{
+  ::xsd::cxx::xml::auto_initializer i (
+    (f & ::xml_schema::flags::dont_initialize) == 0,
+    (f & ::xml_schema::flags::keep_dom) == 0);
+
+  ::xsd::cxx::xml::sax::std_input_source isrc (is);
+  return ::size_ (isrc, h, f, p);
+}
+
+::std::unique_ptr< ::size >
+size_ (::std::istream& is,
+       ::xercesc::DOMErrorHandler& h,
+       ::xml_schema::flags f,
+       const ::xml_schema::properties& p)
+{
+  ::xsd::cxx::xml::sax::std_input_source isrc (is);
+  return ::size_ (isrc, h, f, p);
+}
+
+::std::unique_ptr< ::size >
+size_ (::std::istream& is,
+       const ::std::string& sid,
+       ::xml_schema::flags f,
+       const ::xml_schema::properties& p)
+{
+  ::xsd::cxx::xml::auto_initializer i (
+    (f & ::xml_schema::flags::dont_initialize) == 0,
+    (f & ::xml_schema::flags::keep_dom) == 0);
+
+  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+  return ::size_ (isrc, f, p);
+}
+
+::std::unique_ptr< ::size >
+size_ (::std::istream& is,
+       const ::std::string& sid,
+       ::xml_schema::error_handler& h,
+       ::xml_schema::flags f,
+       const ::xml_schema::properties& p)
+{
+  ::xsd::cxx::xml::auto_initializer i (
+    (f & ::xml_schema::flags::dont_initialize) == 0,
+    (f & ::xml_schema::flags::keep_dom) == 0);
+
+  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+  return ::size_ (isrc, h, f, p);
+}
+
+::std::unique_ptr< ::size >
+size_ (::std::istream& is,
+       const ::std::string& sid,
+       ::xercesc::DOMErrorHandler& h,
+       ::xml_schema::flags f,
+       const ::xml_schema::properties& p)
+{
+  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+  return ::size_ (isrc, h, f, p);
+}
+
+::std::unique_ptr< ::size >
+size_ (::xercesc::InputSource& i,
+       ::xml_schema::flags f,
+       const ::xml_schema::properties& p)
+{
+  ::xsd::cxx::tree::error_handler< char > h;
+
+  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+    ::xsd::cxx::xml::dom::parse< char > (
+      i, h, p, f));
+
+  h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
+
+  return ::std::unique_ptr< ::size > (
+    ::size_ (
+      std::move (d), f | ::xml_schema::flags::own_dom, p));
+}
+
+::std::unique_ptr< ::size >
+size_ (::xercesc::InputSource& i,
+       ::xml_schema::error_handler& h,
+       ::xml_schema::flags f,
+       const ::xml_schema::properties& p)
+{
+  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+    ::xsd::cxx::xml::dom::parse< char > (
+      i, h, p, f));
+
+  if (!d.get ())
+    throw ::xsd::cxx::tree::parsing< char > ();
+
+  return ::std::unique_ptr< ::size > (
+    ::size_ (
+      std::move (d), f | ::xml_schema::flags::own_dom, p));
+}
+
+::std::unique_ptr< ::size >
+size_ (::xercesc::InputSource& i,
+       ::xercesc::DOMErrorHandler& h,
+       ::xml_schema::flags f,
+       const ::xml_schema::properties& p)
+{
+  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+    ::xsd::cxx::xml::dom::parse< char > (
+      i, h, p, f));
+
+  if (!d.get ())
+    throw ::xsd::cxx::tree::parsing< char > ();
+
+  return ::std::unique_ptr< ::size > (
+    ::size_ (
+      std::move (d), f | ::xml_schema::flags::own_dom, p));
+}
+
+::std::unique_ptr< ::size >
+size_ (const ::xercesc::DOMDocument& doc,
+       ::xml_schema::flags f,
+       const ::xml_schema::properties& p)
+{
+  if (f & ::xml_schema::flags::keep_dom)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
+
+    return ::std::unique_ptr< ::size > (
+      ::size_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
+  const ::xsd::cxx::xml::qualified_name< char > n (
+    ::xsd::cxx::xml::dom::name< char > (e));
+
+  if (n.name () == "size" &&
+      n.namespace_ () == "")
+  {
+    ::std::unique_ptr< ::size > r (
+      ::xsd::cxx::tree::traits< ::size, char >::create (
+        e, f, 0));
+    return r;
+  }
+
+  throw ::xsd::cxx::tree::unexpected_element < char > (
+    n.name (),
+    n.namespace_ (),
+    "size",
+    "");
+}
+
+::std::unique_ptr< ::size >
+size_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+       ::xml_schema::flags f,
+       const ::xml_schema::properties&)
+{
+  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > c (
+    ((f & ::xml_schema::flags::keep_dom) &&
+     !(f & ::xml_schema::flags::own_dom))
+    ? static_cast< ::xercesc::DOMDocument* > (d->cloneNode (true))
+    : 0);
+
+  ::xercesc::DOMDocument& doc (c.get () ? *c : *d);
+  const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
+
+  const ::xsd::cxx::xml::qualified_name< char > n (
+    ::xsd::cxx::xml::dom::name< char > (e));
+
+  if (f & ::xml_schema::flags::keep_dom)
+    doc.setUserData (::xml_schema::dom::tree_node_key,
+                     (c.get () ? &c : &d),
+                     0);
+
+  if (n.name () == "size" &&
+      n.namespace_ () == "")
+  {
+    ::std::unique_ptr< ::size > r (
+      ::xsd::cxx::tree::traits< ::size, char >::create (
+        e, f, 0));
+    return r;
+  }
+
+  throw ::xsd::cxx::tree::unexpected_element < char > (
+    n.name (),
+    n.namespace_ (),
+    "size",
+    "");
+}
+
+::std::unique_ptr< ::color >
+color_ (const ::std::string& u,
+        ::xml_schema::flags f,
+        const ::xml_schema::properties& p)
+{
+  ::xsd::cxx::xml::auto_initializer i (
+    (f & ::xml_schema::flags::dont_initialize) == 0,
+    (f & ::xml_schema::flags::keep_dom) == 0);
+
+  ::xsd::cxx::tree::error_handler< char > h;
+
+  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+    ::xsd::cxx::xml::dom::parse< char > (
+      u, h, p, f));
+
+  h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
+
+  return ::std::unique_ptr< ::color > (
+    ::color_ (
+      std::move (d), f | ::xml_schema::flags::own_dom, p));
+}
+
+::std::unique_ptr< ::color >
+color_ (const ::std::string& u,
+        ::xml_schema::error_handler& h,
+        ::xml_schema::flags f,
+        const ::xml_schema::properties& p)
+{
+  ::xsd::cxx::xml::auto_initializer i (
+    (f & ::xml_schema::flags::dont_initialize) == 0,
+    (f & ::xml_schema::flags::keep_dom) == 0);
+
+  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+    ::xsd::cxx::xml::dom::parse< char > (
+      u, h, p, f));
+
+  if (!d.get ())
+    throw ::xsd::cxx::tree::parsing< char > ();
+
+  return ::std::unique_ptr< ::color > (
+    ::color_ (
+      std::move (d), f | ::xml_schema::flags::own_dom, p));
+}
+
+::std::unique_ptr< ::color >
+color_ (const ::std::string& u,
+        ::xercesc::DOMErrorHandler& h,
+        ::xml_schema::flags f,
+        const ::xml_schema::properties& p)
+{
+  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+    ::xsd::cxx::xml::dom::parse< char > (
+      u, h, p, f));
+
+  if (!d.get ())
+    throw ::xsd::cxx::tree::parsing< char > ();
+
+  return ::std::unique_ptr< ::color > (
+    ::color_ (
+      std::move (d), f | ::xml_schema::flags::own_dom, p));
+}
+
+::std::unique_ptr< ::color >
+color_ (::std::istream& is,
+        ::xml_schema::flags f,
+        const ::xml_schema::properties& p)
+{
+  ::xsd::cxx::xml::auto_initializer i (
+    (f & ::xml_schema::flags::dont_initialize) == 0,
+    (f & ::xml_schema::flags::keep_dom) == 0);
+
+  ::xsd::cxx::xml::sax::std_input_source isrc (is);
+  return ::color_ (isrc, f, p);
+}
+
+::std::unique_ptr< ::color >
+color_ (::std::istream& is,
+        ::xml_schema::error_handler& h,
+        ::xml_schema::flags f,
+        const ::xml_schema::properties& p)
+{
+  ::xsd::cxx::xml::auto_initializer i (
+    (f & ::xml_schema::flags::dont_initialize) == 0,
+    (f & ::xml_schema::flags::keep_dom) == 0);
+
+  ::xsd::cxx::xml::sax::std_input_source isrc (is);
+  return ::color_ (isrc, h, f, p);
+}
+
+::std::unique_ptr< ::color >
+color_ (::std::istream& is,
+        ::xercesc::DOMErrorHandler& h,
+        ::xml_schema::flags f,
+        const ::xml_schema::properties& p)
+{
+  ::xsd::cxx::xml::sax::std_input_source isrc (is);
+  return ::color_ (isrc, h, f, p);
+}
+
+::std::unique_ptr< ::color >
+color_ (::std::istream& is,
+        const ::std::string& sid,
+        ::xml_schema::flags f,
+        const ::xml_schema::properties& p)
+{
+  ::xsd::cxx::xml::auto_initializer i (
+    (f & ::xml_schema::flags::dont_initialize) == 0,
+    (f & ::xml_schema::flags::keep_dom) == 0);
+
+  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+  return ::color_ (isrc, f, p);
+}
+
+::std::unique_ptr< ::color >
+color_ (::std::istream& is,
+        const ::std::string& sid,
+        ::xml_schema::error_handler& h,
+        ::xml_schema::flags f,
+        const ::xml_schema::properties& p)
+{
+  ::xsd::cxx::xml::auto_initializer i (
+    (f & ::xml_schema::flags::dont_initialize) == 0,
+    (f & ::xml_schema::flags::keep_dom) == 0);
+
+  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+  return ::color_ (isrc, h, f, p);
+}
+
+::std::unique_ptr< ::color >
+color_ (::std::istream& is,
+        const ::std::string& sid,
+        ::xercesc::DOMErrorHandler& h,
+        ::xml_schema::flags f,
+        const ::xml_schema::properties& p)
+{
+  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+  return ::color_ (isrc, h, f, p);
+}
+
+::std::unique_ptr< ::color >
+color_ (::xercesc::InputSource& i,
+        ::xml_schema::flags f,
+        const ::xml_schema::properties& p)
+{
+  ::xsd::cxx::tree::error_handler< char > h;
+
+  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+    ::xsd::cxx::xml::dom::parse< char > (
+      i, h, p, f));
+
+  h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
+
+  return ::std::unique_ptr< ::color > (
+    ::color_ (
+      std::move (d), f | ::xml_schema::flags::own_dom, p));
+}
+
+::std::unique_ptr< ::color >
+color_ (::xercesc::InputSource& i,
+        ::xml_schema::error_handler& h,
+        ::xml_schema::flags f,
+        const ::xml_schema::properties& p)
+{
+  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+    ::xsd::cxx::xml::dom::parse< char > (
+      i, h, p, f));
+
+  if (!d.get ())
+    throw ::xsd::cxx::tree::parsing< char > ();
+
+  return ::std::unique_ptr< ::color > (
+    ::color_ (
+      std::move (d), f | ::xml_schema::flags::own_dom, p));
+}
+
+::std::unique_ptr< ::color >
+color_ (::xercesc::InputSource& i,
+        ::xercesc::DOMErrorHandler& h,
+        ::xml_schema::flags f,
+        const ::xml_schema::properties& p)
+{
+  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+    ::xsd::cxx::xml::dom::parse< char > (
+      i, h, p, f));
+
+  if (!d.get ())
+    throw ::xsd::cxx::tree::parsing< char > ();
+
+  return ::std::unique_ptr< ::color > (
+    ::color_ (
+      std::move (d), f | ::xml_schema::flags::own_dom, p));
+}
+
+::std::unique_ptr< ::color >
+color_ (const ::xercesc::DOMDocument& doc,
+        ::xml_schema::flags f,
+        const ::xml_schema::properties& p)
+{
+  if (f & ::xml_schema::flags::keep_dom)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
+
+    return ::std::unique_ptr< ::color > (
+      ::color_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
+  const ::xsd::cxx::xml::qualified_name< char > n (
+    ::xsd::cxx::xml::dom::name< char > (e));
+
+  if (n.name () == "color" &&
+      n.namespace_ () == "")
+  {
+    ::std::unique_ptr< ::color > r (
+      ::xsd::cxx::tree::traits< ::color, char >::create (
+        e, f, 0));
+    return r;
+  }
+
+  throw ::xsd::cxx::tree::unexpected_element < char > (
+    n.name (),
+    n.namespace_ (),
+    "color",
+    "");
+}
+
+::std::unique_ptr< ::color >
+color_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+        ::xml_schema::flags f,
+        const ::xml_schema::properties&)
+{
+  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > c (
+    ((f & ::xml_schema::flags::keep_dom) &&
+     !(f & ::xml_schema::flags::own_dom))
+    ? static_cast< ::xercesc::DOMDocument* > (d->cloneNode (true))
+    : 0);
+
+  ::xercesc::DOMDocument& doc (c.get () ? *c : *d);
+  const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
+
+  const ::xsd::cxx::xml::qualified_name< char > n (
+    ::xsd::cxx::xml::dom::name< char > (e));
+
+  if (f & ::xml_schema::flags::keep_dom)
+    doc.setUserData (::xml_schema::dom::tree_node_key,
+                     (c.get () ? &c : &d),
+                     0);
+
+  if (n.name () == "color" &&
+      n.namespace_ () == "")
+  {
+    ::std::unique_ptr< ::color > r (
+      ::xsd::cxx::tree::traits< ::color, char >::create (
+        e, f, 0));
+    return r;
+  }
+
+  throw ::xsd::cxx::tree::unexpected_element < char > (
+    n.name (),
+    n.namespace_ (),
+    "color",
     "");
 }
 
