@@ -34,7 +34,7 @@
                 <xs:element name="onEnter" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
+                            <xs:element name="playSound" type="xs:anyURI" minOccurs="0"/>
                             <xs:element name="loadAction" type="xs:anyURI" minOccurs="0"/>
                         </xs:sequence>
                     </xs:complexType>
@@ -43,7 +43,7 @@
                 <xs:element name="onLeave" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
+                            <xs:element name="playSound" type="xs:anyURI" minOccurs="0"/>
                             <xs:element name="loadAction" type="xs:anyURI" minOccurs="0"/>
                         </xs:sequence>
                     </xs:complexType>
@@ -52,7 +52,7 @@
                 <xs:element name="onAttacked" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
+                            <xs:element name="playSound" type="xs:anyURI" minOccurs="0"/>
                             <xs:element name="loadAction" type="xs:anyURI" minOccurs="0"/>
                         </xs:sequence>
                     </xs:complexType>
@@ -61,7 +61,7 @@
                 <xs:element name="onDestroyed" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
+                            <xs:element name="playSound" type="xs:anyURI" minOccurs="0"/>
                             <xs:element name="loadAction" type="xs:anyURI" minOccurs="0"/>
                         </xs:sequence>
                     </xs:complexType>
@@ -70,8 +70,17 @@
                 <xs:element name="onAttack" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
+                            <xs:element name="playSound" type="xs:anyURI" minOccurs="0"/>
                             <xs:element name="loadAction" type="xs:anyURI" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!-- Triggered when user clicks on the element -->
+                <xs:element name="onClick" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="playSound" type="xs:anyURI" minOccurs="0"/>
+                            <xs:element name="loadScene" type="xs:anyURI" minOccurs="0"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -107,4 +116,33 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+    <!-- Size -->
+    <xs:element name="size">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="width" type="xs:integer"/>
+                <xs:element name="height" type="xs:integer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Color -->
+    <xs:element name="color">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="hex" type="xs:string"/>
+                <xs:element name="opacity" type="opacity"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="opacity" id="opacity">
+        <xs:restriction base="xs:float">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
 </xs:schema>
