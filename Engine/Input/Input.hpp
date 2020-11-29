@@ -1,6 +1,7 @@
 #pragma once
 
 #include "string"
+#include <stdint.h>
 
 /**
  * A structure to represent an input from the user.
@@ -9,6 +10,7 @@ struct InputAction
 {
     std::string code;   /**< Keycode returned form the Keymap */
     std::string action; /**< Action that is mapped to the keycode */
+    uint32_t type;
 };
 
 /**
