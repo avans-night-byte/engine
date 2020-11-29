@@ -1,0 +1,110 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Asset -->
+    <xs:element name="assets">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="base">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="file" type="xs:anyURI"/>
+                        </xs:sequence>
+                        <xs:attribute name="repeat" type="repeatType" default="repeat"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="repeatType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="no-repeat"/>
+            <xs:enumeration value="repeat"/>
+            <!-- OPTIONAL: Only if we think we need this otherwise it can be removed -->
+            <xs:enumeration value="repeat-y"/>
+            <xs:enumeration value="repeat-x"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Events -->
+    <xs:element name="events">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- Triggered when the player enters the positions of entity -->
+                <xs:element name="onEnter" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
+                            <xs:element name="loadAction" type="xs:anyURI" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!-- Triggered when player leaves the position of entity -->
+                <xs:element name="onLeave" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
+                            <xs:element name="loadAction" type="xs:anyURI" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!-- Triggered when the entity is being attacked -->
+                <xs:element name="onAttacked" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
+                            <xs:element name="loadAction" type="xs:anyURI" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!-- Triggers when the entity has been destroyed -->
+                <xs:element name="onDestroyed" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
+                            <xs:element name="loadAction" type="xs:anyURI" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!-- Triggered when the entity attacks something else -->
+                <xs:element name="onAttack" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
+                            <xs:element name="loadAction" type="xs:anyURI" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <!-- Physics -->
+    <xs:element name="collider">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="size">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="width" type="xs:int"/>
+                            <xs:element name="height" type="xs:int"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="hasCollision" type="xs:boolean" use="required" />
+        </xs:complexType>
+    </xs:element>
+
+
+    <!-- Position -->
+    <xs:element name="position">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="x" type="xs:integer"/>
+                <xs:element name="y" type="xs:integer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

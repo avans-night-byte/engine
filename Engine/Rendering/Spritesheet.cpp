@@ -16,7 +16,7 @@ Spritesheet::Spritesheet(const char* path, std::string spriteSheetid, int row, i
 // Free the surface in order to free memory.
 Spritesheet::~Spritesheet()
 {
-    SDL_FreeSurface(m_spritesheet_image);
+//    SDL_FreeSurface(m_spritesheet_image);
     TextureManager::GetInstance()->clearFromTextureMap(textureId);
 }
 

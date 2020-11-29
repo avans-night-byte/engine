@@ -4,11 +4,12 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType, Vector2 po
     b2BodyDef bodyDef;
     bodyDef.type = static_cast<b2BodyType>(static_cast<int>(bodyType));
 
-    bodyDef.position.Set(position.x, position.y);
+    bodyDef.position.Set(position.x + size.x, position.y + size.y);
 
     b2Body *body = world.CreateBody(&bodyDef);
     b2PolygonShape box;
     box.SetAsBox(size.x, size.y);
+
 
 
     // Dynamic
@@ -29,6 +30,46 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType, Vector2 po
     return bodies.size() - 1;
 }
 
+
+unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType, Vector2 position, const std::vector<Vector2>& points) {
+    b2BodyDef bodyDef;
+    bodyDef.type = static_cast<b2BodyType>(static_cast<int>(bodyType));
+
+    bodyDef.position.Set(position.x, position.y);
+
+    b2Body *body = world.CreateBody(&bodyDef);
+    b2PolygonShape polygonShape;
+
+
+    std::vector<b2Vec2> verts;
+    for(auto it = std::begin(points); it != std::end(points); ++it) {
+        verts.emplace_back(it->x, it->y);
+    }
+
+
+    b2PolygonShape polygon;
+    b2Vec2 arrayVec [verts.size()];
+    std::copy(verts.begin(), verts.end(), arrayVec);
+    polygonShape.Set(arrayVec, verts.size());
+    // DPolygonShapeynamic
+    if(bodyType == BodyType::Dynamic)
+    {
+        b2FixtureDef fixtureDef;
+        fixtureDef.shape = &polygonShape;
+        fixtureDef.density = 1.0f;
+        fixtureDef.friction = 1.0f;
+        body->CreateFixture(&fixtureDef);
+    }
+    else
+    {
+        body->CreateFixture(&polygonShape, 0.0f);
+    }
+
+    bodies.push_back(body);
+    return bodies.size() - 1;
+}
+
+
 unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType, Vector2 position, float radius) {
     b2BodyDef bodyDef;
     bodyDef.type = static_cast<b2BodyType>(static_cast<int>(bodyType));
@@ -44,6 +85,9 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType, Vector2 po
     bodies.push_back(body);
     return bodies.size() - 1;
 }
+
+
+
 
 void Box2DPhysicsEngineAdapter::referencePositionToBody(BodyId bodyId, float &x, float &y) {
     b2Body *body = bodies[bodyId];
