@@ -37,7 +37,7 @@ void Engine::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT) {
                    SDL_GetError());
         } else {
             renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-            SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+            SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
             SDL_RenderClear(renderer);
             SDL_RenderPresent(renderer);
         }
