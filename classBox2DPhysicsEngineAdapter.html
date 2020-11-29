@@ -83,15 +83,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a96b7e9b6455ae28e6b0000891970e3e6"><td class="memItemLeft" align="right" valign="top"><a id="a96b7e9b6455ae28e6b0000891970e3e6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const float &amp;timeStep, const int32 &amp;velocityIterations, const int32 &amp;positionIterations) override</td></tr>
 <tr class="separator:a96b7e9b6455ae28e6b0000891970e3e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae819a83305fd87ae0346e09fc6e1ae4c"><td class="memItemLeft" align="right" valign="top"><a id="ae819a83305fd87ae0346e09fc6e1ae4c"></a>
-BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classsize.html">size</a>) override</td></tr>
-<tr class="separator:ae819a83305fd87ae0346e09fc6e1ae4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96fc354c7807fef4200f8f67ce1e155a"><td class="memItemLeft" align="right" valign="top"><a id="a96fc354c7807fef4200f8f67ce1e155a"></a>
-BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, float radius) override</td></tr>
-<tr class="separator:a96fc354c7807fef4200f8f67ce1e155a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49a5c8d0c60d540381eee864a6e3cef4"><td class="memItemLeft" align="right" valign="top"><a id="a49a5c8d0c60d540381eee864a6e3cef4"></a>
-BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, std::vector&lt; <a class="el" href="structVector2.html">Vector2</a> &gt; &amp;points) override</td></tr>
-<tr class="separator:a49a5c8d0c60d540381eee864a6e3cef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74dc736216e7947f0c9a89b71519201b"><td class="memItemLeft" align="right" valign="top"><a id="a74dc736216e7947f0c9a89b71519201b"></a>
+BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classsize.html">size</a>, const bool &amp;isSensor=false, <a class="el" href="classContactHandler.html">ContactHandler</a> *userData=nullptr) override</td></tr>
+<tr class="separator:a74dc736216e7947f0c9a89b71519201b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a323ee6e5ddc39bd373da034d2e84934e"><td class="memItemLeft" align="right" valign="top"><a id="a323ee6e5ddc39bd373da034d2e84934e"></a>
+BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, float radius, <a class="el" href="classContactHandler.html">ContactHandler</a> *userData=nullptr) override</td></tr>
+<tr class="separator:a323ee6e5ddc39bd373da034d2e84934e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af52a6f7b4e363a751b2c3ee54bfd0387"><td class="memItemLeft" align="right" valign="top"><a id="af52a6f7b4e363a751b2c3ee54bfd0387"></a>
+BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, std::vector&lt; <a class="el" href="structVector2.html">Vector2</a> &gt; &amp;points, const bool &amp;isSensor, <a class="el" href="classContactHandler.html">ContactHandler</a> *userData=nullptr) override</td></tr>
+<tr class="separator:af52a6f7b4e363a751b2c3ee54bfd0387"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd3ee428a32f4552b5f396dc30ad9c0c"><td class="memItemLeft" align="right" valign="top"><a id="abd3ee428a32f4552b5f396dc30ad9c0c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>referencePositionToBody</b> (BodyId bodyId, float &amp;x, float &amp;y) override</td></tr>
 <tr class="separator:abd3ee428a32f4552b5f396dc30ad9c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>

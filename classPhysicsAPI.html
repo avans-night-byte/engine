@@ -83,15 +83,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9baec44b78e27ed81cfc48678c07a587"><td class="memItemLeft" align="right" valign="top"><a id="a9baec44b78e27ed81cfc48678c07a587"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const float &amp;timeStep, const int32 &amp;velocityIterations, const int32 &amp;positionIterations)=0</td></tr>
 <tr class="separator:a9baec44b78e27ed81cfc48678c07a587"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab33b07d1b280aab28eb239f5da917dc9"><td class="memItemLeft" align="right" valign="top"><a id="ab33b07d1b280aab28eb239f5da917dc9"></a>
-virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classsize.html">size</a>) const =0</td></tr>
-<tr class="separator:ab33b07d1b280aab28eb239f5da917dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9464f35c0896d0c440bc772e0d35a64"><td class="memItemLeft" align="right" valign="top"><a id="ae9464f35c0896d0c440bc772e0d35a64"></a>
-virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, float radius) const =0</td></tr>
-<tr class="separator:ae9464f35c0896d0c440bc772e0d35a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdb0cdee16f1f3edbf0a89aa4addcb4e"><td class="memItemLeft" align="right" valign="top"><a id="afdb0cdee16f1f3edbf0a89aa4addcb4e"></a>
-virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, std::vector&lt; <a class="el" href="structVector2.html">Vector2</a> &gt; &amp;points) const =0</td></tr>
-<tr class="separator:afdb0cdee16f1f3edbf0a89aa4addcb4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a998a06c88df9b434d21ca41cfd520882"><td class="memItemLeft" align="right" valign="top"><a id="a998a06c88df9b434d21ca41cfd520882"></a>
+virtual BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classsize.html">size</a>, const bool &amp;isSensor=false, <a class="el" href="classContactHandler.html">ContactHandler</a> *userData=nullptr) const =0</td></tr>
+<tr class="separator:a998a06c88df9b434d21ca41cfd520882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae14f94dc576798f900694c1d0d4fd560"><td class="memItemLeft" align="right" valign="top"><a id="ae14f94dc576798f900694c1d0d4fd560"></a>
+virtual BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, float radius, const bool &amp;isSensor=false, <a class="el" href="classContactHandler.html">ContactHandler</a> *userData=nullptr) const =0</td></tr>
+<tr class="separator:ae14f94dc576798f900694c1d0d4fd560"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacfd63517876dab48eecf5d848a87f64"><td class="memItemLeft" align="right" valign="top"><a id="aacfd63517876dab48eecf5d848a87f64"></a>
+virtual BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, std::vector&lt; <a class="el" href="structVector2.html">Vector2</a> &gt; &amp;points, const bool &amp;isSensor=false, <a class="el" href="classContactHandler.html">ContactHandler</a> *userData=nullptr) const =0</td></tr>
+<tr class="separator:aacfd63517876dab48eecf5d848a87f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b49bd33353920bdeeedb8e838a0c9f5"><td class="memItemLeft" align="right" valign="top"><a id="a8b49bd33353920bdeeedb8e838a0c9f5"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>destroyBody</b> (BodyId bodyId)=0</td></tr>
 <tr class="separator:a8b49bd33353920bdeeedb8e838a0c9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,6 +110,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setLinearVelo
 <tr class="memitem:a3b0f4f88935f111ad52208064e9a03cd"><td class="memItemLeft" align="right" valign="top"><a id="a3b0f4f88935f111ad52208064e9a03cd"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setFixedRotation</b> (const BodyId i, bool b) const =0</td></tr>
 <tr class="separator:a3b0f4f88935f111ad52208064e9a03cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02efbbe992c3415a86822451be6b54df"><td class="memItemLeft" align="right" valign="top"><a id="a02efbbe992c3415a86822451be6b54df"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>destroyBody</b> (BodyId i) const =0</td></tr>
+<tr class="separator:a02efbbe992c3415a86822451be6b54df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0841cbd1aa137ecc8dec9c8adcf2df8b"><td class="memItemLeft" align="right" valign="top"><a id="a0841cbd1aa137ecc8dec9c8adcf2df8b"></a>
+virtual std::unique_ptr&lt; <a class="el" href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getPhysicsEngineAdapter</b> ()=0</td></tr>
+<tr class="separator:a0841cbd1aa137ecc8dec9c8adcf2df8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>API/Physics/<a class="el" href="PhysicsAPI_8hpp_source.html">PhysicsAPI.hpp</a></li>
