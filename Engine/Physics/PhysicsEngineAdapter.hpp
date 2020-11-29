@@ -5,10 +5,7 @@
 #include "../../API/Physics/PhysicsAPI.hpp"
 #include "../Rendering/Adapter/RenderingEngineAdapter.hpp"
 #include <vector>
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/develop
 
 typedef signed int int32;
 typedef unsigned int BodyId;
@@ -25,11 +22,7 @@ public:
 
     virtual BodyId createBody(BodyType bodyType, Vector2 position, Vector2 size) = 0;
 
-<<<<<<< HEAD
-    virtual BodyId createBody(BodyType bodyType, Vector2 position, const std::vector<Vector2> &points) = 0;
-=======
     virtual BodyId createBody(BodyType bodyType, Vector2 position, std::vector<Vector2> &points) = 0;
->>>>>>> origin/develop
 
     virtual BodyId createBody(BodyType bodyType, Vector2 position, float radius) = 0;
 
