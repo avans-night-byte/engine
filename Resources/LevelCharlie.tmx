@@ -8,12 +8,12 @@
  </layer>
  <layer id="5" name="Prop Layer 1" width="25" height="25">
   <data encoding="base64" compression="zlib">
-   eJztzdkNglAQRuEbnlEoBtROQHChE8UF6MQFQUr0lDDzcBNM5iTfy59MxjnnhsAf6z8LscASEWLFJi1BihXW2Cg2aTvsccARlWKTdsMdDVp0ik3aBwNGfDEpNmkZcmxRoFTcSjvhjBoXXD38eOCJF97oPfywLMuaQz+5fzLT
+   eJztyMkRQFAQANEpZ1swtmDwBWMLxkeIOoSZgwM1XfUuLSISk/d43yxFhhwFSsPTVqFGgxad4WnrMWBEwGR42mYsWLFhNzxtByJOXLgNz/M8z/tnD0p6K0Q=
   </data>
  </layer>
  <layer id="6" name="Prop Layer 2" width="25" height="25">
   <data encoding="base64" compression="zlib">
-   eJzd1EkOAUEUgOFqG9MRsGVlPgKOYD6MxmEMzU0Qiekg2OJPbCpC+lXibfolX1J5i/pTmwpiRmXOuGDF/SelxgNP875fq5H3jCl43xsbbLEL2UlH8x2SRhEl5UYbHcXG/sf5n43PiSOBJFJIO+ykjTIqqKKGusNO2uiihz4GGDrspI0RfIwxwdRhJ23MMMcCSwQOO7txxc1yD0+Lxm5k+FuylpwX/YbLH2k3GtzZtLQU3qE1UWocsFZ0VH5D1OYFu+5kDw==
+   eJzdlEkOQUEQhqttTEfAlpX5CDiC+TAeDmN43ASRmA6CLf6kN5VQ8Z5Wm/cnX1KpRX2pSqf9GKnkDC5ghfknJccDPMnO13LkDVHBfHZswBbsvvSCRnOPII4iKCk72qCj6NgLdf+PDiljVsdBAiRBCqSFXljHgtVlUAFVUAN1oefyrrqgR/Z+AzAUei6OEfDI3m8CpkLPxTEDc7L3WwJf6HHHFdwY99/Ub+GODP6WLCNnou8I80dyRwMzm4yWwh5aiZLjANaKHJV3iFpeAVJc4Q==
   </data>
  </layer>
  <objectgroup id="3" name="Object Layer">
@@ -28,7 +28,6 @@
   <object id="66" x="79.6667" y="112" width="15" height="14.6667"/>
   <object id="67" x="208.333" y="256" width="48" height="15.6667"/>
   <object id="68" x="43.3333" y="218.333" width="56.6667" height="58.3333"/>
-  <object id="79" x="151" y="145.667" width="66" height="44.3333"/>
   <object id="80" x="231.333" y="145.333" width="64.3333" height="44"/>
   <object id="81" x="311.333" y="146.333" width="64.6667" height="44.6667"/>
   <object id="83" x="231" y="105" width="65.6667" height="39.3333"/>
