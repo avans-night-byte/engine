@@ -84,8 +84,8 @@ Inheritance diagram for SDLInputEngineAdapter:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7a8c2a7371fe3791659ee82097899abf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structInput.html">Input</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLInputEngineAdapter.html#a7a8c2a7371fe3791659ee82097899abf">getInput</a> () const override</td></tr>
 <tr class="separator:a7a8c2a7371fe3791659ee82097899abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af74d042e0bffda6f33d7674e9a26c831"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structInput.html">Input</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLInputEngineAdapter.html#af74d042e0bffda6f33d7674e9a26c831">getKeyInput</a> (SDL_Keycode input) const override</td></tr>
-<tr class="separator:af74d042e0bffda6f33d7674e9a26c831"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a247bdda44c11b932ea53f7b33e8356d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structInput.html">Input</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLInputEngineAdapter.html#a247bdda44c11b932ea53f7b33e8356d5">getKeyInput</a> (SDL_Keycode input, Uint32 type=SDL_KEYDOWN) const override</td></tr>
+<tr class="separator:a247bdda44c11b932ea53f7b33e8356d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1dabc74b1e769e1fe12be8045384c728"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structInput.html">Input</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLInputEngineAdapter.html#a1dabc74b1e769e1fe12be8045384c728">getMouseInput</a> (SDL_Event input) const override</td></tr>
 <tr class="separator:a1dabc74b1e769e1fe12be8045384c728"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12a188984b769c6210335481e2062c37"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structInput.html">Input</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLInputEngineAdapter.html#a12a188984b769c6210335481e2062c37">getControllerInput</a> (SDL_Event input) const override</td></tr>
@@ -219,8 +219,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af74d042e0bffda6f33d7674e9a26c831"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af74d042e0bffda6f33d7674e9a26c831">&#9670;&nbsp;</a></span>getKeyInput()</h2>
+<a id="a247bdda44c11b932ea53f7b33e8356d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a247bdda44c11b932ea53f7b33e8356d5">&#9670;&nbsp;</a></span>getKeyInput()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -232,8 +232,18 @@ Public Member Functions</h2></td></tr>
           <td class="memname"><a class="el" href="structInput.html">Input</a> SDLInputEngineAdapter::getKeyInput </td>
           <td>(</td>
           <td class="paramtype">SDL_Keycode&#160;</td>
-          <td class="paramname"><em>keyEvent</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>keyEvent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>type</em> = <code>SDL_KEYDOWN</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>

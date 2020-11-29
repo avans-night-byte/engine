@@ -88,8 +88,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab025d5e991c6c80da4fd1e4e9575564c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f2c15a427d0a0455fc787c36c252c1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#a6f2c15a427d0a0455fc787c36c252c1c">drawTexture</a> (std::string textureId, int x, int y, int width, int height, double scale, double r) override</td></tr>
 <tr class="separator:a6f2c15a427d0a0455fc787c36c252c1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b384fb2d80317daec4650f77928e69a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSpritesheet.html">Spritesheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#a0b384fb2d80317daec4650f77928e69a">createSpriteSheet</a> (char const *path, std::string spriteSheetId, int rows, int columns, int width, int height) override</td></tr>
-<tr class="separator:a0b384fb2d80317daec4650f77928e69a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3618f114e0942c214283ddbbd453f13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSpritesheet.html">Spritesheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#af3618f114e0942c214283ddbbd453f13">createSpriteSheet</a> (char const *path, std::string spriteSheetId, int rows, int columns, int width, int height) const override</td></tr>
+<tr class="separator:af3618f114e0942c214283ddbbd453f13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47533095f1e6ae95ba3728a61a06e771"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#a47533095f1e6ae95ba3728a61a06e771">loadTexture</a> (const char *path, std::string textureId) override</td></tr>
 <tr class="separator:a47533095f1e6ae95ba3728a61a06e771"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -102,8 +102,8 @@ static <a class="el" href="classTextureManager.html">TextureManager</a> *&#160;<
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class acts as a facade for the engine, it stores and references variables and constants needed for rendering and resource allocation like textures. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0b384fb2d80317daec4650f77928e69a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b384fb2d80317daec4650f77928e69a">&#9670;&nbsp;</a></span>createSpriteSheet()</h2>
+<a id="af3618f114e0942c214283ddbbd453f13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3618f114e0942c214283ddbbd453f13">&#9670;&nbsp;</a></span>createSpriteSheet()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,7 +150,7 @@ static <a class="el" href="classTextureManager.html">TextureManager</a> *&#160;<
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>

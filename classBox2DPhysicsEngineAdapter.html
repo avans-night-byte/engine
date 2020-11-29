@@ -84,11 +84,14 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const float &amp;timeStep, const int32 &amp;velocityIterations, const int32 &amp;positionIterations) override</td></tr>
 <tr class="separator:a96b7e9b6455ae28e6b0000891970e3e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae819a83305fd87ae0346e09fc6e1ae4c"><td class="memItemLeft" align="right" valign="top"><a id="ae819a83305fd87ae0346e09fc6e1ae4c"></a>
-BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> position, <a class="el" href="structVector2.html">Vector2</a> size) override</td></tr>
+BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classsize.html">size</a>) override</td></tr>
 <tr class="separator:ae819a83305fd87ae0346e09fc6e1ae4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96fc354c7807fef4200f8f67ce1e155a"><td class="memItemLeft" align="right" valign="top"><a id="a96fc354c7807fef4200f8f67ce1e155a"></a>
-BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> position, float radius) override</td></tr>
+BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, float radius) override</td></tr>
 <tr class="separator:a96fc354c7807fef4200f8f67ce1e155a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49a5c8d0c60d540381eee864a6e3cef4"><td class="memItemLeft" align="right" valign="top"><a id="a49a5c8d0c60d540381eee864a6e3cef4"></a>
+BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, std::vector&lt; <a class="el" href="structVector2.html">Vector2</a> &gt; &amp;points) override</td></tr>
+<tr class="separator:a49a5c8d0c60d540381eee864a6e3cef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd3ee428a32f4552b5f396dc30ad9c0c"><td class="memItemLeft" align="right" valign="top"><a id="abd3ee428a32f4552b5f396dc30ad9c0c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>referencePositionToBody</b> (BodyId bodyId, float &amp;x, float &amp;y) override</td></tr>
 <tr class="separator:abd3ee428a32f4552b5f396dc30ad9c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -101,6 +104,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroyBody</b> (Body
 <tr class="memitem:a3afdfb423cab0d1a317f9fc23c73cb73"><td class="memItemLeft" align="right" valign="top"><a id="a3afdfb423cab0d1a317f9fc23c73cb73"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>DebugDraw</b> (const <a class="el" href="classRenderingEngineAdapter.html">RenderingEngineAdapter</a> &amp;renderingAdapter, SDL_Renderer &amp;renderer) override</td></tr>
 <tr class="separator:a3afdfb423cab0d1a317f9fc23c73cb73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66e96e81b6b84932f72c696741e4f085"><td class="memItemLeft" align="right" valign="top"><a id="a66e96e81b6b84932f72c696741e4f085"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>getVelocity</b> (<a class="el" href="structVector2.html">Vector2</a> &amp;velocity, BodyId bodyId) const override</td></tr>
+<tr class="separator:a66e96e81b6b84932f72c696741e4f085"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add45cbd46b4e59b38f66ee2c12b089ce"><td class="memItemLeft" align="right" valign="top"><a id="add45cbd46b4e59b38f66ee2c12b089ce"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setLinearVelocity</b> (BodyId bodyId, const <a class="el" href="structVector2.html">Vector2</a> &amp;vector2) override</td></tr>
+<tr class="separator:add45cbd46b4e59b38f66ee2c12b089ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabaf89507ce56947ee6465288da45b40"><td class="memItemLeft" align="right" valign="top"><a id="aabaf89507ce56947ee6465288da45b40"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setFixedRotation</b> (BodyId bodyId, bool b) override</td></tr>
+<tr class="separator:aabaf89507ce56947ee6465288da45b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/Physics/<a class="el" href="Box2DPhysicsEngineAdapter_8hpp_source.html">Box2DPhysicsEngineAdapter.hpp</a></li>

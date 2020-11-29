@@ -83,21 +83,33 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9baec44b78e27ed81cfc48678c07a587"><td class="memItemLeft" align="right" valign="top"><a id="a9baec44b78e27ed81cfc48678c07a587"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const float &amp;timeStep, const int32 &amp;velocityIterations, const int32 &amp;positionIterations)=0</td></tr>
 <tr class="separator:a9baec44b78e27ed81cfc48678c07a587"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a851dcc31e3f796e9c4a20c2f1a57ffba"><td class="memItemLeft" align="right" valign="top"><a id="a851dcc31e3f796e9c4a20c2f1a57ffba"></a>
-virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> position, <a class="el" href="structVector2.html">Vector2</a> size)=0</td></tr>
-<tr class="separator:a851dcc31e3f796e9c4a20c2f1a57ffba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28fd92334372b5e4c2ff0c3a2f2a52bc"><td class="memItemLeft" align="right" valign="top"><a id="a28fd92334372b5e4c2ff0c3a2f2a52bc"></a>
-virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> position, float radius)=0</td></tr>
-<tr class="separator:a28fd92334372b5e4c2ff0c3a2f2a52bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab33b07d1b280aab28eb239f5da917dc9"><td class="memItemLeft" align="right" valign="top"><a id="ab33b07d1b280aab28eb239f5da917dc9"></a>
+virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classsize.html">size</a>) const =0</td></tr>
+<tr class="separator:ab33b07d1b280aab28eb239f5da917dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9464f35c0896d0c440bc772e0d35a64"><td class="memItemLeft" align="right" valign="top"><a id="ae9464f35c0896d0c440bc772e0d35a64"></a>
+virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, float radius) const =0</td></tr>
+<tr class="separator:ae9464f35c0896d0c440bc772e0d35a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdb0cdee16f1f3edbf0a89aa4addcb4e"><td class="memItemLeft" align="right" valign="top"><a id="afdb0cdee16f1f3edbf0a89aa4addcb4e"></a>
+virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, std::vector&lt; <a class="el" href="structVector2.html">Vector2</a> &gt; &amp;points) const =0</td></tr>
+<tr class="separator:afdb0cdee16f1f3edbf0a89aa4addcb4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b49bd33353920bdeeedb8e838a0c9f5"><td class="memItemLeft" align="right" valign="top"><a id="a8b49bd33353920bdeeedb8e838a0c9f5"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>destroyBody</b> (BodyId bodyId)=0</td></tr>
 <tr class="separator:a8b49bd33353920bdeeedb8e838a0c9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5acb574199d568dceb216a1e7b9c8a9"><td class="memItemLeft" align="right" valign="top"><a id="af5acb574199d568dceb216a1e7b9c8a9"></a>
-virtual <a class="el" href="structRPosition.html">RPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getRPosition</b> (BodyId bodyId)=0</td></tr>
-<tr class="separator:af5acb574199d568dceb216a1e7b9c8a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49c2589105db82ab77397dcc1f33ae5a"><td class="memItemLeft" align="right" valign="top"><a id="a49c2589105db82ab77397dcc1f33ae5a"></a>
+virtual <a class="el" href="structRPosition.html">RPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getRPosition</b> (BodyId bodyId) const =0</td></tr>
+<tr class="separator:a49c2589105db82ab77397dcc1f33ae5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7db754bbea61ff189ab7d5ad4988c635"><td class="memItemLeft" align="right" valign="top"><a id="a7db754bbea61ff189ab7d5ad4988c635"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>DebugDraw</b> (const <a class="el" href="classRenderingAPI.html">RenderingAPI</a> &amp;renderingApi, SDL_Renderer &amp;renderer)=0</td></tr>
 <tr class="separator:a7db754bbea61ff189ab7d5ad4988c635"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abab2f9790e547bc3a3fde714fcd0ef2f"><td class="memItemLeft" align="right" valign="top"><a id="abab2f9790e547bc3a3fde714fcd0ef2f"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>GetVelocity</b> (<a class="el" href="structVector2.html">Vector2</a> &amp;velocity, const BodyId bodyId) const =0</td></tr>
+<tr class="separator:abab2f9790e547bc3a3fde714fcd0ef2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbf99eb29e654c29218ef9926009e57c"><td class="memItemLeft" align="right" valign="top"><a id="afbf99eb29e654c29218ef9926009e57c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setLinearVelocity</b> (const BodyId bodyId, const <a class="el" href="structVector2.html">Vector2</a> &amp;vector2) const =0</td></tr>
+<tr class="separator:afbf99eb29e654c29218ef9926009e57c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b0f4f88935f111ad52208064e9a03cd"><td class="memItemLeft" align="right" valign="top"><a id="a3b0f4f88935f111ad52208064e9a03cd"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setFixedRotation</b> (const BodyId i, bool b) const =0</td></tr>
+<tr class="separator:a3b0f4f88935f111ad52208064e9a03cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>API/Physics/<a class="el" href="PhysicsAPI_8hpp_source.html">PhysicsAPI.hpp</a></li>

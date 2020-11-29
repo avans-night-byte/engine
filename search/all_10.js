@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vector2_62',['Vector2',['../structVector2.html',1,'']]]
+  ['upgrade_77',['upgrade',['../classupgrade.html',1,'']]]
 ];

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['x_64',['x',['../structInput.html#a24ec6e95f6bf8938d36f795435cc7d31',1,'Input']]]
+  ['wall_79',['wall',['../classwall.html',1,'']]],
+  ['walls_80',['walls',['../classwalls.html',1,'']]],
+  ['windowapi_81',['WindowAPI',['../classWindowAPI.html',1,'']]]
 ];

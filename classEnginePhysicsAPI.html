@@ -83,21 +83,33 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a12a87895b481db43031372d2b759e4f3"><td class="memItemLeft" align="right" valign="top"><a id="a12a87895b481db43031372d2b759e4f3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const float &amp;timeStep, const int32 &amp;velocityIterations, const int32 &amp;positionIterations) override</td></tr>
 <tr class="separator:a12a87895b481db43031372d2b759e4f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1047ea7239104235e2b3bdddf69ff84a"><td class="memItemLeft" align="right" valign="top"><a id="a1047ea7239104235e2b3bdddf69ff84a"></a>
-BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> position, <a class="el" href="structVector2.html">Vector2</a> size) override</td></tr>
-<tr class="separator:a1047ea7239104235e2b3bdddf69ff84a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a955810f757be8b911faa5840f9d8abfc"><td class="memItemLeft" align="right" valign="top"><a id="a955810f757be8b911faa5840f9d8abfc"></a>
-BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> position, float radius) override</td></tr>
-<tr class="separator:a955810f757be8b911faa5840f9d8abfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b1f1c8429a319639ecf55048f63c4be"><td class="memItemLeft" align="right" valign="top"><a id="a5b1f1c8429a319639ecf55048f63c4be"></a>
+BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classsize.html">size</a>) const override</td></tr>
+<tr class="separator:a5b1f1c8429a319639ecf55048f63c4be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cdd5447c923018f41df7896e82a92b5"><td class="memItemLeft" align="right" valign="top"><a id="a5cdd5447c923018f41df7896e82a92b5"></a>
+BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, std::vector&lt; <a class="el" href="structVector2.html">Vector2</a> &gt; &amp;points) const override</td></tr>
+<tr class="separator:a5cdd5447c923018f41df7896e82a92b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72481afe63cb5500166f54761c8719e2"><td class="memItemLeft" align="right" valign="top"><a id="a72481afe63cb5500166f54761c8719e2"></a>
+BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (BodyType bodyType, <a class="el" href="structVector2.html">Vector2</a> <a class="el" href="classposition.html">position</a>, float radius) const override</td></tr>
+<tr class="separator:a72481afe63cb5500166f54761c8719e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0248983c69498ab55c6807202da72016"><td class="memItemLeft" align="right" valign="top"><a id="a0248983c69498ab55c6807202da72016"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>destroyBody</b> (BodyId bodyID) override</td></tr>
 <tr class="separator:a0248983c69498ab55c6807202da72016"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a155bcd083629362211053b94e6a48a2b"><td class="memItemLeft" align="right" valign="top"><a id="a155bcd083629362211053b94e6a48a2b"></a>
-<a class="el" href="structRPosition.html">RPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getRPosition</b> (BodyId bodyId) override</td></tr>
-<tr class="separator:a155bcd083629362211053b94e6a48a2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fe6e681cd7fbd2bf3678fc5a00c4775"><td class="memItemLeft" align="right" valign="top"><a id="a5fe6e681cd7fbd2bf3678fc5a00c4775"></a>
+<a class="el" href="structRPosition.html">RPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getRPosition</b> (BodyId bodyId) const override</td></tr>
+<tr class="separator:a5fe6e681cd7fbd2bf3678fc5a00c4775"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab78af15154635450b27ac12880c6e568"><td class="memItemLeft" align="right" valign="top"><a id="ab78af15154635450b27ac12880c6e568"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>DebugDraw</b> (const <a class="el" href="classRenderingAPI.html">RenderingAPI</a> &amp;renderingApi, SDL_Renderer &amp;renderer) override</td></tr>
 <tr class="separator:ab78af15154635450b27ac12880c6e568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c8709abc9a38f90b6fc57ddc277b784"><td class="memItemLeft" align="right" valign="top"><a id="a9c8709abc9a38f90b6fc57ddc277b784"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>GetVelocity</b> (<a class="el" href="structVector2.html">Vector2</a> &amp;velocity, const BodyId bodyId) const override</td></tr>
+<tr class="separator:a9c8709abc9a38f90b6fc57ddc277b784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48fb84d6cfdaf3ad9da49943d1b20501"><td class="memItemLeft" align="right" valign="top"><a id="a48fb84d6cfdaf3ad9da49943d1b20501"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setLinearVelocity</b> (const BodyId bodyId, const <a class="el" href="structVector2.html">Vector2</a> &amp;vector2) const override</td></tr>
+<tr class="separator:a48fb84d6cfdaf3ad9da49943d1b20501"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cc6ac319249fda8a28e45df2c084f4c"><td class="memItemLeft" align="right" valign="top"><a id="a9cc6ac319249fda8a28e45df2c084f4c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setFixedRotation</b> (const BodyId i, bool b) const override</td></tr>
+<tr class="separator:a9cc6ac319249fda8a28e45df2c084f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>API/Physics/<a class="el" href="EnginePhysicsAPI_8hpp_source.html">EnginePhysicsAPI.hpp</a></li>
