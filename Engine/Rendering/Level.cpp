@@ -4,16 +4,16 @@
 
 #include <include/tmxlite/Layer.hpp>
 #include <include/tmxlite/TileLayer.hpp>
-#include <iostream>
 #include "Level.hpp"
-#include "../../API/Rendering/EngineRenderingAPI.hpp"
 #include "../../Game/Game.hpp"
 #include "../../Game/Components/NextLevelComponent.hpp"
 
 
-float scale = 4;
-
-Level::Level(const char * tmxPath, const char* spritesheetPath, const char*  spritesheetId, EngineRenderingAPI& engineRenderingAPI) {
+Level::Level(const char *tmxPath,
+             const char *spritesheetPath,
+             const char *spritesheetId,
+             EngineRenderingAPI &engineRenderingAPI,
+             PhysicsEngineAdapter &physicsEngineAdapter) : physicsEngineAdapter(physicsEngineAdapter) {
     _tSpritesheet = engineRenderingAPI.createSpriteSheet(spritesheetPath,
                                                          spritesheetId, 40, 40, 16, 16);
     if (_tmap.load(tmxPath)) {
@@ -110,13 +110,15 @@ void Level::initCollision(){
                 if(points.empty()){
                     // Rectangle
                     auto rect = object.getAABB();
-                    Game::getInstance()->getPhysicsAPI()->createStaticBody(BodyType::Static, Vector2((object.getPosition().x * scale ) + (rect.width * scale) / 2, (object.getPosition().y * scale) + (rect.height * scale) / 2), Vector2(rect.width /2 * scale, rect.height/2 * scale), isSensor, handler);
+                    BodyId bodyId = Game::getInstance()->getPhysicsAPI()->createStaticBody(BodyType::Static, Vector2((object.getPosition().x * scale ) + (rect.width * scale) / 2, (object.getPosition().y * scale) + (rect.height * scale) / 2), Vector2(rect.width /2 * scale, rect.height/2 * scale), isSensor, handler);
+                    bodies.push_back(bodyId);
                     continue;
                 }
 
 
                 Vector2 pos = Vector2(object.getPosition().x * scale, object.getPosition().y * scale);
-                Game::getInstance()->getPhysicsAPI()->createStaticBody(BodyType::Static, pos, points, isSensor);
+                BodyId bodyId = Game::getInstance()->getPhysicsAPI()->createStaticBody(BodyType::Static, pos, points, isSensor);
+                bodies.push_back(bodyId);
             }
         }
     }

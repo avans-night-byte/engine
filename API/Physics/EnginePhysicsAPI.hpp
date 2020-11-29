@@ -28,8 +28,7 @@ public:
         return physicsEngineAdapter->createBody(bodyType, position, size, isSensor, userData);
     }
 
-    inline unsigned int
-    createStaticBody(BodyType bodyType,
+    inline BodyId createStaticBody(BodyType bodyType,
                      Vector2 position,
                      std::vector<Vector2> &points,
                      const bool &isSensor,
@@ -71,5 +70,10 @@ public:
 
     void destroyBody(BodyId i) const override {
         physicsEngineAdapter->destroyBody(i);
+    }
+
+    inline unique_ptr<PhysicsEngineAdapter>& getPhysicsEngineAdapter()
+    {
+        return physicsEngineAdapter;
     }
 };
