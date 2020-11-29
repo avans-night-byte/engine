@@ -68,4 +68,8 @@ public:
     void setFixedRotation(const BodyId i, bool b) const override {
         physicsEngineAdapter->setFixedRotation(i, b);
     }
+
+    void destroyBody(BodyId i) const override {
+        physicsEngineAdapter->destroyBody(i);
+    }
 };

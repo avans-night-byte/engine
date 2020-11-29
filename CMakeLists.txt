@@ -83,7 +83,7 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Resources/XML/Generated/wall.cxx
         ./Engine/Resources/XML/Generated/common.cxx
         ./Engine/Resources/XML/Generated/common.hxx
-        )
+        Game/Scenes/Level10/LevelCharlie.cpp Game/Scenes/Level10/LevelCharlie.hpp)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)

@@ -8,6 +8,7 @@
 #include "Level.hpp"
 #include "../../API/Rendering/EngineRenderingAPI.hpp"
 #include "../../Game/Game.hpp"
+#include "../../Game/Components/NextLevelComponent.hpp"
 
 
 float scale = 4;
@@ -86,7 +87,7 @@ void Level::initCollision(){
                 std::vector<Vector2> points = std::vector<Vector2>();
 
                 bool isSensor = false;
-
+                ContactHandler* handler = nullptr;
                 for(const auto &property : object.getProperties())
                 {
                     if(property.getName() == "isSensor")
@@ -96,7 +97,8 @@ void Level::initCollision(){
 
                     if(property.getName() == "isNextLevel")
                     {
-
+                        // TODO: Hardcoded please create a system for this.
+                        handler = new NextLevelComponent();
                     }
                 }
 
@@ -108,7 +110,7 @@ void Level::initCollision(){
                 if(points.empty()){
                     // Rectangle
                     auto rect = object.getAABB();
-                    Game::getInstance()->getPhysicsAPI()->createStaticBody(BodyType::Static, Vector2((object.getPosition().x * scale ) + (rect.width * scale) / 2, (object.getPosition().y * scale) + (rect.height * scale) / 2), Vector2(rect.width /2 * scale, rect.height/2 * scale), isSensor);
+                    Game::getInstance()->getPhysicsAPI()->createStaticBody(BodyType::Static, Vector2((object.getPosition().x * scale ) + (rect.width * scale) / 2, (object.getPosition().y * scale) + (rect.height * scale) / 2), Vector2(rect.width /2 * scale, rect.height/2 * scale), isSensor, handler);
                     continue;
                 }
 
