@@ -1,31 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="2020.11.25" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="51">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="78">
  <tileset firstgid="1" source="Overworld.tsx"/>
- <layer id="1" name="Base layer" width="25" height="25">
+ <layer id="1" name="Base Layer" width="25" height="25">
   <data encoding="base64" compression="zlib">
-   eJy9lGEKgCAMRqsD1G3qVoKX8Th1m7pGIxDG0PmZTuj9aEzfpkM/T5NnBEYqJvEg2h6tjHY4w/0t+5AOV9ELz5Xr+H+Lo+RGHKgvVb/m0NbX1D/agcxuzKfvo4cjlROEI+dr6ePvbKGOGEdqz9WWm185x9HBz0u7Ax5DHVq9WhyZ35IDWWP1Lpbuo3WuNIf2ftY6c/fR+93ljtOYi7iNeYh1sWUjdmMO4gUKIkPJ
+   eJy9lGEOgyAMRt0OoLfZbmXCZTyOu828xuoPks+mtB+6mvgSIZRXoFAew1CABbD6NIXEm+MqdzvmxPkz16Edc8dacKyOw/YVR+RmHKzPyt9zePE9+d/tYGq3jpfvAOOo4wr8t/JYDIcHxu9t7WD2q8dXie457lVUq1ZurfrVdazPAvfE8mAf6/Dy9fqZ+o0cTEzWuxidx9l7yDi897PX2TqPf7+76FiT+QjfZDZhfOYyCa9k3sIPT0w1nA==
   </data>
  </layer>
- <layer id="2" name="Prop Layer" width="25" height="25">
+ <layer id="5" name="Prop Layer 1" width="25" height="25">
   <data encoding="base64" compression="zlib">
-   eJzt0MsNglAUhOGrUo0ixfgqRoQyWEmgAbvQ6F7dWQJGS+BnwQIS5CrMxnCSLyGBnOFM5hjzxGPSvxd739gjFmUk7E1xxEmUcWbvBdnQ1dCVsCtHoOxqihlcgTk8LLDESmCNDbbwsRMIEOI+Nq0Tjao+vat/U+z/JsP2H7pkKO9ouqd8VmTY6CvDZrp2pcj4ZYr9VxyEbuIb/m1yn8Yc0w==
+   eJztzdkNglAQRuEbnlEoBtROQHChE8UF6MQFQUr0lDDzcBNM5iTfy59MxjnnhsAf6z8LscASEWLFJi1BihXW2Cg2aTvsccARlWKTdsMdDVp0ik3aBwNGfDEpNmkZcmxRoFTcSjvhjBoXXD38eOCJF97oPfywLMuaQz+5fzLT
   </data>
  </layer>
- <layer id="4" name="Tile Layer 3" width="25" height="25">
+ <layer id="6" name="Prop Layer 2" width="25" height="25">
   <data encoding="base64" compression="zlib">
-   eJztkcENQFAQBTf5GkA1qADVoBo04oo2NIAmvOOScPh2xWEnmdvmzWGJ/sHiiAY6K43W7rWhzVeNN50c/yxg6e5vfH7OdytYw+ah4QPfbWEHe+EG3x3hBGfhBt9d4QZ34QbfDQOiCMaBbIPvJjCFmXBDa9cwDEOTAzbKIC0=
+   eJzd1EkOAUEUgOFqG9MRsGVlPgKOYD6MxmEMzU0Qiekg2OJPbCpC+lXibfolX1J5i/pTmwpiRmXOuGDF/SelxgNP875fq5H3jCl43xsbbLEL2UlH8x2SRhEl5UYbHcXG/sf5n43PiSOBJFJIO+ykjTIqqKKGusNO2uiihz4GGDrspI0RfIwxwdRhJ23MMMcCSwQOO7txxc1yD0+Lxm5k+FuylpwX/YbLH2k3GtzZtLQU3qE1UWocsFZ0VH5D1OYFu+5kDw==
   </data>
  </layer>
  <objectgroup id="3" name="Object Layer">
-  <object id="44" x="-6.25" y="0" width="26.5" height="155.75"/>
-  <object id="46" x="35.75" y="155.25" width="316.75" height="43.25"/>
-  <object id="47" x="275.75" y="189" width="0.25" height="4.75"/>
-  <object id="48" x="379.5" y="-0.5" width="37.75" height="218.25"/>
-  <object id="49" x="11.25" y="101">
-   <polygon points="0,0 9.75,-5.5 29.75,1.5 36.5,18 36.5,56.75"/>
+  <object id="56" x="1" y="337" width="397.333" height="11.3333"/>
+  <object id="57" x="388.333" y="0" width="9.66667" height="348.333"/>
+  <object id="58" x="0.333333" y="0.666667" width="391" height="12"/>
+  <object id="59" x="0.333333" y="12" width="11.3333" height="335.333"/>
+  <object id="62" x="64.6667" y="47.6667" width="47" height="16.3333"/>
+  <object id="63" x="144.667" y="47.6667" width="46.6667" height="16"/>
+  <object id="64" x="101.667" y="91.3333" width="21.3333" height="18.3333"/>
+  <object id="65" x="129.333" y="112.333" width="13.6667" height="15.6667"/>
+  <object id="66" x="79.6667" y="112" width="15" height="14.6667"/>
+  <object id="67" x="208.333" y="256" width="48" height="15.6667"/>
+  <object id="68" x="43.3333" y="218.333" width="56.6667" height="58.3333"/>
+  <object id="69" x="153" y="204.333">
+   <polygon points="0,0 -1,-25.6667 -5.33333,-26 -3.33333,-58.3333 29.6667,-74 64.3333,-57.3333 66,-25.6667 63.6667,-25.6667 62,-0.333333"/>
   </object>
-  <object id="50" x="353.5" y="155.75">
-   <polygon points="0,0 0,-42.75 9.5,-56.25 26.25,-60.5"/>
+  <object id="70" x="232.667" y="203.667">
+   <polygon points="0,0 -0.666667,-25 -4.66667,-24.3333 -3.66667,-57.6667 30.3333,-72.6667 65.6667,-56 67.6667,-26 64,-24.6667 62.3333,0"/>
+  </object>
+  <object id="73" x="311" y="147">
+   <polygon points="0,0 -1.33333,31 2,32.3333 2,54.6667 63,56.3333 64.3333,31 67.6667,29.3333 66.6667,-2.33333 34,-15.3333"/>
+  </object>
+  <object id="74" x="151" y="110">
+   <polygon points="0,0 33,-6 66.3333,2 68.3333,19.3333 64,21 65.3333,32.6667 33.6667,20 1.33333,34 0.666667,18"/>
+  </object>
+  <object id="75" x="229" y="113">
+   <polygon points="0,0 33.6667,-9.66667 69.3333,2 70.3333,16.6667 66,17.3333 66.3333,29 35.3333,17 2.66667,30.3333 3.66667,15.6667 -0.333333,17"/>
+  </object>
+  <object id="76" x="309.667" y="115.333">
+   <polygon points="0,0 34,-11.6667 68.3333,1 69,13 65.3333,17 65.6667,26.3333 35.6667,13 1.66667,28.3333 2.33333,13.6667 -1.66667,13"/>
+  </object>
+  <object id="77" x="358.333" y="46.3333">
+   <polygon points="0,0 19.3333,-1.33333 20.3333,-16.3333 24.3333,-15.6667 23.6667,-31 9,-38 -3.33333,-32 -5.33333,-17 -1.33333,-14"/>
   </object>
  </objectgroup>
 </map>
