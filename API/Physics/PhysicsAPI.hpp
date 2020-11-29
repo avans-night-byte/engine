@@ -6,6 +6,7 @@
 #include "../../Engine/Physics/PhysicsEngineAdapter.hpp"
 #include "../Rendering/RenderingAPI.hpp"
 #include "../RPosition.hpp"
+#include "../../Engine/Physics/ContactHandler.hpp"
 
 
 typedef unsigned int BodyId;
@@ -14,11 +15,12 @@ class PhysicsAPI {
 public:
     virtual void update(const float& timeStep, const int32& velocityIterations, const int32& positionIterations) = 0;
 
-    virtual unsigned int createStaticBody(BodyType bodyType, Vector2 position, Vector2 size) const = 0;
+    virtual unsigned int createStaticBody(BodyType bodyType, Vector2 position, Vector2 size, const bool &isSensor = false, ContactHandler* userData = nullptr) const = 0;
 
-    virtual unsigned int createStaticBody(BodyType bodyType, Vector2 position, float radius) const = 0;
+    virtual unsigned int createStaticBody(BodyType bodyType, Vector2 position, float radius, const bool &isSensor = false, ContactHandler* userData = nullptr) const = 0;
 
-    virtual unsigned int createStaticBody(BodyType bodyType, Vector2 position, std::vector<Vector2> &points) const = 0;
+    virtual unsigned int
+    createStaticBody(BodyType bodyType, Vector2 position, std::vector<Vector2> &points, const bool &isSensor = false, ContactHandler* userData = nullptr) const = 0;
 
     virtual void destroyBody(BodyId bodyId) = 0;
 

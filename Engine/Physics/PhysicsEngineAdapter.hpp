@@ -4,6 +4,7 @@
 #include "BodyType.hpp"
 #include "../../API/Physics/PhysicsAPI.hpp"
 #include "../Rendering/Adapter/RenderingEngineAdapter.hpp"
+#include "ContactHandler.hpp"
 #include <vector>
 
 typedef signed int int32;
@@ -19,11 +20,11 @@ public:
 public:
     virtual void update(const float &timeStep, const int32 &velocityIterations, const int32 &positionIterations) = 0;
 
-    virtual BodyId createBody(BodyType bodyType, Vector2 position, Vector2 size) = 0;
+    virtual BodyId createBody(BodyType bodyType, Vector2 position, Vector2 size, const bool &isSensor = false, ContactHandler* handler = nullptr) = 0;
 
-    virtual BodyId createBody(BodyType bodyType, Vector2 position, std::vector<Vector2> &points) = 0;
+    virtual BodyId createBody(BodyType bodyType, Vector2 position, std::vector<Vector2> &points, const bool &isSensor, ContactHandler* handler = nullptr) = 0;
 
-    virtual BodyId createBody(BodyType bodyType, Vector2 position, float radius) = 0;
+    virtual BodyId createBody(BodyType bodyType, Vector2 position, float radius, ContactHandler* handler = nullptr) = 0;
 
     virtual void referencePositionToBody(BodyId bodyId, float &x, float &y) = 0;
 

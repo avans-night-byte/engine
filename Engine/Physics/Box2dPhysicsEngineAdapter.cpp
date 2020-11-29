@@ -1,38 +1,48 @@
 #include "Box2DPhysicsEngineAdapter.hpp"
 
-unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType, Vector2 position, Vector2 size) {
+// TODO: Remove this shit
+#include "../../Game/Components/NextLevelComponent.hpp"
+
+unsigned int
+Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
+                                      Vector2 position,
+                                      Vector2 size,
+                                      const bool &isSensor,
+                                      ContactHandler* userData) {
     b2BodyDef bodyDef;
     bodyDef.type = static_cast<b2BodyType>(static_cast<int>(bodyType));
     bodyDef.position.Set(position.x, position.y);
-
     bodyDef.linearDamping = 0.1f;
     bodyDef.angularDamping = 0.1f;
+
+    b2BodyUserData bodyUserData;
+    bodyUserData.pointer = (uintptr_t)userData;
+
+    bodyDef.userData = bodyUserData;
+
     b2Body *body = world.CreateBody(&bodyDef);
+
     b2PolygonShape box;
     box.SetAsBox(size.x, size.y);
 
+    b2FixtureDef fixtureDef;
+    fixtureDef.density = 1.0f;
+    fixtureDef.friction = 1.0f;
+    fixtureDef.shape = &box;
+    fixtureDef.isSensor = isSensor;
 
-    // Dynamic
-    if(bodyType == BodyType::Dynamic)
-    {
-        b2FixtureDef fixtureDef;
-        fixtureDef.shape = &box;
-        fixtureDef.density = 1.0f;
-        fixtureDef.friction = 1.0f;
-
-        body->CreateFixture(&fixtureDef);
-    }
-    else
-    {
-        body->CreateFixture(&box, 0.0f);
-    }
+    body->CreateFixture(&fixtureDef);
 
     bodies.push_back(body);
     return bodies.size() - 1;
 }
 
 
-unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType, Vector2 position, std::vector<Vector2>& points) {
+BodyId Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
+                                             Vector2 position,
+                                             std::vector<Vector2> &points,
+                                             const bool &isSensor,
+                                             ContactHandler* userData) {
     b2BodyDef bodyDef;
     bodyDef.type = static_cast<b2BodyType>(static_cast<int>(bodyType));
 
@@ -52,26 +62,23 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType, Vector2 po
     b2Vec2 arrayVec [verts.size()];
     std::copy(verts.begin(), verts.end(), arrayVec);
     polygonShape.Set(arrayVec, verts.size());
-    // DPolygonShapeynamic
-    if(bodyType == BodyType::Dynamic)
-    {
-        b2FixtureDef fixtureDef;
-        fixtureDef.shape = &polygonShape;
-        fixtureDef.density = 1.0f;
-        fixtureDef.friction = 1.0f;
-        body->CreateFixture(&fixtureDef);
-    }
-    else
-    {
-        body->CreateFixture(&polygonShape, 0.0f);
-    }
+
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &polygonShape;
+    fixtureDef.isSensor = isSensor;
+    fixtureDef.density = 1.0f;
+    fixtureDef.friction = 1.0f;
+    body->CreateFixture(&fixtureDef);
 
     bodies.push_back(body);
     return bodies.size() - 1;
 }
 
 
-unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType, Vector2 position, float radius) {
+unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
+                                                   Vector2 position,
+                                                   float radius,
+                                                   ContactHandler* userData) {
     b2BodyDef bodyDef;
     bodyDef.type = static_cast<b2BodyType>(static_cast<int>(bodyType));
     bodyDef.position.Set(position.x, position.y);
@@ -81,19 +88,11 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType, Vector2 po
     b2CircleShape circle;
     circle.m_radius = radius;
 
-    // Dynamic
-    if(bodyType == BodyType::Dynamic)
-    {
-        b2FixtureDef fixtureDef;
-        fixtureDef.shape = &circle;
-        fixtureDef.density = 1.0f;
-        fixtureDef.friction = 1.0f;
-        body->CreateFixture(&fixtureDef);
-    }
-    else
-    {
-        body->CreateFixture(&circle, 0.0f);
-    }
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &circle;
+    fixtureDef.density = 1.0f;
+    fixtureDef.friction = 1.0f;
+    body->CreateFixture(&fixtureDef);
 
     bodies.push_back(body);
     return bodies.size() - 1;

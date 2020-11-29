@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="38">
+<map version="1.4" tiledversion="2020.11.25" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="41">
  <tileset firstgid="1" source="Overworld.tsx"/>
  <layer id="1" name="Base layer" width="25" height="25">
   <data encoding="base64" compression="zlib">
@@ -13,7 +13,7 @@
  </layer>
  <objectgroup id="3" name="Object Layer">
   <object id="6" x="154.5" y="156.5">
-   <polygon points="0,0 -7,-26 -6,-58 28,-76 63,-60 65,-26.5 61.5,-1"/>
+   <polygon points="-2.72727,-14.7273 -7,-26 -6,-58 28,-76 63,-60 65,-26.5 61.5,-15.1818"/>
   </object>
   <object id="9" x="80.5" y="160.5" width="31" height="31"/>
   <object id="10" x="32.5" y="81.5" width="15" height="77.5"/>
@@ -21,6 +21,14 @@
   <object id="33" x="304" y="64" width="32" height="34"/>
   <object id="34" x="336.5" y="200" width="15.5" height="49"/>
   <object id="35" x="282" y="199" width="43" height="47"/>
-  <object id="36" x="161.5" y="176" width="46.5" height="47"/>
+  <object id="39" x="173.091" y="178.545">
+   <polygon points="0,0 20.9091,-0.545455 32.3636,13.0909 28.5455,23.8182 10.3636,30.7273 -10.5455,22.7273 -10.1818,7.81818"/>
+  </object>
+  <object id="40" x="176.573" y="137.32" width="14.7273" height="18.2727">
+   <properties>
+    <property name="isNextLevel" type="bool" value="true"/>
+    <property name="isSensor" type="bool" value="true"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

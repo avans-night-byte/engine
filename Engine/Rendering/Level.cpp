@@ -85,7 +85,20 @@ void Level::initCollision(){
             for (const auto &object : objects) {
                 std::vector<Vector2> points = std::vector<Vector2>();
 
+                bool isSensor = false;
 
+                for(const auto &property : object.getProperties())
+                {
+                    if(property.getName() == "isSensor")
+                    {
+                        isSensor = true;
+                    }
+
+                    if(property.getName() == "isNextLevel")
+                    {
+
+                    }
+                }
 
                 for (const auto &point : object.getPoints()) {
                     points.push_back(Vector2(point.x * scale, point.y * scale));
@@ -95,13 +108,13 @@ void Level::initCollision(){
                 if(points.empty()){
                     // Rectangle
                     auto rect = object.getAABB();
-                    Game::getInstance()->getPhysicsAPI()->createStaticBody(BodyType::Static, Vector2((object.getPosition().x * scale ) + (rect.width * scale) / 2, (object.getPosition().y * scale) + (rect.height * scale) / 2), Vector2(rect.width /2 * scale, rect.height/2 * scale));
+                    Game::getInstance()->getPhysicsAPI()->createStaticBody(BodyType::Static, Vector2((object.getPosition().x * scale ) + (rect.width * scale) / 2, (object.getPosition().y * scale) + (rect.height * scale) / 2), Vector2(rect.width /2 * scale, rect.height/2 * scale), isSensor);
                     continue;
                 }
 
 
                 Vector2 pos = Vector2(object.getPosition().x * scale, object.getPosition().y * scale);
-                Game::getInstance()->getPhysicsAPI()->createStaticBody(BodyType::Static, pos , points);
+                Game::getInstance()->getPhysicsAPI()->createStaticBody(BodyType::Static, pos, points, isSensor);
             }
         }
     }

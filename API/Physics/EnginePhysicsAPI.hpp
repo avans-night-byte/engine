@@ -18,17 +18,31 @@ public:
         physicsEngineAdapter->update(timeStep, velocityIterations, positionIterations);
     }
 
+
     // TODO: Create a Helper function for BodyId
-    inline BodyId createStaticBody(BodyType bodyType, Vector2 position, Vector2 size) const override {
-        return physicsEngineAdapter->createBody(bodyType, position, size);
+    inline BodyId createStaticBody(BodyType bodyType,
+                                   Vector2 position,
+                                   Vector2 size,
+                                   const bool &isSensor = false,
+                                   ContactHandler *userData = nullptr) const override {
+        return physicsEngineAdapter->createBody(bodyType, position, size, isSensor, userData);
     }
 
-    inline BodyId createStaticBody(BodyType bodyType, Vector2 position, std::vector<Vector2> &points) const override {
-        return physicsEngineAdapter->createBody(bodyType, position, points);
+    inline unsigned int
+    createStaticBody(BodyType bodyType,
+                     Vector2 position,
+                     std::vector<Vector2> &points,
+                     const bool &isSensor,
+                     ContactHandler *userData = nullptr) const override {
+        return physicsEngineAdapter->createBody(bodyType, position, points, isSensor, userData);
     }
 
-    inline BodyId createStaticBody(BodyType bodyType, Vector2 position, float radius) const override {
-        return physicsEngineAdapter->createBody(bodyType, position, radius);
+    inline BodyId createStaticBody(BodyType bodyType,
+                                   Vector2 position,
+                                   float radius,
+                                   const bool &isSensor,
+                                   ContactHandler *userData = nullptr) const override {
+        return physicsEngineAdapter->createBody(bodyType, position, radius, userData);
     }
 
     inline void destroyBody(BodyId bodyID) override {

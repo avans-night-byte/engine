@@ -45,6 +45,10 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/PhysicsComponent.h
         ./Game/Components/CharacterComponent.cpp
         ./Game/Components/CharacterComponent.h
+        ./Game/Scenes/Level1/Level1.cpp
+        ./Game/Scenes/Level1/Level1.hpp
+        ./Game/Components/NextLevelComponent.cpp
+        ./Game/Components/NextLevelComponent.hpp
         # Engine
         ./Engine/Engine.cpp
         ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
@@ -60,6 +64,10 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Physics/BodyType.hpp
         ./Engine/Physics/Box2dPhysicsEngineAdapter.cpp
         ./Engine/Physics/PhysicsDebug/Box2dDrawDebug.hpp
+        ./Engine/Rendering/Level.cpp
+        ./Engine/Rendering/Level.hpp
+        ./Engine/Physics/ContactListener.hpp
+        ./Engine/Physics/ContactHandler.hpp
         # API
         ./API/Input/EngineInputAPI.cpp
         ./API/Audio/AudioAPI.cpp
@@ -75,7 +83,8 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Resources/XML/Generated/wall.cxx
         ./Engine/Resources/XML/Generated/common.cxx
         ./Engine/Resources/XML/Generated/common.hxx
-        Engine/Rendering/Level.cpp Engine/Rendering/Level.hpp Game/Scenes/Level1/Level1.cpp Game/Scenes/Level1/Level1.hpp)
+        )
+
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)
 find_package(Xsd REQUIRED)
