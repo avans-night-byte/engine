@@ -4,7 +4,7 @@
 # Dependencies: make, cmake, gcc/g++, git
 
 # 1. Pull/Update gitmodules
-git submodule update --recursive --init --remote
+git submodule update --recursive --init
 
 # 2. Box2D Installation
 cd Libraries/Box2D
