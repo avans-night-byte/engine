@@ -43,6 +43,8 @@ add_executable(NightByte ./Main.cpp
         ./Game/Scenes/Credits/Credits.hpp
         ./Game/Components/PhysicsComponent.cpp
         ./Game/Components/PhysicsComponent.h
+        ./Game/Components/CharacterComponent.cpp
+        ./Game/Components/CharacterComponent.h
         # Engine
         ./Engine/Engine.cpp
         ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp

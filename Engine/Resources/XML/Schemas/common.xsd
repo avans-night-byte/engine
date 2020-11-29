@@ -34,7 +34,11 @@
                 <xs:element name="onEnter" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
+<<<<<<< HEAD
                             <xs:element name="playSound" type="xs:anyURI" minOccurs="0"/>
+=======
+                            <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
+>>>>>>> origin/develop
                             <xs:element name="loadAction" type="xs:anyURI" minOccurs="0"/>
                         </xs:sequence>
                     </xs:complexType>
@@ -43,7 +47,11 @@
                 <xs:element name="onLeave" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
+<<<<<<< HEAD
                             <xs:element name="playSound" type="xs:anyURI" minOccurs="0"/>
+=======
+                            <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
+>>>>>>> origin/develop
                             <xs:element name="loadAction" type="xs:anyURI" minOccurs="0"/>
                         </xs:sequence>
                     </xs:complexType>
@@ -52,7 +60,11 @@
                 <xs:element name="onAttacked" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
+<<<<<<< HEAD
                             <xs:element name="playSound" type="xs:anyURI" minOccurs="0"/>
+=======
+                            <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
+>>>>>>> origin/develop
                             <xs:element name="loadAction" type="xs:anyURI" minOccurs="0"/>
                         </xs:sequence>
                     </xs:complexType>
@@ -61,7 +73,11 @@
                 <xs:element name="onDestroyed" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
+<<<<<<< HEAD
                             <xs:element name="playSound" type="xs:anyURI" minOccurs="0"/>
+=======
+                            <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
+>>>>>>> origin/develop
                             <xs:element name="loadAction" type="xs:anyURI" minOccurs="0"/>
                         </xs:sequence>
                     </xs:complexType>
@@ -70,11 +86,16 @@
                 <xs:element name="onAttack" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
+<<<<<<< HEAD
                             <xs:element name="playSound" type="xs:anyURI" minOccurs="0"/>
+=======
+                            <xs:element name="soundAction" type="xs:anyURI" minOccurs="0"/>
+>>>>>>> origin/develop
                             <xs:element name="loadAction" type="xs:anyURI" minOccurs="0"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
+<<<<<<< HEAD
                 <!-- Triggered when user clicks on the element -->
                 <xs:element name="onClick" minOccurs="0">
                     <xs:complexType>
@@ -84,6 +105,8 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
+=======
+>>>>>>> origin/develop
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -116,6 +139,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+<<<<<<< HEAD
 
     <!-- Size -->
     <xs:element name="size">
@@ -145,4 +169,6 @@
     </xs:simpleType>
 
 
+=======
+>>>>>>> origin/develop
 </xs:schema>

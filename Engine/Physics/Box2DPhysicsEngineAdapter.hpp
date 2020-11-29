@@ -9,10 +9,10 @@
 
 using namespace std;
 
-class Box2DPhysicsEngineAdapter : public PhysicsEngineAdapter{
+class Box2DPhysicsEngineAdapter : public PhysicsEngineAdapter {
 
 private:
-    b2World world = b2World(b2Vec2(0.0f, 9.6f));
+    b2World world = b2World(b2Vec2_zero);
     vector<b2Body *> bodies = vector<b2Body *>();
 
     unique_ptr<Box2dDrawDebug> drawDebug = nullptr;
@@ -35,7 +35,7 @@ public:
 
     BodyId createBody(BodyType bodyType, Vector2 position, float radius) override;
 
-    BodyId createBody(BodyType bodyType, Vector2 position, const std::vector<Vector2> &points) override;
+    BodyId createBody(BodyType bodyType, Vector2 position, std::vector<Vector2> &points) override;
 
     void referencePositionToBody(BodyId bodyId, float &x, float &y) override;
 
@@ -45,5 +45,11 @@ public:
         world.DestroyBody(bodies[bodyID]);
     }
 
-    void DebugDraw(const RenderingEngineAdapter& renderingAdapter, SDL_Renderer &renderer) override;
+    void DebugDraw(const RenderingEngineAdapter &renderingAdapter, SDL_Renderer &renderer) override;
+
+    void getVelocity(Vector2 &velocity, BodyId bodyId) const override;
+
+    void setLinearVelocity(BodyId bodyId, const Vector2 &vector2) override;
+
+    void setFixedRotation(BodyId bodyId, bool b) override;
 };

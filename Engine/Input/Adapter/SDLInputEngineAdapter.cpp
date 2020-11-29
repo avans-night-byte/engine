@@ -31,7 +31,9 @@ Input SDLInputEngineAdapter::getInput() const
         switch (e.type)
         {
         case SDL_KEYDOWN:
-            return getKeyInput(e.key.keysym.sym);
+            return getKeyInput(e.key.keysym.sym, e.type);
+        case SDL_KEYUP:
+            return getKeyInput(e.key.keysym.sym, e.type);
         case SDL_CONTROLLERBUTTONDOWN:
             return getControllerInput(e);
         case SDL_CONTROLLERAXISMOTION:
@@ -59,9 +61,10 @@ Input SDLInputEngineAdapter::getInput() const
  * @param SDL_Keycode keyEvent - SDL KeyEvent that was received.
  * @returns Input{device, x, y, keyMap}
  */
-Input SDLInputEngineAdapter::getKeyInput(SDL_Keycode keyEvent) const
+Input SDLInputEngineAdapter::getKeyInput(SDL_Keycode keyEvent, Uint32 type) const
 {
     InputAction keyMap = KeyMap::keyboardMap[keyEvent];
+    keyMap.type = type;
     return Input{
         .device = Input::KEYBOARD, .x = -1, .y = -1, .keyMap = keyMap};
 }

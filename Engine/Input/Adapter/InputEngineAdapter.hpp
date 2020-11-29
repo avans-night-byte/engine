@@ -16,7 +16,7 @@ public:
     virtual ~InputEngineAdapter() {}
 
 private:
-    virtual Input getKeyInput(SDL_Keycode input) const = 0;
+    virtual Input getKeyInput(SDL_Keycode input, Uint32 type) const = 0;
     virtual Input getMouseInput(SDL_Event input) const = 0;
     virtual Input getControllerInput(SDL_Event input) const = 0;
     virtual Input getControllerMotionInput(SDL_Event input) const = 0;
