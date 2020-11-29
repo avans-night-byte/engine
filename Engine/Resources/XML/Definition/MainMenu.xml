@@ -1,6 +1,10 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <menu>
-    <button x="0" y="0">
+    <button>
+        <position>
+            <x>0</x>
+            <y>0</y>
+        </position>
         <width>100</width>
         <height>100</height>
         <color r="255" b="255" g="255" a="1"></color>
