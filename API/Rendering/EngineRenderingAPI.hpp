@@ -22,7 +22,7 @@ public:
     void drawTexture(std::string textureId, int x, int y, int width, int height, double scale, double r) override;
 
     Spritesheet *createSpriteSheet(char const *path, std::string spriteSheetId, int rows, int columns, int width,
-                                   int height) override;
+                                   int height) const override;
 
     Spritesheet *createSpriteSheet(char const *path, char const *jsonPath, std::string spriteSheetId);
 

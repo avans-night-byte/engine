@@ -2,6 +2,10 @@
 
 typedef signed int int32;
 
+#include <iostream>
+#include "memory"
+#include <math.h>
+
 #include "../TextureManager.hpp"
 #include "../Spritesheet.hpp"
 #include "../../Vector2.hpp"
@@ -28,7 +32,10 @@ public:
     static TextureManager *GetTextureManager();
 
     void drawRectangle(const Vector2 *vertices, int32 vertexCount, SDL_Renderer *renderer) const;
-    void drawLine(const Vector2& begin, const Vector2& end, SDL_Renderer *renderer) const;
-    void drawSolidRectangle(const Vector2 &position, const Vector2 &size, SDL_Renderer *renderer) const;
-    void createText(std::string fontName, const char* text, const int fontSize, SDL_Color color, std::string textureId,  SDL_Renderer *renderer);
+
+    void drawLine(const Vector2 &begin, const Vector2 &end, SDL_Renderer *renderer) const;
+
+//    void drawSolidRectangle(const Vector2 &position, const Vector2 &size, SDL_Renderer *renderer) const;
+
+    void drawCircle(const Vector2 &center, const float &radius, SDL_Renderer *renderer) const;
 };

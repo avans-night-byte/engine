@@ -1,4 +1,3 @@
-#include <iostream>
 #include "RenderingEngineAdapter.hpp"
 
 typedef signed int int32;
@@ -29,10 +28,10 @@ RenderingEngineAdapter::createSpriteSheet(char const *path, std::string spriteSh
 
 
 
-void RenderingEngineAdapter::drawRectangle(const Vector2 *vertices, int32 vertexCount, SDL_Renderer *renderer) const {
-    SDL_SetRenderDrawColor(renderer, 255, 0, 255, SDL_ALPHA_OPAQUE);
+void RenderingEngineAdapter::drawRectangle(const Vector2 vertices[], int32 vertexCount, SDL_Renderer *renderer) const {
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
 
-    SDL_FPoint points[vertexCount + 1];
+    SDL_FPoint points[vertexCount ];
     for (int i = 0; i < vertexCount; ++i) {
         SDL_FPoint p = SDL_FPoint();
         p.x = vertices[i].x;
@@ -41,8 +40,10 @@ void RenderingEngineAdapter::drawRectangle(const Vector2 *vertices, int32 vertex
         points[i] = p;
     }
 
+
+    int size = sizeof(points)/sizeof(points[0]);
     Vector2 begin = Vector2(points[0].x, points[0].y);
-    Vector2 end = Vector2(points[3].x, points[3].y);
+    Vector2 end = Vector2(points[size-1].x, points[size-1].y);
 
     drawLine(begin, end, renderer);
     SDL_RenderDrawLinesF(renderer, points, vertexCount);
@@ -55,26 +56,50 @@ void RenderingEngineAdapter::drawLine(const Vector2 &begin, const Vector2 &end, 
     SDL_RenderDrawLineF(renderer, begin.x, begin.y, end.x, end.y);
 }
 
+//void RenderingEngineAdapter::drawSolidRectangle(const Vector2 &position,
+//                                                const Vector2 &size,
+//                                                SDL_Renderer *renderer) const {
+//    float x = position.x;
+//    float y = position.y;
+//
+//    SDL_FRect rect;
+//    rect.x = x;
+//    rect.y = y;
+//    rect.w = size.x;
+//    rect.h = size.y;
+//
+//    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 200);
+//    SDL_RenderFillRectF(renderer, &rect);
+//    SDL_RenderDrawRectF(renderer, &rect);
+//
+//    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+//}
 
+void RenderingEngineAdapter::drawCircle(const Vector2 &center, const float &radius, SDL_Renderer *renderer) const {
+    float x = center.x;
+    float y = center.y;
+    float iRadius = radius;
+    int num_segments = iRadius * iRadius;
 
-void RenderingEngineAdapter::drawSolidRectangle(const Vector2 &position,
-                                                const Vector2 &size,
-                                                SDL_Renderer *renderer) const {
-    float x = position.x;
-    float y = position.y;
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+    for(int ii = 0; ii < num_segments; ii++)
+    {
+        float theta = 2.0f * 3.1415926f * float(ii) / float(num_segments);//get the current angle
 
-    SDL_FRect rect;
-    rect.x = x;
-    rect.y = y;
-    rect.w = size.x;
-    rect.h = size.y;
+        float cx = iRadius * cosf(theta);//calculate the x component
+        float cy = iRadius * sinf(theta);//calculate the y component
 
-    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 200);
-    SDL_RenderFillRectF(renderer, &rect);
-    SDL_RenderDrawRectF(renderer, &rect);
+        SDL_RenderDrawPointF(renderer, x + cx, y + cy);//output vertex
+    }
 
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+    SDL_RenderDrawPointF(renderer, x, y);
+    SDL_RenderDrawPointF(renderer, x + 1, y);
+    SDL_RenderDrawPointF(renderer, x - 1, y);
+    SDL_RenderDrawPointF(renderer, x, y + 1);
+    SDL_RenderDrawPointF(renderer, x, y - 1);
 }
+
 
 
 Spritesheet *

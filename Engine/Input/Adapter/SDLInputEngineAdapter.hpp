@@ -12,7 +12,7 @@ class SDLInputEngineAdapter : public InputEngineAdapter
 {
 public:
     Input getInput() const override;
-    Input getKeyInput(SDL_Keycode input) const override;
+    Input getKeyInput(SDL_Keycode input, Uint32 type = SDL_KEYDOWN) const override;
     Input getMouseInput(SDL_Event input) const override;
     Input getControllerInput(SDL_Event input) const override;
     Input getControllerMotionInput(SDL_Event input) const override;

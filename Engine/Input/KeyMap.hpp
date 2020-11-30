@@ -31,23 +31,25 @@ public:
             {SDL_CONTROLLER_BUTTON_DPAD_DOWN,     InputAction{.code = "CONTOLLER_DPAD_DOWN", .action = "DOWN"}},
             {SDL_CONTROLLER_BUTTON_DPAD_LEFT,     InputAction{.code = "CONTOLLER_DPAD_LEFT", .action = "LEFT"}},
             {SDL_CONTROLLER_BUTTON_DPAD_RIGHT,    InputAction{.code = "CONTOLLER_DPAD_RIGHT", .action = "RIGHT"}},
-
     };
 
     /** Keymap for device 0: keyboard */
     inline static std::map<SDL_Keycode, InputAction> keyboardMap = {
-            {SDLK_1,     InputAction{.code = "1", .action = "1"}},
-            {SDLK_2,     InputAction{.code = "2", .action = "2"}},
-            {SDLK_UP,    InputAction{.code = "UP", .action = "UP"}},
-            {SDLK_DOWN,  InputAction{.code = "DOWN", .action = "DOWN"}},
-            {SDLK_LEFT,  InputAction{.code = "LEFT", .action = "LEFT"}},
-            {SDLK_RIGHT, InputAction{.code = "RIGHT", .action = "RIGHT"}},
-            {SDLK_w,     InputAction{.code = "W", .action = "UP"}},
-            {SDLK_s,     InputAction{.code = "S", .action = "DOWN"}},
-            {SDLK_a,     InputAction{.code = "A", .action = "LEFT"}},
-            {SDLK_d,     InputAction{.code = "D", .action = "RIGHT"}},
-            {SDLK_SPACE, InputAction{.code = "SPACE", .action = "JUMP"}},
-            {SDLK_e,     InputAction{.code = "E", .action = "INVENTORY"}},
-            {SDLK_q,     InputAction{.code = "Q", .action = "QUIT"}},
+            {SDLK_1,            InputAction{.code = "1", .action = "1"}},
+            {SDLK_2,            InputAction{.code = "2", .action = "2"}},
+            {SDLK_3,            InputAction{.code = "3", .action = "3"}},
+            {SDLK_UP,           InputAction{.code = "UP", .action = "UP"}},
+            {SDLK_DOWN,         InputAction{.code = "DOWN", .action = "DOWN"}},
+            {SDLK_LEFT,         InputAction{.code = "LEFT", .action = "LEFT"}},
+            {SDLK_RIGHT,        InputAction{.code = "RIGHT", .action = "RIGHT"}},
+            {SDLK_w,            InputAction{.code = "W", .action = "UP"}},
+            {SDLK_s,            InputAction{.code = "S", .action = "DOWN"}},
+            {SDLK_a,            InputAction{.code = "A", .action = "LEFT"}},
+            {SDLK_d,            InputAction{.code = "D", .action = "RIGHT"}},
+            {SDLK_SPACE,        InputAction{.code = "SPACE", .action = "JUMP"}},
+            {SDLK_e,            InputAction{.code = "E", .action = "INVENTORY"}},
+            {SDLK_q,            InputAction{.code = "Q", .action = "QUIT"}},
+            {SDLK_BACKSLASH,    InputAction{.code = "\\", .action = "BACKSLASH"}},
+            {SDLK_RIGHTBRACKET, InputAction{.code = "]", .action = "RIGHTBRACKET"}},
     };
 };

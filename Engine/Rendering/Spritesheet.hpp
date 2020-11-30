@@ -12,11 +12,10 @@ class Spritesheet{
         Spritesheet(const char* path, const char* jsonPath, std::string spriteSheetId, SDL_Renderer* renderer);
         ~Spritesheet();
         void select_sprite(int x, int y, bool useJson = false, const std::string& spriteName = "");
-        void draw_selected_sprite(int x, int y);
+        void draw_selected_sprite(float x, float y, float scale = 1);
 
-    private:
+private:
         SDL_Rect     m_clip;
-        SDL_Surface *m_spritesheet_image;
         std::string textureId;
         SDL_Renderer* sdlRenderer;
         nlohmann::json j;
