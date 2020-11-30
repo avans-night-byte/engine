@@ -53,8 +53,6 @@ void RenderingEngineAdapter::drawRectangle(Vector2 &position, float width, float
     rectangle.w = width;
     rectangle.h = height;
 
-
-
     SDL_RenderFillRectF(renderer, &rectangle);
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 }
