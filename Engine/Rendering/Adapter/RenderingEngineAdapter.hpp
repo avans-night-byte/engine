@@ -23,11 +23,13 @@ public:
 
     static TextureManager *GetTextureManager();
 
-    void drawRectangle(const Vector2 *vertices, int32 vertexCount, SDL_Renderer *renderer) const;
+    void drawBox(const Vector2 *vertices, int32 vertexCount, SDL_Renderer *renderer) const;
 
     void drawLine(const Vector2 &begin, const Vector2 &end, SDL_Renderer *renderer) const;
 
 //    void drawSolidRectangle(const Vector2 &position, const Vector2 &size, SDL_Renderer *renderer) const;
 
     void drawCircle(const Vector2 &center, const float &radius, SDL_Renderer *renderer) const;
+
+    void drawRectangle(Vector2 &vector2, float width, float height, SDL_Renderer& renderer);
 };
