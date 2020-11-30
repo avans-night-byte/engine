@@ -31,8 +31,8 @@
 // in the accompanying FLOSSE file.
 //
 
-#ifndef CXX_________ENGINE_RESOURCES_XML_SCHEMAS_WALL_HXX
-#define CXX_________ENGINE_RESOURCES_XML_SCHEMAS_WALL_HXX
+#ifndef ENGINE_RESOURCES_XML_SCHEMAS_WALL_HXX
+#define ENGINE_RESOURCES_XML_SCHEMAS_WALL_HXX
 
 #ifndef XSD_CXX11
 #define XSD_CXX11
@@ -408,22 +408,22 @@ class wall: public ::xml_schema::type
   void
   powers (::std::unique_ptr< powers_type > p);
 
-  // assets
+  // resources
   //
-  typedef ::assets assets_type;
-  typedef ::xsd::cxx::tree::traits< assets_type, char > assets_traits;
+  typedef ::resources resources_type;
+  typedef ::xsd::cxx::tree::traits< resources_type, char > resources_traits;
 
-  const assets_type&
-  assets () const;
+  const resources_type&
+  resources () const;
 
-  assets_type&
-  assets ();
-
-  void
-  assets (const assets_type& x);
+  resources_type&
+  resources ();
 
   void
-  assets (::std::unique_ptr< assets_type > p);
+  resources (const resources_type& x);
+
+  void
+  resources (::std::unique_ptr< resources_type > p);
 
   // collider
   //
@@ -465,7 +465,7 @@ class wall: public ::xml_schema::type
         const level_type&,
         const baseHealth_type&,
         const pricing_type&,
-        const assets_type&,
+        const resources_type&,
         const collider_type&,
         const events_type&);
 
@@ -473,7 +473,7 @@ class wall: public ::xml_schema::type
         const level_type&,
         const baseHealth_type&,
         ::std::unique_ptr< pricing_type >,
-        ::std::unique_ptr< assets_type >,
+        ::std::unique_ptr< resources_type >,
         ::std::unique_ptr< collider_type >,
         ::std::unique_ptr< events_type >);
 
@@ -508,7 +508,7 @@ class wall: public ::xml_schema::type
   ::xsd::cxx::tree::one< baseHealth_type > baseHealth_;
   ::xsd::cxx::tree::one< pricing_type > pricing_;
   powers_optional powers_;
-  ::xsd::cxx::tree::one< assets_type > assets_;
+  ::xsd::cxx::tree::one< resources_type > resources_;
   ::xsd::cxx::tree::one< collider_type > collider_;
   ::xsd::cxx::tree::one< events_type > events_;
 };
@@ -926,4 +926,4 @@ wall_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
 //
 // End epilogue.
 
-#endif // CXX_________ENGINE_RESOURCES_XML_SCHEMAS_WALL_HXX
+#endif // ENGINE_RESOURCES_XML_SCHEMAS_WALL_HXX

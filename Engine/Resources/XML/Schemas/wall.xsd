@@ -43,7 +43,7 @@
                     </xs:complexType>
                 </xs:element>
 
-                <xs:element ref="assets"/>
+                <xs:element ref="resources"/>
                 <xs:element ref="collider"/>
                 <xs:element ref="events"/>
 
