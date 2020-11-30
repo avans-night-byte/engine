@@ -13,6 +13,8 @@ typedef signed int int32;
 
 class RenderingEngineAdapter {
 private:
+    SDL_Color HexToRGB(std::string hex, float opacity) const;
+    void drawRectContent(Vector2 &position, float width, float height, std::string &content, SDL_Renderer *renderer);
 public:
     void drawTexture(std::string textureId, int x, int y, int width, int height, double scale, double r,
                      SDL_Renderer *renderer, SDL_RendererFlip flip = SDL_FLIP_NONE);
@@ -31,5 +33,7 @@ public:
 
     void drawCircle(const Vector2 &center, const float &radius, SDL_Renderer *renderer) const;
 
-    void drawRectangle(Vector2 &vector2, float width, float height, SDL_Renderer& renderer);
+    void drawRectangle(Vector2 &vector2, float width, float height, const std::string& color, float opacity, SDL_Renderer *renderer) const;
+
+
 };

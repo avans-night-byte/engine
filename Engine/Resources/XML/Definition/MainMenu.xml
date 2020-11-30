@@ -7,19 +7,43 @@
     <buttons>
         <button>
             <position>
-                <x>10</x>
-                <y>10</y>
+                <x>100</x>
+                <y>100</y>
             </position>
             <size>
-                <width>100</width>
-                <height>50</height>
+                <width>500</width>
+                <height>150</height>
             </size>
             <content>
                 Start game
             </content>
-            <resources>
-                <default>photo_martijn</default>
-            </resources>
+            <color>
+                <hex>db80f2</hex>
+                <alpha>40</alpha>
+            </color>
+            <events>
+                <onClick>
+                    <playSound>click</playSound>
+                    <loadScene>level-1</loadScene>
+                </onClick>
+            </events>
+        </button>
+        <button>
+            <position>
+                <x>100</x>
+                <y>300</y>
+            </position>
+            <size>
+                <width>200</width>
+                <height>50</height>
+            </size>
+            <content>
+                Stop Game
+            </content>
+            <color>
+                <hex>fcba03</hex>
+                <alpha>255</alpha>
+            </color>
             <events>
                 <onClick>
                     <playSound>click</playSound>

@@ -227,7 +227,7 @@ namespace xml_schema
 // Forward declarations.
 //
 class baseResources;
-class opacity;
+class alpha;
 class preloadResources;
 class resources;
 class events;
@@ -310,36 +310,36 @@ class baseResources: public ::xml_schema::type
   ::xsd::cxx::tree::one< default_type > default__;
 };
 
-class opacity: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
+class alpha: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // Constructors.
   //
-  opacity (const ::xml_schema::float_&);
+  alpha (const ::xml_schema::float_&);
 
-  opacity (const ::xercesc::DOMElement& e,
-           ::xml_schema::flags f = 0,
-           ::xml_schema::container* c = 0);
+  alpha (const ::xercesc::DOMElement& e,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
 
-  opacity (const ::xercesc::DOMAttr& a,
-           ::xml_schema::flags f = 0,
-           ::xml_schema::container* c = 0);
+  alpha (const ::xercesc::DOMAttr& a,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
 
-  opacity (const ::std::string& s,
-           const ::xercesc::DOMElement* e,
-           ::xml_schema::flags f = 0,
-           ::xml_schema::container* c = 0);
+  alpha (const ::std::string& s,
+         const ::xercesc::DOMElement* e,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
 
-  opacity (const opacity& x,
-           ::xml_schema::flags f = 0,
-           ::xml_schema::container* c = 0);
+  alpha (const alpha& x,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
 
-  virtual opacity*
+  virtual alpha*
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
   virtual 
-  ~opacity ();
+  ~alpha ();
 };
 
 class preloadResources: public ::xml_schema::type
@@ -809,27 +809,27 @@ class color: public ::xml_schema::type
   void
   hex (::std::unique_ptr< hex_type > p);
 
-  // opacity
+  // alpha
   //
-  typedef ::opacity opacity_type;
-  typedef ::xsd::cxx::tree::traits< opacity_type, char > opacity_traits;
+  typedef ::alpha alpha_type;
+  typedef ::xsd::cxx::tree::traits< alpha_type, char > alpha_traits;
 
-  const opacity_type&
-  opacity () const;
+  const alpha_type&
+  alpha () const;
 
-  opacity_type&
-  opacity ();
-
-  void
-  opacity (const opacity_type& x);
+  alpha_type&
+  alpha ();
 
   void
-  opacity (::std::unique_ptr< opacity_type > p);
+  alpha (const alpha_type& x);
+
+  void
+  alpha (::std::unique_ptr< alpha_type > p);
 
   // Constructors.
   //
   color (const hex_type&,
-         const opacity_type&);
+         const alpha_type&);
 
   color (const ::xercesc::DOMElement& e,
          ::xml_schema::flags f = 0,
@@ -858,7 +858,7 @@ class color: public ::xml_schema::type
 
   protected:
   ::xsd::cxx::tree::one< hex_type > hex_;
-  ::xsd::cxx::tree::one< opacity_type > opacity_;
+  ::xsd::cxx::tree::one< alpha_type > alpha_;
 };
 
 class onEnter: public ::xml_schema::type

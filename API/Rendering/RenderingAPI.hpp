@@ -8,7 +8,8 @@ class RenderingAPI {
 
     virtual bool loadTexture(const char *path, std::string textureId) = 0;
 
-    virtual void drawRectangle(Vector2& position, float width, float height) = 0;
+    virtual void drawRectangle(Vector2& position, float width, float height, std::string& color, float opacity = 1) const = 0;
+
 
 public:
     [[nodiscard]] virtual const RenderingEngineAdapter& GetRendererAdapter() const = 0;
