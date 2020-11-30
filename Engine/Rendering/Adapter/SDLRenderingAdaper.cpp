@@ -68,16 +68,17 @@ void RenderingEngineAdapter::drawCircle(const Vector2 &center, const float &radi
     float x = center.x;
     float y = center.y;
     float iRadius = radius;
+    int num_segments = iRadius * iRadius;
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-    for (float w = 0; w < iRadius * 2; w++) {
-        for (float h = 0; h < iRadius * 2; h++) {
-            float dx = iRadius - w; // horizontal offset
-            float dy = iRadius - h; // vertical offset
-            if ((dx * dx + dy * dy) <= (iRadius * iRadius)) {
-                SDL_RenderDrawPointF(renderer, x + dx, y + dy);
-            }
-        }
+    for(int ii = 0; ii < num_segments; ii++)
+    {
+        float theta = 2.0f * 3.1415926f * float(ii) / float(num_segments);//get the current angle
+
+        float cx = iRadius * cosf(theta);//calculate the x component
+        float cy = iRadius * sinf(theta);//calculate the y component
+
+        SDL_RenderDrawPointF(renderer, x + cx, y + cy);//output vertex
     }
 
     SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
