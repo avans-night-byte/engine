@@ -1,6 +1,9 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <menu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schemas/menu.xsd">
     <name>MainMenu</name>
+    <resources>
+        <default>mainmenu_background</default>
+    </resources>
     <buttons>
         <button>
             <position>
@@ -14,16 +17,28 @@
             <content>
                 Start game
             </content>
-            <color>
-                <hex>#4287f5</hex>
-                <opacity>1</opacity>
-            </color>
+            <resources>
+                <default>photo_martijn</default>
+            </resources>
             <events>
                 <onClick>
-                    <playSound>click.wav</playSound>
+                    <playSound>click</playSound>
                     <loadScene>level-1</loadScene>
                 </onClick>
             </events>
         </button>
     </buttons>
+
+    <preloadResources>
+        <resource>main_menu</resource>
+        <resource>main_menu</resource>
+        <resource>main_menu</resource>
+        <resource>main_menu</resource>
+        <resource>main_menu</resource>
+        <resource>main_menu</resource>
+        <resource>main_menu</resource>
+        <resource>main_menu</resource>
+        <resource>main_menu</resource>
+        <resource>main_menu</resource>
+    </preloadResources>
 </menu>

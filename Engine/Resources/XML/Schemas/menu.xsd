@@ -6,6 +6,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="name" type="xs:string"/>
+                <xs:element ref="resources"/>
                 <xs:element name="buttons">
                     <xs:complexType>
                         <xs:sequence>
@@ -13,6 +14,7 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
+                <xs:element ref="preloadResources"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -25,14 +27,22 @@
                 <xs:element name="content" type="xs:string"/>
                 <xs:choice>
                     <xs:element ref="color"/>
-                    <xs:element ref="assets"/>
+                    <xs:element name="resources">
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="baseResources">
+                                    <xs:sequence>
+                                        <xs:element name="hover" type="xs:string" minOccurs="0"/>
+                                        <xs:element name="click" type="xs:string" minOccurs="0"/>
+                                    </xs:sequence>
+                                </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
                 </xs:choice>
                 <xs:element ref="events"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
-
-
 
 </xs:schema>

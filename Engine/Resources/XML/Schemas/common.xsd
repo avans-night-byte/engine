@@ -1,30 +1,29 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
     <!-- Asset -->
-    <xs:element name="assets">
+    <xs:element name="preloadResources">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="base">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="file" type="xs:anyURI"/>
-                        </xs:sequence>
-                        <xs:attribute name="repeat" type="repeatType" default="repeat"/>
-                    </xs:complexType>
-                </xs:element>
+                <xs:element name="resource" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:simpleType name="repeatType">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="no-repeat"/>
-            <xs:enumeration value="repeat"/>
-            <!-- OPTIONAL: Only if we think we need this otherwise it can be removed -->
-            <xs:enumeration value="repeat-y"/>
-            <xs:enumeration value="repeat-x"/>
-        </xs:restriction>
-    </xs:simpleType>
+    <xs:element name="resources">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="baseResources">
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="baseResources">
+        <xs:sequence>
+            <xs:element name="default" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
 
     <!-- Events -->
     <xs:element name="events">

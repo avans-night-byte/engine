@@ -1,0 +1,17 @@
+<resources>
+    <images>
+        <image>
+            <name>photo_martijn</name>
+            <path>../../Resources/....</path>
+        </image>
+    </images>
+    <sprites>
+
+    </sprites>
+    <sounds>
+
+    </sounds>
+    <music>
+
+    </music>
+</resources>
