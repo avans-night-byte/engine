@@ -39,7 +39,7 @@ Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
 
 BodyId Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
                                              Vector2 position,
-                                             std::vector<Vector2> &points,
+                                             const std::vector<Vector2> &points,
                                              const bool &isSensor,
                                              ContactHandler* userData) {
     b2BodyDef bodyDef;

@@ -20,28 +20,27 @@ public:
 
 
     // TODO: Create a Helper function for BodyId
-    inline BodyId createStaticBody(BodyType bodyType,
-                                   Vector2 position,
-                                   Vector2 size,
-                                   const bool &isSensor = false,
-                                   ContactHandler *userData = nullptr) const override {
-        return physicsEngineAdapter->createBody(bodyType, position, size, isSensor, userData);
+    inline BodyId createStaticBody(const Box2DBoxData &box2DBoxData) const override {
+        return physicsEngineAdapter->createBody(box2DBoxData.bodyType,
+                                                box2DBoxData.position,
+                                                box2DBoxData.size,
+                                                box2DBoxData.isSensor,
+                                                box2DBoxData.userdata);
     }
 
-    inline BodyId createStaticBody(BodyType bodyType,
-                     Vector2 position,
-                     std::vector<Vector2> &points,
-                     const bool &isSensor,
-                     ContactHandler *userData = nullptr) const override {
-        return physicsEngineAdapter->createBody(bodyType, position, points, isSensor, userData);
+    inline BodyId createStaticBody(const Box2DCircleData &box2DCircleData) const override {
+        return physicsEngineAdapter->createBody(box2DCircleData.bodyType,
+                                                box2DCircleData.position,
+                                                box2DCircleData.radius,
+                                                box2DCircleData.userData);
     }
 
-    inline BodyId createStaticBody(BodyType bodyType,
-                                   Vector2 position,
-                                   float radius,
-                                   const bool &isSensor,
-                                   ContactHandler *userData = nullptr) const override {
-        return physicsEngineAdapter->createBody(bodyType, position, radius, userData);
+    inline BodyId createStaticBody(const Box2DPolygonData &box2DPolygonData) const override {
+        return physicsEngineAdapter->createBody(box2DPolygonData.bodyType,
+                                                box2DPolygonData.position,
+                                                box2DPolygonData.points,
+                                                box2DPolygonData.isSensor,
+                                                box2DPolygonData.userData);
     }
 
     inline void destroyBody(BodyId bodyID) override {

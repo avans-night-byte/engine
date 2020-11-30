@@ -10,28 +10,19 @@
 
 class PhysicsEngineAdapter;
 typedef unsigned int BodyId;
+struct Box2DBoxData;
+struct Box2DCircleData;
+struct Box2DPolygonData;
 
 class PhysicsAPI {
 public:
     virtual void update(const float& timeStep, const int32& velocityIterations, const int32& positionIterations) = 0;
 
-    virtual BodyId createStaticBody(BodyType bodyType,
-                                    Vector2 position,
-                                    Vector2 size,
-                                    const bool &isSensor = false,
-                                    ContactHandler* userData = nullptr) const = 0;
+    virtual BodyId createStaticBody(const Box2DBoxData& box2DBoxData) const = 0;
 
-    virtual BodyId createStaticBody(BodyType bodyType,
-                                    Vector2 position,
-                                    float radius,
-                                    const bool &isSensor = false,
-                                    ContactHandler* userData = nullptr) const = 0;
+    virtual BodyId createStaticBody(const Box2DCircleData& box2DCircleData) const = 0;
 
-    virtual BodyId createStaticBody(BodyType bodyType,
-                                    Vector2 position,
-                                    std::vector<Vector2> &points,
-                                    const bool &isSensor = false,
-                                    ContactHandler* userData = nullptr) const = 0;
+    virtual BodyId createStaticBody(const Box2DPolygonData& box2DPolygonData) const = 0;
 
     virtual void destroyBody(BodyId bodyId) = 0;
 

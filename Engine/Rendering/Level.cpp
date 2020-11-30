@@ -101,19 +101,66 @@ void Level::initCollision(){
                     }
                 }
 
-                for (const auto &point : object.getPoints()) {
-                    points.push_back(Vector2(point.x * scale, point.y * scale));
+                BodyId bodyId;
+                switch(object.getShape())
+                {
+                    case tmx::Object::Shape::Rectangle: {
+                        auto rect = object.getAABB();
+
+                        Box2DBoxData box2DBoxData;
+                        box2DBoxData.bodyType = BodyType::Static;
+                        box2DBoxData.userdata = handler;
+                        box2DBoxData.isSensor = isSensor;
+                        box2DBoxData.size = Vector2(rect.width / 2 * scale, rect.height / 2 * scale);
+                        box2DBoxData.position = Vector2(
+                                (object.getPosition().x * scale) + (rect.width * scale) / 2,
+                                (object.getPosition().y * scale) + (rect.height * scale) / 2
+                        );
+
+                        bodyId = Game::getInstance()->getPhysicsAPI()->createStaticBody(box2DBoxData);
+                        break;
+                    }
+
+                    case tmx::Object::Shape::Ellipse:
+                    {
+                        auto rect = object.getAABB();
+
+                        Box2DCircleData box2DCircleData;
+                        box2DCircleData.bodyType = BodyType::Static;
+                        box2DCircleData.radius = (rect.width * scale) * 0.5f;
+                        box2DCircleData.userData = handler;
+                        box2DCircleData.isSensor = isSensor;
+                        box2DCircleData.position = Vector2(
+                                (object.getPosition().x * scale) + (rect.width * scale) / 2,
+                                (object.getPosition().y * scale) + (rect.height * scale) / 2
+                        );
+
+                        bodyId = Game::getInstance()->getPhysicsAPI()->createStaticBody(box2DCircleData);
+                        break;
+                    }
+                    case tmx::Object::Shape::Polygon:
+                    case tmx::Object::Shape::Polyline:
+                    case tmx::Object::Shape::Point: {
+                        Box2DPolygonData polygonData;
+                        polygonData.userData = handler;
+                        polygonData.bodyType = BodyType::Static;
+                        polygonData.isSensor = isSensor;
+                        polygonData.position = Vector2(object.getPosition().x * scale, object.getPosition().y * scale);
+
+                        for (const auto &point : object.getPoints()) {
+                            points.push_back(Vector2(point.x * scale, point.y * scale));
+                        }
+
+                        polygonData.points = points;
+
+                        bodyId = Game::getInstance()->getPhysicsAPI()->createStaticBody(polygonData);
+                        break;
+                    }
+                    case tmx::Object::Shape::Text:
+                        break;
                 }
 
-                if(points.empty()){
-                    // Rectangle
-                    auto rect = object.getAABB();
-                    BodyId bodyId = Game::getInstance()->getPhysicsAPI()->createStaticBody(BodyType::Static, Vector2((object.getPosition().x * scale ) + (rect.width * scale) / 2, (object.getPosition().y * scale) + (rect.height * scale) / 2), Vector2(rect.width /2 * scale, rect.height/2 * scale), isSensor, handler);
-                    bodies.push_back(bodyId);
-                    continue;
-                }
-                Vector2 pos = Vector2(object.getPosition().x * scale, object.getPosition().y * scale);
-                BodyId bodyId = Game::getInstance()->getPhysicsAPI()->createStaticBody(BodyType::Static, pos, points, isSensor);
+
                 bodies.push_back(bodyId);
             }
         }
