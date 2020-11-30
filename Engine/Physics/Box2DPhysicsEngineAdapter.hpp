@@ -6,6 +6,7 @@
 
 #include "PhysicsEngineAdapter.hpp"
 #include "PhysicsDebug//Box2dDrawDebug.hpp"
+#include "ContactListener.hpp"
 
 using namespace std;
 
@@ -13,12 +14,16 @@ class Box2DPhysicsEngineAdapter : public PhysicsEngineAdapter {
 
 private:
     b2World world = b2World(b2Vec2_zero);
+    unique_ptr<ContactListener> contactListener;
     vector<b2Body *> bodies = vector<b2Body *>();
 
     unique_ptr<Box2dDrawDebug> drawDebug = nullptr;
 
 public:
-    Box2DPhysicsEngineAdapter() = default;
+    Box2DPhysicsEngineAdapter(){
+        contactListener = make_unique<ContactListener>();
+        world.SetContactListener(&(*contactListener));
+    }
 
     ~Box2DPhysicsEngineAdapter() override {
         for (b2Body *body : bodies) {
@@ -31,11 +36,11 @@ public:
 public:
     void update(const float &timeStep, const int32 &velocityIterations, const int32 &positionIterations) override;
 
-    BodyId createBody(BodyType bodyType, Vector2 position, Vector2 size) override;
+    BodyId createBody(BodyType bodyType, Vector2 position, Vector2 size, const bool &isSensor = false, ContactHandler* userData = nullptr) override;
 
-    BodyId createBody(BodyType bodyType, Vector2 position, float radius) override;
+    BodyId createBody(BodyType bodyType, Vector2 position, float radius, ContactHandler* userData = nullptr) override;
 
-    BodyId createBody(BodyType bodyType, Vector2 position, std::vector<Vector2> &points) override;
+    BodyId createBody(BodyType bodyType, Vector2 position, std::vector<Vector2> &points, const bool &isSensor, ContactHandler* userData = nullptr) override;
 
     void referencePositionToBody(BodyId bodyId, float &x, float &y) override;
 
