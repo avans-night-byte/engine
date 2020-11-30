@@ -10,7 +10,6 @@ typedef signed int int32;
 #include "../Spritesheet.hpp"
 #include "../../Vector2.hpp"
 #include <SDL2/SDL.h>
-#include <SDL_ttf.h>
 
 
 // TODO: Store the SDL_renderer here, in the engine instead of the API?
@@ -38,4 +37,7 @@ public:
 //    void drawSolidRectangle(const Vector2 &position, const Vector2 &size, SDL_Renderer *renderer) const;
 
     void drawCircle(const Vector2 &center, const float &radius, SDL_Renderer *renderer) const;
+
+    void createText(std::string fontName, const char *text, const int fontSize, SDL_Color color, std::string textureId,
+                    SDL_Renderer *renderer);
 };

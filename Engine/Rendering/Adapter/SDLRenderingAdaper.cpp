@@ -1,3 +1,4 @@
+#include <SDL_ttf.h>
 #include "RenderingEngineAdapter.hpp"
 
 typedef signed int int32;

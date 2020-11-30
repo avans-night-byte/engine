@@ -97,10 +97,11 @@ target_include_directories(NightByte PUBLIC
         ${SDL2_MIXER_SOURCE_DIR}/include
         ${SDL2IMAGE_SOURCE_DIR}
         ${TMXLITE_SOURCE_DIR}
-        ${XSD_INCLUDE_DIR})
+        ${XSD_INCLUDE_DIR}
+        ${SDL2TTF_SOURCE_DIR})
 
 
-target_link_libraries(NightByte SDL2 box2d SDL2::image XercesC::XercesC SDL2_mixer tmxlite)
+target_link_libraries(NightByte SDL2 box2d  SDL2::image XercesC::XercesC SDL2_mixer tmxlite SDL2_ttf)
 
 if (MSVC OR MSYS OR MINGW)
     target_link_libraries(NightByte winpthread)
