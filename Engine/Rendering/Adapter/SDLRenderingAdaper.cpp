@@ -19,7 +19,7 @@ RenderingEngineAdapter::createSpriteSheet(char const *path, std::string spriteSh
     return new Spritesheet(path, spriteSheetId, rows, columns, width, height, renderer);
 }
 
-void RenderingEngineAdapter::drawRectangle(const Vector2 vertices[], int32 vertexCount, SDL_Renderer *renderer) const {
+void RenderingEngineAdapter::drawBox(const Vector2 *vertices, int32 vertexCount, SDL_Renderer *renderer) const {
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
 
     SDL_FPoint points[vertexCount ];
@@ -38,6 +38,18 @@ void RenderingEngineAdapter::drawRectangle(const Vector2 vertices[], int32 verte
 
     drawLine(begin, end, renderer);
     SDL_RenderDrawLinesF(renderer, points, vertexCount);
+}
+
+void RenderingEngineAdapter::drawRectangle(Vector2 &position, float width, float height, SDL_Renderer &renderer) {
+    SDL_SetRenderDrawColor(&renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+    SDL_Rect rectangle;
+
+    rectangle.x = position.x;
+    rectangle.y = position.y;
+    rectangle.w = width;
+    rectangle.h = height;
+
+    SDL_RenderFillRect(&renderer, &rectangle);
 }
 
 void RenderingEngineAdapter::drawLine(const Vector2 &begin, const Vector2 &end, SDL_Renderer *renderer) const {
@@ -87,3 +99,9 @@ void RenderingEngineAdapter::drawCircle(const Vector2 &center, const float &radi
     SDL_RenderDrawPointF(renderer, x, y + 1);
     SDL_RenderDrawPointF(renderer, x, y - 1);
 }
+
+
+
+
+
+

@@ -4,6 +4,10 @@
 
 #include "menu_parser_api.hpp"
 
-menu_parser_api::menu_parser_api(RenderingAPI &renderer, std::string &path){
-    menu_parser_ = std::make_unique<menu_parser>(renderer, path);
+menu_parser_api::menu_parser_api(RenderingAPI &renderer){
+    menu_parser_ = std::make_unique<menu_parser>(renderer);
+}
+
+Page menu_parser_api::load_scene(std::string &path) {
+    return menu_parser_->open_scene(path);
 }

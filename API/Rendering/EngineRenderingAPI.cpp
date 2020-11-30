@@ -48,3 +48,8 @@ bool EngineRenderingAPI::loadTexture(const char *path, std::string textureId)
 const RenderingEngineAdapter &EngineRenderingAPI::GetRendererAdapter() const {
     return *_adapter;
 }
+
+void EngineRenderingAPI::drawRectangle(Vector2 &position, float width, float height) {
+    _adapter->drawRectangle(position, width, height, *_renderer);
+
+}

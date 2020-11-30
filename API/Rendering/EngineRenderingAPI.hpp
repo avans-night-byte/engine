@@ -27,6 +27,7 @@ public:
     static TextureManager *GetTextureManager();
 
     bool loadTexture(const char *path, std::string textureId) override;
+    void drawRectangle(Vector2& position, float width, float height) override;
 
 private:
     [[nodiscard]] const RenderingEngineAdapter &GetRendererAdapter() const override;
