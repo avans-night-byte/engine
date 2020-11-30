@@ -5,6 +5,7 @@
     <xs:element name="menu">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
                 <xs:element name="buttons">
                     <xs:complexType>
                         <xs:sequence>
@@ -22,7 +23,10 @@
                 <xs:element ref="position"/>
                 <xs:element ref="size"/>
                 <xs:element name="content" type="xs:string"/>
-                <xs:element ref="color"/>
+                <xs:choice>
+                    <xs:element ref="color"/>
+                    <xs:element ref="assets"/>
+                </xs:choice>
                 <xs:element ref="events"/>
             </xs:sequence>
         </xs:complexType>
