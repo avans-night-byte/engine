@@ -43,6 +43,54 @@
 // menu
 // 
 
+const menu::name_type& menu::
+name () const
+{
+  return this->name_.get ();
+}
+
+menu::name_type& menu::
+name ()
+{
+  return this->name_.get ();
+}
+
+void menu::
+name (const name_type& x)
+{
+  this->name_.set (x);
+}
+
+void menu::
+name (::std::unique_ptr< name_type > x)
+{
+  this->name_.set (std::move (x));
+}
+
+const menu::resources_type& menu::
+resources () const
+{
+  return this->resources_.get ();
+}
+
+menu::resources_type& menu::
+resources ()
+{
+  return this->resources_.get ();
+}
+
+void menu::
+resources (const resources_type& x)
+{
+  this->resources_.set (x);
+}
+
+void menu::
+resources (::std::unique_ptr< resources_type > x)
+{
+  this->resources_.set (std::move (x));
+}
+
 const menu::buttons_type& menu::
 buttons () const
 {
@@ -65,6 +113,30 @@ void menu::
 buttons (::std::unique_ptr< buttons_type > x)
 {
   this->buttons_.set (std::move (x));
+}
+
+const menu::preloadResources_type& menu::
+preloadResources () const
+{
+  return this->preloadResources_.get ();
+}
+
+menu::preloadResources_type& menu::
+preloadResources ()
+{
+  return this->preloadResources_.get ();
+}
+
+void menu::
+preloadResources (const preloadResources_type& x)
+{
+  this->preloadResources_.set (x);
+}
+
+void menu::
+preloadResources (::std::unique_ptr< preloadResources_type > x)
+{
+  this->preloadResources_.set (std::move (x));
 }
 
 
@@ -143,16 +215,16 @@ content (::std::unique_ptr< content_type > x)
   this->content_.set (std::move (x));
 }
 
-const button::color_type& button::
+const button::color_optional& button::
 color () const
 {
-  return this->color_.get ();
+  return this->color_;
 }
 
-button::color_type& button::
+button::color_optional& button::
 color ()
 {
-  return this->color_.get ();
+  return this->color_;
 }
 
 void button::
@@ -162,9 +234,45 @@ color (const color_type& x)
 }
 
 void button::
+color (const color_optional& x)
+{
+  this->color_ = x;
+}
+
+void button::
 color (::std::unique_ptr< color_type > x)
 {
   this->color_.set (std::move (x));
+}
+
+const button::resources_optional& button::
+resources () const
+{
+  return this->resources_;
+}
+
+button::resources_optional& button::
+resources ()
+{
+  return this->resources_;
+}
+
+void button::
+resources (const resources_type& x)
+{
+  this->resources_.set (x);
+}
+
+void button::
+resources (const resources_optional& x)
+{
+  this->resources_ = x;
+}
+
+void button::
+resources (::std::unique_ptr< resources_type > x)
+{
+  this->resources_.set (std::move (x));
 }
 
 const button::events_type& button::
@@ -214,22 +322,98 @@ button (const button_sequence& s)
 }
 
 
+// resources1
+// 
+
+const resources1::hover_optional& resources1::
+hover () const
+{
+  return this->hover_;
+}
+
+resources1::hover_optional& resources1::
+hover ()
+{
+  return this->hover_;
+}
+
+void resources1::
+hover (const hover_type& x)
+{
+  this->hover_.set (x);
+}
+
+void resources1::
+hover (const hover_optional& x)
+{
+  this->hover_ = x;
+}
+
+void resources1::
+hover (::std::unique_ptr< hover_type > x)
+{
+  this->hover_.set (std::move (x));
+}
+
+const resources1::click_optional& resources1::
+click () const
+{
+  return this->click_;
+}
+
+resources1::click_optional& resources1::
+click ()
+{
+  return this->click_;
+}
+
+void resources1::
+click (const click_type& x)
+{
+  this->click_.set (x);
+}
+
+void resources1::
+click (const click_optional& x)
+{
+  this->click_ = x;
+}
+
+void resources1::
+click (::std::unique_ptr< click_type > x)
+{
+  this->click_.set (std::move (x));
+}
+
+
 #include <xsd/cxx/xml/dom/parsing-source.hxx>
 
 // menu
 //
 
 menu::
-menu (const buttons_type& buttons)
+menu (const name_type& name,
+      const resources_type& resources,
+      const buttons_type& buttons,
+      const preloadResources_type& preloadResources)
 : ::xml_schema::type (),
-  buttons_ (buttons, this)
+  name_ (name, this),
+  resources_ (resources, this),
+  buttons_ (buttons, this),
+  preloadResources_ (preloadResources, this)
 {
 }
 
 menu::
-menu (::std::unique_ptr< buttons_type > buttons)
+menu (const name_type& name,
+      ::std::unique_ptr< resources_type > resources,
+      ::std::unique_ptr< buttons_type > buttons,
+      ::std::unique_ptr< preloadResources_type > preloadResources)
 : ::xml_schema::type (),
-  buttons_ (std::move (buttons), this)
+  name_ (name, this),
+  resources_ (std::move (resources), this),
+  buttons_ (std::move (buttons), this),
+  preloadResources_ (std::move (preloadResources), this)
 {
 }
 
@@ -238,7 +422,10 @@ menu (const menu& x,
       ::xml_schema::flags f,
       ::xml_schema::container* c)
 : ::xml_schema::type (x, f, c),
-  buttons_ (x.buttons_, f, this)
+  name_ (x.name_, f, this),
+  resources_ (x.resources_, f, this),
+  buttons_ (x.buttons_, f, this),
+  preloadResources_ (x.preloadResources_, f, this)
 {
 }
 
@@ -247,7 +434,10 @@ menu (const ::xercesc::DOMElement& e,
       ::xml_schema::flags f,
       ::xml_schema::container* c)
 : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  buttons_ (this)
+  name_ (this),
+  resources_ (this),
+  buttons_ (this),
+  preloadResources_ (this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
   {
@@ -266,6 +456,34 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
     const ::xsd::cxx::xml::qualified_name< char > n (
       ::xsd::cxx::xml::dom::name< char > (i));
 
+    // name
+    //
+    if (n.name () == "name" && n.namespace_ ().empty ())
+    {
+      ::std::unique_ptr< name_type > r (
+        name_traits::create (i, f, this));
+
+      if (!name_.present ())
+      {
+        this->name_.set (::std::move (r));
+        continue;
+      }
+    }
+
+    // resources
+    //
+    if (n.name () == "resources" && n.namespace_ ().empty ())
+    {
+      ::std::unique_ptr< resources_type > r (
+        resources_traits::create (i, f, this));
+
+      if (!resources_.present ())
+      {
+        this->resources_.set (::std::move (r));
+        continue;
+      }
+    }
+
     // buttons
     //
     if (n.name () == "buttons" && n.namespace_ ().empty ())
@@ -280,13 +498,48 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
       }
     }
 
+    // preloadResources
+    //
+    if (n.name () == "preloadResources" && n.namespace_ ().empty ())
+    {
+      ::std::unique_ptr< preloadResources_type > r (
+        preloadResources_traits::create (i, f, this));
+
+      if (!preloadResources_.present ())
+      {
+        this->preloadResources_.set (::std::move (r));
+        continue;
+      }
+    }
+
     break;
+  }
+
+  if (!name_.present ())
+  {
+    throw ::xsd::cxx::tree::expected_element< char > (
+      "name",
+      "");
+  }
+
+  if (!resources_.present ())
+  {
+    throw ::xsd::cxx::tree::expected_element< char > (
+      "resources",
+      "");
   }
 
   if (!buttons_.present ())
   {
     throw ::xsd::cxx::tree::expected_element< char > (
       "buttons",
+      "");
+  }
+
+  if (!preloadResources_.present ())
+  {
+    throw ::xsd::cxx::tree::expected_element< char > (
+      "preloadResources",
       "");
   }
 }
@@ -304,7 +557,10 @@ operator= (const menu& x)
   if (this != &x)
   {
     static_cast< ::xml_schema::type& > (*this) = x;
+    this->name_ = x.name_;
+    this->resources_ = x.resources_;
     this->buttons_ = x.buttons_;
+    this->preloadResources_ = x.preloadResources_;
   }
 
   return *this;
@@ -322,13 +578,13 @@ button::
 button (const position_type& position,
         const size_type& size,
         const content_type& content,
-        const color_type& color,
         const events_type& events)
 : ::xml_schema::type (),
   position_ (position, this),
   size_ (size, this),
   content_ (content, this),
-  color_ (color, this),
+  color_ (this),
+  resources_ (this),
   events_ (events, this)
 {
 }
@@ -337,13 +593,13 @@ button::
 button (::std::unique_ptr< position_type > position,
         ::std::unique_ptr< size_type > size,
         const content_type& content,
-        ::std::unique_ptr< color_type > color,
         ::std::unique_ptr< events_type > events)
 : ::xml_schema::type (),
   position_ (std::move (position), this),
   size_ (std::move (size), this),
   content_ (content, this),
-  color_ (std::move (color), this),
+  color_ (this),
+  resources_ (this),
   events_ (std::move (events), this)
 {
 }
@@ -357,6 +613,7 @@ button (const button& x,
   size_ (x.size_, f, this),
   content_ (x.content_, f, this),
   color_ (x.color_, f, this),
+  resources_ (x.resources_, f, this),
   events_ (x.events_, f, this)
 {
 }
@@ -370,6 +627,7 @@ button (const ::xercesc::DOMElement& e,
   size_ (this),
   content_ (this),
   color_ (this),
+  resources_ (this),
   events_ (this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -438,9 +696,23 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
       ::std::unique_ptr< color_type > r (
         color_traits::create (i, f, this));
 
-      if (!color_.present ())
+      if (!this->color_)
       {
         this->color_.set (::std::move (r));
+        continue;
+      }
+    }
+
+    // resources
+    //
+    if (n.name () == "resources" && n.namespace_ ().empty ())
+    {
+      ::std::unique_ptr< resources_type > r (
+        resources_traits::create (i, f, this));
+
+      if (!this->resources_)
+      {
+        this->resources_.set (::std::move (r));
         continue;
       }
     }
@@ -483,13 +755,6 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
       "");
   }
 
-  if (!color_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "color",
-      "");
-  }
-
   if (!events_.present ())
   {
     throw ::xsd::cxx::tree::expected_element< char > (
@@ -515,6 +780,7 @@ operator= (const button& x)
     this->size_ = x.size_;
     this->content_ = x.content_;
     this->color_ = x.color_;
+    this->resources_ = x.resources_;
     this->events_ = x.events_;
   }
 
@@ -605,6 +871,111 @@ operator= (const buttons& x)
 
 buttons::
 ~buttons ()
+{
+}
+
+// resources1
+//
+
+resources1::
+resources1 (const default_type& default_)
+: ::baseResources (default_),
+  hover_ (this),
+  click_ (this)
+{
+}
+
+resources1::
+resources1 (const resources1& x,
+            ::xml_schema::flags f,
+            ::xml_schema::container* c)
+: ::baseResources (x, f, c),
+  hover_ (x.hover_, f, this),
+  click_ (x.click_, f, this)
+{
+}
+
+resources1::
+resources1 (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f,
+            ::xml_schema::container* c)
+: ::baseResources (e, f | ::xml_schema::flags::base, c),
+  hover_ (this),
+  click_ (this)
+{
+  if ((f & ::xml_schema::flags::base) == 0)
+  {
+    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+    this->parse (p, f);
+  }
+}
+
+void resources1::
+parse (::xsd::cxx::xml::dom::parser< char >& p,
+       ::xml_schema::flags f)
+{
+  this->::baseResources::parse (p, f);
+
+  for (; p.more_content (); p.next_content (false))
+  {
+    const ::xercesc::DOMElement& i (p.cur_element ());
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (i));
+
+    // hover
+    //
+    if (n.name () == "hover" && n.namespace_ ().empty ())
+    {
+      ::std::unique_ptr< hover_type > r (
+        hover_traits::create (i, f, this));
+
+      if (!this->hover_)
+      {
+        this->hover_.set (::std::move (r));
+        continue;
+      }
+    }
+
+    // click
+    //
+    if (n.name () == "click" && n.namespace_ ().empty ())
+    {
+      ::std::unique_ptr< click_type > r (
+        click_traits::create (i, f, this));
+
+      if (!this->click_)
+      {
+        this->click_.set (::std::move (r));
+        continue;
+      }
+    }
+
+    break;
+  }
+}
+
+resources1* resources1::
+_clone (::xml_schema::flags f,
+        ::xml_schema::container* c) const
+{
+  return new class resources1 (*this, f, c);
+}
+
+resources1& resources1::
+operator= (const resources1& x)
+{
+  if (this != &x)
+  {
+    static_cast< ::baseResources& > (*this) = x;
+    this->hover_ = x.hover_;
+    this->click_ = x.click_;
+  }
+
+  return *this;
+}
+
+resources1::
+~resources1 ()
 {
 }
 

@@ -209,28 +209,28 @@ powers (::std::unique_ptr< powers_type > x)
   this->powers_.set (std::move (x));
 }
 
-const wall::assets_type& wall::
-assets () const
+const wall::resources_type& wall::
+resources () const
 {
-  return this->assets_.get ();
+  return this->resources_.get ();
 }
 
-wall::assets_type& wall::
-assets ()
+wall::resources_type& wall::
+resources ()
 {
-  return this->assets_.get ();
-}
-
-void wall::
-assets (const assets_type& x)
-{
-  this->assets_.set (x);
+  return this->resources_.get ();
 }
 
 void wall::
-assets (::std::unique_ptr< assets_type > x)
+resources (const resources_type& x)
 {
-  this->assets_.set (std::move (x));
+  this->resources_.set (x);
+}
+
+void wall::
+resources (::std::unique_ptr< resources_type > x)
+{
+  this->resources_.set (std::move (x));
 }
 
 const wall::collider_type& wall::
@@ -549,7 +549,7 @@ wall (const name_type& name,
       const level_type& level,
       const baseHealth_type& baseHealth,
       const pricing_type& pricing,
-      const assets_type& assets,
+      const resources_type& resources,
       const collider_type& collider,
       const events_type& events)
 : ::xml_schema::type (),
@@ -558,7 +558,7 @@ wall (const name_type& name,
   baseHealth_ (baseHealth, this),
   pricing_ (pricing, this),
   powers_ (this),
-  assets_ (assets, this),
+  resources_ (resources, this),
   collider_ (collider, this),
   events_ (events, this)
 {
@@ -569,7 +569,7 @@ wall (const name_type& name,
       const level_type& level,
       const baseHealth_type& baseHealth,
       ::std::unique_ptr< pricing_type > pricing,
-      ::std::unique_ptr< assets_type > assets,
+      ::std::unique_ptr< resources_type > resources,
       ::std::unique_ptr< collider_type > collider,
       ::std::unique_ptr< events_type > events)
 : ::xml_schema::type (),
@@ -578,7 +578,7 @@ wall (const name_type& name,
   baseHealth_ (baseHealth, this),
   pricing_ (std::move (pricing), this),
   powers_ (this),
-  assets_ (std::move (assets), this),
+  resources_ (std::move (resources), this),
   collider_ (std::move (collider), this),
   events_ (std::move (events), this)
 {
@@ -594,7 +594,7 @@ wall (const wall& x,
   baseHealth_ (x.baseHealth_, f, this),
   pricing_ (x.pricing_, f, this),
   powers_ (x.powers_, f, this),
-  assets_ (x.assets_, f, this),
+  resources_ (x.resources_, f, this),
   collider_ (x.collider_, f, this),
   events_ (x.events_, f, this)
 {
@@ -610,7 +610,7 @@ wall (const ::xercesc::DOMElement& e,
   baseHealth_ (this),
   pricing_ (this),
   powers_ (this),
-  assets_ (this),
+  resources_ (this),
   collider_ (this),
   events_ (this)
 {
@@ -698,16 +698,16 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
       }
     }
 
-    // assets
+    // resources
     //
-    if (n.name () == "assets" && n.namespace_ ().empty ())
+    if (n.name () == "resources" && n.namespace_ ().empty ())
     {
-      ::std::unique_ptr< assets_type > r (
-        assets_traits::create (i, f, this));
+      ::std::unique_ptr< resources_type > r (
+        resources_traits::create (i, f, this));
 
-      if (!assets_.present ())
+      if (!resources_.present ())
       {
-        this->assets_.set (::std::move (r));
+        this->resources_.set (::std::move (r));
         continue;
       }
     }
@@ -771,10 +771,10 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
       "");
   }
 
-  if (!assets_.present ())
+  if (!resources_.present ())
   {
     throw ::xsd::cxx::tree::expected_element< char > (
-      "assets",
+      "resources",
       "");
   }
 
@@ -811,7 +811,7 @@ operator= (const wall& x)
     this->baseHealth_ = x.baseHealth_;
     this->pricing_ = x.pricing_;
     this->powers_ = x.powers_;
-    this->assets_ = x.assets_;
+    this->resources_ = x.resources_;
     this->collider_ = x.collider_;
     this->events_ = x.events_;
   }
