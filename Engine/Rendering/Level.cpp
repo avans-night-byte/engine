@@ -155,7 +155,7 @@ void Level::initCollision(){
                         polygonData.points = points;
 
                         bodyId = Game::getInstance()->getPhysicsAPI()->createStaticBody(polygonData);
-                        continue;
+                        break;
                     }
                     case tmx::Object::Shape::Text:
                         break;
