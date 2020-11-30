@@ -7,7 +7,7 @@
 class menu_parser {
 public:
     menu_parser(RenderingAPI &renderer);
-    Page open_scene(std::string &path);
+    Page open_scene(std::string path);
 
 private:
     RenderingAPI& renderer_;

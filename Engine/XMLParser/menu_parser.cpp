@@ -4,7 +4,7 @@
 #include "../Resources/XML/Generated/menu.hxx"
 #include "../Resources/XML/Generated/wall.hxx"
 
-Page menu_parser::open_scene(std::string& path) {
+Page menu_parser::open_scene(std::string path) {
     auto menu = menu_(path);
 
    for(auto button : menu->buttons().button()){

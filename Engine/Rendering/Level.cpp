@@ -66,7 +66,7 @@ void Level::render(EngineRenderingAPI& engineRenderingApi) {
                     auto x_pos = x * (16 * scale);
                     auto y_pos = y * (16 * scale);
 
-                    _tSpritesheet->select_sprite((texture.x / 16), texture.y / 16);
+                    _tSpritesheet->select_sprite((texture.x / 16) - 1, texture.y / 16);
                     _tSpritesheet->draw_selected_sprite(x_pos, y_pos, scale);
                 }
             }
