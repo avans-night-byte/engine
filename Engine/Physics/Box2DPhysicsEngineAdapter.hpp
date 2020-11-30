@@ -40,7 +40,7 @@ public:
 
     BodyId createBody(BodyType bodyType, Vector2 position, float radius, ContactHandler* userData = nullptr) override;
 
-    BodyId createBody(BodyType bodyType, Vector2 position, std::vector<Vector2> &points, const bool &isSensor, ContactHandler* userData = nullptr) override;
+    BodyId createBody(BodyType bodyType, Vector2 position, const std::vector<Vector2> &points, const bool &isSensor, ContactHandler* userData = nullptr) override;
 
     void referencePositionToBody(BodyId bodyId, float &x, float &y) override;
 
