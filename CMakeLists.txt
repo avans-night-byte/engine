@@ -31,7 +31,6 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/WorldPositionComponent.cpp
         ./Game/Components/WorldPositionComponent.hpp
         ./Game/Scenes/Menu/MainMenu.hpp
-        ./Game/Scenes/HelpMenu/HelpMenu.hpp
         ./Game/Scenes/Example/ExampleScene.cpp
         ./Game/Scenes/Example/ExampleScene.hpp
         ./Game/Components/PhysicsComponent.cpp
