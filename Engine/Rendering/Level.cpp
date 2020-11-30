@@ -43,6 +43,7 @@ void Level::render(EngineRenderingAPI& engineRenderingApi) {
             const auto tileLayer = layer->getLayerAs<tmx::TileLayer>();
 
             auto map_dimensions = _tmap.getTileCount();
+
             auto rows = map_dimensions.y;
             auto cols = map_dimensions.x;
 
@@ -50,10 +51,10 @@ void Level::render(EngineRenderingAPI& engineRenderingApi) {
             auto &layer_tiles = tileLayer.getTiles();
 
 
-            for (auto y = 0; y < rows; y++) {
-                for (auto x = 0; x < cols; x++) {
+            for (auto y = 0; y < rows; ++y) {
+                for (auto x = 0; x < cols; ++x) {
 
-                    auto tile_index = x + (y * rows);
+                    auto tile_index = x + (y * cols);
                     auto cur_gid = layer_tiles[tile_index].ID;
 
                     if (cur_gid == 0) {
