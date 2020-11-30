@@ -31,8 +31,8 @@
 // in the accompanying FLOSSE file.
 //
 
-#ifndef E__GITHUB_NIGHT_BYTE_ENGINE_ENGINE_RESOURCES_XML_SCHEMAS_MENU_HXX
-#define E__GITHUB_NIGHT_BYTE_ENGINE_ENGINE_RESOURCES_XML_SCHEMAS_MENU_HXX
+#ifndef ENGINE_RESOURCES_XML_SCHEMAS_MENU_HXX
+#define ENGINE_RESOURCES_XML_SCHEMAS_MENU_HXX
 
 #ifndef XSD_CXX11
 #define XSD_CXX11
@@ -229,6 +229,7 @@ namespace xml_schema
 class menu;
 class button;
 class buttons;
+class resources1;
 
 #include <memory>    // ::std::unique_ptr
 #include <limits>    // std::numeric_limits
@@ -249,6 +250,40 @@ class buttons;
 class menu: public ::xml_schema::type
 {
   public:
+  // name
+  //
+  typedef ::xml_schema::string name_type;
+  typedef ::xsd::cxx::tree::traits< name_type, char > name_traits;
+
+  const name_type&
+  name () const;
+
+  name_type&
+  name ();
+
+  void
+  name (const name_type& x);
+
+  void
+  name (::std::unique_ptr< name_type > p);
+
+  // resources
+  //
+  typedef ::resources resources_type;
+  typedef ::xsd::cxx::tree::traits< resources_type, char > resources_traits;
+
+  const resources_type&
+  resources () const;
+
+  resources_type&
+  resources ();
+
+  void
+  resources (const resources_type& x);
+
+  void
+  resources (::std::unique_ptr< resources_type > p);
+
   // buttons
   //
   typedef ::buttons buttons_type;
@@ -266,11 +301,34 @@ class menu: public ::xml_schema::type
   void
   buttons (::std::unique_ptr< buttons_type > p);
 
+  // preloadResources
+  //
+  typedef ::preloadResources preloadResources_type;
+  typedef ::xsd::cxx::tree::traits< preloadResources_type, char > preloadResources_traits;
+
+  const preloadResources_type&
+  preloadResources () const;
+
+  preloadResources_type&
+  preloadResources ();
+
+  void
+  preloadResources (const preloadResources_type& x);
+
+  void
+  preloadResources (::std::unique_ptr< preloadResources_type > p);
+
   // Constructors.
   //
-  menu (const buttons_type&);
+  menu (const name_type&,
+        const resources_type&,
+        const buttons_type&,
+        const preloadResources_type&);
 
-  menu (::std::unique_ptr< buttons_type >);
+  menu (const name_type&,
+        ::std::unique_ptr< resources_type >,
+        ::std::unique_ptr< buttons_type >,
+        ::std::unique_ptr< preloadResources_type >);
 
   menu (const ::xercesc::DOMElement& e,
         ::xml_schema::flags f = 0,
@@ -298,7 +356,10 @@ class menu: public ::xml_schema::type
          ::xml_schema::flags);
 
   protected:
+  ::xsd::cxx::tree::one< name_type > name_;
+  ::xsd::cxx::tree::one< resources_type > resources_;
   ::xsd::cxx::tree::one< buttons_type > buttons_;
+  ::xsd::cxx::tree::one< preloadResources_type > preloadResources_;
 };
 
 class button: public ::xml_schema::type
@@ -358,19 +419,44 @@ class button: public ::xml_schema::type
   // color
   //
   typedef ::color color_type;
+  typedef ::xsd::cxx::tree::optional< color_type > color_optional;
   typedef ::xsd::cxx::tree::traits< color_type, char > color_traits;
 
-  const color_type&
+  const color_optional&
   color () const;
 
-  color_type&
+  color_optional&
   color ();
 
   void
   color (const color_type& x);
 
   void
+  color (const color_optional& x);
+
+  void
   color (::std::unique_ptr< color_type > p);
+
+  // resources
+  //
+  typedef ::resources1 resources_type;
+  typedef ::xsd::cxx::tree::optional< resources_type > resources_optional;
+  typedef ::xsd::cxx::tree::traits< resources_type, char > resources_traits;
+
+  const resources_optional&
+  resources () const;
+
+  resources_optional&
+  resources ();
+
+  void
+  resources (const resources_type& x);
+
+  void
+  resources (const resources_optional& x);
+
+  void
+  resources (::std::unique_ptr< resources_type > p);
 
   // events
   //
@@ -394,13 +480,11 @@ class button: public ::xml_schema::type
   button (const position_type&,
           const size_type&,
           const content_type&,
-          const color_type&,
           const events_type&);
 
   button (::std::unique_ptr< position_type >,
           ::std::unique_ptr< size_type >,
           const content_type&,
-          ::std::unique_ptr< color_type >,
           ::std::unique_ptr< events_type >);
 
   button (const ::xercesc::DOMElement& e,
@@ -432,7 +516,8 @@ class button: public ::xml_schema::type
   ::xsd::cxx::tree::one< position_type > position_;
   ::xsd::cxx::tree::one< size_type > size_;
   ::xsd::cxx::tree::one< content_type > content_;
-  ::xsd::cxx::tree::one< color_type > color_;
+  color_optional color_;
+  resources_optional resources_;
   ::xsd::cxx::tree::one< events_type > events_;
 };
 
@@ -487,6 +572,85 @@ class buttons: public ::xml_schema::type
 
   protected:
   button_sequence button_;
+};
+
+class resources1: public ::baseResources
+{
+  public:
+  // hover
+  //
+  typedef ::xml_schema::string hover_type;
+  typedef ::xsd::cxx::tree::optional< hover_type > hover_optional;
+  typedef ::xsd::cxx::tree::traits< hover_type, char > hover_traits;
+
+  const hover_optional&
+  hover () const;
+
+  hover_optional&
+  hover ();
+
+  void
+  hover (const hover_type& x);
+
+  void
+  hover (const hover_optional& x);
+
+  void
+  hover (::std::unique_ptr< hover_type > p);
+
+  // click
+  //
+  typedef ::xml_schema::string click_type;
+  typedef ::xsd::cxx::tree::optional< click_type > click_optional;
+  typedef ::xsd::cxx::tree::traits< click_type, char > click_traits;
+
+  const click_optional&
+  click () const;
+
+  click_optional&
+  click ();
+
+  void
+  click (const click_type& x);
+
+  void
+  click (const click_optional& x);
+
+  void
+  click (::std::unique_ptr< click_type > p);
+
+  // Constructors.
+  //
+  resources1 (const default_type&);
+
+  resources1 (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  resources1 (const resources1& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual resources1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  resources1&
+  operator= (const resources1& x);
+
+  virtual 
+  ~resources1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  hover_optional hover_;
+  click_optional click_;
 };
 
 #include <iosfwd>
@@ -688,4 +852,4 @@ button_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
 //
 // End epilogue.
 
-#endif // E__GITHUB_NIGHT_BYTE_ENGINE_ENGINE_RESOURCES_XML_SCHEMAS_MENU_HXX
+#endif // ENGINE_RESOURCES_XML_SCHEMAS_MENU_HXX
