@@ -4,6 +4,7 @@ typedef signed int int32;
 
 #include <iostream>
 #include "memory"
+#include <math.h>
 
 #include "../TextureManager.hpp"
 #include "../Spritesheet.hpp"
