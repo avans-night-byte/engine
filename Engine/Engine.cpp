@@ -30,9 +30,9 @@ void Engine::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT) {
     } else {
 
         // Create window
-        window = SDL_CreateWindow("Tutorial", SDL_WINDOWPOS_UNDEFINED,
+        window = SDL_CreateWindow("NightByte", SDL_WINDOWPOS_UNDEFINED,
                                   SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH,
-                                  SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+                                  SCREEN_HEIGHT, SDL_WINDOW_FULLSCREEN);
         if (window == nullptr) {
             printf("Window could not be created! SDL_Error: %s\n",
                    SDL_GetError());
