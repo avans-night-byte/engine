@@ -24,3 +24,6 @@
     path = Libraries/tmxlite
     url = https://github.com/fallahn/tmxlite.git
 
+[submodule "SDL_ttf"]
+	path = Libraries/SDL_ttf
+	url = https://github.com/avans-night-byte/SDL_ttf
