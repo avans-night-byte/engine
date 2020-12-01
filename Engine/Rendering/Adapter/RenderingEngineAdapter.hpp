@@ -9,7 +9,7 @@ typedef signed int int32;
 #include "../TextureManager.hpp"
 #include "../Spritesheet.hpp"
 #include "../../Vector2.hpp"
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 
 // TODO: Store the SDL_renderer here, in the engine instead of the API?
