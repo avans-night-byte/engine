@@ -74,21 +74,25 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;SDL_render.h&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SDL_image.h&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classSpritesheet.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSpritesheet.html">Spritesheet</a>{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <a class="code" href="classSpritesheet.html">Spritesheet</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* path, std::string spriteSheetid, <span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, SDL_Renderer* renderer);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        ~<a class="code" href="classSpritesheet.html">Spritesheet</a>();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordtype">void</span> select_sprite(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordtype">void</span> draw_selected_sprite(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> scale = 1);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        SDL_Rect     m_clip;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        std::string textureId;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        SDL_Renderer* sdlRenderer;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../../Libraries/json.hpp&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classSpritesheet.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSpritesheet.html">Spritesheet</a>{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <a class="code" href="classSpritesheet.html">Spritesheet</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, std::string spriteSheetid, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height,</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;                    SDL_Renderer *renderer);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <a class="code" href="classSpritesheet.html">Spritesheet</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* path, <span class="keyword">const</span> <span class="keywordtype">char</span>* jsonPath, std::string spriteSheetId, SDL_Renderer* renderer);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        ~<a class="code" href="classSpritesheet.html">Spritesheet</a>();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">void</span> select_sprite(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">bool</span> useJson = <span class="keyword">false</span>, <span class="keyword">const</span> std::string&amp; spriteName = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">void</span> draw_selected_sprite(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> scale = 1);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        SDL_Rect     m_clip;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        std::string textureId;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        SDL_Renderer* sdlRenderer;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        nlohmann::json j;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassSpritesheet_html"><div class="ttname"><a href="classSpritesheet.html">Spritesheet</a></div><div class="ttdef"><b>Definition:</b> Spritesheet.hpp:7</div></div>
+<div class="ttc" id="aclassSpritesheet_html"><div class="ttname"><a href="classSpritesheet.html">Spritesheet</a></div><div class="ttdef"><b>Definition:</b> Spritesheet.hpp:8</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
