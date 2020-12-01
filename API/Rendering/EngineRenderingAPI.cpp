@@ -29,8 +29,9 @@ EngineRenderingAPI::createSpriteSheet(const char *path, const char *jsonPath, st
     return _adapter->createSpriteSheet(path, jsonPath, std::move(spriteSheetId), _renderer);
 }
 
-void EngineRenderingAPI::createText(std::string fontName, const char* text, const int fontSize, SDL_Color color, std::string textureId){
-    return _adapter->createText(fontName, text, fontSize, color, textureId, _renderer);
+void EngineRenderingAPI::createText(std::string fontName, const char *text, const int fontSize, SDL_Color color,
+                                    std::string textureId) const {
+    _adapter->createText(fontName, text, fontSize, color, textureId, _renderer);
 }
 
 
@@ -43,7 +44,7 @@ void EngineRenderingAPI::createText(std::string fontName, const char* text, cons
  * @param scale
  * @param r
  */
-void EngineRenderingAPI::drawTexture(std::string textureId, int x, int y, int width, int height, double scale, double r)
+void EngineRenderingAPI::drawTexture(std::string textureId, int x, int y, int width, int height, double scale, double r) const
 {
     return _adapter->drawTexture(textureId, x, y, width, height, scale, r, _renderer, SDL_FLIP_NONE);
 }

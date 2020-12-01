@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "../Rendering/RenderingAPI.hpp"
+#include "../Rendering/EngineRenderingAPI.hpp"
 #include "../../Engine/XMLParser/MenuParser.hpp"
 
 class MenuParserAPI {
