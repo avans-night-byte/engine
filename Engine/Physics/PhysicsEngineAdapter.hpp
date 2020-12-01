@@ -7,6 +7,7 @@
 #include "ContactHandler.hpp"
 #include <vector>
 
+
 typedef signed int int32;
 typedef unsigned int BodyId;
 struct RPosition;

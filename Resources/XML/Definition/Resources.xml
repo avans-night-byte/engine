@@ -1,0 +1,30 @@
+<resources>
+    <images>
+        <image>
+            <name>photo_martijn</name>
+            <path>../../Resources/....</path>
+        </image>
+    </images>
+    <sprites>
+        <sprite>
+            <name>character</name>
+            <path>../images//...</path>
+            <jsonPath>../../Resources/sprite.json</jsonPath>
+        </sprite>
+        <sprite>
+            <name>bruh</name>
+            <path>../../images/</path>
+            <size>
+                <width>16</width>
+                <height>16</height>
+            </size>
+        </sprite>
+
+    </sprites>
+    <sounds>
+
+    </sounds>
+    <music>
+
+    </music>
+</resources>

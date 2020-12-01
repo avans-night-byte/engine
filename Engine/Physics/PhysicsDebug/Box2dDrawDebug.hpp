@@ -27,7 +27,7 @@ public:
             vert[i] = Vector2(vertices[i].x, vertices[i].y);
         }
 
-        renderingEngineAdapter.drawRectangle(vert, vertexCount, &renderer);
+        renderingEngineAdapter.drawBox(vert, vertexCount, &renderer);
     }
 
     void DrawCircle(const b2Vec2 &center, float radius, const b2Color &color) override {

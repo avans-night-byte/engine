@@ -37,7 +37,6 @@ Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
     return bodies.size() - 1;
 }
 
-
 BodyId Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
                                              Vector2 position,
                                              const std::vector<Vector2> &points,
@@ -97,6 +96,9 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
     bodies.push_back(body);
     return bodies.size() - 1;
 }
+
+
+
 
 void Box2DPhysicsEngineAdapter::referencePositionToBody(BodyId bodyId, float &x, float &y) {
     b2Body *body = bodies[bodyId];

@@ -26,10 +26,6 @@ add_subdirectory(${BOX2D_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/box2d)
 add_subdirectory(${SDL2IMAGE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/sdlimage)
 add_subdirectory(${TMXLITE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/tmxlite)
 
-
-
-
-
 add_executable(NightByte ./Main.cpp
         # Game
         ./Game/Game.cpp
@@ -70,6 +66,10 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Rendering/Level.hpp
         ./Engine/Physics/ContactListener.hpp
         ./Engine/Physics/ContactHandler.hpp
+        Engine/XMLParser/MenuParser.cpp
+        Engine/XMLParser/MenuParser.hpp
+        ./Engine/XMLParser/Page.cpp
+        Engine/XMLParser/Page.hpp
         # API
         ./API/Input/EngineInputAPI.cpp
         ./API/Audio/AudioAPI.cpp
@@ -80,11 +80,16 @@ add_executable(NightByte ./Main.cpp
         ./API/Physics/EnginePhysicsAPI.hpp
         ./API/Physics/PhysicsAPI.hpp
         ./API/RPosition.hpp
+        API/XMLParser/MenuParserAPI.cpp
+        API/XMLParser/MenuParserAPI.hpp
         # XML
-        ./Engine/Resources/XML/Generated/wall.hxx
-        ./Engine/Resources/XML/Generated/wall.cxx
-        ./Engine/Resources/XML/Generated/common.cxx
-        ./Engine/Resources/XML/Generated/common.hxx
+        Resources/XML/Generated/wall.hxx
+        Resources/XML/Generated/wall.cxx
+        Resources/XML/Generated/common.cxx
+        Resources/XML/Generated/common.hxx
+        Resources/XML/Generated/menu.cxx
+        Resources/XML/Generated/menu.hxx
+        Engine/Rendering/Level.cpp Engine/Rendering/Level.hpp Game/Scenes/Level1/Level1.cpp Game/Scenes/Level1/Level1.hpp
         Game/Scenes/Level10/LevelCharlie.cpp Game/Scenes/Level10/LevelCharlie.hpp)
 
 find_package(box2d REQUIRED)

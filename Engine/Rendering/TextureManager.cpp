@@ -71,7 +71,7 @@ void TextureManager::draw(std::string textureId, int x, int y, int width, int he
     destRect.x = x;
     destRect.y = y;
 
-    SDL_RenderCopyEx(renderer, texture, &srcRect, &destRect,0,0, flip);
+    SDL_RenderCopyEx(renderer, texture, NULL, NULL,0,0, flip);
 }
 
 void TextureManager::drawFrame(std::string id, float x, float y, int width, int height, int currentRow, int currentFrame, SDL_Renderer *pRenderer, SDL_RendererFlip flip)

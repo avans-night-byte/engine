@@ -39,11 +39,11 @@ void Level::render(EngineRenderingAPI& engineRenderingApi) {
 
     for (const auto &layer : layers) {
         if (layer->getType() == tmx::Layer::Type::Object) {
-
         } else if (layer->getType() == tmx::Layer::Type::Tile) {
             const auto tileLayer = layer->getLayerAs<tmx::TileLayer>();
 
             auto map_dimensions = _tmap.getTileCount();
+
             auto rows = map_dimensions.y;
             auto cols = map_dimensions.x;
 
@@ -51,10 +51,10 @@ void Level::render(EngineRenderingAPI& engineRenderingApi) {
             auto &layer_tiles = tileLayer.getTiles();
 
 
-            for (auto y = 0; y < rows; y++) {
-                for (auto x = 0; x < cols; x++) {
+            for (auto y = 0; y < rows; ++y) {
+                for (auto x = 0; x < cols; ++x) {
 
-                    auto tile_index = x + (y * rows);
+                    auto tile_index = x + (y * cols);
                     auto cur_gid = layer_tiles[tile_index].ID;
 
                     if (cur_gid == 0) {
@@ -68,7 +68,6 @@ void Level::render(EngineRenderingAPI& engineRenderingApi) {
 
                     _tSpritesheet->select_sprite((texture.x / 16) - 1, texture.y / 16);
                     _tSpritesheet->draw_selected_sprite(x_pos, y_pos, scale);
-
                 }
             }
         }

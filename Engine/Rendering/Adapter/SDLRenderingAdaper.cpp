@@ -1,3 +1,4 @@
+#include <regex>
 #include <SDL_ttf.h>
 #include "RenderingEngineAdapter.hpp"
 
@@ -8,8 +9,6 @@ TextureManager *RenderingEngineAdapter::GetTextureManager() {
     return TextureManager::GetInstance();
 }
 
-
-
 void
 RenderingEngineAdapter::drawTexture(std::string textureId, int x, int y, int width, int height, double scale, double r,
                                     SDL_Renderer *renderer, SDL_RendererFlip flip) {
@@ -19,8 +18,6 @@ RenderingEngineAdapter::drawTexture(std::string textureId, int x, int y, int wid
     return textureManager->draw(textureId, x, y, width, height, scale, r, renderer, flip);
 }
 
-
-
 Spritesheet *
 RenderingEngineAdapter::createSpriteSheet(char const *path, std::string spriteSheetId, int rows, int columns, int width,
                                           int height, SDL_Renderer *renderer) {
@@ -29,7 +26,7 @@ RenderingEngineAdapter::createSpriteSheet(char const *path, std::string spriteSh
 
 
 
-void RenderingEngineAdapter::drawRectangle(const Vector2 vertices[], int32 vertexCount, SDL_Renderer *renderer) const {
+void RenderingEngineAdapter::drawBox(const Vector2 *vertices, int32 vertexCount, SDL_Renderer *renderer) const {
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
 
     SDL_FPoint points[vertexCount ];
@@ -51,6 +48,51 @@ void RenderingEngineAdapter::drawRectangle(const Vector2 vertices[], int32 verte
 }
 
 
+
+void RenderingEngineAdapter::drawRectangle(Vector2 &position, float width, float height, const std::string& color, float opacity, SDL_Renderer *renderer) const {
+
+    SDL_Color sdlColor = HexToRGB(color, opacity);
+    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+    SDL_SetRenderDrawColor(renderer, sdlColor.r, sdlColor.g, sdlColor.b, sdlColor.a);
+    SDL_FRect rectangle;
+
+    rectangle.x = position.x;
+    rectangle.y = position.y;
+    rectangle.w = width;
+    rectangle.h = height;
+
+    SDL_RenderFillRectF(renderer, &rectangle);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+}
+
+void RenderingEngineAdapter::drawRectContent(Vector2& position, float width, float height, std::string& content, SDL_Renderer *renderer){
+    Vector2 midpoint((position.x + (position.x + height)) / 2, (position.y + (position.y + width)) /2);
+    SDL_Color White = {0, 0, 0};  // this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
+    //SDL_Texture* Message = SDL_CreateTextureFromSurface(renderer, content);
+}
+
+SDL_Color RenderingEngineAdapter::HexToRGB(std::string hex, float opacity) const {
+
+    std::regex pattern("#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})");
+
+    std::smatch match;
+    if (std::regex_match(hex, match, pattern))
+    {
+        SDL_Color color;
+
+        color.r = std::stoi(match[1].str(), nullptr, 16);
+        color.g = std::stoi(match[2].str(), nullptr, 16);
+        color.b = std::stoi(match[3].str(), nullptr, 16);
+        color.a = opacity;
+
+        return color;
+    }
+    else
+    {
+       throw " is an invalid rgb color\n";
+    }
+
+}
 
 void RenderingEngineAdapter::drawLine(const Vector2 &begin, const Vector2 &end, SDL_Renderer *renderer) const {
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
@@ -109,13 +151,17 @@ RenderingEngineAdapter::createSpriteSheet(const char *path, const char *jsonPath
     return new Spritesheet(path, jsonPath, std::move(spriteSheetId), renderer);
 }
 
-
-
 void RenderingEngineAdapter::createText(std::string fontName, const char* text, const int fontSize, SDL_Color color, std::string textureId,  SDL_Renderer *renderer){
     TTF_Font* font = TTF_OpenFont(fontName.c_str(), fontSize);
     SDL_Surface* surfaceMessage = TTF_RenderText_Blended_Wrapped(font, text, color, 550);
     RenderingEngineAdapter::GetTextureManager()->CreateTexture(surfaceMessage, std::move(textureId), renderer);
     TTF_CloseFont(font);
 }
+
+
+
+
+
+
 
 

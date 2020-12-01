@@ -1,0 +1,68 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<menu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schemas/menu.xsd">
+    <name>MainMenu</name>
+    <resources>
+        <default>mainmenu_background</default>
+    </resources>
+    <buttons>
+        <button>
+            <position>
+                <x>100</x>
+                <y>100</y>
+            </position>
+            <size>
+                <width>500</width>
+                <height>150</height>
+            </size>
+            <content>
+                Start game
+            </content>
+            <color>
+                <hex>db80f2</hex>
+                <alpha>40</alpha>
+            </color>
+            <events>
+                <onClick>
+                    <playSound>click</playSound>
+                    <loadScene>level-1</loadScene>
+                </onClick>
+            </events>
+        </button>
+        <button>
+            <position>
+                <x>100</x>
+                <y>300</y>
+            </position>
+            <size>
+                <width>200</width>
+                <height>50</height>
+            </size>
+            <content>
+                Stop Game
+            </content>
+            <color>
+                <hex>fcba03</hex>
+                <alpha>255</alpha>
+            </color>
+            <events>
+                <onClick>
+                    <playSound>click</playSound>
+                    <loadScene>level-1</loadScene>
+                </onClick>
+            </events>
+        </button>
+    </buttons>
+
+    <preloadResources>
+        <resource>main_menu</resource>
+        <resource>main_menu</resource>
+        <resource>main_menu</resource>
+        <resource>main_menu</resource>
+        <resource>main_menu</resource>
+        <resource>main_menu</resource>
+        <resource>main_menu</resource>
+        <resource>main_menu</resource>
+        <resource>main_menu</resource>
+        <resource>main_menu</resource>
+    </preloadResources>
+</menu>
