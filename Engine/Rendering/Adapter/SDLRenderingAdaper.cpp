@@ -9,8 +9,6 @@ TextureManager *RenderingEngineAdapter::GetTextureManager() {
     return TextureManager::GetInstance();
 }
 
-
-
 void
 RenderingEngineAdapter::drawTexture(std::string textureId, int x, int y, int width, int height, double scale, double r,
                                     SDL_Renderer *renderer, SDL_RendererFlip flip) {
@@ -19,8 +17,6 @@ RenderingEngineAdapter::drawTexture(std::string textureId, int x, int y, int wid
 
     return textureManager->draw(textureId, x, y, width, height, scale, r, renderer, flip);
 }
-
-
 
 Spritesheet *
 RenderingEngineAdapter::createSpriteSheet(char const *path, std::string spriteSheetId, int rows, int columns, int width,
@@ -154,8 +150,6 @@ RenderingEngineAdapter::createSpriteSheet(const char *path, const char *jsonPath
                                           SDL_Renderer *renderer) {
     return new Spritesheet(path, jsonPath, std::move(spriteSheetId), renderer);
 }
-
-
 
 void RenderingEngineAdapter::createText(std::string fontName, const char* text, const int fontSize, SDL_Color color, std::string textureId,  SDL_Renderer *renderer){
     TTF_Font* font = TTF_OpenFont(fontName.c_str(), fontSize);
