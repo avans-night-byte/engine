@@ -22,7 +22,6 @@ bool TextureManager::CreateTexture(SDL_Surface *surface, std::string textureId, 
         return false;
     }
 
-    SDL_FreeSurface(surface);
     TextureMap[textureId] = surfaceTexture;
     return true;
 }
