@@ -1,1 +1,1 @@
-for %%f in (Engine\Resources\XML\Schemas\*.xsd) do ( Libraries\XSD\bin\xsd.exe cxx-tree --std c++11 --output-dir Engine\Resources\XML\Generated %%f)
+for %%f in (Resources\XML\Schemas\*.xsd) do (Libraries\XSD\bin\xsd.exe cxx-tree --std c++11 --output-dir Resources\XML\Generated %%f)

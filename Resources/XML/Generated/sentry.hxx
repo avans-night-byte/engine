@@ -31,8 +31,8 @@
 // in the accompanying FLOSSE file.
 //
 
-#ifndef ENGINE_RESOURCES_XML_SCHEMAS_MENU_HXX
-#define ENGINE_RESOURCES_XML_SCHEMAS_MENU_HXX
+#ifndef RESOURCES_XML_SCHEMAS_SENTRY_HXX
+#define RESOURCES_XML_SCHEMAS_SENTRY_HXX
 
 #ifndef XSD_CXX11
 #define XSD_CXX11
@@ -226,10 +226,7 @@ namespace xml_schema
 
 // Forward declarations.
 //
-class menu;
-class button;
-class buttons;
-class resources1;
+class sentry;
 
 #include <memory>    // ::std::unique_ptr
 #include <limits>    // std::numeric_limits
@@ -247,25 +244,25 @@ class resources1;
 
 #include "common.hxx"
 
-class menu: public ::xml_schema::type
+class sentry: public ::xml_schema::type
 {
   public:
-  // name
+  // className
   //
-  typedef ::xml_schema::string name_type;
-  typedef ::xsd::cxx::tree::traits< name_type, char > name_traits;
+  typedef ::xml_schema::string className_type;
+  typedef ::xsd::cxx::tree::traits< className_type, char > className_traits;
 
-  const name_type&
-  name () const;
+  const className_type&
+  className () const;
 
-  name_type&
-  name ();
-
-  void
-  name (const name_type& x);
+  className_type&
+  className ();
 
   void
-  name (::std::unique_ptr< name_type > p);
+  className (const className_type& x);
+
+  void
+  className (::std::unique_ptr< className_type > p);
 
   // resources
   //
@@ -284,179 +281,22 @@ class menu: public ::xml_schema::type
   void
   resources (::std::unique_ptr< resources_type > p);
 
-  // buttons
+  // collider
   //
-  typedef ::buttons buttons_type;
-  typedef ::xsd::cxx::tree::traits< buttons_type, char > buttons_traits;
+  typedef ::collider collider_type;
+  typedef ::xsd::cxx::tree::traits< collider_type, char > collider_traits;
 
-  const buttons_type&
-  buttons () const;
+  const collider_type&
+  collider () const;
 
-  buttons_type&
-  buttons ();
-
-  void
-  buttons (const buttons_type& x);
+  collider_type&
+  collider ();
 
   void
-  buttons (::std::unique_ptr< buttons_type > p);
-
-  // preloadResources
-  //
-  typedef ::preloadResources preloadResources_type;
-  typedef ::xsd::cxx::tree::traits< preloadResources_type, char > preloadResources_traits;
-
-  const preloadResources_type&
-  preloadResources () const;
-
-  preloadResources_type&
-  preloadResources ();
+  collider (const collider_type& x);
 
   void
-  preloadResources (const preloadResources_type& x);
-
-  void
-  preloadResources (::std::unique_ptr< preloadResources_type > p);
-
-  // Constructors.
-  //
-  menu (const name_type&,
-        const resources_type&,
-        const buttons_type&,
-        const preloadResources_type&);
-
-  menu (const name_type&,
-        ::std::unique_ptr< resources_type >,
-        ::std::unique_ptr< buttons_type >,
-        ::std::unique_ptr< preloadResources_type >);
-
-  menu (const ::xercesc::DOMElement& e,
-        ::xml_schema::flags f = 0,
-        ::xml_schema::container* c = 0);
-
-  menu (const menu& x,
-        ::xml_schema::flags f = 0,
-        ::xml_schema::container* c = 0);
-
-  virtual menu*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  menu&
-  operator= (const menu& x);
-
-  virtual 
-  ~menu ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  ::xsd::cxx::tree::one< name_type > name_;
-  ::xsd::cxx::tree::one< resources_type > resources_;
-  ::xsd::cxx::tree::one< buttons_type > buttons_;
-  ::xsd::cxx::tree::one< preloadResources_type > preloadResources_;
-};
-
-class button: public ::xml_schema::type
-{
-  public:
-  // position
-  //
-  typedef ::position position_type;
-  typedef ::xsd::cxx::tree::traits< position_type, char > position_traits;
-
-  const position_type&
-  position () const;
-
-  position_type&
-  position ();
-
-  void
-  position (const position_type& x);
-
-  void
-  position (::std::unique_ptr< position_type > p);
-
-  // size
-  //
-  typedef ::size size_type;
-  typedef ::xsd::cxx::tree::traits< size_type, char > size_traits;
-
-  const size_type&
-  size () const;
-
-  size_type&
-  size ();
-
-  void
-  size (const size_type& x);
-
-  void
-  size (::std::unique_ptr< size_type > p);
-
-  // content
-  //
-  typedef ::xml_schema::string content_type;
-  typedef ::xsd::cxx::tree::traits< content_type, char > content_traits;
-
-  const content_type&
-  content () const;
-
-  content_type&
-  content ();
-
-  void
-  content (const content_type& x);
-
-  void
-  content (::std::unique_ptr< content_type > p);
-
-  // color
-  //
-  typedef ::color color_type;
-  typedef ::xsd::cxx::tree::optional< color_type > color_optional;
-  typedef ::xsd::cxx::tree::traits< color_type, char > color_traits;
-
-  const color_optional&
-  color () const;
-
-  color_optional&
-  color ();
-
-  void
-  color (const color_type& x);
-
-  void
-  color (const color_optional& x);
-
-  void
-  color (::std::unique_ptr< color_type > p);
-
-  // resources
-  //
-  typedef ::resources1 resources_type;
-  typedef ::xsd::cxx::tree::optional< resources_type > resources_optional;
-  typedef ::xsd::cxx::tree::traits< resources_type, char > resources_traits;
-
-  const resources_optional&
-  resources () const;
-
-  resources_optional&
-  resources ();
-
-  void
-  resources (const resources_type& x);
-
-  void
-  resources (const resources_optional& x);
-
-  void
-  resources (::std::unique_ptr< resources_type > p);
+  collider (::std::unique_ptr< collider_type > p);
 
   // events
   //
@@ -477,33 +317,33 @@ class button: public ::xml_schema::type
 
   // Constructors.
   //
-  button (const position_type&,
-          const size_type&,
-          const content_type&,
+  sentry (const className_type&,
+          const resources_type&,
+          const collider_type&,
           const events_type&);
 
-  button (::std::unique_ptr< position_type >,
-          ::std::unique_ptr< size_type >,
-          const content_type&,
+  sentry (const className_type&,
+          ::std::unique_ptr< resources_type >,
+          ::std::unique_ptr< collider_type >,
           ::std::unique_ptr< events_type >);
 
-  button (const ::xercesc::DOMElement& e,
+  sentry (const ::xercesc::DOMElement& e,
           ::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0);
 
-  button (const button& x,
+  sentry (const sentry& x,
           ::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0);
 
-  virtual button*
+  virtual sentry*
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  button&
-  operator= (const button& x);
+  sentry&
+  operator= (const sentry& x);
 
   virtual 
-  ~button ();
+  ~sentry ();
 
   // Implementation.
   //
@@ -513,144 +353,10 @@ class button: public ::xml_schema::type
          ::xml_schema::flags);
 
   protected:
-  ::xsd::cxx::tree::one< position_type > position_;
-  ::xsd::cxx::tree::one< size_type > size_;
-  ::xsd::cxx::tree::one< content_type > content_;
-  color_optional color_;
-  resources_optional resources_;
+  ::xsd::cxx::tree::one< className_type > className_;
+  ::xsd::cxx::tree::one< resources_type > resources_;
+  ::xsd::cxx::tree::one< collider_type > collider_;
   ::xsd::cxx::tree::one< events_type > events_;
-};
-
-class buttons: public ::xml_schema::type
-{
-  public:
-  // button
-  //
-  typedef ::button button_type;
-  typedef ::xsd::cxx::tree::sequence< button_type > button_sequence;
-  typedef button_sequence::iterator button_iterator;
-  typedef button_sequence::const_iterator button_const_iterator;
-  typedef ::xsd::cxx::tree::traits< button_type, char > button_traits;
-
-  const button_sequence&
-  button () const;
-
-  button_sequence&
-  button ();
-
-  void
-  button (const button_sequence& s);
-
-  // Constructors.
-  //
-  buttons ();
-
-  buttons (const ::xercesc::DOMElement& e,
-           ::xml_schema::flags f = 0,
-           ::xml_schema::container* c = 0);
-
-  buttons (const buttons& x,
-           ::xml_schema::flags f = 0,
-           ::xml_schema::container* c = 0);
-
-  virtual buttons*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  buttons&
-  operator= (const buttons& x);
-
-  virtual 
-  ~buttons ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  button_sequence button_;
-};
-
-class resources1: public ::baseResources
-{
-  public:
-  // hover
-  //
-  typedef ::xml_schema::string hover_type;
-  typedef ::xsd::cxx::tree::optional< hover_type > hover_optional;
-  typedef ::xsd::cxx::tree::traits< hover_type, char > hover_traits;
-
-  const hover_optional&
-  hover () const;
-
-  hover_optional&
-  hover ();
-
-  void
-  hover (const hover_type& x);
-
-  void
-  hover (const hover_optional& x);
-
-  void
-  hover (::std::unique_ptr< hover_type > p);
-
-  // click
-  //
-  typedef ::xml_schema::string click_type;
-  typedef ::xsd::cxx::tree::optional< click_type > click_optional;
-  typedef ::xsd::cxx::tree::traits< click_type, char > click_traits;
-
-  const click_optional&
-  click () const;
-
-  click_optional&
-  click ();
-
-  void
-  click (const click_type& x);
-
-  void
-  click (const click_optional& x);
-
-  void
-  click (::std::unique_ptr< click_type > p);
-
-  // Constructors.
-  //
-  resources1 (const default_type&);
-
-  resources1 (const ::xercesc::DOMElement& e,
-              ::xml_schema::flags f = 0,
-              ::xml_schema::container* c = 0);
-
-  resources1 (const resources1& x,
-              ::xml_schema::flags f = 0,
-              ::xml_schema::container* c = 0);
-
-  virtual resources1*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  resources1&
-  operator= (const resources1& x);
-
-  virtual 
-  ~resources1 ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  hover_optional hover_;
-  click_optional click_;
 };
 
 #include <iosfwd>
@@ -662,112 +368,19 @@ class resources1: public ::baseResources
 // Parse a URI or a local file.
 //
 
-::std::unique_ptr< ::menu >
-menu_ (const ::std::string& uri,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::menu >
-menu_ (const ::std::string& uri,
-       ::xml_schema::error_handler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::menu >
-menu_ (const ::std::string& uri,
-       ::xercesc::DOMErrorHandler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse std::istream.
-//
-
-::std::unique_ptr< ::menu >
-menu_ (::std::istream& is,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::menu >
-menu_ (::std::istream& is,
-       ::xml_schema::error_handler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::menu >
-menu_ (::std::istream& is,
-       ::xercesc::DOMErrorHandler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::menu >
-menu_ (::std::istream& is,
-       const ::std::string& id,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::menu >
-menu_ (::std::istream& is,
-       const ::std::string& id,
-       ::xml_schema::error_handler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::menu >
-menu_ (::std::istream& is,
-       const ::std::string& id,
-       ::xercesc::DOMErrorHandler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse xercesc::InputSource.
-//
-
-::std::unique_ptr< ::menu >
-menu_ (::xercesc::InputSource& is,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::menu >
-menu_ (::xercesc::InputSource& is,
-       ::xml_schema::error_handler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::menu >
-menu_ (::xercesc::InputSource& is,
-       ::xercesc::DOMErrorHandler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse xercesc::DOMDocument.
-//
-
-::std::unique_ptr< ::menu >
-menu_ (const ::xercesc::DOMDocument& d,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::menu >
-menu_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse a URI or a local file.
-//
-
-::std::unique_ptr< ::button >
-button_ (const ::std::string& uri,
+::std::unique_ptr< ::sentry >
+sentry_ (const ::std::string& uri,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::button >
-button_ (const ::std::string& uri,
+::std::unique_ptr< ::sentry >
+sentry_ (const ::std::string& uri,
          ::xml_schema::error_handler& eh,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::button >
-button_ (const ::std::string& uri,
+::std::unique_ptr< ::sentry >
+sentry_ (const ::std::string& uri,
          ::xercesc::DOMErrorHandler& eh,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
@@ -775,38 +388,38 @@ button_ (const ::std::string& uri,
 // Parse std::istream.
 //
 
-::std::unique_ptr< ::button >
-button_ (::std::istream& is,
+::std::unique_ptr< ::sentry >
+sentry_ (::std::istream& is,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::button >
-button_ (::std::istream& is,
+::std::unique_ptr< ::sentry >
+sentry_ (::std::istream& is,
          ::xml_schema::error_handler& eh,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::button >
-button_ (::std::istream& is,
+::std::unique_ptr< ::sentry >
+sentry_ (::std::istream& is,
          ::xercesc::DOMErrorHandler& eh,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::button >
-button_ (::std::istream& is,
+::std::unique_ptr< ::sentry >
+sentry_ (::std::istream& is,
          const ::std::string& id,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::button >
-button_ (::std::istream& is,
+::std::unique_ptr< ::sentry >
+sentry_ (::std::istream& is,
          const ::std::string& id,
          ::xml_schema::error_handler& eh,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::button >
-button_ (::std::istream& is,
+::std::unique_ptr< ::sentry >
+sentry_ (::std::istream& is,
          const ::std::string& id,
          ::xercesc::DOMErrorHandler& eh,
          ::xml_schema::flags f = 0,
@@ -815,19 +428,19 @@ button_ (::std::istream& is,
 // Parse xercesc::InputSource.
 //
 
-::std::unique_ptr< ::button >
-button_ (::xercesc::InputSource& is,
+::std::unique_ptr< ::sentry >
+sentry_ (::xercesc::InputSource& is,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::button >
-button_ (::xercesc::InputSource& is,
+::std::unique_ptr< ::sentry >
+sentry_ (::xercesc::InputSource& is,
          ::xml_schema::error_handler& eh,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::button >
-button_ (::xercesc::InputSource& is,
+::std::unique_ptr< ::sentry >
+sentry_ (::xercesc::InputSource& is,
          ::xercesc::DOMErrorHandler& eh,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
@@ -835,13 +448,13 @@ button_ (::xercesc::InputSource& is,
 // Parse xercesc::DOMDocument.
 //
 
-::std::unique_ptr< ::button >
-button_ (const ::xercesc::DOMDocument& d,
+::std::unique_ptr< ::sentry >
+sentry_ (const ::xercesc::DOMDocument& d,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::button >
-button_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+::std::unique_ptr< ::sentry >
+sentry_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
@@ -852,4 +465,4 @@ button_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
 //
 // End epilogue.
 
-#endif // ENGINE_RESOURCES_XML_SCHEMAS_MENU_HXX
+#endif // RESOURCES_XML_SCHEMAS_SENTRY_HXX

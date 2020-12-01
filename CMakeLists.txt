@@ -83,12 +83,12 @@ add_executable(NightByte ./Main.cpp
         API/XMLParser/MenuParserAPI.cpp
         API/XMLParser/MenuParserAPI.hpp
         # XML
-        ./Engine/Resources/XML/Generated/wall.hxx
-        ./Engine/Resources/XML/Generated/wall.cxx
-        ./Engine/Resources/XML/Generated/common.cxx
-        ./Engine/Resources/XML/Generated/common.hxx
-        ./Engine/Resources/XML/Generated/menu.cxx
-        ./Engine/Resources/XML/Generated/menu.hxx
+        Resources/XML/Generated/wall.hxx
+        Resources/XML/Generated/wall.cxx
+        Resources/XML/Generated/common.cxx
+        Resources/XML/Generated/common.hxx
+        Resources/XML/Generated/menu.cxx
+        Resources/XML/Generated/menu.hxx
         Engine/Rendering/Level.cpp Engine/Rendering/Level.hpp Game/Scenes/Level1/Level1.cpp Game/Scenes/Level1/Level1.hpp
         Game/Scenes/Level10/LevelCharlie.cpp Game/Scenes/Level10/LevelCharlie.hpp)
 
