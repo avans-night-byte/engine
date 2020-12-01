@@ -131,15 +131,15 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="hex" type="xs:string"/>
-                <xs:element name="opacity" type="opacity"/>
+                <xs:element name="alpha" type="alpha"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:simpleType name="opacity" id="opacity">
+    <xs:simpleType name="alpha" id="alpha">
         <xs:restriction base="xs:float">
             <xs:minInclusive value="0"/>
-            <xs:maxInclusive value="1"/>
+            <xs:maxInclusive value="255"/>
         </xs:restriction>
     </xs:simpleType>
 </xs:schema>

@@ -1,3 +1,4 @@
+#include <regex>
 #include "RenderingEngineAdapter.hpp"
 
 typedef signed int int32;
@@ -40,16 +41,49 @@ void RenderingEngineAdapter::drawBox(const Vector2 *vertices, int32 vertexCount,
     SDL_RenderDrawLinesF(renderer, points, vertexCount);
 }
 
-void RenderingEngineAdapter::drawRectangle(Vector2 &position, float width, float height, SDL_Renderer &renderer) {
-    SDL_SetRenderDrawColor(&renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-    SDL_Rect rectangle;
+void RenderingEngineAdapter::drawRectangle(Vector2 &position, float width, float height, const std::string& color, float opacity, SDL_Renderer *renderer) const {
+
+    SDL_Color sdlColor = HexToRGB(color, opacity);
+    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+    SDL_SetRenderDrawColor(renderer, sdlColor.r, sdlColor.g, sdlColor.b, sdlColor.a);
+    SDL_FRect rectangle;
 
     rectangle.x = position.x;
     rectangle.y = position.y;
     rectangle.w = width;
     rectangle.h = height;
 
-    SDL_RenderFillRect(&renderer, &rectangle);
+    SDL_RenderFillRectF(renderer, &rectangle);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+}
+
+void RenderingEngineAdapter::drawRectContent(Vector2& position, float width, float height, std::string& content, SDL_Renderer *renderer){
+    Vector2 midpoint((position.x + (position.x + height)) / 2, (position.y + (position.y + width)) /2);
+    SDL_Color White = {0, 0, 0};  // this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
+    //SDL_Texture* Message = SDL_CreateTextureFromSurface(renderer, content);
+}
+
+SDL_Color RenderingEngineAdapter::HexToRGB(std::string hex, float opacity) const {
+
+    std::regex pattern("#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})");
+
+    std::smatch match;
+    if (std::regex_match(hex, match, pattern))
+    {
+        SDL_Color color;
+
+        color.r = std::stoi(match[1].str(), nullptr, 16);
+        color.g = std::stoi(match[2].str(), nullptr, 16);
+        color.b = std::stoi(match[3].str(), nullptr, 16);
+        color.a = opacity;
+
+        return color;
+    }
+    else
+    {
+       throw " is an invalid rgb color\n";
+    }
+
 }
 
 void RenderingEngineAdapter::drawLine(const Vector2 &begin, const Vector2 &end, SDL_Renderer *renderer) const {
@@ -80,16 +114,17 @@ void RenderingEngineAdapter::drawCircle(const Vector2 &center, const float &radi
     float x = center.x;
     float y = center.y;
     float iRadius = radius;
+    int num_segments = iRadius * iRadius;
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-    for (float w = 0; w < iRadius * 2; w++) {
-        for (float h = 0; h < iRadius * 2; h++) {
-            float dx = iRadius - w; // horizontal offset
-            float dy = iRadius - h; // vertical offset
-            if ((dx * dx + dy * dy) <= (iRadius * iRadius)) {
-                SDL_RenderDrawPointF(renderer, x + dx, y + dy);
-            }
-        }
+    for(int ii = 0; ii < num_segments; ii++)
+    {
+        float theta = 2.0f * 3.1415926f * float(ii) / float(num_segments);//get the current angle
+
+        float cx = iRadius * cosf(theta);//calculate the x component
+        float cy = iRadius * sinf(theta);//calculate the y component
+
+        SDL_RenderDrawPointF(renderer, x + cx, y + cy);//output vertex
     }
 
     SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);

@@ -64,8 +64,8 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Rendering/Level.hpp
         ./Engine/Physics/ContactListener.hpp
         ./Engine/Physics/ContactHandler.hpp
-        ./Engine/XMLParser/menu_parser.cpp
-        ./Engine/XMLParser/menu_parser.hpp
+        Engine/XMLParser/MenuParser.cpp
+        Engine/XMLParser/MenuParser.hpp
         ./Engine/XMLParser/Page.cpp
         Engine/XMLParser/Page.hpp
         # API
@@ -78,8 +78,8 @@ add_executable(NightByte ./Main.cpp
         ./API/Physics/EnginePhysicsAPI.hpp
         ./API/Physics/PhysicsAPI.hpp
         ./API/RPosition.hpp
-        ./API/XMLParser/menu_parser_api.cpp
-        ./API/XMLParser/menu_parser_api.hpp
+        API/XMLParser/MenuParserAPI.cpp
+        API/XMLParser/MenuParserAPI.hpp
         # XML
         ./Engine/Resources/XML/Generated/wall.hxx
         ./Engine/Resources/XML/Generated/wall.cxx

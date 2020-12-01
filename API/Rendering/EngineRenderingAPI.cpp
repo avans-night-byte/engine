@@ -49,7 +49,7 @@ const RenderingEngineAdapter &EngineRenderingAPI::GetRendererAdapter() const {
     return *_adapter;
 }
 
-void EngineRenderingAPI::drawRectangle(Vector2 &position, float width, float height) {
-    _adapter->drawRectangle(position, width, height, *_renderer);
+void EngineRenderingAPI::drawRectangle(Vector2 &position, float width, float height, std::string& color, float opacity) const {
+    _adapter->drawRectangle(position, width, height, color, opacity, _renderer);
 
 }

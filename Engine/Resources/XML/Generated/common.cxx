@@ -68,7 +68,7 @@ default_ (::std::unique_ptr< default_type > x)
 }
 
 
-// opacity
+// alpha
 // 
 
 
@@ -435,28 +435,28 @@ hex (::std::unique_ptr< hex_type > x)
   this->hex_.set (std::move (x));
 }
 
-const color::opacity_type& color::
-opacity () const
+const color::alpha_type& color::
+alpha () const
 {
-  return this->opacity_.get ();
+  return this->alpha_.get ();
 }
 
-color::opacity_type& color::
-opacity ()
+color::alpha_type& color::
+alpha ()
 {
-  return this->opacity_.get ();
-}
-
-void color::
-opacity (const opacity_type& x)
-{
-  this->opacity_.set (x);
+  return this->alpha_.get ();
 }
 
 void color::
-opacity (::std::unique_ptr< opacity_type > x)
+alpha (const alpha_type& x)
 {
-  this->opacity_.set (std::move (x));
+  this->alpha_.set (x);
+}
+
+void color::
+alpha (::std::unique_ptr< alpha_type > x)
+{
+  this->alpha_.set (std::move (x));
 }
 
 
@@ -978,57 +978,57 @@ baseResources::
 {
 }
 
-// opacity
+// alpha
 //
 
-opacity::
-opacity (const ::xml_schema::float_& _xsd_float__base)
+alpha::
+alpha (const ::xml_schema::float_& _xsd_float__base)
 : ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base)
 {
 }
 
-opacity::
-opacity (const opacity& x,
-         ::xml_schema::flags f,
-         ::xml_schema::container* c)
+alpha::
+alpha (const alpha& x,
+       ::xml_schema::flags f,
+       ::xml_schema::container* c)
 : ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c)
 {
 }
 
-opacity::
-opacity (const ::xercesc::DOMElement& e,
-         ::xml_schema::flags f,
-         ::xml_schema::container* c)
+alpha::
+alpha (const ::xercesc::DOMElement& e,
+       ::xml_schema::flags f,
+       ::xml_schema::container* c)
 : ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f, c)
 {
 }
 
-opacity::
-opacity (const ::xercesc::DOMAttr& a,
-         ::xml_schema::flags f,
-         ::xml_schema::container* c)
+alpha::
+alpha (const ::xercesc::DOMAttr& a,
+       ::xml_schema::flags f,
+       ::xml_schema::container* c)
 : ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (a, f, c)
 {
 }
 
-opacity::
-opacity (const ::std::string& s,
-         const ::xercesc::DOMElement* e,
-         ::xml_schema::flags f,
-         ::xml_schema::container* c)
+alpha::
+alpha (const ::std::string& s,
+       const ::xercesc::DOMElement* e,
+       ::xml_schema::flags f,
+       ::xml_schema::container* c)
 : ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (s, e, f, c)
 {
 }
 
-opacity* opacity::
+alpha* alpha::
 _clone (::xml_schema::flags f,
         ::xml_schema::container* c) const
 {
-  return new class opacity (*this, f, c);
+  return new class alpha (*this, f, c);
 }
 
-opacity::
-~opacity ()
+alpha::
+~alpha ()
 {
 }
 
@@ -1681,10 +1681,10 @@ size::
 
 color::
 color (const hex_type& hex,
-       const opacity_type& opacity)
+       const alpha_type& alpha)
 : ::xml_schema::type (),
   hex_ (hex, this),
-  opacity_ (opacity, this)
+  alpha_ (alpha, this)
 {
 }
 
@@ -1694,7 +1694,7 @@ color (const color& x,
        ::xml_schema::container* c)
 : ::xml_schema::type (x, f, c),
   hex_ (x.hex_, f, this),
-  opacity_ (x.opacity_, f, this)
+  alpha_ (x.alpha_, f, this)
 {
 }
 
@@ -1704,7 +1704,7 @@ color (const ::xercesc::DOMElement& e,
        ::xml_schema::container* c)
 : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
   hex_ (this),
-  opacity_ (this)
+  alpha_ (this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
   {
@@ -1737,16 +1737,16 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
       }
     }
 
-    // opacity
+    // alpha
     //
-    if (n.name () == "opacity" && n.namespace_ ().empty ())
+    if (n.name () == "alpha" && n.namespace_ ().empty ())
     {
-      ::std::unique_ptr< opacity_type > r (
-        opacity_traits::create (i, f, this));
+      ::std::unique_ptr< alpha_type > r (
+        alpha_traits::create (i, f, this));
 
-      if (!opacity_.present ())
+      if (!alpha_.present ())
       {
-        this->opacity_.set (::std::move (r));
+        this->alpha_.set (::std::move (r));
         continue;
       }
     }
@@ -1761,10 +1761,10 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
       "");
   }
 
-  if (!opacity_.present ())
+  if (!alpha_.present ())
   {
     throw ::xsd::cxx::tree::expected_element< char > (
-      "opacity",
+      "alpha",
       "");
   }
 }
@@ -1783,7 +1783,7 @@ operator= (const color& x)
   {
     static_cast< ::xml_schema::type& > (*this) = x;
     this->hex_ = x.hex_;
-    this->opacity_ = x.opacity_;
+    this->alpha_ = x.alpha_;
   }
 
   return *this;
