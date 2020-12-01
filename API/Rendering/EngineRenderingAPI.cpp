@@ -1,5 +1,7 @@
 #include "EngineRenderingAPI.hpp"
 
+#include <utility>
+
 TextureManager *EngineRenderingAPI::GetTextureManager()
 {
     return RenderingEngineAdapter::GetTextureManager();
@@ -20,6 +22,17 @@ EngineRenderingAPI::createSpriteSheet(const char *path, std::string spriteSheetI
 {
     return _adapter->createSpriteSheet(path, spriteSheetId, rows, columns, width, height, _renderer);
 }
+
+Spritesheet *
+EngineRenderingAPI::createSpriteSheet(const char *path, const char *jsonPath, std::string spriteSheetId)
+{
+    return _adapter->createSpriteSheet(path, jsonPath, std::move(spriteSheetId), _renderer);
+}
+
+void EngineRenderingAPI::createText(std::string fontName, const char* text, const int fontSize, SDL_Color color, std::string textureId){
+    return _adapter->createText(fontName, text, fontSize, color, textureId, _renderer);
+}
+
 
 /**
  * @param textureId
@@ -47,9 +60,4 @@ bool EngineRenderingAPI::loadTexture(const char *path, std::string textureId)
 
 const RenderingEngineAdapter &EngineRenderingAPI::GetRendererAdapter() const {
     return *_adapter;
-}
-
-void EngineRenderingAPI::drawRectangle(Vector2 &position, float width, float height, std::string& color, float opacity) const {
-    _adapter->drawRectangle(position, width, height, color, opacity, _renderer);
-
 }

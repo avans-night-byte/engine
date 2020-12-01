@@ -1,4 +1,5 @@
 #include <iostream>
+#include <SDL_ttf.h>
 #include "./Engine.hpp"
 
 // Dependencies
@@ -40,8 +41,8 @@ void Engine::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT) {
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
             SDL_RenderClear(renderer);
             SDL_RenderPresent(renderer);
+            TTF_Init();
         }
-
 
     }
 }

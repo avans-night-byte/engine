@@ -21,7 +21,7 @@ struct Box2DBoxData
     BodyType bodyType;
     Vector2 position;
     Vector2 size;
-    bool isSensor;
+    bool isSensor = false;
     ContactHandler* userdata = nullptr;
 };
 

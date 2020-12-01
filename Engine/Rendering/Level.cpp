@@ -93,7 +93,6 @@ void Level::initCollision(){
                     {
                         isSensor = true;
                     }
-
                     if(property.getName() == "isNextLevel")
                     {
                         // TODO: Hardcoded please create a system for this.
