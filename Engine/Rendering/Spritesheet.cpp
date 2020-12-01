@@ -28,24 +28,22 @@ Spritesheet::~Spritesheet()
 }
 
 
+void Spritesheet::select_sprite(const std::string& spriteName){
+    auto el = j["frames"][spriteName];
+    auto frame = el["frame"];
 
-void Spritesheet::select_sprite(int x, int y, bool useJson, const std::string& spriteName)
+    m_clip.x = frame["x"];
+    m_clip.y = frame["y"];
+
+    m_clip.w = frame["w"];
+    m_clip.h = frame["h"];
+}
+
+
+void Spritesheet::select_sprite(int x, int y)
 {
-    if(useJson){
-        // Load the clipping by name.
-        auto el = j["frames"][spriteName];
-        auto frame = el["frame"];
-
-        m_clip.x = frame["x"];
-        m_clip.y = frame["y"];
-
-        m_clip.w = frame["w"];
-        m_clip.h = frame["h"];
-    }
-    else{
         m_clip.x = x * m_clip.w;
         m_clip.y = y * m_clip.h;
-    }
 }
 
 
