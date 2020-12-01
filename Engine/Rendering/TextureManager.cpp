@@ -22,6 +22,7 @@ bool TextureManager::CreateTexture(SDL_Surface *surface, std::string textureId, 
         return false;
     }
 
+    SDL_FreeSurface(surface);
     TextureMap[textureId] = surfaceTexture;
     return true;
 }
@@ -48,12 +49,19 @@ bool TextureManager::load(const char *path, std::string textureId, SDL_Renderer 
 void TextureManager::draw(std::string textureId, int x, int y, int width, int height, double scale, double r, SDL_Renderer *renderer,
                      SDL_RendererFlip flip) {
 
+
+    auto texture = TextureMap[textureId];
     // Copy the srcrect to the distrect.
     SDL_Rect srcRect;
     SDL_Rect destRect;
 
     srcRect.x = 0;
     srcRect.y = 0;
+
+    if(width == 0 && height == 0){
+        SDL_QueryTexture(texture, NULL,NULL, &width, &height);
+    }
+
 
     srcRect.w = destRect.w = width;
     srcRect.h = destRect.h = height;
@@ -64,7 +72,7 @@ void TextureManager::draw(std::string textureId, int x, int y, int width, int he
     destRect.x = x;
     destRect.y = y;
 
-    SDL_RenderCopyEx(renderer, TextureMap[textureId], &srcRect, &destRect,0,0, flip);
+    SDL_RenderCopyEx(renderer, texture, &srcRect, &destRect,0,0, flip);
 }
 
 void TextureManager::drawFrame(std::string id, float x, float y, int width, int height, int currentRow, int currentFrame, SDL_Renderer *pRenderer, SDL_RendererFlip flip)
@@ -97,7 +105,16 @@ void TextureManager::drawFrame(std::string id, SDL_Rect* srcRect, float x, float
 
 void TextureManager::clearFromTextureMap(std::string id)
 {
+    SDL_DestroyTexture(TextureMap[id]);
     TextureMap.erase(id);
+}
+
+TextureManager::~TextureManager() {
+    std::map<std::string, SDL_Texture*>::iterator it;
+    for ( it = TextureMap.begin(); it != TextureMap.end(); it++ )
+    {
+        this->clearFromTextureMap(it->first);
+    }
 }
 
 

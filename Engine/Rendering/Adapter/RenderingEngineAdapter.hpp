@@ -9,6 +9,8 @@ typedef signed int int32;
 #include "../TextureManager.hpp"
 #include "../Spritesheet.hpp"
 #include "../../Vector2.hpp"
+#include <SDL2/SDL.h>
+
 
 // TODO: Store the SDL_renderer here, in the engine instead of the API?
 
@@ -24,6 +26,10 @@ public:
     createSpriteSheet(char const *path, std::string spriteSheetId, int rows, int columns, int width, int height,
                       SDL_Renderer *renderer);
 
+    Spritesheet *
+    createSpriteSheet(char const *path, char const *jsonPath, std::string spriteSheetId,
+                      SDL_Renderer *renderer);
+
     static TextureManager *GetTextureManager();
 
     void drawBox(const Vector2 *vertices, int32 vertexCount, SDL_Renderer *renderer) const;
@@ -37,4 +43,7 @@ public:
     void drawRectangle(Vector2 &vector2, float width, float height, const std::string& color, float opacity, SDL_Renderer *renderer) const;
 
 
+
+    void createText(std::string fontName, const char *text, const int fontSize, SDL_Color color, std::string textureId,
+                    SDL_Renderer *renderer);
 };

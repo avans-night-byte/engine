@@ -1,24 +1,34 @@
 #include <regex>
+#include <SDL_ttf.h>
 #include "RenderingEngineAdapter.hpp"
 
 typedef signed int int32;
+
 
 TextureManager *RenderingEngineAdapter::GetTextureManager() {
     return TextureManager::GetInstance();
 }
 
+
+
 void
 RenderingEngineAdapter::drawTexture(std::string textureId, int x, int y, int width, int height, double scale, double r,
                                     SDL_Renderer *renderer, SDL_RendererFlip flip) {
     TextureManager *textureManager = TextureManager::GetInstance();
+
+
     return textureManager->draw(textureId, x, y, width, height, scale, r, renderer, flip);
 }
+
+
 
 Spritesheet *
 RenderingEngineAdapter::createSpriteSheet(char const *path, std::string spriteSheetId, int rows, int columns, int width,
                                           int height, SDL_Renderer *renderer) {
-    return new Spritesheet(path, spriteSheetId, rows, columns, width, height, renderer);
+    return new Spritesheet(path, spriteSheetId, width, height, renderer);
 }
+
+
 
 void RenderingEngineAdapter::drawBox(const Vector2 *vertices, int32 vertexCount, SDL_Renderer *renderer) const {
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
@@ -40,6 +50,8 @@ void RenderingEngineAdapter::drawBox(const Vector2 *vertices, int32 vertexCount,
     drawLine(begin, end, renderer);
     SDL_RenderDrawLinesF(renderer, points, vertexCount);
 }
+
+
 
 void RenderingEngineAdapter::drawRectangle(Vector2 &position, float width, float height, const std::string& color, float opacity, SDL_Renderer *renderer) const {
 
@@ -134,6 +146,25 @@ void RenderingEngineAdapter::drawCircle(const Vector2 &center, const float &radi
     SDL_RenderDrawPointF(renderer, x, y + 1);
     SDL_RenderDrawPointF(renderer, x, y - 1);
 }
+
+
+
+Spritesheet *
+RenderingEngineAdapter::createSpriteSheet(const char *path, const char *jsonPath, std::string spriteSheetId,
+                                          SDL_Renderer *renderer) {
+    return new Spritesheet(path, jsonPath, std::move(spriteSheetId), renderer);
+}
+
+
+
+void RenderingEngineAdapter::createText(std::string fontName, const char* text, const int fontSize, SDL_Color color, std::string textureId,  SDL_Renderer *renderer){
+    TTF_Font* font = TTF_OpenFont(fontName.c_str(), fontSize);
+    SDL_Surface* surfaceMessage = TTF_RenderText_Blended_Wrapped(font, text, color, 550);
+    RenderingEngineAdapter::GetTextureManager()->CreateTexture(surfaceMessage, std::move(textureId), renderer);
+    TTF_CloseFont(font);
+}
+
+
 
 
 
