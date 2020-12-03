@@ -31,8 +31,8 @@
 // in the accompanying FLOSSE file.
 //
 
-#ifndef RESOURCES_XML_SCHEMAS_WALL_HXX
-#define RESOURCES_XML_SCHEMAS_WALL_HXX
+#ifndef CXX__RESOURCES_XML_SCHEMAS_WALL_HXX
+#define CXX__RESOURCES_XML_SCHEMAS_WALL_HXX
 
 #ifndef XSD_CXX11
 #define XSD_CXX11
@@ -926,4 +926,4 @@ wall_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
 //
 // End epilogue.
 
-#endif // RESOURCES_XML_SCHEMAS_WALL_HXX
+#endif // CXX__RESOURCES_XML_SCHEMAS_WALL_HXX

@@ -1,0 +1,21 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<Level name="Level1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schemas/level-resources.xsd">
+
+    <Object name="Character">
+        <Component name="CharacterComponent">
+            <Param Name="Health">80</Param>
+        </Component>
+
+        <Component name="PhysicsComponent">
+            <Param Name="friction">1</Param>
+            <Param Name="bouyancy">0.2</Param>
+        </Component>
+    </Object>
+
+    <Object name="Crate">
+        <Component name="PhysicsComponent">
+            <Param Name="friction">100</Param>
+        </Component>
+    </Object>
+</Level>
