@@ -47,31 +47,15 @@ bool TextureManager::load(const char *path, std::string textureId, SDL_Renderer 
 
 void TextureManager::draw(std::string textureId, int x, int y, int width, int height, double scale, double r, SDL_Renderer *renderer,
                      SDL_RendererFlip flip) {
-
-
-    auto texture = TextureMap[textureId];
     // Copy the srcrect to the distrect.
-    SDL_Rect srcRect;
-    SDL_Rect destRect;
-
-    srcRect.x = 0;
-    srcRect.y = 0;
+    auto texture = TextureMap[textureId];
 
     if(width == 0 && height == 0){
         SDL_QueryTexture(texture, NULL,NULL, &width, &height);
     }
+    SDL_Rect destRect = { x, y , width, height };
 
-
-    srcRect.w = destRect.w = width;
-    srcRect.h = destRect.h = height;
-
-    destRect.h = destRect.h *scale;
-    destRect.w = destRect.w *scale;
-
-    destRect.x = x;
-    destRect.y = y;
-
-    SDL_RenderCopyEx(renderer, texture, NULL, NULL,0,0, flip);
+    SDL_RenderCopyEx(renderer, texture, NULL, &destRect,0, NULL,  flip);
 }
 
 void TextureManager::drawFrame(std::string id, float x, float y, int width, int height, int currentRow, int currentFrame, SDL_Renderer *pRenderer, SDL_RendererFlip flip)
@@ -114,6 +98,16 @@ TextureManager::~TextureManager() {
     {
         this->clearFromTextureMap(it->first);
     }
+}
+
+Vector2 TextureManager::getDimensions(std::string id) {
+    auto texture = TextureMap[id];
+
+    int width;
+    int height;
+    SDL_QueryTexture(texture, NULL,NULL, &width, &height);
+
+    return Vector2((float)width, (float)height);
 }
 
 

@@ -153,7 +153,8 @@ RenderingEngineAdapter::createSpriteSheet(const char *path, const char *jsonPath
 
 void RenderingEngineAdapter::createText(std::string fontName, const char* text, const int fontSize, SDL_Color color, std::string textureId,  SDL_Renderer *renderer){
     TTF_Font* font = TTF_OpenFont(fontName.c_str(), fontSize);
-    SDL_Surface* surfaceMessage = TTF_RenderText_Blended_Wrapped(font, text, color, 550);
+    SDL_Surface* surfaceMessage = TTF_RenderUTF8_Blended(font, text, color);
+
     RenderingEngineAdapter::GetTextureManager()->CreateTexture(surfaceMessage, std::move(textureId), renderer);
     TTF_CloseFont(font);
 }

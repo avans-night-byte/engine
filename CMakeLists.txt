@@ -90,7 +90,7 @@ add_executable(NightByte ./Main.cpp
         Resources/XML/Generated/menu.cxx
         Resources/XML/Generated/menu.hxx
         Engine/Rendering/Level.cpp Engine/Rendering/Level.hpp Game/Scenes/Level1/Level1.cpp Game/Scenes/Level1/Level1.hpp
-        Game/Scenes/Level10/LevelCharlie.cpp Game/Scenes/Level10/LevelCharlie.hpp)
+        Game/Scenes/Level10/LevelCharlie.cpp Game/Scenes/Level10/LevelCharlie.hpp Engine/Rendering/TextWrapper.cpp Engine/Rendering/TextWrapper.hpp)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)
