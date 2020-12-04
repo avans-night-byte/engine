@@ -12,43 +12,38 @@ typedef signed int int32;
 typedef unsigned int BodyId;
 struct RPosition;
 
-struct Box2DBoxData
+struct Box2DData {
+    BodyType bodyType;
+    Vector2 position;
+    bool isSensor = false;
+    ContactHandler* userData = nullptr;
+};
+
+struct Box2DBoxData : public Box2DData
 {
     Box2DBoxData() {
 
     }
 
-    BodyType bodyType;
-    Vector2 position;
     Vector2 size;
-    bool isSensor = false;
-    ContactHandler* userdata = nullptr;
 };
 
-struct Box2DCircleData
+struct Box2DCircleData : public Box2DData
 {
     Box2DCircleData() {
 
     }
 
-    BodyType bodyType;
-    Vector2 position;
     float radius;
-    bool isSensor;
-    ContactHandler* userData = nullptr;
 };
 
-struct Box2DPolygonData
+struct Box2DPolygonData : public Box2DData
 {
     Box2DPolygonData() {
 
     }
 
-    BodyType bodyType;
-    Vector2 position;
-    bool isSensor;
     std::vector<Vector2> points;
-    ContactHandler* userData = nullptr;
 };
 
 class PhysicsEngineAdapter {

@@ -226,10 +226,10 @@ namespace xml_schema
 
 // Forward declarations.
 //
-class Level;
-class Object;
-class Component;
-class Param;
+class XLevel;
+class XObject;
+class XComponent;
+class XParam;
 
 #include <memory>    // ::std::unique_ptr
 #include <limits>    // std::numeric_limits
@@ -245,25 +245,25 @@ class Param;
 
 #include <xsd/cxx/xml/dom/parsing-header.hxx>
 
-class Level: public ::xml_schema::type
+class XLevel: public ::xml_schema::type
 {
   public:
-  // Object
+  // XObject
   //
-  typedef ::Object Object_type;
-  typedef ::xsd::cxx::tree::sequence< Object_type > Object_sequence;
-  typedef Object_sequence::iterator Object_iterator;
-  typedef Object_sequence::const_iterator Object_const_iterator;
-  typedef ::xsd::cxx::tree::traits< Object_type, char > Object_traits;
+  typedef ::XObject XObject_type;
+  typedef ::xsd::cxx::tree::sequence< XObject_type > XObject_sequence;
+  typedef XObject_sequence::iterator XObject_iterator;
+  typedef XObject_sequence::const_iterator XObject_const_iterator;
+  typedef ::xsd::cxx::tree::traits< XObject_type, char > XObject_traits;
 
-  const Object_sequence&
-  Object () const;
+  const XObject_sequence&
+  XObject () const;
 
-  Object_sequence&
-  Object ();
+  XObject_sequence&
+  XObject ();
 
   void
-  Object (const Object_sequence& s);
+  XObject (const XObject_sequence& s);
 
   // name
   //
@@ -288,100 +288,25 @@ class Level: public ::xml_schema::type
 
   // Constructors.
   //
-  Level ();
+  XLevel ();
 
-  Level (const ::xercesc::DOMElement& e,
-         ::xml_schema::flags f = 0,
-         ::xml_schema::container* c = 0);
-
-  Level (const Level& x,
-         ::xml_schema::flags f = 0,
-         ::xml_schema::container* c = 0);
-
-  virtual Level*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  Level&
-  operator= (const Level& x);
-
-  virtual 
-  ~Level ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  Object_sequence Object_;
-  name_optional name_;
-};
-
-class Object: public ::xml_schema::type
-{
-  public:
-  // Component
-  //
-  typedef ::Component Component_type;
-  typedef ::xsd::cxx::tree::sequence< Component_type > Component_sequence;
-  typedef Component_sequence::iterator Component_iterator;
-  typedef Component_sequence::const_iterator Component_const_iterator;
-  typedef ::xsd::cxx::tree::traits< Component_type, char > Component_traits;
-
-  const Component_sequence&
-  Component () const;
-
-  Component_sequence&
-  Component ();
-
-  void
-  Component (const Component_sequence& s);
-
-  // name
-  //
-  typedef ::xml_schema::string name_type;
-  typedef ::xsd::cxx::tree::optional< name_type > name_optional;
-  typedef ::xsd::cxx::tree::traits< name_type, char > name_traits;
-
-  const name_optional&
-  name () const;
-
-  name_optional&
-  name ();
-
-  void
-  name (const name_type& x);
-
-  void
-  name (const name_optional& x);
-
-  void
-  name (::std::unique_ptr< name_type > p);
-
-  // Constructors.
-  //
-  Object ();
-
-  Object (const ::xercesc::DOMElement& e,
+  XLevel (const ::xercesc::DOMElement& e,
           ::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0);
 
-  Object (const Object& x,
+  XLevel (const XLevel& x,
           ::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0);
 
-  virtual Object*
+  virtual XLevel*
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  Object&
-  operator= (const Object& x);
+  XLevel&
+  operator= (const XLevel& x);
 
   virtual 
-  ~Object ();
+  ~XLevel ();
 
   // Implementation.
   //
@@ -391,29 +316,29 @@ class Object: public ::xml_schema::type
          ::xml_schema::flags);
 
   protected:
-  Component_sequence Component_;
+  XObject_sequence XObject_;
   name_optional name_;
 };
 
-class Component: public ::xml_schema::type
+class XObject: public ::xml_schema::type
 {
   public:
-  // Param
+  // XComponent
   //
-  typedef ::Param Param_type;
-  typedef ::xsd::cxx::tree::sequence< Param_type > Param_sequence;
-  typedef Param_sequence::iterator Param_iterator;
-  typedef Param_sequence::const_iterator Param_const_iterator;
-  typedef ::xsd::cxx::tree::traits< Param_type, char > Param_traits;
+  typedef ::XComponent XComponent_type;
+  typedef ::xsd::cxx::tree::sequence< XComponent_type > XComponent_sequence;
+  typedef XComponent_sequence::iterator XComponent_iterator;
+  typedef XComponent_sequence::const_iterator XComponent_const_iterator;
+  typedef ::xsd::cxx::tree::traits< XComponent_type, char > XComponent_traits;
 
-  const Param_sequence&
-  Param () const;
+  const XComponent_sequence&
+  XComponent () const;
 
-  Param_sequence&
-  Param ();
+  XComponent_sequence&
+  XComponent ();
 
   void
-  Param (const Param_sequence& s);
+  XComponent (const XComponent_sequence& s);
 
   // name
   //
@@ -438,25 +363,25 @@ class Component: public ::xml_schema::type
 
   // Constructors.
   //
-  Component ();
+  XObject ();
 
-  Component (const ::xercesc::DOMElement& e,
-             ::xml_schema::flags f = 0,
-             ::xml_schema::container* c = 0);
+  XObject (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
 
-  Component (const Component& x,
-             ::xml_schema::flags f = 0,
-             ::xml_schema::container* c = 0);
+  XObject (const XObject& x,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
 
-  virtual Component*
+  virtual XObject*
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  Component&
-  operator= (const Component& x);
+  XObject&
+  operator= (const XObject& x);
 
   virtual 
-  ~Component ();
+  ~XObject ();
 
   // Implementation.
   //
@@ -466,11 +391,86 @@ class Component: public ::xml_schema::type
          ::xml_schema::flags);
 
   protected:
-  Param_sequence Param_;
+  XComponent_sequence XComponent_;
   name_optional name_;
 };
 
-class Param: public ::xml_schema::string
+class XComponent: public ::xml_schema::type
+{
+  public:
+  // XParam
+  //
+  typedef ::XParam XParam_type;
+  typedef ::xsd::cxx::tree::sequence< XParam_type > XParam_sequence;
+  typedef XParam_sequence::iterator XParam_iterator;
+  typedef XParam_sequence::const_iterator XParam_const_iterator;
+  typedef ::xsd::cxx::tree::traits< XParam_type, char > XParam_traits;
+
+  const XParam_sequence&
+  XParam () const;
+
+  XParam_sequence&
+  XParam ();
+
+  void
+  XParam (const XParam_sequence& s);
+
+  // name
+  //
+  typedef ::xml_schema::string name_type;
+  typedef ::xsd::cxx::tree::optional< name_type > name_optional;
+  typedef ::xsd::cxx::tree::traits< name_type, char > name_traits;
+
+  const name_optional&
+  name () const;
+
+  name_optional&
+  name ();
+
+  void
+  name (const name_type& x);
+
+  void
+  name (const name_optional& x);
+
+  void
+  name (::std::unique_ptr< name_type > p);
+
+  // Constructors.
+  //
+  XComponent ();
+
+  XComponent (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  XComponent (const XComponent& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual XComponent*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  XComponent&
+  operator= (const XComponent& x);
+
+  virtual 
+  ~XComponent ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  XParam_sequence XParam_;
+  name_optional name_;
+};
+
+class XParam: public ::xml_schema::string
 {
   public:
   // Name
@@ -496,31 +496,31 @@ class Param: public ::xml_schema::string
 
   // Constructors.
   //
-  Param ();
+  XParam ();
 
-  Param (const char*);
+  XParam (const char*);
 
-  Param (const ::std::string&);
+  XParam (const ::std::string&);
 
-  Param (const ::xml_schema::string&);
+  XParam (const ::xml_schema::string&);
 
-  Param (const ::xercesc::DOMElement& e,
-         ::xml_schema::flags f = 0,
-         ::xml_schema::container* c = 0);
+  XParam (const ::xercesc::DOMElement& e,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
 
-  Param (const Param& x,
-         ::xml_schema::flags f = 0,
-         ::xml_schema::container* c = 0);
+  XParam (const XParam& x,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
 
-  virtual Param*
+  virtual XParam*
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  Param&
-  operator= (const Param& x);
+  XParam&
+  operator= (const XParam& x);
 
   virtual 
-  ~Param ();
+  ~XParam ();
 
   // Implementation.
   //
@@ -542,95 +542,95 @@ class Param: public ::xml_schema::string
 // Parse a URI or a local file.
 //
 
-::std::unique_ptr< ::Level >
-Level_ (const ::std::string& uri,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::unique_ptr< ::XLevel >
+XLevel_ (const ::std::string& uri,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::Level >
-Level_ (const ::std::string& uri,
-        ::xml_schema::error_handler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::unique_ptr< ::XLevel >
+XLevel_ (const ::std::string& uri,
+         ::xml_schema::error_handler& eh,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::Level >
-Level_ (const ::std::string& uri,
-        ::xercesc::DOMErrorHandler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::unique_ptr< ::XLevel >
+XLevel_ (const ::std::string& uri,
+         ::xercesc::DOMErrorHandler& eh,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
 // Parse std::istream.
 //
 
-::std::unique_ptr< ::Level >
-Level_ (::std::istream& is,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::unique_ptr< ::XLevel >
+XLevel_ (::std::istream& is,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::Level >
-Level_ (::std::istream& is,
-        ::xml_schema::error_handler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::unique_ptr< ::XLevel >
+XLevel_ (::std::istream& is,
+         ::xml_schema::error_handler& eh,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::Level >
-Level_ (::std::istream& is,
-        ::xercesc::DOMErrorHandler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::unique_ptr< ::XLevel >
+XLevel_ (::std::istream& is,
+         ::xercesc::DOMErrorHandler& eh,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::Level >
-Level_ (::std::istream& is,
-        const ::std::string& id,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::unique_ptr< ::XLevel >
+XLevel_ (::std::istream& is,
+         const ::std::string& id,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::Level >
-Level_ (::std::istream& is,
-        const ::std::string& id,
-        ::xml_schema::error_handler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::unique_ptr< ::XLevel >
+XLevel_ (::std::istream& is,
+         const ::std::string& id,
+         ::xml_schema::error_handler& eh,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::Level >
-Level_ (::std::istream& is,
-        const ::std::string& id,
-        ::xercesc::DOMErrorHandler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::unique_ptr< ::XLevel >
+XLevel_ (::std::istream& is,
+         const ::std::string& id,
+         ::xercesc::DOMErrorHandler& eh,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
 // Parse xercesc::InputSource.
 //
 
-::std::unique_ptr< ::Level >
-Level_ (::xercesc::InputSource& is,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::unique_ptr< ::XLevel >
+XLevel_ (::xercesc::InputSource& is,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::Level >
-Level_ (::xercesc::InputSource& is,
-        ::xml_schema::error_handler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::unique_ptr< ::XLevel >
+XLevel_ (::xercesc::InputSource& is,
+         ::xml_schema::error_handler& eh,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::Level >
-Level_ (::xercesc::InputSource& is,
-        ::xercesc::DOMErrorHandler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::unique_ptr< ::XLevel >
+XLevel_ (::xercesc::InputSource& is,
+         ::xercesc::DOMErrorHandler& eh,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
 // Parse xercesc::DOMDocument.
 //
 
-::std::unique_ptr< ::Level >
-Level_ (const ::xercesc::DOMDocument& d,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::unique_ptr< ::XLevel >
+XLevel_ (const ::xercesc::DOMDocument& d,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::Level >
-Level_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::unique_ptr< ::XLevel >
+XLevel_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
 #include <xsd/cxx/post.hxx>
 

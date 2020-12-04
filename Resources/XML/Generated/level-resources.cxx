@@ -40,190 +40,190 @@
 
 #include "level-resources.hxx"
 
-// Level
+// XLevel
 // 
 
-const Level::Object_sequence& Level::
-Object () const
+const XLevel::XObject_sequence& XLevel::
+XObject () const
 {
-  return this->Object_;
+  return this->XObject_;
 }
 
-Level::Object_sequence& Level::
-Object ()
+XLevel::XObject_sequence& XLevel::
+XObject ()
 {
-  return this->Object_;
+  return this->XObject_;
 }
 
-void Level::
-Object (const Object_sequence& s)
+void XLevel::
+XObject (const XObject_sequence& s)
 {
-  this->Object_ = s;
+  this->XObject_ = s;
 }
 
-const Level::name_optional& Level::
+const XLevel::name_optional& XLevel::
 name () const
 {
   return this->name_;
 }
 
-Level::name_optional& Level::
+XLevel::name_optional& XLevel::
 name ()
 {
   return this->name_;
 }
 
-void Level::
+void XLevel::
 name (const name_type& x)
 {
   this->name_.set (x);
 }
 
-void Level::
+void XLevel::
 name (const name_optional& x)
 {
   this->name_ = x;
 }
 
-void Level::
+void XLevel::
 name (::std::unique_ptr< name_type > x)
 {
   this->name_.set (std::move (x));
 }
 
 
-// Object
+// XObject
 // 
 
-const Object::Component_sequence& Object::
-Component () const
+const XObject::XComponent_sequence& XObject::
+XComponent () const
 {
-  return this->Component_;
+  return this->XComponent_;
 }
 
-Object::Component_sequence& Object::
-Component ()
+XObject::XComponent_sequence& XObject::
+XComponent ()
 {
-  return this->Component_;
+  return this->XComponent_;
 }
 
-void Object::
-Component (const Component_sequence& s)
+void XObject::
+XComponent (const XComponent_sequence& s)
 {
-  this->Component_ = s;
+  this->XComponent_ = s;
 }
 
-const Object::name_optional& Object::
+const XObject::name_optional& XObject::
 name () const
 {
   return this->name_;
 }
 
-Object::name_optional& Object::
+XObject::name_optional& XObject::
 name ()
 {
   return this->name_;
 }
 
-void Object::
+void XObject::
 name (const name_type& x)
 {
   this->name_.set (x);
 }
 
-void Object::
+void XObject::
 name (const name_optional& x)
 {
   this->name_ = x;
 }
 
-void Object::
+void XObject::
 name (::std::unique_ptr< name_type > x)
 {
   this->name_.set (std::move (x));
 }
 
 
-// Component
+// XComponent
 // 
 
-const Component::Param_sequence& Component::
-Param () const
+const XComponent::XParam_sequence& XComponent::
+XParam () const
 {
-  return this->Param_;
+  return this->XParam_;
 }
 
-Component::Param_sequence& Component::
-Param ()
+XComponent::XParam_sequence& XComponent::
+XParam ()
 {
-  return this->Param_;
+  return this->XParam_;
 }
 
-void Component::
-Param (const Param_sequence& s)
+void XComponent::
+XParam (const XParam_sequence& s)
 {
-  this->Param_ = s;
+  this->XParam_ = s;
 }
 
-const Component::name_optional& Component::
+const XComponent::name_optional& XComponent::
 name () const
 {
   return this->name_;
 }
 
-Component::name_optional& Component::
+XComponent::name_optional& XComponent::
 name ()
 {
   return this->name_;
 }
 
-void Component::
+void XComponent::
 name (const name_type& x)
 {
   this->name_.set (x);
 }
 
-void Component::
+void XComponent::
 name (const name_optional& x)
 {
   this->name_ = x;
 }
 
-void Component::
+void XComponent::
 name (::std::unique_ptr< name_type > x)
 {
   this->name_.set (std::move (x));
 }
 
 
-// Param
+// XParam
 // 
 
-const Param::Name_optional& Param::
+const XParam::Name_optional& XParam::
 Name () const
 {
   return this->Name_;
 }
 
-Param::Name_optional& Param::
+XParam::Name_optional& XParam::
 Name ()
 {
   return this->Name_;
 }
 
-void Param::
+void XParam::
 Name (const Name_type& x)
 {
   this->Name_.set (x);
 }
 
-void Param::
+void XParam::
 Name (const Name_optional& x)
 {
   this->Name_ = x;
 }
 
-void Param::
+void XParam::
 Name (::std::unique_ptr< Name_type > x)
 {
   this->Name_.set (std::move (x));
@@ -232,132 +232,33 @@ Name (::std::unique_ptr< Name_type > x)
 
 #include <xsd/cxx/xml/dom/parsing-source.hxx>
 
-// Level
+// XLevel
 //
 
-Level::
-Level ()
+XLevel::
+XLevel ()
 : ::xml_schema::type (),
-  Object_ (this),
+  XObject_ (this),
   name_ (this)
 {
 }
 
-Level::
-Level (const Level& x,
-       ::xml_schema::flags f,
-       ::xml_schema::container* c)
-: ::xml_schema::type (x, f, c),
-  Object_ (x.Object_, f, this),
-  name_ (x.name_, f, this)
-{
-}
-
-Level::
-Level (const ::xercesc::DOMElement& e,
-       ::xml_schema::flags f,
-       ::xml_schema::container* c)
-: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  Object_ (this),
-  name_ (this)
-{
-  if ((f & ::xml_schema::flags::base) == 0)
-  {
-    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, true);
-    this->parse (p, f);
-  }
-}
-
-void Level::
-parse (::xsd::cxx::xml::dom::parser< char >& p,
-       ::xml_schema::flags f)
-{
-  for (; p.more_content (); p.next_content (false))
-  {
-    const ::xercesc::DOMElement& i (p.cur_element ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
-
-    // Object
-    //
-    if (n.name () == "Object" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< Object_type > r (
-        Object_traits::create (i, f, this));
-
-      this->Object_.push_back (::std::move (r));
-      continue;
-    }
-
-    break;
-  }
-
-  while (p.more_attributes ())
-  {
-    const ::xercesc::DOMAttr& i (p.next_attribute ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
-
-    if (n.name () == "name" && n.namespace_ ().empty ())
-    {
-      this->name_.set (name_traits::create (i, f, this));
-      continue;
-    }
-  }
-}
-
-Level* Level::
-_clone (::xml_schema::flags f,
-        ::xml_schema::container* c) const
-{
-  return new class Level (*this, f, c);
-}
-
-Level& Level::
-operator= (const Level& x)
-{
-  if (this != &x)
-  {
-    static_cast< ::xml_schema::type& > (*this) = x;
-    this->Object_ = x.Object_;
-    this->name_ = x.name_;
-  }
-
-  return *this;
-}
-
-Level::
-~Level ()
-{
-}
-
-// Object
-//
-
-Object::
-Object ()
-: ::xml_schema::type (),
-  Component_ (this),
-  name_ (this)
-{
-}
-
-Object::
-Object (const Object& x,
+XLevel::
+XLevel (const XLevel& x,
         ::xml_schema::flags f,
         ::xml_schema::container* c)
 : ::xml_schema::type (x, f, c),
-  Component_ (x.Component_, f, this),
+  XObject_ (x.XObject_, f, this),
   name_ (x.name_, f, this)
 {
 }
 
-Object::
-Object (const ::xercesc::DOMElement& e,
+XLevel::
+XLevel (const ::xercesc::DOMElement& e,
         ::xml_schema::flags f,
         ::xml_schema::container* c)
 : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  Component_ (this),
+  XObject_ (this),
   name_ (this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -367,7 +268,7 @@ Object (const ::xercesc::DOMElement& e,
   }
 }
 
-void Object::
+void XLevel::
 parse (::xsd::cxx::xml::dom::parser< char >& p,
        ::xml_schema::flags f)
 {
@@ -377,14 +278,14 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
     const ::xsd::cxx::xml::qualified_name< char > n (
       ::xsd::cxx::xml::dom::name< char > (i));
 
-    // Component
+    // XObject
     //
-    if (n.name () == "Component" && n.namespace_ ().empty ())
+    if (n.name () == "XObject" && n.namespace_ ().empty ())
     {
-      ::std::unique_ptr< Component_type > r (
-        Component_traits::create (i, f, this));
+      ::std::unique_ptr< XObject_type > r (
+        XObject_traits::create (i, f, this));
 
-      this->Component_.push_back (::std::move (r));
+      this->XObject_.push_back (::std::move (r));
       continue;
     }
 
@@ -405,58 +306,58 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
   }
 }
 
-Object* Object::
+XLevel* XLevel::
 _clone (::xml_schema::flags f,
         ::xml_schema::container* c) const
 {
-  return new class Object (*this, f, c);
+  return new class XLevel (*this, f, c);
 }
 
-Object& Object::
-operator= (const Object& x)
+XLevel& XLevel::
+operator= (const XLevel& x)
 {
   if (this != &x)
   {
     static_cast< ::xml_schema::type& > (*this) = x;
-    this->Component_ = x.Component_;
+    this->XObject_ = x.XObject_;
     this->name_ = x.name_;
   }
 
   return *this;
 }
 
-Object::
-~Object ()
+XLevel::
+~XLevel ()
 {
 }
 
-// Component
+// XObject
 //
 
-Component::
-Component ()
+XObject::
+XObject ()
 : ::xml_schema::type (),
-  Param_ (this),
+  XComponent_ (this),
   name_ (this)
 {
 }
 
-Component::
-Component (const Component& x,
-           ::xml_schema::flags f,
-           ::xml_schema::container* c)
+XObject::
+XObject (const XObject& x,
+         ::xml_schema::flags f,
+         ::xml_schema::container* c)
 : ::xml_schema::type (x, f, c),
-  Param_ (x.Param_, f, this),
+  XComponent_ (x.XComponent_, f, this),
   name_ (x.name_, f, this)
 {
 }
 
-Component::
-Component (const ::xercesc::DOMElement& e,
-           ::xml_schema::flags f,
-           ::xml_schema::container* c)
+XObject::
+XObject (const ::xercesc::DOMElement& e,
+         ::xml_schema::flags f,
+         ::xml_schema::container* c)
 : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  Param_ (this),
+  XComponent_ (this),
   name_ (this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -466,7 +367,7 @@ Component (const ::xercesc::DOMElement& e,
   }
 }
 
-void Component::
+void XObject::
 parse (::xsd::cxx::xml::dom::parser< char >& p,
        ::xml_schema::flags f)
 {
@@ -476,14 +377,14 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
     const ::xsd::cxx::xml::qualified_name< char > n (
       ::xsd::cxx::xml::dom::name< char > (i));
 
-    // Param
+    // XComponent
     //
-    if (n.name () == "Param" && n.namespace_ ().empty ())
+    if (n.name () == "XComponent" && n.namespace_ ().empty ())
     {
-      ::std::unique_ptr< Param_type > r (
-        Param_traits::create (i, f, this));
+      ::std::unique_ptr< XComponent_type > r (
+        XComponent_traits::create (i, f, this));
 
-      this->Param_.push_back (::std::move (r));
+      this->XComponent_.push_back (::std::move (r));
       continue;
     }
 
@@ -504,75 +405,174 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
   }
 }
 
-Component* Component::
+XObject* XObject::
 _clone (::xml_schema::flags f,
         ::xml_schema::container* c) const
 {
-  return new class Component (*this, f, c);
+  return new class XObject (*this, f, c);
 }
 
-Component& Component::
-operator= (const Component& x)
+XObject& XObject::
+operator= (const XObject& x)
 {
   if (this != &x)
   {
     static_cast< ::xml_schema::type& > (*this) = x;
-    this->Param_ = x.Param_;
+    this->XComponent_ = x.XComponent_;
     this->name_ = x.name_;
   }
 
   return *this;
 }
 
-Component::
-~Component ()
+XObject::
+~XObject ()
 {
 }
 
-// Param
+// XComponent
 //
 
-Param::
-Param ()
+XComponent::
+XComponent ()
+: ::xml_schema::type (),
+  XParam_ (this),
+  name_ (this)
+{
+}
+
+XComponent::
+XComponent (const XComponent& x,
+            ::xml_schema::flags f,
+            ::xml_schema::container* c)
+: ::xml_schema::type (x, f, c),
+  XParam_ (x.XParam_, f, this),
+  name_ (x.name_, f, this)
+{
+}
+
+XComponent::
+XComponent (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f,
+            ::xml_schema::container* c)
+: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+  XParam_ (this),
+  name_ (this)
+{
+  if ((f & ::xml_schema::flags::base) == 0)
+  {
+    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, true);
+    this->parse (p, f);
+  }
+}
+
+void XComponent::
+parse (::xsd::cxx::xml::dom::parser< char >& p,
+       ::xml_schema::flags f)
+{
+  for (; p.more_content (); p.next_content (false))
+  {
+    const ::xercesc::DOMElement& i (p.cur_element ());
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (i));
+
+    // XParam
+    //
+    if (n.name () == "XParam" && n.namespace_ ().empty ())
+    {
+      ::std::unique_ptr< XParam_type > r (
+        XParam_traits::create (i, f, this));
+
+      this->XParam_.push_back (::std::move (r));
+      continue;
+    }
+
+    break;
+  }
+
+  while (p.more_attributes ())
+  {
+    const ::xercesc::DOMAttr& i (p.next_attribute ());
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (i));
+
+    if (n.name () == "name" && n.namespace_ ().empty ())
+    {
+      this->name_.set (name_traits::create (i, f, this));
+      continue;
+    }
+  }
+}
+
+XComponent* XComponent::
+_clone (::xml_schema::flags f,
+        ::xml_schema::container* c) const
+{
+  return new class XComponent (*this, f, c);
+}
+
+XComponent& XComponent::
+operator= (const XComponent& x)
+{
+  if (this != &x)
+  {
+    static_cast< ::xml_schema::type& > (*this) = x;
+    this->XParam_ = x.XParam_;
+    this->name_ = x.name_;
+  }
+
+  return *this;
+}
+
+XComponent::
+~XComponent ()
+{
+}
+
+// XParam
+//
+
+XParam::
+XParam ()
 : ::xml_schema::string (),
   Name_ (this)
 {
 }
 
-Param::
-Param (const char* _xsd_string_base)
+XParam::
+XParam (const char* _xsd_string_base)
 : ::xml_schema::string (_xsd_string_base),
   Name_ (this)
 {
 }
 
-Param::
-Param (const ::std::string& _xsd_string_base)
+XParam::
+XParam (const ::std::string& _xsd_string_base)
 : ::xml_schema::string (_xsd_string_base),
   Name_ (this)
 {
 }
 
-Param::
-Param (const ::xml_schema::string& _xsd_string_base)
+XParam::
+XParam (const ::xml_schema::string& _xsd_string_base)
 : ::xml_schema::string (_xsd_string_base),
   Name_ (this)
 {
 }
 
-Param::
-Param (const Param& x,
-       ::xml_schema::flags f,
-       ::xml_schema::container* c)
+XParam::
+XParam (const XParam& x,
+        ::xml_schema::flags f,
+        ::xml_schema::container* c)
 : ::xml_schema::string (x, f, c),
   Name_ (x.Name_, f, this)
 {
 }
 
-Param::
-Param (const ::xercesc::DOMElement& e,
-       ::xml_schema::flags f,
-       ::xml_schema::container* c)
+XParam::
+XParam (const ::xercesc::DOMElement& e,
+        ::xml_schema::flags f,
+        ::xml_schema::container* c)
 : ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
   Name_ (this)
 {
@@ -583,7 +583,7 @@ Param (const ::xercesc::DOMElement& e,
   }
 }
 
-void Param::
+void XParam::
 parse (::xsd::cxx::xml::dom::parser< char >& p,
        ::xml_schema::flags f)
 {
@@ -601,15 +601,15 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
   }
 }
 
-Param* Param::
+XParam* XParam::
 _clone (::xml_schema::flags f,
         ::xml_schema::container* c) const
 {
-  return new class Param (*this, f, c);
+  return new class XParam (*this, f, c);
 }
 
-Param& Param::
-operator= (const Param& x)
+XParam& XParam::
+operator= (const XParam& x)
 {
   if (this != &x)
   {
@@ -620,8 +620,8 @@ operator= (const Param& x)
   return *this;
 }
 
-Param::
-~Param ()
+XParam::
+~XParam ()
 {
 }
 
@@ -629,10 +629,10 @@ Param::
 #include <xsd/cxx/xml/sax/std-input-source.hxx>
 #include <xsd/cxx/tree/error-handler.hxx>
 
-::std::unique_ptr< ::Level >
-Level_ (const ::std::string& u,
-        ::xml_schema::flags f,
-        const ::xml_schema::properties& p)
+::std::unique_ptr< ::XLevel >
+XLevel_ (const ::std::string& u,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
 {
   ::xsd::cxx::xml::auto_initializer i (
     (f & ::xml_schema::flags::dont_initialize) == 0,
@@ -646,16 +646,16 @@ Level_ (const ::std::string& u,
 
   h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
 
-  return ::std::unique_ptr< ::Level > (
-    ::Level_ (
+  return ::std::unique_ptr< ::XLevel > (
+    ::XLevel_ (
       std::move (d), f | ::xml_schema::flags::own_dom, p));
 }
 
-::std::unique_ptr< ::Level >
-Level_ (const ::std::string& u,
-        ::xml_schema::error_handler& h,
-        ::xml_schema::flags f,
-        const ::xml_schema::properties& p)
+::std::unique_ptr< ::XLevel >
+XLevel_ (const ::std::string& u,
+         ::xml_schema::error_handler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
 {
   ::xsd::cxx::xml::auto_initializer i (
     (f & ::xml_schema::flags::dont_initialize) == 0,
@@ -668,16 +668,16 @@ Level_ (const ::std::string& u,
   if (!d.get ())
     throw ::xsd::cxx::tree::parsing< char > ();
 
-  return ::std::unique_ptr< ::Level > (
-    ::Level_ (
+  return ::std::unique_ptr< ::XLevel > (
+    ::XLevel_ (
       std::move (d), f | ::xml_schema::flags::own_dom, p));
 }
 
-::std::unique_ptr< ::Level >
-Level_ (const ::std::string& u,
-        ::xercesc::DOMErrorHandler& h,
-        ::xml_schema::flags f,
-        const ::xml_schema::properties& p)
+::std::unique_ptr< ::XLevel >
+XLevel_ (const ::std::string& u,
+         ::xercesc::DOMErrorHandler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
 {
   ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
     ::xsd::cxx::xml::dom::parse< char > (
@@ -686,92 +686,92 @@ Level_ (const ::std::string& u,
   if (!d.get ())
     throw ::xsd::cxx::tree::parsing< char > ();
 
-  return ::std::unique_ptr< ::Level > (
-    ::Level_ (
+  return ::std::unique_ptr< ::XLevel > (
+    ::XLevel_ (
       std::move (d), f | ::xml_schema::flags::own_dom, p));
 }
 
-::std::unique_ptr< ::Level >
-Level_ (::std::istream& is,
-        ::xml_schema::flags f,
-        const ::xml_schema::properties& p)
+::std::unique_ptr< ::XLevel >
+XLevel_ (::std::istream& is,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
 {
   ::xsd::cxx::xml::auto_initializer i (
     (f & ::xml_schema::flags::dont_initialize) == 0,
     (f & ::xml_schema::flags::keep_dom) == 0);
 
   ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::Level_ (isrc, f, p);
+  return ::XLevel_ (isrc, f, p);
 }
 
-::std::unique_ptr< ::Level >
-Level_ (::std::istream& is,
-        ::xml_schema::error_handler& h,
-        ::xml_schema::flags f,
-        const ::xml_schema::properties& p)
+::std::unique_ptr< ::XLevel >
+XLevel_ (::std::istream& is,
+         ::xml_schema::error_handler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
 {
   ::xsd::cxx::xml::auto_initializer i (
     (f & ::xml_schema::flags::dont_initialize) == 0,
     (f & ::xml_schema::flags::keep_dom) == 0);
 
   ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::Level_ (isrc, h, f, p);
+  return ::XLevel_ (isrc, h, f, p);
 }
 
-::std::unique_ptr< ::Level >
-Level_ (::std::istream& is,
-        ::xercesc::DOMErrorHandler& h,
-        ::xml_schema::flags f,
-        const ::xml_schema::properties& p)
+::std::unique_ptr< ::XLevel >
+XLevel_ (::std::istream& is,
+         ::xercesc::DOMErrorHandler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
 {
   ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::Level_ (isrc, h, f, p);
+  return ::XLevel_ (isrc, h, f, p);
 }
 
-::std::unique_ptr< ::Level >
-Level_ (::std::istream& is,
-        const ::std::string& sid,
-        ::xml_schema::flags f,
-        const ::xml_schema::properties& p)
+::std::unique_ptr< ::XLevel >
+XLevel_ (::std::istream& is,
+         const ::std::string& sid,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
 {
   ::xsd::cxx::xml::auto_initializer i (
     (f & ::xml_schema::flags::dont_initialize) == 0,
     (f & ::xml_schema::flags::keep_dom) == 0);
 
   ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::Level_ (isrc, f, p);
+  return ::XLevel_ (isrc, f, p);
 }
 
-::std::unique_ptr< ::Level >
-Level_ (::std::istream& is,
-        const ::std::string& sid,
-        ::xml_schema::error_handler& h,
-        ::xml_schema::flags f,
-        const ::xml_schema::properties& p)
+::std::unique_ptr< ::XLevel >
+XLevel_ (::std::istream& is,
+         const ::std::string& sid,
+         ::xml_schema::error_handler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
 {
   ::xsd::cxx::xml::auto_initializer i (
     (f & ::xml_schema::flags::dont_initialize) == 0,
     (f & ::xml_schema::flags::keep_dom) == 0);
 
   ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::Level_ (isrc, h, f, p);
+  return ::XLevel_ (isrc, h, f, p);
 }
 
-::std::unique_ptr< ::Level >
-Level_ (::std::istream& is,
-        const ::std::string& sid,
-        ::xercesc::DOMErrorHandler& h,
-        ::xml_schema::flags f,
-        const ::xml_schema::properties& p)
+::std::unique_ptr< ::XLevel >
+XLevel_ (::std::istream& is,
+         const ::std::string& sid,
+         ::xercesc::DOMErrorHandler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
 {
   ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::Level_ (isrc, h, f, p);
+  return ::XLevel_ (isrc, h, f, p);
 }
 
-::std::unique_ptr< ::Level >
-Level_ (::xercesc::InputSource& i,
-        ::xml_schema::flags f,
-        const ::xml_schema::properties& p)
+::std::unique_ptr< ::XLevel >
+XLevel_ (::xercesc::InputSource& i,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
 {
   ::xsd::cxx::tree::error_handler< char > h;
 
@@ -781,16 +781,16 @@ Level_ (::xercesc::InputSource& i,
 
   h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
 
-  return ::std::unique_ptr< ::Level > (
-    ::Level_ (
+  return ::std::unique_ptr< ::XLevel > (
+    ::XLevel_ (
       std::move (d), f | ::xml_schema::flags::own_dom, p));
 }
 
-::std::unique_ptr< ::Level >
-Level_ (::xercesc::InputSource& i,
-        ::xml_schema::error_handler& h,
-        ::xml_schema::flags f,
-        const ::xml_schema::properties& p)
+::std::unique_ptr< ::XLevel >
+XLevel_ (::xercesc::InputSource& i,
+         ::xml_schema::error_handler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
 {
   ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
     ::xsd::cxx::xml::dom::parse< char > (
@@ -799,16 +799,16 @@ Level_ (::xercesc::InputSource& i,
   if (!d.get ())
     throw ::xsd::cxx::tree::parsing< char > ();
 
-  return ::std::unique_ptr< ::Level > (
-    ::Level_ (
+  return ::std::unique_ptr< ::XLevel > (
+    ::XLevel_ (
       std::move (d), f | ::xml_schema::flags::own_dom, p));
 }
 
-::std::unique_ptr< ::Level >
-Level_ (::xercesc::InputSource& i,
-        ::xercesc::DOMErrorHandler& h,
-        ::xml_schema::flags f,
-        const ::xml_schema::properties& p)
+::std::unique_ptr< ::XLevel >
+XLevel_ (::xercesc::InputSource& i,
+         ::xercesc::DOMErrorHandler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
 {
   ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
     ::xsd::cxx::xml::dom::parse< char > (
@@ -817,23 +817,23 @@ Level_ (::xercesc::InputSource& i,
   if (!d.get ())
     throw ::xsd::cxx::tree::parsing< char > ();
 
-  return ::std::unique_ptr< ::Level > (
-    ::Level_ (
+  return ::std::unique_ptr< ::XLevel > (
+    ::XLevel_ (
       std::move (d), f | ::xml_schema::flags::own_dom, p));
 }
 
-::std::unique_ptr< ::Level >
-Level_ (const ::xercesc::DOMDocument& doc,
-        ::xml_schema::flags f,
-        const ::xml_schema::properties& p)
+::std::unique_ptr< ::XLevel >
+XLevel_ (const ::xercesc::DOMDocument& doc,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
 {
   if (f & ::xml_schema::flags::keep_dom)
   {
     ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
       static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
 
-    return ::std::unique_ptr< ::Level > (
-      ::Level_ (
+    return ::std::unique_ptr< ::XLevel > (
+      ::XLevel_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
@@ -841,11 +841,11 @@ Level_ (const ::xercesc::DOMDocument& doc,
   const ::xsd::cxx::xml::qualified_name< char > n (
     ::xsd::cxx::xml::dom::name< char > (e));
 
-  if (n.name () == "Level" &&
+  if (n.name () == "XLevel" &&
       n.namespace_ () == "")
   {
-    ::std::unique_ptr< ::Level > r (
-      ::xsd::cxx::tree::traits< ::Level, char >::create (
+    ::std::unique_ptr< ::XLevel > r (
+      ::xsd::cxx::tree::traits< ::XLevel, char >::create (
         e, f, 0));
     return r;
   }
@@ -853,14 +853,14 @@ Level_ (const ::xercesc::DOMDocument& doc,
   throw ::xsd::cxx::tree::unexpected_element < char > (
     n.name (),
     n.namespace_ (),
-    "Level",
+    "XLevel",
     "");
 }
 
-::std::unique_ptr< ::Level >
-Level_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-        ::xml_schema::flags f,
-        const ::xml_schema::properties&)
+::std::unique_ptr< ::XLevel >
+XLevel_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties&)
 {
   ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > c (
     ((f & ::xml_schema::flags::keep_dom) &&
@@ -879,11 +879,11 @@ Level_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
                      (c.get () ? &c : &d),
                      0);
 
-  if (n.name () == "Level" &&
+  if (n.name () == "XLevel" &&
       n.namespace_ () == "")
   {
-    ::std::unique_ptr< ::Level > r (
-      ::xsd::cxx::tree::traits< ::Level, char >::create (
+    ::std::unique_ptr< ::XLevel > r (
+      ::xsd::cxx::tree::traits< ::XLevel, char >::create (
         e, f, 0));
     return r;
   }
@@ -891,7 +891,7 @@ Level_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
   throw ::xsd::cxx::tree::unexpected_element < char > (
     n.name (),
     n.namespace_ (),
-    "Level",
+    "XLevel",
     "");
 }
 

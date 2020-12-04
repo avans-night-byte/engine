@@ -108,7 +108,7 @@ void Level::initCollision(){
 
                         Box2DBoxData box2DBoxData;
                         box2DBoxData.bodyType = BodyType::Static;
-                        box2DBoxData.userdata = handler;
+                        box2DBoxData.userData = handler;
                         box2DBoxData.isSensor = isSensor;
                         box2DBoxData.size = Vector2(rect.width / 2 * scale, rect.height / 2 * scale);
                         box2DBoxData.position = Vector2(

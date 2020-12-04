@@ -25,7 +25,7 @@ public:
                                                 box2DBoxData.position,
                                                 box2DBoxData.size,
                                                 box2DBoxData.isSensor,
-                                                box2DBoxData.userdata);
+                                                box2DBoxData.userData);
     }
 
     inline BodyId createStaticBody(const Box2DCircleData &box2DCircleData) const override {
