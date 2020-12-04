@@ -1,4 +1,7 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="Common"
+           xmlns:cmn="Common"
+           elementFormDefault="qualified">
 
     <!-- Asset -->
     <xs:element name="preloadResources">
@@ -9,20 +12,21 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="resources">
-        <xs:complexType>
-            <xs:complexContent>
-                <xs:extension base="baseResources">
-                </xs:extension>
-            </xs:complexContent>
-        </xs:complexType>
-    </xs:element>
 
     <xs:complexType name="baseResources">
         <xs:sequence>
             <xs:element name="default" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
+
+    <xs:element name="resources">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="cmn:baseResources">
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
 
 
     <!-- Events -->
@@ -101,7 +105,7 @@
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
-            <xs:attribute name="hasCollision" type="xs:boolean" use="required" />
+            <xs:attribute name="hasCollision" type="xs:boolean" use="required"/>
         </xs:complexType>
     </xs:element>
 
@@ -131,7 +135,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="hex" type="xs:string"/>
-                <xs:element name="alpha" type="alpha"/>
+                <xs:element name="alpha" type="cmn:alpha"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

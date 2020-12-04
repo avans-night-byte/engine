@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:include schemaLocation="common.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:cmn="Common"
+           xmlns:res="GameResources"
+           targetNamespace="GameResources">
+
+    <xs:import schemaLocation="common.xsd"
+                namespace="Common"/>
 
     <xs:complexType name="baseGameResource">
         <xs:sequence>
@@ -19,7 +24,7 @@
                             <xs:element name="texture" minOccurs="0" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:complexContent>
-                                        <xs:extension base="baseGameResource"/>
+                                        <xs:extension base="res:baseGameResource"/>
                                     </xs:complexContent>
                                 </xs:complexType>
                             </xs:element>
@@ -34,11 +39,11 @@
                             <xs:element name="sprite" minOccurs="0" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:complexContent>
-                                        <xs:extension base="baseGameResource">
+                                        <xs:extension base="res:baseGameResource">
                                             <xs:sequence>
                                                 <xs:choice>
                                                     <xs:element name="definition" type="xs:string"/>
-                                                    <xs:element ref="size"/>
+                                                    <xs:element ref="cmn:size"/>
                                                 </xs:choice>
                                             </xs:sequence>
                                         </xs:extension>
@@ -56,7 +61,7 @@
                             <xs:element name="sound" minOccurs="0" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:complexContent>
-                                        <xs:extension base="baseGameResource"/>
+                                        <xs:extension base="res:baseGameResource"/>
                                     </xs:complexContent>
                                 </xs:complexType>
                             </xs:element>
@@ -71,7 +76,7 @@
                             <xs:element name="music" minOccurs="0" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:complexContent>
-                                        <xs:extension base="baseGameResource"/>
+                                        <xs:extension base="res:baseGameResource"/>
                                     </xs:complexContent>
                                 </xs:complexType>
                             </xs:element>
@@ -86,7 +91,7 @@
                             <xs:element name="scene" minOccurs="0" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:complexContent>
-                                        <xs:extension base="baseGameResource"/>
+                                        <xs:extension base="res:baseGameResource"/>
                                     </xs:complexContent>
                                 </xs:complexType>
                             </xs:element>
@@ -101,7 +106,7 @@
                             <xs:element name="level" minOccurs="0" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:complexContent>
-                                        <xs:extension base="baseGameResource"/>
+                                        <xs:extension base="res:baseGameResource"/>
                                     </xs:complexContent>
                                 </xs:complexType>
                             </xs:element>

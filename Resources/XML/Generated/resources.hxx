@@ -226,6 +226,24 @@ namespace xml_schema
 
 // Forward declarations.
 //
+namespace GameResources
+{
+  class baseGameResource;
+  class gameResources;
+  class textures;
+  class sprites;
+  class sounds;
+  class music;
+  class scenes;
+  class levels;
+  class texture;
+  class sprite;
+  class sound;
+  class music1;
+  class scene;
+  class level;
+}
+
 
 #include <memory>    // ::std::unique_ptr
 #include <limits>    // std::numeric_limits
@@ -241,11 +259,857 @@ namespace xml_schema
 
 #include <xsd/cxx/xml/dom/parsing-header.hxx>
 
+#include "common.hxx"
+
+namespace GameResources
+{
+  class baseGameResource: public ::xml_schema::type
+  {
+    public:
+    // name
+    //
+    typedef ::xml_schema::string name_type;
+    typedef ::xsd::cxx::tree::traits< name_type, char > name_traits;
+
+    const name_type&
+    name () const;
+
+    name_type&
+    name ();
+
+    void
+    name (const name_type& x);
+
+    void
+    name (::std::unique_ptr< name_type > p);
+
+    // path
+    //
+    typedef ::xml_schema::string path_type;
+    typedef ::xsd::cxx::tree::traits< path_type, char > path_traits;
+
+    const path_type&
+    path () const;
+
+    path_type&
+    path ();
+
+    void
+    path (const path_type& x);
+
+    void
+    path (::std::unique_ptr< path_type > p);
+
+    // Constructors.
+    //
+    baseGameResource (const name_type&,
+                      const path_type&);
+
+    baseGameResource (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+    baseGameResource (const baseGameResource& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+    virtual baseGameResource*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    baseGameResource&
+    operator= (const baseGameResource& x);
+
+    virtual 
+    ~baseGameResource ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< name_type > name_;
+    ::xsd::cxx::tree::one< path_type > path_;
+  };
+
+  class gameResources: public ::xml_schema::type
+  {
+    public:
+    // textures
+    //
+    typedef ::GameResources::textures textures_type;
+    typedef ::xsd::cxx::tree::traits< textures_type, char > textures_traits;
+
+    const textures_type&
+    textures () const;
+
+    textures_type&
+    textures ();
+
+    void
+    textures (const textures_type& x);
+
+    void
+    textures (::std::unique_ptr< textures_type > p);
+
+    // sprites
+    //
+    typedef ::GameResources::sprites sprites_type;
+    typedef ::xsd::cxx::tree::traits< sprites_type, char > sprites_traits;
+
+    const sprites_type&
+    sprites () const;
+
+    sprites_type&
+    sprites ();
+
+    void
+    sprites (const sprites_type& x);
+
+    void
+    sprites (::std::unique_ptr< sprites_type > p);
+
+    // sounds
+    //
+    typedef ::GameResources::sounds sounds_type;
+    typedef ::xsd::cxx::tree::traits< sounds_type, char > sounds_traits;
+
+    const sounds_type&
+    sounds () const;
+
+    sounds_type&
+    sounds ();
+
+    void
+    sounds (const sounds_type& x);
+
+    void
+    sounds (::std::unique_ptr< sounds_type > p);
+
+    // music
+    //
+    typedef ::GameResources::music music_type;
+    typedef ::xsd::cxx::tree::traits< music_type, char > music_traits;
+
+    const music_type&
+    music () const;
+
+    music_type&
+    music ();
+
+    void
+    music (const music_type& x);
+
+    void
+    music (::std::unique_ptr< music_type > p);
+
+    // scenes
+    //
+    typedef ::GameResources::scenes scenes_type;
+    typedef ::xsd::cxx::tree::traits< scenes_type, char > scenes_traits;
+
+    const scenes_type&
+    scenes () const;
+
+    scenes_type&
+    scenes ();
+
+    void
+    scenes (const scenes_type& x);
+
+    void
+    scenes (::std::unique_ptr< scenes_type > p);
+
+    // levels
+    //
+    typedef ::GameResources::levels levels_type;
+    typedef ::xsd::cxx::tree::traits< levels_type, char > levels_traits;
+
+    const levels_type&
+    levels () const;
+
+    levels_type&
+    levels ();
+
+    void
+    levels (const levels_type& x);
+
+    void
+    levels (::std::unique_ptr< levels_type > p);
+
+    // Constructors.
+    //
+    gameResources (const textures_type&,
+                   const sprites_type&,
+                   const sounds_type&,
+                   const music_type&,
+                   const scenes_type&,
+                   const levels_type&);
+
+    gameResources (::std::unique_ptr< textures_type >,
+                   ::std::unique_ptr< sprites_type >,
+                   ::std::unique_ptr< sounds_type >,
+                   ::std::unique_ptr< music_type >,
+                   ::std::unique_ptr< scenes_type >,
+                   ::std::unique_ptr< levels_type >);
+
+    gameResources (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+    gameResources (const gameResources& x,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+    virtual gameResources*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    gameResources&
+    operator= (const gameResources& x);
+
+    virtual 
+    ~gameResources ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< textures_type > textures_;
+    ::xsd::cxx::tree::one< sprites_type > sprites_;
+    ::xsd::cxx::tree::one< sounds_type > sounds_;
+    ::xsd::cxx::tree::one< music_type > music_;
+    ::xsd::cxx::tree::one< scenes_type > scenes_;
+    ::xsd::cxx::tree::one< levels_type > levels_;
+  };
+
+  class textures: public ::xml_schema::type
+  {
+    public:
+    // texture
+    //
+    typedef ::GameResources::texture texture_type;
+    typedef ::xsd::cxx::tree::sequence< texture_type > texture_sequence;
+    typedef texture_sequence::iterator texture_iterator;
+    typedef texture_sequence::const_iterator texture_const_iterator;
+    typedef ::xsd::cxx::tree::traits< texture_type, char > texture_traits;
+
+    const texture_sequence&
+    texture () const;
+
+    texture_sequence&
+    texture ();
+
+    void
+    texture (const texture_sequence& s);
+
+    // Constructors.
+    //
+    textures ();
+
+    textures (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+    textures (const textures& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+    virtual textures*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    textures&
+    operator= (const textures& x);
+
+    virtual 
+    ~textures ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    texture_sequence texture_;
+  };
+
+  class sprites: public ::xml_schema::type
+  {
+    public:
+    // sprite
+    //
+    typedef ::GameResources::sprite sprite_type;
+    typedef ::xsd::cxx::tree::sequence< sprite_type > sprite_sequence;
+    typedef sprite_sequence::iterator sprite_iterator;
+    typedef sprite_sequence::const_iterator sprite_const_iterator;
+    typedef ::xsd::cxx::tree::traits< sprite_type, char > sprite_traits;
+
+    const sprite_sequence&
+    sprite () const;
+
+    sprite_sequence&
+    sprite ();
+
+    void
+    sprite (const sprite_sequence& s);
+
+    // Constructors.
+    //
+    sprites ();
+
+    sprites (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+    sprites (const sprites& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+    virtual sprites*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    sprites&
+    operator= (const sprites& x);
+
+    virtual 
+    ~sprites ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    sprite_sequence sprite_;
+  };
+
+  class sounds: public ::xml_schema::type
+  {
+    public:
+    // sound
+    //
+    typedef ::GameResources::sound sound_type;
+    typedef ::xsd::cxx::tree::sequence< sound_type > sound_sequence;
+    typedef sound_sequence::iterator sound_iterator;
+    typedef sound_sequence::const_iterator sound_const_iterator;
+    typedef ::xsd::cxx::tree::traits< sound_type, char > sound_traits;
+
+    const sound_sequence&
+    sound () const;
+
+    sound_sequence&
+    sound ();
+
+    void
+    sound (const sound_sequence& s);
+
+    // Constructors.
+    //
+    sounds ();
+
+    sounds (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+    sounds (const sounds& x,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+    virtual sounds*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    sounds&
+    operator= (const sounds& x);
+
+    virtual 
+    ~sounds ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    sound_sequence sound_;
+  };
+
+  class music: public ::xml_schema::type
+  {
+    public:
+    // music
+    //
+    typedef ::GameResources::music1 music1_type;
+    typedef ::xsd::cxx::tree::sequence< music1_type > music1_sequence;
+    typedef music1_sequence::iterator music1_iterator;
+    typedef music1_sequence::const_iterator music1_const_iterator;
+    typedef ::xsd::cxx::tree::traits< music1_type, char > music1_traits;
+
+    const music1_sequence&
+    music1 () const;
+
+    music1_sequence&
+    music1 ();
+
+    void
+    music1 (const music1_sequence& s);
+
+    // Constructors.
+    //
+    music ();
+
+    music (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+    music (const music& x,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+    virtual music*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    music&
+    operator= (const music& x);
+
+    virtual 
+    ~music ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    music1_sequence music1_;
+  };
+
+  class scenes: public ::xml_schema::type
+  {
+    public:
+    // scene
+    //
+    typedef ::GameResources::scene scene_type;
+    typedef ::xsd::cxx::tree::sequence< scene_type > scene_sequence;
+    typedef scene_sequence::iterator scene_iterator;
+    typedef scene_sequence::const_iterator scene_const_iterator;
+    typedef ::xsd::cxx::tree::traits< scene_type, char > scene_traits;
+
+    const scene_sequence&
+    scene () const;
+
+    scene_sequence&
+    scene ();
+
+    void
+    scene (const scene_sequence& s);
+
+    // Constructors.
+    //
+    scenes ();
+
+    scenes (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+    scenes (const scenes& x,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+    virtual scenes*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    scenes&
+    operator= (const scenes& x);
+
+    virtual 
+    ~scenes ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    scene_sequence scene_;
+  };
+
+  class levels: public ::xml_schema::type
+  {
+    public:
+    // level
+    //
+    typedef ::GameResources::level level_type;
+    typedef ::xsd::cxx::tree::sequence< level_type > level_sequence;
+    typedef level_sequence::iterator level_iterator;
+    typedef level_sequence::const_iterator level_const_iterator;
+    typedef ::xsd::cxx::tree::traits< level_type, char > level_traits;
+
+    const level_sequence&
+    level () const;
+
+    level_sequence&
+    level ();
+
+    void
+    level (const level_sequence& s);
+
+    // Constructors.
+    //
+    levels ();
+
+    levels (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+    levels (const levels& x,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+    virtual levels*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    levels&
+    operator= (const levels& x);
+
+    virtual 
+    ~levels ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    level_sequence level_;
+  };
+
+  class texture: public ::GameResources::baseGameResource
+  {
+    public:
+    // Constructors.
+    //
+    texture (const name_type&,
+             const path_type&);
+
+    texture (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+    texture (const texture& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+    virtual texture*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    virtual 
+    ~texture ();
+  };
+
+  class sprite: public ::GameResources::baseGameResource
+  {
+    public:
+    // definition
+    //
+    typedef ::xml_schema::string definition_type;
+    typedef ::xsd::cxx::tree::optional< definition_type > definition_optional;
+    typedef ::xsd::cxx::tree::traits< definition_type, char > definition_traits;
+
+    const definition_optional&
+    definition () const;
+
+    definition_optional&
+    definition ();
+
+    void
+    definition (const definition_type& x);
+
+    void
+    definition (const definition_optional& x);
+
+    void
+    definition (::std::unique_ptr< definition_type > p);
+
+    // size
+    //
+    typedef ::Common::size size_type;
+    typedef ::xsd::cxx::tree::optional< size_type > size_optional;
+    typedef ::xsd::cxx::tree::traits< size_type, char > size_traits;
+
+    const size_optional&
+    size () const;
+
+    size_optional&
+    size ();
+
+    void
+    size (const size_type& x);
+
+    void
+    size (const size_optional& x);
+
+    void
+    size (::std::unique_ptr< size_type > p);
+
+    // Constructors.
+    //
+    sprite (const name_type&,
+            const path_type&);
+
+    sprite (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+    sprite (const sprite& x,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+    virtual sprite*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    sprite&
+    operator= (const sprite& x);
+
+    virtual 
+    ~sprite ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    definition_optional definition_;
+    size_optional size_;
+  };
+
+  class sound: public ::GameResources::baseGameResource
+  {
+    public:
+    // Constructors.
+    //
+    sound (const name_type&,
+           const path_type&);
+
+    sound (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+    sound (const sound& x,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+    virtual sound*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    virtual 
+    ~sound ();
+  };
+
+  class music1: public ::GameResources::baseGameResource
+  {
+    public:
+    // Constructors.
+    //
+    music1 (const name_type&,
+            const path_type&);
+
+    music1 (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+    music1 (const music1& x,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+    virtual music1*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    virtual 
+    ~music1 ();
+  };
+
+  class scene: public ::GameResources::baseGameResource
+  {
+    public:
+    // Constructors.
+    //
+    scene (const name_type&,
+           const path_type&);
+
+    scene (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+    scene (const scene& x,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+    virtual scene*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    virtual 
+    ~scene ();
+  };
+
+  class level: public ::GameResources::baseGameResource
+  {
+    public:
+    // Constructors.
+    //
+    level (const name_type&,
+           const path_type&);
+
+    level (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+    level (const level& x,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+    virtual level*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    virtual 
+    ~level ();
+  };
+}
+
 #include <iosfwd>
 
 #include <xercesc/sax/InputSource.hpp>
 #include <xercesc/dom/DOMDocument.hpp>
 #include <xercesc/dom/DOMErrorHandler.hpp>
+
+namespace GameResources
+{
+  // Parse a URI or a local file.
+  //
+
+  ::std::unique_ptr< ::GameResources::gameResources >
+  gameResources_ (const ::std::string& uri,
+                  ::xml_schema::flags f = 0,
+                  const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::GameResources::gameResources >
+  gameResources_ (const ::std::string& uri,
+                  ::xml_schema::error_handler& eh,
+                  ::xml_schema::flags f = 0,
+                  const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::GameResources::gameResources >
+  gameResources_ (const ::std::string& uri,
+                  ::xercesc::DOMErrorHandler& eh,
+                  ::xml_schema::flags f = 0,
+                  const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse std::istream.
+  //
+
+  ::std::unique_ptr< ::GameResources::gameResources >
+  gameResources_ (::std::istream& is,
+                  ::xml_schema::flags f = 0,
+                  const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::GameResources::gameResources >
+  gameResources_ (::std::istream& is,
+                  ::xml_schema::error_handler& eh,
+                  ::xml_schema::flags f = 0,
+                  const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::GameResources::gameResources >
+  gameResources_ (::std::istream& is,
+                  ::xercesc::DOMErrorHandler& eh,
+                  ::xml_schema::flags f = 0,
+                  const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::GameResources::gameResources >
+  gameResources_ (::std::istream& is,
+                  const ::std::string& id,
+                  ::xml_schema::flags f = 0,
+                  const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::GameResources::gameResources >
+  gameResources_ (::std::istream& is,
+                  const ::std::string& id,
+                  ::xml_schema::error_handler& eh,
+                  ::xml_schema::flags f = 0,
+                  const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::GameResources::gameResources >
+  gameResources_ (::std::istream& is,
+                  const ::std::string& id,
+                  ::xercesc::DOMErrorHandler& eh,
+                  ::xml_schema::flags f = 0,
+                  const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse xercesc::InputSource.
+  //
+
+  ::std::unique_ptr< ::GameResources::gameResources >
+  gameResources_ (::xercesc::InputSource& is,
+                  ::xml_schema::flags f = 0,
+                  const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::GameResources::gameResources >
+  gameResources_ (::xercesc::InputSource& is,
+                  ::xml_schema::error_handler& eh,
+                  ::xml_schema::flags f = 0,
+                  const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::GameResources::gameResources >
+  gameResources_ (::xercesc::InputSource& is,
+                  ::xercesc::DOMErrorHandler& eh,
+                  ::xml_schema::flags f = 0,
+                  const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse xercesc::DOMDocument.
+  //
+
+  ::std::unique_ptr< ::GameResources::gameResources >
+  gameResources_ (const ::xercesc::DOMDocument& d,
+                  ::xml_schema::flags f = 0,
+                  const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::GameResources::gameResources >
+  gameResources_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+                  ::xml_schema::flags f = 0,
+                  const ::xml_schema::properties& p = ::xml_schema::properties ());
+}
 
 #include <xsd/cxx/post.hxx>
 

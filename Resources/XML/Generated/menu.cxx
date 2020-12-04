@@ -40,1479 +40,1221 @@
 
 #include "menu.hxx"
 
-// menu
-// 
-
-const menu::name_type& menu::
-name () const
+namespace Menu
 {
-  return this->name_.get ();
+  // menu
+  // 
+
+  const menu::name_type& menu::
+  name () const
+  {
+    return this->name_.get ();
+  }
+
+  menu::name_type& menu::
+  name ()
+  {
+    return this->name_.get ();
+  }
+
+  void menu::
+  name (const name_type& x)
+  {
+    this->name_.set (x);
+  }
+
+  void menu::
+  name (::std::unique_ptr< name_type > x)
+  {
+    this->name_.set (std::move (x));
+  }
+
+  const menu::resources_type& menu::
+  resources () const
+  {
+    return this->resources_.get ();
+  }
+
+  menu::resources_type& menu::
+  resources ()
+  {
+    return this->resources_.get ();
+  }
+
+  void menu::
+  resources (const resources_type& x)
+  {
+    this->resources_.set (x);
+  }
+
+  void menu::
+  resources (::std::unique_ptr< resources_type > x)
+  {
+    this->resources_.set (std::move (x));
+  }
+
+  const menu::buttons_type& menu::
+  buttons () const
+  {
+    return this->buttons_.get ();
+  }
+
+  menu::buttons_type& menu::
+  buttons ()
+  {
+    return this->buttons_.get ();
+  }
+
+  void menu::
+  buttons (const buttons_type& x)
+  {
+    this->buttons_.set (x);
+  }
+
+  void menu::
+  buttons (::std::unique_ptr< buttons_type > x)
+  {
+    this->buttons_.set (std::move (x));
+  }
+
+  const menu::preloadResources_type& menu::
+  preloadResources () const
+  {
+    return this->preloadResources_.get ();
+  }
+
+  menu::preloadResources_type& menu::
+  preloadResources ()
+  {
+    return this->preloadResources_.get ();
+  }
+
+  void menu::
+  preloadResources (const preloadResources_type& x)
+  {
+    this->preloadResources_.set (x);
+  }
+
+  void menu::
+  preloadResources (::std::unique_ptr< preloadResources_type > x)
+  {
+    this->preloadResources_.set (std::move (x));
+  }
+
+
+  // buttons
+  // 
+
+  const buttons::button_sequence& buttons::
+  button () const
+  {
+    return this->button_;
+  }
+
+  buttons::button_sequence& buttons::
+  button ()
+  {
+    return this->button_;
+  }
+
+  void buttons::
+  button (const button_sequence& s)
+  {
+    this->button_ = s;
+  }
+
+
+  // button
+  // 
+
+  const button::position_type& button::
+  position () const
+  {
+    return this->position_.get ();
+  }
+
+  button::position_type& button::
+  position ()
+  {
+    return this->position_.get ();
+  }
+
+  void button::
+  position (const position_type& x)
+  {
+    this->position_.set (x);
+  }
+
+  void button::
+  position (::std::unique_ptr< position_type > x)
+  {
+    this->position_.set (std::move (x));
+  }
+
+  const button::size_type& button::
+  size () const
+  {
+    return this->size_.get ();
+  }
+
+  button::size_type& button::
+  size ()
+  {
+    return this->size_.get ();
+  }
+
+  void button::
+  size (const size_type& x)
+  {
+    this->size_.set (x);
+  }
+
+  void button::
+  size (::std::unique_ptr< size_type > x)
+  {
+    this->size_.set (std::move (x));
+  }
+
+  const button::content_type& button::
+  content () const
+  {
+    return this->content_.get ();
+  }
+
+  button::content_type& button::
+  content ()
+  {
+    return this->content_.get ();
+  }
+
+  void button::
+  content (const content_type& x)
+  {
+    this->content_.set (x);
+  }
+
+  void button::
+  content (::std::unique_ptr< content_type > x)
+  {
+    this->content_.set (std::move (x));
+  }
+
+  const button::color_optional& button::
+  color () const
+  {
+    return this->color_;
+  }
+
+  button::color_optional& button::
+  color ()
+  {
+    return this->color_;
+  }
+
+  void button::
+  color (const color_type& x)
+  {
+    this->color_.set (x);
+  }
+
+  void button::
+  color (const color_optional& x)
+  {
+    this->color_ = x;
+  }
+
+  void button::
+  color (::std::unique_ptr< color_type > x)
+  {
+    this->color_.set (std::move (x));
+  }
+
+  const button::resources_optional& button::
+  resources () const
+  {
+    return this->resources_;
+  }
+
+  button::resources_optional& button::
+  resources ()
+  {
+    return this->resources_;
+  }
+
+  void button::
+  resources (const resources_type& x)
+  {
+    this->resources_.set (x);
+  }
+
+  void button::
+  resources (const resources_optional& x)
+  {
+    this->resources_ = x;
+  }
+
+  void button::
+  resources (::std::unique_ptr< resources_type > x)
+  {
+    this->resources_.set (std::move (x));
+  }
+
+  const button::events_type& button::
+  events () const
+  {
+    return this->events_.get ();
+  }
+
+  button::events_type& button::
+  events ()
+  {
+    return this->events_.get ();
+  }
+
+  void button::
+  events (const events_type& x)
+  {
+    this->events_.set (x);
+  }
+
+  void button::
+  events (::std::unique_ptr< events_type > x)
+  {
+    this->events_.set (std::move (x));
+  }
+
+
+  // resources
+  // 
+
+  const resources::hover_optional& resources::
+  hover () const
+  {
+    return this->hover_;
+  }
+
+  resources::hover_optional& resources::
+  hover ()
+  {
+    return this->hover_;
+  }
+
+  void resources::
+  hover (const hover_type& x)
+  {
+    this->hover_.set (x);
+  }
+
+  void resources::
+  hover (const hover_optional& x)
+  {
+    this->hover_ = x;
+  }
+
+  void resources::
+  hover (::std::unique_ptr< hover_type > x)
+  {
+    this->hover_.set (std::move (x));
+  }
+
+  const resources::click_optional& resources::
+  click () const
+  {
+    return this->click_;
+  }
+
+  resources::click_optional& resources::
+  click ()
+  {
+    return this->click_;
+  }
+
+  void resources::
+  click (const click_type& x)
+  {
+    this->click_.set (x);
+  }
+
+  void resources::
+  click (const click_optional& x)
+  {
+    this->click_ = x;
+  }
+
+  void resources::
+  click (::std::unique_ptr< click_type > x)
+  {
+    this->click_.set (std::move (x));
+  }
 }
-
-menu::name_type& menu::
-name ()
-{
-  return this->name_.get ();
-}
-
-void menu::
-name (const name_type& x)
-{
-  this->name_.set (x);
-}
-
-void menu::
-name (::std::unique_ptr< name_type > x)
-{
-  this->name_.set (std::move (x));
-}
-
-const menu::resources_type& menu::
-resources () const
-{
-  return this->resources_.get ();
-}
-
-menu::resources_type& menu::
-resources ()
-{
-  return this->resources_.get ();
-}
-
-void menu::
-resources (const resources_type& x)
-{
-  this->resources_.set (x);
-}
-
-void menu::
-resources (::std::unique_ptr< resources_type > x)
-{
-  this->resources_.set (std::move (x));
-}
-
-const menu::buttons_type& menu::
-buttons () const
-{
-  return this->buttons_.get ();
-}
-
-menu::buttons_type& menu::
-buttons ()
-{
-  return this->buttons_.get ();
-}
-
-void menu::
-buttons (const buttons_type& x)
-{
-  this->buttons_.set (x);
-}
-
-void menu::
-buttons (::std::unique_ptr< buttons_type > x)
-{
-  this->buttons_.set (std::move (x));
-}
-
-const menu::preloadResources_type& menu::
-preloadResources () const
-{
-  return this->preloadResources_.get ();
-}
-
-menu::preloadResources_type& menu::
-preloadResources ()
-{
-  return this->preloadResources_.get ();
-}
-
-void menu::
-preloadResources (const preloadResources_type& x)
-{
-  this->preloadResources_.set (x);
-}
-
-void menu::
-preloadResources (::std::unique_ptr< preloadResources_type > x)
-{
-  this->preloadResources_.set (std::move (x));
-}
-
-
-// button
-// 
-
-const button::position_type& button::
-position () const
-{
-  return this->position_.get ();
-}
-
-button::position_type& button::
-position ()
-{
-  return this->position_.get ();
-}
-
-void button::
-position (const position_type& x)
-{
-  this->position_.set (x);
-}
-
-void button::
-position (::std::unique_ptr< position_type > x)
-{
-  this->position_.set (std::move (x));
-}
-
-const button::size_type& button::
-size () const
-{
-  return this->size_.get ();
-}
-
-button::size_type& button::
-size ()
-{
-  return this->size_.get ();
-}
-
-void button::
-size (const size_type& x)
-{
-  this->size_.set (x);
-}
-
-void button::
-size (::std::unique_ptr< size_type > x)
-{
-  this->size_.set (std::move (x));
-}
-
-const button::content_type& button::
-content () const
-{
-  return this->content_.get ();
-}
-
-button::content_type& button::
-content ()
-{
-  return this->content_.get ();
-}
-
-void button::
-content (const content_type& x)
-{
-  this->content_.set (x);
-}
-
-void button::
-content (::std::unique_ptr< content_type > x)
-{
-  this->content_.set (std::move (x));
-}
-
-const button::color_optional& button::
-color () const
-{
-  return this->color_;
-}
-
-button::color_optional& button::
-color ()
-{
-  return this->color_;
-}
-
-void button::
-color (const color_type& x)
-{
-  this->color_.set (x);
-}
-
-void button::
-color (const color_optional& x)
-{
-  this->color_ = x;
-}
-
-void button::
-color (::std::unique_ptr< color_type > x)
-{
-  this->color_.set (std::move (x));
-}
-
-const button::resources_optional& button::
-resources () const
-{
-  return this->resources_;
-}
-
-button::resources_optional& button::
-resources ()
-{
-  return this->resources_;
-}
-
-void button::
-resources (const resources_type& x)
-{
-  this->resources_.set (x);
-}
-
-void button::
-resources (const resources_optional& x)
-{
-  this->resources_ = x;
-}
-
-void button::
-resources (::std::unique_ptr< resources_type > x)
-{
-  this->resources_.set (std::move (x));
-}
-
-const button::events_type& button::
-events () const
-{
-  return this->events_.get ();
-}
-
-button::events_type& button::
-events ()
-{
-  return this->events_.get ();
-}
-
-void button::
-events (const events_type& x)
-{
-  this->events_.set (x);
-}
-
-void button::
-events (::std::unique_ptr< events_type > x)
-{
-  this->events_.set (std::move (x));
-}
-
-
-// buttons
-// 
-
-const buttons::button_sequence& buttons::
-button () const
-{
-  return this->button_;
-}
-
-buttons::button_sequence& buttons::
-button ()
-{
-  return this->button_;
-}
-
-void buttons::
-button (const button_sequence& s)
-{
-  this->button_ = s;
-}
-
-
-// resources1
-// 
-
-const resources1::hover_optional& resources1::
-hover () const
-{
-  return this->hover_;
-}
-
-resources1::hover_optional& resources1::
-hover ()
-{
-  return this->hover_;
-}
-
-void resources1::
-hover (const hover_type& x)
-{
-  this->hover_.set (x);
-}
-
-void resources1::
-hover (const hover_optional& x)
-{
-  this->hover_ = x;
-}
-
-void resources1::
-hover (::std::unique_ptr< hover_type > x)
-{
-  this->hover_.set (std::move (x));
-}
-
-const resources1::click_optional& resources1::
-click () const
-{
-  return this->click_;
-}
-
-resources1::click_optional& resources1::
-click ()
-{
-  return this->click_;
-}
-
-void resources1::
-click (const click_type& x)
-{
-  this->click_.set (x);
-}
-
-void resources1::
-click (const click_optional& x)
-{
-  this->click_ = x;
-}
-
-void resources1::
-click (::std::unique_ptr< click_type > x)
-{
-  this->click_.set (std::move (x));
-}
-
 
 #include <xsd/cxx/xml/dom/parsing-source.hxx>
 
-// menu
-//
-
-menu::
-menu (const name_type& name,
-      const resources_type& resources,
-      const buttons_type& buttons,
-      const preloadResources_type& preloadResources)
-: ::xml_schema::type (),
-  name_ (name, this),
-  resources_ (resources, this),
-  buttons_ (buttons, this),
-  preloadResources_ (preloadResources, this)
+namespace Menu
 {
-}
+  // menu
+  //
 
-menu::
-menu (const name_type& name,
-      ::std::unique_ptr< resources_type > resources,
-      ::std::unique_ptr< buttons_type > buttons,
-      ::std::unique_ptr< preloadResources_type > preloadResources)
-: ::xml_schema::type (),
-  name_ (name, this),
-  resources_ (std::move (resources), this),
-  buttons_ (std::move (buttons), this),
-  preloadResources_ (std::move (preloadResources), this)
-{
-}
-
-menu::
-menu (const menu& x,
-      ::xml_schema::flags f,
-      ::xml_schema::container* c)
-: ::xml_schema::type (x, f, c),
-  name_ (x.name_, f, this),
-  resources_ (x.resources_, f, this),
-  buttons_ (x.buttons_, f, this),
-  preloadResources_ (x.preloadResources_, f, this)
-{
-}
-
-menu::
-menu (const ::xercesc::DOMElement& e,
-      ::xml_schema::flags f,
-      ::xml_schema::container* c)
-: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  name_ (this),
-  resources_ (this),
-  buttons_ (this),
-  preloadResources_ (this)
-{
-  if ((f & ::xml_schema::flags::base) == 0)
+  menu::
+  menu (const name_type& name,
+        const resources_type& resources,
+        const buttons_type& buttons,
+        const preloadResources_type& preloadResources)
+  : ::xml_schema::type (),
+    name_ (name, this),
+    resources_ (resources, this),
+    buttons_ (buttons, this),
+    preloadResources_ (preloadResources, this)
   {
-    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
-    this->parse (p, f);
-  }
-}
-
-void menu::
-parse (::xsd::cxx::xml::dom::parser< char >& p,
-       ::xml_schema::flags f)
-{
-  for (; p.more_content (); p.next_content (false))
-  {
-    const ::xercesc::DOMElement& i (p.cur_element ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
-
-    // name
-    //
-    if (n.name () == "name" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< name_type > r (
-        name_traits::create (i, f, this));
-
-      if (!name_.present ())
-      {
-        this->name_.set (::std::move (r));
-        continue;
-      }
-    }
-
-    // resources
-    //
-    if (n.name () == "resources" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< resources_type > r (
-        resources_traits::create (i, f, this));
-
-      if (!resources_.present ())
-      {
-        this->resources_.set (::std::move (r));
-        continue;
-      }
-    }
-
-    // buttons
-    //
-    if (n.name () == "buttons" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< buttons_type > r (
-        buttons_traits::create (i, f, this));
-
-      if (!buttons_.present ())
-      {
-        this->buttons_.set (::std::move (r));
-        continue;
-      }
-    }
-
-    // preloadResources
-    //
-    if (n.name () == "preloadResources" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< preloadResources_type > r (
-        preloadResources_traits::create (i, f, this));
-
-      if (!preloadResources_.present ())
-      {
-        this->preloadResources_.set (::std::move (r));
-        continue;
-      }
-    }
-
-    break;
   }
 
-  if (!name_.present ())
+  menu::
+  menu (const name_type& name,
+        ::std::unique_ptr< resources_type > resources,
+        ::std::unique_ptr< buttons_type > buttons,
+        ::std::unique_ptr< preloadResources_type > preloadResources)
+  : ::xml_schema::type (),
+    name_ (name, this),
+    resources_ (std::move (resources), this),
+    buttons_ (std::move (buttons), this),
+    preloadResources_ (std::move (preloadResources), this)
   {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "name",
-      "");
   }
 
-  if (!resources_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "resources",
-      "");
-  }
-
-  if (!buttons_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "buttons",
-      "");
-  }
-
-  if (!preloadResources_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "preloadResources",
-      "");
-  }
-}
-
-menu* menu::
-_clone (::xml_schema::flags f,
-        ::xml_schema::container* c) const
-{
-  return new class menu (*this, f, c);
-}
-
-menu& menu::
-operator= (const menu& x)
-{
-  if (this != &x)
-  {
-    static_cast< ::xml_schema::type& > (*this) = x;
-    this->name_ = x.name_;
-    this->resources_ = x.resources_;
-    this->buttons_ = x.buttons_;
-    this->preloadResources_ = x.preloadResources_;
-  }
-
-  return *this;
-}
-
-menu::
-~menu ()
-{
-}
-
-// button
-//
-
-button::
-button (const position_type& position,
-        const size_type& size,
-        const content_type& content,
-        const events_type& events)
-: ::xml_schema::type (),
-  position_ (position, this),
-  size_ (size, this),
-  content_ (content, this),
-  color_ (this),
-  resources_ (this),
-  events_ (events, this)
-{
-}
-
-button::
-button (::std::unique_ptr< position_type > position,
-        ::std::unique_ptr< size_type > size,
-        const content_type& content,
-        ::std::unique_ptr< events_type > events)
-: ::xml_schema::type (),
-  position_ (std::move (position), this),
-  size_ (std::move (size), this),
-  content_ (content, this),
-  color_ (this),
-  resources_ (this),
-  events_ (std::move (events), this)
-{
-}
-
-button::
-button (const button& x,
+  menu::
+  menu (const menu& x,
         ::xml_schema::flags f,
         ::xml_schema::container* c)
-: ::xml_schema::type (x, f, c),
-  position_ (x.position_, f, this),
-  size_ (x.size_, f, this),
-  content_ (x.content_, f, this),
-  color_ (x.color_, f, this),
-  resources_ (x.resources_, f, this),
-  events_ (x.events_, f, this)
-{
-}
+  : ::xml_schema::type (x, f, c),
+    name_ (x.name_, f, this),
+    resources_ (x.resources_, f, this),
+    buttons_ (x.buttons_, f, this),
+    preloadResources_ (x.preloadResources_, f, this)
+  {
+  }
 
-button::
-button (const ::xercesc::DOMElement& e,
+  menu::
+  menu (const ::xercesc::DOMElement& e,
         ::xml_schema::flags f,
         ::xml_schema::container* c)
-: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  position_ (this),
-  size_ (this),
-  content_ (this),
-  color_ (this),
-  resources_ (this),
-  events_ (this)
-{
-  if ((f & ::xml_schema::flags::base) == 0)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    name_ (this),
+    resources_ (this),
+    buttons_ (this),
+    preloadResources_ (this)
   {
-    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
-    this->parse (p, f);
-  }
-}
-
-void button::
-parse (::xsd::cxx::xml::dom::parser< char >& p,
-       ::xml_schema::flags f)
-{
-  for (; p.more_content (); p.next_content (false))
-  {
-    const ::xercesc::DOMElement& i (p.cur_element ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
-
-    // position
-    //
-    if (n.name () == "position" && n.namespace_ ().empty ())
+    if ((f & ::xml_schema::flags::base) == 0)
     {
-      ::std::unique_ptr< position_type > r (
-        position_traits::create (i, f, this));
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
 
-      if (!position_.present ())
+  void menu::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // name
+      //
+      if (n.name () == "name" && n.namespace_ ().empty ())
       {
-        this->position_.set (::std::move (r));
+        ::std::unique_ptr< name_type > r (
+          name_traits::create (i, f, this));
+
+        if (!name_.present ())
+        {
+          this->name_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // resources
+      //
+      if (n.name () == "resources" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< resources_type > r (
+          resources_traits::create (i, f, this));
+
+        if (!resources_.present ())
+        {
+          this->resources_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // buttons
+      //
+      if (n.name () == "buttons" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< buttons_type > r (
+          buttons_traits::create (i, f, this));
+
+        if (!buttons_.present ())
+        {
+          this->buttons_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // preloadResources
+      //
+      if (n.name () == "preloadResources" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< preloadResources_type > r (
+          preloadResources_traits::create (i, f, this));
+
+        if (!preloadResources_.present ())
+        {
+          this->preloadResources_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!name_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "name",
+        "");
+    }
+
+    if (!resources_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "resources",
+        "Common");
+    }
+
+    if (!buttons_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "buttons",
+        "");
+    }
+
+    if (!preloadResources_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "preloadResources",
+        "Common");
+    }
+  }
+
+  menu* menu::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class menu (*this, f, c);
+  }
+
+  menu& menu::
+  operator= (const menu& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->name_ = x.name_;
+      this->resources_ = x.resources_;
+      this->buttons_ = x.buttons_;
+      this->preloadResources_ = x.preloadResources_;
+    }
+
+    return *this;
+  }
+
+  menu::
+  ~menu ()
+  {
+  }
+
+  // buttons
+  //
+
+  buttons::
+  buttons ()
+  : ::xml_schema::type (),
+    button_ (this)
+  {
+  }
+
+  buttons::
+  buttons (const buttons& x,
+           ::xml_schema::flags f,
+           ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    button_ (x.button_, f, this)
+  {
+  }
+
+  buttons::
+  buttons (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f,
+           ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    button_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void buttons::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // button
+      //
+      if (n.name () == "button" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< button_type > r (
+          button_traits::create (i, f, this));
+
+        this->button_.push_back (::std::move (r));
         continue;
       }
+
+      break;
+    }
+  }
+
+  buttons* buttons::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class buttons (*this, f, c);
+  }
+
+  buttons& buttons::
+  operator= (const buttons& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->button_ = x.button_;
     }
 
-    // size
-    //
-    if (n.name () == "size" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< size_type > r (
-        size_traits::create (i, f, this));
+    return *this;
+  }
 
-      if (!size_.present ())
+  buttons::
+  ~buttons ()
+  {
+  }
+
+  // button
+  //
+
+  button::
+  button (const position_type& position,
+          const size_type& size,
+          const content_type& content,
+          const events_type& events)
+  : ::xml_schema::type (),
+    position_ (position, this),
+    size_ (size, this),
+    content_ (content, this),
+    color_ (this),
+    resources_ (this),
+    events_ (events, this)
+  {
+  }
+
+  button::
+  button (::std::unique_ptr< position_type > position,
+          ::std::unique_ptr< size_type > size,
+          const content_type& content,
+          ::std::unique_ptr< events_type > events)
+  : ::xml_schema::type (),
+    position_ (std::move (position), this),
+    size_ (std::move (size), this),
+    content_ (content, this),
+    color_ (this),
+    resources_ (this),
+    events_ (std::move (events), this)
+  {
+  }
+
+  button::
+  button (const button& x,
+          ::xml_schema::flags f,
+          ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    position_ (x.position_, f, this),
+    size_ (x.size_, f, this),
+    content_ (x.content_, f, this),
+    color_ (x.color_, f, this),
+    resources_ (x.resources_, f, this),
+    events_ (x.events_, f, this)
+  {
+  }
+
+  button::
+  button (const ::xercesc::DOMElement& e,
+          ::xml_schema::flags f,
+          ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    position_ (this),
+    size_ (this),
+    content_ (this),
+    color_ (this),
+    resources_ (this),
+    events_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void button::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // position
+      //
+      if (n.name () == "position" && n.namespace_ () == "Common")
       {
-        this->size_.set (::std::move (r));
-        continue;
+        ::std::unique_ptr< position_type > r (
+          position_traits::create (i, f, this));
+
+        if (!position_.present ())
+        {
+          this->position_.set (::std::move (r));
+          continue;
+        }
       }
-    }
 
-    // content
-    //
-    if (n.name () == "content" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< content_type > r (
-        content_traits::create (i, f, this));
-
-      if (!content_.present ())
+      // size
+      //
+      if (n.name () == "size" && n.namespace_ () == "Common")
       {
-        this->content_.set (::std::move (r));
-        continue;
+        ::std::unique_ptr< size_type > r (
+          size_traits::create (i, f, this));
+
+        if (!size_.present ())
+        {
+          this->size_.set (::std::move (r));
+          continue;
+        }
       }
-    }
 
-    // color
-    //
-    if (n.name () == "color" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< color_type > r (
-        color_traits::create (i, f, this));
-
-      if (!this->color_)
+      // content
+      //
+      if (n.name () == "content" && n.namespace_ ().empty ())
       {
-        this->color_.set (::std::move (r));
-        continue;
+        ::std::unique_ptr< content_type > r (
+          content_traits::create (i, f, this));
+
+        if (!content_.present ())
+        {
+          this->content_.set (::std::move (r));
+          continue;
+        }
       }
-    }
 
-    // resources
-    //
-    if (n.name () == "resources" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< resources_type > r (
-        resources_traits::create (i, f, this));
-
-      if (!this->resources_)
+      // color
+      //
+      if (n.name () == "color" && n.namespace_ () == "Common")
       {
-        this->resources_.set (::std::move (r));
-        continue;
+        ::std::unique_ptr< color_type > r (
+          color_traits::create (i, f, this));
+
+        if (!this->color_)
+        {
+          this->color_.set (::std::move (r));
+          continue;
+        }
       }
-    }
 
-    // events
-    //
-    if (n.name () == "events" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< events_type > r (
-        events_traits::create (i, f, this));
-
-      if (!events_.present ())
+      // resources
+      //
+      if (n.name () == "resources" && n.namespace_ ().empty ())
       {
-        this->events_.set (::std::move (r));
-        continue;
+        ::std::unique_ptr< resources_type > r (
+          resources_traits::create (i, f, this));
+
+        if (!this->resources_)
+        {
+          this->resources_.set (::std::move (r));
+          continue;
+        }
       }
-    }
 
-    break;
-  }
-
-  if (!position_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "position",
-      "");
-  }
-
-  if (!size_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "size",
-      "");
-  }
-
-  if (!content_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "content",
-      "");
-  }
-
-  if (!events_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "events",
-      "");
-  }
-}
-
-button* button::
-_clone (::xml_schema::flags f,
-        ::xml_schema::container* c) const
-{
-  return new class button (*this, f, c);
-}
-
-button& button::
-operator= (const button& x)
-{
-  if (this != &x)
-  {
-    static_cast< ::xml_schema::type& > (*this) = x;
-    this->position_ = x.position_;
-    this->size_ = x.size_;
-    this->content_ = x.content_;
-    this->color_ = x.color_;
-    this->resources_ = x.resources_;
-    this->events_ = x.events_;
-  }
-
-  return *this;
-}
-
-button::
-~button ()
-{
-}
-
-// buttons
-//
-
-buttons::
-buttons ()
-: ::xml_schema::type (),
-  button_ (this)
-{
-}
-
-buttons::
-buttons (const buttons& x,
-         ::xml_schema::flags f,
-         ::xml_schema::container* c)
-: ::xml_schema::type (x, f, c),
-  button_ (x.button_, f, this)
-{
-}
-
-buttons::
-buttons (const ::xercesc::DOMElement& e,
-         ::xml_schema::flags f,
-         ::xml_schema::container* c)
-: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  button_ (this)
-{
-  if ((f & ::xml_schema::flags::base) == 0)
-  {
-    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
-    this->parse (p, f);
-  }
-}
-
-void buttons::
-parse (::xsd::cxx::xml::dom::parser< char >& p,
-       ::xml_schema::flags f)
-{
-  for (; p.more_content (); p.next_content (false))
-  {
-    const ::xercesc::DOMElement& i (p.cur_element ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
-
-    // button
-    //
-    if (n.name () == "button" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< button_type > r (
-        button_traits::create (i, f, this));
-
-      this->button_.push_back (::std::move (r));
-      continue;
-    }
-
-    break;
-  }
-}
-
-buttons* buttons::
-_clone (::xml_schema::flags f,
-        ::xml_schema::container* c) const
-{
-  return new class buttons (*this, f, c);
-}
-
-buttons& buttons::
-operator= (const buttons& x)
-{
-  if (this != &x)
-  {
-    static_cast< ::xml_schema::type& > (*this) = x;
-    this->button_ = x.button_;
-  }
-
-  return *this;
-}
-
-buttons::
-~buttons ()
-{
-}
-
-// resources1
-//
-
-resources1::
-resources1 (const default_type& default_)
-: ::baseResources (default_),
-  hover_ (this),
-  click_ (this)
-{
-}
-
-resources1::
-resources1 (const resources1& x,
-            ::xml_schema::flags f,
-            ::xml_schema::container* c)
-: ::baseResources (x, f, c),
-  hover_ (x.hover_, f, this),
-  click_ (x.click_, f, this)
-{
-}
-
-resources1::
-resources1 (const ::xercesc::DOMElement& e,
-            ::xml_schema::flags f,
-            ::xml_schema::container* c)
-: ::baseResources (e, f | ::xml_schema::flags::base, c),
-  hover_ (this),
-  click_ (this)
-{
-  if ((f & ::xml_schema::flags::base) == 0)
-  {
-    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
-    this->parse (p, f);
-  }
-}
-
-void resources1::
-parse (::xsd::cxx::xml::dom::parser< char >& p,
-       ::xml_schema::flags f)
-{
-  this->::baseResources::parse (p, f);
-
-  for (; p.more_content (); p.next_content (false))
-  {
-    const ::xercesc::DOMElement& i (p.cur_element ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
-
-    // hover
-    //
-    if (n.name () == "hover" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< hover_type > r (
-        hover_traits::create (i, f, this));
-
-      if (!this->hover_)
+      // events
+      //
+      if (n.name () == "events" && n.namespace_ () == "Common")
       {
-        this->hover_.set (::std::move (r));
-        continue;
+        ::std::unique_ptr< events_type > r (
+          events_traits::create (i, f, this));
+
+        if (!events_.present ())
+        {
+          this->events_.set (::std::move (r));
+          continue;
+        }
       }
+
+      break;
     }
 
-    // click
-    //
-    if (n.name () == "click" && n.namespace_ ().empty ())
+    if (!position_.present ())
     {
-      ::std::unique_ptr< click_type > r (
-        click_traits::create (i, f, this));
-
-      if (!this->click_)
-      {
-        this->click_.set (::std::move (r));
-        continue;
-      }
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "position",
+        "Common");
     }
 
-    break;
+    if (!size_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "size",
+        "Common");
+    }
+
+    if (!content_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "content",
+        "");
+    }
+
+    if (!events_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "events",
+        "Common");
+    }
   }
-}
 
-resources1* resources1::
-_clone (::xml_schema::flags f,
-        ::xml_schema::container* c) const
-{
-  return new class resources1 (*this, f, c);
-}
-
-resources1& resources1::
-operator= (const resources1& x)
-{
-  if (this != &x)
+  button* button::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
   {
-    static_cast< ::baseResources& > (*this) = x;
-    this->hover_ = x.hover_;
-    this->click_ = x.click_;
+    return new class button (*this, f, c);
   }
 
-  return *this;
-}
+  button& button::
+  operator= (const button& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->position_ = x.position_;
+      this->size_ = x.size_;
+      this->content_ = x.content_;
+      this->color_ = x.color_;
+      this->resources_ = x.resources_;
+      this->events_ = x.events_;
+    }
 
-resources1::
-~resources1 ()
-{
+    return *this;
+  }
+
+  button::
+  ~button ()
+  {
+  }
+
+  // resources
+  //
+
+  resources::
+  resources (const default_type& default_)
+  : ::Common::baseResources (default_),
+    hover_ (this),
+    click_ (this)
+  {
+  }
+
+  resources::
+  resources (const resources& x,
+             ::xml_schema::flags f,
+             ::xml_schema::container* c)
+  : ::Common::baseResources (x, f, c),
+    hover_ (x.hover_, f, this),
+    click_ (x.click_, f, this)
+  {
+  }
+
+  resources::
+  resources (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f,
+             ::xml_schema::container* c)
+  : ::Common::baseResources (e, f | ::xml_schema::flags::base, c),
+    hover_ (this),
+    click_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void resources::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    this->::Common::baseResources::parse (p, f);
+
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // hover
+      //
+      if (n.name () == "hover" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< hover_type > r (
+          hover_traits::create (i, f, this));
+
+        if (!this->hover_)
+        {
+          this->hover_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // click
+      //
+      if (n.name () == "click" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< click_type > r (
+          click_traits::create (i, f, this));
+
+        if (!this->click_)
+        {
+          this->click_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+  }
+
+  resources* resources::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class resources (*this, f, c);
+  }
+
+  resources& resources::
+  operator= (const resources& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::Common::baseResources& > (*this) = x;
+      this->hover_ = x.hover_;
+      this->click_ = x.click_;
+    }
+
+    return *this;
+  }
+
+  resources::
+  ~resources ()
+  {
+  }
 }
 
 #include <istream>
 #include <xsd/cxx/xml/sax/std-input-source.hxx>
 #include <xsd/cxx/tree/error-handler.hxx>
 
-::std::unique_ptr< ::menu >
-menu_ (const ::std::string& u,
-       ::xml_schema::flags f,
-       const ::xml_schema::properties& p)
+namespace Menu
 {
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::tree::error_handler< char > h;
-
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      u, h, p, f));
-
-  h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
-
-  return ::std::unique_ptr< ::menu > (
-    ::menu_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::menu >
-menu_ (const ::std::string& u,
-       ::xml_schema::error_handler& h,
-       ::xml_schema::flags f,
-       const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      u, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::menu > (
-    ::menu_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::menu >
-menu_ (const ::std::string& u,
-       ::xercesc::DOMErrorHandler& h,
-       ::xml_schema::flags f,
-       const ::xml_schema::properties& p)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      u, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::menu > (
-    ::menu_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::menu >
-menu_ (::std::istream& is,
-       ::xml_schema::flags f,
-       const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::menu_ (isrc, f, p);
-}
-
-::std::unique_ptr< ::menu >
-menu_ (::std::istream& is,
-       ::xml_schema::error_handler& h,
-       ::xml_schema::flags f,
-       const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::menu_ (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::menu >
-menu_ (::std::istream& is,
-       ::xercesc::DOMErrorHandler& h,
-       ::xml_schema::flags f,
-       const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::menu_ (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::menu >
-menu_ (::std::istream& is,
-       const ::std::string& sid,
-       ::xml_schema::flags f,
-       const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::menu_ (isrc, f, p);
-}
-
-::std::unique_ptr< ::menu >
-menu_ (::std::istream& is,
-       const ::std::string& sid,
-       ::xml_schema::error_handler& h,
-       ::xml_schema::flags f,
-       const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::menu_ (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::menu >
-menu_ (::std::istream& is,
-       const ::std::string& sid,
-       ::xercesc::DOMErrorHandler& h,
-       ::xml_schema::flags f,
-       const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::menu_ (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::menu >
-menu_ (::xercesc::InputSource& i,
-       ::xml_schema::flags f,
-       const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::tree::error_handler< char > h;
-
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      i, h, p, f));
-
-  h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
-
-  return ::std::unique_ptr< ::menu > (
-    ::menu_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::menu >
-menu_ (::xercesc::InputSource& i,
-       ::xml_schema::error_handler& h,
-       ::xml_schema::flags f,
-       const ::xml_schema::properties& p)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      i, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::menu > (
-    ::menu_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::menu >
-menu_ (::xercesc::InputSource& i,
-       ::xercesc::DOMErrorHandler& h,
-       ::xml_schema::flags f,
-       const ::xml_schema::properties& p)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      i, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::menu > (
-    ::menu_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::menu >
-menu_ (const ::xercesc::DOMDocument& doc,
-       ::xml_schema::flags f,
-       const ::xml_schema::properties& p)
-{
-  if (f & ::xml_schema::flags::keep_dom)
+  ::std::unique_ptr< ::Menu::menu >
+  menu_ (const ::std::string& u,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
   {
-    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-      static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
 
-    return ::std::unique_ptr< ::menu > (
-      ::menu_ (
+    ::xsd::cxx::tree::error_handler< char > h;
+
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        u, h, p, f));
+
+    h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
+
+    return ::std::unique_ptr< ::Menu::menu > (
+      ::Menu::menu_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
-  const ::xsd::cxx::xml::qualified_name< char > n (
-    ::xsd::cxx::xml::dom::name< char > (e));
-
-  if (n.name () == "menu" &&
-      n.namespace_ () == "")
+  ::std::unique_ptr< ::Menu::menu >
+  menu_ (const ::std::string& u,
+         ::xml_schema::error_handler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
   {
-    ::std::unique_ptr< ::menu > r (
-      ::xsd::cxx::tree::traits< ::menu, char >::create (
-        e, f, 0));
-    return r;
-  }
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
 
-  throw ::xsd::cxx::tree::unexpected_element < char > (
-    n.name (),
-    n.namespace_ (),
-    "menu",
-    "");
-}
-
-::std::unique_ptr< ::menu >
-menu_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-       ::xml_schema::flags f,
-       const ::xml_schema::properties&)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > c (
-    ((f & ::xml_schema::flags::keep_dom) &&
-     !(f & ::xml_schema::flags::own_dom))
-    ? static_cast< ::xercesc::DOMDocument* > (d->cloneNode (true))
-    : 0);
-
-  ::xercesc::DOMDocument& doc (c.get () ? *c : *d);
-  const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
-
-  const ::xsd::cxx::xml::qualified_name< char > n (
-    ::xsd::cxx::xml::dom::name< char > (e));
-
-  if (f & ::xml_schema::flags::keep_dom)
-    doc.setUserData (::xml_schema::dom::tree_node_key,
-                     (c.get () ? &c : &d),
-                     0);
-
-  if (n.name () == "menu" &&
-      n.namespace_ () == "")
-  {
-    ::std::unique_ptr< ::menu > r (
-      ::xsd::cxx::tree::traits< ::menu, char >::create (
-        e, f, 0));
-    return r;
-  }
-
-  throw ::xsd::cxx::tree::unexpected_element < char > (
-    n.name (),
-    n.namespace_ (),
-    "menu",
-    "");
-}
-
-::std::unique_ptr< ::button >
-button_ (const ::std::string& u,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::tree::error_handler< char > h;
-
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      u, h, p, f));
-
-  h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
-
-  return ::std::unique_ptr< ::button > (
-    ::button_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::button >
-button_ (const ::std::string& u,
-         ::xml_schema::error_handler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      u, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::button > (
-    ::button_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::button >
-button_ (const ::std::string& u,
-         ::xercesc::DOMErrorHandler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      u, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::button > (
-    ::button_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::button >
-button_ (::std::istream& is,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::button_ (isrc, f, p);
-}
-
-::std::unique_ptr< ::button >
-button_ (::std::istream& is,
-         ::xml_schema::error_handler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::button_ (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::button >
-button_ (::std::istream& is,
-         ::xercesc::DOMErrorHandler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::button_ (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::button >
-button_ (::std::istream& is,
-         const ::std::string& sid,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::button_ (isrc, f, p);
-}
-
-::std::unique_ptr< ::button >
-button_ (::std::istream& is,
-         const ::std::string& sid,
-         ::xml_schema::error_handler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::button_ (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::button >
-button_ (::std::istream& is,
-         const ::std::string& sid,
-         ::xercesc::DOMErrorHandler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::button_ (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::button >
-button_ (::xercesc::InputSource& i,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::tree::error_handler< char > h;
-
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      i, h, p, f));
-
-  h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
-
-  return ::std::unique_ptr< ::button > (
-    ::button_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::button >
-button_ (::xercesc::InputSource& i,
-         ::xml_schema::error_handler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      i, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::button > (
-    ::button_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::button >
-button_ (::xercesc::InputSource& i,
-         ::xercesc::DOMErrorHandler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      i, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::button > (
-    ::button_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::button >
-button_ (const ::xercesc::DOMDocument& doc,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  if (f & ::xml_schema::flags::keep_dom)
-  {
     ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-      static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
+      ::xsd::cxx::xml::dom::parse< char > (
+        u, h, p, f));
 
-    return ::std::unique_ptr< ::button > (
-      ::button_ (
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Menu::menu > (
+      ::Menu::menu_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
-  const ::xsd::cxx::xml::qualified_name< char > n (
-    ::xsd::cxx::xml::dom::name< char > (e));
-
-  if (n.name () == "button" &&
-      n.namespace_ () == "")
+  ::std::unique_ptr< ::Menu::menu >
+  menu_ (const ::std::string& u,
+         ::xercesc::DOMErrorHandler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
   {
-    ::std::unique_ptr< ::button > r (
-      ::xsd::cxx::tree::traits< ::button, char >::create (
-        e, f, 0));
-    return r;
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        u, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Menu::menu > (
+      ::Menu::menu_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  throw ::xsd::cxx::tree::unexpected_element < char > (
-    n.name (),
-    n.namespace_ (),
-    "button",
-    "");
-}
+  ::std::unique_ptr< ::Menu::menu >
+  menu_ (::std::istream& is,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
 
-::std::unique_ptr< ::button >
-button_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+    ::xsd::cxx::xml::sax::std_input_source isrc (is);
+    return ::Menu::menu_ (isrc, f, p);
+  }
+
+  ::std::unique_ptr< ::Menu::menu >
+  menu_ (::std::istream& is,
+         ::xml_schema::error_handler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is);
+    return ::Menu::menu_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Menu::menu >
+  menu_ (::std::istream& is,
+         ::xercesc::DOMErrorHandler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::sax::std_input_source isrc (is);
+    return ::Menu::menu_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Menu::menu >
+  menu_ (::std::istream& is,
+         const ::std::string& sid,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+    return ::Menu::menu_ (isrc, f, p);
+  }
+
+  ::std::unique_ptr< ::Menu::menu >
+  menu_ (::std::istream& is,
+         const ::std::string& sid,
+         ::xml_schema::error_handler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+    return ::Menu::menu_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Menu::menu >
+  menu_ (::std::istream& is,
+         const ::std::string& sid,
+         ::xercesc::DOMErrorHandler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+    return ::Menu::menu_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Menu::menu >
+  menu_ (::xercesc::InputSource& i,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::tree::error_handler< char > h;
+
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        i, h, p, f));
+
+    h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
+
+    return ::std::unique_ptr< ::Menu::menu > (
+      ::Menu::menu_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Menu::menu >
+  menu_ (::xercesc::InputSource& i,
+         ::xml_schema::error_handler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        i, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Menu::menu > (
+      ::Menu::menu_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Menu::menu >
+  menu_ (::xercesc::InputSource& i,
+         ::xercesc::DOMErrorHandler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        i, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Menu::menu > (
+      ::Menu::menu_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Menu::menu >
+  menu_ (const ::xercesc::DOMDocument& doc,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    if (f & ::xml_schema::flags::keep_dom)
+    {
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
+
+      return ::std::unique_ptr< ::Menu::menu > (
+        ::Menu::menu_ (
+          std::move (d), f | ::xml_schema::flags::own_dom, p));
+    }
+
+    const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (e));
+
+    if (n.name () == "menu" &&
+        n.namespace_ () == "Menu")
+    {
+      ::std::unique_ptr< ::Menu::menu > r (
+        ::xsd::cxx::tree::traits< ::Menu::menu, char >::create (
+          e, f, 0));
+      return r;
+    }
+
+    throw ::xsd::cxx::tree::unexpected_element < char > (
+      n.name (),
+      n.namespace_ (),
+      "menu",
+      "Menu");
+  }
+
+  ::std::unique_ptr< ::Menu::menu >
+  menu_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
          ::xml_schema::flags f,
          const ::xml_schema::properties&)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > c (
-    ((f & ::xml_schema::flags::keep_dom) &&
-     !(f & ::xml_schema::flags::own_dom))
-    ? static_cast< ::xercesc::DOMDocument* > (d->cloneNode (true))
-    : 0);
-
-  ::xercesc::DOMDocument& doc (c.get () ? *c : *d);
-  const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
-
-  const ::xsd::cxx::xml::qualified_name< char > n (
-    ::xsd::cxx::xml::dom::name< char > (e));
-
-  if (f & ::xml_schema::flags::keep_dom)
-    doc.setUserData (::xml_schema::dom::tree_node_key,
-                     (c.get () ? &c : &d),
-                     0);
-
-  if (n.name () == "button" &&
-      n.namespace_ () == "")
   {
-    ::std::unique_ptr< ::button > r (
-      ::xsd::cxx::tree::traits< ::button, char >::create (
-        e, f, 0));
-    return r;
-  }
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > c (
+      ((f & ::xml_schema::flags::keep_dom) &&
+       !(f & ::xml_schema::flags::own_dom))
+      ? static_cast< ::xercesc::DOMDocument* > (d->cloneNode (true))
+      : 0);
 
-  throw ::xsd::cxx::tree::unexpected_element < char > (
-    n.name (),
-    n.namespace_ (),
-    "button",
-    "");
+    ::xercesc::DOMDocument& doc (c.get () ? *c : *d);
+    const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
+
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (e));
+
+    if (f & ::xml_schema::flags::keep_dom)
+      doc.setUserData (::xml_schema::dom::tree_node_key,
+                       (c.get () ? &c : &d),
+                       0);
+
+    if (n.name () == "menu" &&
+        n.namespace_ () == "Menu")
+    {
+      ::std::unique_ptr< ::Menu::menu > r (
+        ::xsd::cxx::tree::traits< ::Menu::menu, char >::create (
+          e, f, 0));
+      return r;
+    }
+
+    throw ::xsd::cxx::tree::unexpected_element < char > (
+      n.name (),
+      n.namespace_ (),
+      "menu",
+      "Menu");
+  }
 }
 
 #include <xsd/cxx/post.hxx>

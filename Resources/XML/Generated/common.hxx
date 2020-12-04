@@ -226,22 +226,26 @@ namespace xml_schema
 
 // Forward declarations.
 //
-class baseResources;
-class alpha;
-class preloadResources;
-class resources;
-class events;
-class collider;
-class position;
-class size;
-class color;
-class onEnter;
-class onLeave;
-class onAttacked;
-class onDestroyed;
-class onAttack;
-class onClick;
-class size1;
+namespace Common
+{
+  class baseResources;
+  class alpha;
+  class preloadResources;
+  class resources;
+  class events;
+  class collider;
+  class position;
+  class size;
+  class color;
+  class onEnter;
+  class onLeave;
+  class onAttacked;
+  class onDestroyed;
+  class onAttack;
+  class onClick;
+  class size1;
+}
+
 
 #include <memory>    // ::std::unique_ptr
 #include <limits>    // std::numeric_limits
@@ -257,1149 +261,1152 @@ class size1;
 
 #include <xsd/cxx/xml/dom/parsing-header.hxx>
 
-class baseResources: public ::xml_schema::type
+namespace Common
 {
-  public:
-  // default
-  //
-  typedef ::xml_schema::string default_type;
-  typedef ::xsd::cxx::tree::traits< default_type, char > default_traits;
-
-  const default_type&
-  default_ () const;
-
-  default_type&
-  default_ ();
-
-  void
-  default_ (const default_type& x);
-
-  void
-  default_ (::std::unique_ptr< default_type > p);
-
-  // Constructors.
-  //
-  baseResources (const default_type&);
-
-  baseResources (const ::xercesc::DOMElement& e,
-                 ::xml_schema::flags f = 0,
-                 ::xml_schema::container* c = 0);
-
-  baseResources (const baseResources& x,
-                 ::xml_schema::flags f = 0,
-                 ::xml_schema::container* c = 0);
-
-  virtual baseResources*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  baseResources&
-  operator= (const baseResources& x);
-
-  virtual 
-  ~baseResources ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  ::xsd::cxx::tree::one< default_type > default__;
-};
-
-class alpha: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
-{
-  public:
-  // Constructors.
-  //
-  alpha (const ::xml_schema::float_&);
-
-  alpha (const ::xercesc::DOMElement& e,
-         ::xml_schema::flags f = 0,
-         ::xml_schema::container* c = 0);
-
-  alpha (const ::xercesc::DOMAttr& a,
-         ::xml_schema::flags f = 0,
-         ::xml_schema::container* c = 0);
-
-  alpha (const ::std::string& s,
-         const ::xercesc::DOMElement* e,
-         ::xml_schema::flags f = 0,
-         ::xml_schema::container* c = 0);
-
-  alpha (const alpha& x,
-         ::xml_schema::flags f = 0,
-         ::xml_schema::container* c = 0);
-
-  virtual alpha*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  virtual 
-  ~alpha ();
-};
-
-class preloadResources: public ::xml_schema::type
-{
-  public:
-  // resource
-  //
-  typedef ::xml_schema::string resource_type;
-  typedef ::xsd::cxx::tree::sequence< resource_type > resource_sequence;
-  typedef resource_sequence::iterator resource_iterator;
-  typedef resource_sequence::const_iterator resource_const_iterator;
-  typedef ::xsd::cxx::tree::traits< resource_type, char > resource_traits;
-
-  const resource_sequence&
-  resource () const;
-
-  resource_sequence&
-  resource ();
-
-  void
-  resource (const resource_sequence& s);
-
-  // Constructors.
-  //
-  preloadResources ();
-
-  preloadResources (const ::xercesc::DOMElement& e,
-                    ::xml_schema::flags f = 0,
-                    ::xml_schema::container* c = 0);
-
-  preloadResources (const preloadResources& x,
-                    ::xml_schema::flags f = 0,
-                    ::xml_schema::container* c = 0);
-
-  virtual preloadResources*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  preloadResources&
-  operator= (const preloadResources& x);
-
-  virtual 
-  ~preloadResources ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  resource_sequence resource_;
-};
-
-class resources: public ::baseResources
-{
-  public:
-  // Constructors.
-  //
-  resources (const default_type&);
-
-  resources (const ::xercesc::DOMElement& e,
-             ::xml_schema::flags f = 0,
-             ::xml_schema::container* c = 0);
-
-  resources (const resources& x,
-             ::xml_schema::flags f = 0,
-             ::xml_schema::container* c = 0);
-
-  virtual resources*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  virtual 
-  ~resources ();
-};
-
-class events: public ::xml_schema::type
-{
-  public:
-  // onEnter
-  //
-  typedef ::onEnter onEnter_type;
-  typedef ::xsd::cxx::tree::optional< onEnter_type > onEnter_optional;
-  typedef ::xsd::cxx::tree::traits< onEnter_type, char > onEnter_traits;
-
-  const onEnter_optional&
-  onEnter () const;
-
-  onEnter_optional&
-  onEnter ();
-
-  void
-  onEnter (const onEnter_type& x);
-
-  void
-  onEnter (const onEnter_optional& x);
-
-  void
-  onEnter (::std::unique_ptr< onEnter_type > p);
-
-  // onLeave
-  //
-  typedef ::onLeave onLeave_type;
-  typedef ::xsd::cxx::tree::optional< onLeave_type > onLeave_optional;
-  typedef ::xsd::cxx::tree::traits< onLeave_type, char > onLeave_traits;
-
-  const onLeave_optional&
-  onLeave () const;
-
-  onLeave_optional&
-  onLeave ();
-
-  void
-  onLeave (const onLeave_type& x);
-
-  void
-  onLeave (const onLeave_optional& x);
-
-  void
-  onLeave (::std::unique_ptr< onLeave_type > p);
-
-  // onAttacked
-  //
-  typedef ::onAttacked onAttacked_type;
-  typedef ::xsd::cxx::tree::optional< onAttacked_type > onAttacked_optional;
-  typedef ::xsd::cxx::tree::traits< onAttacked_type, char > onAttacked_traits;
-
-  const onAttacked_optional&
-  onAttacked () const;
-
-  onAttacked_optional&
-  onAttacked ();
-
-  void
-  onAttacked (const onAttacked_type& x);
-
-  void
-  onAttacked (const onAttacked_optional& x);
-
-  void
-  onAttacked (::std::unique_ptr< onAttacked_type > p);
-
-  // onDestroyed
-  //
-  typedef ::onDestroyed onDestroyed_type;
-  typedef ::xsd::cxx::tree::optional< onDestroyed_type > onDestroyed_optional;
-  typedef ::xsd::cxx::tree::traits< onDestroyed_type, char > onDestroyed_traits;
-
-  const onDestroyed_optional&
-  onDestroyed () const;
-
-  onDestroyed_optional&
-  onDestroyed ();
-
-  void
-  onDestroyed (const onDestroyed_type& x);
-
-  void
-  onDestroyed (const onDestroyed_optional& x);
-
-  void
-  onDestroyed (::std::unique_ptr< onDestroyed_type > p);
-
-  // onAttack
-  //
-  typedef ::onAttack onAttack_type;
-  typedef ::xsd::cxx::tree::optional< onAttack_type > onAttack_optional;
-  typedef ::xsd::cxx::tree::traits< onAttack_type, char > onAttack_traits;
-
-  const onAttack_optional&
-  onAttack () const;
-
-  onAttack_optional&
-  onAttack ();
-
-  void
-  onAttack (const onAttack_type& x);
-
-  void
-  onAttack (const onAttack_optional& x);
-
-  void
-  onAttack (::std::unique_ptr< onAttack_type > p);
-
-  // onClick
-  //
-  typedef ::onClick onClick_type;
-  typedef ::xsd::cxx::tree::optional< onClick_type > onClick_optional;
-  typedef ::xsd::cxx::tree::traits< onClick_type, char > onClick_traits;
-
-  const onClick_optional&
-  onClick () const;
-
-  onClick_optional&
-  onClick ();
-
-  void
-  onClick (const onClick_type& x);
-
-  void
-  onClick (const onClick_optional& x);
-
-  void
-  onClick (::std::unique_ptr< onClick_type > p);
-
-  // Constructors.
-  //
-  events ();
-
-  events (const ::xercesc::DOMElement& e,
-          ::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0);
-
-  events (const events& x,
-          ::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0);
-
-  virtual events*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  events&
-  operator= (const events& x);
-
-  virtual 
-  ~events ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  onEnter_optional onEnter_;
-  onLeave_optional onLeave_;
-  onAttacked_optional onAttacked_;
-  onDestroyed_optional onDestroyed_;
-  onAttack_optional onAttack_;
-  onClick_optional onClick_;
-};
-
-class collider: public ::xml_schema::type
-{
-  public:
-  // size
-  //
-  typedef ::size1 size_type;
-  typedef ::xsd::cxx::tree::traits< size_type, char > size_traits;
-
-  const size_type&
-  size () const;
-
-  size_type&
-  size ();
-
-  void
-  size (const size_type& x);
-
-  void
-  size (::std::unique_ptr< size_type > p);
-
-  // hasCollision
-  //
-  typedef ::xml_schema::boolean hasCollision_type;
-  typedef ::xsd::cxx::tree::traits< hasCollision_type, char > hasCollision_traits;
-
-  const hasCollision_type&
-  hasCollision () const;
-
-  hasCollision_type&
-  hasCollision ();
-
-  void
-  hasCollision (const hasCollision_type& x);
-
-  // Constructors.
-  //
-  collider (const size_type&,
-            const hasCollision_type&);
-
-  collider (::std::unique_ptr< size_type >,
-            const hasCollision_type&);
-
-  collider (const ::xercesc::DOMElement& e,
-            ::xml_schema::flags f = 0,
-            ::xml_schema::container* c = 0);
-
-  collider (const collider& x,
-            ::xml_schema::flags f = 0,
-            ::xml_schema::container* c = 0);
-
-  virtual collider*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  collider&
-  operator= (const collider& x);
-
-  virtual 
-  ~collider ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  ::xsd::cxx::tree::one< size_type > size_;
-  ::xsd::cxx::tree::one< hasCollision_type > hasCollision_;
-};
-
-class position: public ::xml_schema::type
-{
-  public:
-  // x
-  //
-  typedef ::xml_schema::integer x_type;
-  typedef ::xsd::cxx::tree::traits< x_type, char > x_traits;
-
-  const x_type&
-  x () const;
-
-  x_type&
-  x ();
-
-  void
-  x (const x_type& x);
-
-  // y
-  //
-  typedef ::xml_schema::integer y_type;
-  typedef ::xsd::cxx::tree::traits< y_type, char > y_traits;
-
-  const y_type&
-  y () const;
-
-  y_type&
-  y ();
-
-  void
-  y (const y_type& x);
-
-  // Constructors.
-  //
-  position (const x_type&,
-            const y_type&);
-
-  position (const ::xercesc::DOMElement& e,
-            ::xml_schema::flags f = 0,
-            ::xml_schema::container* c = 0);
-
-  position (const position& x,
-            ::xml_schema::flags f = 0,
-            ::xml_schema::container* c = 0);
-
-  virtual position*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  position&
-  operator= (const position& x);
-
-  virtual 
-  ~position ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  ::xsd::cxx::tree::one< x_type > x_;
-  ::xsd::cxx::tree::one< y_type > y_;
-};
-
-class size: public ::xml_schema::type
-{
-  public:
-  // width
-  //
-  typedef ::xml_schema::integer width_type;
-  typedef ::xsd::cxx::tree::traits< width_type, char > width_traits;
-
-  const width_type&
-  width () const;
-
-  width_type&
-  width ();
-
-  void
-  width (const width_type& x);
-
-  // height
-  //
-  typedef ::xml_schema::integer height_type;
-  typedef ::xsd::cxx::tree::traits< height_type, char > height_traits;
-
-  const height_type&
-  height () const;
-
-  height_type&
-  height ();
-
-  void
-  height (const height_type& x);
-
-  // Constructors.
-  //
-  size (const width_type&,
-        const height_type&);
-
-  size (const ::xercesc::DOMElement& e,
-        ::xml_schema::flags f = 0,
-        ::xml_schema::container* c = 0);
-
-  size (const size& x,
-        ::xml_schema::flags f = 0,
-        ::xml_schema::container* c = 0);
-
-  virtual size*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  size&
-  operator= (const size& x);
-
-  virtual 
-  ~size ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  ::xsd::cxx::tree::one< width_type > width_;
-  ::xsd::cxx::tree::one< height_type > height_;
-};
-
-class color: public ::xml_schema::type
-{
-  public:
-  // hex
-  //
-  typedef ::xml_schema::string hex_type;
-  typedef ::xsd::cxx::tree::traits< hex_type, char > hex_traits;
-
-  const hex_type&
-  hex () const;
-
-  hex_type&
-  hex ();
-
-  void
-  hex (const hex_type& x);
-
-  void
-  hex (::std::unique_ptr< hex_type > p);
-
-  // alpha
-  //
-  typedef ::alpha alpha_type;
-  typedef ::xsd::cxx::tree::traits< alpha_type, char > alpha_traits;
-
-  const alpha_type&
-  alpha () const;
-
-  alpha_type&
-  alpha ();
-
-  void
-  alpha (const alpha_type& x);
-
-  void
-  alpha (::std::unique_ptr< alpha_type > p);
-
-  // Constructors.
-  //
-  color (const hex_type&,
-         const alpha_type&);
-
-  color (const ::xercesc::DOMElement& e,
-         ::xml_schema::flags f = 0,
-         ::xml_schema::container* c = 0);
-
-  color (const color& x,
-         ::xml_schema::flags f = 0,
-         ::xml_schema::container* c = 0);
-
-  virtual color*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  color&
-  operator= (const color& x);
-
-  virtual 
-  ~color ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  ::xsd::cxx::tree::one< hex_type > hex_;
-  ::xsd::cxx::tree::one< alpha_type > alpha_;
-};
-
-class onEnter: public ::xml_schema::type
-{
-  public:
-  // playSound
-  //
-  typedef ::xml_schema::uri playSound_type;
-  typedef ::xsd::cxx::tree::optional< playSound_type > playSound_optional;
-  typedef ::xsd::cxx::tree::traits< playSound_type, char > playSound_traits;
-
-  const playSound_optional&
-  playSound () const;
-
-  playSound_optional&
-  playSound ();
-
-  void
-  playSound (const playSound_type& x);
-
-  void
-  playSound (const playSound_optional& x);
-
-  void
-  playSound (::std::unique_ptr< playSound_type > p);
-
-  // loadAction
-  //
-  typedef ::xml_schema::uri loadAction_type;
-  typedef ::xsd::cxx::tree::optional< loadAction_type > loadAction_optional;
-  typedef ::xsd::cxx::tree::traits< loadAction_type, char > loadAction_traits;
-
-  const loadAction_optional&
-  loadAction () const;
-
-  loadAction_optional&
-  loadAction ();
-
-  void
-  loadAction (const loadAction_type& x);
-
-  void
-  loadAction (const loadAction_optional& x);
-
-  void
-  loadAction (::std::unique_ptr< loadAction_type > p);
-
-  // Constructors.
-  //
-  onEnter ();
-
-  onEnter (const ::xercesc::DOMElement& e,
+  class baseResources: public ::xml_schema::type
+  {
+    public:
+    // default
+    //
+    typedef ::xml_schema::string default_type;
+    typedef ::xsd::cxx::tree::traits< default_type, char > default_traits;
+
+    const default_type&
+    default_ () const;
+
+    default_type&
+    default_ ();
+
+    void
+    default_ (const default_type& x);
+
+    void
+    default_ (::std::unique_ptr< default_type > p);
+
+    // Constructors.
+    //
+    baseResources (const default_type&);
+
+    baseResources (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+    baseResources (const baseResources& x,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+    virtual baseResources*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    baseResources&
+    operator= (const baseResources& x);
+
+    virtual 
+    ~baseResources ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< default_type > default__;
+  };
+
+  class alpha: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
+  {
+    public:
+    // Constructors.
+    //
+    alpha (const ::xml_schema::float_&);
+
+    alpha (const ::xercesc::DOMElement& e,
            ::xml_schema::flags f = 0,
            ::xml_schema::container* c = 0);
 
-  onEnter (const onEnter& x,
+    alpha (const ::xercesc::DOMAttr& a,
            ::xml_schema::flags f = 0,
            ::xml_schema::container* c = 0);
 
-  virtual onEnter*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  onEnter&
-  operator= (const onEnter& x);
-
-  virtual 
-  ~onEnter ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  playSound_optional playSound_;
-  loadAction_optional loadAction_;
-};
-
-class onLeave: public ::xml_schema::type
-{
-  public:
-  // playSound
-  //
-  typedef ::xml_schema::uri playSound_type;
-  typedef ::xsd::cxx::tree::optional< playSound_type > playSound_optional;
-  typedef ::xsd::cxx::tree::traits< playSound_type, char > playSound_traits;
-
-  const playSound_optional&
-  playSound () const;
-
-  playSound_optional&
-  playSound ();
-
-  void
-  playSound (const playSound_type& x);
-
-  void
-  playSound (const playSound_optional& x);
-
-  void
-  playSound (::std::unique_ptr< playSound_type > p);
-
-  // loadAction
-  //
-  typedef ::xml_schema::uri loadAction_type;
-  typedef ::xsd::cxx::tree::optional< loadAction_type > loadAction_optional;
-  typedef ::xsd::cxx::tree::traits< loadAction_type, char > loadAction_traits;
-
-  const loadAction_optional&
-  loadAction () const;
-
-  loadAction_optional&
-  loadAction ();
-
-  void
-  loadAction (const loadAction_type& x);
-
-  void
-  loadAction (const loadAction_optional& x);
-
-  void
-  loadAction (::std::unique_ptr< loadAction_type > p);
-
-  // Constructors.
-  //
-  onLeave ();
-
-  onLeave (const ::xercesc::DOMElement& e,
+    alpha (const ::std::string& s,
+           const ::xercesc::DOMElement* e,
            ::xml_schema::flags f = 0,
            ::xml_schema::container* c = 0);
 
-  onLeave (const onLeave& x,
+    alpha (const alpha& x,
            ::xml_schema::flags f = 0,
            ::xml_schema::container* c = 0);
 
-  virtual onLeave*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
+    virtual alpha*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
 
-  onLeave&
-  operator= (const onLeave& x);
+    virtual 
+    ~alpha ();
+  };
 
-  virtual 
-  ~onLeave ();
+  class preloadResources: public ::xml_schema::type
+  {
+    public:
+    // resource
+    //
+    typedef ::xml_schema::string resource_type;
+    typedef ::xsd::cxx::tree::sequence< resource_type > resource_sequence;
+    typedef resource_sequence::iterator resource_iterator;
+    typedef resource_sequence::const_iterator resource_const_iterator;
+    typedef ::xsd::cxx::tree::traits< resource_type, char > resource_traits;
 
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
+    const resource_sequence&
+    resource () const;
 
-  protected:
-  playSound_optional playSound_;
-  loadAction_optional loadAction_;
-};
+    resource_sequence&
+    resource ();
 
-class onAttacked: public ::xml_schema::type
-{
-  public:
-  // playSound
-  //
-  typedef ::xml_schema::uri playSound_type;
-  typedef ::xsd::cxx::tree::optional< playSound_type > playSound_optional;
-  typedef ::xsd::cxx::tree::traits< playSound_type, char > playSound_traits;
+    void
+    resource (const resource_sequence& s);
 
-  const playSound_optional&
-  playSound () const;
+    // Constructors.
+    //
+    preloadResources ();
 
-  playSound_optional&
-  playSound ();
+    preloadResources (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
 
-  void
-  playSound (const playSound_type& x);
+    preloadResources (const preloadResources& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
 
-  void
-  playSound (const playSound_optional& x);
+    virtual preloadResources*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
 
-  void
-  playSound (::std::unique_ptr< playSound_type > p);
+    preloadResources&
+    operator= (const preloadResources& x);
 
-  // loadAction
-  //
-  typedef ::xml_schema::uri loadAction_type;
-  typedef ::xsd::cxx::tree::optional< loadAction_type > loadAction_optional;
-  typedef ::xsd::cxx::tree::traits< loadAction_type, char > loadAction_traits;
+    virtual 
+    ~preloadResources ();
 
-  const loadAction_optional&
-  loadAction () const;
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
 
-  loadAction_optional&
-  loadAction ();
+    protected:
+    resource_sequence resource_;
+  };
 
-  void
-  loadAction (const loadAction_type& x);
+  class resources: public ::Common::baseResources
+  {
+    public:
+    // Constructors.
+    //
+    resources (const default_type&);
 
-  void
-  loadAction (const loadAction_optional& x);
-
-  void
-  loadAction (::std::unique_ptr< loadAction_type > p);
-
-  // Constructors.
-  //
-  onAttacked ();
-
-  onAttacked (const ::xercesc::DOMElement& e,
-              ::xml_schema::flags f = 0,
-              ::xml_schema::container* c = 0);
-
-  onAttacked (const onAttacked& x,
-              ::xml_schema::flags f = 0,
-              ::xml_schema::container* c = 0);
-
-  virtual onAttacked*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  onAttacked&
-  operator= (const onAttacked& x);
-
-  virtual 
-  ~onAttacked ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  playSound_optional playSound_;
-  loadAction_optional loadAction_;
-};
-
-class onDestroyed: public ::xml_schema::type
-{
-  public:
-  // playSound
-  //
-  typedef ::xml_schema::uri playSound_type;
-  typedef ::xsd::cxx::tree::optional< playSound_type > playSound_optional;
-  typedef ::xsd::cxx::tree::traits< playSound_type, char > playSound_traits;
-
-  const playSound_optional&
-  playSound () const;
-
-  playSound_optional&
-  playSound ();
-
-  void
-  playSound (const playSound_type& x);
-
-  void
-  playSound (const playSound_optional& x);
-
-  void
-  playSound (::std::unique_ptr< playSound_type > p);
-
-  // loadAction
-  //
-  typedef ::xml_schema::uri loadAction_type;
-  typedef ::xsd::cxx::tree::optional< loadAction_type > loadAction_optional;
-  typedef ::xsd::cxx::tree::traits< loadAction_type, char > loadAction_traits;
-
-  const loadAction_optional&
-  loadAction () const;
-
-  loadAction_optional&
-  loadAction ();
-
-  void
-  loadAction (const loadAction_type& x);
-
-  void
-  loadAction (const loadAction_optional& x);
-
-  void
-  loadAction (::std::unique_ptr< loadAction_type > p);
-
-  // Constructors.
-  //
-  onDestroyed ();
-
-  onDestroyed (const ::xercesc::DOMElement& e,
+    resources (const ::xercesc::DOMElement& e,
                ::xml_schema::flags f = 0,
                ::xml_schema::container* c = 0);
 
-  onDestroyed (const onDestroyed& x,
+    resources (const resources& x,
                ::xml_schema::flags f = 0,
                ::xml_schema::container* c = 0);
 
-  virtual onDestroyed*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
+    virtual resources*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
 
-  onDestroyed&
-  operator= (const onDestroyed& x);
+    virtual 
+    ~resources ();
+  };
 
-  virtual 
-  ~onDestroyed ();
+  class events: public ::xml_schema::type
+  {
+    public:
+    // onEnter
+    //
+    typedef ::Common::onEnter onEnter_type;
+    typedef ::xsd::cxx::tree::optional< onEnter_type > onEnter_optional;
+    typedef ::xsd::cxx::tree::traits< onEnter_type, char > onEnter_traits;
 
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
+    const onEnter_optional&
+    onEnter () const;
 
-  protected:
-  playSound_optional playSound_;
-  loadAction_optional loadAction_;
-};
+    onEnter_optional&
+    onEnter ();
 
-class onAttack: public ::xml_schema::type
-{
-  public:
-  // playSound
-  //
-  typedef ::xml_schema::uri playSound_type;
-  typedef ::xsd::cxx::tree::optional< playSound_type > playSound_optional;
-  typedef ::xsd::cxx::tree::traits< playSound_type, char > playSound_traits;
+    void
+    onEnter (const onEnter_type& x);
 
-  const playSound_optional&
-  playSound () const;
+    void
+    onEnter (const onEnter_optional& x);
 
-  playSound_optional&
-  playSound ();
+    void
+    onEnter (::std::unique_ptr< onEnter_type > p);
 
-  void
-  playSound (const playSound_type& x);
+    // onLeave
+    //
+    typedef ::Common::onLeave onLeave_type;
+    typedef ::xsd::cxx::tree::optional< onLeave_type > onLeave_optional;
+    typedef ::xsd::cxx::tree::traits< onLeave_type, char > onLeave_traits;
 
-  void
-  playSound (const playSound_optional& x);
+    const onLeave_optional&
+    onLeave () const;
 
-  void
-  playSound (::std::unique_ptr< playSound_type > p);
+    onLeave_optional&
+    onLeave ();
 
-  // loadAction
-  //
-  typedef ::xml_schema::uri loadAction_type;
-  typedef ::xsd::cxx::tree::optional< loadAction_type > loadAction_optional;
-  typedef ::xsd::cxx::tree::traits< loadAction_type, char > loadAction_traits;
+    void
+    onLeave (const onLeave_type& x);
 
-  const loadAction_optional&
-  loadAction () const;
+    void
+    onLeave (const onLeave_optional& x);
 
-  loadAction_optional&
-  loadAction ();
+    void
+    onLeave (::std::unique_ptr< onLeave_type > p);
 
-  void
-  loadAction (const loadAction_type& x);
+    // onAttacked
+    //
+    typedef ::Common::onAttacked onAttacked_type;
+    typedef ::xsd::cxx::tree::optional< onAttacked_type > onAttacked_optional;
+    typedef ::xsd::cxx::tree::traits< onAttacked_type, char > onAttacked_traits;
 
-  void
-  loadAction (const loadAction_optional& x);
+    const onAttacked_optional&
+    onAttacked () const;
 
-  void
-  loadAction (::std::unique_ptr< loadAction_type > p);
+    onAttacked_optional&
+    onAttacked ();
 
-  // Constructors.
-  //
-  onAttack ();
+    void
+    onAttacked (const onAttacked_type& x);
 
-  onAttack (const ::xercesc::DOMElement& e,
+    void
+    onAttacked (const onAttacked_optional& x);
+
+    void
+    onAttacked (::std::unique_ptr< onAttacked_type > p);
+
+    // onDestroyed
+    //
+    typedef ::Common::onDestroyed onDestroyed_type;
+    typedef ::xsd::cxx::tree::optional< onDestroyed_type > onDestroyed_optional;
+    typedef ::xsd::cxx::tree::traits< onDestroyed_type, char > onDestroyed_traits;
+
+    const onDestroyed_optional&
+    onDestroyed () const;
+
+    onDestroyed_optional&
+    onDestroyed ();
+
+    void
+    onDestroyed (const onDestroyed_type& x);
+
+    void
+    onDestroyed (const onDestroyed_optional& x);
+
+    void
+    onDestroyed (::std::unique_ptr< onDestroyed_type > p);
+
+    // onAttack
+    //
+    typedef ::Common::onAttack onAttack_type;
+    typedef ::xsd::cxx::tree::optional< onAttack_type > onAttack_optional;
+    typedef ::xsd::cxx::tree::traits< onAttack_type, char > onAttack_traits;
+
+    const onAttack_optional&
+    onAttack () const;
+
+    onAttack_optional&
+    onAttack ();
+
+    void
+    onAttack (const onAttack_type& x);
+
+    void
+    onAttack (const onAttack_optional& x);
+
+    void
+    onAttack (::std::unique_ptr< onAttack_type > p);
+
+    // onClick
+    //
+    typedef ::Common::onClick onClick_type;
+    typedef ::xsd::cxx::tree::optional< onClick_type > onClick_optional;
+    typedef ::xsd::cxx::tree::traits< onClick_type, char > onClick_traits;
+
+    const onClick_optional&
+    onClick () const;
+
+    onClick_optional&
+    onClick ();
+
+    void
+    onClick (const onClick_type& x);
+
+    void
+    onClick (const onClick_optional& x);
+
+    void
+    onClick (::std::unique_ptr< onClick_type > p);
+
+    // Constructors.
+    //
+    events ();
+
+    events (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0);
 
-  onAttack (const onAttack& x,
+    events (const events& x,
             ::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0);
 
-  virtual onAttack*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
+    virtual events*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
 
-  onAttack&
-  operator= (const onAttack& x);
+    events&
+    operator= (const events& x);
 
-  virtual 
-  ~onAttack ();
+    virtual 
+    ~events ();
 
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
 
-  protected:
-  playSound_optional playSound_;
-  loadAction_optional loadAction_;
-};
+    protected:
+    onEnter_optional onEnter_;
+    onLeave_optional onLeave_;
+    onAttacked_optional onAttacked_;
+    onDestroyed_optional onDestroyed_;
+    onAttack_optional onAttack_;
+    onClick_optional onClick_;
+  };
 
-class onClick: public ::xml_schema::type
-{
-  public:
-  // playSound
-  //
-  typedef ::xml_schema::uri playSound_type;
-  typedef ::xsd::cxx::tree::optional< playSound_type > playSound_optional;
-  typedef ::xsd::cxx::tree::traits< playSound_type, char > playSound_traits;
+  class collider: public ::xml_schema::type
+  {
+    public:
+    // size
+    //
+    typedef ::Common::size1 size_type;
+    typedef ::xsd::cxx::tree::traits< size_type, char > size_traits;
 
-  const playSound_optional&
-  playSound () const;
+    const size_type&
+    size () const;
 
-  playSound_optional&
-  playSound ();
+    size_type&
+    size ();
 
-  void
-  playSound (const playSound_type& x);
+    void
+    size (const size_type& x);
 
-  void
-  playSound (const playSound_optional& x);
+    void
+    size (::std::unique_ptr< size_type > p);
 
-  void
-  playSound (::std::unique_ptr< playSound_type > p);
+    // hasCollision
+    //
+    typedef ::xml_schema::boolean hasCollision_type;
+    typedef ::xsd::cxx::tree::traits< hasCollision_type, char > hasCollision_traits;
 
-  // loadScene
-  //
-  typedef ::xml_schema::uri loadScene_type;
-  typedef ::xsd::cxx::tree::optional< loadScene_type > loadScene_optional;
-  typedef ::xsd::cxx::tree::traits< loadScene_type, char > loadScene_traits;
+    const hasCollision_type&
+    hasCollision () const;
 
-  const loadScene_optional&
-  loadScene () const;
+    hasCollision_type&
+    hasCollision ();
 
-  loadScene_optional&
-  loadScene ();
+    void
+    hasCollision (const hasCollision_type& x);
 
-  void
-  loadScene (const loadScene_type& x);
+    // Constructors.
+    //
+    collider (const size_type&,
+              const hasCollision_type&);
 
-  void
-  loadScene (const loadScene_optional& x);
+    collider (::std::unique_ptr< size_type >,
+              const hasCollision_type&);
 
-  void
-  loadScene (::std::unique_ptr< loadScene_type > p);
+    collider (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
 
-  // Constructors.
-  //
-  onClick ();
+    collider (const collider& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
 
-  onClick (const ::xercesc::DOMElement& e,
+    virtual collider*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    collider&
+    operator= (const collider& x);
+
+    virtual 
+    ~collider ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< size_type > size_;
+    ::xsd::cxx::tree::one< hasCollision_type > hasCollision_;
+  };
+
+  class position: public ::xml_schema::type
+  {
+    public:
+    // x
+    //
+    typedef ::xml_schema::integer x_type;
+    typedef ::xsd::cxx::tree::traits< x_type, char > x_traits;
+
+    const x_type&
+    x () const;
+
+    x_type&
+    x ();
+
+    void
+    x (const x_type& x);
+
+    // y
+    //
+    typedef ::xml_schema::integer y_type;
+    typedef ::xsd::cxx::tree::traits< y_type, char > y_traits;
+
+    const y_type&
+    y () const;
+
+    y_type&
+    y ();
+
+    void
+    y (const y_type& x);
+
+    // Constructors.
+    //
+    position (const x_type&,
+              const y_type&);
+
+    position (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+    position (const position& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+    virtual position*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    position&
+    operator= (const position& x);
+
+    virtual 
+    ~position ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< x_type > x_;
+    ::xsd::cxx::tree::one< y_type > y_;
+  };
+
+  class size: public ::xml_schema::type
+  {
+    public:
+    // width
+    //
+    typedef ::xml_schema::integer width_type;
+    typedef ::xsd::cxx::tree::traits< width_type, char > width_traits;
+
+    const width_type&
+    width () const;
+
+    width_type&
+    width ();
+
+    void
+    width (const width_type& x);
+
+    // height
+    //
+    typedef ::xml_schema::integer height_type;
+    typedef ::xsd::cxx::tree::traits< height_type, char > height_traits;
+
+    const height_type&
+    height () const;
+
+    height_type&
+    height ();
+
+    void
+    height (const height_type& x);
+
+    // Constructors.
+    //
+    size (const width_type&,
+          const height_type&);
+
+    size (const ::xercesc::DOMElement& e,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+    size (const size& x,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+    virtual size*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    size&
+    operator= (const size& x);
+
+    virtual 
+    ~size ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< width_type > width_;
+    ::xsd::cxx::tree::one< height_type > height_;
+  };
+
+  class color: public ::xml_schema::type
+  {
+    public:
+    // hex
+    //
+    typedef ::xml_schema::string hex_type;
+    typedef ::xsd::cxx::tree::traits< hex_type, char > hex_traits;
+
+    const hex_type&
+    hex () const;
+
+    hex_type&
+    hex ();
+
+    void
+    hex (const hex_type& x);
+
+    void
+    hex (::std::unique_ptr< hex_type > p);
+
+    // alpha
+    //
+    typedef ::Common::alpha alpha_type;
+    typedef ::xsd::cxx::tree::traits< alpha_type, char > alpha_traits;
+
+    const alpha_type&
+    alpha () const;
+
+    alpha_type&
+    alpha ();
+
+    void
+    alpha (const alpha_type& x);
+
+    void
+    alpha (::std::unique_ptr< alpha_type > p);
+
+    // Constructors.
+    //
+    color (const hex_type&,
+           const alpha_type&);
+
+    color (const ::xercesc::DOMElement& e,
            ::xml_schema::flags f = 0,
            ::xml_schema::container* c = 0);
 
-  onClick (const onClick& x,
+    color (const color& x,
            ::xml_schema::flags f = 0,
            ::xml_schema::container* c = 0);
 
-  virtual onClick*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
+    virtual color*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
 
-  onClick&
-  operator= (const onClick& x);
+    color&
+    operator= (const color& x);
 
-  virtual 
-  ~onClick ();
+    virtual 
+    ~color ();
 
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
 
-  protected:
-  playSound_optional playSound_;
-  loadScene_optional loadScene_;
-};
+    protected:
+    ::xsd::cxx::tree::one< hex_type > hex_;
+    ::xsd::cxx::tree::one< alpha_type > alpha_;
+  };
 
-class size1: public ::xml_schema::type
-{
-  public:
-  // width
-  //
-  typedef ::xml_schema::int_ width_type;
-  typedef ::xsd::cxx::tree::traits< width_type, char > width_traits;
+  class onEnter: public ::xml_schema::type
+  {
+    public:
+    // playSound
+    //
+    typedef ::xml_schema::uri playSound_type;
+    typedef ::xsd::cxx::tree::optional< playSound_type > playSound_optional;
+    typedef ::xsd::cxx::tree::traits< playSound_type, char > playSound_traits;
 
-  const width_type&
-  width () const;
+    const playSound_optional&
+    playSound () const;
 
-  width_type&
-  width ();
+    playSound_optional&
+    playSound ();
 
-  void
-  width (const width_type& x);
+    void
+    playSound (const playSound_type& x);
 
-  // height
-  //
-  typedef ::xml_schema::int_ height_type;
-  typedef ::xsd::cxx::tree::traits< height_type, char > height_traits;
+    void
+    playSound (const playSound_optional& x);
 
-  const height_type&
-  height () const;
+    void
+    playSound (::std::unique_ptr< playSound_type > p);
 
-  height_type&
-  height ();
+    // loadAction
+    //
+    typedef ::xml_schema::uri loadAction_type;
+    typedef ::xsd::cxx::tree::optional< loadAction_type > loadAction_optional;
+    typedef ::xsd::cxx::tree::traits< loadAction_type, char > loadAction_traits;
 
-  void
-  height (const height_type& x);
+    const loadAction_optional&
+    loadAction () const;
 
-  // Constructors.
-  //
-  size1 (const width_type&,
-         const height_type&);
+    loadAction_optional&
+    loadAction ();
 
-  size1 (const ::xercesc::DOMElement& e,
-         ::xml_schema::flags f = 0,
-         ::xml_schema::container* c = 0);
+    void
+    loadAction (const loadAction_type& x);
 
-  size1 (const size1& x,
-         ::xml_schema::flags f = 0,
-         ::xml_schema::container* c = 0);
+    void
+    loadAction (const loadAction_optional& x);
 
-  virtual size1*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
+    void
+    loadAction (::std::unique_ptr< loadAction_type > p);
 
-  size1&
-  operator= (const size1& x);
+    // Constructors.
+    //
+    onEnter ();
 
-  virtual 
-  ~size1 ();
+    onEnter (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
 
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
+    onEnter (const onEnter& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
 
-  protected:
-  ::xsd::cxx::tree::one< width_type > width_;
-  ::xsd::cxx::tree::one< height_type > height_;
-};
+    virtual onEnter*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    onEnter&
+    operator= (const onEnter& x);
+
+    virtual 
+    ~onEnter ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    playSound_optional playSound_;
+    loadAction_optional loadAction_;
+  };
+
+  class onLeave: public ::xml_schema::type
+  {
+    public:
+    // playSound
+    //
+    typedef ::xml_schema::uri playSound_type;
+    typedef ::xsd::cxx::tree::optional< playSound_type > playSound_optional;
+    typedef ::xsd::cxx::tree::traits< playSound_type, char > playSound_traits;
+
+    const playSound_optional&
+    playSound () const;
+
+    playSound_optional&
+    playSound ();
+
+    void
+    playSound (const playSound_type& x);
+
+    void
+    playSound (const playSound_optional& x);
+
+    void
+    playSound (::std::unique_ptr< playSound_type > p);
+
+    // loadAction
+    //
+    typedef ::xml_schema::uri loadAction_type;
+    typedef ::xsd::cxx::tree::optional< loadAction_type > loadAction_optional;
+    typedef ::xsd::cxx::tree::traits< loadAction_type, char > loadAction_traits;
+
+    const loadAction_optional&
+    loadAction () const;
+
+    loadAction_optional&
+    loadAction ();
+
+    void
+    loadAction (const loadAction_type& x);
+
+    void
+    loadAction (const loadAction_optional& x);
+
+    void
+    loadAction (::std::unique_ptr< loadAction_type > p);
+
+    // Constructors.
+    //
+    onLeave ();
+
+    onLeave (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+    onLeave (const onLeave& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+    virtual onLeave*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    onLeave&
+    operator= (const onLeave& x);
+
+    virtual 
+    ~onLeave ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    playSound_optional playSound_;
+    loadAction_optional loadAction_;
+  };
+
+  class onAttacked: public ::xml_schema::type
+  {
+    public:
+    // playSound
+    //
+    typedef ::xml_schema::uri playSound_type;
+    typedef ::xsd::cxx::tree::optional< playSound_type > playSound_optional;
+    typedef ::xsd::cxx::tree::traits< playSound_type, char > playSound_traits;
+
+    const playSound_optional&
+    playSound () const;
+
+    playSound_optional&
+    playSound ();
+
+    void
+    playSound (const playSound_type& x);
+
+    void
+    playSound (const playSound_optional& x);
+
+    void
+    playSound (::std::unique_ptr< playSound_type > p);
+
+    // loadAction
+    //
+    typedef ::xml_schema::uri loadAction_type;
+    typedef ::xsd::cxx::tree::optional< loadAction_type > loadAction_optional;
+    typedef ::xsd::cxx::tree::traits< loadAction_type, char > loadAction_traits;
+
+    const loadAction_optional&
+    loadAction () const;
+
+    loadAction_optional&
+    loadAction ();
+
+    void
+    loadAction (const loadAction_type& x);
+
+    void
+    loadAction (const loadAction_optional& x);
+
+    void
+    loadAction (::std::unique_ptr< loadAction_type > p);
+
+    // Constructors.
+    //
+    onAttacked ();
+
+    onAttacked (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+    onAttacked (const onAttacked& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+    virtual onAttacked*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    onAttacked&
+    operator= (const onAttacked& x);
+
+    virtual 
+    ~onAttacked ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    playSound_optional playSound_;
+    loadAction_optional loadAction_;
+  };
+
+  class onDestroyed: public ::xml_schema::type
+  {
+    public:
+    // playSound
+    //
+    typedef ::xml_schema::uri playSound_type;
+    typedef ::xsd::cxx::tree::optional< playSound_type > playSound_optional;
+    typedef ::xsd::cxx::tree::traits< playSound_type, char > playSound_traits;
+
+    const playSound_optional&
+    playSound () const;
+
+    playSound_optional&
+    playSound ();
+
+    void
+    playSound (const playSound_type& x);
+
+    void
+    playSound (const playSound_optional& x);
+
+    void
+    playSound (::std::unique_ptr< playSound_type > p);
+
+    // loadAction
+    //
+    typedef ::xml_schema::uri loadAction_type;
+    typedef ::xsd::cxx::tree::optional< loadAction_type > loadAction_optional;
+    typedef ::xsd::cxx::tree::traits< loadAction_type, char > loadAction_traits;
+
+    const loadAction_optional&
+    loadAction () const;
+
+    loadAction_optional&
+    loadAction ();
+
+    void
+    loadAction (const loadAction_type& x);
+
+    void
+    loadAction (const loadAction_optional& x);
+
+    void
+    loadAction (::std::unique_ptr< loadAction_type > p);
+
+    // Constructors.
+    //
+    onDestroyed ();
+
+    onDestroyed (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+    onDestroyed (const onDestroyed& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+    virtual onDestroyed*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    onDestroyed&
+    operator= (const onDestroyed& x);
+
+    virtual 
+    ~onDestroyed ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    playSound_optional playSound_;
+    loadAction_optional loadAction_;
+  };
+
+  class onAttack: public ::xml_schema::type
+  {
+    public:
+    // playSound
+    //
+    typedef ::xml_schema::uri playSound_type;
+    typedef ::xsd::cxx::tree::optional< playSound_type > playSound_optional;
+    typedef ::xsd::cxx::tree::traits< playSound_type, char > playSound_traits;
+
+    const playSound_optional&
+    playSound () const;
+
+    playSound_optional&
+    playSound ();
+
+    void
+    playSound (const playSound_type& x);
+
+    void
+    playSound (const playSound_optional& x);
+
+    void
+    playSound (::std::unique_ptr< playSound_type > p);
+
+    // loadAction
+    //
+    typedef ::xml_schema::uri loadAction_type;
+    typedef ::xsd::cxx::tree::optional< loadAction_type > loadAction_optional;
+    typedef ::xsd::cxx::tree::traits< loadAction_type, char > loadAction_traits;
+
+    const loadAction_optional&
+    loadAction () const;
+
+    loadAction_optional&
+    loadAction ();
+
+    void
+    loadAction (const loadAction_type& x);
+
+    void
+    loadAction (const loadAction_optional& x);
+
+    void
+    loadAction (::std::unique_ptr< loadAction_type > p);
+
+    // Constructors.
+    //
+    onAttack ();
+
+    onAttack (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+    onAttack (const onAttack& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+    virtual onAttack*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    onAttack&
+    operator= (const onAttack& x);
+
+    virtual 
+    ~onAttack ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    playSound_optional playSound_;
+    loadAction_optional loadAction_;
+  };
+
+  class onClick: public ::xml_schema::type
+  {
+    public:
+    // playSound
+    //
+    typedef ::xml_schema::uri playSound_type;
+    typedef ::xsd::cxx::tree::optional< playSound_type > playSound_optional;
+    typedef ::xsd::cxx::tree::traits< playSound_type, char > playSound_traits;
+
+    const playSound_optional&
+    playSound () const;
+
+    playSound_optional&
+    playSound ();
+
+    void
+    playSound (const playSound_type& x);
+
+    void
+    playSound (const playSound_optional& x);
+
+    void
+    playSound (::std::unique_ptr< playSound_type > p);
+
+    // loadScene
+    //
+    typedef ::xml_schema::uri loadScene_type;
+    typedef ::xsd::cxx::tree::optional< loadScene_type > loadScene_optional;
+    typedef ::xsd::cxx::tree::traits< loadScene_type, char > loadScene_traits;
+
+    const loadScene_optional&
+    loadScene () const;
+
+    loadScene_optional&
+    loadScene ();
+
+    void
+    loadScene (const loadScene_type& x);
+
+    void
+    loadScene (const loadScene_optional& x);
+
+    void
+    loadScene (::std::unique_ptr< loadScene_type > p);
+
+    // Constructors.
+    //
+    onClick ();
+
+    onClick (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+    onClick (const onClick& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+    virtual onClick*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    onClick&
+    operator= (const onClick& x);
+
+    virtual 
+    ~onClick ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    playSound_optional playSound_;
+    loadScene_optional loadScene_;
+  };
+
+  class size1: public ::xml_schema::type
+  {
+    public:
+    // width
+    //
+    typedef ::xml_schema::int_ width_type;
+    typedef ::xsd::cxx::tree::traits< width_type, char > width_traits;
+
+    const width_type&
+    width () const;
+
+    width_type&
+    width ();
+
+    void
+    width (const width_type& x);
+
+    // height
+    //
+    typedef ::xml_schema::int_ height_type;
+    typedef ::xsd::cxx::tree::traits< height_type, char > height_traits;
+
+    const height_type&
+    height () const;
+
+    height_type&
+    height ();
+
+    void
+    height (const height_type& x);
+
+    // Constructors.
+    //
+    size1 (const width_type&,
+           const height_type&);
+
+    size1 (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+    size1 (const size1& x,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+    virtual size1*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    size1&
+    operator= (const size1& x);
+
+    virtual 
+    ~size1 ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< width_type > width_;
+    ::xsd::cxx::tree::one< height_type > height_;
+  };
+}
 
 #include <iosfwd>
 
@@ -1407,656 +1414,659 @@ class size1: public ::xml_schema::type
 #include <xercesc/dom/DOMDocument.hpp>
 #include <xercesc/dom/DOMErrorHandler.hpp>
 
-// Parse a URI or a local file.
-//
+namespace Common
+{
+  // Parse a URI or a local file.
+  //
 
-::std::unique_ptr< ::preloadResources >
-preloadResources_ (const ::std::string& uri,
-                   ::xml_schema::flags f = 0,
-                   const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::preloadResources >
+  preloadResources_ (const ::std::string& uri,
+                     ::xml_schema::flags f = 0,
+                     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::preloadResources >
-preloadResources_ (const ::std::string& uri,
-                   ::xml_schema::error_handler& eh,
-                   ::xml_schema::flags f = 0,
-                   const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::preloadResources >
+  preloadResources_ (const ::std::string& uri,
+                     ::xml_schema::error_handler& eh,
+                     ::xml_schema::flags f = 0,
+                     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::preloadResources >
-preloadResources_ (const ::std::string& uri,
-                   ::xercesc::DOMErrorHandler& eh,
-                   ::xml_schema::flags f = 0,
-                   const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::preloadResources >
+  preloadResources_ (const ::std::string& uri,
+                     ::xercesc::DOMErrorHandler& eh,
+                     ::xml_schema::flags f = 0,
+                     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse std::istream.
-//
+  // Parse std::istream.
+  //
 
-::std::unique_ptr< ::preloadResources >
-preloadResources_ (::std::istream& is,
-                   ::xml_schema::flags f = 0,
-                   const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::preloadResources >
+  preloadResources_ (::std::istream& is,
+                     ::xml_schema::flags f = 0,
+                     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::preloadResources >
-preloadResources_ (::std::istream& is,
-                   ::xml_schema::error_handler& eh,
-                   ::xml_schema::flags f = 0,
-                   const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::preloadResources >
+  preloadResources_ (::std::istream& is,
+                     ::xml_schema::error_handler& eh,
+                     ::xml_schema::flags f = 0,
+                     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::preloadResources >
-preloadResources_ (::std::istream& is,
-                   ::xercesc::DOMErrorHandler& eh,
-                   ::xml_schema::flags f = 0,
-                   const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::preloadResources >
+  preloadResources_ (::std::istream& is,
+                     ::xercesc::DOMErrorHandler& eh,
+                     ::xml_schema::flags f = 0,
+                     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::preloadResources >
-preloadResources_ (::std::istream& is,
-                   const ::std::string& id,
-                   ::xml_schema::flags f = 0,
-                   const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::preloadResources >
+  preloadResources_ (::std::istream& is,
+                     const ::std::string& id,
+                     ::xml_schema::flags f = 0,
+                     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::preloadResources >
-preloadResources_ (::std::istream& is,
-                   const ::std::string& id,
-                   ::xml_schema::error_handler& eh,
-                   ::xml_schema::flags f = 0,
-                   const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::preloadResources >
+  preloadResources_ (::std::istream& is,
+                     const ::std::string& id,
+                     ::xml_schema::error_handler& eh,
+                     ::xml_schema::flags f = 0,
+                     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::preloadResources >
-preloadResources_ (::std::istream& is,
-                   const ::std::string& id,
-                   ::xercesc::DOMErrorHandler& eh,
-                   ::xml_schema::flags f = 0,
-                   const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::preloadResources >
+  preloadResources_ (::std::istream& is,
+                     const ::std::string& id,
+                     ::xercesc::DOMErrorHandler& eh,
+                     ::xml_schema::flags f = 0,
+                     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse xercesc::InputSource.
-//
+  // Parse xercesc::InputSource.
+  //
 
-::std::unique_ptr< ::preloadResources >
-preloadResources_ (::xercesc::InputSource& is,
-                   ::xml_schema::flags f = 0,
-                   const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::preloadResources >
+  preloadResources_ (::xercesc::InputSource& is,
+                     ::xml_schema::flags f = 0,
+                     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::preloadResources >
-preloadResources_ (::xercesc::InputSource& is,
-                   ::xml_schema::error_handler& eh,
-                   ::xml_schema::flags f = 0,
-                   const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::preloadResources >
+  preloadResources_ (::xercesc::InputSource& is,
+                     ::xml_schema::error_handler& eh,
+                     ::xml_schema::flags f = 0,
+                     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::preloadResources >
-preloadResources_ (::xercesc::InputSource& is,
-                   ::xercesc::DOMErrorHandler& eh,
-                   ::xml_schema::flags f = 0,
-                   const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::preloadResources >
+  preloadResources_ (::xercesc::InputSource& is,
+                     ::xercesc::DOMErrorHandler& eh,
+                     ::xml_schema::flags f = 0,
+                     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse xercesc::DOMDocument.
-//
+  // Parse xercesc::DOMDocument.
+  //
 
-::std::unique_ptr< ::preloadResources >
-preloadResources_ (const ::xercesc::DOMDocument& d,
-                   ::xml_schema::flags f = 0,
-                   const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::preloadResources >
+  preloadResources_ (const ::xercesc::DOMDocument& d,
+                     ::xml_schema::flags f = 0,
+                     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::preloadResources >
-preloadResources_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-                   ::xml_schema::flags f = 0,
-                   const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::preloadResources >
+  preloadResources_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+                     ::xml_schema::flags f = 0,
+                     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse a URI or a local file.
-//
+  // Parse a URI or a local file.
+  //
 
-::std::unique_ptr< ::resources >
-resources_ (const ::std::string& uri,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::resources >
+  resources_ (const ::std::string& uri,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::resources >
-resources_ (const ::std::string& uri,
-            ::xml_schema::error_handler& eh,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::resources >
+  resources_ (const ::std::string& uri,
+              ::xml_schema::error_handler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::resources >
-resources_ (const ::std::string& uri,
-            ::xercesc::DOMErrorHandler& eh,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::resources >
+  resources_ (const ::std::string& uri,
+              ::xercesc::DOMErrorHandler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse std::istream.
-//
+  // Parse std::istream.
+  //
 
-::std::unique_ptr< ::resources >
-resources_ (::std::istream& is,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::resources >
+  resources_ (::std::istream& is,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::resources >
-resources_ (::std::istream& is,
-            ::xml_schema::error_handler& eh,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::resources >
+  resources_ (::std::istream& is,
+              ::xml_schema::error_handler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::resources >
-resources_ (::std::istream& is,
-            ::xercesc::DOMErrorHandler& eh,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::resources >
+  resources_ (::std::istream& is,
+              ::xercesc::DOMErrorHandler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::resources >
-resources_ (::std::istream& is,
-            const ::std::string& id,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::resources >
+  resources_ (::std::istream& is,
+              const ::std::string& id,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::resources >
-resources_ (::std::istream& is,
-            const ::std::string& id,
-            ::xml_schema::error_handler& eh,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::resources >
+  resources_ (::std::istream& is,
+              const ::std::string& id,
+              ::xml_schema::error_handler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::resources >
-resources_ (::std::istream& is,
-            const ::std::string& id,
-            ::xercesc::DOMErrorHandler& eh,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::resources >
+  resources_ (::std::istream& is,
+              const ::std::string& id,
+              ::xercesc::DOMErrorHandler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse xercesc::InputSource.
-//
+  // Parse xercesc::InputSource.
+  //
 
-::std::unique_ptr< ::resources >
-resources_ (::xercesc::InputSource& is,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::resources >
+  resources_ (::xercesc::InputSource& is,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::resources >
-resources_ (::xercesc::InputSource& is,
-            ::xml_schema::error_handler& eh,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::resources >
+  resources_ (::xercesc::InputSource& is,
+              ::xml_schema::error_handler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::resources >
-resources_ (::xercesc::InputSource& is,
-            ::xercesc::DOMErrorHandler& eh,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::resources >
+  resources_ (::xercesc::InputSource& is,
+              ::xercesc::DOMErrorHandler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse xercesc::DOMDocument.
-//
+  // Parse xercesc::DOMDocument.
+  //
 
-::std::unique_ptr< ::resources >
-resources_ (const ::xercesc::DOMDocument& d,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::resources >
+  resources_ (const ::xercesc::DOMDocument& d,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::resources >
-resources_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Common::resources >
+  resources_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse a URI or a local file.
-//
+  // Parse a URI or a local file.
+  //
 
-::std::unique_ptr< ::events >
-events_ (const ::std::string& uri,
+  ::std::unique_ptr< ::Common::events >
+  events_ (const ::std::string& uri,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::events >
+  events_ (const ::std::string& uri,
+           ::xml_schema::error_handler& eh,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::events >
+  events_ (const ::std::string& uri,
+           ::xercesc::DOMErrorHandler& eh,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse std::istream.
+  //
+
+  ::std::unique_ptr< ::Common::events >
+  events_ (::std::istream& is,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::events >
+  events_ (::std::istream& is,
+           ::xml_schema::error_handler& eh,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::events >
+  events_ (::std::istream& is,
+           ::xercesc::DOMErrorHandler& eh,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::events >
+  events_ (::std::istream& is,
+           const ::std::string& id,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::events >
+  events_ (::std::istream& is,
+           const ::std::string& id,
+           ::xml_schema::error_handler& eh,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::events >
+  events_ (::std::istream& is,
+           const ::std::string& id,
+           ::xercesc::DOMErrorHandler& eh,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse xercesc::InputSource.
+  //
+
+  ::std::unique_ptr< ::Common::events >
+  events_ (::xercesc::InputSource& is,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::events >
+  events_ (::xercesc::InputSource& is,
+           ::xml_schema::error_handler& eh,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::events >
+  events_ (::xercesc::InputSource& is,
+           ::xercesc::DOMErrorHandler& eh,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse xercesc::DOMDocument.
+  //
+
+  ::std::unique_ptr< ::Common::events >
+  events_ (const ::xercesc::DOMDocument& d,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::events >
+  events_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse a URI or a local file.
+  //
+
+  ::std::unique_ptr< ::Common::collider >
+  collider_ (const ::std::string& uri,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::collider >
+  collider_ (const ::std::string& uri,
+             ::xml_schema::error_handler& eh,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::collider >
+  collider_ (const ::std::string& uri,
+             ::xercesc::DOMErrorHandler& eh,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse std::istream.
+  //
+
+  ::std::unique_ptr< ::Common::collider >
+  collider_ (::std::istream& is,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::collider >
+  collider_ (::std::istream& is,
+             ::xml_schema::error_handler& eh,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::collider >
+  collider_ (::std::istream& is,
+             ::xercesc::DOMErrorHandler& eh,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::collider >
+  collider_ (::std::istream& is,
+             const ::std::string& id,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::collider >
+  collider_ (::std::istream& is,
+             const ::std::string& id,
+             ::xml_schema::error_handler& eh,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::collider >
+  collider_ (::std::istream& is,
+             const ::std::string& id,
+             ::xercesc::DOMErrorHandler& eh,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse xercesc::InputSource.
+  //
+
+  ::std::unique_ptr< ::Common::collider >
+  collider_ (::xercesc::InputSource& is,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::collider >
+  collider_ (::xercesc::InputSource& is,
+             ::xml_schema::error_handler& eh,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::collider >
+  collider_ (::xercesc::InputSource& is,
+             ::xercesc::DOMErrorHandler& eh,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse xercesc::DOMDocument.
+  //
+
+  ::std::unique_ptr< ::Common::collider >
+  collider_ (const ::xercesc::DOMDocument& d,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::collider >
+  collider_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse a URI or a local file.
+  //
+
+  ::std::unique_ptr< ::Common::position >
+  position_ (const ::std::string& uri,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::position >
+  position_ (const ::std::string& uri,
+             ::xml_schema::error_handler& eh,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::position >
+  position_ (const ::std::string& uri,
+             ::xercesc::DOMErrorHandler& eh,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse std::istream.
+  //
+
+  ::std::unique_ptr< ::Common::position >
+  position_ (::std::istream& is,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::position >
+  position_ (::std::istream& is,
+             ::xml_schema::error_handler& eh,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::position >
+  position_ (::std::istream& is,
+             ::xercesc::DOMErrorHandler& eh,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::position >
+  position_ (::std::istream& is,
+             const ::std::string& id,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::position >
+  position_ (::std::istream& is,
+             const ::std::string& id,
+             ::xml_schema::error_handler& eh,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::position >
+  position_ (::std::istream& is,
+             const ::std::string& id,
+             ::xercesc::DOMErrorHandler& eh,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse xercesc::InputSource.
+  //
+
+  ::std::unique_ptr< ::Common::position >
+  position_ (::xercesc::InputSource& is,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::position >
+  position_ (::xercesc::InputSource& is,
+             ::xml_schema::error_handler& eh,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::position >
+  position_ (::xercesc::InputSource& is,
+             ::xercesc::DOMErrorHandler& eh,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse xercesc::DOMDocument.
+  //
+
+  ::std::unique_ptr< ::Common::position >
+  position_ (const ::xercesc::DOMDocument& d,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::position >
+  position_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+             ::xml_schema::flags f = 0,
+             const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse a URI or a local file.
+  //
+
+  ::std::unique_ptr< ::Common::size >
+  size_ (const ::std::string& uri,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::events >
-events_ (const ::std::string& uri,
+  ::std::unique_ptr< ::Common::size >
+  size_ (const ::std::string& uri,
          ::xml_schema::error_handler& eh,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::events >
-events_ (const ::std::string& uri,
+  ::std::unique_ptr< ::Common::size >
+  size_ (const ::std::string& uri,
          ::xercesc::DOMErrorHandler& eh,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse std::istream.
-//
+  // Parse std::istream.
+  //
 
-::std::unique_ptr< ::events >
-events_ (::std::istream& is,
+  ::std::unique_ptr< ::Common::size >
+  size_ (::std::istream& is,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::events >
-events_ (::std::istream& is,
+  ::std::unique_ptr< ::Common::size >
+  size_ (::std::istream& is,
          ::xml_schema::error_handler& eh,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::events >
-events_ (::std::istream& is,
+  ::std::unique_ptr< ::Common::size >
+  size_ (::std::istream& is,
          ::xercesc::DOMErrorHandler& eh,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::events >
-events_ (::std::istream& is,
+  ::std::unique_ptr< ::Common::size >
+  size_ (::std::istream& is,
          const ::std::string& id,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::events >
-events_ (::std::istream& is,
+  ::std::unique_ptr< ::Common::size >
+  size_ (::std::istream& is,
          const ::std::string& id,
          ::xml_schema::error_handler& eh,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::events >
-events_ (::std::istream& is,
+  ::std::unique_ptr< ::Common::size >
+  size_ (::std::istream& is,
          const ::std::string& id,
          ::xercesc::DOMErrorHandler& eh,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse xercesc::InputSource.
-//
+  // Parse xercesc::InputSource.
+  //
 
-::std::unique_ptr< ::events >
-events_ (::xercesc::InputSource& is,
+  ::std::unique_ptr< ::Common::size >
+  size_ (::xercesc::InputSource& is,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::events >
-events_ (::xercesc::InputSource& is,
+  ::std::unique_ptr< ::Common::size >
+  size_ (::xercesc::InputSource& is,
          ::xml_schema::error_handler& eh,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::events >
-events_ (::xercesc::InputSource& is,
+  ::std::unique_ptr< ::Common::size >
+  size_ (::xercesc::InputSource& is,
          ::xercesc::DOMErrorHandler& eh,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse xercesc::DOMDocument.
-//
+  // Parse xercesc::DOMDocument.
+  //
 
-::std::unique_ptr< ::events >
-events_ (const ::xercesc::DOMDocument& d,
+  ::std::unique_ptr< ::Common::size >
+  size_ (const ::xercesc::DOMDocument& d,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::events >
-events_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+  ::std::unique_ptr< ::Common::size >
+  size_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse a URI or a local file.
-//
-
-::std::unique_ptr< ::collider >
-collider_ (const ::std::string& uri,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::collider >
-collider_ (const ::std::string& uri,
-           ::xml_schema::error_handler& eh,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::collider >
-collider_ (const ::std::string& uri,
-           ::xercesc::DOMErrorHandler& eh,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse std::istream.
-//
-
-::std::unique_ptr< ::collider >
-collider_ (::std::istream& is,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::collider >
-collider_ (::std::istream& is,
-           ::xml_schema::error_handler& eh,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::collider >
-collider_ (::std::istream& is,
-           ::xercesc::DOMErrorHandler& eh,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::collider >
-collider_ (::std::istream& is,
-           const ::std::string& id,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::collider >
-collider_ (::std::istream& is,
-           const ::std::string& id,
-           ::xml_schema::error_handler& eh,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::collider >
-collider_ (::std::istream& is,
-           const ::std::string& id,
-           ::xercesc::DOMErrorHandler& eh,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse xercesc::InputSource.
-//
-
-::std::unique_ptr< ::collider >
-collider_ (::xercesc::InputSource& is,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::collider >
-collider_ (::xercesc::InputSource& is,
-           ::xml_schema::error_handler& eh,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::collider >
-collider_ (::xercesc::InputSource& is,
-           ::xercesc::DOMErrorHandler& eh,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse xercesc::DOMDocument.
-//
-
-::std::unique_ptr< ::collider >
-collider_ (const ::xercesc::DOMDocument& d,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::collider >
-collider_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse a URI or a local file.
-//
-
-::std::unique_ptr< ::position >
-position_ (const ::std::string& uri,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::position >
-position_ (const ::std::string& uri,
-           ::xml_schema::error_handler& eh,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::position >
-position_ (const ::std::string& uri,
-           ::xercesc::DOMErrorHandler& eh,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse std::istream.
-//
-
-::std::unique_ptr< ::position >
-position_ (::std::istream& is,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::position >
-position_ (::std::istream& is,
-           ::xml_schema::error_handler& eh,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::position >
-position_ (::std::istream& is,
-           ::xercesc::DOMErrorHandler& eh,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::position >
-position_ (::std::istream& is,
-           const ::std::string& id,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::position >
-position_ (::std::istream& is,
-           const ::std::string& id,
-           ::xml_schema::error_handler& eh,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::position >
-position_ (::std::istream& is,
-           const ::std::string& id,
-           ::xercesc::DOMErrorHandler& eh,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse xercesc::InputSource.
-//
-
-::std::unique_ptr< ::position >
-position_ (::xercesc::InputSource& is,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::position >
-position_ (::xercesc::InputSource& is,
-           ::xml_schema::error_handler& eh,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::position >
-position_ (::xercesc::InputSource& is,
-           ::xercesc::DOMErrorHandler& eh,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse xercesc::DOMDocument.
-//
-
-::std::unique_ptr< ::position >
-position_ (const ::xercesc::DOMDocument& d,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::position >
-position_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-           ::xml_schema::flags f = 0,
-           const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse a URI or a local file.
-//
-
-::std::unique_ptr< ::size >
-size_ (const ::std::string& uri,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::size >
-size_ (const ::std::string& uri,
-       ::xml_schema::error_handler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::size >
-size_ (const ::std::string& uri,
-       ::xercesc::DOMErrorHandler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse std::istream.
-//
-
-::std::unique_ptr< ::size >
-size_ (::std::istream& is,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::size >
-size_ (::std::istream& is,
-       ::xml_schema::error_handler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::size >
-size_ (::std::istream& is,
-       ::xercesc::DOMErrorHandler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::size >
-size_ (::std::istream& is,
-       const ::std::string& id,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::size >
-size_ (::std::istream& is,
-       const ::std::string& id,
-       ::xml_schema::error_handler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::size >
-size_ (::std::istream& is,
-       const ::std::string& id,
-       ::xercesc::DOMErrorHandler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse xercesc::InputSource.
-//
-
-::std::unique_ptr< ::size >
-size_ (::xercesc::InputSource& is,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::size >
-size_ (::xercesc::InputSource& is,
-       ::xml_schema::error_handler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::size >
-size_ (::xercesc::InputSource& is,
-       ::xercesc::DOMErrorHandler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse xercesc::DOMDocument.
-//
-
-::std::unique_ptr< ::size >
-size_ (const ::xercesc::DOMDocument& d,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::size >
-size_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse a URI or a local file.
-//
-
-::std::unique_ptr< ::color >
-color_ (const ::std::string& uri,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::color >
-color_ (const ::std::string& uri,
-        ::xml_schema::error_handler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::color >
-color_ (const ::std::string& uri,
-        ::xercesc::DOMErrorHandler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse std::istream.
-//
-
-::std::unique_ptr< ::color >
-color_ (::std::istream& is,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::color >
-color_ (::std::istream& is,
-        ::xml_schema::error_handler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::color >
-color_ (::std::istream& is,
-        ::xercesc::DOMErrorHandler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::color >
-color_ (::std::istream& is,
-        const ::std::string& id,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::color >
-color_ (::std::istream& is,
-        const ::std::string& id,
-        ::xml_schema::error_handler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::color >
-color_ (::std::istream& is,
-        const ::std::string& id,
-        ::xercesc::DOMErrorHandler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse xercesc::InputSource.
-//
-
-::std::unique_ptr< ::color >
-color_ (::xercesc::InputSource& is,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::color >
-color_ (::xercesc::InputSource& is,
-        ::xml_schema::error_handler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::color >
-color_ (::xercesc::InputSource& is,
-        ::xercesc::DOMErrorHandler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-// Parse xercesc::DOMDocument.
-//
-
-::std::unique_ptr< ::color >
-color_ (const ::xercesc::DOMDocument& d,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
-
-::std::unique_ptr< ::color >
-color_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+  // Parse a URI or a local file.
+  //
+
+  ::std::unique_ptr< ::Common::color >
+  color_ (const ::std::string& uri,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::color >
+  color_ (const ::std::string& uri,
+          ::xml_schema::error_handler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::color >
+  color_ (const ::std::string& uri,
+          ::xercesc::DOMErrorHandler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse std::istream.
+  //
+
+  ::std::unique_ptr< ::Common::color >
+  color_ (::std::istream& is,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::color >
+  color_ (::std::istream& is,
+          ::xml_schema::error_handler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::color >
+  color_ (::std::istream& is,
+          ::xercesc::DOMErrorHandler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::color >
+  color_ (::std::istream& is,
+          const ::std::string& id,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::color >
+  color_ (::std::istream& is,
+          const ::std::string& id,
+          ::xml_schema::error_handler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::color >
+  color_ (::std::istream& is,
+          const ::std::string& id,
+          ::xercesc::DOMErrorHandler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse xercesc::InputSource.
+  //
+
+  ::std::unique_ptr< ::Common::color >
+  color_ (::xercesc::InputSource& is,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::color >
+  color_ (::xercesc::InputSource& is,
+          ::xml_schema::error_handler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::color >
+  color_ (::xercesc::InputSource& is,
+          ::xercesc::DOMErrorHandler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse xercesc::DOMDocument.
+  //
+
+  ::std::unique_ptr< ::Common::color >
+  color_ (const ::xercesc::DOMDocument& d,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::color >
+  color_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
+}
 
 #include <xsd/cxx/post.hxx>
 

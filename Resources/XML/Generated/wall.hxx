@@ -226,11 +226,15 @@ namespace xml_schema
 
 // Forward declarations.
 //
-class walls;
-class wall;
-class pricing;
-class powers;
-class upgrade;
+namespace Walls
+{
+  class walls;
+  class wall;
+  class pricing;
+  class powers;
+  class upgrade;
+}
+
 
 #include <memory>    // ::std::unique_ptr
 #include <limits>    // std::numeric_limits
@@ -248,484 +252,487 @@ class upgrade;
 
 #include "common.hxx"
 
-class walls: public ::xml_schema::type
+namespace Walls
 {
-  public:
-  // className
-  //
-  typedef ::xml_schema::string className_type;
-  typedef ::xsd::cxx::tree::traits< className_type, char > className_traits;
-
-  const className_type&
-  className () const;
-
-  className_type&
-  className ();
-
-  void
-  className (const className_type& x);
-
-  void
-  className (::std::unique_ptr< className_type > p);
-
-  // wall
-  //
-  typedef ::wall wall_type;
-  typedef ::xsd::cxx::tree::sequence< wall_type > wall_sequence;
-  typedef wall_sequence::iterator wall_iterator;
-  typedef wall_sequence::const_iterator wall_const_iterator;
-  typedef ::xsd::cxx::tree::traits< wall_type, char > wall_traits;
-
-  const wall_sequence&
-  wall () const;
-
-  wall_sequence&
-  wall ();
-
-  void
-  wall (const wall_sequence& s);
-
-  // Constructors.
-  //
-  walls (const className_type&);
-
-  walls (const ::xercesc::DOMElement& e,
-         ::xml_schema::flags f = 0,
-         ::xml_schema::container* c = 0);
-
-  walls (const walls& x,
-         ::xml_schema::flags f = 0,
-         ::xml_schema::container* c = 0);
-
-  virtual walls*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  walls&
-  operator= (const walls& x);
-
-  virtual 
-  ~walls ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  ::xsd::cxx::tree::one< className_type > className_;
-  wall_sequence wall_;
-};
-
-class wall: public ::xml_schema::type
-{
-  public:
-  // name
-  //
-  typedef ::xml_schema::string name_type;
-  typedef ::xsd::cxx::tree::traits< name_type, char > name_traits;
-
-  const name_type&
-  name () const;
-
-  name_type&
-  name ();
-
-  void
-  name (const name_type& x);
-
-  void
-  name (::std::unique_ptr< name_type > p);
-
-  // level
-  //
-  typedef ::xml_schema::id level_type;
-  typedef ::xsd::cxx::tree::traits< level_type, char > level_traits;
-
-  const level_type&
-  level () const;
-
-  level_type&
-  level ();
-
-  void
-  level (const level_type& x);
-
-  void
-  level (::std::unique_ptr< level_type > p);
-
-  // baseHealth
-  //
-  typedef ::xml_schema::int_ baseHealth_type;
-  typedef ::xsd::cxx::tree::traits< baseHealth_type, char > baseHealth_traits;
-
-  const baseHealth_type&
-  baseHealth () const;
-
-  baseHealth_type&
-  baseHealth ();
-
-  void
-  baseHealth (const baseHealth_type& x);
-
-  // pricing
-  //
-  typedef ::pricing pricing_type;
-  typedef ::xsd::cxx::tree::traits< pricing_type, char > pricing_traits;
-
-  const pricing_type&
-  pricing () const;
-
-  pricing_type&
-  pricing ();
-
-  void
-  pricing (const pricing_type& x);
-
-  void
-  pricing (::std::unique_ptr< pricing_type > p);
-
-  // powers
-  //
-  typedef ::powers powers_type;
-  typedef ::xsd::cxx::tree::optional< powers_type > powers_optional;
-  typedef ::xsd::cxx::tree::traits< powers_type, char > powers_traits;
-
-  const powers_optional&
-  powers () const;
-
-  powers_optional&
-  powers ();
-
-  void
-  powers (const powers_type& x);
-
-  void
-  powers (const powers_optional& x);
-
-  void
-  powers (::std::unique_ptr< powers_type > p);
-
-  // resources
-  //
-  typedef ::resources resources_type;
-  typedef ::xsd::cxx::tree::traits< resources_type, char > resources_traits;
-
-  const resources_type&
-  resources () const;
-
-  resources_type&
-  resources ();
-
-  void
-  resources (const resources_type& x);
-
-  void
-  resources (::std::unique_ptr< resources_type > p);
-
-  // collider
-  //
-  typedef ::collider collider_type;
-  typedef ::xsd::cxx::tree::traits< collider_type, char > collider_traits;
-
-  const collider_type&
-  collider () const;
-
-  collider_type&
-  collider ();
-
-  void
-  collider (const collider_type& x);
-
-  void
-  collider (::std::unique_ptr< collider_type > p);
-
-  // events
-  //
-  typedef ::events events_type;
-  typedef ::xsd::cxx::tree::traits< events_type, char > events_traits;
-
-  const events_type&
-  events () const;
-
-  events_type&
-  events ();
-
-  void
-  events (const events_type& x);
-
-  void
-  events (::std::unique_ptr< events_type > p);
-
-  // Constructors.
-  //
-  wall (const name_type&,
-        const level_type&,
-        const baseHealth_type&,
-        const pricing_type&,
-        const resources_type&,
-        const collider_type&,
-        const events_type&);
-
-  wall (const name_type&,
-        const level_type&,
-        const baseHealth_type&,
-        ::std::unique_ptr< pricing_type >,
-        ::std::unique_ptr< resources_type >,
-        ::std::unique_ptr< collider_type >,
-        ::std::unique_ptr< events_type >);
-
-  wall (const ::xercesc::DOMElement& e,
-        ::xml_schema::flags f = 0,
-        ::xml_schema::container* c = 0);
-
-  wall (const wall& x,
-        ::xml_schema::flags f = 0,
-        ::xml_schema::container* c = 0);
-
-  virtual wall*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  wall&
-  operator= (const wall& x);
-
-  virtual 
-  ~wall ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  ::xsd::cxx::tree::one< name_type > name_;
-  ::xsd::cxx::tree::one< level_type > level_;
-  ::xsd::cxx::tree::one< baseHealth_type > baseHealth_;
-  ::xsd::cxx::tree::one< pricing_type > pricing_;
-  powers_optional powers_;
-  ::xsd::cxx::tree::one< resources_type > resources_;
-  ::xsd::cxx::tree::one< collider_type > collider_;
-  ::xsd::cxx::tree::one< events_type > events_;
-};
-
-class pricing: public ::xml_schema::type
-{
-  public:
-  // cost
-  //
-  typedef ::xml_schema::int_ cost_type;
-  typedef ::xsd::cxx::tree::traits< cost_type, char > cost_traits;
-
-  const cost_type&
-  cost () const;
-
-  cost_type&
-  cost ();
-
-  void
-  cost (const cost_type& x);
-
-  // upgrade
-  //
-  typedef ::upgrade upgrade_type;
-  typedef ::xsd::cxx::tree::optional< upgrade_type > upgrade_optional;
-  typedef ::xsd::cxx::tree::traits< upgrade_type, char > upgrade_traits;
-
-  const upgrade_optional&
-  upgrade () const;
-
-  upgrade_optional&
-  upgrade ();
-
-  void
-  upgrade (const upgrade_type& x);
-
-  void
-  upgrade (const upgrade_optional& x);
-
-  void
-  upgrade (::std::unique_ptr< upgrade_type > p);
-
-  // Constructors.
-  //
-  pricing (const cost_type&);
-
-  pricing (const ::xercesc::DOMElement& e,
+  class walls: public ::xml_schema::type
+  {
+    public:
+    // className
+    //
+    typedef ::xml_schema::string className_type;
+    typedef ::xsd::cxx::tree::traits< className_type, char > className_traits;
+
+    const className_type&
+    className () const;
+
+    className_type&
+    className ();
+
+    void
+    className (const className_type& x);
+
+    void
+    className (::std::unique_ptr< className_type > p);
+
+    // wall
+    //
+    typedef ::Walls::wall wall_type;
+    typedef ::xsd::cxx::tree::sequence< wall_type > wall_sequence;
+    typedef wall_sequence::iterator wall_iterator;
+    typedef wall_sequence::const_iterator wall_const_iterator;
+    typedef ::xsd::cxx::tree::traits< wall_type, char > wall_traits;
+
+    const wall_sequence&
+    wall () const;
+
+    wall_sequence&
+    wall ();
+
+    void
+    wall (const wall_sequence& s);
+
+    // Constructors.
+    //
+    walls (const className_type&);
+
+    walls (const ::xercesc::DOMElement& e,
            ::xml_schema::flags f = 0,
            ::xml_schema::container* c = 0);
 
-  pricing (const pricing& x,
+    walls (const walls& x,
            ::xml_schema::flags f = 0,
            ::xml_schema::container* c = 0);
 
-  virtual pricing*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
+    virtual walls*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
 
-  pricing&
-  operator= (const pricing& x);
+    walls&
+    operator= (const walls& x);
 
-  virtual 
-  ~pricing ();
+    virtual 
+    ~walls ();
 
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
 
-  protected:
-  ::xsd::cxx::tree::one< cost_type > cost_;
-  upgrade_optional upgrade_;
-};
+    protected:
+    ::xsd::cxx::tree::one< className_type > className_;
+    wall_sequence wall_;
+  };
 
-class powers: public ::xml_schema::type
-{
-  public:
-  // restoresHP
-  //
-  typedef ::xml_schema::int_ restoresHP_type;
-  typedef ::xsd::cxx::tree::optional< restoresHP_type > restoresHP_optional;
-  typedef ::xsd::cxx::tree::traits< restoresHP_type, char > restoresHP_traits;
+  class wall: public ::xml_schema::type
+  {
+    public:
+    // name
+    //
+    typedef ::xml_schema::string name_type;
+    typedef ::xsd::cxx::tree::traits< name_type, char > name_traits;
 
-  const restoresHP_optional&
-  restoresHP () const;
+    const name_type&
+    name () const;
 
-  restoresHP_optional&
-  restoresHP ();
+    name_type&
+    name ();
 
-  void
-  restoresHP (const restoresHP_type& x);
+    void
+    name (const name_type& x);
 
-  void
-  restoresHP (const restoresHP_optional& x);
+    void
+    name (::std::unique_ptr< name_type > p);
 
-  // explosionImmune
-  //
-  typedef ::xml_schema::boolean explosionImmune_type;
-  typedef ::xsd::cxx::tree::optional< explosionImmune_type > explosionImmune_optional;
-  typedef ::xsd::cxx::tree::traits< explosionImmune_type, char > explosionImmune_traits;
+    // level
+    //
+    typedef ::xml_schema::id level_type;
+    typedef ::xsd::cxx::tree::traits< level_type, char > level_traits;
 
-  const explosionImmune_optional&
-  explosionImmune () const;
+    const level_type&
+    level () const;
 
-  explosionImmune_optional&
-  explosionImmune ();
+    level_type&
+    level ();
 
-  void
-  explosionImmune (const explosionImmune_type& x);
+    void
+    level (const level_type& x);
 
-  void
-  explosionImmune (const explosionImmune_optional& x);
+    void
+    level (::std::unique_ptr< level_type > p);
 
-  // Constructors.
-  //
-  powers ();
+    // baseHealth
+    //
+    typedef ::xml_schema::int_ baseHealth_type;
+    typedef ::xsd::cxx::tree::traits< baseHealth_type, char > baseHealth_traits;
 
-  powers (const ::xercesc::DOMElement& e,
+    const baseHealth_type&
+    baseHealth () const;
+
+    baseHealth_type&
+    baseHealth ();
+
+    void
+    baseHealth (const baseHealth_type& x);
+
+    // pricing
+    //
+    typedef ::Walls::pricing pricing_type;
+    typedef ::xsd::cxx::tree::traits< pricing_type, char > pricing_traits;
+
+    const pricing_type&
+    pricing () const;
+
+    pricing_type&
+    pricing ();
+
+    void
+    pricing (const pricing_type& x);
+
+    void
+    pricing (::std::unique_ptr< pricing_type > p);
+
+    // powers
+    //
+    typedef ::Walls::powers powers_type;
+    typedef ::xsd::cxx::tree::optional< powers_type > powers_optional;
+    typedef ::xsd::cxx::tree::traits< powers_type, char > powers_traits;
+
+    const powers_optional&
+    powers () const;
+
+    powers_optional&
+    powers ();
+
+    void
+    powers (const powers_type& x);
+
+    void
+    powers (const powers_optional& x);
+
+    void
+    powers (::std::unique_ptr< powers_type > p);
+
+    // resources
+    //
+    typedef ::Common::resources resources_type;
+    typedef ::xsd::cxx::tree::traits< resources_type, char > resources_traits;
+
+    const resources_type&
+    resources () const;
+
+    resources_type&
+    resources ();
+
+    void
+    resources (const resources_type& x);
+
+    void
+    resources (::std::unique_ptr< resources_type > p);
+
+    // collider
+    //
+    typedef ::Common::collider collider_type;
+    typedef ::xsd::cxx::tree::traits< collider_type, char > collider_traits;
+
+    const collider_type&
+    collider () const;
+
+    collider_type&
+    collider ();
+
+    void
+    collider (const collider_type& x);
+
+    void
+    collider (::std::unique_ptr< collider_type > p);
+
+    // events
+    //
+    typedef ::Common::events events_type;
+    typedef ::xsd::cxx::tree::traits< events_type, char > events_traits;
+
+    const events_type&
+    events () const;
+
+    events_type&
+    events ();
+
+    void
+    events (const events_type& x);
+
+    void
+    events (::std::unique_ptr< events_type > p);
+
+    // Constructors.
+    //
+    wall (const name_type&,
+          const level_type&,
+          const baseHealth_type&,
+          const pricing_type&,
+          const resources_type&,
+          const collider_type&,
+          const events_type&);
+
+    wall (const name_type&,
+          const level_type&,
+          const baseHealth_type&,
+          ::std::unique_ptr< pricing_type >,
+          ::std::unique_ptr< resources_type >,
+          ::std::unique_ptr< collider_type >,
+          ::std::unique_ptr< events_type >);
+
+    wall (const ::xercesc::DOMElement& e,
           ::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0);
 
-  powers (const powers& x,
+    wall (const wall& x,
           ::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0);
 
-  virtual powers*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
+    virtual wall*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
 
-  powers&
-  operator= (const powers& x);
+    wall&
+    operator= (const wall& x);
 
-  virtual 
-  ~powers ();
+    virtual 
+    ~wall ();
 
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
 
-  protected:
-  restoresHP_optional restoresHP_;
-  explosionImmune_optional explosionImmune_;
-};
+    protected:
+    ::xsd::cxx::tree::one< name_type > name_;
+    ::xsd::cxx::tree::one< level_type > level_;
+    ::xsd::cxx::tree::one< baseHealth_type > baseHealth_;
+    ::xsd::cxx::tree::one< pricing_type > pricing_;
+    powers_optional powers_;
+    ::xsd::cxx::tree::one< resources_type > resources_;
+    ::xsd::cxx::tree::one< collider_type > collider_;
+    ::xsd::cxx::tree::one< events_type > events_;
+  };
 
-class upgrade: public ::xml_schema::type
-{
-  public:
-  // cost
-  //
-  typedef ::xml_schema::int_ cost_type;
-  typedef ::xsd::cxx::tree::traits< cost_type, char > cost_traits;
+  class pricing: public ::xml_schema::type
+  {
+    public:
+    // cost
+    //
+    typedef ::xml_schema::int_ cost_type;
+    typedef ::xsd::cxx::tree::traits< cost_type, char > cost_traits;
 
-  const cost_type&
-  cost () const;
+    const cost_type&
+    cost () const;
 
-  cost_type&
-  cost ();
+    cost_type&
+    cost ();
 
-  void
-  cost (const cost_type& x);
+    void
+    cost (const cost_type& x);
 
-  // nextLevel
-  //
-  typedef ::xml_schema::idref nextLevel_type;
-  typedef ::xsd::cxx::tree::traits< nextLevel_type, char > nextLevel_traits;
+    // upgrade
+    //
+    typedef ::Walls::upgrade upgrade_type;
+    typedef ::xsd::cxx::tree::optional< upgrade_type > upgrade_optional;
+    typedef ::xsd::cxx::tree::traits< upgrade_type, char > upgrade_traits;
 
-  const nextLevel_type&
-  nextLevel () const;
+    const upgrade_optional&
+    upgrade () const;
 
-  nextLevel_type&
-  nextLevel ();
+    upgrade_optional&
+    upgrade ();
 
-  void
-  nextLevel (const nextLevel_type& x);
+    void
+    upgrade (const upgrade_type& x);
 
-  void
-  nextLevel (::std::unique_ptr< nextLevel_type > p);
+    void
+    upgrade (const upgrade_optional& x);
 
-  // Constructors.
-  //
-  upgrade (const cost_type&,
-           const nextLevel_type&);
+    void
+    upgrade (::std::unique_ptr< upgrade_type > p);
 
-  upgrade (const ::xercesc::DOMElement& e,
-           ::xml_schema::flags f = 0,
-           ::xml_schema::container* c = 0);
+    // Constructors.
+    //
+    pricing (const cost_type&);
 
-  upgrade (const upgrade& x,
-           ::xml_schema::flags f = 0,
-           ::xml_schema::container* c = 0);
+    pricing (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
 
-  virtual upgrade*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
+    pricing (const pricing& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
 
-  upgrade&
-  operator= (const upgrade& x);
+    virtual pricing*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
 
-  virtual 
-  ~upgrade ();
+    pricing&
+    operator= (const pricing& x);
 
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
+    virtual 
+    ~pricing ();
 
-  protected:
-  ::xsd::cxx::tree::one< cost_type > cost_;
-  ::xsd::cxx::tree::one< nextLevel_type > nextLevel_;
-};
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< cost_type > cost_;
+    upgrade_optional upgrade_;
+  };
+
+  class powers: public ::xml_schema::type
+  {
+    public:
+    // restoresHP
+    //
+    typedef ::xml_schema::int_ restoresHP_type;
+    typedef ::xsd::cxx::tree::optional< restoresHP_type > restoresHP_optional;
+    typedef ::xsd::cxx::tree::traits< restoresHP_type, char > restoresHP_traits;
+
+    const restoresHP_optional&
+    restoresHP () const;
+
+    restoresHP_optional&
+    restoresHP ();
+
+    void
+    restoresHP (const restoresHP_type& x);
+
+    void
+    restoresHP (const restoresHP_optional& x);
+
+    // explosionImmune
+    //
+    typedef ::xml_schema::boolean explosionImmune_type;
+    typedef ::xsd::cxx::tree::optional< explosionImmune_type > explosionImmune_optional;
+    typedef ::xsd::cxx::tree::traits< explosionImmune_type, char > explosionImmune_traits;
+
+    const explosionImmune_optional&
+    explosionImmune () const;
+
+    explosionImmune_optional&
+    explosionImmune ();
+
+    void
+    explosionImmune (const explosionImmune_type& x);
+
+    void
+    explosionImmune (const explosionImmune_optional& x);
+
+    // Constructors.
+    //
+    powers ();
+
+    powers (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+    powers (const powers& x,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+    virtual powers*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    powers&
+    operator= (const powers& x);
+
+    virtual 
+    ~powers ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    restoresHP_optional restoresHP_;
+    explosionImmune_optional explosionImmune_;
+  };
+
+  class upgrade: public ::xml_schema::type
+  {
+    public:
+    // cost
+    //
+    typedef ::xml_schema::int_ cost_type;
+    typedef ::xsd::cxx::tree::traits< cost_type, char > cost_traits;
+
+    const cost_type&
+    cost () const;
+
+    cost_type&
+    cost ();
+
+    void
+    cost (const cost_type& x);
+
+    // nextLevel
+    //
+    typedef ::xml_schema::idref nextLevel_type;
+    typedef ::xsd::cxx::tree::traits< nextLevel_type, char > nextLevel_traits;
+
+    const nextLevel_type&
+    nextLevel () const;
+
+    nextLevel_type&
+    nextLevel ();
+
+    void
+    nextLevel (const nextLevel_type& x);
+
+    void
+    nextLevel (::std::unique_ptr< nextLevel_type > p);
+
+    // Constructors.
+    //
+    upgrade (const cost_type&,
+             const nextLevel_type&);
+
+    upgrade (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+    upgrade (const upgrade& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+    virtual upgrade*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    upgrade&
+    operator= (const upgrade& x);
+
+    virtual 
+    ~upgrade ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< cost_type > cost_;
+    ::xsd::cxx::tree::one< nextLevel_type > nextLevel_;
+  };
+}
 
 #include <iosfwd>
 
@@ -733,191 +740,194 @@ class upgrade: public ::xml_schema::type
 #include <xercesc/dom/DOMDocument.hpp>
 #include <xercesc/dom/DOMErrorHandler.hpp>
 
-// Parse a URI or a local file.
-//
+namespace Walls
+{
+  // Parse a URI or a local file.
+  //
 
-::std::unique_ptr< ::walls >
-walls_ (const ::std::string& uri,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::walls >
+  walls_ (const ::std::string& uri,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::walls >
-walls_ (const ::std::string& uri,
-        ::xml_schema::error_handler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::walls >
+  walls_ (const ::std::string& uri,
+          ::xml_schema::error_handler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::walls >
-walls_ (const ::std::string& uri,
-        ::xercesc::DOMErrorHandler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::walls >
+  walls_ (const ::std::string& uri,
+          ::xercesc::DOMErrorHandler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse std::istream.
-//
+  // Parse std::istream.
+  //
 
-::std::unique_ptr< ::walls >
-walls_ (::std::istream& is,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::walls >
+  walls_ (::std::istream& is,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::walls >
-walls_ (::std::istream& is,
-        ::xml_schema::error_handler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::walls >
+  walls_ (::std::istream& is,
+          ::xml_schema::error_handler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::walls >
-walls_ (::std::istream& is,
-        ::xercesc::DOMErrorHandler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::walls >
+  walls_ (::std::istream& is,
+          ::xercesc::DOMErrorHandler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::walls >
-walls_ (::std::istream& is,
-        const ::std::string& id,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::walls >
+  walls_ (::std::istream& is,
+          const ::std::string& id,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::walls >
-walls_ (::std::istream& is,
-        const ::std::string& id,
-        ::xml_schema::error_handler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::walls >
+  walls_ (::std::istream& is,
+          const ::std::string& id,
+          ::xml_schema::error_handler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::walls >
-walls_ (::std::istream& is,
-        const ::std::string& id,
-        ::xercesc::DOMErrorHandler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::walls >
+  walls_ (::std::istream& is,
+          const ::std::string& id,
+          ::xercesc::DOMErrorHandler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse xercesc::InputSource.
-//
+  // Parse xercesc::InputSource.
+  //
 
-::std::unique_ptr< ::walls >
-walls_ (::xercesc::InputSource& is,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::walls >
+  walls_ (::xercesc::InputSource& is,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::walls >
-walls_ (::xercesc::InputSource& is,
-        ::xml_schema::error_handler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::walls >
+  walls_ (::xercesc::InputSource& is,
+          ::xml_schema::error_handler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::walls >
-walls_ (::xercesc::InputSource& is,
-        ::xercesc::DOMErrorHandler& eh,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::walls >
+  walls_ (::xercesc::InputSource& is,
+          ::xercesc::DOMErrorHandler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse xercesc::DOMDocument.
-//
+  // Parse xercesc::DOMDocument.
+  //
 
-::std::unique_ptr< ::walls >
-walls_ (const ::xercesc::DOMDocument& d,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::walls >
+  walls_ (const ::xercesc::DOMDocument& d,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::walls >
-walls_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-        ::xml_schema::flags f = 0,
-        const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::walls >
+  walls_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse a URI or a local file.
-//
+  // Parse a URI or a local file.
+  //
 
-::std::unique_ptr< ::wall >
-wall_ (const ::std::string& uri,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::wall >
+  wall_ (const ::std::string& uri,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::wall >
-wall_ (const ::std::string& uri,
-       ::xml_schema::error_handler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::wall >
+  wall_ (const ::std::string& uri,
+         ::xml_schema::error_handler& eh,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::wall >
-wall_ (const ::std::string& uri,
-       ::xercesc::DOMErrorHandler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::wall >
+  wall_ (const ::std::string& uri,
+         ::xercesc::DOMErrorHandler& eh,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse std::istream.
-//
+  // Parse std::istream.
+  //
 
-::std::unique_ptr< ::wall >
-wall_ (::std::istream& is,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::wall >
+  wall_ (::std::istream& is,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::wall >
-wall_ (::std::istream& is,
-       ::xml_schema::error_handler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::wall >
+  wall_ (::std::istream& is,
+         ::xml_schema::error_handler& eh,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::wall >
-wall_ (::std::istream& is,
-       ::xercesc::DOMErrorHandler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::wall >
+  wall_ (::std::istream& is,
+         ::xercesc::DOMErrorHandler& eh,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::wall >
-wall_ (::std::istream& is,
-       const ::std::string& id,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::wall >
+  wall_ (::std::istream& is,
+         const ::std::string& id,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::wall >
-wall_ (::std::istream& is,
-       const ::std::string& id,
-       ::xml_schema::error_handler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::wall >
+  wall_ (::std::istream& is,
+         const ::std::string& id,
+         ::xml_schema::error_handler& eh,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::wall >
-wall_ (::std::istream& is,
-       const ::std::string& id,
-       ::xercesc::DOMErrorHandler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::wall >
+  wall_ (::std::istream& is,
+         const ::std::string& id,
+         ::xercesc::DOMErrorHandler& eh,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse xercesc::InputSource.
-//
+  // Parse xercesc::InputSource.
+  //
 
-::std::unique_ptr< ::wall >
-wall_ (::xercesc::InputSource& is,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::wall >
+  wall_ (::xercesc::InputSource& is,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::wall >
-wall_ (::xercesc::InputSource& is,
-       ::xml_schema::error_handler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::wall >
+  wall_ (::xercesc::InputSource& is,
+         ::xml_schema::error_handler& eh,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::wall >
-wall_ (::xercesc::InputSource& is,
-       ::xercesc::DOMErrorHandler& eh,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::wall >
+  wall_ (::xercesc::InputSource& is,
+         ::xercesc::DOMErrorHandler& eh,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse xercesc::DOMDocument.
-//
+  // Parse xercesc::DOMDocument.
+  //
 
-::std::unique_ptr< ::wall >
-wall_ (const ::xercesc::DOMDocument& d,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::wall >
+  wall_ (const ::xercesc::DOMDocument& d,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::wall >
-wall_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-       ::xml_schema::flags f = 0,
-       const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Walls::wall >
+  wall_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+         ::xml_schema::flags f = 0,
+         const ::xml_schema::properties& p = ::xml_schema::properties ());
+}
 
 #include <xsd/cxx/post.hxx>
 

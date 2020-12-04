@@ -89,6 +89,8 @@ add_executable(NightByte ./Main.cpp
         Resources/XML/Generated/common.hxx
         Resources/XML/Generated/menu.cxx
         Resources/XML/Generated/menu.hxx
+        Resources/XML/Generated/resources.hxx
+        Resources/XML/Generated/resources.cxx
         Engine/Rendering/Level.cpp Engine/Rendering/Level.hpp Game/Scenes/Level1/Level1.cpp Game/Scenes/Level1/Level1.hpp
         Game/Scenes/Level10/LevelCharlie.cpp Game/Scenes/Level10/LevelCharlie.hpp Engine/Managers/ResourceManager.cpp Engine/Managers/ResourceManager.hpp Engine/Rendering/TextWrapper.cpp Engine/Rendering/TextWrapper.hpp)
 

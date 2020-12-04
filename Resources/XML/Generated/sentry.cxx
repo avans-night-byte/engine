@@ -40,559 +40,567 @@
 
 #include "sentry.hxx"
 
-// sentry
-// 
-
-const sentry::className_type& sentry::
-className () const
+namespace Sentry
 {
-  return this->className_.get ();
-}
+  // sentry
+  // 
 
-sentry::className_type& sentry::
-className ()
-{
-  return this->className_.get ();
-}
+  const sentry::className_type& sentry::
+  className () const
+  {
+    return this->className_.get ();
+  }
 
-void sentry::
-className (const className_type& x)
-{
-  this->className_.set (x);
-}
+  sentry::className_type& sentry::
+  className ()
+  {
+    return this->className_.get ();
+  }
 
-void sentry::
-className (::std::unique_ptr< className_type > x)
-{
-  this->className_.set (std::move (x));
-}
+  void sentry::
+  className (const className_type& x)
+  {
+    this->className_.set (x);
+  }
 
-const sentry::resources_type& sentry::
-resources () const
-{
-  return this->resources_.get ();
-}
+  void sentry::
+  className (::std::unique_ptr< className_type > x)
+  {
+    this->className_.set (std::move (x));
+  }
 
-sentry::resources_type& sentry::
-resources ()
-{
-  return this->resources_.get ();
-}
+  const sentry::resources_type& sentry::
+  resources () const
+  {
+    return this->resources_.get ();
+  }
 
-void sentry::
-resources (const resources_type& x)
-{
-  this->resources_.set (x);
-}
+  sentry::resources_type& sentry::
+  resources ()
+  {
+    return this->resources_.get ();
+  }
 
-void sentry::
-resources (::std::unique_ptr< resources_type > x)
-{
-  this->resources_.set (std::move (x));
-}
+  void sentry::
+  resources (const resources_type& x)
+  {
+    this->resources_.set (x);
+  }
 
-const sentry::collider_type& sentry::
-collider () const
-{
-  return this->collider_.get ();
-}
+  void sentry::
+  resources (::std::unique_ptr< resources_type > x)
+  {
+    this->resources_.set (std::move (x));
+  }
 
-sentry::collider_type& sentry::
-collider ()
-{
-  return this->collider_.get ();
-}
+  const sentry::collider_type& sentry::
+  collider () const
+  {
+    return this->collider_.get ();
+  }
 
-void sentry::
-collider (const collider_type& x)
-{
-  this->collider_.set (x);
-}
+  sentry::collider_type& sentry::
+  collider ()
+  {
+    return this->collider_.get ();
+  }
 
-void sentry::
-collider (::std::unique_ptr< collider_type > x)
-{
-  this->collider_.set (std::move (x));
-}
+  void sentry::
+  collider (const collider_type& x)
+  {
+    this->collider_.set (x);
+  }
 
-const sentry::events_type& sentry::
-events () const
-{
-  return this->events_.get ();
-}
+  void sentry::
+  collider (::std::unique_ptr< collider_type > x)
+  {
+    this->collider_.set (std::move (x));
+  }
 
-sentry::events_type& sentry::
-events ()
-{
-  return this->events_.get ();
-}
+  const sentry::events_type& sentry::
+  events () const
+  {
+    return this->events_.get ();
+  }
 
-void sentry::
-events (const events_type& x)
-{
-  this->events_.set (x);
-}
+  sentry::events_type& sentry::
+  events ()
+  {
+    return this->events_.get ();
+  }
 
-void sentry::
-events (::std::unique_ptr< events_type > x)
-{
-  this->events_.set (std::move (x));
-}
+  void sentry::
+  events (const events_type& x)
+  {
+    this->events_.set (x);
+  }
 
+  void sentry::
+  events (::std::unique_ptr< events_type > x)
+  {
+    this->events_.set (std::move (x));
+  }
+}
 
 #include <xsd/cxx/xml/dom/parsing-source.hxx>
 
-// sentry
-//
-
-sentry::
-sentry (const className_type& className,
-        const resources_type& resources,
-        const collider_type& collider,
-        const events_type& events)
-: ::xml_schema::type (),
-  className_ (className, this),
-  resources_ (resources, this),
-  collider_ (collider, this),
-  events_ (events, this)
+namespace Sentry
 {
-}
+  // sentry
+  //
 
-sentry::
-sentry (const className_type& className,
-        ::std::unique_ptr< resources_type > resources,
-        ::std::unique_ptr< collider_type > collider,
-        ::std::unique_ptr< events_type > events)
-: ::xml_schema::type (),
-  className_ (className, this),
-  resources_ (std::move (resources), this),
-  collider_ (std::move (collider), this),
-  events_ (std::move (events), this)
-{
-}
-
-sentry::
-sentry (const sentry& x,
-        ::xml_schema::flags f,
-        ::xml_schema::container* c)
-: ::xml_schema::type (x, f, c),
-  className_ (x.className_, f, this),
-  resources_ (x.resources_, f, this),
-  collider_ (x.collider_, f, this),
-  events_ (x.events_, f, this)
-{
-}
-
-sentry::
-sentry (const ::xercesc::DOMElement& e,
-        ::xml_schema::flags f,
-        ::xml_schema::container* c)
-: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  className_ (this),
-  resources_ (this),
-  collider_ (this),
-  events_ (this)
-{
-  if ((f & ::xml_schema::flags::base) == 0)
+  sentry::
+  sentry (const className_type& className,
+          const resources_type& resources,
+          const collider_type& collider,
+          const events_type& events)
+  : ::xml_schema::type (),
+    className_ (className, this),
+    resources_ (resources, this),
+    collider_ (collider, this),
+    events_ (events, this)
   {
-    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
-    this->parse (p, f);
   }
-}
 
-void sentry::
-parse (::xsd::cxx::xml::dom::parser< char >& p,
-       ::xml_schema::flags f)
-{
-  for (; p.more_content (); p.next_content (false))
+  sentry::
+  sentry (const className_type& className,
+          ::std::unique_ptr< resources_type > resources,
+          ::std::unique_ptr< collider_type > collider,
+          ::std::unique_ptr< events_type > events)
+  : ::xml_schema::type (),
+    className_ (className, this),
+    resources_ (std::move (resources), this),
+    collider_ (std::move (collider), this),
+    events_ (std::move (events), this)
   {
-    const ::xercesc::DOMElement& i (p.cur_element ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
+  }
 
-    // className
-    //
-    if (n.name () == "className" && n.namespace_ ().empty ())
+  sentry::
+  sentry (const sentry& x,
+          ::xml_schema::flags f,
+          ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    className_ (x.className_, f, this),
+    resources_ (x.resources_, f, this),
+    collider_ (x.collider_, f, this),
+    events_ (x.events_, f, this)
+  {
+  }
+
+  sentry::
+  sentry (const ::xercesc::DOMElement& e,
+          ::xml_schema::flags f,
+          ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    className_ (this),
+    resources_ (this),
+    collider_ (this),
+    events_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
     {
-      ::std::unique_ptr< className_type > r (
-        className_traits::create (i, f, this));
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
 
-      if (!className_.present ())
+  void sentry::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // className
+      //
+      if (n.name () == "className" && n.namespace_ ().empty ())
       {
-        this->className_.set (::std::move (r));
-        continue;
+        ::std::unique_ptr< className_type > r (
+          className_traits::create (i, f, this));
+
+        if (!className_.present ())
+        {
+          this->className_.set (::std::move (r));
+          continue;
+        }
       }
+
+      // resources
+      //
+      if (n.name () == "resources" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< resources_type > r (
+          resources_traits::create (i, f, this));
+
+        if (!resources_.present ())
+        {
+          this->resources_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // collider
+      //
+      if (n.name () == "collider" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< collider_type > r (
+          collider_traits::create (i, f, this));
+
+        if (!collider_.present ())
+        {
+          this->collider_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // events
+      //
+      if (n.name () == "events" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< events_type > r (
+          events_traits::create (i, f, this));
+
+        if (!events_.present ())
+        {
+          this->events_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
     }
 
-    // resources
-    //
-    if (n.name () == "resources" && n.namespace_ ().empty ())
+    if (!className_.present ())
     {
-      ::std::unique_ptr< resources_type > r (
-        resources_traits::create (i, f, this));
-
-      if (!resources_.present ())
-      {
-        this->resources_.set (::std::move (r));
-        continue;
-      }
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "className",
+        "");
     }
 
-    // collider
-    //
-    if (n.name () == "collider" && n.namespace_ ().empty ())
+    if (!resources_.present ())
     {
-      ::std::unique_ptr< collider_type > r (
-        collider_traits::create (i, f, this));
-
-      if (!collider_.present ())
-      {
-        this->collider_.set (::std::move (r));
-        continue;
-      }
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "resources",
+        "Common");
     }
 
-    // events
-    //
-    if (n.name () == "events" && n.namespace_ ().empty ())
+    if (!collider_.present ())
     {
-      ::std::unique_ptr< events_type > r (
-        events_traits::create (i, f, this));
-
-      if (!events_.present ())
-      {
-        this->events_.set (::std::move (r));
-        continue;
-      }
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "collider",
+        "Common");
     }
 
-    break;
+    if (!events_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "events",
+        "Common");
+    }
   }
 
-  if (!className_.present ())
+  sentry* sentry::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
   {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "className",
-      "");
+    return new class sentry (*this, f, c);
   }
 
-  if (!resources_.present ())
+  sentry& sentry::
+  operator= (const sentry& x)
   {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "resources",
-      "");
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->className_ = x.className_;
+      this->resources_ = x.resources_;
+      this->collider_ = x.collider_;
+      this->events_ = x.events_;
+    }
+
+    return *this;
   }
 
-  if (!collider_.present ())
+  sentry::
+  ~sentry ()
   {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "collider",
-      "");
   }
-
-  if (!events_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "events",
-      "");
-  }
-}
-
-sentry* sentry::
-_clone (::xml_schema::flags f,
-        ::xml_schema::container* c) const
-{
-  return new class sentry (*this, f, c);
-}
-
-sentry& sentry::
-operator= (const sentry& x)
-{
-  if (this != &x)
-  {
-    static_cast< ::xml_schema::type& > (*this) = x;
-    this->className_ = x.className_;
-    this->resources_ = x.resources_;
-    this->collider_ = x.collider_;
-    this->events_ = x.events_;
-  }
-
-  return *this;
-}
-
-sentry::
-~sentry ()
-{
 }
 
 #include <istream>
 #include <xsd/cxx/xml/sax/std-input-source.hxx>
 #include <xsd/cxx/tree/error-handler.hxx>
 
-::std::unique_ptr< ::sentry >
-sentry_ (const ::std::string& u,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
+namespace Sentry
 {
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::tree::error_handler< char > h;
-
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      u, h, p, f));
-
-  h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
-
-  return ::std::unique_ptr< ::sentry > (
-    ::sentry_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::sentry >
-sentry_ (const ::std::string& u,
-         ::xml_schema::error_handler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      u, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::sentry > (
-    ::sentry_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::sentry >
-sentry_ (const ::std::string& u,
-         ::xercesc::DOMErrorHandler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      u, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::sentry > (
-    ::sentry_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::sentry >
-sentry_ (::std::istream& is,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::sentry_ (isrc, f, p);
-}
-
-::std::unique_ptr< ::sentry >
-sentry_ (::std::istream& is,
-         ::xml_schema::error_handler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::sentry_ (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::sentry >
-sentry_ (::std::istream& is,
-         ::xercesc::DOMErrorHandler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::sentry_ (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::sentry >
-sentry_ (::std::istream& is,
-         const ::std::string& sid,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::sentry_ (isrc, f, p);
-}
-
-::std::unique_ptr< ::sentry >
-sentry_ (::std::istream& is,
-         const ::std::string& sid,
-         ::xml_schema::error_handler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::sentry_ (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::sentry >
-sentry_ (::std::istream& is,
-         const ::std::string& sid,
-         ::xercesc::DOMErrorHandler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::sentry_ (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::sentry >
-sentry_ (::xercesc::InputSource& i,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::tree::error_handler< char > h;
-
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      i, h, p, f));
-
-  h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
-
-  return ::std::unique_ptr< ::sentry > (
-    ::sentry_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::sentry >
-sentry_ (::xercesc::InputSource& i,
-         ::xml_schema::error_handler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      i, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::sentry > (
-    ::sentry_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::sentry >
-sentry_ (::xercesc::InputSource& i,
-         ::xercesc::DOMErrorHandler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      i, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::sentry > (
-    ::sentry_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::sentry >
-sentry_ (const ::xercesc::DOMDocument& doc,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  if (f & ::xml_schema::flags::keep_dom)
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (const ::std::string& u,
+           ::xml_schema::flags f,
+           const ::xml_schema::properties& p)
   {
-    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-      static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
 
-    return ::std::unique_ptr< ::sentry > (
-      ::sentry_ (
+    ::xsd::cxx::tree::error_handler< char > h;
+
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        u, h, p, f));
+
+    h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
+
+    return ::std::unique_ptr< ::Sentry::sentry > (
+      ::Sentry::sentry_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
-  const ::xsd::cxx::xml::qualified_name< char > n (
-    ::xsd::cxx::xml::dom::name< char > (e));
-
-  if (n.name () == "sentry" &&
-      n.namespace_ () == "")
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (const ::std::string& u,
+           ::xml_schema::error_handler& h,
+           ::xml_schema::flags f,
+           const ::xml_schema::properties& p)
   {
-    ::std::unique_ptr< ::sentry > r (
-      ::xsd::cxx::tree::traits< ::sentry, char >::create (
-        e, f, 0));
-    return r;
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        u, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Sentry::sentry > (
+      ::Sentry::sentry_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  throw ::xsd::cxx::tree::unexpected_element < char > (
-    n.name (),
-    n.namespace_ (),
-    "sentry",
-    "");
-}
-
-::std::unique_ptr< ::sentry >
-sentry_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties&)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > c (
-    ((f & ::xml_schema::flags::keep_dom) &&
-     !(f & ::xml_schema::flags::own_dom))
-    ? static_cast< ::xercesc::DOMDocument* > (d->cloneNode (true))
-    : 0);
-
-  ::xercesc::DOMDocument& doc (c.get () ? *c : *d);
-  const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
-
-  const ::xsd::cxx::xml::qualified_name< char > n (
-    ::xsd::cxx::xml::dom::name< char > (e));
-
-  if (f & ::xml_schema::flags::keep_dom)
-    doc.setUserData (::xml_schema::dom::tree_node_key,
-                     (c.get () ? &c : &d),
-                     0);
-
-  if (n.name () == "sentry" &&
-      n.namespace_ () == "")
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (const ::std::string& u,
+           ::xercesc::DOMErrorHandler& h,
+           ::xml_schema::flags f,
+           const ::xml_schema::properties& p)
   {
-    ::std::unique_ptr< ::sentry > r (
-      ::xsd::cxx::tree::traits< ::sentry, char >::create (
-        e, f, 0));
-    return r;
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        u, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Sentry::sentry > (
+      ::Sentry::sentry_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  throw ::xsd::cxx::tree::unexpected_element < char > (
-    n.name (),
-    n.namespace_ (),
-    "sentry",
-    "");
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::std::istream& is,
+           ::xml_schema::flags f,
+           const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is);
+    return ::Sentry::sentry_ (isrc, f, p);
+  }
+
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::std::istream& is,
+           ::xml_schema::error_handler& h,
+           ::xml_schema::flags f,
+           const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is);
+    return ::Sentry::sentry_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::std::istream& is,
+           ::xercesc::DOMErrorHandler& h,
+           ::xml_schema::flags f,
+           const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::sax::std_input_source isrc (is);
+    return ::Sentry::sentry_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::std::istream& is,
+           const ::std::string& sid,
+           ::xml_schema::flags f,
+           const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+    return ::Sentry::sentry_ (isrc, f, p);
+  }
+
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::std::istream& is,
+           const ::std::string& sid,
+           ::xml_schema::error_handler& h,
+           ::xml_schema::flags f,
+           const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+    return ::Sentry::sentry_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::std::istream& is,
+           const ::std::string& sid,
+           ::xercesc::DOMErrorHandler& h,
+           ::xml_schema::flags f,
+           const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+    return ::Sentry::sentry_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::xercesc::InputSource& i,
+           ::xml_schema::flags f,
+           const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::tree::error_handler< char > h;
+
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        i, h, p, f));
+
+    h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
+
+    return ::std::unique_ptr< ::Sentry::sentry > (
+      ::Sentry::sentry_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::xercesc::InputSource& i,
+           ::xml_schema::error_handler& h,
+           ::xml_schema::flags f,
+           const ::xml_schema::properties& p)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        i, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Sentry::sentry > (
+      ::Sentry::sentry_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::xercesc::InputSource& i,
+           ::xercesc::DOMErrorHandler& h,
+           ::xml_schema::flags f,
+           const ::xml_schema::properties& p)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        i, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Sentry::sentry > (
+      ::Sentry::sentry_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (const ::xercesc::DOMDocument& doc,
+           ::xml_schema::flags f,
+           const ::xml_schema::properties& p)
+  {
+    if (f & ::xml_schema::flags::keep_dom)
+    {
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
+
+      return ::std::unique_ptr< ::Sentry::sentry > (
+        ::Sentry::sentry_ (
+          std::move (d), f | ::xml_schema::flags::own_dom, p));
+    }
+
+    const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (e));
+
+    if (n.name () == "sentry" &&
+        n.namespace_ () == "Sentry")
+    {
+      ::std::unique_ptr< ::Sentry::sentry > r (
+        ::xsd::cxx::tree::traits< ::Sentry::sentry, char >::create (
+          e, f, 0));
+      return r;
+    }
+
+    throw ::xsd::cxx::tree::unexpected_element < char > (
+      n.name (),
+      n.namespace_ (),
+      "sentry",
+      "Sentry");
+  }
+
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+           ::xml_schema::flags f,
+           const ::xml_schema::properties&)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > c (
+      ((f & ::xml_schema::flags::keep_dom) &&
+       !(f & ::xml_schema::flags::own_dom))
+      ? static_cast< ::xercesc::DOMDocument* > (d->cloneNode (true))
+      : 0);
+
+    ::xercesc::DOMDocument& doc (c.get () ? *c : *d);
+    const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
+
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (e));
+
+    if (f & ::xml_schema::flags::keep_dom)
+      doc.setUserData (::xml_schema::dom::tree_node_key,
+                       (c.get () ? &c : &d),
+                       0);
+
+    if (n.name () == "sentry" &&
+        n.namespace_ () == "Sentry")
+    {
+      ::std::unique_ptr< ::Sentry::sentry > r (
+        ::xsd::cxx::tree::traits< ::Sentry::sentry, char >::create (
+          e, f, 0));
+      return r;
+    }
+
+    throw ::xsd::cxx::tree::unexpected_element < char > (
+      n.name (),
+      n.namespace_ (),
+      "sentry",
+      "Sentry");
+  }
 }
 
 #include <xsd/cxx/post.hxx>

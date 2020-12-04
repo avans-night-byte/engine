@@ -1,1 +1,1 @@
-for %%f in (Resources\XML\Schemas\*.xsd) do (Libraries\XSD\bin\xsd.exe cxx-tree --std c++11 --output-dir Resources\XML\Generated %%f)
+for %%f in (Resources\XML\Schemas\*.xsd) do (Libraries\XSD\bin\xsd.exe cxx-tree --std c++11 --namespace-map http://www.w3.org/2001/XMLSchema-instance=nightbyte::xml --output-dir Resources\XML\Generated %%f)

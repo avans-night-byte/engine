@@ -1,44 +1,49 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:include schemaLocation="common.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:cmn="Common"
+           targetNamespace="Menu">
+    <xs:import schemaLocation="common.xsd"
+               namespace="Common"/>
 
     <xs:element name="menu">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="name" type="xs:string"/>
-                <xs:element ref="resources"/>
+                <xs:element ref="cmn:resources"/>
                 <xs:element name="buttons">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="button" minOccurs="0" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element ref="position"/>
-                                        <xs:element ref="size"/>
+                                        <xs:element ref="cmn:position"/>
+                                        <xs:element ref="cmn:size"/>
                                         <xs:element name="content" type="xs:string"/>
                                         <xs:choice>
-                                            <xs:element ref="color"/>
+                                            <xs:element ref="cmn:color"/>
                                             <xs:element name="resources">
                                                 <xs:complexType>
                                                     <xs:complexContent>
-                                                        <xs:extension base="baseResources">
+                                                        <xs:extension base="cmn:baseResources">
                                                             <xs:sequence>
-                                                                <xs:element name="hover" type="xs:string" minOccurs="0"/>
-                                                                <xs:element name="click" type="xs:string" minOccurs="0"/>
+                                                                <xs:element name="hover" type="xs:string"
+                                                                            minOccurs="0"/>
+                                                                <xs:element name="click" type="xs:string"
+                                                                            minOccurs="0"/>
                                                             </xs:sequence>
                                                         </xs:extension>
                                                     </xs:complexContent>
                                                 </xs:complexType>
                                             </xs:element>
                                         </xs:choice>
-                                        <xs:element ref="events"/>
+                                        <xs:element ref="cmn:events"/>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element ref="preloadResources"/>
+                <xs:element ref="cmn:preloadResources"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

@@ -226,7 +226,11 @@ namespace xml_schema
 
 // Forward declarations.
 //
-class sentry;
+namespace Sentry
+{
+  class sentry;
+}
+
 
 #include <memory>    // ::std::unique_ptr
 #include <limits>    // std::numeric_limits
@@ -244,120 +248,123 @@ class sentry;
 
 #include "common.hxx"
 
-class sentry: public ::xml_schema::type
+namespace Sentry
 {
-  public:
-  // className
-  //
-  typedef ::xml_schema::string className_type;
-  typedef ::xsd::cxx::tree::traits< className_type, char > className_traits;
+  class sentry: public ::xml_schema::type
+  {
+    public:
+    // className
+    //
+    typedef ::xml_schema::string className_type;
+    typedef ::xsd::cxx::tree::traits< className_type, char > className_traits;
 
-  const className_type&
-  className () const;
+    const className_type&
+    className () const;
 
-  className_type&
-  className ();
+    className_type&
+    className ();
 
-  void
-  className (const className_type& x);
+    void
+    className (const className_type& x);
 
-  void
-  className (::std::unique_ptr< className_type > p);
+    void
+    className (::std::unique_ptr< className_type > p);
 
-  // resources
-  //
-  typedef ::resources resources_type;
-  typedef ::xsd::cxx::tree::traits< resources_type, char > resources_traits;
+    // resources
+    //
+    typedef ::Common::resources resources_type;
+    typedef ::xsd::cxx::tree::traits< resources_type, char > resources_traits;
 
-  const resources_type&
-  resources () const;
+    const resources_type&
+    resources () const;
 
-  resources_type&
-  resources ();
+    resources_type&
+    resources ();
 
-  void
-  resources (const resources_type& x);
+    void
+    resources (const resources_type& x);
 
-  void
-  resources (::std::unique_ptr< resources_type > p);
+    void
+    resources (::std::unique_ptr< resources_type > p);
 
-  // collider
-  //
-  typedef ::collider collider_type;
-  typedef ::xsd::cxx::tree::traits< collider_type, char > collider_traits;
+    // collider
+    //
+    typedef ::Common::collider collider_type;
+    typedef ::xsd::cxx::tree::traits< collider_type, char > collider_traits;
 
-  const collider_type&
-  collider () const;
+    const collider_type&
+    collider () const;
 
-  collider_type&
-  collider ();
+    collider_type&
+    collider ();
 
-  void
-  collider (const collider_type& x);
+    void
+    collider (const collider_type& x);
 
-  void
-  collider (::std::unique_ptr< collider_type > p);
+    void
+    collider (::std::unique_ptr< collider_type > p);
 
-  // events
-  //
-  typedef ::events events_type;
-  typedef ::xsd::cxx::tree::traits< events_type, char > events_traits;
+    // events
+    //
+    typedef ::Common::events events_type;
+    typedef ::xsd::cxx::tree::traits< events_type, char > events_traits;
 
-  const events_type&
-  events () const;
+    const events_type&
+    events () const;
 
-  events_type&
-  events ();
+    events_type&
+    events ();
 
-  void
-  events (const events_type& x);
+    void
+    events (const events_type& x);
 
-  void
-  events (::std::unique_ptr< events_type > p);
+    void
+    events (::std::unique_ptr< events_type > p);
 
-  // Constructors.
-  //
-  sentry (const className_type&,
-          const resources_type&,
-          const collider_type&,
-          const events_type&);
+    // Constructors.
+    //
+    sentry (const className_type&,
+            const resources_type&,
+            const collider_type&,
+            const events_type&);
 
-  sentry (const className_type&,
-          ::std::unique_ptr< resources_type >,
-          ::std::unique_ptr< collider_type >,
-          ::std::unique_ptr< events_type >);
+    sentry (const className_type&,
+            ::std::unique_ptr< resources_type >,
+            ::std::unique_ptr< collider_type >,
+            ::std::unique_ptr< events_type >);
 
-  sentry (const ::xercesc::DOMElement& e,
-          ::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0);
+    sentry (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
 
-  sentry (const sentry& x,
-          ::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0);
+    sentry (const sentry& x,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
 
-  virtual sentry*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
+    virtual sentry*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
 
-  sentry&
-  operator= (const sentry& x);
+    sentry&
+    operator= (const sentry& x);
 
-  virtual 
-  ~sentry ();
+    virtual 
+    ~sentry ();
 
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
 
-  protected:
-  ::xsd::cxx::tree::one< className_type > className_;
-  ::xsd::cxx::tree::one< resources_type > resources_;
-  ::xsd::cxx::tree::one< collider_type > collider_;
-  ::xsd::cxx::tree::one< events_type > events_;
-};
+    protected:
+    ::xsd::cxx::tree::one< className_type > className_;
+    ::xsd::cxx::tree::one< resources_type > resources_;
+    ::xsd::cxx::tree::one< collider_type > collider_;
+    ::xsd::cxx::tree::one< events_type > events_;
+  };
+}
 
 #include <iosfwd>
 
@@ -365,98 +372,101 @@ class sentry: public ::xml_schema::type
 #include <xercesc/dom/DOMDocument.hpp>
 #include <xercesc/dom/DOMErrorHandler.hpp>
 
-// Parse a URI or a local file.
-//
+namespace Sentry
+{
+  // Parse a URI or a local file.
+  //
 
-::std::unique_ptr< ::sentry >
-sentry_ (const ::std::string& uri,
-         ::xml_schema::flags f = 0,
-         const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (const ::std::string& uri,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::sentry >
-sentry_ (const ::std::string& uri,
-         ::xml_schema::error_handler& eh,
-         ::xml_schema::flags f = 0,
-         const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (const ::std::string& uri,
+           ::xml_schema::error_handler& eh,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::sentry >
-sentry_ (const ::std::string& uri,
-         ::xercesc::DOMErrorHandler& eh,
-         ::xml_schema::flags f = 0,
-         const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (const ::std::string& uri,
+           ::xercesc::DOMErrorHandler& eh,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse std::istream.
-//
+  // Parse std::istream.
+  //
 
-::std::unique_ptr< ::sentry >
-sentry_ (::std::istream& is,
-         ::xml_schema::flags f = 0,
-         const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::std::istream& is,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::sentry >
-sentry_ (::std::istream& is,
-         ::xml_schema::error_handler& eh,
-         ::xml_schema::flags f = 0,
-         const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::std::istream& is,
+           ::xml_schema::error_handler& eh,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::sentry >
-sentry_ (::std::istream& is,
-         ::xercesc::DOMErrorHandler& eh,
-         ::xml_schema::flags f = 0,
-         const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::std::istream& is,
+           ::xercesc::DOMErrorHandler& eh,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::sentry >
-sentry_ (::std::istream& is,
-         const ::std::string& id,
-         ::xml_schema::flags f = 0,
-         const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::std::istream& is,
+           const ::std::string& id,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::sentry >
-sentry_ (::std::istream& is,
-         const ::std::string& id,
-         ::xml_schema::error_handler& eh,
-         ::xml_schema::flags f = 0,
-         const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::std::istream& is,
+           const ::std::string& id,
+           ::xml_schema::error_handler& eh,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::sentry >
-sentry_ (::std::istream& is,
-         const ::std::string& id,
-         ::xercesc::DOMErrorHandler& eh,
-         ::xml_schema::flags f = 0,
-         const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::std::istream& is,
+           const ::std::string& id,
+           ::xercesc::DOMErrorHandler& eh,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse xercesc::InputSource.
-//
+  // Parse xercesc::InputSource.
+  //
 
-::std::unique_ptr< ::sentry >
-sentry_ (::xercesc::InputSource& is,
-         ::xml_schema::flags f = 0,
-         const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::xercesc::InputSource& is,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::sentry >
-sentry_ (::xercesc::InputSource& is,
-         ::xml_schema::error_handler& eh,
-         ::xml_schema::flags f = 0,
-         const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::xercesc::InputSource& is,
+           ::xml_schema::error_handler& eh,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::sentry >
-sentry_ (::xercesc::InputSource& is,
-         ::xercesc::DOMErrorHandler& eh,
-         ::xml_schema::flags f = 0,
-         const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::xercesc::InputSource& is,
+           ::xercesc::DOMErrorHandler& eh,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse xercesc::DOMDocument.
-//
+  // Parse xercesc::DOMDocument.
+  //
 
-::std::unique_ptr< ::sentry >
-sentry_ (const ::xercesc::DOMDocument& d,
-         ::xml_schema::flags f = 0,
-         const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (const ::xercesc::DOMDocument& d,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::sentry >
-sentry_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-         ::xml_schema::flags f = 0,
-         const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::Sentry::sentry >
+  sentry_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+           ::xml_schema::flags f = 0,
+           const ::xml_schema::properties& p = ::xml_schema::properties ());
+}
 
 #include <xsd/cxx/post.hxx>
 

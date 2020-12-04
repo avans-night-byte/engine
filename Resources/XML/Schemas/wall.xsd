@@ -1,12 +1,17 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:include schemaLocation="common.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:cmn="Common"
+           xmlns:wall="Walls"
+           targetNamespace="Walls">
+
+    <xs:import schemaLocation="common.xsd"
+               namespace="Common"/>
 
     <xs:element name="walls">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="className" type="xs:string"/>
-                <xs:element maxOccurs="unbounded" ref="wall"/>
+                <xs:element maxOccurs="unbounded" ref="wall:wall"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -37,15 +42,15 @@
                 <xs:element name="powers" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="restoresHP" type="xs:int"  minOccurs="0"/>
+                            <xs:element name="restoresHP" type="xs:int" minOccurs="0"/>
                             <xs:element name="explosionImmune" type="xs:boolean" minOccurs="0"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
 
-                <xs:element ref="resources"/>
-                <xs:element ref="collider"/>
-                <xs:element ref="events"/>
+                <xs:element ref="cmn:resources"/>
+                <xs:element ref="cmn:collider"/>
+                <xs:element ref="cmn:events"/>
 
             </xs:sequence>
         </xs:complexType>
