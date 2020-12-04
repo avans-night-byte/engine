@@ -16,7 +16,7 @@ public:
 private:
     std::map<std::string, std::unique_ptr<TextWrapper>> _textItems;
     const EngineRenderingAPI& _renderer;
-    std::unique_ptr<menu> _menu;
+    std::unique_ptr<Menu::menu> _menu;
 
 
 };

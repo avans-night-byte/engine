@@ -1,27 +1,72 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:lr="LevelResources"
+           xmlns:cmn="Common"
+           targetNamespace="LevelResources">
 
-    <xs:element name="XLevel">
+    <xs:import schemaLocation="common.xsd"
+               namespace="Common"/>
+
+    <xs:simpleType name="floatCap" id="floatCap">
+        <xs:restriction base="xs:float">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="Level">
         <xs:complexType>
             <xs:sequence maxOccurs="unbounded">
-                <xs:element name="XObject">
+                <xs:element name="Object">
                     <xs:complexType>
-                        <xs:sequence maxOccurs="unbounded">
-                            <xs:element name="XComponent">
+                        <xs:sequence>
+                            <xs:element name="Components">
                                 <xs:complexType>
-                                    <xs:choice minOccurs="0" maxOccurs="unbounded">
-                                        <xs:element name="XParam">
+                                    <xs:sequence>
+
+                                        <!-- World Position Component -->
+                                        <xs:element name="WorldPositionComponent">
                                             <xs:complexType>
-                                                <xs:simpleContent>
-                                                    <xs:extension base="xs:string">
-                                                        <xs:attribute name="Name" type="xs:string"/>
-                                                    </xs:extension>
-                                                </xs:simpleContent>
+                                                <xs:sequence>
+                                                    <xs:element ref="cmn:position"/>
+                                                </xs:sequence>
                                             </xs:complexType>
                                         </xs:element>
-                                    </xs:choice>
-                                    <xs:attribute name="name" type="xs:string"/>
+
+                                        <!-- Physics Component -->
+                                        <xs:element name="PhysicsComponent" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="friction" type="lr:floatCap"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+
+                                        <!-- -->
+                                    </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
+
+
+
+
+
+
+<!--                            <xs:element name="Component">-->
+<!--                                <xs:complexType>-->
+<!--                                    <xs:choice minOccurs="0" maxOccurs="unbounded">-->
+<!--                                        <xs:element name="Param">-->
+<!--                                            <xs:complexType>-->
+<!--                                                <xs:simpleContent>-->
+<!--                                                    <xs:extension base="xs:string">-->
+<!--                                                        <xs:attribute name="Name" type="xs:string"/>-->
+<!--                                                    </xs:extension>-->
+<!--                                                </xs:simpleContent>-->
+<!--                                            </xs:complexType>-->
+<!--                                        </xs:element>-->
+<!--                                    </xs:choice>-->
+<!--                                    <xs:attribute name="name" type="xs:string"/>-->
+<!--                                </xs:complexType>-->
+<!--                            </xs:element>-->
                         </xs:sequence>
                         <xs:attribute name="name" type="xs:string"/>
                     </xs:complexType>

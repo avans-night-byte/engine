@@ -3,7 +3,7 @@
 #include "Page.hpp"
 
 void MenuParser::openScene(const std::string& path) {
-    _menu = menu_(path);
+    _menu = Menu::menu_(path);
 
     _textItems = std::map<std::string, std::unique_ptr<TextWrapper>>();
     std::string buttonString = "button_";

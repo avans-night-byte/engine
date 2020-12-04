@@ -1,9 +1,23 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <!-- Elements start with X to prevent duplicate class names when generating xsd files into cxx files -->
-<XLevel name="Level1"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schemas/level-resources.xsd">
+<lr:Level xmlns:lr="LevelResources">
 
-    <XObject name="Character">
+    <Object>
+        <Name>Character</Name>
+
+        <Components>
+            <WorldPositionComponent>
+                <position>
+                    <x>1</x>
+                    <y>2</y>
+                </position>
+            </WorldPositionComponent>
+
+            <PhysicsComponent>
+
+            </PhysicsComponent>
+        </Components>
+
         <XComponent name="CharacterComponent">
             <XParam Name="Health">80</XParam>
         </XComponent>
@@ -12,11 +26,11 @@
             <XParam Name="friction">1</XParam>
             <XParam Name="bouyancy">0.2</XParam>
         </XComponent>
-    </XObject>
+    </Object>
 
-    <XObject name="Crate">
+    <Object name="Crate">
         <XComponent name="PhysicsComponent">
             <XParam Name="friction">100</XParam>
         </XComponent>
-    </XObject>
-</XLevel>
+    </Object>
+</lr:Level>

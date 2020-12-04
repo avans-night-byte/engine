@@ -40,859 +40,1091 @@
 
 #include "level-resources.hxx"
 
-// XLevel
-// 
-
-const XLevel::XObject_sequence& XLevel::
-XObject () const
+namespace LevelResources
 {
-  return this->XObject_;
+  // floatCap
+  // 
+
+
+  // Level
+  // 
+
+  const Level::Object_sequence& Level::
+  Object () const
+  {
+    return this->Object_;
+  }
+
+  Level::Object_sequence& Level::
+  Object ()
+  {
+    return this->Object_;
+  }
+
+  void Level::
+  Object (const Object_sequence& s)
+  {
+    this->Object_ = s;
+  }
+
+  const Level::name_optional& Level::
+  name () const
+  {
+    return this->name_;
+  }
+
+  Level::name_optional& Level::
+  name ()
+  {
+    return this->name_;
+  }
+
+  void Level::
+  name (const name_type& x)
+  {
+    this->name_.set (x);
+  }
+
+  void Level::
+  name (const name_optional& x)
+  {
+    this->name_ = x;
+  }
+
+  void Level::
+  name (::std::unique_ptr< name_type > x)
+  {
+    this->name_.set (std::move (x));
+  }
+
+
+  // Object
+  // 
+
+  const Object::Components_type& Object::
+  Components () const
+  {
+    return this->Components_.get ();
+  }
+
+  Object::Components_type& Object::
+  Components ()
+  {
+    return this->Components_.get ();
+  }
+
+  void Object::
+  Components (const Components_type& x)
+  {
+    this->Components_.set (x);
+  }
+
+  void Object::
+  Components (::std::unique_ptr< Components_type > x)
+  {
+    this->Components_.set (std::move (x));
+  }
+
+  const Object::name_optional& Object::
+  name () const
+  {
+    return this->name_;
+  }
+
+  Object::name_optional& Object::
+  name ()
+  {
+    return this->name_;
+  }
+
+  void Object::
+  name (const name_type& x)
+  {
+    this->name_.set (x);
+  }
+
+  void Object::
+  name (const name_optional& x)
+  {
+    this->name_ = x;
+  }
+
+  void Object::
+  name (::std::unique_ptr< name_type > x)
+  {
+    this->name_.set (std::move (x));
+  }
+
+
+  // Components
+  // 
+
+  const Components::WorldPositionComponent_type& Components::
+  WorldPositionComponent () const
+  {
+    return this->WorldPositionComponent_.get ();
+  }
+
+  Components::WorldPositionComponent_type& Components::
+  WorldPositionComponent ()
+  {
+    return this->WorldPositionComponent_.get ();
+  }
+
+  void Components::
+  WorldPositionComponent (const WorldPositionComponent_type& x)
+  {
+    this->WorldPositionComponent_.set (x);
+  }
+
+  void Components::
+  WorldPositionComponent (::std::unique_ptr< WorldPositionComponent_type > x)
+  {
+    this->WorldPositionComponent_.set (std::move (x));
+  }
+
+  const Components::PhysicsComponent_optional& Components::
+  PhysicsComponent () const
+  {
+    return this->PhysicsComponent_;
+  }
+
+  Components::PhysicsComponent_optional& Components::
+  PhysicsComponent ()
+  {
+    return this->PhysicsComponent_;
+  }
+
+  void Components::
+  PhysicsComponent (const PhysicsComponent_type& x)
+  {
+    this->PhysicsComponent_.set (x);
+  }
+
+  void Components::
+  PhysicsComponent (const PhysicsComponent_optional& x)
+  {
+    this->PhysicsComponent_ = x;
+  }
+
+  void Components::
+  PhysicsComponent (::std::unique_ptr< PhysicsComponent_type > x)
+  {
+    this->PhysicsComponent_.set (std::move (x));
+  }
+
+
+  // WorldPositionComponent
+  // 
+
+  const WorldPositionComponent::position_type& WorldPositionComponent::
+  position () const
+  {
+    return this->position_.get ();
+  }
+
+  WorldPositionComponent::position_type& WorldPositionComponent::
+  position ()
+  {
+    return this->position_.get ();
+  }
+
+  void WorldPositionComponent::
+  position (const position_type& x)
+  {
+    this->position_.set (x);
+  }
+
+  void WorldPositionComponent::
+  position (::std::unique_ptr< position_type > x)
+  {
+    this->position_.set (std::move (x));
+  }
+
+
+  // PhysicsComponent
+  // 
+
+  const PhysicsComponent::friction_type& PhysicsComponent::
+  friction () const
+  {
+    return this->friction_.get ();
+  }
+
+  PhysicsComponent::friction_type& PhysicsComponent::
+  friction ()
+  {
+    return this->friction_.get ();
+  }
+
+  void PhysicsComponent::
+  friction (const friction_type& x)
+  {
+    this->friction_.set (x);
+  }
+
+  void PhysicsComponent::
+  friction (::std::unique_ptr< friction_type > x)
+  {
+    this->friction_.set (std::move (x));
+  }
 }
-
-XLevel::XObject_sequence& XLevel::
-XObject ()
-{
-  return this->XObject_;
-}
-
-void XLevel::
-XObject (const XObject_sequence& s)
-{
-  this->XObject_ = s;
-}
-
-const XLevel::name_optional& XLevel::
-name () const
-{
-  return this->name_;
-}
-
-XLevel::name_optional& XLevel::
-name ()
-{
-  return this->name_;
-}
-
-void XLevel::
-name (const name_type& x)
-{
-  this->name_.set (x);
-}
-
-void XLevel::
-name (const name_optional& x)
-{
-  this->name_ = x;
-}
-
-void XLevel::
-name (::std::unique_ptr< name_type > x)
-{
-  this->name_.set (std::move (x));
-}
-
-
-// XObject
-// 
-
-const XObject::XComponent_sequence& XObject::
-XComponent () const
-{
-  return this->XComponent_;
-}
-
-XObject::XComponent_sequence& XObject::
-XComponent ()
-{
-  return this->XComponent_;
-}
-
-void XObject::
-XComponent (const XComponent_sequence& s)
-{
-  this->XComponent_ = s;
-}
-
-const XObject::name_optional& XObject::
-name () const
-{
-  return this->name_;
-}
-
-XObject::name_optional& XObject::
-name ()
-{
-  return this->name_;
-}
-
-void XObject::
-name (const name_type& x)
-{
-  this->name_.set (x);
-}
-
-void XObject::
-name (const name_optional& x)
-{
-  this->name_ = x;
-}
-
-void XObject::
-name (::std::unique_ptr< name_type > x)
-{
-  this->name_.set (std::move (x));
-}
-
-
-// XComponent
-// 
-
-const XComponent::XParam_sequence& XComponent::
-XParam () const
-{
-  return this->XParam_;
-}
-
-XComponent::XParam_sequence& XComponent::
-XParam ()
-{
-  return this->XParam_;
-}
-
-void XComponent::
-XParam (const XParam_sequence& s)
-{
-  this->XParam_ = s;
-}
-
-const XComponent::name_optional& XComponent::
-name () const
-{
-  return this->name_;
-}
-
-XComponent::name_optional& XComponent::
-name ()
-{
-  return this->name_;
-}
-
-void XComponent::
-name (const name_type& x)
-{
-  this->name_.set (x);
-}
-
-void XComponent::
-name (const name_optional& x)
-{
-  this->name_ = x;
-}
-
-void XComponent::
-name (::std::unique_ptr< name_type > x)
-{
-  this->name_.set (std::move (x));
-}
-
-
-// XParam
-// 
-
-const XParam::Name_optional& XParam::
-Name () const
-{
-  return this->Name_;
-}
-
-XParam::Name_optional& XParam::
-Name ()
-{
-  return this->Name_;
-}
-
-void XParam::
-Name (const Name_type& x)
-{
-  this->Name_.set (x);
-}
-
-void XParam::
-Name (const Name_optional& x)
-{
-  this->Name_ = x;
-}
-
-void XParam::
-Name (::std::unique_ptr< Name_type > x)
-{
-  this->Name_.set (std::move (x));
-}
-
 
 #include <xsd/cxx/xml/dom/parsing-source.hxx>
 
-// XLevel
-//
-
-XLevel::
-XLevel ()
-: ::xml_schema::type (),
-  XObject_ (this),
-  name_ (this)
+namespace LevelResources
 {
-}
+  // floatCap
+  //
 
-XLevel::
-XLevel (const XLevel& x,
-        ::xml_schema::flags f,
-        ::xml_schema::container* c)
-: ::xml_schema::type (x, f, c),
-  XObject_ (x.XObject_, f, this),
-  name_ (x.name_, f, this)
-{
-}
-
-XLevel::
-XLevel (const ::xercesc::DOMElement& e,
-        ::xml_schema::flags f,
-        ::xml_schema::container* c)
-: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  XObject_ (this),
-  name_ (this)
-{
-  if ((f & ::xml_schema::flags::base) == 0)
+  floatCap::
+  floatCap (const ::xml_schema::float_& _xsd_float__base)
+  : ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base)
   {
-    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, true);
-    this->parse (p, f);
-  }
-}
-
-void XLevel::
-parse (::xsd::cxx::xml::dom::parser< char >& p,
-       ::xml_schema::flags f)
-{
-  for (; p.more_content (); p.next_content (false))
-  {
-    const ::xercesc::DOMElement& i (p.cur_element ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
-
-    // XObject
-    //
-    if (n.name () == "XObject" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< XObject_type > r (
-        XObject_traits::create (i, f, this));
-
-      this->XObject_.push_back (::std::move (r));
-      continue;
-    }
-
-    break;
   }
 
-  while (p.more_attributes ())
-  {
-    const ::xercesc::DOMAttr& i (p.next_attribute ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
-
-    if (n.name () == "name" && n.namespace_ ().empty ())
-    {
-      this->name_.set (name_traits::create (i, f, this));
-      continue;
-    }
-  }
-}
-
-XLevel* XLevel::
-_clone (::xml_schema::flags f,
-        ::xml_schema::container* c) const
-{
-  return new class XLevel (*this, f, c);
-}
-
-XLevel& XLevel::
-operator= (const XLevel& x)
-{
-  if (this != &x)
-  {
-    static_cast< ::xml_schema::type& > (*this) = x;
-    this->XObject_ = x.XObject_;
-    this->name_ = x.name_;
-  }
-
-  return *this;
-}
-
-XLevel::
-~XLevel ()
-{
-}
-
-// XObject
-//
-
-XObject::
-XObject ()
-: ::xml_schema::type (),
-  XComponent_ (this),
-  name_ (this)
-{
-}
-
-XObject::
-XObject (const XObject& x,
-         ::xml_schema::flags f,
-         ::xml_schema::container* c)
-: ::xml_schema::type (x, f, c),
-  XComponent_ (x.XComponent_, f, this),
-  name_ (x.name_, f, this)
-{
-}
-
-XObject::
-XObject (const ::xercesc::DOMElement& e,
-         ::xml_schema::flags f,
-         ::xml_schema::container* c)
-: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  XComponent_ (this),
-  name_ (this)
-{
-  if ((f & ::xml_schema::flags::base) == 0)
-  {
-    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, true);
-    this->parse (p, f);
-  }
-}
-
-void XObject::
-parse (::xsd::cxx::xml::dom::parser< char >& p,
-       ::xml_schema::flags f)
-{
-  for (; p.more_content (); p.next_content (false))
-  {
-    const ::xercesc::DOMElement& i (p.cur_element ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
-
-    // XComponent
-    //
-    if (n.name () == "XComponent" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< XComponent_type > r (
-        XComponent_traits::create (i, f, this));
-
-      this->XComponent_.push_back (::std::move (r));
-      continue;
-    }
-
-    break;
-  }
-
-  while (p.more_attributes ())
-  {
-    const ::xercesc::DOMAttr& i (p.next_attribute ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
-
-    if (n.name () == "name" && n.namespace_ ().empty ())
-    {
-      this->name_.set (name_traits::create (i, f, this));
-      continue;
-    }
-  }
-}
-
-XObject* XObject::
-_clone (::xml_schema::flags f,
-        ::xml_schema::container* c) const
-{
-  return new class XObject (*this, f, c);
-}
-
-XObject& XObject::
-operator= (const XObject& x)
-{
-  if (this != &x)
-  {
-    static_cast< ::xml_schema::type& > (*this) = x;
-    this->XComponent_ = x.XComponent_;
-    this->name_ = x.name_;
-  }
-
-  return *this;
-}
-
-XObject::
-~XObject ()
-{
-}
-
-// XComponent
-//
-
-XComponent::
-XComponent ()
-: ::xml_schema::type (),
-  XParam_ (this),
-  name_ (this)
-{
-}
-
-XComponent::
-XComponent (const XComponent& x,
+  floatCap::
+  floatCap (const floatCap& x,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::type (x, f, c),
-  XParam_ (x.XParam_, f, this),
-  name_ (x.name_, f, this)
-{
-}
+  : ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c)
+  {
+  }
 
-XComponent::
-XComponent (const ::xercesc::DOMElement& e,
+  floatCap::
+  floatCap (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  XParam_ (this),
-  name_ (this)
-{
-  if ((f & ::xml_schema::flags::base) == 0)
+  : ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f, c)
   {
-    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, true);
-    this->parse (p, f);
   }
-}
 
-void XComponent::
-parse (::xsd::cxx::xml::dom::parser< char >& p,
-       ::xml_schema::flags f)
-{
-  for (; p.more_content (); p.next_content (false))
+  floatCap::
+  floatCap (const ::xercesc::DOMAttr& a,
+            ::xml_schema::flags f,
+            ::xml_schema::container* c)
+  : ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (a, f, c)
   {
-    const ::xercesc::DOMElement& i (p.cur_element ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
+  }
 
-    // XParam
-    //
-    if (n.name () == "XParam" && n.namespace_ ().empty ())
+  floatCap::
+  floatCap (const ::std::string& s,
+            const ::xercesc::DOMElement* e,
+            ::xml_schema::flags f,
+            ::xml_schema::container* c)
+  : ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (s, e, f, c)
+  {
+  }
+
+  floatCap* floatCap::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class floatCap (*this, f, c);
+  }
+
+  floatCap::
+  ~floatCap ()
+  {
+  }
+
+  // Level
+  //
+
+  Level::
+  Level ()
+  : ::xml_schema::type (),
+    Object_ (this),
+    name_ (this)
+  {
+  }
+
+  Level::
+  Level (const Level& x,
+         ::xml_schema::flags f,
+         ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    Object_ (x.Object_, f, this),
+    name_ (x.name_, f, this)
+  {
+  }
+
+  Level::
+  Level (const ::xercesc::DOMElement& e,
+         ::xml_schema::flags f,
+         ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    Object_ (this),
+    name_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
     {
-      ::std::unique_ptr< XParam_type > r (
-        XParam_traits::create (i, f, this));
-
-      this->XParam_.push_back (::std::move (r));
-      continue;
-    }
-
-    break;
-  }
-
-  while (p.more_attributes ())
-  {
-    const ::xercesc::DOMAttr& i (p.next_attribute ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
-
-    if (n.name () == "name" && n.namespace_ ().empty ())
-    {
-      this->name_.set (name_traits::create (i, f, this));
-      continue;
-    }
-  }
-}
-
-XComponent* XComponent::
-_clone (::xml_schema::flags f,
-        ::xml_schema::container* c) const
-{
-  return new class XComponent (*this, f, c);
-}
-
-XComponent& XComponent::
-operator= (const XComponent& x)
-{
-  if (this != &x)
-  {
-    static_cast< ::xml_schema::type& > (*this) = x;
-    this->XParam_ = x.XParam_;
-    this->name_ = x.name_;
-  }
-
-  return *this;
-}
-
-XComponent::
-~XComponent ()
-{
-}
-
-// XParam
-//
-
-XParam::
-XParam ()
-: ::xml_schema::string (),
-  Name_ (this)
-{
-}
-
-XParam::
-XParam (const char* _xsd_string_base)
-: ::xml_schema::string (_xsd_string_base),
-  Name_ (this)
-{
-}
-
-XParam::
-XParam (const ::std::string& _xsd_string_base)
-: ::xml_schema::string (_xsd_string_base),
-  Name_ (this)
-{
-}
-
-XParam::
-XParam (const ::xml_schema::string& _xsd_string_base)
-: ::xml_schema::string (_xsd_string_base),
-  Name_ (this)
-{
-}
-
-XParam::
-XParam (const XParam& x,
-        ::xml_schema::flags f,
-        ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
-  Name_ (x.Name_, f, this)
-{
-}
-
-XParam::
-XParam (const ::xercesc::DOMElement& e,
-        ::xml_schema::flags f,
-        ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
-  Name_ (this)
-{
-  if ((f & ::xml_schema::flags::base) == 0)
-  {
-    ::xsd::cxx::xml::dom::parser< char > p (e, false, false, true);
-    this->parse (p, f);
-  }
-}
-
-void XParam::
-parse (::xsd::cxx::xml::dom::parser< char >& p,
-       ::xml_schema::flags f)
-{
-  while (p.more_attributes ())
-  {
-    const ::xercesc::DOMAttr& i (p.next_attribute ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
-
-    if (n.name () == "Name" && n.namespace_ ().empty ())
-    {
-      this->Name_.set (Name_traits::create (i, f, this));
-      continue;
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, true);
+      this->parse (p, f);
     }
   }
-}
 
-XParam* XParam::
-_clone (::xml_schema::flags f,
-        ::xml_schema::container* c) const
-{
-  return new class XParam (*this, f, c);
-}
-
-XParam& XParam::
-operator= (const XParam& x)
-{
-  if (this != &x)
+  void Level::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
   {
-    static_cast< ::xml_schema::string& > (*this) = x;
-    this->Name_ = x.Name_;
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // Object
+      //
+      if (n.name () == "Object" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< Object_type > r (
+          Object_traits::create (i, f, this));
+
+        this->Object_.push_back (::std::move (r));
+        continue;
+      }
+
+      break;
+    }
+
+    while (p.more_attributes ())
+    {
+      const ::xercesc::DOMAttr& i (p.next_attribute ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      if (n.name () == "name" && n.namespace_ ().empty ())
+      {
+        this->name_.set (name_traits::create (i, f, this));
+        continue;
+      }
+    }
   }
 
-  return *this;
-}
+  Level* Level::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class Level (*this, f, c);
+  }
 
-XParam::
-~XParam ()
-{
+  Level& Level::
+  operator= (const Level& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->Object_ = x.Object_;
+      this->name_ = x.name_;
+    }
+
+    return *this;
+  }
+
+  Level::
+  ~Level ()
+  {
+  }
+
+  // Object
+  //
+
+  Object::
+  Object (const Components_type& Components)
+  : ::xml_schema::type (),
+    Components_ (Components, this),
+    name_ (this)
+  {
+  }
+
+  Object::
+  Object (::std::unique_ptr< Components_type > Components)
+  : ::xml_schema::type (),
+    Components_ (std::move (Components), this),
+    name_ (this)
+  {
+  }
+
+  Object::
+  Object (const Object& x,
+          ::xml_schema::flags f,
+          ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    Components_ (x.Components_, f, this),
+    name_ (x.name_, f, this)
+  {
+  }
+
+  Object::
+  Object (const ::xercesc::DOMElement& e,
+          ::xml_schema::flags f,
+          ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    Components_ (this),
+    name_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, true);
+      this->parse (p, f);
+    }
+  }
+
+  void Object::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // Components
+      //
+      if (n.name () == "Components" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< Components_type > r (
+          Components_traits::create (i, f, this));
+
+        if (!Components_.present ())
+        {
+          this->Components_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!Components_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "Components",
+        "");
+    }
+
+    while (p.more_attributes ())
+    {
+      const ::xercesc::DOMAttr& i (p.next_attribute ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      if (n.name () == "name" && n.namespace_ ().empty ())
+      {
+        this->name_.set (name_traits::create (i, f, this));
+        continue;
+      }
+    }
+  }
+
+  Object* Object::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class Object (*this, f, c);
+  }
+
+  Object& Object::
+  operator= (const Object& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->Components_ = x.Components_;
+      this->name_ = x.name_;
+    }
+
+    return *this;
+  }
+
+  Object::
+  ~Object ()
+  {
+  }
+
+  // Components
+  //
+
+  Components::
+  Components (const WorldPositionComponent_type& WorldPositionComponent)
+  : ::xml_schema::type (),
+    WorldPositionComponent_ (WorldPositionComponent, this),
+    PhysicsComponent_ (this)
+  {
+  }
+
+  Components::
+  Components (::std::unique_ptr< WorldPositionComponent_type > WorldPositionComponent)
+  : ::xml_schema::type (),
+    WorldPositionComponent_ (std::move (WorldPositionComponent), this),
+    PhysicsComponent_ (this)
+  {
+  }
+
+  Components::
+  Components (const Components& x,
+              ::xml_schema::flags f,
+              ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    WorldPositionComponent_ (x.WorldPositionComponent_, f, this),
+    PhysicsComponent_ (x.PhysicsComponent_, f, this)
+  {
+  }
+
+  Components::
+  Components (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f,
+              ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    WorldPositionComponent_ (this),
+    PhysicsComponent_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void Components::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // WorldPositionComponent
+      //
+      if (n.name () == "WorldPositionComponent" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< WorldPositionComponent_type > r (
+          WorldPositionComponent_traits::create (i, f, this));
+
+        if (!WorldPositionComponent_.present ())
+        {
+          this->WorldPositionComponent_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // PhysicsComponent
+      //
+      if (n.name () == "PhysicsComponent" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< PhysicsComponent_type > r (
+          PhysicsComponent_traits::create (i, f, this));
+
+        if (!this->PhysicsComponent_)
+        {
+          this->PhysicsComponent_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!WorldPositionComponent_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "WorldPositionComponent",
+        "");
+    }
+  }
+
+  Components* Components::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class Components (*this, f, c);
+  }
+
+  Components& Components::
+  operator= (const Components& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->WorldPositionComponent_ = x.WorldPositionComponent_;
+      this->PhysicsComponent_ = x.PhysicsComponent_;
+    }
+
+    return *this;
+  }
+
+  Components::
+  ~Components ()
+  {
+  }
+
+  // WorldPositionComponent
+  //
+
+  WorldPositionComponent::
+  WorldPositionComponent (const position_type& position)
+  : ::xml_schema::type (),
+    position_ (position, this)
+  {
+  }
+
+  WorldPositionComponent::
+  WorldPositionComponent (::std::unique_ptr< position_type > position)
+  : ::xml_schema::type (),
+    position_ (std::move (position), this)
+  {
+  }
+
+  WorldPositionComponent::
+  WorldPositionComponent (const WorldPositionComponent& x,
+                          ::xml_schema::flags f,
+                          ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    position_ (x.position_, f, this)
+  {
+  }
+
+  WorldPositionComponent::
+  WorldPositionComponent (const ::xercesc::DOMElement& e,
+                          ::xml_schema::flags f,
+                          ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    position_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void WorldPositionComponent::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // position
+      //
+      if (n.name () == "position" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< position_type > r (
+          position_traits::create (i, f, this));
+
+        if (!position_.present ())
+        {
+          this->position_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!position_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "position",
+        "Common");
+    }
+  }
+
+  WorldPositionComponent* WorldPositionComponent::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class WorldPositionComponent (*this, f, c);
+  }
+
+  WorldPositionComponent& WorldPositionComponent::
+  operator= (const WorldPositionComponent& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->position_ = x.position_;
+    }
+
+    return *this;
+  }
+
+  WorldPositionComponent::
+  ~WorldPositionComponent ()
+  {
+  }
+
+  // PhysicsComponent
+  //
+
+  PhysicsComponent::
+  PhysicsComponent (const friction_type& friction)
+  : ::xml_schema::type (),
+    friction_ (friction, this)
+  {
+  }
+
+  PhysicsComponent::
+  PhysicsComponent (const PhysicsComponent& x,
+                    ::xml_schema::flags f,
+                    ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    friction_ (x.friction_, f, this)
+  {
+  }
+
+  PhysicsComponent::
+  PhysicsComponent (const ::xercesc::DOMElement& e,
+                    ::xml_schema::flags f,
+                    ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    friction_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void PhysicsComponent::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // friction
+      //
+      if (n.name () == "friction" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< friction_type > r (
+          friction_traits::create (i, f, this));
+
+        if (!friction_.present ())
+        {
+          this->friction_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!friction_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "friction",
+        "");
+    }
+  }
+
+  PhysicsComponent* PhysicsComponent::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class PhysicsComponent (*this, f, c);
+  }
+
+  PhysicsComponent& PhysicsComponent::
+  operator= (const PhysicsComponent& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->friction_ = x.friction_;
+    }
+
+    return *this;
+  }
+
+  PhysicsComponent::
+  ~PhysicsComponent ()
+  {
+  }
 }
 
 #include <istream>
 #include <xsd/cxx/xml/sax/std-input-source.hxx>
 #include <xsd/cxx/tree/error-handler.hxx>
 
-::std::unique_ptr< ::XLevel >
-XLevel_ (const ::std::string& u,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
+namespace LevelResources
 {
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::tree::error_handler< char > h;
-
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      u, h, p, f));
-
-  h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
-
-  return ::std::unique_ptr< ::XLevel > (
-    ::XLevel_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::XLevel >
-XLevel_ (const ::std::string& u,
-         ::xml_schema::error_handler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      u, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::XLevel > (
-    ::XLevel_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::XLevel >
-XLevel_ (const ::std::string& u,
-         ::xercesc::DOMErrorHandler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      u, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::XLevel > (
-    ::XLevel_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::XLevel >
-XLevel_ (::std::istream& is,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::XLevel_ (isrc, f, p);
-}
-
-::std::unique_ptr< ::XLevel >
-XLevel_ (::std::istream& is,
-         ::xml_schema::error_handler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::XLevel_ (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::XLevel >
-XLevel_ (::std::istream& is,
-         ::xercesc::DOMErrorHandler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::XLevel_ (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::XLevel >
-XLevel_ (::std::istream& is,
-         const ::std::string& sid,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::XLevel_ (isrc, f, p);
-}
-
-::std::unique_ptr< ::XLevel >
-XLevel_ (::std::istream& is,
-         const ::std::string& sid,
-         ::xml_schema::error_handler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::XLevel_ (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::XLevel >
-XLevel_ (::std::istream& is,
-         const ::std::string& sid,
-         ::xercesc::DOMErrorHandler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::XLevel_ (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::XLevel >
-XLevel_ (::xercesc::InputSource& i,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::tree::error_handler< char > h;
-
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      i, h, p, f));
-
-  h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
-
-  return ::std::unique_ptr< ::XLevel > (
-    ::XLevel_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::XLevel >
-XLevel_ (::xercesc::InputSource& i,
-         ::xml_schema::error_handler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      i, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::XLevel > (
-    ::XLevel_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::XLevel >
-XLevel_ (::xercesc::InputSource& i,
-         ::xercesc::DOMErrorHandler& h,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      i, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::XLevel > (
-    ::XLevel_ (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::XLevel >
-XLevel_ (const ::xercesc::DOMDocument& doc,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties& p)
-{
-  if (f & ::xml_schema::flags::keep_dom)
+  ::std::unique_ptr< ::LevelResources::Level >
+  Level_ (const ::std::string& u,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
   {
-    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-      static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
 
-    return ::std::unique_ptr< ::XLevel > (
-      ::XLevel_ (
+    ::xsd::cxx::tree::error_handler< char > h;
+
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        u, h, p, f));
+
+    h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
+
+    return ::std::unique_ptr< ::LevelResources::Level > (
+      ::LevelResources::Level_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
-  const ::xsd::cxx::xml::qualified_name< char > n (
-    ::xsd::cxx::xml::dom::name< char > (e));
-
-  if (n.name () == "XLevel" &&
-      n.namespace_ () == "")
+  ::std::unique_ptr< ::LevelResources::Level >
+  Level_ (const ::std::string& u,
+          ::xml_schema::error_handler& h,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
   {
-    ::std::unique_ptr< ::XLevel > r (
-      ::xsd::cxx::tree::traits< ::XLevel, char >::create (
-        e, f, 0));
-    return r;
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        u, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::LevelResources::Level > (
+      ::LevelResources::Level_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  throw ::xsd::cxx::tree::unexpected_element < char > (
-    n.name (),
-    n.namespace_ (),
-    "XLevel",
-    "");
-}
-
-::std::unique_ptr< ::XLevel >
-XLevel_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-         ::xml_schema::flags f,
-         const ::xml_schema::properties&)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > c (
-    ((f & ::xml_schema::flags::keep_dom) &&
-     !(f & ::xml_schema::flags::own_dom))
-    ? static_cast< ::xercesc::DOMDocument* > (d->cloneNode (true))
-    : 0);
-
-  ::xercesc::DOMDocument& doc (c.get () ? *c : *d);
-  const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
-
-  const ::xsd::cxx::xml::qualified_name< char > n (
-    ::xsd::cxx::xml::dom::name< char > (e));
-
-  if (f & ::xml_schema::flags::keep_dom)
-    doc.setUserData (::xml_schema::dom::tree_node_key,
-                     (c.get () ? &c : &d),
-                     0);
-
-  if (n.name () == "XLevel" &&
-      n.namespace_ () == "")
+  ::std::unique_ptr< ::LevelResources::Level >
+  Level_ (const ::std::string& u,
+          ::xercesc::DOMErrorHandler& h,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
   {
-    ::std::unique_ptr< ::XLevel > r (
-      ::xsd::cxx::tree::traits< ::XLevel, char >::create (
-        e, f, 0));
-    return r;
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        u, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::LevelResources::Level > (
+      ::LevelResources::Level_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  throw ::xsd::cxx::tree::unexpected_element < char > (
-    n.name (),
-    n.namespace_ (),
-    "XLevel",
-    "");
+  ::std::unique_ptr< ::LevelResources::Level >
+  Level_ (::std::istream& is,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is);
+    return ::LevelResources::Level_ (isrc, f, p);
+  }
+
+  ::std::unique_ptr< ::LevelResources::Level >
+  Level_ (::std::istream& is,
+          ::xml_schema::error_handler& h,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is);
+    return ::LevelResources::Level_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::LevelResources::Level >
+  Level_ (::std::istream& is,
+          ::xercesc::DOMErrorHandler& h,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::sax::std_input_source isrc (is);
+    return ::LevelResources::Level_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::LevelResources::Level >
+  Level_ (::std::istream& is,
+          const ::std::string& sid,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+    return ::LevelResources::Level_ (isrc, f, p);
+  }
+
+  ::std::unique_ptr< ::LevelResources::Level >
+  Level_ (::std::istream& is,
+          const ::std::string& sid,
+          ::xml_schema::error_handler& h,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+    return ::LevelResources::Level_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::LevelResources::Level >
+  Level_ (::std::istream& is,
+          const ::std::string& sid,
+          ::xercesc::DOMErrorHandler& h,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+    return ::LevelResources::Level_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::LevelResources::Level >
+  Level_ (::xercesc::InputSource& i,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::tree::error_handler< char > h;
+
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        i, h, p, f));
+
+    h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
+
+    return ::std::unique_ptr< ::LevelResources::Level > (
+      ::LevelResources::Level_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::LevelResources::Level >
+  Level_ (::xercesc::InputSource& i,
+          ::xml_schema::error_handler& h,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        i, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::LevelResources::Level > (
+      ::LevelResources::Level_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::LevelResources::Level >
+  Level_ (::xercesc::InputSource& i,
+          ::xercesc::DOMErrorHandler& h,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        i, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::LevelResources::Level > (
+      ::LevelResources::Level_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::LevelResources::Level >
+  Level_ (const ::xercesc::DOMDocument& doc,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+  {
+    if (f & ::xml_schema::flags::keep_dom)
+    {
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
+
+      return ::std::unique_ptr< ::LevelResources::Level > (
+        ::LevelResources::Level_ (
+          std::move (d), f | ::xml_schema::flags::own_dom, p));
+    }
+
+    const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (e));
+
+    if (n.name () == "Level" &&
+        n.namespace_ () == "LevelResources")
+    {
+      ::std::unique_ptr< ::LevelResources::Level > r (
+        ::xsd::cxx::tree::traits< ::LevelResources::Level, char >::create (
+          e, f, 0));
+      return r;
+    }
+
+    throw ::xsd::cxx::tree::unexpected_element < char > (
+      n.name (),
+      n.namespace_ (),
+      "Level",
+      "LevelResources");
+  }
+
+  ::std::unique_ptr< ::LevelResources::Level >
+  Level_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties&)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > c (
+      ((f & ::xml_schema::flags::keep_dom) &&
+       !(f & ::xml_schema::flags::own_dom))
+      ? static_cast< ::xercesc::DOMDocument* > (d->cloneNode (true))
+      : 0);
+
+    ::xercesc::DOMDocument& doc (c.get () ? *c : *d);
+    const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
+
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (e));
+
+    if (f & ::xml_schema::flags::keep_dom)
+      doc.setUserData (::xml_schema::dom::tree_node_key,
+                       (c.get () ? &c : &d),
+                       0);
+
+    if (n.name () == "Level" &&
+        n.namespace_ () == "LevelResources")
+    {
+      ::std::unique_ptr< ::LevelResources::Level > r (
+        ::xsd::cxx::tree::traits< ::LevelResources::Level, char >::create (
+          e, f, 0));
+      return r;
+    }
+
+    throw ::xsd::cxx::tree::unexpected_element < char > (
+      n.name (),
+      n.namespace_ (),
+      "Level",
+      "LevelResources");
+  }
 }
 
 #include <xsd/cxx/post.hxx>
