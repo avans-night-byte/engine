@@ -18,11 +18,9 @@
 
 
         <!-- Common properties -->
-        <assets>
-            <base repeat="no-repeat">
-                <file>../assets/example.png</file>
-            </base>
-        </assets>
+        <resources>
+            <default>wall1_default</default>
+        </resources>
 
         <collider hasCollision="true">
             <size>
