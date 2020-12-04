@@ -1,3 +1,114 @@
+<?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="common.xsd"/>
 
+    <xs:complexType name="baseGameResource">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="path" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="gameResources">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- Textures -->
+                <xs:element name="textures">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="texture" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="baseGameResource"/>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- Sprites -->
+                <xs:element name="sprites">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="sprite" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="baseGameResource">
+                                            <xs:sequence>
+                                                <xs:choice>
+                                                    <xs:element name="definition" type="xs:string"/>
+                                                    <xs:element ref="size"/>
+                                                </xs:choice>
+                                            </xs:sequence>
+                                        </xs:extension>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- Sounds -->
+                <xs:element name="sounds">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="sound" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="baseGameResource"/>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- Music -->
+                <xs:element name="music">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="music" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="baseGameResource"/>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- Scenes -->
+                <xs:element name="scenes">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="scene" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="baseGameResource"/>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- Levels -->
+                <xs:element name="levels">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="level" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="baseGameResource"/>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

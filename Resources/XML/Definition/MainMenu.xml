@@ -14,9 +14,7 @@
                 <width>500</width>
                 <height>150</height>
             </size>
-            <content>
-                Start game
-            </content>
+            <content>Start game</content>
             <color>
                 <hex>db80f2</hex>
                 <alpha>40</alpha>
@@ -37,9 +35,7 @@
                 <width>200</width>
                 <height>50</height>
             </size>
-            <content>
-                Stop Game
-            </content>
+            <content>Stop Game</content>
             <color>
                 <hex>fcba03</hex>
                 <alpha>255</alpha>

@@ -29,6 +29,8 @@ add_subdirectory(${TMXLITE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/tmxlite)
 add_executable(NightByte ./Main.cpp
         # Game
         ./Game/Game.cpp
+        ./Game/Components/ComponentFactory.cpp
+        ./Game/Components/ComponentFactory.hpp
         ./Game/Components/Component.hpp
         ./Game/Components/RenderComponent.cpp
         ./Game/Components/RenderComponent.hpp
@@ -40,19 +42,16 @@ add_executable(NightByte ./Main.cpp
         ./Game/Scenes/Credits/Credits.cpp
         ./Game/Scenes/Credits/Credits.hpp
         ./Game/Components/PhysicsComponent.cpp
-        Game/Components/PhysicsComponent.hpp
+        ./Game/Components/PhysicsComponent.hpp
         ./Game/Components/CharacterComponent.cpp
         ./Game/Components/CharacterComponent.h
         ./Game/Scenes/Level1/Level1.cpp
         ./Game/Scenes/Level1/Level1.hpp
-        ./Game/Components/NextLevelComponent.cpp
-        ./Game/Components/NextLevelComponent.hpp
-        ./Game/Scenes/Level1/Level1.cpp
-        ./Game/Scenes/Level1/Level1.hpp
         ./Game/Scenes/Level10/LevelCharlie.cpp
         ./Game/Scenes/Level10/LevelCharlie.hpp
-        ./Game/Scenes/LevelBase.hpp
-        ./Game/Components/ComponentFactory.hpp
+        ./Game/Components/NextLevelComponent.cpp
+        ./Game/Components/NextLevelComponent.hpp
+
         # Engine
         ./Engine/Engine.cpp
         ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
@@ -76,10 +75,11 @@ add_executable(NightByte ./Main.cpp
         ./Engine/XMLParser/MenuParser.hpp
         ./Engine/XMLParser/Page.cpp
         ./Engine/XMLParser/Page.hpp
-        ./Engine/Rendering/Level.cpp
-        ./Engine/Rendering/Level.hpp
-        ./Engine/XMLParser/LevelParser.cpp
-        ./Engine/XMLParser/LevelParser.hpp
+        ./Engine/Managers/ResourceManager.cpp
+        ./Engine/Managers/ResourceManager.hpp
+        ./Engine/Rendering/TextWrapper.cpp
+        ./Engine/Rendering/TextWrapper.hpp
+
         # API
         ./API/Input/EngineInputAPI.cpp
         ./API/Audio/AudioAPI.cpp
@@ -92,7 +92,7 @@ add_executable(NightByte ./Main.cpp
         ./API/RPosition.hpp
         ./API/XMLParser/MenuParserAPI.cpp
         ./API/XMLParser/MenuParserAPI.hpp
-        ./API/XMLParser/LevelParserAPI.hpp
+
         # XML
         ./Resources/XML/Generated/wall.hxx
         ./Resources/XML/Generated/wall.cxx
@@ -101,8 +101,7 @@ add_executable(NightByte ./Main.cpp
         ./Resources/XML/Generated/menu.cxx
         ./Resources/XML/Generated/menu.hxx
         ./Resources/XML/Generated/level-resources.hxx
-        ./Resources/XML/Generated/level-resources.cxx
-        Game/Components/ComponentFactory.cpp)
+        ./Resources/XML/Generated/level-resources.cxx)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)
