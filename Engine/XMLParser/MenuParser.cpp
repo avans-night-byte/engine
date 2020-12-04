@@ -4,8 +4,10 @@
 
 void MenuParser::openScene(const std::string& path) {
     _menu = menu_(path);
+
     _textItems = std::map<std::string, std::unique_ptr<TextWrapper>>();
     std::string buttonString = "button_";
+
     int index = 0;
     for(auto button : _menu->buttons().button()){
         auto createdString = buttonString.append(std::to_string(index));
@@ -18,10 +20,13 @@ void MenuParser::openScene(const std::string& path) {
 
 void MenuParser::render() {
     if(_menu == nullptr) return;
+
     std::string buttonString = "button_";
     int index = 0;
+
     for(auto button : _menu->buttons().button()){
         Vector2 v2(button.position().x(), button.position().y());
+
         if(button.color().present()){
             _renderer.drawRectangle(v2, button.size().width(), button.size().height(), button.color()->hex(), button.color()->alpha());
             auto id = buttonString.append(std::to_string(index));
@@ -32,11 +37,20 @@ void MenuParser::render() {
             //TODO: draw rectangle with resource image
             //_renderer.drawRectangle(v2, button.size().width(), button.size().height(), button.color()->hex(), button.color()->alpha());
         }
+
+        if(button.events().onClick().present()){
+
+        }
+
         index++;
     }
 
 }
 
 MenuParser::MenuParser(const EngineRenderingAPI &renderer) : _renderer(renderer) {}
+
+void MenuParser::onClick(Input input) {
+    std::cout << input.x << std::endl;
+}
 
 
