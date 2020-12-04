@@ -1,9 +1,4 @@
-//
-// Created by sascha on 11/27/20.
-//
-
-#ifndef NIGHTBYTE_LEVEL_HPP
-#define NIGHTBYTE_LEVEL_HPP
+#pragma once
 
 
 #include <include/tmxlite/Map.hpp>
@@ -44,6 +39,3 @@ public:
 
     void initCollision();
 };
-
-
-#endif //NIGHTBYTE_LEVEL_HPP

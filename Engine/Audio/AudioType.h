@@ -1,8 +1,3 @@
-//
-// Created by Storm on 04/11/2020.
-//
+#pragma once
 
-#ifndef NIGHTBYTE_AUDIOTYPE_H
-#define NIGHTBYTE_AUDIOTYPE_H
 enum AudioType { music, sound };
-#endif //NIGHTBYTE_AUDIOTYPE_H

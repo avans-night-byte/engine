@@ -29,6 +29,8 @@ add_subdirectory(${TMXLITE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/tmxlite)
 add_executable(NightByte ./Main.cpp
         # Game
         ./Game/Game.cpp
+        ./Game/Components/ComponentFactory.cpp
+        ./Game/Components/ComponentFactory.hpp
         ./Game/Components/Component.hpp
         ./Game/Components/RenderComponent.cpp
         ./Game/Components/RenderComponent.hpp
@@ -40,13 +42,16 @@ add_executable(NightByte ./Main.cpp
         ./Game/Scenes/Credits/Credits.cpp
         ./Game/Scenes/Credits/Credits.hpp
         ./Game/Components/PhysicsComponent.cpp
-        ./Game/Components/PhysicsComponent.h
+        ./Game/Components/PhysicsComponent.hpp
         ./Game/Components/CharacterComponent.cpp
         ./Game/Components/CharacterComponent.h
         ./Game/Scenes/Level1/Level1.cpp
         ./Game/Scenes/Level1/Level1.hpp
+        ./Game/Scenes/Level10/LevelCharlie.cpp
+        ./Game/Scenes/Level10/LevelCharlie.hpp
         ./Game/Components/NextLevelComponent.cpp
         ./Game/Components/NextLevelComponent.hpp
+
         # Engine
         ./Engine/Engine.cpp
         ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
@@ -66,10 +71,15 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Rendering/Level.hpp
         ./Engine/Physics/ContactListener.hpp
         ./Engine/Physics/ContactHandler.hpp
-        Engine/XMLParser/MenuParser.cpp
-        Engine/XMLParser/MenuParser.hpp
+        ./Engine/XMLParser/MenuParser.cpp
+        ./Engine/XMLParser/MenuParser.hpp
         ./Engine/XMLParser/Page.cpp
-        Engine/XMLParser/Page.hpp
+        ./Engine/XMLParser/Page.hpp
+        ./Engine/Managers/ResourceManager.cpp
+        ./Engine/Managers/ResourceManager.hpp
+        ./Engine/Rendering/TextWrapper.cpp
+        ./Engine/Rendering/TextWrapper.hpp
+
         # API
         ./API/Input/EngineInputAPI.cpp
         ./API/Audio/AudioAPI.cpp
@@ -80,19 +90,20 @@ add_executable(NightByte ./Main.cpp
         ./API/Physics/EnginePhysicsAPI.hpp
         ./API/Physics/PhysicsAPI.hpp
         ./API/RPosition.hpp
-        API/XMLParser/MenuParserAPI.cpp
-        API/XMLParser/MenuParserAPI.hpp
+        ./API/XMLParser/MenuParserAPI.cpp
+        ./API/XMLParser/MenuParserAPI.hpp
+
         # XML
-        Resources/XML/Generated/wall.hxx
-        Resources/XML/Generated/wall.cxx
-        Resources/XML/Generated/common.cxx
-        Resources/XML/Generated/common.hxx
-        Resources/XML/Generated/menu.cxx
-        Resources/XML/Generated/menu.hxx
-        Resources/XML/Generated/resources.hxx
-        Resources/XML/Generated/resources.cxx
-        Engine/Rendering/Level.cpp Engine/Rendering/Level.hpp Game/Scenes/Level1/Level1.cpp Game/Scenes/Level1/Level1.hpp
-        Game/Scenes/Level10/LevelCharlie.cpp Game/Scenes/Level10/LevelCharlie.hpp Engine/Managers/ResourceManager.cpp Engine/Managers/ResourceManager.hpp Engine/Rendering/TextWrapper.cpp Engine/Rendering/TextWrapper.hpp)
+        ./Resources/XML/Generated/wall.hxx
+        ./Resources/XML/Generated/wall.cxx
+        ./Resources/XML/Generated/common.cxx
+        ./Resources/XML/Generated/common.hxx
+        ./Resources/XML/Generated/menu.cxx
+        ./Resources/XML/Generated/menu.hxx
+        ./Resources/XML/Generated/resources.cxx
+        ./Resources/XML/Generated/resources.hxx
+        ./Resources/XML/Generated/level-resources.hxx
+        ./Resources/XML/Generated/level-resources.cxx)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)
@@ -105,7 +116,8 @@ target_include_directories(NightByte PUBLIC
         ${SDL2IMAGE_SOURCE_DIR}
         ${TMXLITE_SOURCE_DIR}
         ${XSD_INCLUDE_DIR}
-        ${SDL2TTF_SOURCE_DIR})
+        ${SDL2TTF_SOURCE_DIR}
+        ./Resources/XML/)
 
 
 target_link_libraries(NightByte SDL2 box2d  SDL2::image XercesC::XercesC SDL2_mixer tmxlite SDL2_ttf)
@@ -142,3 +154,9 @@ if (MSVC OR MSYS OR MINGW)
                 $<TARGET_FILE_DIR:NightByte>)
     endforeach ()
 endif ()
+
+# TODO Might add every Resources into the bin folder?
+add_custom_command(TARGET NightByte POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/Resources/XML/Definition
+        ${CMAKE_BINARY_DIR}/bin/xml)

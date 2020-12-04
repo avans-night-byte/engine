@@ -2,7 +2,7 @@
 
 #include "Page.hpp"
 #include "../../API/Rendering/EngineRenderingAPI.hpp"
-#include "../../../../Resources/XML/Generated/menu.hxx"
+#include "Generated/menu.hxx"
 #include "../Rendering/TextWrapper.hpp"
 #include "../Input/Input.hpp"
 #include <memory>
