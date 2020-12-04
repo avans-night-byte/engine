@@ -1,7 +1,6 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            targetNamespace="Common"
-           xmlns:cmn="Common"
-           elementFormDefault="qualified">
+           xmlns:common="Common">
 
     <!-- Asset -->
     <xs:element name="preloadResources">
@@ -22,7 +21,7 @@
     <xs:element name="resources">
         <xs:complexType>
             <xs:complexContent>
-                <xs:extension base="cmn:baseResources">
+                <xs:extension base="common:baseResources">
                 </xs:extension>
             </xs:complexContent>
         </xs:complexType>
@@ -135,7 +134,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="hex" type="xs:string"/>
-                <xs:element name="alpha" type="cmn:alpha"/>
+                <xs:element name="alpha" type="common:alpha"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

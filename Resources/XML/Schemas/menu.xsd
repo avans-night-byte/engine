@@ -2,6 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:cmn="Common"
            targetNamespace="Menu">
+
     <xs:import schemaLocation="common.xsd"
                namespace="Common"/>
 

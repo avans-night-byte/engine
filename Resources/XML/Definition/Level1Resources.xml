@@ -1,36 +1,24 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- Elements start with X to prevent duplicate class names when generating xsd files into cxx files -->
-<lr:Level xmlns:lr="LevelResources">
+<lr:level
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="LevelResources  ../Schemas/level-resources.xsd"
+        xmlns:lr="LevelResources"
+        xmlns:common="Common">
 
-    <Object>
-        <Name>Character</Name>
+    <object>
 
-        <Components>
-            <WorldPositionComponent>
-                <position>
+        <components>
+            <worldPositionComponent>
+                <common:position>
                     <x>1</x>
                     <y>2</y>
-                </position>
-            </WorldPositionComponent>
+                </common:position>
+            </worldPositionComponent>
 
-            <PhysicsComponent>
+            <physicsComponent>
+                <friction>1</friction>
+            </physicsComponent>
+        </components>
 
-            </PhysicsComponent>
-        </Components>
-
-        <XComponent name="CharacterComponent">
-            <XParam Name="Health">80</XParam>
-        </XComponent>
-
-        <XComponent name="PhysicsComponent">
-            <XParam Name="friction">1</XParam>
-            <XParam Name="bouyancy">0.2</XParam>
-        </XComponent>
-    </Object>
-
-    <Object name="Crate">
-        <XComponent name="PhysicsComponent">
-            <XParam Name="friction">100</XParam>
-        </XComponent>
-    </Object>
-</lr:Level>
+    </object>
+</lr:level>

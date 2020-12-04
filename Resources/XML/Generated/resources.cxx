@@ -94,148 +94,148 @@ namespace GameResources
   }
 
 
-  // gameResources
+  // resources
   // 
 
-  const gameResources::textures_type& gameResources::
+  const resources::textures_type& resources::
   textures () const
   {
     return this->textures_.get ();
   }
 
-  gameResources::textures_type& gameResources::
+  resources::textures_type& resources::
   textures ()
   {
     return this->textures_.get ();
   }
 
-  void gameResources::
+  void resources::
   textures (const textures_type& x)
   {
     this->textures_.set (x);
   }
 
-  void gameResources::
+  void resources::
   textures (::std::unique_ptr< textures_type > x)
   {
     this->textures_.set (std::move (x));
   }
 
-  const gameResources::sprites_type& gameResources::
+  const resources::sprites_type& resources::
   sprites () const
   {
     return this->sprites_.get ();
   }
 
-  gameResources::sprites_type& gameResources::
+  resources::sprites_type& resources::
   sprites ()
   {
     return this->sprites_.get ();
   }
 
-  void gameResources::
+  void resources::
   sprites (const sprites_type& x)
   {
     this->sprites_.set (x);
   }
 
-  void gameResources::
+  void resources::
   sprites (::std::unique_ptr< sprites_type > x)
   {
     this->sprites_.set (std::move (x));
   }
 
-  const gameResources::sounds_type& gameResources::
+  const resources::sounds_type& resources::
   sounds () const
   {
     return this->sounds_.get ();
   }
 
-  gameResources::sounds_type& gameResources::
+  resources::sounds_type& resources::
   sounds ()
   {
     return this->sounds_.get ();
   }
 
-  void gameResources::
+  void resources::
   sounds (const sounds_type& x)
   {
     this->sounds_.set (x);
   }
 
-  void gameResources::
+  void resources::
   sounds (::std::unique_ptr< sounds_type > x)
   {
     this->sounds_.set (std::move (x));
   }
 
-  const gameResources::music_type& gameResources::
+  const resources::music_type& resources::
   music () const
   {
     return this->music_.get ();
   }
 
-  gameResources::music_type& gameResources::
+  resources::music_type& resources::
   music ()
   {
     return this->music_.get ();
   }
 
-  void gameResources::
+  void resources::
   music (const music_type& x)
   {
     this->music_.set (x);
   }
 
-  void gameResources::
+  void resources::
   music (::std::unique_ptr< music_type > x)
   {
     this->music_.set (std::move (x));
   }
 
-  const gameResources::scenes_type& gameResources::
+  const resources::scenes_type& resources::
   scenes () const
   {
     return this->scenes_.get ();
   }
 
-  gameResources::scenes_type& gameResources::
+  resources::scenes_type& resources::
   scenes ()
   {
     return this->scenes_.get ();
   }
 
-  void gameResources::
+  void resources::
   scenes (const scenes_type& x)
   {
     this->scenes_.set (x);
   }
 
-  void gameResources::
+  void resources::
   scenes (::std::unique_ptr< scenes_type > x)
   {
     this->scenes_.set (std::move (x));
   }
 
-  const gameResources::levels_type& gameResources::
+  const resources::levels_type& resources::
   levels () const
   {
     return this->levels_.get ();
   }
 
-  gameResources::levels_type& gameResources::
+  resources::levels_type& resources::
   levels ()
   {
     return this->levels_.get ();
   }
 
-  void gameResources::
+  void resources::
   levels (const levels_type& x)
   {
     this->levels_.set (x);
   }
 
-  void gameResources::
+  void resources::
   levels (::std::unique_ptr< levels_type > x)
   {
     this->levels_.set (std::move (x));
@@ -580,16 +580,16 @@ namespace GameResources
   {
   }
 
-  // gameResources
+  // resources
   //
 
-  gameResources::
-  gameResources (const textures_type& textures,
-                 const sprites_type& sprites,
-                 const sounds_type& sounds,
-                 const music_type& music,
-                 const scenes_type& scenes,
-                 const levels_type& levels)
+  resources::
+  resources (const textures_type& textures,
+             const sprites_type& sprites,
+             const sounds_type& sounds,
+             const music_type& music,
+             const scenes_type& scenes,
+             const levels_type& levels)
   : ::xml_schema::type (),
     textures_ (textures, this),
     sprites_ (sprites, this),
@@ -600,13 +600,13 @@ namespace GameResources
   {
   }
 
-  gameResources::
-  gameResources (::std::unique_ptr< textures_type > textures,
-                 ::std::unique_ptr< sprites_type > sprites,
-                 ::std::unique_ptr< sounds_type > sounds,
-                 ::std::unique_ptr< music_type > music,
-                 ::std::unique_ptr< scenes_type > scenes,
-                 ::std::unique_ptr< levels_type > levels)
+  resources::
+  resources (::std::unique_ptr< textures_type > textures,
+             ::std::unique_ptr< sprites_type > sprites,
+             ::std::unique_ptr< sounds_type > sounds,
+             ::std::unique_ptr< music_type > music,
+             ::std::unique_ptr< scenes_type > scenes,
+             ::std::unique_ptr< levels_type > levels)
   : ::xml_schema::type (),
     textures_ (std::move (textures), this),
     sprites_ (std::move (sprites), this),
@@ -617,10 +617,10 @@ namespace GameResources
   {
   }
 
-  gameResources::
-  gameResources (const gameResources& x,
-                 ::xml_schema::flags f,
-                 ::xml_schema::container* c)
+  resources::
+  resources (const resources& x,
+             ::xml_schema::flags f,
+             ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
     textures_ (x.textures_, f, this),
     sprites_ (x.sprites_, f, this),
@@ -631,10 +631,10 @@ namespace GameResources
   {
   }
 
-  gameResources::
-  gameResources (const ::xercesc::DOMElement& e,
-                 ::xml_schema::flags f,
-                 ::xml_schema::container* c)
+  resources::
+  resources (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f,
+             ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     textures_ (this),
     sprites_ (this),
@@ -650,7 +650,7 @@ namespace GameResources
     }
   }
 
-  void gameResources::
+  void resources::
   parse (::xsd::cxx::xml::dom::parser< char >& p,
          ::xml_schema::flags f)
   {
@@ -790,15 +790,15 @@ namespace GameResources
     }
   }
 
-  gameResources* gameResources::
+  resources* resources::
   _clone (::xml_schema::flags f,
           ::xml_schema::container* c) const
   {
-    return new class gameResources (*this, f, c);
+    return new class resources (*this, f, c);
   }
 
-  gameResources& gameResources::
-  operator= (const gameResources& x)
+  resources& resources::
+  operator= (const resources& x)
   {
     if (this != &x)
     {
@@ -814,8 +814,8 @@ namespace GameResources
     return *this;
   }
 
-  gameResources::
-  ~gameResources ()
+  resources::
+  ~resources ()
   {
   }
 
@@ -1620,10 +1620,10 @@ namespace GameResources
 
 namespace GameResources
 {
-  ::std::unique_ptr< ::GameResources::gameResources >
-  gameResources_ (const ::std::string& u,
-                  ::xml_schema::flags f,
-                  const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::GameResources::resources >
+  resources_ (const ::std::string& u,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
   {
     ::xsd::cxx::xml::auto_initializer i (
       (f & ::xml_schema::flags::dont_initialize) == 0,
@@ -1637,16 +1637,16 @@ namespace GameResources
 
     h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
 
-    return ::std::unique_ptr< ::GameResources::gameResources > (
-      ::GameResources::gameResources_ (
+    return ::std::unique_ptr< ::GameResources::resources > (
+      ::GameResources::resources_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::GameResources::gameResources >
-  gameResources_ (const ::std::string& u,
-                  ::xml_schema::error_handler& h,
-                  ::xml_schema::flags f,
-                  const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::GameResources::resources >
+  resources_ (const ::std::string& u,
+              ::xml_schema::error_handler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
   {
     ::xsd::cxx::xml::auto_initializer i (
       (f & ::xml_schema::flags::dont_initialize) == 0,
@@ -1659,16 +1659,16 @@ namespace GameResources
     if (!d.get ())
       throw ::xsd::cxx::tree::parsing< char > ();
 
-    return ::std::unique_ptr< ::GameResources::gameResources > (
-      ::GameResources::gameResources_ (
+    return ::std::unique_ptr< ::GameResources::resources > (
+      ::GameResources::resources_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::GameResources::gameResources >
-  gameResources_ (const ::std::string& u,
-                  ::xercesc::DOMErrorHandler& h,
-                  ::xml_schema::flags f,
-                  const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::GameResources::resources >
+  resources_ (const ::std::string& u,
+              ::xercesc::DOMErrorHandler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
   {
     ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
       ::xsd::cxx::xml::dom::parse< char > (
@@ -1677,92 +1677,92 @@ namespace GameResources
     if (!d.get ())
       throw ::xsd::cxx::tree::parsing< char > ();
 
-    return ::std::unique_ptr< ::GameResources::gameResources > (
-      ::GameResources::gameResources_ (
+    return ::std::unique_ptr< ::GameResources::resources > (
+      ::GameResources::resources_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::GameResources::gameResources >
-  gameResources_ (::std::istream& is,
-                  ::xml_schema::flags f,
-                  const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::GameResources::resources >
+  resources_ (::std::istream& is,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
   {
     ::xsd::cxx::xml::auto_initializer i (
       (f & ::xml_schema::flags::dont_initialize) == 0,
       (f & ::xml_schema::flags::keep_dom) == 0);
 
     ::xsd::cxx::xml::sax::std_input_source isrc (is);
-    return ::GameResources::gameResources_ (isrc, f, p);
+    return ::GameResources::resources_ (isrc, f, p);
   }
 
-  ::std::unique_ptr< ::GameResources::gameResources >
-  gameResources_ (::std::istream& is,
-                  ::xml_schema::error_handler& h,
-                  ::xml_schema::flags f,
-                  const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::GameResources::resources >
+  resources_ (::std::istream& is,
+              ::xml_schema::error_handler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
   {
     ::xsd::cxx::xml::auto_initializer i (
       (f & ::xml_schema::flags::dont_initialize) == 0,
       (f & ::xml_schema::flags::keep_dom) == 0);
 
     ::xsd::cxx::xml::sax::std_input_source isrc (is);
-    return ::GameResources::gameResources_ (isrc, h, f, p);
+    return ::GameResources::resources_ (isrc, h, f, p);
   }
 
-  ::std::unique_ptr< ::GameResources::gameResources >
-  gameResources_ (::std::istream& is,
-                  ::xercesc::DOMErrorHandler& h,
-                  ::xml_schema::flags f,
-                  const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::GameResources::resources >
+  resources_ (::std::istream& is,
+              ::xercesc::DOMErrorHandler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
   {
     ::xsd::cxx::xml::sax::std_input_source isrc (is);
-    return ::GameResources::gameResources_ (isrc, h, f, p);
+    return ::GameResources::resources_ (isrc, h, f, p);
   }
 
-  ::std::unique_ptr< ::GameResources::gameResources >
-  gameResources_ (::std::istream& is,
-                  const ::std::string& sid,
-                  ::xml_schema::flags f,
-                  const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::GameResources::resources >
+  resources_ (::std::istream& is,
+              const ::std::string& sid,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
   {
     ::xsd::cxx::xml::auto_initializer i (
       (f & ::xml_schema::flags::dont_initialize) == 0,
       (f & ::xml_schema::flags::keep_dom) == 0);
 
     ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-    return ::GameResources::gameResources_ (isrc, f, p);
+    return ::GameResources::resources_ (isrc, f, p);
   }
 
-  ::std::unique_ptr< ::GameResources::gameResources >
-  gameResources_ (::std::istream& is,
-                  const ::std::string& sid,
-                  ::xml_schema::error_handler& h,
-                  ::xml_schema::flags f,
-                  const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::GameResources::resources >
+  resources_ (::std::istream& is,
+              const ::std::string& sid,
+              ::xml_schema::error_handler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
   {
     ::xsd::cxx::xml::auto_initializer i (
       (f & ::xml_schema::flags::dont_initialize) == 0,
       (f & ::xml_schema::flags::keep_dom) == 0);
 
     ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-    return ::GameResources::gameResources_ (isrc, h, f, p);
+    return ::GameResources::resources_ (isrc, h, f, p);
   }
 
-  ::std::unique_ptr< ::GameResources::gameResources >
-  gameResources_ (::std::istream& is,
-                  const ::std::string& sid,
-                  ::xercesc::DOMErrorHandler& h,
-                  ::xml_schema::flags f,
-                  const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::GameResources::resources >
+  resources_ (::std::istream& is,
+              const ::std::string& sid,
+              ::xercesc::DOMErrorHandler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
   {
     ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-    return ::GameResources::gameResources_ (isrc, h, f, p);
+    return ::GameResources::resources_ (isrc, h, f, p);
   }
 
-  ::std::unique_ptr< ::GameResources::gameResources >
-  gameResources_ (::xercesc::InputSource& i,
-                  ::xml_schema::flags f,
-                  const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::GameResources::resources >
+  resources_ (::xercesc::InputSource& i,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
   {
     ::xsd::cxx::tree::error_handler< char > h;
 
@@ -1772,16 +1772,16 @@ namespace GameResources
 
     h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
 
-    return ::std::unique_ptr< ::GameResources::gameResources > (
-      ::GameResources::gameResources_ (
+    return ::std::unique_ptr< ::GameResources::resources > (
+      ::GameResources::resources_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::GameResources::gameResources >
-  gameResources_ (::xercesc::InputSource& i,
-                  ::xml_schema::error_handler& h,
-                  ::xml_schema::flags f,
-                  const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::GameResources::resources >
+  resources_ (::xercesc::InputSource& i,
+              ::xml_schema::error_handler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
   {
     ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
       ::xsd::cxx::xml::dom::parse< char > (
@@ -1790,16 +1790,16 @@ namespace GameResources
     if (!d.get ())
       throw ::xsd::cxx::tree::parsing< char > ();
 
-    return ::std::unique_ptr< ::GameResources::gameResources > (
-      ::GameResources::gameResources_ (
+    return ::std::unique_ptr< ::GameResources::resources > (
+      ::GameResources::resources_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::GameResources::gameResources >
-  gameResources_ (::xercesc::InputSource& i,
-                  ::xercesc::DOMErrorHandler& h,
-                  ::xml_schema::flags f,
-                  const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::GameResources::resources >
+  resources_ (::xercesc::InputSource& i,
+              ::xercesc::DOMErrorHandler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
   {
     ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
       ::xsd::cxx::xml::dom::parse< char > (
@@ -1808,23 +1808,23 @@ namespace GameResources
     if (!d.get ())
       throw ::xsd::cxx::tree::parsing< char > ();
 
-    return ::std::unique_ptr< ::GameResources::gameResources > (
-      ::GameResources::gameResources_ (
+    return ::std::unique_ptr< ::GameResources::resources > (
+      ::GameResources::resources_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::GameResources::gameResources >
-  gameResources_ (const ::xercesc::DOMDocument& doc,
-                  ::xml_schema::flags f,
-                  const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::GameResources::resources >
+  resources_ (const ::xercesc::DOMDocument& doc,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
   {
     if (f & ::xml_schema::flags::keep_dom)
     {
       ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
         static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
 
-      return ::std::unique_ptr< ::GameResources::gameResources > (
-        ::GameResources::gameResources_ (
+      return ::std::unique_ptr< ::GameResources::resources > (
+        ::GameResources::resources_ (
           std::move (d), f | ::xml_schema::flags::own_dom, p));
     }
 
@@ -1832,11 +1832,11 @@ namespace GameResources
     const ::xsd::cxx::xml::qualified_name< char > n (
       ::xsd::cxx::xml::dom::name< char > (e));
 
-    if (n.name () == "gameResources" &&
+    if (n.name () == "resources" &&
         n.namespace_ () == "GameResources")
     {
-      ::std::unique_ptr< ::GameResources::gameResources > r (
-        ::xsd::cxx::tree::traits< ::GameResources::gameResources, char >::create (
+      ::std::unique_ptr< ::GameResources::resources > r (
+        ::xsd::cxx::tree::traits< ::GameResources::resources, char >::create (
           e, f, 0));
       return r;
     }
@@ -1844,14 +1844,14 @@ namespace GameResources
     throw ::xsd::cxx::tree::unexpected_element < char > (
       n.name (),
       n.namespace_ (),
-      "gameResources",
+      "resources",
       "GameResources");
   }
 
-  ::std::unique_ptr< ::GameResources::gameResources >
-  gameResources_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-                  ::xml_schema::flags f,
-                  const ::xml_schema::properties&)
+  ::std::unique_ptr< ::GameResources::resources >
+  resources_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties&)
   {
     ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > c (
       ((f & ::xml_schema::flags::keep_dom) &&
@@ -1870,11 +1870,11 @@ namespace GameResources
                        (c.get () ? &c : &d),
                        0);
 
-    if (n.name () == "gameResources" &&
+    if (n.name () == "resources" &&
         n.namespace_ () == "GameResources")
     {
-      ::std::unique_ptr< ::GameResources::gameResources > r (
-        ::xsd::cxx::tree::traits< ::GameResources::gameResources, char >::create (
+      ::std::unique_ptr< ::GameResources::resources > r (
+        ::xsd::cxx::tree::traits< ::GameResources::resources, char >::create (
           e, f, 0));
       return r;
     }
@@ -1882,7 +1882,7 @@ namespace GameResources
     throw ::xsd::cxx::tree::unexpected_element < char > (
       n.name (),
       n.namespace_ (),
-      "gameResources",
+      "resources",
       "GameResources");
   }
 }

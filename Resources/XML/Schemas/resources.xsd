@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:cmn="Common"
-           xmlns:res="GameResources"
-           targetNamespace="GameResources">
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:cmn="Common"
+        xmlns:res="GameResources"
+        targetNamespace="GameResources">
 
     <xs:import schemaLocation="common.xsd"
-                namespace="Common"/>
+               namespace="Common"/>
 
     <xs:complexType name="baseGameResource">
         <xs:sequence>
@@ -14,7 +15,7 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:element name="gameResources">
+    <xs:element name="resources">
         <xs:complexType>
             <xs:sequence>
                 <!-- Textures -->

@@ -1,6 +1,6 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:lr="LevelResources"
-           xmlns:cmn="Common"
+           xmlns:common="Common"
            targetNamespace="LevelResources">
 
     <xs:import schemaLocation="common.xsd"
@@ -13,27 +13,27 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:element name="Level">
+    <xs:element name="level">
         <xs:complexType>
             <xs:sequence maxOccurs="unbounded">
-                <xs:element name="Object">
+                <xs:element name="object">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="Components">
+                            <xs:element name="components">
                                 <xs:complexType>
                                     <xs:sequence>
 
                                         <!-- World Position Component -->
-                                        <xs:element name="WorldPositionComponent">
+                                        <xs:element name="worldPositionComponent">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element ref="cmn:position"/>
+                                                    <xs:element ref="common:position"/>
                                                 </xs:sequence>
                                             </xs:complexType>
                                         </xs:element>
 
                                         <!-- Physics Component -->
-                                        <xs:element name="PhysicsComponent" minOccurs="0">
+                                        <xs:element name="physicsComponent" minOccurs="0">
                                             <xs:complexType>
                                                 <xs:sequence>
                                                     <xs:element name="friction" type="lr:floatCap"/>

@@ -1,5 +1,9 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<gs:gameResources xmlns:gs="GameResources" xmlns:cmn="Common">
+<gr:resources
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="GameResources  ../Schemas/resources.xsd"
+        xmlns:common="Common"
+        xmlns:gr="GameResources">
     <textures>
         <texture>
             <name>sksksk</name>
@@ -10,10 +14,10 @@
         <sprite>
             <name>character</name>
             <path>lsls</path>
-            <cmn:size>
-                <cmn:width>16</cmn:width>
-                <cmn:height>16</cmn:height>
-            </cmn:size>
+            <common:size>
+                <width>1</width>
+                <height>1</height>
+            </common:size>
         </sprite>
     </sprites>
     <sounds>
@@ -28,50 +32,50 @@
             <path>v</path>
         </music>
     </music>
-    <scenes></scenes>
-    <levels></levels>
-</gs:gameResources>
+    <scenes/>
+    <levels/>
+</gr:resources>
 
 
-<!--
-    <textures>
-        <texture>
-            <name>photo_martijn</name>
-            <path>../../Resources/....</path>
-        </texture>
-    </textures>
-    <sprites>
-        <sprite>
-            <name>character</name>
-            <path>../images//...</path>
-            <jsonPath>../../Resources/sprite.json</jsonPath>
-        </sprite>
-        <sprite>
-            <name>bruh</name>
-            <path>../../images/</path>
-            <size>
-                <width>16</width>
-                <height>16</height>
-            </size>
-        </sprite>
-    </sprites>
-    <sounds>
+        <!--
+            <textures>
+                <texture>
+                    <name>photo_martijn</name>
+                    <path>../../Resources/....</path>
+                </texture>
+            </textures>
+            <sprites>
+                <sprite>
+                    <name>character</name>
+                    <path>../images//...</path>
+                    <jsonPath>../../Resources/sprite.json</jsonPath>
+                </sprite>
+                <sprite>
+                    <name>bruh</name>
+                    <path>../../images/</path>
+                    <size>
+                        <width>16</width>
+                        <height>16</height>
+                    </size>
+                </sprite>
+            </sprites>
+            <sounds>
 
-    </sounds>
-    <music>
+            </sounds>
+            <music>
 
-    </music>
-    <scenes>
+            </music>
+            <scenes>
 
-    </scenes>
-    <levels>
-        <level>
-            <name>level_1</name>
-            <path>/Resources/example.tmx</path>
-        </level>
-        <level>
-            <name>gunshop</name>
-            <path>/Resources/gunshop.tmx</path>
-        </level>
-    </levels>
--->
+            </scenes>
+            <levels>
+                <level>
+                    <name>level_1</name>
+                    <path>/Resources/example.tmx</path>
+                </level>
+                <level>
+                    <name>gunshop</name>
+                    <path>/Resources/gunshop.tmx</path>
+                </level>
+            </levels>
+        -->

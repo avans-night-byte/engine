@@ -935,7 +935,7 @@ namespace Common
 
       // default
       //
-      if (n.name () == "default" && n.namespace_ () == "Common")
+      if (n.name () == "default" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< default_type > r (
           default_traits::create (i, f, this));
@@ -954,7 +954,7 @@ namespace Common
     {
       throw ::xsd::cxx::tree::expected_element< char > (
         "default",
-        "Common");
+        "");
     }
   }
 
@@ -1081,7 +1081,7 @@ namespace Common
 
       // resource
       //
-      if (n.name () == "resource" && n.namespace_ () == "Common")
+      if (n.name () == "resource" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< resource_type > r (
           resource_traits::create (i, f, this));
@@ -1215,7 +1215,7 @@ namespace Common
 
       // onEnter
       //
-      if (n.name () == "onEnter" && n.namespace_ () == "Common")
+      if (n.name () == "onEnter" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< onEnter_type > r (
           onEnter_traits::create (i, f, this));
@@ -1229,7 +1229,7 @@ namespace Common
 
       // onLeave
       //
-      if (n.name () == "onLeave" && n.namespace_ () == "Common")
+      if (n.name () == "onLeave" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< onLeave_type > r (
           onLeave_traits::create (i, f, this));
@@ -1243,7 +1243,7 @@ namespace Common
 
       // onAttacked
       //
-      if (n.name () == "onAttacked" && n.namespace_ () == "Common")
+      if (n.name () == "onAttacked" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< onAttacked_type > r (
           onAttacked_traits::create (i, f, this));
@@ -1257,7 +1257,7 @@ namespace Common
 
       // onDestroyed
       //
-      if (n.name () == "onDestroyed" && n.namespace_ () == "Common")
+      if (n.name () == "onDestroyed" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< onDestroyed_type > r (
           onDestroyed_traits::create (i, f, this));
@@ -1271,7 +1271,7 @@ namespace Common
 
       // onAttack
       //
-      if (n.name () == "onAttack" && n.namespace_ () == "Common")
+      if (n.name () == "onAttack" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< onAttack_type > r (
           onAttack_traits::create (i, f, this));
@@ -1285,7 +1285,7 @@ namespace Common
 
       // onClick
       //
-      if (n.name () == "onClick" && n.namespace_ () == "Common")
+      if (n.name () == "onClick" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< onClick_type > r (
           onClick_traits::create (i, f, this));
@@ -1388,7 +1388,7 @@ namespace Common
 
       // size
       //
-      if (n.name () == "size" && n.namespace_ () == "Common")
+      if (n.name () == "size" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< size_type > r (
           size_traits::create (i, f, this));
@@ -1407,7 +1407,7 @@ namespace Common
     {
       throw ::xsd::cxx::tree::expected_element< char > (
         "size",
-        "Common");
+        "");
     }
 
     while (p.more_attributes ())
@@ -1505,7 +1505,7 @@ namespace Common
 
       // x
       //
-      if (n.name () == "x" && n.namespace_ () == "Common")
+      if (n.name () == "x" && n.namespace_ ().empty ())
       {
         if (!x_.present ())
         {
@@ -1516,7 +1516,7 @@ namespace Common
 
       // y
       //
-      if (n.name () == "y" && n.namespace_ () == "Common")
+      if (n.name () == "y" && n.namespace_ ().empty ())
       {
         if (!y_.present ())
         {
@@ -1532,14 +1532,14 @@ namespace Common
     {
       throw ::xsd::cxx::tree::expected_element< char > (
         "x",
-        "Common");
+        "");
     }
 
     if (!y_.present ())
     {
       throw ::xsd::cxx::tree::expected_element< char > (
         "y",
-        "Common");
+        "");
     }
   }
 
@@ -1617,7 +1617,7 @@ namespace Common
 
       // width
       //
-      if (n.name () == "width" && n.namespace_ () == "Common")
+      if (n.name () == "width" && n.namespace_ ().empty ())
       {
         if (!width_.present ())
         {
@@ -1628,7 +1628,7 @@ namespace Common
 
       // height
       //
-      if (n.name () == "height" && n.namespace_ () == "Common")
+      if (n.name () == "height" && n.namespace_ ().empty ())
       {
         if (!height_.present ())
         {
@@ -1644,14 +1644,14 @@ namespace Common
     {
       throw ::xsd::cxx::tree::expected_element< char > (
         "width",
-        "Common");
+        "");
     }
 
     if (!height_.present ())
     {
       throw ::xsd::cxx::tree::expected_element< char > (
         "height",
-        "Common");
+        "");
     }
   }
 
@@ -1729,7 +1729,7 @@ namespace Common
 
       // hex
       //
-      if (n.name () == "hex" && n.namespace_ () == "Common")
+      if (n.name () == "hex" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< hex_type > r (
           hex_traits::create (i, f, this));
@@ -1743,7 +1743,7 @@ namespace Common
 
       // alpha
       //
-      if (n.name () == "alpha" && n.namespace_ () == "Common")
+      if (n.name () == "alpha" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< alpha_type > r (
           alpha_traits::create (i, f, this));
@@ -1762,14 +1762,14 @@ namespace Common
     {
       throw ::xsd::cxx::tree::expected_element< char > (
         "hex",
-        "Common");
+        "");
     }
 
     if (!alpha_.present ())
     {
       throw ::xsd::cxx::tree::expected_element< char > (
         "alpha",
-        "Common");
+        "");
     }
   }
 
@@ -1846,7 +1846,7 @@ namespace Common
 
       // playSound
       //
-      if (n.name () == "playSound" && n.namespace_ () == "Common")
+      if (n.name () == "playSound" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< playSound_type > r (
           playSound_traits::create (i, f, this));
@@ -1860,7 +1860,7 @@ namespace Common
 
       // loadAction
       //
-      if (n.name () == "loadAction" && n.namespace_ () == "Common")
+      if (n.name () == "loadAction" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< loadAction_type > r (
           loadAction_traits::create (i, f, this));
@@ -1949,7 +1949,7 @@ namespace Common
 
       // playSound
       //
-      if (n.name () == "playSound" && n.namespace_ () == "Common")
+      if (n.name () == "playSound" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< playSound_type > r (
           playSound_traits::create (i, f, this));
@@ -1963,7 +1963,7 @@ namespace Common
 
       // loadAction
       //
-      if (n.name () == "loadAction" && n.namespace_ () == "Common")
+      if (n.name () == "loadAction" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< loadAction_type > r (
           loadAction_traits::create (i, f, this));
@@ -2052,7 +2052,7 @@ namespace Common
 
       // playSound
       //
-      if (n.name () == "playSound" && n.namespace_ () == "Common")
+      if (n.name () == "playSound" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< playSound_type > r (
           playSound_traits::create (i, f, this));
@@ -2066,7 +2066,7 @@ namespace Common
 
       // loadAction
       //
-      if (n.name () == "loadAction" && n.namespace_ () == "Common")
+      if (n.name () == "loadAction" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< loadAction_type > r (
           loadAction_traits::create (i, f, this));
@@ -2155,7 +2155,7 @@ namespace Common
 
       // playSound
       //
-      if (n.name () == "playSound" && n.namespace_ () == "Common")
+      if (n.name () == "playSound" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< playSound_type > r (
           playSound_traits::create (i, f, this));
@@ -2169,7 +2169,7 @@ namespace Common
 
       // loadAction
       //
-      if (n.name () == "loadAction" && n.namespace_ () == "Common")
+      if (n.name () == "loadAction" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< loadAction_type > r (
           loadAction_traits::create (i, f, this));
@@ -2258,7 +2258,7 @@ namespace Common
 
       // playSound
       //
-      if (n.name () == "playSound" && n.namespace_ () == "Common")
+      if (n.name () == "playSound" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< playSound_type > r (
           playSound_traits::create (i, f, this));
@@ -2272,7 +2272,7 @@ namespace Common
 
       // loadAction
       //
-      if (n.name () == "loadAction" && n.namespace_ () == "Common")
+      if (n.name () == "loadAction" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< loadAction_type > r (
           loadAction_traits::create (i, f, this));
@@ -2361,7 +2361,7 @@ namespace Common
 
       // playSound
       //
-      if (n.name () == "playSound" && n.namespace_ () == "Common")
+      if (n.name () == "playSound" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< playSound_type > r (
           playSound_traits::create (i, f, this));
@@ -2375,7 +2375,7 @@ namespace Common
 
       // loadScene
       //
-      if (n.name () == "loadScene" && n.namespace_ () == "Common")
+      if (n.name () == "loadScene" && n.namespace_ ().empty ())
       {
         ::std::unique_ptr< loadScene_type > r (
           loadScene_traits::create (i, f, this));
@@ -2465,7 +2465,7 @@ namespace Common
 
       // width
       //
-      if (n.name () == "width" && n.namespace_ () == "Common")
+      if (n.name () == "width" && n.namespace_ ().empty ())
       {
         if (!width_.present ())
         {
@@ -2476,7 +2476,7 @@ namespace Common
 
       // height
       //
-      if (n.name () == "height" && n.namespace_ () == "Common")
+      if (n.name () == "height" && n.namespace_ ().empty ())
       {
         if (!height_.present ())
         {
@@ -2492,14 +2492,14 @@ namespace Common
     {
       throw ::xsd::cxx::tree::expected_element< char > (
         "width",
-        "Common");
+        "");
     }
 
     if (!height_.present ())
     {
       throw ::xsd::cxx::tree::expected_element< char > (
         "height",
-        "Common");
+        "");
     }
   }
 
