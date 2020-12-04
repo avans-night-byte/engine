@@ -11,6 +11,7 @@ class EngineInputAPI : public InputAPI {
     InputEngineAdapter* _adapter;
    public:
     EngineInputAPI();
-    Input getInput() const override;
-    ~EngineInputAPI();
+    [[nodiscard]] Input getInput() const override;
+    Event<Input>& getInputEvent() override;
+    ~EngineInputAPI() override;
 };

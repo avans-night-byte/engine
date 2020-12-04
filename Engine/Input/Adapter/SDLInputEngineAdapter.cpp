@@ -22,8 +22,7 @@ SDL_GameController *gameController;
  * 
  * @returns Input{device, x, y, keyMap}
  */
-Input SDLInputEngineAdapter::getInput() const
-{
+Input SDLInputEngineAdapter::getInput() {
     SDL_Event e;
 
     while (SDL_PollEvent(&e))
@@ -75,11 +74,15 @@ Input SDLInputEngineAdapter::getKeyInput(SDL_Keycode keyEvent, Uint32 type) cons
  * @param SDL_Event mouseEvent - SDL Event that was received.
  * @returns Input{device, x, y, keyMap}
  */
-Input SDLInputEngineAdapter::getMouseInput(SDL_Event mouseEvent) const
+Input SDLInputEngineAdapter::getMouseInput(SDL_Event mouseEvent)
 {
     InputAction keyMap = KeyMap::mouseMap[mouseEvent.button.button];
     int mouseX = mouseEvent.button.x;
     int mouseY = mouseEvent.button.y;
+
+    Input i = Input{
+            .device = Input::MOUSE, .x = mouseX, .y = mouseY, .keyMap = keyMap};
+    _inputEvent(i);
 
     return Input{
         .device = Input::MOUSE, .x = mouseX, .y = mouseY, .keyMap = keyMap};
@@ -215,4 +218,8 @@ void SDLInputEngineAdapter::closeController() const
     std::cout << "Controller Disconnected" << std::endl;
     SDL_GameControllerClose(gameController);
     gameController == NULL;
+}
+
+Event<Input>& SDLInputEngineAdapter::getInputEvent() {
+    return _inputEvent;
 }

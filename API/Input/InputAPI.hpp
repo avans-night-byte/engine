@@ -3,6 +3,7 @@
 
 class InputAPI {
    public:
-    virtual Input getInput() const = 0;
-    virtual ~InputAPI() {}
+    [[nodiscard]] virtual Input getInput() const = 0;
+    virtual Event<Input>& getInputEvent() = 0;
+    virtual ~InputAPI() = default;
 };
