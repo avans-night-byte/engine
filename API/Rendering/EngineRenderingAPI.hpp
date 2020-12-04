@@ -30,7 +30,7 @@ public:
 
     static TextureManager *GetTextureManager();
 
-    bool loadTexture(const char *path, std::string textureId) override;
+    bool loadTexture(const char *path, std::string textureId) const override;
     void drawRectangle(Vector2& position, float width, float height, std::string& color, float opacity) const override;
 
 private:

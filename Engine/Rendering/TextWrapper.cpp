@@ -16,15 +16,15 @@ std::string TextWrapper::getTextureId() {
 }
 
 TextWrapper*
-TextWrapper::createText(const EngineRenderingAPI& _renderingAPI, string text, const char *fontPath, int fontSize,
+TextWrapper::createText(const EngineRenderingAPI& _renderingAPI, std::string text, const char *fontPath, int fontSize,
                         SDL_Color color,
-                        string textureId) {
+                        std::string textureId) {
 
     _renderingAPI.createText(fontPath, text.c_str(), fontSize, color, textureId);
     return new TextWrapper(text, fontPath, fontSize, color, textureId, _renderingAPI);
 }
 
-TextWrapper::TextWrapper(string text, const char *fontPath, int fontSize, SDL_Color color,
+TextWrapper::TextWrapper(std::string text, const char *fontPath, int fontSize, SDL_Color color,
                          std::string textureId, const EngineRenderingAPI& renderingAPI) : _text(std::move(text)), _textureId(std::move(textureId)), _renderingAPI(renderingAPI) {
     _size = TextureManager::GetInstance()->getDimensions(_textureId);
 }

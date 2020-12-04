@@ -96,7 +96,7 @@ void Level::initCollision(){
                     if(property.getName() == "isNextLevel")
                     {
                         // TODO: Hardcoded please create a system for this.
-                        handler = new NextLevelComponent();
+                        handler = new NextLevelComponent(0);
                     }
                 }
 

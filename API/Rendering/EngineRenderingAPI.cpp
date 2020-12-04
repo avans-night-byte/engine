@@ -54,7 +54,7 @@ void EngineRenderingAPI::drawTexture(std::string textureId, int x, int y, int wi
  * @param textureId
  * @return success
  */
-bool EngineRenderingAPI::loadTexture(const char *path, std::string textureId)
+bool EngineRenderingAPI::loadTexture(const char *path, std::string textureId) const
 {
     return RenderingEngineAdapter::GetTextureManager()->load(path, textureId, _renderer);
 }
