@@ -7,10 +7,9 @@
 
 class MenuParserAPI {
 public:
-    MenuParserAPI(EngineRenderingAPI &renderer, Event<Input> event);
+    MenuParserAPI(EngineRenderingAPI &renderer, Event<Input>& event);
     void loadScene(std::string path);
     void render();
-    void (MenuParserAPI::*onClickPtr)(Input input);
     void onClick(Input input);
 private:
     std::unique_ptr<MenuParser> menuParser;
