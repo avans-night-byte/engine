@@ -18,6 +18,7 @@
     <xs:element name="resources">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="basePath" type="xs:string"/>
                 <!-- Textures -->
                 <xs:element name="textures">
                     <xs:complexType>

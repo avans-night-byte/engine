@@ -4,16 +4,17 @@
         xsi:schemaLocation="GameResources  ../Schemas/resources.xsd"
         xmlns:common="Common"
         xmlns:gr="GameResources">
+    <basePath>../../Resources/</basePath>
     <textures>
         <texture>
-            <name>sksksk</name>
-            <path>sksksksk</path>
+            <name>mainmenu_background</name>
+            <path>Sprites/background.png</path>
         </texture>
     </textures>
     <sprites>
         <sprite>
             <name>character</name>
-            <path>lsls</path>
+            <path>Sprites/character.png</path>
             <common:size>
                 <width>1</width>
                 <height>1</height>
@@ -22,14 +23,14 @@
     </sprites>
     <sounds>
         <sound>
-            <name>f</name>
-            <path>f</path>
+            <name>oof</name>
+            <path>Sounds/oof.wav</path>
         </sound>
     </sounds>
     <music>
         <music>
-            <name>v</name>
-            <path>v</path>
+            <name>background_mainmenu</name>
+            <path>Sounds/background.wav</path>
         </music>
     </music>
     <scenes/>
