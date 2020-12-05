@@ -1,6 +1,6 @@
 #include <string>
 #include "MenuParser.hpp"
-#include "Page.hpp"
+#include "../../Resources/XML/Generated/menu.hxx"
 
 void MenuParser::openScene(const std::string& path) {
     _menu = Menu::menu_(path);
