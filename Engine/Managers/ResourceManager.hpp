@@ -60,6 +60,4 @@ public:
     void loadResource(std::string resource);
 
     void unloadResource(std::string resource);
-
-
 };

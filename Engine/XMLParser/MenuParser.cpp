@@ -13,7 +13,7 @@ void MenuParser::openScene(const std::string& path) {
         int index = 0;
         for(auto button : _menu->buttons()->button()){
             auto createdString = _buttonPrefix + std::to_string(index);
-            auto wrapper = TextWrapper::createText(_renderer, button.content().c_str(), (_fontPath + "LiberationMono-Regular.ttf").c_str(), 32, SDL_Color {255, 255, 255}, createdString);
+            auto wrapper = TextWrapper::createText(_renderer, button.content().c_str(), (_fontPath + "Montserrat-Bold.ttf").c_str(), 32, SDL_Color {255, 255, 255}, createdString);
 
             _textItems[createdString] = std::unique_ptr<TextWrapper>(wrapper);
             index++;
@@ -24,7 +24,7 @@ void MenuParser::openScene(const std::string& path) {
     for(auto text : _menu->texts().text()){
 
         auto createdString = _textPrefix + std::to_string(index);
-        auto wrapper = TextWrapper::createText(_renderer, text.content().c_str(), (_fontPath + "LiberationMono-Regular.ttf").c_str(), 32, HexToRGB(text.color().hex(), text.color().alpha()), createdString);
+        auto wrapper = TextWrapper::createText(_renderer, text.content().c_str(), (_fontPath + "Montserrat-Regular.ttf").c_str(), 32, HexToRGB(text.color().hex(), text.color().alpha()), createdString);
 
         _textItems[createdString] = std::unique_ptr<TextWrapper>(wrapper);
         index++;
