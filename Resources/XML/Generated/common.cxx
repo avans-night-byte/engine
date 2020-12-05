@@ -370,6 +370,46 @@ namespace Common
   }
 
 
+  // positionF
+  // 
+
+  const positionF::x_type& positionF::
+  x () const
+  {
+    return this->x_.get ();
+  }
+
+  positionF::x_type& positionF::
+  x ()
+  {
+    return this->x_.get ();
+  }
+
+  void positionF::
+  x (const x_type& x)
+  {
+    this->x_.set (x);
+  }
+
+  const positionF::y_type& positionF::
+  y () const
+  {
+    return this->y_.get ();
+  }
+
+  positionF::y_type& positionF::
+  y ()
+  {
+    return this->y_.get ();
+  }
+
+  void positionF::
+  y (const y_type& x)
+  {
+    this->y_.set (x);
+  }
+
+
   // size
   // 
 
@@ -1565,6 +1605,118 @@ namespace Common
 
   position::
   ~position ()
+  {
+  }
+
+  // positionF
+  //
+
+  positionF::
+  positionF (const x_type& x,
+             const y_type& y)
+  : ::xml_schema::type (),
+    x_ (x, this),
+    y_ (y, this)
+  {
+  }
+
+  positionF::
+  positionF (const positionF& x,
+             ::xml_schema::flags f,
+             ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    x_ (x.x_, f, this),
+    y_ (x.y_, f, this)
+  {
+  }
+
+  positionF::
+  positionF (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f,
+             ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    x_ (this),
+    y_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void positionF::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // x
+      //
+      if (n.name () == "x" && n.namespace_ ().empty ())
+      {
+        if (!x_.present ())
+        {
+          this->x_.set (x_traits::create (i, f, this));
+          continue;
+        }
+      }
+
+      // y
+      //
+      if (n.name () == "y" && n.namespace_ ().empty ())
+      {
+        if (!y_.present ())
+        {
+          this->y_.set (y_traits::create (i, f, this));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!x_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "x",
+        "");
+    }
+
+    if (!y_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "y",
+        "");
+    }
+  }
+
+  positionF* positionF::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class positionF (*this, f, c);
+  }
+
+  positionF& positionF::
+  operator= (const positionF& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->x_ = x.x_;
+      this->y_ = x.y_;
+    }
+
+    return *this;
+  }
+
+  positionF::
+  ~positionF ()
   {
   }
 
@@ -3862,6 +4014,272 @@ namespace Common
       n.name (),
       n.namespace_ (),
       "position",
+      "Common");
+  }
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (const ::std::string& u,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::tree::error_handler< char > h;
+
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        u, h, p, f));
+
+    h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
+
+    return ::std::unique_ptr< ::Common::positionF > (
+      ::Common::positionF_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (const ::std::string& u,
+              ::xml_schema::error_handler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        u, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Common::positionF > (
+      ::Common::positionF_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (const ::std::string& u,
+              ::xercesc::DOMErrorHandler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        u, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Common::positionF > (
+      ::Common::positionF_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::std::istream& is,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is);
+    return ::Common::positionF_ (isrc, f, p);
+  }
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::std::istream& is,
+              ::xml_schema::error_handler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is);
+    return ::Common::positionF_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::std::istream& is,
+              ::xercesc::DOMErrorHandler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::sax::std_input_source isrc (is);
+    return ::Common::positionF_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::std::istream& is,
+              const ::std::string& sid,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+    return ::Common::positionF_ (isrc, f, p);
+  }
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::std::istream& is,
+              const ::std::string& sid,
+              ::xml_schema::error_handler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+    return ::Common::positionF_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::std::istream& is,
+              const ::std::string& sid,
+              ::xercesc::DOMErrorHandler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+    return ::Common::positionF_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::xercesc::InputSource& i,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::tree::error_handler< char > h;
+
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        i, h, p, f));
+
+    h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
+
+    return ::std::unique_ptr< ::Common::positionF > (
+      ::Common::positionF_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::xercesc::InputSource& i,
+              ::xml_schema::error_handler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        i, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Common::positionF > (
+      ::Common::positionF_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::xercesc::InputSource& i,
+              ::xercesc::DOMErrorHandler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        i, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Common::positionF > (
+      ::Common::positionF_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (const ::xercesc::DOMDocument& doc,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    if (f & ::xml_schema::flags::keep_dom)
+    {
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
+
+      return ::std::unique_ptr< ::Common::positionF > (
+        ::Common::positionF_ (
+          std::move (d), f | ::xml_schema::flags::own_dom, p));
+    }
+
+    const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (e));
+
+    if (n.name () == "positionF" &&
+        n.namespace_ () == "Common")
+    {
+      ::std::unique_ptr< ::Common::positionF > r (
+        ::xsd::cxx::tree::traits< ::Common::positionF, char >::create (
+          e, f, 0));
+      return r;
+    }
+
+    throw ::xsd::cxx::tree::unexpected_element < char > (
+      n.name (),
+      n.namespace_ (),
+      "positionF",
+      "Common");
+  }
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties&)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > c (
+      ((f & ::xml_schema::flags::keep_dom) &&
+       !(f & ::xml_schema::flags::own_dom))
+      ? static_cast< ::xercesc::DOMDocument* > (d->cloneNode (true))
+      : 0);
+
+    ::xercesc::DOMDocument& doc (c.get () ? *c : *d);
+    const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
+
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (e));
+
+    if (f & ::xml_schema::flags::keep_dom)
+      doc.setUserData (::xml_schema::dom::tree_node_key,
+                       (c.get () ? &c : &d),
+                       0);
+
+    if (n.name () == "positionF" &&
+        n.namespace_ () == "Common")
+    {
+      ::std::unique_ptr< ::Common::positionF > r (
+        ::xsd::cxx::tree::traits< ::Common::positionF, char >::create (
+          e, f, 0));
+      return r;
+    }
+
+    throw ::xsd::cxx::tree::unexpected_element < char > (
+      n.name (),
+      n.namespace_ (),
+      "positionF",
       "Common");
   }
 

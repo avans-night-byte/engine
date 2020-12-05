@@ -11,8 +11,8 @@ private:
     unique_ptr<LevelParser> levelParser;
 
 public:
-    void LoadLevel(string path) {
+    void LoadLevel(const string& path) {
         levelParser = make_unique<LevelParser>();
-//        levelParser->LoadLevel(path);
+        levelParser->LoadLevel(path);
     }
 };

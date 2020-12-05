@@ -1,7 +1,9 @@
 #include "LevelParser.hpp"
-
-void LevelParser::LoadLevel(string& path) {
-    unique_ptr<XLevel> level = XLevel_(path);
+#include "Generated/level-resources.hxx"
 
 
+void LevelParser::LoadLevel(const std::string &path) {
+    std::unique_ptr<LevelResources::level> level = LevelResources::level_(path);
+
+    level->name();
 }

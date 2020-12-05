@@ -1,5 +1,6 @@
 #include "EngineRenderingAPI.hpp"
 
+#include "../../Engine/Rendering/Level.hpp"
 #include <utility>
 
 TextureManager *EngineRenderingAPI::GetTextureManager()
@@ -66,4 +67,10 @@ const RenderingEngineAdapter &EngineRenderingAPI::GetRendererAdapter() const {
 void EngineRenderingAPI::drawRectangle(Vector2 &position, float width, float height, std::string& color, float opacity) const {
     _adapter->drawRectangle(position, width, height, color, opacity, _renderer);
 
+}
+
+Level *EngineRenderingAPI::loadLevel(const std::string &tmxPath, const std::string &spritesheetPath,
+                                     const std::string &spritesheetId,
+                                     PhysicsEngineAdapter &physicsEngineAdapter) {
+    return new Level(tmxPath.c_str(), spritesheetPath.c_str(), spritesheetId.c_str(), *this, physicsEngineAdapter);
 }

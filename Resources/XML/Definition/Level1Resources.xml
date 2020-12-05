@@ -5,20 +5,25 @@
         xmlns:lr="LevelResources"
         xmlns:common="Common">
 
-    <object>
+    <name>Level1</name>
+    <objects>
 
-        <components>
-            <worldPositionComponent>
-                <common:position>
-                    <x>1</x>
-                    <y>2</y>
-                </common:position>
-            </worldPositionComponent>
+        <object>
+            <name>Character</name>
+            <components>
+                <worldPositionComponent>
+                    <common:positionF>
+                        <x>1</x>
+                        <y>2</y>
+                    </common:positionF>
+                </worldPositionComponent>
 
-            <physicsComponent>
-                <friction>1</friction>
-            </physicsComponent>
-        </components>
+                <physicsComponent>
+                    <friction>1</friction>
+                </physicsComponent>
+            </components>
 
-    </object>
+        </object>
+
+    </objects>
 </lr:level>

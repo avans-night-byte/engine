@@ -44,7 +44,7 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/PhysicsComponent.cpp
         ./Game/Components/PhysicsComponent.hpp
         ./Game/Components/CharacterComponent.cpp
-        ./Game/Components/CharacterComponent.h
+        Game/Components/CharacterComponent.hpp
         ./Game/Scenes/Level1/Level1.cpp
         ./Game/Scenes/Level1/Level1.hpp
         ./Game/Scenes/Level10/LevelCharlie.cpp
@@ -71,6 +71,8 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Rendering/Level.hpp
         ./Engine/Physics/ContactListener.hpp
         ./Engine/Physics/ContactHandler.hpp
+        ./Engine/XMLParser/LevelParser.hpp
+        ./Engine/XMLParser/LevelParser.cpp
         ./Engine/XMLParser/MenuParser.cpp
         ./Engine/XMLParser/MenuParser.hpp
         ./Engine/XMLParser/Page.cpp

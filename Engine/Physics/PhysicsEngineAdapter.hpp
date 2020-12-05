@@ -5,12 +5,13 @@
 #include "../../API/Physics/PhysicsAPI.hpp"
 #include "../Rendering/Adapter/RenderingEngineAdapter.hpp"
 #include "ContactHandler.hpp"
+#include "../../API/RPosition.hpp"
 #include <vector>
 
 
 typedef signed int int32;
 typedef unsigned int BodyId;
-struct RPosition;
+
 
 struct Box2DData {
     BodyType bodyType;

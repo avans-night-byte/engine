@@ -119,6 +119,16 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- Float Position -->
+    <xs:element name="positionF">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="x" type="xs:float"/>
+                <xs:element name="y" type="xs:float"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <!-- Size -->
     <xs:element name="size">
         <xs:complexType>

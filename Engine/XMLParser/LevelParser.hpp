@@ -1,15 +1,12 @@
 #pragma once
 
-#include "string"
 
-#include "Generated/level-resources.hxx"
-
-using namespace std;
+#include <string>
 
 class LevelParser {
 
 public:
-    void LoadLevel(string& path);
+    void LoadLevel(const std::string& path);
 
 
 };

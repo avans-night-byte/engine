@@ -1,11 +1,16 @@
 #pragma once
 
 
-#include <include/tmxlite/Map.hpp>
-#include "Spritesheet.hpp"
-#include "../Vector2.hpp"
-#include "../../API/Rendering/EngineRenderingAPI.hpp"
 #include "../Physics/PhysicsEngineAdapter.hpp"
+
+#include <map>
+#include <vector>
+#include <tmxlite/Map.hpp>
+
+class Spritesheet;
+class Vector2;
+class PhysicsEngineAdapter;
+class EngineRenderingAPI;
 
 class Level {
 private:
@@ -21,7 +26,7 @@ public:
     Level(const char *tmxPath,
           const char *spritesheetPath,
           const char *spritesheetId,
-          EngineRenderingAPI &engineRenderingAPI,
+          const EngineRenderingAPI &engineRenderingAPI,
           PhysicsEngineAdapter& physicsEngineAdapter);
 
     ~Level() {

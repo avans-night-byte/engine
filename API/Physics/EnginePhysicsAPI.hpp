@@ -1,7 +1,6 @@
 #pragma once
 
 #include "./PhysicsAPI.hpp"
-#include "../../Engine/Physics/PhysicsEngineAdapter.hpp"
 #include "../../Engine/Physics/Box2DPhysicsEngineAdapter.hpp"
 #include "../Rendering/EngineRenderingAPI.hpp"
 

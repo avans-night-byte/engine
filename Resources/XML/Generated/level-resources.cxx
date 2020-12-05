@@ -46,224 +46,240 @@ namespace LevelResources
   // 
 
 
-  // Level
+  // level
   // 
 
-  const Level::Object_sequence& Level::
-  Object () const
-  {
-    return this->Object_;
-  }
-
-  Level::Object_sequence& Level::
-  Object ()
-  {
-    return this->Object_;
-  }
-
-  void Level::
-  Object (const Object_sequence& s)
-  {
-    this->Object_ = s;
-  }
-
-  const Level::name_optional& Level::
+  const level::name_type& level::
   name () const
   {
-    return this->name_;
+    return this->name_.get ();
   }
 
-  Level::name_optional& Level::
+  level::name_type& level::
   name ()
   {
-    return this->name_;
+    return this->name_.get ();
   }
 
-  void Level::
+  void level::
   name (const name_type& x)
   {
     this->name_.set (x);
   }
 
-  void Level::
-  name (const name_optional& x)
-  {
-    this->name_ = x;
-  }
-
-  void Level::
+  void level::
   name (::std::unique_ptr< name_type > x)
   {
     this->name_.set (std::move (x));
   }
 
+  const level::objects_type& level::
+  objects () const
+  {
+    return this->objects_.get ();
+  }
 
-  // Object
+  level::objects_type& level::
+  objects ()
+  {
+    return this->objects_.get ();
+  }
+
+  void level::
+  objects (const objects_type& x)
+  {
+    this->objects_.set (x);
+  }
+
+  void level::
+  objects (::std::unique_ptr< objects_type > x)
+  {
+    this->objects_.set (std::move (x));
+  }
+
+
+  // objects
   // 
 
-  const Object::Components_type& Object::
-  Components () const
+  const objects::object_sequence& objects::
+  object () const
   {
-    return this->Components_.get ();
+    return this->object_;
   }
 
-  Object::Components_type& Object::
-  Components ()
+  objects::object_sequence& objects::
+  object ()
   {
-    return this->Components_.get ();
+    return this->object_;
   }
 
-  void Object::
-  Components (const Components_type& x)
+  void objects::
+  object (const object_sequence& s)
   {
-    this->Components_.set (x);
+    this->object_ = s;
   }
 
-  void Object::
-  Components (::std::unique_ptr< Components_type > x)
-  {
-    this->Components_.set (std::move (x));
-  }
 
-  const Object::name_optional& Object::
+  // object
+  // 
+
+  const object::name_type& object::
   name () const
   {
-    return this->name_;
+    return this->name_.get ();
   }
 
-  Object::name_optional& Object::
+  object::name_type& object::
   name ()
   {
-    return this->name_;
+    return this->name_.get ();
   }
 
-  void Object::
+  void object::
   name (const name_type& x)
   {
     this->name_.set (x);
   }
 
-  void Object::
-  name (const name_optional& x)
-  {
-    this->name_ = x;
-  }
-
-  void Object::
+  void object::
   name (::std::unique_ptr< name_type > x)
   {
     this->name_.set (std::move (x));
   }
 
+  const object::components_type& object::
+  components () const
+  {
+    return this->components_.get ();
+  }
 
-  // Components
+  object::components_type& object::
+  components ()
+  {
+    return this->components_.get ();
+  }
+
+  void object::
+  components (const components_type& x)
+  {
+    this->components_.set (x);
+  }
+
+  void object::
+  components (::std::unique_ptr< components_type > x)
+  {
+    this->components_.set (std::move (x));
+  }
+
+
+  // components
   // 
 
-  const Components::WorldPositionComponent_type& Components::
-  WorldPositionComponent () const
+  const components::worldPositionComponent_type& components::
+  worldPositionComponent () const
   {
-    return this->WorldPositionComponent_.get ();
+    return this->worldPositionComponent_.get ();
   }
 
-  Components::WorldPositionComponent_type& Components::
-  WorldPositionComponent ()
+  components::worldPositionComponent_type& components::
+  worldPositionComponent ()
   {
-    return this->WorldPositionComponent_.get ();
+    return this->worldPositionComponent_.get ();
   }
 
-  void Components::
-  WorldPositionComponent (const WorldPositionComponent_type& x)
+  void components::
+  worldPositionComponent (const worldPositionComponent_type& x)
   {
-    this->WorldPositionComponent_.set (x);
+    this->worldPositionComponent_.set (x);
   }
 
-  void Components::
-  WorldPositionComponent (::std::unique_ptr< WorldPositionComponent_type > x)
+  void components::
+  worldPositionComponent (::std::unique_ptr< worldPositionComponent_type > x)
   {
-    this->WorldPositionComponent_.set (std::move (x));
+    this->worldPositionComponent_.set (std::move (x));
   }
 
-  const Components::PhysicsComponent_optional& Components::
-  PhysicsComponent () const
+  const components::physicsComponent_optional& components::
+  physicsComponent () const
   {
-    return this->PhysicsComponent_;
+    return this->physicsComponent_;
   }
 
-  Components::PhysicsComponent_optional& Components::
-  PhysicsComponent ()
+  components::physicsComponent_optional& components::
+  physicsComponent ()
   {
-    return this->PhysicsComponent_;
+    return this->physicsComponent_;
   }
 
-  void Components::
-  PhysicsComponent (const PhysicsComponent_type& x)
+  void components::
+  physicsComponent (const physicsComponent_type& x)
   {
-    this->PhysicsComponent_.set (x);
+    this->physicsComponent_.set (x);
   }
 
-  void Components::
-  PhysicsComponent (const PhysicsComponent_optional& x)
+  void components::
+  physicsComponent (const physicsComponent_optional& x)
   {
-    this->PhysicsComponent_ = x;
+    this->physicsComponent_ = x;
   }
 
-  void Components::
-  PhysicsComponent (::std::unique_ptr< PhysicsComponent_type > x)
+  void components::
+  physicsComponent (::std::unique_ptr< physicsComponent_type > x)
   {
-    this->PhysicsComponent_.set (std::move (x));
+    this->physicsComponent_.set (std::move (x));
   }
 
 
-  // WorldPositionComponent
+  // worldPositionComponent
   // 
 
-  const WorldPositionComponent::position_type& WorldPositionComponent::
-  position () const
+  const worldPositionComponent::positionF_type& worldPositionComponent::
+  positionF () const
   {
-    return this->position_.get ();
+    return this->positionF_.get ();
   }
 
-  WorldPositionComponent::position_type& WorldPositionComponent::
-  position ()
+  worldPositionComponent::positionF_type& worldPositionComponent::
+  positionF ()
   {
-    return this->position_.get ();
+    return this->positionF_.get ();
   }
 
-  void WorldPositionComponent::
-  position (const position_type& x)
+  void worldPositionComponent::
+  positionF (const positionF_type& x)
   {
-    this->position_.set (x);
+    this->positionF_.set (x);
   }
 
-  void WorldPositionComponent::
-  position (::std::unique_ptr< position_type > x)
+  void worldPositionComponent::
+  positionF (::std::unique_ptr< positionF_type > x)
   {
-    this->position_.set (std::move (x));
+    this->positionF_.set (std::move (x));
   }
 
 
-  // PhysicsComponent
+  // physicsComponent
   // 
 
-  const PhysicsComponent::friction_type& PhysicsComponent::
+  const physicsComponent::friction_type& physicsComponent::
   friction () const
   {
     return this->friction_.get ();
   }
 
-  PhysicsComponent::friction_type& PhysicsComponent::
+  physicsComponent::friction_type& physicsComponent::
   friction ()
   {
     return this->friction_.get ();
   }
 
-  void PhysicsComponent::
+  void physicsComponent::
   friction (const friction_type& x)
   {
     this->friction_.set (x);
   }
 
-  void PhysicsComponent::
+  void physicsComponent::
   friction (::std::unique_ptr< friction_type > x)
   {
     this->friction_.set (std::move (x));
@@ -328,258 +344,44 @@ namespace LevelResources
   {
   }
 
-  // Level
+  // level
   //
 
-  Level::
-  Level ()
+  level::
+  level (const name_type& name,
+         const objects_type& objects)
   : ::xml_schema::type (),
-    Object_ (this),
-    name_ (this)
+    name_ (name, this),
+    objects_ (objects, this)
   {
   }
 
-  Level::
-  Level (const Level& x,
+  level::
+  level (const name_type& name,
+         ::std::unique_ptr< objects_type > objects)
+  : ::xml_schema::type (),
+    name_ (name, this),
+    objects_ (std::move (objects), this)
+  {
+  }
+
+  level::
+  level (const level& x,
          ::xml_schema::flags f,
          ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
-    Object_ (x.Object_, f, this),
-    name_ (x.name_, f, this)
+    name_ (x.name_, f, this),
+    objects_ (x.objects_, f, this)
   {
   }
 
-  Level::
-  Level (const ::xercesc::DOMElement& e,
+  level::
+  level (const ::xercesc::DOMElement& e,
          ::xml_schema::flags f,
          ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-    Object_ (this),
-    name_ (this)
-  {
-    if ((f & ::xml_schema::flags::base) == 0)
-    {
-      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, true);
-      this->parse (p, f);
-    }
-  }
-
-  void Level::
-  parse (::xsd::cxx::xml::dom::parser< char >& p,
-         ::xml_schema::flags f)
-  {
-    for (; p.more_content (); p.next_content (false))
-    {
-      const ::xercesc::DOMElement& i (p.cur_element ());
-      const ::xsd::cxx::xml::qualified_name< char > n (
-        ::xsd::cxx::xml::dom::name< char > (i));
-
-      // Object
-      //
-      if (n.name () == "Object" && n.namespace_ ().empty ())
-      {
-        ::std::unique_ptr< Object_type > r (
-          Object_traits::create (i, f, this));
-
-        this->Object_.push_back (::std::move (r));
-        continue;
-      }
-
-      break;
-    }
-
-    while (p.more_attributes ())
-    {
-      const ::xercesc::DOMAttr& i (p.next_attribute ());
-      const ::xsd::cxx::xml::qualified_name< char > n (
-        ::xsd::cxx::xml::dom::name< char > (i));
-
-      if (n.name () == "name" && n.namespace_ ().empty ())
-      {
-        this->name_.set (name_traits::create (i, f, this));
-        continue;
-      }
-    }
-  }
-
-  Level* Level::
-  _clone (::xml_schema::flags f,
-          ::xml_schema::container* c) const
-  {
-    return new class Level (*this, f, c);
-  }
-
-  Level& Level::
-  operator= (const Level& x)
-  {
-    if (this != &x)
-    {
-      static_cast< ::xml_schema::type& > (*this) = x;
-      this->Object_ = x.Object_;
-      this->name_ = x.name_;
-    }
-
-    return *this;
-  }
-
-  Level::
-  ~Level ()
-  {
-  }
-
-  // Object
-  //
-
-  Object::
-  Object (const Components_type& Components)
-  : ::xml_schema::type (),
-    Components_ (Components, this),
-    name_ (this)
-  {
-  }
-
-  Object::
-  Object (::std::unique_ptr< Components_type > Components)
-  : ::xml_schema::type (),
-    Components_ (std::move (Components), this),
-    name_ (this)
-  {
-  }
-
-  Object::
-  Object (const Object& x,
-          ::xml_schema::flags f,
-          ::xml_schema::container* c)
-  : ::xml_schema::type (x, f, c),
-    Components_ (x.Components_, f, this),
-    name_ (x.name_, f, this)
-  {
-  }
-
-  Object::
-  Object (const ::xercesc::DOMElement& e,
-          ::xml_schema::flags f,
-          ::xml_schema::container* c)
-  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-    Components_ (this),
-    name_ (this)
-  {
-    if ((f & ::xml_schema::flags::base) == 0)
-    {
-      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, true);
-      this->parse (p, f);
-    }
-  }
-
-  void Object::
-  parse (::xsd::cxx::xml::dom::parser< char >& p,
-         ::xml_schema::flags f)
-  {
-    for (; p.more_content (); p.next_content (false))
-    {
-      const ::xercesc::DOMElement& i (p.cur_element ());
-      const ::xsd::cxx::xml::qualified_name< char > n (
-        ::xsd::cxx::xml::dom::name< char > (i));
-
-      // Components
-      //
-      if (n.name () == "Components" && n.namespace_ ().empty ())
-      {
-        ::std::unique_ptr< Components_type > r (
-          Components_traits::create (i, f, this));
-
-        if (!Components_.present ())
-        {
-          this->Components_.set (::std::move (r));
-          continue;
-        }
-      }
-
-      break;
-    }
-
-    if (!Components_.present ())
-    {
-      throw ::xsd::cxx::tree::expected_element< char > (
-        "Components",
-        "");
-    }
-
-    while (p.more_attributes ())
-    {
-      const ::xercesc::DOMAttr& i (p.next_attribute ());
-      const ::xsd::cxx::xml::qualified_name< char > n (
-        ::xsd::cxx::xml::dom::name< char > (i));
-
-      if (n.name () == "name" && n.namespace_ ().empty ())
-      {
-        this->name_.set (name_traits::create (i, f, this));
-        continue;
-      }
-    }
-  }
-
-  Object* Object::
-  _clone (::xml_schema::flags f,
-          ::xml_schema::container* c) const
-  {
-    return new class Object (*this, f, c);
-  }
-
-  Object& Object::
-  operator= (const Object& x)
-  {
-    if (this != &x)
-    {
-      static_cast< ::xml_schema::type& > (*this) = x;
-      this->Components_ = x.Components_;
-      this->name_ = x.name_;
-    }
-
-    return *this;
-  }
-
-  Object::
-  ~Object ()
-  {
-  }
-
-  // Components
-  //
-
-  Components::
-  Components (const WorldPositionComponent_type& WorldPositionComponent)
-  : ::xml_schema::type (),
-    WorldPositionComponent_ (WorldPositionComponent, this),
-    PhysicsComponent_ (this)
-  {
-  }
-
-  Components::
-  Components (::std::unique_ptr< WorldPositionComponent_type > WorldPositionComponent)
-  : ::xml_schema::type (),
-    WorldPositionComponent_ (std::move (WorldPositionComponent), this),
-    PhysicsComponent_ (this)
-  {
-  }
-
-  Components::
-  Components (const Components& x,
-              ::xml_schema::flags f,
-              ::xml_schema::container* c)
-  : ::xml_schema::type (x, f, c),
-    WorldPositionComponent_ (x.WorldPositionComponent_, f, this),
-    PhysicsComponent_ (x.PhysicsComponent_, f, this)
-  {
-  }
-
-  Components::
-  Components (const ::xercesc::DOMElement& e,
-              ::xml_schema::flags f,
-              ::xml_schema::container* c)
-  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-    WorldPositionComponent_ (this),
-    PhysicsComponent_ (this)
+    name_ (this),
+    objects_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -588,7 +390,7 @@ namespace LevelResources
     }
   }
 
-  void Components::
+  void level::
   parse (::xsd::cxx::xml::dom::parser< char >& p,
          ::xml_schema::flags f)
   {
@@ -598,30 +400,30 @@ namespace LevelResources
       const ::xsd::cxx::xml::qualified_name< char > n (
         ::xsd::cxx::xml::dom::name< char > (i));
 
-      // WorldPositionComponent
+      // name
       //
-      if (n.name () == "WorldPositionComponent" && n.namespace_ ().empty ())
+      if (n.name () == "name" && n.namespace_ ().empty ())
       {
-        ::std::unique_ptr< WorldPositionComponent_type > r (
-          WorldPositionComponent_traits::create (i, f, this));
+        ::std::unique_ptr< name_type > r (
+          name_traits::create (i, f, this));
 
-        if (!WorldPositionComponent_.present ())
+        if (!name_.present ())
         {
-          this->WorldPositionComponent_.set (::std::move (r));
+          this->name_.set (::std::move (r));
           continue;
         }
       }
 
-      // PhysicsComponent
+      // objects
       //
-      if (n.name () == "PhysicsComponent" && n.namespace_ ().empty ())
+      if (n.name () == "objects" && n.namespace_ ().empty ())
       {
-        ::std::unique_ptr< PhysicsComponent_type > r (
-          PhysicsComponent_traits::create (i, f, this));
+        ::std::unique_ptr< objects_type > r (
+          objects_traits::create (i, f, this));
 
-        if (!this->PhysicsComponent_)
+        if (!objects_.present ())
         {
-          this->PhysicsComponent_.set (::std::move (r));
+          this->objects_.set (::std::move (r));
           continue;
         }
       }
@@ -629,71 +431,71 @@ namespace LevelResources
       break;
     }
 
-    if (!WorldPositionComponent_.present ())
+    if (!name_.present ())
     {
       throw ::xsd::cxx::tree::expected_element< char > (
-        "WorldPositionComponent",
+        "name",
+        "");
+    }
+
+    if (!objects_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "objects",
         "");
     }
   }
 
-  Components* Components::
+  level* level::
   _clone (::xml_schema::flags f,
           ::xml_schema::container* c) const
   {
-    return new class Components (*this, f, c);
+    return new class level (*this, f, c);
   }
 
-  Components& Components::
-  operator= (const Components& x)
+  level& level::
+  operator= (const level& x)
   {
     if (this != &x)
     {
       static_cast< ::xml_schema::type& > (*this) = x;
-      this->WorldPositionComponent_ = x.WorldPositionComponent_;
-      this->PhysicsComponent_ = x.PhysicsComponent_;
+      this->name_ = x.name_;
+      this->objects_ = x.objects_;
     }
 
     return *this;
   }
 
-  Components::
-  ~Components ()
+  level::
+  ~level ()
   {
   }
 
-  // WorldPositionComponent
+  // objects
   //
 
-  WorldPositionComponent::
-  WorldPositionComponent (const position_type& position)
+  objects::
+  objects ()
   : ::xml_schema::type (),
-    position_ (position, this)
+    object_ (this)
   {
   }
 
-  WorldPositionComponent::
-  WorldPositionComponent (::std::unique_ptr< position_type > position)
-  : ::xml_schema::type (),
-    position_ (std::move (position), this)
-  {
-  }
-
-  WorldPositionComponent::
-  WorldPositionComponent (const WorldPositionComponent& x,
-                          ::xml_schema::flags f,
-                          ::xml_schema::container* c)
+  objects::
+  objects (const objects& x,
+           ::xml_schema::flags f,
+           ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
-    position_ (x.position_, f, this)
+    object_ (x.object_, f, this)
   {
   }
 
-  WorldPositionComponent::
-  WorldPositionComponent (const ::xercesc::DOMElement& e,
-                          ::xml_schema::flags f,
-                          ::xml_schema::container* c)
+  objects::
+  objects (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f,
+           ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-    position_ (this)
+    object_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -702,7 +504,7 @@ namespace LevelResources
     }
   }
 
-  void WorldPositionComponent::
+  void objects::
   parse (::xsd::cxx::xml::dom::parser< char >& p,
          ::xml_schema::flags f)
   {
@@ -712,16 +514,125 @@ namespace LevelResources
       const ::xsd::cxx::xml::qualified_name< char > n (
         ::xsd::cxx::xml::dom::name< char > (i));
 
-      // position
+      // object
       //
-      if (n.name () == "position" && n.namespace_ () == "Common")
+      if (n.name () == "object" && n.namespace_ ().empty ())
       {
-        ::std::unique_ptr< position_type > r (
-          position_traits::create (i, f, this));
+        ::std::unique_ptr< object_type > r (
+          object_traits::create (i, f, this));
 
-        if (!position_.present ())
+        this->object_.push_back (::std::move (r));
+        continue;
+      }
+
+      break;
+    }
+  }
+
+  objects* objects::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class objects (*this, f, c);
+  }
+
+  objects& objects::
+  operator= (const objects& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->object_ = x.object_;
+    }
+
+    return *this;
+  }
+
+  objects::
+  ~objects ()
+  {
+  }
+
+  // object
+  //
+
+  object::
+  object (const name_type& name,
+          const components_type& components)
+  : ::xml_schema::type (),
+    name_ (name, this),
+    components_ (components, this)
+  {
+  }
+
+  object::
+  object (const name_type& name,
+          ::std::unique_ptr< components_type > components)
+  : ::xml_schema::type (),
+    name_ (name, this),
+    components_ (std::move (components), this)
+  {
+  }
+
+  object::
+  object (const object& x,
+          ::xml_schema::flags f,
+          ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    name_ (x.name_, f, this),
+    components_ (x.components_, f, this)
+  {
+  }
+
+  object::
+  object (const ::xercesc::DOMElement& e,
+          ::xml_schema::flags f,
+          ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    name_ (this),
+    components_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void object::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // name
+      //
+      if (n.name () == "name" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< name_type > r (
+          name_traits::create (i, f, this));
+
+        if (!name_.present ())
         {
-          this->position_.set (::std::move (r));
+          this->name_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // components
+      //
+      if (n.name () == "components" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< components_type > r (
+          components_traits::create (i, f, this));
+
+        if (!components_.present ())
+        {
+          this->components_.set (::std::move (r));
           continue;
         }
       }
@@ -729,50 +640,275 @@ namespace LevelResources
       break;
     }
 
-    if (!position_.present ())
+    if (!name_.present ())
     {
       throw ::xsd::cxx::tree::expected_element< char > (
-        "position",
+        "name",
+        "");
+    }
+
+    if (!components_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "components",
+        "");
+    }
+  }
+
+  object* object::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class object (*this, f, c);
+  }
+
+  object& object::
+  operator= (const object& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->name_ = x.name_;
+      this->components_ = x.components_;
+    }
+
+    return *this;
+  }
+
+  object::
+  ~object ()
+  {
+  }
+
+  // components
+  //
+
+  components::
+  components (const worldPositionComponent_type& worldPositionComponent)
+  : ::xml_schema::type (),
+    worldPositionComponent_ (worldPositionComponent, this),
+    physicsComponent_ (this)
+  {
+  }
+
+  components::
+  components (::std::unique_ptr< worldPositionComponent_type > worldPositionComponent)
+  : ::xml_schema::type (),
+    worldPositionComponent_ (std::move (worldPositionComponent), this),
+    physicsComponent_ (this)
+  {
+  }
+
+  components::
+  components (const components& x,
+              ::xml_schema::flags f,
+              ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    worldPositionComponent_ (x.worldPositionComponent_, f, this),
+    physicsComponent_ (x.physicsComponent_, f, this)
+  {
+  }
+
+  components::
+  components (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f,
+              ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    worldPositionComponent_ (this),
+    physicsComponent_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void components::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // worldPositionComponent
+      //
+      if (n.name () == "worldPositionComponent" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< worldPositionComponent_type > r (
+          worldPositionComponent_traits::create (i, f, this));
+
+        if (!worldPositionComponent_.present ())
+        {
+          this->worldPositionComponent_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // physicsComponent
+      //
+      if (n.name () == "physicsComponent" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< physicsComponent_type > r (
+          physicsComponent_traits::create (i, f, this));
+
+        if (!this->physicsComponent_)
+        {
+          this->physicsComponent_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!worldPositionComponent_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "worldPositionComponent",
+        "");
+    }
+  }
+
+  components* components::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class components (*this, f, c);
+  }
+
+  components& components::
+  operator= (const components& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->worldPositionComponent_ = x.worldPositionComponent_;
+      this->physicsComponent_ = x.physicsComponent_;
+    }
+
+    return *this;
+  }
+
+  components::
+  ~components ()
+  {
+  }
+
+  // worldPositionComponent
+  //
+
+  worldPositionComponent::
+  worldPositionComponent (const positionF_type& positionF)
+  : ::xml_schema::type (),
+    positionF_ (positionF, this)
+  {
+  }
+
+  worldPositionComponent::
+  worldPositionComponent (::std::unique_ptr< positionF_type > positionF)
+  : ::xml_schema::type (),
+    positionF_ (std::move (positionF), this)
+  {
+  }
+
+  worldPositionComponent::
+  worldPositionComponent (const worldPositionComponent& x,
+                          ::xml_schema::flags f,
+                          ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    positionF_ (x.positionF_, f, this)
+  {
+  }
+
+  worldPositionComponent::
+  worldPositionComponent (const ::xercesc::DOMElement& e,
+                          ::xml_schema::flags f,
+                          ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    positionF_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void worldPositionComponent::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // positionF
+      //
+      if (n.name () == "positionF" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< positionF_type > r (
+          positionF_traits::create (i, f, this));
+
+        if (!positionF_.present ())
+        {
+          this->positionF_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!positionF_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "positionF",
         "Common");
     }
   }
 
-  WorldPositionComponent* WorldPositionComponent::
+  worldPositionComponent* worldPositionComponent::
   _clone (::xml_schema::flags f,
           ::xml_schema::container* c) const
   {
-    return new class WorldPositionComponent (*this, f, c);
+    return new class worldPositionComponent (*this, f, c);
   }
 
-  WorldPositionComponent& WorldPositionComponent::
-  operator= (const WorldPositionComponent& x)
+  worldPositionComponent& worldPositionComponent::
+  operator= (const worldPositionComponent& x)
   {
     if (this != &x)
     {
       static_cast< ::xml_schema::type& > (*this) = x;
-      this->position_ = x.position_;
+      this->positionF_ = x.positionF_;
     }
 
     return *this;
   }
 
-  WorldPositionComponent::
-  ~WorldPositionComponent ()
+  worldPositionComponent::
+  ~worldPositionComponent ()
   {
   }
 
-  // PhysicsComponent
+  // physicsComponent
   //
 
-  PhysicsComponent::
-  PhysicsComponent (const friction_type& friction)
+  physicsComponent::
+  physicsComponent (const friction_type& friction)
   : ::xml_schema::type (),
     friction_ (friction, this)
   {
   }
 
-  PhysicsComponent::
-  PhysicsComponent (const PhysicsComponent& x,
+  physicsComponent::
+  physicsComponent (const physicsComponent& x,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
@@ -780,8 +916,8 @@ namespace LevelResources
   {
   }
 
-  PhysicsComponent::
-  PhysicsComponent (const ::xercesc::DOMElement& e,
+  physicsComponent::
+  physicsComponent (const ::xercesc::DOMElement& e,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
@@ -794,7 +930,7 @@ namespace LevelResources
     }
   }
 
-  void PhysicsComponent::
+  void physicsComponent::
   parse (::xsd::cxx::xml::dom::parser< char >& p,
          ::xml_schema::flags f)
   {
@@ -829,15 +965,15 @@ namespace LevelResources
     }
   }
 
-  PhysicsComponent* PhysicsComponent::
+  physicsComponent* physicsComponent::
   _clone (::xml_schema::flags f,
           ::xml_schema::container* c) const
   {
-    return new class PhysicsComponent (*this, f, c);
+    return new class physicsComponent (*this, f, c);
   }
 
-  PhysicsComponent& PhysicsComponent::
-  operator= (const PhysicsComponent& x)
+  physicsComponent& physicsComponent::
+  operator= (const physicsComponent& x)
   {
     if (this != &x)
     {
@@ -848,8 +984,8 @@ namespace LevelResources
     return *this;
   }
 
-  PhysicsComponent::
-  ~PhysicsComponent ()
+  physicsComponent::
+  ~physicsComponent ()
   {
   }
 }
@@ -860,8 +996,8 @@ namespace LevelResources
 
 namespace LevelResources
 {
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (const ::std::string& u,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (const ::std::string& u,
           ::xml_schema::flags f,
           const ::xml_schema::properties& p)
   {
@@ -877,13 +1013,13 @@ namespace LevelResources
 
     h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
 
-    return ::std::unique_ptr< ::LevelResources::Level > (
-      ::LevelResources::Level_ (
+    return ::std::unique_ptr< ::LevelResources::level > (
+      ::LevelResources::level_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (const ::std::string& u,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (const ::std::string& u,
           ::xml_schema::error_handler& h,
           ::xml_schema::flags f,
           const ::xml_schema::properties& p)
@@ -899,13 +1035,13 @@ namespace LevelResources
     if (!d.get ())
       throw ::xsd::cxx::tree::parsing< char > ();
 
-    return ::std::unique_ptr< ::LevelResources::Level > (
-      ::LevelResources::Level_ (
+    return ::std::unique_ptr< ::LevelResources::level > (
+      ::LevelResources::level_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (const ::std::string& u,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (const ::std::string& u,
           ::xercesc::DOMErrorHandler& h,
           ::xml_schema::flags f,
           const ::xml_schema::properties& p)
@@ -917,13 +1053,13 @@ namespace LevelResources
     if (!d.get ())
       throw ::xsd::cxx::tree::parsing< char > ();
 
-    return ::std::unique_ptr< ::LevelResources::Level > (
-      ::LevelResources::Level_ (
+    return ::std::unique_ptr< ::LevelResources::level > (
+      ::LevelResources::level_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::std::istream& is,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::std::istream& is,
           ::xml_schema::flags f,
           const ::xml_schema::properties& p)
   {
@@ -932,11 +1068,11 @@ namespace LevelResources
       (f & ::xml_schema::flags::keep_dom) == 0);
 
     ::xsd::cxx::xml::sax::std_input_source isrc (is);
-    return ::LevelResources::Level_ (isrc, f, p);
+    return ::LevelResources::level_ (isrc, f, p);
   }
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::std::istream& is,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::std::istream& is,
           ::xml_schema::error_handler& h,
           ::xml_schema::flags f,
           const ::xml_schema::properties& p)
@@ -946,21 +1082,21 @@ namespace LevelResources
       (f & ::xml_schema::flags::keep_dom) == 0);
 
     ::xsd::cxx::xml::sax::std_input_source isrc (is);
-    return ::LevelResources::Level_ (isrc, h, f, p);
+    return ::LevelResources::level_ (isrc, h, f, p);
   }
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::std::istream& is,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::std::istream& is,
           ::xercesc::DOMErrorHandler& h,
           ::xml_schema::flags f,
           const ::xml_schema::properties& p)
   {
     ::xsd::cxx::xml::sax::std_input_source isrc (is);
-    return ::LevelResources::Level_ (isrc, h, f, p);
+    return ::LevelResources::level_ (isrc, h, f, p);
   }
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::std::istream& is,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::std::istream& is,
           const ::std::string& sid,
           ::xml_schema::flags f,
           const ::xml_schema::properties& p)
@@ -970,11 +1106,11 @@ namespace LevelResources
       (f & ::xml_schema::flags::keep_dom) == 0);
 
     ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-    return ::LevelResources::Level_ (isrc, f, p);
+    return ::LevelResources::level_ (isrc, f, p);
   }
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::std::istream& is,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::std::istream& is,
           const ::std::string& sid,
           ::xml_schema::error_handler& h,
           ::xml_schema::flags f,
@@ -985,22 +1121,22 @@ namespace LevelResources
       (f & ::xml_schema::flags::keep_dom) == 0);
 
     ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-    return ::LevelResources::Level_ (isrc, h, f, p);
+    return ::LevelResources::level_ (isrc, h, f, p);
   }
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::std::istream& is,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::std::istream& is,
           const ::std::string& sid,
           ::xercesc::DOMErrorHandler& h,
           ::xml_schema::flags f,
           const ::xml_schema::properties& p)
   {
     ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-    return ::LevelResources::Level_ (isrc, h, f, p);
+    return ::LevelResources::level_ (isrc, h, f, p);
   }
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::xercesc::InputSource& i,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::xercesc::InputSource& i,
           ::xml_schema::flags f,
           const ::xml_schema::properties& p)
   {
@@ -1012,13 +1148,13 @@ namespace LevelResources
 
     h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
 
-    return ::std::unique_ptr< ::LevelResources::Level > (
-      ::LevelResources::Level_ (
+    return ::std::unique_ptr< ::LevelResources::level > (
+      ::LevelResources::level_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::xercesc::InputSource& i,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::xercesc::InputSource& i,
           ::xml_schema::error_handler& h,
           ::xml_schema::flags f,
           const ::xml_schema::properties& p)
@@ -1030,13 +1166,13 @@ namespace LevelResources
     if (!d.get ())
       throw ::xsd::cxx::tree::parsing< char > ();
 
-    return ::std::unique_ptr< ::LevelResources::Level > (
-      ::LevelResources::Level_ (
+    return ::std::unique_ptr< ::LevelResources::level > (
+      ::LevelResources::level_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::xercesc::InputSource& i,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::xercesc::InputSource& i,
           ::xercesc::DOMErrorHandler& h,
           ::xml_schema::flags f,
           const ::xml_schema::properties& p)
@@ -1048,13 +1184,13 @@ namespace LevelResources
     if (!d.get ())
       throw ::xsd::cxx::tree::parsing< char > ();
 
-    return ::std::unique_ptr< ::LevelResources::Level > (
-      ::LevelResources::Level_ (
+    return ::std::unique_ptr< ::LevelResources::level > (
+      ::LevelResources::level_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (const ::xercesc::DOMDocument& doc,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (const ::xercesc::DOMDocument& doc,
           ::xml_schema::flags f,
           const ::xml_schema::properties& p)
   {
@@ -1063,8 +1199,8 @@ namespace LevelResources
       ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
         static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
 
-      return ::std::unique_ptr< ::LevelResources::Level > (
-        ::LevelResources::Level_ (
+      return ::std::unique_ptr< ::LevelResources::level > (
+        ::LevelResources::level_ (
           std::move (d), f | ::xml_schema::flags::own_dom, p));
     }
 
@@ -1072,11 +1208,11 @@ namespace LevelResources
     const ::xsd::cxx::xml::qualified_name< char > n (
       ::xsd::cxx::xml::dom::name< char > (e));
 
-    if (n.name () == "Level" &&
+    if (n.name () == "level" &&
         n.namespace_ () == "LevelResources")
     {
-      ::std::unique_ptr< ::LevelResources::Level > r (
-        ::xsd::cxx::tree::traits< ::LevelResources::Level, char >::create (
+      ::std::unique_ptr< ::LevelResources::level > r (
+        ::xsd::cxx::tree::traits< ::LevelResources::level, char >::create (
           e, f, 0));
       return r;
     }
@@ -1084,12 +1220,12 @@ namespace LevelResources
     throw ::xsd::cxx::tree::unexpected_element < char > (
       n.name (),
       n.namespace_ (),
-      "Level",
+      "level",
       "LevelResources");
   }
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
           ::xml_schema::flags f,
           const ::xml_schema::properties&)
   {
@@ -1110,11 +1246,11 @@ namespace LevelResources
                        (c.get () ? &c : &d),
                        0);
 
-    if (n.name () == "Level" &&
+    if (n.name () == "level" &&
         n.namespace_ () == "LevelResources")
     {
-      ::std::unique_ptr< ::LevelResources::Level > r (
-        ::xsd::cxx::tree::traits< ::LevelResources::Level, char >::create (
+      ::std::unique_ptr< ::LevelResources::level > r (
+        ::xsd::cxx::tree::traits< ::LevelResources::level, char >::create (
           e, f, 0));
       return r;
     }
@@ -1122,7 +1258,7 @@ namespace LevelResources
     throw ::xsd::cxx::tree::unexpected_element < char > (
       n.name (),
       n.namespace_ (),
-      "Level",
+      "level",
       "LevelResources");
   }
 }

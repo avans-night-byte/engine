@@ -235,6 +235,7 @@ namespace Common
   class events;
   class collider;
   class position;
+  class positionF;
   class size;
   class color;
   class onEnter;
@@ -716,6 +717,72 @@ namespace Common
 
     virtual 
     ~position ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< x_type > x_;
+    ::xsd::cxx::tree::one< y_type > y_;
+  };
+
+  class positionF: public ::xml_schema::type
+  {
+    public:
+    // x
+    //
+    typedef ::xml_schema::float_ x_type;
+    typedef ::xsd::cxx::tree::traits< x_type, char > x_traits;
+
+    const x_type&
+    x () const;
+
+    x_type&
+    x ();
+
+    void
+    x (const x_type& x);
+
+    // y
+    //
+    typedef ::xml_schema::float_ y_type;
+    typedef ::xsd::cxx::tree::traits< y_type, char > y_traits;
+
+    const y_type&
+    y () const;
+
+    y_type&
+    y ();
+
+    void
+    y (const y_type& x);
+
+    // Constructors.
+    //
+    positionF (const x_type&,
+               const y_type&);
+
+    positionF (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+    positionF (const positionF& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+    virtual positionF*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    positionF&
+    operator= (const positionF& x);
+
+    virtual 
+    ~positionF ();
 
     // Implementation.
     //
@@ -1880,6 +1947,99 @@ namespace Common
   position_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
              ::xml_schema::flags f = 0,
              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse a URI or a local file.
+  //
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (const ::std::string& uri,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (const ::std::string& uri,
+              ::xml_schema::error_handler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (const ::std::string& uri,
+              ::xercesc::DOMErrorHandler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse std::istream.
+  //
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::std::istream& is,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::std::istream& is,
+              ::xml_schema::error_handler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::std::istream& is,
+              ::xercesc::DOMErrorHandler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::std::istream& is,
+              const ::std::string& id,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::std::istream& is,
+              const ::std::string& id,
+              ::xml_schema::error_handler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::std::istream& is,
+              const ::std::string& id,
+              ::xercesc::DOMErrorHandler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse xercesc::InputSource.
+  //
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::xercesc::InputSource& is,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::xercesc::InputSource& is,
+              ::xml_schema::error_handler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::xercesc::InputSource& is,
+              ::xercesc::DOMErrorHandler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  // Parse xercesc::DOMDocument.
+  //
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (const ::xercesc::DOMDocument& d,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
 
   // Parse a URI or a local file.
   //

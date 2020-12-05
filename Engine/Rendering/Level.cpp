@@ -1,10 +1,6 @@
-//
-// Created by sascha on 11/27/20.
-//
-
-#include <include/tmxlite/Layer.hpp>
-#include <include/tmxlite/TileLayer.hpp>
 #include "Level.hpp"
+
+#include <include/tmxlite/TileLayer.hpp>
 #include "../../Game/Game.hpp"
 #include "../../Game/Components/NextLevelComponent.hpp"
 
@@ -12,7 +8,7 @@
 Level::Level(const char *tmxPath,
              const char *spritesheetPath,
              const char *spritesheetId,
-             EngineRenderingAPI &engineRenderingAPI,
+             const EngineRenderingAPI &engineRenderingAPI,
              PhysicsEngineAdapter &physicsEngineAdapter) : physicsEngineAdapter(physicsEngineAdapter) {
     _tSpritesheet = engineRenderingAPI.createSpriteSheet(spritesheetPath,
                                                          spritesheetId, 40, 40, 16, 16);
