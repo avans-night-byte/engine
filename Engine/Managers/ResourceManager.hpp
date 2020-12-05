@@ -1,11 +1,12 @@
 #pragma once
+
 #include <string>
 #include <map>
 #include <memory>
 #include "../../Resources/XML/Generated/resources.hxx"
 
 
-enum ResourceTypes {
+enum ResourceType {
     TEXTURES,
     SPRITES,
     SOUNDS,
@@ -17,21 +18,47 @@ enum ResourceTypes {
 
 class ResourceManager {
 private:
+    std::string _basePath;
+    bool _debug;
+
+    // Resources
     std::vector<std::string> _loadedResources;
-    std::map<std::string, ResourceTypes> _resources;
+    std::map<std::string, ResourceType> _resources;
+
+    // Textures
     std::map<std::string, std::unique_ptr<GameResources::texture>> _textures;
+    // std::map<std::string, std::unique_ptr<f>> _loadedTextures;
+
+    // Sprites
+    std::map<std::string, std::unique_ptr<GameResources::sprite>> _sprites;
+
+    // Sounds
+    std::map<std::string, std::unique_ptr<GameResources::sound>> _sounds;
+
+    // Music
+    std::map<std::string, std::unique_ptr<GameResources::music1>> _music;
+
+    // Scenes
+    std::map<std::string, std::unique_ptr<GameResources::scene>> _scenes;
+
+    // Levels
+    std::map<std::string, std::unique_ptr<GameResources::level>> _levels;
+
+    // Verification
+    void verifyFile(const std::string& type, const ResourceType& resourceType, const std::string& name, const std::string& path);
 
 public:
-    explicit ResourceManager(const std::string& resourcePath);
+    explicit ResourceManager(const std::string &resourcePath, bool debug = true);
 
     /**
      * Loads all required resources and unloads non-required ones.
      *
      * @param resources
      */
-    void loadRequiredResources(const std::vector<std::string>& resources);
+    void loadRequiredResources(const std::vector<std::string> &resources);
 
     void loadResource(std::string resource);
+
     void unloadResource(std::string resource);
 
 

@@ -825,6 +825,64 @@ namespace GameResources
   {
     public:
     /**
+     * @name basePath
+     *
+     * @brief Accessor and modifier functions for the %basePath
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::string basePath_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< basePath_type, char > basePath_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const basePath_type&
+    basePath () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    basePath_type&
+    basePath ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    basePath (const basePath_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    basePath (::std::unique_ptr< basePath_type > p);
+
+    //@}
+
+    /**
      * @name textures
      *
      * @brief Accessor and modifier functions for the %textures
@@ -1181,7 +1239,8 @@ namespace GameResources
      * @brief Create an instance from the ultimate base and
      * initializers for required elements and attributes.
      */
-    resources (const textures_type&,
+    resources (const basePath_type&,
+               const textures_type&,
                const sprites_type&,
                const sounds_type&,
                const music_type&,
@@ -1196,7 +1255,8 @@ namespace GameResources
      * This constructor will try to use the passed values directly
      * instead of making copies.
      */
-    resources (::std::unique_ptr< textures_type >,
+    resources (const basePath_type&,
+               ::std::unique_ptr< textures_type >,
                ::std::unique_ptr< sprites_type >,
                ::std::unique_ptr< sounds_type >,
                ::std::unique_ptr< music_type >,
@@ -1273,6 +1333,7 @@ namespace GameResources
            ::xml_schema::flags);
 
     protected:
+    ::xsd::cxx::tree::one< basePath_type > basePath_;
     ::xsd::cxx::tree::one< textures_type > textures_;
     ::xsd::cxx::tree::one< sprites_type > sprites_;
     ::xsd::cxx::tree::one< sounds_type > sounds_;

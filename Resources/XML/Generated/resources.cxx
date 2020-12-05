@@ -97,6 +97,30 @@ namespace GameResources
   // resources
   // 
 
+  const resources::basePath_type& resources::
+  basePath () const
+  {
+    return this->basePath_.get ();
+  }
+
+  resources::basePath_type& resources::
+  basePath ()
+  {
+    return this->basePath_.get ();
+  }
+
+  void resources::
+  basePath (const basePath_type& x)
+  {
+    this->basePath_.set (x);
+  }
+
+  void resources::
+  basePath (::std::unique_ptr< basePath_type > x)
+  {
+    this->basePath_.set (std::move (x));
+  }
+
   const resources::textures_type& resources::
   textures () const
   {
@@ -584,13 +608,15 @@ namespace GameResources
   //
 
   resources::
-  resources (const textures_type& textures,
+  resources (const basePath_type& basePath,
+             const textures_type& textures,
              const sprites_type& sprites,
              const sounds_type& sounds,
              const music_type& music,
              const scenes_type& scenes,
              const levels_type& levels)
   : ::xml_schema::type (),
+    basePath_ (basePath, this),
     textures_ (textures, this),
     sprites_ (sprites, this),
     sounds_ (sounds, this),
@@ -601,13 +627,15 @@ namespace GameResources
   }
 
   resources::
-  resources (::std::unique_ptr< textures_type > textures,
+  resources (const basePath_type& basePath,
+             ::std::unique_ptr< textures_type > textures,
              ::std::unique_ptr< sprites_type > sprites,
              ::std::unique_ptr< sounds_type > sounds,
              ::std::unique_ptr< music_type > music,
              ::std::unique_ptr< scenes_type > scenes,
              ::std::unique_ptr< levels_type > levels)
   : ::xml_schema::type (),
+    basePath_ (basePath, this),
     textures_ (std::move (textures), this),
     sprites_ (std::move (sprites), this),
     sounds_ (std::move (sounds), this),
@@ -622,6 +650,7 @@ namespace GameResources
              ::xml_schema::flags f,
              ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
+    basePath_ (x.basePath_, f, this),
     textures_ (x.textures_, f, this),
     sprites_ (x.sprites_, f, this),
     sounds_ (x.sounds_, f, this),
@@ -636,6 +665,7 @@ namespace GameResources
              ::xml_schema::flags f,
              ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    basePath_ (this),
     textures_ (this),
     sprites_ (this),
     sounds_ (this),
@@ -659,6 +689,20 @@ namespace GameResources
       const ::xercesc::DOMElement& i (p.cur_element ());
       const ::xsd::cxx::xml::qualified_name< char > n (
         ::xsd::cxx::xml::dom::name< char > (i));
+
+      // basePath
+      //
+      if (n.name () == "basePath" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< basePath_type > r (
+          basePath_traits::create (i, f, this));
+
+        if (!basePath_.present ())
+        {
+          this->basePath_.set (::std::move (r));
+          continue;
+        }
+      }
 
       // textures
       //
@@ -747,6 +791,13 @@ namespace GameResources
       break;
     }
 
+    if (!basePath_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "basePath",
+        "");
+    }
+
     if (!textures_.present ())
     {
       throw ::xsd::cxx::tree::expected_element< char > (
@@ -803,6 +854,7 @@ namespace GameResources
     if (this != &x)
     {
       static_cast< ::xml_schema::type& > (*this) = x;
+      this->basePath_ = x.basePath_;
       this->textures_ = x.textures_;
       this->sprites_ = x.sprites_;
       this->sounds_ = x.sounds_;
