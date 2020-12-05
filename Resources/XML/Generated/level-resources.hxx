@@ -31,6 +31,11 @@
 // in the accompanying FLOSSE file.
 //
 
+/**
+ * @file
+ * @brief Generated from level-resources.xsd.
+ */
+
 #ifndef RESOURCES_XML_SCHEMAS_LEVEL_RESOURCES_HXX
 #define RESOURCES_XML_SCHEMAS_LEVEL_RESOURCES_HXX
 
@@ -83,142 +88,474 @@
 #include <xsd/cxx/tree/parsing/double.hxx>
 #include <xsd/cxx/tree/parsing/decimal.hxx>
 
+/**
+ * @brief C++ namespace for the %http://www.w3.org/2001/XMLSchema
+ * schema namespace.
+ */
 namespace xml_schema
 {
   // anyType and anySimpleType.
   //
+
+  /**
+   * @brief C++ type corresponding to the anyType XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::type type;
+
+  /**
+   * @brief C++ type corresponding to the anySimpleType XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::simple_type< char, type > simple_type;
+
+  /**
+   * @brief Alias for the anyType type.
+   */
   typedef ::xsd::cxx::tree::type container;
+
 
   // 8-bit
   //
+
+  /**
+   * @brief C++ type corresponding to the byte XML Schema
+   * built-in type.
+   */
   typedef signed char byte;
+
+  /**
+   * @brief C++ type corresponding to the unsignedByte XML Schema
+   * built-in type.
+   */
   typedef unsigned char unsigned_byte;
+
 
   // 16-bit
   //
+
+  /**
+   * @brief C++ type corresponding to the short XML Schema
+   * built-in type.
+   */
   typedef short short_;
+
+  /**
+   * @brief C++ type corresponding to the unsignedShort XML Schema
+   * built-in type.
+   */
   typedef unsigned short unsigned_short;
+
 
   // 32-bit
   //
+
+  /**
+   * @brief C++ type corresponding to the int XML Schema
+   * built-in type.
+   */
   typedef int int_;
+
+  /**
+   * @brief C++ type corresponding to the unsignedInt XML Schema
+   * built-in type.
+   */
   typedef unsigned int unsigned_int;
+
 
   // 64-bit
   //
+
+  /**
+   * @brief C++ type corresponding to the long XML Schema
+   * built-in type.
+   */
   typedef long long long_;
+
+  /**
+   * @brief C++ type corresponding to the unsignedLong XML Schema
+   * built-in type.
+   */
   typedef unsigned long long unsigned_long;
+
 
   // Supposed to be arbitrary-length integral types.
   //
+
+  /**
+   * @brief C++ type corresponding to the integer XML Schema
+   * built-in type.
+   */
   typedef long long integer;
+
+  /**
+   * @brief C++ type corresponding to the nonPositiveInteger XML Schema
+   * built-in type.
+   */
   typedef long long non_positive_integer;
+
+  /**
+   * @brief C++ type corresponding to the nonNegativeInteger XML Schema
+   * built-in type.
+   */
   typedef unsigned long long non_negative_integer;
+
+  /**
+   * @brief C++ type corresponding to the positiveInteger XML Schema
+   * built-in type.
+   */
   typedef unsigned long long positive_integer;
+
+  /**
+   * @brief C++ type corresponding to the negativeInteger XML Schema
+   * built-in type.
+   */
   typedef long long negative_integer;
+
 
   // Boolean.
   //
+
+  /**
+   * @brief C++ type corresponding to the boolean XML Schema
+   * built-in type.
+   */
   typedef bool boolean;
+
 
   // Floating-point types.
   //
+
+  /**
+   * @brief C++ type corresponding to the float XML Schema
+   * built-in type.
+   */
   typedef float float_;
+
+  /**
+   * @brief C++ type corresponding to the double XML Schema
+   * built-in type.
+   */
   typedef double double_;
+
+  /**
+   * @brief C++ type corresponding to the decimal XML Schema
+   * built-in type.
+   */
   typedef double decimal;
+
 
   // String types.
   //
+
+  /**
+   * @brief C++ type corresponding to the string XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::string< char, simple_type > string;
+
+  /**
+   * @brief C++ type corresponding to the normalizedString XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::normalized_string< char, string > normalized_string;
+
+  /**
+   * @brief C++ type corresponding to the token XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::token< char, normalized_string > token;
+
+  /**
+   * @brief C++ type corresponding to the Name XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::name< char, token > name;
+
+  /**
+   * @brief C++ type corresponding to the NMTOKEN XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::nmtoken< char, token > nmtoken;
+
+  /**
+   * @brief C++ type corresponding to the NMTOKENS XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::nmtokens< char, simple_type, nmtoken > nmtokens;
+
+  /**
+   * @brief C++ type corresponding to the NCName XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::ncname< char, name > ncname;
+
+  /**
+   * @brief C++ type corresponding to the language XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::language< char, token > language;
+
 
   // ID/IDREF.
   //
+
+  /**
+   * @brief C++ type corresponding to the ID XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::id< char, ncname > id;
+
+  /**
+   * @brief C++ type corresponding to the IDREF XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::idref< char, ncname, type > idref;
+
+  /**
+   * @brief C++ type corresponding to the IDREFS XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::idrefs< char, simple_type, idref > idrefs;
+
 
   // URI.
   //
+
+  /**
+   * @brief C++ type corresponding to the anyURI XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::uri< char, simple_type > uri;
+
 
   // Qualified name.
   //
+
+  /**
+   * @brief C++ type corresponding to the QName XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::qname< char, simple_type, uri, ncname > qname;
+
 
   // Binary.
   //
+
+  /**
+   * @brief Binary buffer type.
+   */
   typedef ::xsd::cxx::tree::buffer< char > buffer;
+
+  /**
+   * @brief C++ type corresponding to the base64Binary XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::base64_binary< char, simple_type > base64_binary;
+
+  /**
+   * @brief C++ type corresponding to the hexBinary XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::hex_binary< char, simple_type > hex_binary;
+
 
   // Date/time.
   //
+
+  /**
+   * @brief Time zone type.
+   */
   typedef ::xsd::cxx::tree::time_zone time_zone;
+
+  /**
+   * @brief C++ type corresponding to the date XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::date< char, simple_type > date;
+
+  /**
+   * @brief C++ type corresponding to the dateTime XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::date_time< char, simple_type > date_time;
+
+  /**
+   * @brief C++ type corresponding to the duration XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::duration< char, simple_type > duration;
+
+  /**
+   * @brief C++ type corresponding to the gDay XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::gday< char, simple_type > gday;
+
+  /**
+   * @brief C++ type corresponding to the gMonth XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::gmonth< char, simple_type > gmonth;
+
+  /**
+   * @brief C++ type corresponding to the gMonthDay XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::gmonth_day< char, simple_type > gmonth_day;
+
+  /**
+   * @brief C++ type corresponding to the gYear XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::gyear< char, simple_type > gyear;
+
+  /**
+   * @brief C++ type corresponding to the gYearMonth XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::gyear_month< char, simple_type > gyear_month;
+
+  /**
+   * @brief C++ type corresponding to the time XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::time< char, simple_type > time;
+
 
   // Entity.
   //
+
+  /**
+   * @brief C++ type corresponding to the ENTITY XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::entity< char, ncname > entity;
+
+  /**
+   * @brief C++ type corresponding to the ENTITIES XML Schema
+   * built-in type.
+   */
   typedef ::xsd::cxx::tree::entities< char, simple_type, entity > entities;
 
+
+
+  /**
+   * @brief Content order sequence entry.
+   */
   typedef ::xsd::cxx::tree::content_order content_order;
   // Flags and properties.
   //
+
+  /**
+   * @brief Parsing and serialization flags.
+   */
   typedef ::xsd::cxx::tree::flags flags;
+
+  /**
+   * @brief Parsing properties.
+   */
   typedef ::xsd::cxx::tree::properties< char > properties;
 
   // Parsing/serialization diagnostics.
   //
+
+  /**
+   * @brief Error severity.
+   */
   typedef ::xsd::cxx::tree::severity severity;
+
+  /**
+   * @brief Error condition.
+   */
   typedef ::xsd::cxx::tree::error< char > error;
+
+  /**
+   * @brief List of %error conditions.
+   */
   typedef ::xsd::cxx::tree::diagnostics< char > diagnostics;
 
   // Exceptions.
   //
+
+  /**
+   * @brief Root of the C++/Tree %exception hierarchy.
+   */
   typedef ::xsd::cxx::tree::exception< char > exception;
+
+  /**
+   * @brief Exception indicating that the size argument exceeds
+   * the capacity argument.
+   */
   typedef ::xsd::cxx::tree::bounds< char > bounds;
+
+  /**
+   * @brief Exception indicating that a duplicate ID value
+   * was encountered in the object model.
+   */
   typedef ::xsd::cxx::tree::duplicate_id< char > duplicate_id;
+
+  /**
+   * @brief Exception indicating a parsing failure.
+   */
   typedef ::xsd::cxx::tree::parsing< char > parsing;
+
+  /**
+   * @brief Exception indicating that an expected element
+   * was not encountered.
+   */
   typedef ::xsd::cxx::tree::expected_element< char > expected_element;
+
+  /**
+   * @brief Exception indicating that an unexpected element
+   * was encountered.
+   */
   typedef ::xsd::cxx::tree::unexpected_element< char > unexpected_element;
+
+  /**
+   * @brief Exception indicating that an expected attribute
+   * was not encountered.
+   */
   typedef ::xsd::cxx::tree::expected_attribute< char > expected_attribute;
+
+  /**
+   * @brief Exception indicating that an unexpected enumerator
+   * was encountered.
+   */
   typedef ::xsd::cxx::tree::unexpected_enumerator< char > unexpected_enumerator;
+
+  /**
+   * @brief Exception indicating that the text content was
+   * expected for an element.
+   */
   typedef ::xsd::cxx::tree::expected_text_content< char > expected_text_content;
+
+  /**
+   * @brief Exception indicating that a prefix-namespace
+   * mapping was not provided.
+   */
   typedef ::xsd::cxx::tree::no_prefix_mapping< char > no_prefix_mapping;
 
-  // Error handler callback interface.
-  //
+  /**
+   * @brief Error handler callback interface.
+   */
   typedef ::xsd::cxx::xml::error_handler< char > error_handler;
 
-  // DOM interaction.
-  //
+  /**
+   * @brief DOM interaction.
+   */
   namespace dom
   {
-    // Automatic pointer for DOMDocument.
-    //
+    /**
+     * @brief Automatic pointer for DOMDocument.
+     */
     using ::xsd::cxx::xml::dom::unique_ptr;
 
 #ifndef XSD_CXX_TREE_TREE_NODE_KEY__XML_SCHEMA
 #define XSD_CXX_TREE_TREE_NODE_KEY__XML_SCHEMA
-    // DOM user data key for back pointers to tree nodes.
-    //
+    /**
+     * @brief DOM user data key for back pointers to tree nodes.
+     */
     const XMLCh* const tree_node_key = ::xsd::cxx::tree::user_data_keys::node;
 #endif
   }
@@ -229,11 +566,11 @@ namespace xml_schema
 namespace LevelResources
 {
   class floatCap;
-  class Level;
-  class Object;
-  class Components;
-  class WorldPositionComponent;
-  class PhysicsComponent;
+  class level;
+  class object;
+  class components;
+  class worldPositionComponent;
+  class physicsComponent;
 }
 
 
@@ -253,315 +590,970 @@ namespace LevelResources
 
 #include "common.hxx"
 
+/**
+ * @brief C++ namespace for the %LevelResources
+ * schema namespace.
+ */
 namespace LevelResources
 {
+  /**
+   * @brief Class corresponding to the %floatCap schema type.
+   *
+   * @nosubgrouping
+   */
   class floatCap: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
   {
     public:
-    // Constructors.
-    //
+    /**
+     * @name Constructors
+     */
+    //@{
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
     floatCap (const ::xml_schema::float_&);
 
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
     floatCap (const ::xercesc::DOMElement& e,
               ::xml_schema::flags f = 0,
               ::xml_schema::container* c = 0);
 
+    /**
+     * @brief Create an instance from a DOM attribute.
+     *
+     * @param a A DOM attribute to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
     floatCap (const ::xercesc::DOMAttr& a,
               ::xml_schema::flags f = 0,
               ::xml_schema::container* c = 0);
 
+    /**
+     * @brief Create an instance from a string fragment.
+     *
+     * @param s A string fragment to extract the data from.
+     * @param e A pointer to DOM element containing the string fragment.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
     floatCap (const ::std::string& s,
               const ::xercesc::DOMElement* e,
               ::xml_schema::flags f = 0,
               ::xml_schema::container* c = 0);
 
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
     floatCap (const floatCap& x,
               ::xml_schema::flags f = 0,
               ::xml_schema::container* c = 0);
 
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
     virtual floatCap*
     _clone (::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0) const;
 
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
     virtual 
     ~floatCap ();
   };
 
-  class Level: public ::xml_schema::type
+  /**
+   * @brief Class corresponding to the %level schema type.
+   *
+   * @nosubgrouping
+   */
+  class level: public ::xml_schema::type
   {
     public:
-    // Object
-    //
-    typedef ::LevelResources::Object Object_type;
-    typedef ::xsd::cxx::tree::sequence< Object_type > Object_sequence;
-    typedef Object_sequence::iterator Object_iterator;
-    typedef Object_sequence::const_iterator Object_const_iterator;
-    typedef ::xsd::cxx::tree::traits< Object_type, char > Object_traits;
+    /**
+     * @name object
+     *
+     * @brief Accessor and modifier functions for the %object
+     * sequence element.
+     */
+    //@{
 
-    const Object_sequence&
-    Object () const;
+    /**
+     * @brief Element type.
+     */
+    typedef ::LevelResources::object object_type;
 
-    Object_sequence&
-    Object ();
+    /**
+     * @brief Element sequence container type.
+     */
+    typedef ::xsd::cxx::tree::sequence< object_type > object_sequence;
 
+    /**
+     * @brief Element iterator type.
+     */
+    typedef object_sequence::iterator object_iterator;
+
+    /**
+     * @brief Element constant iterator type.
+     */
+    typedef object_sequence::const_iterator object_const_iterator;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< object_type, char > object_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element
+     * sequence.
+     *
+     * @return A constant reference to the sequence container.
+     */
+    const object_sequence&
+    object () const;
+
+    /**
+     * @brief Return a read-write reference to the element sequence.
+     *
+     * @return A reference to the sequence container.
+     */
+    object_sequence&
+    object ();
+
+    /**
+     * @brief Copy elements from a given sequence.
+     *
+     * @param s A sequence to copy elements from.
+     *
+     * For each element in @a s this function makes a copy and adds it 
+     * to the sequence. Note that this operation completely changes the 
+     * sequence and all old elements will be lost.
+     */
     void
-    Object (const Object_sequence& s);
+    object (const object_sequence& s);
 
-    // name
-    //
+    //@}
+
+    /**
+     * @name name
+     *
+     * @brief Accessor and modifier functions for the %name
+     * optional attribute.
+     */
+    //@{
+
+    /**
+     * @brief Attribute type.
+     */
     typedef ::xml_schema::string name_type;
+
+    /**
+     * @brief Attribute optional container type.
+     */
     typedef ::xsd::cxx::tree::optional< name_type > name_optional;
+
+    /**
+     * @brief Attribute traits type.
+     */
     typedef ::xsd::cxx::tree::traits< name_type, char > name_traits;
 
+    /**
+     * @brief Return a read-only (constant) reference to the attribute
+     * container.
+     *
+     * @return A constant reference to the optional container.
+     */
     const name_optional&
     name () const;
 
+    /**
+     * @brief Return a read-write reference to the attribute container.
+     *
+     * @return A reference to the optional container.
+     */
     name_optional&
     name ();
 
+    /**
+     * @brief Set the attribute value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the attribute.
+     */
     void
     name (const name_type& x);
 
+    /**
+     * @brief Set the attribute value.
+     *
+     * @param x An optional container with the new value to set.
+     *
+     * If the value is present in @a x then this function makes a copy 
+     * of this value and sets it as the new value of the attribute.
+     * Otherwise the attribute container is set the 'not present' state.
+     */
     void
     name (const name_optional& x);
 
+    /**
+     * @brief Set the attribute value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly instead
+     * of making a copy.
+     */
     void
     name (::std::unique_ptr< name_type > p);
 
-    // Constructors.
-    //
-    Level ();
+    //@}
 
-    Level (const ::xercesc::DOMElement& e,
+    /**
+     * @name Constructors
+     */
+    //@{
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    level ();
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    level (const ::xercesc::DOMElement& e,
            ::xml_schema::flags f = 0,
            ::xml_schema::container* c = 0);
 
-    Level (const Level& x,
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    level (const level& x,
            ::xml_schema::flags f = 0,
            ::xml_schema::container* c = 0);
 
-    virtual Level*
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual level*
     _clone (::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0) const;
 
-    Level&
-    operator= (const Level& x);
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    level&
+    operator= (const level& x);
 
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
     virtual 
-    ~Level ();
+    ~level ();
 
     // Implementation.
     //
+
+    //@cond
+
     protected:
     void
     parse (::xsd::cxx::xml::dom::parser< char >&,
            ::xml_schema::flags);
 
     protected:
-    Object_sequence Object_;
+    object_sequence object_;
     name_optional name_;
+
+    //@endcond
   };
 
-  class Object: public ::xml_schema::type
+  /**
+   * @brief Class corresponding to the %object schema type.
+   *
+   * @nosubgrouping
+   */
+  class object: public ::xml_schema::type
   {
     public:
-    // Components
-    //
-    typedef ::LevelResources::Components Components_type;
-    typedef ::xsd::cxx::tree::traits< Components_type, char > Components_traits;
+    /**
+     * @name components
+     *
+     * @brief Accessor and modifier functions for the %components
+     * required element.
+     */
+    //@{
 
-    const Components_type&
-    Components () const;
+    /**
+     * @brief Element type.
+     */
+    typedef ::LevelResources::components components_type;
 
-    Components_type&
-    Components ();
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< components_type, char > components_traits;
 
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const components_type&
+    components () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    components_type&
+    components ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
     void
-    Components (const Components_type& x);
+    components (const components_type& x);
 
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
     void
-    Components (::std::unique_ptr< Components_type > p);
+    components (::std::unique_ptr< components_type > p);
 
-    // name
-    //
+    //@}
+
+    /**
+     * @name name
+     *
+     * @brief Accessor and modifier functions for the %name
+     * optional attribute.
+     */
+    //@{
+
+    /**
+     * @brief Attribute type.
+     */
     typedef ::xml_schema::string name_type;
+
+    /**
+     * @brief Attribute optional container type.
+     */
     typedef ::xsd::cxx::tree::optional< name_type > name_optional;
+
+    /**
+     * @brief Attribute traits type.
+     */
     typedef ::xsd::cxx::tree::traits< name_type, char > name_traits;
 
+    /**
+     * @brief Return a read-only (constant) reference to the attribute
+     * container.
+     *
+     * @return A constant reference to the optional container.
+     */
     const name_optional&
     name () const;
 
+    /**
+     * @brief Return a read-write reference to the attribute container.
+     *
+     * @return A reference to the optional container.
+     */
     name_optional&
     name ();
 
+    /**
+     * @brief Set the attribute value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the attribute.
+     */
     void
     name (const name_type& x);
 
+    /**
+     * @brief Set the attribute value.
+     *
+     * @param x An optional container with the new value to set.
+     *
+     * If the value is present in @a x then this function makes a copy 
+     * of this value and sets it as the new value of the attribute.
+     * Otherwise the attribute container is set the 'not present' state.
+     */
     void
     name (const name_optional& x);
 
+    /**
+     * @brief Set the attribute value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly instead
+     * of making a copy.
+     */
     void
     name (::std::unique_ptr< name_type > p);
 
-    // Constructors.
-    //
-    Object (const Components_type&);
+    //@}
 
-    Object (::std::unique_ptr< Components_type >);
+    /**
+     * @name Constructors
+     */
+    //@{
 
-    Object (const ::xercesc::DOMElement& e,
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    object (const components_type&);
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes
+     * (::std::unique_ptr version).
+     *
+     * This constructor will try to use the passed values directly
+     * instead of making copies.
+     */
+    object (::std::unique_ptr< components_type >);
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    object (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0);
 
-    Object (const Object& x,
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    object (const object& x,
             ::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0);
 
-    virtual Object*
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual object*
     _clone (::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0) const;
 
-    Object&
-    operator= (const Object& x);
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    object&
+    operator= (const object& x);
 
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
     virtual 
-    ~Object ();
+    ~object ();
 
     // Implementation.
     //
+
+    //@cond
+
     protected:
     void
     parse (::xsd::cxx::xml::dom::parser< char >&,
            ::xml_schema::flags);
 
     protected:
-    ::xsd::cxx::tree::one< Components_type > Components_;
+    ::xsd::cxx::tree::one< components_type > components_;
     name_optional name_;
+
+    //@endcond
   };
 
-  class Components: public ::xml_schema::type
+  /**
+   * @brief Class corresponding to the %components schema type.
+   *
+   * @nosubgrouping
+   */
+  class components: public ::xml_schema::type
   {
     public:
-    // WorldPositionComponent
-    //
-    typedef ::LevelResources::WorldPositionComponent WorldPositionComponent_type;
-    typedef ::xsd::cxx::tree::traits< WorldPositionComponent_type, char > WorldPositionComponent_traits;
+    /**
+     * @name worldPositionComponent
+     *
+     * @brief Accessor and modifier functions for the %worldPositionComponent
+     * required element.
+     */
+    //@{
 
-    const WorldPositionComponent_type&
-    WorldPositionComponent () const;
+    /**
+     * @brief Element type.
+     */
+    typedef ::LevelResources::worldPositionComponent worldPositionComponent_type;
 
-    WorldPositionComponent_type&
-    WorldPositionComponent ();
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< worldPositionComponent_type, char > worldPositionComponent_traits;
 
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const worldPositionComponent_type&
+    worldPositionComponent () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    worldPositionComponent_type&
+    worldPositionComponent ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
     void
-    WorldPositionComponent (const WorldPositionComponent_type& x);
+    worldPositionComponent (const worldPositionComponent_type& x);
 
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
     void
-    WorldPositionComponent (::std::unique_ptr< WorldPositionComponent_type > p);
+    worldPositionComponent (::std::unique_ptr< worldPositionComponent_type > p);
 
-    // PhysicsComponent
-    //
-    typedef ::LevelResources::PhysicsComponent PhysicsComponent_type;
-    typedef ::xsd::cxx::tree::optional< PhysicsComponent_type > PhysicsComponent_optional;
-    typedef ::xsd::cxx::tree::traits< PhysicsComponent_type, char > PhysicsComponent_traits;
+    //@}
 
-    const PhysicsComponent_optional&
-    PhysicsComponent () const;
+    /**
+     * @name physicsComponent
+     *
+     * @brief Accessor and modifier functions for the %physicsComponent
+     * optional element.
+     */
+    //@{
 
-    PhysicsComponent_optional&
-    PhysicsComponent ();
+    /**
+     * @brief Element type.
+     */
+    typedef ::LevelResources::physicsComponent physicsComponent_type;
 
+    /**
+     * @brief Element optional container type.
+     */
+    typedef ::xsd::cxx::tree::optional< physicsComponent_type > physicsComponent_optional;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< physicsComponent_type, char > physicsComponent_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element
+     * container.
+     *
+     * @return A constant reference to the optional container.
+     */
+    const physicsComponent_optional&
+    physicsComponent () const;
+
+    /**
+     * @brief Return a read-write reference to the element container.
+     *
+     * @return A reference to the optional container.
+     */
+    physicsComponent_optional&
+    physicsComponent ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
     void
-    PhysicsComponent (const PhysicsComponent_type& x);
+    physicsComponent (const physicsComponent_type& x);
 
+    /**
+     * @brief Set the element value.
+     *
+     * @param x An optional container with the new value to set.
+     *
+     * If the value is present in @a x then this function makes a copy 
+     * of this value and sets it as the new value of the element.
+     * Otherwise the element container is set the 'not present' state.
+     */
     void
-    PhysicsComponent (const PhysicsComponent_optional& x);
+    physicsComponent (const physicsComponent_optional& x);
 
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly instead
+     * of making a copy.
+     */
     void
-    PhysicsComponent (::std::unique_ptr< PhysicsComponent_type > p);
+    physicsComponent (::std::unique_ptr< physicsComponent_type > p);
 
-    // Constructors.
-    //
-    Components (const WorldPositionComponent_type&);
+    //@}
 
-    Components (::std::unique_ptr< WorldPositionComponent_type >);
+    /**
+     * @name Constructors
+     */
+    //@{
 
-    Components (const ::xercesc::DOMElement& e,
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    components (const worldPositionComponent_type&);
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes
+     * (::std::unique_ptr version).
+     *
+     * This constructor will try to use the passed values directly
+     * instead of making copies.
+     */
+    components (::std::unique_ptr< worldPositionComponent_type >);
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    components (const ::xercesc::DOMElement& e,
                 ::xml_schema::flags f = 0,
                 ::xml_schema::container* c = 0);
 
-    Components (const Components& x,
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    components (const components& x,
                 ::xml_schema::flags f = 0,
                 ::xml_schema::container* c = 0);
 
-    virtual Components*
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual components*
     _clone (::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0) const;
 
-    Components&
-    operator= (const Components& x);
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    components&
+    operator= (const components& x);
 
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
     virtual 
-    ~Components ();
+    ~components ();
 
     // Implementation.
     //
+
+    //@cond
+
     protected:
     void
     parse (::xsd::cxx::xml::dom::parser< char >&,
            ::xml_schema::flags);
 
     protected:
-    ::xsd::cxx::tree::one< WorldPositionComponent_type > WorldPositionComponent_;
-    PhysicsComponent_optional PhysicsComponent_;
+    ::xsd::cxx::tree::one< worldPositionComponent_type > worldPositionComponent_;
+    physicsComponent_optional physicsComponent_;
+
+    //@endcond
   };
 
-  class WorldPositionComponent: public ::xml_schema::type
+  /**
+   * @brief Class corresponding to the %worldPositionComponent schema type.
+   *
+   * @nosubgrouping
+   */
+  class worldPositionComponent: public ::xml_schema::type
   {
     public:
-    // position
-    //
+    /**
+     * @name position
+     *
+     * @brief Accessor and modifier functions for the %position
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
     typedef ::Common::position position_type;
+
+    /**
+     * @brief Element traits type.
+     */
     typedef ::xsd::cxx::tree::traits< position_type, char > position_traits;
 
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
     const position_type&
     position () const;
 
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
     position_type&
     position ();
 
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
     void
     position (const position_type& x);
 
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
     void
     position (::std::unique_ptr< position_type > p);
 
-    // Constructors.
-    //
-    WorldPositionComponent (const position_type&);
+    //@}
 
-    WorldPositionComponent (::std::unique_ptr< position_type >);
+    /**
+     * @name Constructors
+     */
+    //@{
 
-    WorldPositionComponent (const ::xercesc::DOMElement& e,
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    worldPositionComponent (const position_type&);
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes
+     * (::std::unique_ptr version).
+     *
+     * This constructor will try to use the passed values directly
+     * instead of making copies.
+     */
+    worldPositionComponent (::std::unique_ptr< position_type >);
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    worldPositionComponent (const ::xercesc::DOMElement& e,
                             ::xml_schema::flags f = 0,
                             ::xml_schema::container* c = 0);
 
-    WorldPositionComponent (const WorldPositionComponent& x,
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    worldPositionComponent (const worldPositionComponent& x,
                             ::xml_schema::flags f = 0,
                             ::xml_schema::container* c = 0);
 
-    virtual WorldPositionComponent*
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual worldPositionComponent*
     _clone (::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0) const;
 
-    WorldPositionComponent&
-    operator= (const WorldPositionComponent& x);
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    worldPositionComponent&
+    operator= (const worldPositionComponent& x);
 
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
     virtual 
-    ~WorldPositionComponent ();
+    ~worldPositionComponent ();
 
     // Implementation.
     //
+
+    //@cond
+
     protected:
     void
     parse (::xsd::cxx::xml::dom::parser< char >&,
@@ -569,52 +1561,151 @@ namespace LevelResources
 
     protected:
     ::xsd::cxx::tree::one< position_type > position_;
+
+    //@endcond
   };
 
-  class PhysicsComponent: public ::xml_schema::type
+  /**
+   * @brief Class corresponding to the %physicsComponent schema type.
+   *
+   * @nosubgrouping
+   */
+  class physicsComponent: public ::xml_schema::type
   {
     public:
-    // friction
-    //
+    /**
+     * @name friction
+     *
+     * @brief Accessor and modifier functions for the %friction
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
     typedef ::LevelResources::floatCap friction_type;
+
+    /**
+     * @brief Element traits type.
+     */
     typedef ::xsd::cxx::tree::traits< friction_type, char > friction_traits;
 
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
     const friction_type&
     friction () const;
 
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
     friction_type&
     friction ();
 
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
     void
     friction (const friction_type& x);
 
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
     void
     friction (::std::unique_ptr< friction_type > p);
 
-    // Constructors.
-    //
-    PhysicsComponent (const friction_type&);
+    //@}
 
-    PhysicsComponent (const ::xercesc::DOMElement& e,
+    /**
+     * @name Constructors
+     */
+    //@{
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    physicsComponent (const friction_type&);
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    physicsComponent (const ::xercesc::DOMElement& e,
                       ::xml_schema::flags f = 0,
                       ::xml_schema::container* c = 0);
 
-    PhysicsComponent (const PhysicsComponent& x,
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    physicsComponent (const physicsComponent& x,
                       ::xml_schema::flags f = 0,
                       ::xml_schema::container* c = 0);
 
-    virtual PhysicsComponent*
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual physicsComponent*
     _clone (::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0) const;
 
-    PhysicsComponent&
-    operator= (const PhysicsComponent& x);
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    physicsComponent&
+    operator= (const physicsComponent& x);
 
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
     virtual 
-    ~PhysicsComponent ();
+    ~physicsComponent ();
 
     // Implementation.
     //
+
+    //@cond
+
     protected:
     void
     parse (::xsd::cxx::xml::dom::parser< char >&,
@@ -622,6 +1713,8 @@ namespace LevelResources
 
     protected:
     ::xsd::cxx::tree::one< friction_type > friction_;
+
+    //@endcond
   };
 }
 
@@ -633,98 +1726,258 @@ namespace LevelResources
 
 namespace LevelResources
 {
-  // Parse a URI or a local file.
-  //
+  /**
+   * @name Parsing functions for the %level document root.
+   */
+  //@{
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (const ::std::string& uri,
+  /**
+   * @brief Parse a URI or a local file.
+   *
+   * @param uri A URI or a local file name.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function uses exceptions to report parsing errors.
+   */
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (const ::std::string& uri,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (const ::std::string& uri,
+  /**
+   * @brief Parse a URI or a local file with an error handler.
+   *
+   * @param uri A URI or a local file name.
+   * @param eh An error handler.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function reports parsing errors by calling the error handler.
+   */
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (const ::std::string& uri,
           ::xml_schema::error_handler& eh,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (const ::std::string& uri,
+  /**
+   * @brief Parse a URI or a local file with a Xerces-C++ DOM error
+   * handler.
+   *
+   * @param uri A URI or a local file name.
+   * @param eh A Xerces-C++ DOM error handler.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function reports parsing errors by calling the error handler.
+   */
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (const ::std::string& uri,
           ::xercesc::DOMErrorHandler& eh,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  // Parse std::istream.
-  //
-
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::std::istream& is,
+  /**
+   * @brief Parse a standard input stream.
+   *
+   * @param is A standrad input stream.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function uses exceptions to report parsing errors.
+   */
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::std::istream& is,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::std::istream& is,
+  /**
+   * @brief Parse a standard input stream with an error handler.
+   *
+   * @param is A standrad input stream.
+   * @param eh An error handler.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function reports parsing errors by calling the error handler.
+   */
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::std::istream& is,
           ::xml_schema::error_handler& eh,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::std::istream& is,
+  /**
+   * @brief Parse a standard input stream with a Xerces-C++ DOM error
+   * handler.
+   *
+   * @param is A standrad input stream.
+   * @param eh A Xerces-C++ DOM error handler.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function reports parsing errors by calling the error handler.
+   */
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::std::istream& is,
           ::xercesc::DOMErrorHandler& eh,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::std::istream& is,
+  /**
+   * @brief Parse a standard input stream with a resource id.
+   *
+   * @param is A standrad input stream.
+   * @param id A resource id.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * The resource id is used to identify the document being parsed in
+   * diagnostics as well as to resolve relative paths.
+   *
+   * This function uses exceptions to report parsing errors.
+   */
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::std::istream& is,
           const ::std::string& id,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::std::istream& is,
+  /**
+   * @brief Parse a standard input stream with a resource id and an
+   * error handler.
+   *
+   * @param is A standrad input stream.
+   * @param id A resource id.
+   * @param eh An error handler.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * The resource id is used to identify the document being parsed in
+   * diagnostics as well as to resolve relative paths.
+   *
+   * This function reports parsing errors by calling the error handler.
+   */
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::std::istream& is,
           const ::std::string& id,
           ::xml_schema::error_handler& eh,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::std::istream& is,
+  /**
+   * @brief Parse a standard input stream with a resource id and a
+   * Xerces-C++ DOM error handler.
+   *
+   * @param is A standrad input stream.
+   * @param id A resource id.
+   * @param eh A Xerces-C++ DOM error handler.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * The resource id is used to identify the document being parsed in
+   * diagnostics as well as to resolve relative paths.
+   *
+   * This function reports parsing errors by calling the error handler.
+   */
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::std::istream& is,
           const ::std::string& id,
           ::xercesc::DOMErrorHandler& eh,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  // Parse xercesc::InputSource.
-  //
-
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::xercesc::InputSource& is,
+  /**
+   * @brief Parse a Xerces-C++ input source.
+   *
+   * @param is A Xerces-C++ input source.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function uses exceptions to report parsing errors.
+   */
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::xercesc::InputSource& is,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::xercesc::InputSource& is,
+  /**
+   * @brief Parse a Xerces-C++ input source with an error handler.
+   *
+   * @param is A Xerces-C++ input source.
+   * @param eh An error handler.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function reports parsing errors by calling the error handler.
+   */
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::xercesc::InputSource& is,
           ::xml_schema::error_handler& eh,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::xercesc::InputSource& is,
+  /**
+   * @brief Parse a Xerces-C++ input source with a Xerces-C++ DOM
+   * error handler.
+   *
+   * @param is A Xerces-C++ input source.
+   * @param eh A Xerces-C++ DOM error handler.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function reports parsing errors by calling the error handler.
+   */
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::xercesc::InputSource& is,
           ::xercesc::DOMErrorHandler& eh,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  // Parse xercesc::DOMDocument.
-  //
-
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (const ::xercesc::DOMDocument& d,
+  /**
+   * @brief Parse a Xerces-C++ DOM document.
+   *
+   * @param d A Xerces-C++ DOM document.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   */
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (const ::xercesc::DOMDocument& d,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+  /**
+   * @brief Parse a Xerces-C++ DOM document.
+   *
+   * @param d A pointer to the Xerces-C++ DOM document.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function is normally used together with the keep_dom and
+   * own_dom parsing flags to assign ownership of the DOM document
+   * to the object model.
+   */
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  //@}
 }
 
 #include <xsd/cxx/post.hxx>
