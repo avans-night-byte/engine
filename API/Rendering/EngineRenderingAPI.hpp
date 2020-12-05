@@ -31,7 +31,10 @@ public:
     static TextureManager *GetTextureManager();
 
     bool loadTexture(const char *path, std::string textureId) override;
+
     void drawRectangle(Vector2& position, float width, float height, std::string& color, float opacity) const override;
+
+    void drawBackground(std::string hex, float alpha) const override;
 
 private:
     [[nodiscard]] const RenderingEngineAdapter &GetRendererAdapter() const override;

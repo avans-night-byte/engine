@@ -230,7 +230,11 @@ namespace Menu
 {
   class menu;
   class buttons;
+  class texts;
+  class images;
   class button;
+  class text;
+  class image;
   class resources;
 }
 
@@ -276,36 +280,99 @@ namespace Menu
     // resources
     //
     typedef ::Common::resources resources_type;
+    typedef ::xsd::cxx::tree::optional< resources_type > resources_optional;
     typedef ::xsd::cxx::tree::traits< resources_type, char > resources_traits;
 
-    const resources_type&
+    const resources_optional&
     resources () const;
 
-    resources_type&
+    resources_optional&
     resources ();
 
     void
     resources (const resources_type& x);
 
     void
+    resources (const resources_optional& x);
+
+    void
     resources (::std::unique_ptr< resources_type > p);
+
+    // color
+    //
+    typedef ::Common::color color_type;
+    typedef ::xsd::cxx::tree::optional< color_type > color_optional;
+    typedef ::xsd::cxx::tree::traits< color_type, char > color_traits;
+
+    const color_optional&
+    color () const;
+
+    color_optional&
+    color ();
+
+    void
+    color (const color_type& x);
+
+    void
+    color (const color_optional& x);
+
+    void
+    color (::std::unique_ptr< color_type > p);
 
     // buttons
     //
     typedef ::Menu::buttons buttons_type;
+    typedef ::xsd::cxx::tree::optional< buttons_type > buttons_optional;
     typedef ::xsd::cxx::tree::traits< buttons_type, char > buttons_traits;
 
-    const buttons_type&
+    const buttons_optional&
     buttons () const;
 
-    buttons_type&
+    buttons_optional&
     buttons ();
 
     void
     buttons (const buttons_type& x);
 
     void
+    buttons (const buttons_optional& x);
+
+    void
     buttons (::std::unique_ptr< buttons_type > p);
+
+    // texts
+    //
+    typedef ::Menu::texts texts_type;
+    typedef ::xsd::cxx::tree::traits< texts_type, char > texts_traits;
+
+    const texts_type&
+    texts () const;
+
+    texts_type&
+    texts ();
+
+    void
+    texts (const texts_type& x);
+
+    void
+    texts (::std::unique_ptr< texts_type > p);
+
+    // images
+    //
+    typedef ::Menu::images images_type;
+    typedef ::xsd::cxx::tree::traits< images_type, char > images_traits;
+
+    const images_type&
+    images () const;
+
+    images_type&
+    images ();
+
+    void
+    images (const images_type& x);
+
+    void
+    images (::std::unique_ptr< images_type > p);
 
     // preloadResources
     //
@@ -327,13 +394,13 @@ namespace Menu
     // Constructors.
     //
     menu (const name_type&,
-          const resources_type&,
-          const buttons_type&,
+          const texts_type&,
+          const images_type&,
           const preloadResources_type&);
 
     menu (const name_type&,
-          ::std::unique_ptr< resources_type >,
-          ::std::unique_ptr< buttons_type >,
+          ::std::unique_ptr< texts_type >,
+          ::std::unique_ptr< images_type >,
           ::std::unique_ptr< preloadResources_type >);
 
     menu (const ::xercesc::DOMElement& e,
@@ -363,8 +430,11 @@ namespace Menu
 
     protected:
     ::xsd::cxx::tree::one< name_type > name_;
-    ::xsd::cxx::tree::one< resources_type > resources_;
-    ::xsd::cxx::tree::one< buttons_type > buttons_;
+    resources_optional resources_;
+    color_optional color_;
+    buttons_optional buttons_;
+    ::xsd::cxx::tree::one< texts_type > texts_;
+    ::xsd::cxx::tree::one< images_type > images_;
     ::xsd::cxx::tree::one< preloadResources_type > preloadResources_;
   };
 
@@ -419,6 +489,112 @@ namespace Menu
 
     protected:
     button_sequence button_;
+  };
+
+  class texts: public ::xml_schema::type
+  {
+    public:
+    // text
+    //
+    typedef ::Menu::text text_type;
+    typedef ::xsd::cxx::tree::sequence< text_type > text_sequence;
+    typedef text_sequence::iterator text_iterator;
+    typedef text_sequence::const_iterator text_const_iterator;
+    typedef ::xsd::cxx::tree::traits< text_type, char > text_traits;
+
+    const text_sequence&
+    text () const;
+
+    text_sequence&
+    text ();
+
+    void
+    text (const text_sequence& s);
+
+    // Constructors.
+    //
+    texts ();
+
+    texts (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+    texts (const texts& x,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+    virtual texts*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    texts&
+    operator= (const texts& x);
+
+    virtual 
+    ~texts ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    text_sequence text_;
+  };
+
+  class images: public ::xml_schema::type
+  {
+    public:
+    // image
+    //
+    typedef ::Menu::image image_type;
+    typedef ::xsd::cxx::tree::sequence< image_type > image_sequence;
+    typedef image_sequence::iterator image_iterator;
+    typedef image_sequence::const_iterator image_const_iterator;
+    typedef ::xsd::cxx::tree::traits< image_type, char > image_traits;
+
+    const image_sequence&
+    image () const;
+
+    image_sequence&
+    image ();
+
+    void
+    image (const image_sequence& s);
+
+    // Constructors.
+    //
+    images ();
+
+    images (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+    images (const images& x,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+    virtual images*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    images&
+    operator= (const images& x);
+
+    virtual 
+    ~images ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    image_sequence image_;
   };
 
   class button: public ::xml_schema::type
@@ -578,6 +754,196 @@ namespace Menu
     color_optional color_;
     resources_optional resources_;
     ::xsd::cxx::tree::one< events_type > events_;
+  };
+
+  class text: public ::xml_schema::type
+  {
+    public:
+    // position
+    //
+    typedef ::Common::position position_type;
+    typedef ::xsd::cxx::tree::traits< position_type, char > position_traits;
+
+    const position_type&
+    position () const;
+
+    position_type&
+    position ();
+
+    void
+    position (const position_type& x);
+
+    void
+    position (::std::unique_ptr< position_type > p);
+
+    // color
+    //
+    typedef ::Common::color color_type;
+    typedef ::xsd::cxx::tree::traits< color_type, char > color_traits;
+
+    const color_type&
+    color () const;
+
+    color_type&
+    color ();
+
+    void
+    color (const color_type& x);
+
+    void
+    color (::std::unique_ptr< color_type > p);
+
+    // content
+    //
+    typedef ::xml_schema::string content_type;
+    typedef ::xsd::cxx::tree::traits< content_type, char > content_traits;
+
+    const content_type&
+    content () const;
+
+    content_type&
+    content ();
+
+    void
+    content (const content_type& x);
+
+    void
+    content (::std::unique_ptr< content_type > p);
+
+    // Constructors.
+    //
+    text (const position_type&,
+          const color_type&,
+          const content_type&);
+
+    text (::std::unique_ptr< position_type >,
+          ::std::unique_ptr< color_type >,
+          const content_type&);
+
+    text (const ::xercesc::DOMElement& e,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+    text (const text& x,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+    virtual text*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    text&
+    operator= (const text& x);
+
+    virtual 
+    ~text ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< position_type > position_;
+    ::xsd::cxx::tree::one< color_type > color_;
+    ::xsd::cxx::tree::one< content_type > content_;
+  };
+
+  class image: public ::xml_schema::type
+  {
+    public:
+    // position
+    //
+    typedef ::Common::position position_type;
+    typedef ::xsd::cxx::tree::traits< position_type, char > position_traits;
+
+    const position_type&
+    position () const;
+
+    position_type&
+    position ();
+
+    void
+    position (const position_type& x);
+
+    void
+    position (::std::unique_ptr< position_type > p);
+
+    // size
+    //
+    typedef ::Common::size size_type;
+    typedef ::xsd::cxx::tree::traits< size_type, char > size_traits;
+
+    const size_type&
+    size () const;
+
+    size_type&
+    size ();
+
+    void
+    size (const size_type& x);
+
+    void
+    size (::std::unique_ptr< size_type > p);
+
+    // resources
+    //
+    typedef ::Common::resources resources_type;
+    typedef ::xsd::cxx::tree::traits< resources_type, char > resources_traits;
+
+    const resources_type&
+    resources () const;
+
+    resources_type&
+    resources ();
+
+    void
+    resources (const resources_type& x);
+
+    void
+    resources (::std::unique_ptr< resources_type > p);
+
+    // Constructors.
+    //
+    image (const position_type&,
+           const size_type&,
+           const resources_type&);
+
+    image (::std::unique_ptr< position_type >,
+           ::std::unique_ptr< size_type >,
+           ::std::unique_ptr< resources_type >);
+
+    image (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+    image (const image& x,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+    virtual image*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    image&
+    operator= (const image& x);
+
+    virtual 
+    ~image ();
+
+    // Implementation.
+    //
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< position_type > position_;
+    ::xsd::cxx::tree::one< size_type > size_;
+    ::xsd::cxx::tree::one< resources_type > resources_;
   };
 
   class resources: public ::Common::baseResources

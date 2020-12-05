@@ -229,11 +229,11 @@ namespace xml_schema
 namespace LevelResources
 {
   class floatCap;
-  class Level;
-  class Object;
-  class Components;
-  class WorldPositionComponent;
-  class PhysicsComponent;
+  class level;
+  class object;
+  class components;
+  class worldPositionComponent;
+  class physicsComponent;
 }
 
 
@@ -287,25 +287,25 @@ namespace LevelResources
     ~floatCap ();
   };
 
-  class Level: public ::xml_schema::type
+  class level: public ::xml_schema::type
   {
     public:
-    // Object
+    // object
     //
-    typedef ::LevelResources::Object Object_type;
-    typedef ::xsd::cxx::tree::sequence< Object_type > Object_sequence;
-    typedef Object_sequence::iterator Object_iterator;
-    typedef Object_sequence::const_iterator Object_const_iterator;
-    typedef ::xsd::cxx::tree::traits< Object_type, char > Object_traits;
+    typedef ::LevelResources::object object_type;
+    typedef ::xsd::cxx::tree::sequence< object_type > object_sequence;
+    typedef object_sequence::iterator object_iterator;
+    typedef object_sequence::const_iterator object_const_iterator;
+    typedef ::xsd::cxx::tree::traits< object_type, char > object_traits;
 
-    const Object_sequence&
-    Object () const;
+    const object_sequence&
+    object () const;
 
-    Object_sequence&
-    Object ();
+    object_sequence&
+    object ();
 
     void
-    Object (const Object_sequence& s);
+    object (const object_sequence& s);
 
     // name
     //
@@ -330,25 +330,25 @@ namespace LevelResources
 
     // Constructors.
     //
-    Level ();
+    level ();
 
-    Level (const ::xercesc::DOMElement& e,
+    level (const ::xercesc::DOMElement& e,
            ::xml_schema::flags f = 0,
            ::xml_schema::container* c = 0);
 
-    Level (const Level& x,
+    level (const level& x,
            ::xml_schema::flags f = 0,
            ::xml_schema::container* c = 0);
 
-    virtual Level*
+    virtual level*
     _clone (::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0) const;
 
-    Level&
-    operator= (const Level& x);
+    level&
+    operator= (const level& x);
 
     virtual 
-    ~Level ();
+    ~level ();
 
     // Implementation.
     //
@@ -358,29 +358,29 @@ namespace LevelResources
            ::xml_schema::flags);
 
     protected:
-    Object_sequence Object_;
+    object_sequence object_;
     name_optional name_;
   };
 
-  class Object: public ::xml_schema::type
+  class object: public ::xml_schema::type
   {
     public:
-    // Components
+    // components
     //
-    typedef ::LevelResources::Components Components_type;
-    typedef ::xsd::cxx::tree::traits< Components_type, char > Components_traits;
+    typedef ::LevelResources::components components_type;
+    typedef ::xsd::cxx::tree::traits< components_type, char > components_traits;
 
-    const Components_type&
-    Components () const;
+    const components_type&
+    components () const;
 
-    Components_type&
-    Components ();
-
-    void
-    Components (const Components_type& x);
+    components_type&
+    components ();
 
     void
-    Components (::std::unique_ptr< Components_type > p);
+    components (const components_type& x);
+
+    void
+    components (::std::unique_ptr< components_type > p);
 
     // name
     //
@@ -405,27 +405,27 @@ namespace LevelResources
 
     // Constructors.
     //
-    Object (const Components_type&);
+    object (const components_type&);
 
-    Object (::std::unique_ptr< Components_type >);
+    object (::std::unique_ptr< components_type >);
 
-    Object (const ::xercesc::DOMElement& e,
+    object (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0);
 
-    Object (const Object& x,
+    object (const object& x,
             ::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0);
 
-    virtual Object*
+    virtual object*
     _clone (::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0) const;
 
-    Object&
-    operator= (const Object& x);
+    object&
+    operator= (const object& x);
 
     virtual 
-    ~Object ();
+    ~object ();
 
     // Implementation.
     //
@@ -435,74 +435,74 @@ namespace LevelResources
            ::xml_schema::flags);
 
     protected:
-    ::xsd::cxx::tree::one< Components_type > Components_;
+    ::xsd::cxx::tree::one< components_type > components_;
     name_optional name_;
   };
 
-  class Components: public ::xml_schema::type
+  class components: public ::xml_schema::type
   {
     public:
-    // WorldPositionComponent
+    // worldPositionComponent
     //
-    typedef ::LevelResources::WorldPositionComponent WorldPositionComponent_type;
-    typedef ::xsd::cxx::tree::traits< WorldPositionComponent_type, char > WorldPositionComponent_traits;
+    typedef ::LevelResources::worldPositionComponent worldPositionComponent_type;
+    typedef ::xsd::cxx::tree::traits< worldPositionComponent_type, char > worldPositionComponent_traits;
 
-    const WorldPositionComponent_type&
-    WorldPositionComponent () const;
+    const worldPositionComponent_type&
+    worldPositionComponent () const;
 
-    WorldPositionComponent_type&
-    WorldPositionComponent ();
-
-    void
-    WorldPositionComponent (const WorldPositionComponent_type& x);
+    worldPositionComponent_type&
+    worldPositionComponent ();
 
     void
-    WorldPositionComponent (::std::unique_ptr< WorldPositionComponent_type > p);
+    worldPositionComponent (const worldPositionComponent_type& x);
 
-    // PhysicsComponent
+    void
+    worldPositionComponent (::std::unique_ptr< worldPositionComponent_type > p);
+
+    // physicsComponent
     //
-    typedef ::LevelResources::PhysicsComponent PhysicsComponent_type;
-    typedef ::xsd::cxx::tree::optional< PhysicsComponent_type > PhysicsComponent_optional;
-    typedef ::xsd::cxx::tree::traits< PhysicsComponent_type, char > PhysicsComponent_traits;
+    typedef ::LevelResources::physicsComponent physicsComponent_type;
+    typedef ::xsd::cxx::tree::optional< physicsComponent_type > physicsComponent_optional;
+    typedef ::xsd::cxx::tree::traits< physicsComponent_type, char > physicsComponent_traits;
 
-    const PhysicsComponent_optional&
-    PhysicsComponent () const;
+    const physicsComponent_optional&
+    physicsComponent () const;
 
-    PhysicsComponent_optional&
-    PhysicsComponent ();
-
-    void
-    PhysicsComponent (const PhysicsComponent_type& x);
+    physicsComponent_optional&
+    physicsComponent ();
 
     void
-    PhysicsComponent (const PhysicsComponent_optional& x);
+    physicsComponent (const physicsComponent_type& x);
 
     void
-    PhysicsComponent (::std::unique_ptr< PhysicsComponent_type > p);
+    physicsComponent (const physicsComponent_optional& x);
+
+    void
+    physicsComponent (::std::unique_ptr< physicsComponent_type > p);
 
     // Constructors.
     //
-    Components (const WorldPositionComponent_type&);
+    components (const worldPositionComponent_type&);
 
-    Components (::std::unique_ptr< WorldPositionComponent_type >);
+    components (::std::unique_ptr< worldPositionComponent_type >);
 
-    Components (const ::xercesc::DOMElement& e,
+    components (const ::xercesc::DOMElement& e,
                 ::xml_schema::flags f = 0,
                 ::xml_schema::container* c = 0);
 
-    Components (const Components& x,
+    components (const components& x,
                 ::xml_schema::flags f = 0,
                 ::xml_schema::container* c = 0);
 
-    virtual Components*
+    virtual components*
     _clone (::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0) const;
 
-    Components&
-    operator= (const Components& x);
+    components&
+    operator= (const components& x);
 
     virtual 
-    ~Components ();
+    ~components ();
 
     // Implementation.
     //
@@ -512,11 +512,11 @@ namespace LevelResources
            ::xml_schema::flags);
 
     protected:
-    ::xsd::cxx::tree::one< WorldPositionComponent_type > WorldPositionComponent_;
-    PhysicsComponent_optional PhysicsComponent_;
+    ::xsd::cxx::tree::one< worldPositionComponent_type > worldPositionComponent_;
+    physicsComponent_optional physicsComponent_;
   };
 
-  class WorldPositionComponent: public ::xml_schema::type
+  class worldPositionComponent: public ::xml_schema::type
   {
     public:
     // position
@@ -538,27 +538,27 @@ namespace LevelResources
 
     // Constructors.
     //
-    WorldPositionComponent (const position_type&);
+    worldPositionComponent (const position_type&);
 
-    WorldPositionComponent (::std::unique_ptr< position_type >);
+    worldPositionComponent (::std::unique_ptr< position_type >);
 
-    WorldPositionComponent (const ::xercesc::DOMElement& e,
+    worldPositionComponent (const ::xercesc::DOMElement& e,
                             ::xml_schema::flags f = 0,
                             ::xml_schema::container* c = 0);
 
-    WorldPositionComponent (const WorldPositionComponent& x,
+    worldPositionComponent (const worldPositionComponent& x,
                             ::xml_schema::flags f = 0,
                             ::xml_schema::container* c = 0);
 
-    virtual WorldPositionComponent*
+    virtual worldPositionComponent*
     _clone (::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0) const;
 
-    WorldPositionComponent&
-    operator= (const WorldPositionComponent& x);
+    worldPositionComponent&
+    operator= (const worldPositionComponent& x);
 
     virtual 
-    ~WorldPositionComponent ();
+    ~worldPositionComponent ();
 
     // Implementation.
     //
@@ -571,7 +571,7 @@ namespace LevelResources
     ::xsd::cxx::tree::one< position_type > position_;
   };
 
-  class PhysicsComponent: public ::xml_schema::type
+  class physicsComponent: public ::xml_schema::type
   {
     public:
     // friction
@@ -593,25 +593,25 @@ namespace LevelResources
 
     // Constructors.
     //
-    PhysicsComponent (const friction_type&);
+    physicsComponent (const friction_type&);
 
-    PhysicsComponent (const ::xercesc::DOMElement& e,
+    physicsComponent (const ::xercesc::DOMElement& e,
                       ::xml_schema::flags f = 0,
                       ::xml_schema::container* c = 0);
 
-    PhysicsComponent (const PhysicsComponent& x,
+    physicsComponent (const physicsComponent& x,
                       ::xml_schema::flags f = 0,
                       ::xml_schema::container* c = 0);
 
-    virtual PhysicsComponent*
+    virtual physicsComponent*
     _clone (::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0) const;
 
-    PhysicsComponent&
-    operator= (const PhysicsComponent& x);
+    physicsComponent&
+    operator= (const physicsComponent& x);
 
     virtual 
-    ~PhysicsComponent ();
+    ~physicsComponent ();
 
     // Implementation.
     //
@@ -636,19 +636,19 @@ namespace LevelResources
   // Parse a URI or a local file.
   //
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (const ::std::string& uri,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (const ::std::string& uri,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (const ::std::string& uri,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (const ::std::string& uri,
           ::xml_schema::error_handler& eh,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (const ::std::string& uri,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (const ::std::string& uri,
           ::xercesc::DOMErrorHandler& eh,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
@@ -656,38 +656,38 @@ namespace LevelResources
   // Parse std::istream.
   //
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::std::istream& is,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::std::istream& is,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::std::istream& is,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::std::istream& is,
           ::xml_schema::error_handler& eh,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::std::istream& is,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::std::istream& is,
           ::xercesc::DOMErrorHandler& eh,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::std::istream& is,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::std::istream& is,
           const ::std::string& id,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::std::istream& is,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::std::istream& is,
           const ::std::string& id,
           ::xml_schema::error_handler& eh,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::std::istream& is,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::std::istream& is,
           const ::std::string& id,
           ::xercesc::DOMErrorHandler& eh,
           ::xml_schema::flags f = 0,
@@ -696,19 +696,19 @@ namespace LevelResources
   // Parse xercesc::InputSource.
   //
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::xercesc::InputSource& is,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::xercesc::InputSource& is,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::xercesc::InputSource& is,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::xercesc::InputSource& is,
           ::xml_schema::error_handler& eh,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::xercesc::InputSource& is,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::xercesc::InputSource& is,
           ::xercesc::DOMErrorHandler& eh,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
@@ -716,13 +716,13 @@ namespace LevelResources
   // Parse xercesc::DOMDocument.
   //
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (const ::xercesc::DOMDocument& d,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (const ::xercesc::DOMDocument& d,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-  ::std::unique_ptr< ::LevelResources::Level >
-  Level_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+  ::std::unique_ptr< ::LevelResources::level >
+  level_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
           ::xml_schema::flags f = 0,
           const ::xml_schema::properties& p = ::xml_schema::properties ());
 }

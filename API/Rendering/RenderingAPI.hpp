@@ -12,6 +12,8 @@ class RenderingAPI {
 
     virtual void createText(std::string fontName, const char* text, const int fontSize, SDL_Color color, std::string textureId) const = 0;
 
+    virtual void drawBackground(std::string hex, float alpha) const = 0;
+
 public:
     [[nodiscard]] virtual const RenderingEngineAdapter& GetRendererAdapter() const = 0;
 };

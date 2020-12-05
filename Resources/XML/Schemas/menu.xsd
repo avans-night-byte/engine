@@ -10,8 +10,11 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="name" type="xs:string"/>
-                <xs:element ref="cmn:resources"/>
-                <xs:element name="buttons">
+                <xs:choice>
+                    <xs:element ref="cmn:resources"/>
+                    <xs:element ref="cmn:color"/>
+                </xs:choice>
+                <xs:element name="buttons" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="button" minOccurs="0" maxOccurs="unbounded">
@@ -38,6 +41,36 @@
                                             </xs:element>
                                         </xs:choice>
                                         <xs:element ref="cmn:events"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="texts">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="text" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element ref="cmn:position"/>
+                                        <xs:element ref="cmn:color"/>
+                                        <xs:element name="content" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="images">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="image" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element ref="cmn:position"/>
+                                        <xs:element ref="cmn:size"/>
+                                        <xs:element ref="cmn:resources" />
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>

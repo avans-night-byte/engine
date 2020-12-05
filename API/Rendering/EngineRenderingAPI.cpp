@@ -67,3 +67,8 @@ void EngineRenderingAPI::drawRectangle(Vector2 &position, float width, float hei
     _adapter->drawRectangle(position, width, height, color, opacity, _renderer);
 
 }
+
+void EngineRenderingAPI::drawBackground(std::string hex, float alpha) const {
+    _adapter->drawBackground(hex, alpha, _renderer);
+
+}
