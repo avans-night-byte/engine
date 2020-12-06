@@ -46,7 +46,7 @@ private:
 
     // Verification
     void verifyFile(const std::string& type, const ResourceType& resourceType, const std::string& name, const std::string& path);
-
+    static ResourceManager* _instance;
 public:
     explicit ResourceManager(const std::string &resourcePath, bool debug = true);
 
@@ -57,7 +57,9 @@ public:
      */
     void loadRequiredResources(const std::vector<std::string> &resources);
 
-    void loadResource(std::string resource);
+    void loadResource(const std::string& resource);
 
     void unloadResource(std::string resource);
+
+    static ResourceManager* GetInstance();
 };

@@ -1,4 +1,5 @@
 #include "TextureManager.hpp"
+#include "../Engine.hpp"
 #include <iostream>
 
 TextureManager* TextureManager::instance = nullptr;
@@ -26,7 +27,7 @@ bool TextureManager::CreateTexture(SDL_Surface *surface, std::string textureId, 
     return true;
 }
 
-bool TextureManager::load(const char *path, std::string textureId, SDL_Renderer *renderer) {
+bool TextureManager::load(const char *path, const std::string& textureId) {
     SDL_Surface* tmpSurface = IMG_Load(path);
     std::cout << IMG_GetError() << std::endl;
     
@@ -35,7 +36,7 @@ bool TextureManager::load(const char *path, std::string textureId, SDL_Renderer 
         return false;
     }
     
-    SDL_Texture* surfaceTexture = SDL_CreateTextureFromSurface(renderer, tmpSurface);
+    SDL_Texture* surfaceTexture = SDL_CreateTextureFromSurface(Engine::getInstance()->getRenderer(), tmpSurface);
     SDL_FreeSurface(tmpSurface);
     if(surfaceTexture == nullptr){
         return false;

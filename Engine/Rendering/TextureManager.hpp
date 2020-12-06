@@ -14,7 +14,7 @@ public:
     ~TextureManager();
     SDL_Texture* GetTexture(std::string textureId);
     bool CreateTexture(SDL_Surface * surface, std::string textureId, SDL_Renderer* renderer);
-    bool load(char const *path, std::string textureId, SDL_Renderer *renderer);
+    bool load(char const *path, const std::string& textureId);
     void draw(std::string textureId, int x, int y, int w, int h, double scale, double r, SDL_Renderer* renderer, SDL_RendererFlip = SDL_FLIP_NONE);
 
     void drawFrame(std::string id, float x, float y, int width, int height, int currentRow, int currentFrame, SDL_Renderer *pRenderer, SDL_RendererFlip flip);
