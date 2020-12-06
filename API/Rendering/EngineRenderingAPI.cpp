@@ -1,5 +1,6 @@
 #include "EngineRenderingAPI.hpp"
 
+#include "../../Engine/Rendering/TMXLevel.hpp"
 #include <utility>
 
 TextureManager *EngineRenderingAPI::GetTextureManager()
@@ -54,7 +55,7 @@ void EngineRenderingAPI::drawTexture(std::string textureId, int x, int y, int wi
  * @param textureId
  * @return success
  */
-bool EngineRenderingAPI::loadTexture(const char *path, std::string textureId) const
+bool EngineRenderingAPI::loadTexture(const char *path, std::string textureId)
 {
     return RenderingEngineAdapter::GetTextureManager()->load(path, textureId, _renderer);
 }
