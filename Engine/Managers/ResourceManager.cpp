@@ -8,19 +8,27 @@
 
 ResourceManager *ResourceManager::_instance = nullptr;
 
-ResourceManager *ResourceManager::GetInstance() {
+ResourceManager *ResourceManager::getInstance() {
     if (_instance == nullptr) {
         throw std::runtime_error("No instance found!");
     }
     return _instance;
 }
 
-ResourceManager::ResourceManager(const std::string &resourcePath, bool debug) {
+ResourceManager* ResourceManager::instantiate(const std::string &resourcePath, bool debug) {
     if (_instance != nullptr) {
         throw std::runtime_error("[ERROR] [ResourceManager] Manager has already been initiated!");
     }
 
-    _instance = this;
+    if(_instance == nullptr){
+        _instance = new ResourceManager(resourcePath, debug);
+    }
+
+    return _instance;
+}
+
+ResourceManager::ResourceManager(const std::string &resourcePath, bool debug) {
+
     _debug = debug;
     try {
         if (_debug)
@@ -149,4 +157,6 @@ void ResourceManager::verifyFile(const std::string &type, const ResourceType &re
         std::cout << "[INFO] [ResourceManager] " << type << " with name " << name << " has been validated."
                   << std::endl;
 }
+
+
 

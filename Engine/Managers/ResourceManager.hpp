@@ -47,9 +47,9 @@ private:
     // Verification
     void verifyFile(const std::string& type, const ResourceType& resourceType, const std::string& name, const std::string& path);
     static ResourceManager* _instance;
-public:
+protected:
     explicit ResourceManager(const std::string &resourcePath, bool debug = true);
-
+public:
     /**
      * Loads all required resources and unloads non-required ones.
      *
@@ -61,5 +61,6 @@ public:
 
     void unloadResource(std::string resource);
 
-    static ResourceManager* GetInstance();
+    static ResourceManager* getInstance();
+    static ResourceManager* instantiate(const std::string &resourcePath, bool debug = true);
 };

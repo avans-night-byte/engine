@@ -41,11 +41,14 @@ private:
 
     std::string _buttonPrefix = "button_";
     std::string _textPrefix = "text_";
+    std::string _imagePrefix = "image_";
     std::string _fontPath = "../../Resources/Fonts/";
 
     ResourceManager *_resourceManager = nullptr;
 
     SDL_Color HexToRGB(std::string hex, float opacity) const;
+
+    void renderImages();
 };
 
 

@@ -10,7 +10,7 @@ MenuParser::MenuParser(const RenderingAPI &renderer) : _renderer(renderer) {
     if (_instance != nullptr) {
         throw std::runtime_error("[ERROR] [MenuParser] Manager has already been initiated!");
     }
-    _resourceManager = ResourceManager::GetInstance();
+    _resourceManager = ResourceManager::getInstance();
     _instance = this;
 }
 
@@ -50,6 +50,8 @@ void MenuParser::initialize(const std::string &path) {
         index++;
     }
 
+
+
     if(_menu->backgroundMusic().present() && _previousSong != _menu->backgroundMusic()->c_str()) {
         audioEngineAdapter->playFromMemory(_menu->backgroundMusic()->c_str());
         _previousSong = _menu->backgroundMusic()->c_str();
@@ -68,6 +70,7 @@ void MenuParser::render() {
     }
 
     MenuParser::renderText();
+    MenuParser::renderImages();
     MenuParser::renderButtons();
 }
 
@@ -107,6 +110,16 @@ void MenuParser::renderText() {
     }
 }
 
+void MenuParser::renderImages(){
+    int index = 0;
+
+    for (auto image : _menu->images().image()) {
+        _renderer.drawTexture(image.resources().default_(), image.position().x(), image.position().y(), image.size().width(), image.size().height(), 1, 0);
+        index++;
+    }
+
+}
+
 SDL_Color MenuParser::HexToRGB(std::string hex, float opacity) const {
 
     std::regex pattern("#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})");
@@ -138,7 +151,7 @@ void MenuParser::onClick(Input input) {
                 (v2.y + button.size().height()) >= input.y) {
 
                 std::string nig = "Credits";
-                ResourceManager::GetInstance()->loadResource(nig);
+                ResourceManager::getInstance()->loadResource(nig);
 
                 std::cout << "button clicked" << std::endl;
             }
