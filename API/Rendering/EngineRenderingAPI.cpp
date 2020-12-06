@@ -1,6 +1,5 @@
 #include "EngineRenderingAPI.hpp"
 
-#include "../../Engine/Rendering/TMXLevel.hpp"
 #include <utility>
 
 TextureManager *EngineRenderingAPI::GetTextureManager()
@@ -75,4 +74,9 @@ TMXLevel *EngineRenderingAPI::loadLevel(const TMXLevelData &levelData, PhysicsEn
                         levelData.spriteId.c_str(),
                         *this,
                         physicsEngineAdapter);
+}
+
+void EngineRenderingAPI::drawBackground(std::string hex, float alpha) const {
+    _adapter->drawBackground(hex, alpha, _renderer);
+
 }

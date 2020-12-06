@@ -18,6 +18,13 @@ RenderingEngineAdapter::drawTexture(std::string textureId, int x, int y, int wid
     return textureManager->draw(textureId, x, y, width, height, scale, r, renderer, flip);
 }
 
+void RenderingEngineAdapter::drawBackground(std::string color, float alpha, SDL_Renderer *renderer){
+    SDL_Color c = HexToRGB(color, alpha);
+    SDL_SetRenderDrawColor(renderer, c.r, c.g, c.b, c.a);
+
+    SDL_RenderClear(renderer);
+}
+
 Spritesheet *
 RenderingEngineAdapter::createSpriteSheet(char const *path, std::string spriteSheetId, int rows, int columns, int width,
                                           int height, SDL_Renderer *renderer) {
@@ -63,12 +70,6 @@ void RenderingEngineAdapter::drawRectangle(Vector2 &position, float width, float
 
     SDL_RenderFillRectF(renderer, &rectangle);
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
-}
-
-void RenderingEngineAdapter::drawRectContent(Vector2& position, float width, float height, std::string& content, SDL_Renderer *renderer){
-    Vector2 midpoint((position.x + (position.x + height)) / 2, (position.y + (position.y + width)) /2);
-    SDL_Color White = {0, 0, 0};  // this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
-    //SDL_Texture* Message = SDL_CreateTextureFromSurface(renderer, content);
 }
 
 SDL_Color RenderingEngineAdapter::HexToRGB(std::string hex, float opacity) const {

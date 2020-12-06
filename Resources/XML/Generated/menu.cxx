@@ -69,16 +69,16 @@ namespace Menu
     this->name_.set (std::move (x));
   }
 
-  const menu::resources_type& menu::
+  const menu::resources_optional& menu::
   resources () const
   {
-    return this->resources_.get ();
+    return this->resources_;
   }
 
-  menu::resources_type& menu::
+  menu::resources_optional& menu::
   resources ()
   {
-    return this->resources_.get ();
+    return this->resources_;
   }
 
   void menu::
@@ -88,21 +88,57 @@ namespace Menu
   }
 
   void menu::
+  resources (const resources_optional& x)
+  {
+    this->resources_ = x;
+  }
+
+  void menu::
   resources (::std::unique_ptr< resources_type > x)
   {
     this->resources_.set (std::move (x));
   }
 
-  const menu::buttons_type& menu::
-  buttons () const
+  const menu::color_optional& menu::
+  color () const
   {
-    return this->buttons_.get ();
+    return this->color_;
   }
 
-  menu::buttons_type& menu::
+  menu::color_optional& menu::
+  color ()
+  {
+    return this->color_;
+  }
+
+  void menu::
+  color (const color_type& x)
+  {
+    this->color_.set (x);
+  }
+
+  void menu::
+  color (const color_optional& x)
+  {
+    this->color_ = x;
+  }
+
+  void menu::
+  color (::std::unique_ptr< color_type > x)
+  {
+    this->color_.set (std::move (x));
+  }
+
+  const menu::buttons_optional& menu::
+  buttons () const
+  {
+    return this->buttons_;
+  }
+
+  menu::buttons_optional& menu::
   buttons ()
   {
-    return this->buttons_.get ();
+    return this->buttons_;
   }
 
   void menu::
@@ -112,9 +148,63 @@ namespace Menu
   }
 
   void menu::
+  buttons (const buttons_optional& x)
+  {
+    this->buttons_ = x;
+  }
+
+  void menu::
   buttons (::std::unique_ptr< buttons_type > x)
   {
     this->buttons_.set (std::move (x));
+  }
+
+  const menu::texts_type& menu::
+  texts () const
+  {
+    return this->texts_.get ();
+  }
+
+  menu::texts_type& menu::
+  texts ()
+  {
+    return this->texts_.get ();
+  }
+
+  void menu::
+  texts (const texts_type& x)
+  {
+    this->texts_.set (x);
+  }
+
+  void menu::
+  texts (::std::unique_ptr< texts_type > x)
+  {
+    this->texts_.set (std::move (x));
+  }
+
+  const menu::images_type& menu::
+  images () const
+  {
+    return this->images_.get ();
+  }
+
+  menu::images_type& menu::
+  images ()
+  {
+    return this->images_.get ();
+  }
+
+  void menu::
+  images (const images_type& x)
+  {
+    this->images_.set (x);
+  }
+
+  void menu::
+  images (::std::unique_ptr< images_type > x)
+  {
+    this->images_.set (std::move (x));
   }
 
   const menu::preloadResources_type& menu::
@@ -161,6 +251,50 @@ namespace Menu
   button (const button_sequence& s)
   {
     this->button_ = s;
+  }
+
+
+  // texts
+  // 
+
+  const texts::text_sequence& texts::
+  text () const
+  {
+    return this->text_;
+  }
+
+  texts::text_sequence& texts::
+  text ()
+  {
+    return this->text_;
+  }
+
+  void texts::
+  text (const text_sequence& s)
+  {
+    this->text_ = s;
+  }
+
+
+  // images
+  // 
+
+  const images::image_sequence& images::
+  image () const
+  {
+    return this->image_;
+  }
+
+  images::image_sequence& images::
+  image ()
+  {
+    return this->image_;
+  }
+
+  void images::
+  image (const image_sequence& s)
+  {
+    this->image_ = s;
   }
 
 
@@ -324,6 +458,158 @@ namespace Menu
   }
 
 
+  // text
+  // 
+
+  const text::position_type& text::
+  position () const
+  {
+    return this->position_.get ();
+  }
+
+  text::position_type& text::
+  position ()
+  {
+    return this->position_.get ();
+  }
+
+  void text::
+  position (const position_type& x)
+  {
+    this->position_.set (x);
+  }
+
+  void text::
+  position (::std::unique_ptr< position_type > x)
+  {
+    this->position_.set (std::move (x));
+  }
+
+  const text::color_type& text::
+  color () const
+  {
+    return this->color_.get ();
+  }
+
+  text::color_type& text::
+  color ()
+  {
+    return this->color_.get ();
+  }
+
+  void text::
+  color (const color_type& x)
+  {
+    this->color_.set (x);
+  }
+
+  void text::
+  color (::std::unique_ptr< color_type > x)
+  {
+    this->color_.set (std::move (x));
+  }
+
+  const text::content_type& text::
+  content () const
+  {
+    return this->content_.get ();
+  }
+
+  text::content_type& text::
+  content ()
+  {
+    return this->content_.get ();
+  }
+
+  void text::
+  content (const content_type& x)
+  {
+    this->content_.set (x);
+  }
+
+  void text::
+  content (::std::unique_ptr< content_type > x)
+  {
+    this->content_.set (std::move (x));
+  }
+
+
+  // image
+  // 
+
+  const image::position_type& image::
+  position () const
+  {
+    return this->position_.get ();
+  }
+
+  image::position_type& image::
+  position ()
+  {
+    return this->position_.get ();
+  }
+
+  void image::
+  position (const position_type& x)
+  {
+    this->position_.set (x);
+  }
+
+  void image::
+  position (::std::unique_ptr< position_type > x)
+  {
+    this->position_.set (std::move (x));
+  }
+
+  const image::size_type& image::
+  size () const
+  {
+    return this->size_.get ();
+  }
+
+  image::size_type& image::
+  size ()
+  {
+    return this->size_.get ();
+  }
+
+  void image::
+  size (const size_type& x)
+  {
+    this->size_.set (x);
+  }
+
+  void image::
+  size (::std::unique_ptr< size_type > x)
+  {
+    this->size_.set (std::move (x));
+  }
+
+  const image::resources_type& image::
+  resources () const
+  {
+    return this->resources_.get ();
+  }
+
+  image::resources_type& image::
+  resources ()
+  {
+    return this->resources_.get ();
+  }
+
+  void image::
+  resources (const resources_type& x)
+  {
+    this->resources_.set (x);
+  }
+
+  void image::
+  resources (::std::unique_ptr< resources_type > x)
+  {
+    this->resources_.set (std::move (x));
+  }
+
+
   // resources
   // 
 
@@ -397,26 +683,32 @@ namespace Menu
 
   menu::
   menu (const name_type& name,
-        const resources_type& resources,
-        const buttons_type& buttons,
+        const texts_type& texts,
+        const images_type& images,
         const preloadResources_type& preloadResources)
   : ::xml_schema::type (),
     name_ (name, this),
-    resources_ (resources, this),
-    buttons_ (buttons, this),
+    resources_ (this),
+    color_ (this),
+    buttons_ (this),
+    texts_ (texts, this),
+    images_ (images, this),
     preloadResources_ (preloadResources, this)
   {
   }
 
   menu::
   menu (const name_type& name,
-        ::std::unique_ptr< resources_type > resources,
-        ::std::unique_ptr< buttons_type > buttons,
+        ::std::unique_ptr< texts_type > texts,
+        ::std::unique_ptr< images_type > images,
         ::std::unique_ptr< preloadResources_type > preloadResources)
   : ::xml_schema::type (),
     name_ (name, this),
-    resources_ (std::move (resources), this),
-    buttons_ (std::move (buttons), this),
+    resources_ (this),
+    color_ (this),
+    buttons_ (this),
+    texts_ (std::move (texts), this),
+    images_ (std::move (images), this),
     preloadResources_ (std::move (preloadResources), this)
   {
   }
@@ -428,7 +720,10 @@ namespace Menu
   : ::xml_schema::type (x, f, c),
     name_ (x.name_, f, this),
     resources_ (x.resources_, f, this),
+    color_ (x.color_, f, this),
     buttons_ (x.buttons_, f, this),
+    texts_ (x.texts_, f, this),
+    images_ (x.images_, f, this),
     preloadResources_ (x.preloadResources_, f, this)
   {
   }
@@ -440,7 +735,10 @@ namespace Menu
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     name_ (this),
     resources_ (this),
+    color_ (this),
     buttons_ (this),
+    texts_ (this),
+    images_ (this),
     preloadResources_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
@@ -481,9 +779,23 @@ namespace Menu
         ::std::unique_ptr< resources_type > r (
           resources_traits::create (i, f, this));
 
-        if (!resources_.present ())
+        if (!this->resources_)
         {
           this->resources_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // color
+      //
+      if (n.name () == "color" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< color_type > r (
+          color_traits::create (i, f, this));
+
+        if (!this->color_)
+        {
+          this->color_.set (::std::move (r));
           continue;
         }
       }
@@ -495,9 +807,37 @@ namespace Menu
         ::std::unique_ptr< buttons_type > r (
           buttons_traits::create (i, f, this));
 
-        if (!buttons_.present ())
+        if (!this->buttons_)
         {
           this->buttons_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // texts
+      //
+      if (n.name () == "texts" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< texts_type > r (
+          texts_traits::create (i, f, this));
+
+        if (!texts_.present ())
+        {
+          this->texts_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // images
+      //
+      if (n.name () == "images" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< images_type > r (
+          images_traits::create (i, f, this));
+
+        if (!images_.present ())
+        {
+          this->images_.set (::std::move (r));
           continue;
         }
       }
@@ -526,17 +866,17 @@ namespace Menu
         "");
     }
 
-    if (!resources_.present ())
+    if (!texts_.present ())
     {
       throw ::xsd::cxx::tree::expected_element< char > (
-        "resources",
-        "Common");
+        "texts",
+        "");
     }
 
-    if (!buttons_.present ())
+    if (!images_.present ())
     {
       throw ::xsd::cxx::tree::expected_element< char > (
-        "buttons",
+        "images",
         "");
     }
 
@@ -563,7 +903,10 @@ namespace Menu
       static_cast< ::xml_schema::type& > (*this) = x;
       this->name_ = x.name_;
       this->resources_ = x.resources_;
+      this->color_ = x.color_;
       this->buttons_ = x.buttons_;
+      this->texts_ = x.texts_;
+      this->images_ = x.images_;
       this->preloadResources_ = x.preloadResources_;
     }
 
@@ -654,6 +997,170 @@ namespace Menu
 
   buttons::
   ~buttons ()
+  {
+  }
+
+  // texts
+  //
+
+  texts::
+  texts ()
+  : ::xml_schema::type (),
+    text_ (this)
+  {
+  }
+
+  texts::
+  texts (const texts& x,
+         ::xml_schema::flags f,
+         ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    text_ (x.text_, f, this)
+  {
+  }
+
+  texts::
+  texts (const ::xercesc::DOMElement& e,
+         ::xml_schema::flags f,
+         ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    text_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void texts::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // text
+      //
+      if (n.name () == "text" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< text_type > r (
+          text_traits::create (i, f, this));
+
+        this->text_.push_back (::std::move (r));
+        continue;
+      }
+
+      break;
+    }
+  }
+
+  texts* texts::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class texts (*this, f, c);
+  }
+
+  texts& texts::
+  operator= (const texts& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->text_ = x.text_;
+    }
+
+    return *this;
+  }
+
+  texts::
+  ~texts ()
+  {
+  }
+
+  // images
+  //
+
+  images::
+  images ()
+  : ::xml_schema::type (),
+    image_ (this)
+  {
+  }
+
+  images::
+  images (const images& x,
+          ::xml_schema::flags f,
+          ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    image_ (x.image_, f, this)
+  {
+  }
+
+  images::
+  images (const ::xercesc::DOMElement& e,
+          ::xml_schema::flags f,
+          ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    image_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void images::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // image
+      //
+      if (n.name () == "image" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< image_type > r (
+          image_traits::create (i, f, this));
+
+        this->image_.push_back (::std::move (r));
+        continue;
+      }
+
+      break;
+    }
+  }
+
+  images* images::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class images (*this, f, c);
+  }
+
+  images& images::
+  operator= (const images& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->image_ = x.image_;
+    }
+
+    return *this;
+  }
+
+  images::
+  ~images ()
   {
   }
 
@@ -875,6 +1382,316 @@ namespace Menu
 
   button::
   ~button ()
+  {
+  }
+
+  // text
+  //
+
+  text::
+  text (const position_type& position,
+        const color_type& color,
+        const content_type& content)
+  : ::xml_schema::type (),
+    position_ (position, this),
+    color_ (color, this),
+    content_ (content, this)
+  {
+  }
+
+  text::
+  text (::std::unique_ptr< position_type > position,
+        ::std::unique_ptr< color_type > color,
+        const content_type& content)
+  : ::xml_schema::type (),
+    position_ (std::move (position), this),
+    color_ (std::move (color), this),
+    content_ (content, this)
+  {
+  }
+
+  text::
+  text (const text& x,
+        ::xml_schema::flags f,
+        ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    position_ (x.position_, f, this),
+    color_ (x.color_, f, this),
+    content_ (x.content_, f, this)
+  {
+  }
+
+  text::
+  text (const ::xercesc::DOMElement& e,
+        ::xml_schema::flags f,
+        ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    position_ (this),
+    color_ (this),
+    content_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void text::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // position
+      //
+      if (n.name () == "position" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< position_type > r (
+          position_traits::create (i, f, this));
+
+        if (!position_.present ())
+        {
+          this->position_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // color
+      //
+      if (n.name () == "color" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< color_type > r (
+          color_traits::create (i, f, this));
+
+        if (!color_.present ())
+        {
+          this->color_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // content
+      //
+      if (n.name () == "content" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< content_type > r (
+          content_traits::create (i, f, this));
+
+        if (!content_.present ())
+        {
+          this->content_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!position_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "position",
+        "Common");
+    }
+
+    if (!color_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "color",
+        "Common");
+    }
+
+    if (!content_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "content",
+        "");
+    }
+  }
+
+  text* text::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class text (*this, f, c);
+  }
+
+  text& text::
+  operator= (const text& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->position_ = x.position_;
+      this->color_ = x.color_;
+      this->content_ = x.content_;
+    }
+
+    return *this;
+  }
+
+  text::
+  ~text ()
+  {
+  }
+
+  // image
+  //
+
+  image::
+  image (const position_type& position,
+         const size_type& size,
+         const resources_type& resources)
+  : ::xml_schema::type (),
+    position_ (position, this),
+    size_ (size, this),
+    resources_ (resources, this)
+  {
+  }
+
+  image::
+  image (::std::unique_ptr< position_type > position,
+         ::std::unique_ptr< size_type > size,
+         ::std::unique_ptr< resources_type > resources)
+  : ::xml_schema::type (),
+    position_ (std::move (position), this),
+    size_ (std::move (size), this),
+    resources_ (std::move (resources), this)
+  {
+  }
+
+  image::
+  image (const image& x,
+         ::xml_schema::flags f,
+         ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    position_ (x.position_, f, this),
+    size_ (x.size_, f, this),
+    resources_ (x.resources_, f, this)
+  {
+  }
+
+  image::
+  image (const ::xercesc::DOMElement& e,
+         ::xml_schema::flags f,
+         ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    position_ (this),
+    size_ (this),
+    resources_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void image::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // position
+      //
+      if (n.name () == "position" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< position_type > r (
+          position_traits::create (i, f, this));
+
+        if (!position_.present ())
+        {
+          this->position_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // size
+      //
+      if (n.name () == "size" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< size_type > r (
+          size_traits::create (i, f, this));
+
+        if (!size_.present ())
+        {
+          this->size_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // resources
+      //
+      if (n.name () == "resources" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< resources_type > r (
+          resources_traits::create (i, f, this));
+
+        if (!resources_.present ())
+        {
+          this->resources_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!position_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "position",
+        "Common");
+    }
+
+    if (!size_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "size",
+        "Common");
+    }
+
+    if (!resources_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "resources",
+        "Common");
+    }
+  }
+
+  image* image::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class image (*this, f, c);
+  }
+
+  image& image::
+  operator= (const image& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->position_ = x.position_;
+      this->size_ = x.size_;
+      this->resources_ = x.resources_;
+    }
+
+    return *this;
+  }
+
+  image::
+  ~image ()
   {
   }
 

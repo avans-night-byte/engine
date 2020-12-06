@@ -46,4 +46,6 @@ public:
 
     void createText(std::string fontName, const char *text, const int fontSize, SDL_Color color, std::string textureId,
                     SDL_Renderer *renderer);
+
+    void drawBackground(std::string color, float alpha, SDL_Renderer *renderer);
 };

@@ -6,9 +6,10 @@
         xmlns:common="Common">
 
     <name>MainMenu</name>
-    <common:resources>
-        <default>mainmenu_background</default>
-    </common:resources>
+        <common:color>
+            <hex>526cff</hex>
+            <alpha>0</alpha>
+        </common:color>
     <buttons>
         <button>
             <common:position>
@@ -53,7 +54,31 @@
             </common:events>
         </button>
     </buttons>
-
+    <texts>
+        <text>
+            <common:position>
+                <x>50</x>
+                <y>50</y>
+            </common:position>
+            <common:color>
+                <hex>a83258</hex>
+                <alpha>255</alpha>
+            </common:color>
+            <content>Real shizzle</content>
+        </text>
+        <text>
+            <common:position>
+                <x>350</x>
+                <y>50</y>
+            </common:position>
+            <common:color>
+                <hex>c9c947</hex>
+                <alpha>100</alpha>
+            </common:color>
+            <content>HEEEYJJJ</content>
+        </text>
+    </texts>
+    <images/>
     <common:preloadResources>
         <resource>main_menu</resource>
         <resource>main_menu</resource>
