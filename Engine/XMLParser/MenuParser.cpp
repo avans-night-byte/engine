@@ -9,6 +9,10 @@ MenuParser::MenuParser(const RenderingAPI &renderer) : _renderer(renderer) {
 }
 
 void MenuParser::openScene(const std::string &path) {
+
+
+    // TODO: Clear old items, do some checks?
+
     _menu = Menu::menu_(path);
 
     _textItems = std::map<std::string, std::unique_ptr<TextWrapper>>();
@@ -42,6 +46,7 @@ void MenuParser::openScene(const std::string &path) {
         index++;
     }
 
+    // TODO: Stop music if there is a new track play it, otherwise stop the old and play the new (if present)
     if(_menu->backgroundMusic().present()) {
         SDLAudioEngineAdapter::getInstance()->playFromMemory(_menu->backgroundMusic()->c_str());
     }
