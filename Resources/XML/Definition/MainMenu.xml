@@ -6,10 +6,9 @@
         xmlns:common="Common">
 
     <name>MainMenu</name>
-        <common:color>
-            <hex>526cff</hex>
-            <alpha>0</alpha>
-        </common:color>
+    <common:resources>
+        <default>mainmenu_background</default>
+    </common:resources>
     <buttons>
         <button>
             <common:position>
@@ -80,15 +79,6 @@
     </texts>
     <images/>
     <common:preloadResources>
-        <resource>main_menu</resource>
-        <resource>main_menu</resource>
-        <resource>main_menu</resource>
-        <resource>main_menu</resource>
-        <resource>main_menu</resource>
-        <resource>main_menu</resource>
-        <resource>main_menu</resource>
-        <resource>main_menu</resource>
-        <resource>main_menu</resource>
-        <resource>main_menu</resource>
+        <resource>mainmenu_background</resource>
     </common:preloadResources>
 </menu:menu>

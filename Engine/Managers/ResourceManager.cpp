@@ -32,7 +32,7 @@ ResourceManager::ResourceManager(const std::string &resourcePath, bool debug) {
             verifyFile("Texture", TEXTURES, texture.name(), texture.path());
 
             std::string name = texture.name();
-            _textures[name] = std::unique_ptr<GameResources::texture>(&texture);
+            _textures[name] = std::unique_ptr<GameResources::texture>(texture._clone());
         }
 
         // Discover sprites
@@ -40,7 +40,7 @@ ResourceManager::ResourceManager(const std::string &resourcePath, bool debug) {
             verifyFile("Sprite", SPRITES, sprite.name(), sprite.path());
 
             std::string name = sprite.name();
-            _sprites[name] = std::unique_ptr<GameResources::sprite>(&sprite);
+            _sprites[name] = std::unique_ptr<GameResources::sprite>(sprite._clone());
         }
 
         // Discover sounds
@@ -48,7 +48,7 @@ ResourceManager::ResourceManager(const std::string &resourcePath, bool debug) {
             verifyFile("Sound", SOUNDS, sound.name(), sound.path());
 
             std::string name = sound.name();
-            _sounds[name] = std::unique_ptr<GameResources::sound>(&sound);
+            _sounds[name] = std::unique_ptr<GameResources::sound>(sound._clone());
         }
 
         // Discover music
@@ -56,7 +56,7 @@ ResourceManager::ResourceManager(const std::string &resourcePath, bool debug) {
             verifyFile("Sound", MUSIC, music.name(), music.path());
 
             std::string name = music.name();
-            _music[name] = std::unique_ptr<GameResources::music1>(&music);
+            _music[name] = std::unique_ptr<GameResources::music1>(music._clone());
         }
 
         // Discover scenes
@@ -64,7 +64,7 @@ ResourceManager::ResourceManager(const std::string &resourcePath, bool debug) {
             verifyFile("Scene", SCENES, scene.name(), scene.path());
 
             std::string name = scene.name();
-            _scenes[name] = std::unique_ptr<GameResources::scene>(&scene);
+            _scenes[name] = std::unique_ptr<GameResources::scene>(scene._clone());
         }
 
 

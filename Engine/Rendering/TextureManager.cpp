@@ -37,12 +37,12 @@ bool TextureManager::load(const char *path, const std::string& textureId) {
     }
     
     SDL_Texture* surfaceTexture = SDL_CreateTextureFromSurface(Engine::getInstance()->getRenderer(), tmpSurface);
-    SDL_FreeSurface(tmpSurface);
+
     if(surfaceTexture == nullptr){
         return false;
     }
-
     TextureMap[textureId] = surfaceTexture;
+    SDL_FreeSurface(tmpSurface);
     return true;
 }
 
