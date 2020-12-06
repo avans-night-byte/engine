@@ -75,8 +75,6 @@ add_executable(NightByte ./Main.cpp
         Engine/XMLParser/LevelXMLParser.cpp
         ./Engine/XMLParser/MenuParser.cpp
         ./Engine/XMLParser/MenuParser.hpp
-        ./Engine/XMLParser/Page.cpp
-        ./Engine/XMLParser/Page.hpp
         ./Engine/Managers/ResourceManager.cpp
         ./Engine/Managers/ResourceManager.hpp
         ./Engine/Rendering/TextWrapper.cpp
