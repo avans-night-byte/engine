@@ -16,7 +16,7 @@ private:
     SDL_Renderer *_renderer;
 
 public:
-    EngineRenderingAPI() : _renderer(Engine::getRenderer()), _adapter(new RenderingEngineAdapter{}) {
+    EngineRenderingAPI() : _renderer(Engine::getInstance()->getRenderer()), _adapter(new RenderingEngineAdapter{}) {
 
     };
 

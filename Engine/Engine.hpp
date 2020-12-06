@@ -26,7 +26,7 @@ public:
 
     static void closeWindow();
 
-    static SDL_Renderer *getRenderer();
+    SDL_Renderer *getRenderer();
 
     TextureManager *getTextureManager();
 };
