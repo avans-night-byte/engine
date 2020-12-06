@@ -7,7 +7,7 @@
 
 class MenuParserAPI {
 public:
-    MenuParserAPI(EngineRenderingAPI &renderer, Event<Input>& event);
+    MenuParserAPI(RenderingAPI &renderer, Event<Input>& event);
     void loadScene(std::string path);
     void render();
     void onClick(Input input);

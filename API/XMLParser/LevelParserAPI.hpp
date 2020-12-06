@@ -1,18 +1,21 @@
 #pragma once
 
-#include "memory"
-#include "../../Engine/XMLParser/LevelParser.hpp"
+#include <string>
+#include <memory>
 
 
-using namespace std;
+#include "../../Engine/XMLParser/LevelXMLParser.hpp"
+
+class TMXLevel;
+
+struct TMXLevelData;
+
 
 class LevelParserAPI {
 private:
-    unique_ptr<LevelParser> levelParser;
+    std::unique_ptr<LevelXMLParser> levelXMLParser;
+    std::unique_ptr<TMXLevel> levelLoader;
 
 public:
-    void LoadLevel(const string& path) {
-        levelParser = make_unique<LevelParser>();
-        levelParser->LoadLevel(path);
-    }
+    void LoadLevel(const TMXLevelData& levelData, const std::string &resourcePath);
 };

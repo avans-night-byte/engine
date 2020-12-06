@@ -67,12 +67,12 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Physics/BodyType.hpp
         ./Engine/Physics/Box2dPhysicsEngineAdapter.cpp
         ./Engine/Physics/PhysicsDebug/Box2dDrawDebug.hpp
-        ./Engine/Rendering/Level.cpp
-        ./Engine/Rendering/Level.hpp
+        Engine/Rendering/TMXLevel.cpp
+        Engine/Rendering/TMXLevel.hpp
         ./Engine/Physics/ContactListener.hpp
         ./Engine/Physics/ContactHandler.hpp
-        ./Engine/XMLParser/LevelParser.hpp
-        ./Engine/XMLParser/LevelParser.cpp
+        Engine/XMLParser/LevelXMLParser.hpp
+        Engine/XMLParser/LevelXMLParser.cpp
         ./Engine/XMLParser/MenuParser.cpp
         ./Engine/XMLParser/MenuParser.hpp
         ./Engine/XMLParser/Page.cpp
@@ -105,7 +105,7 @@ add_executable(NightByte ./Main.cpp
         ./Resources/XML/Generated/resources.cxx
         ./Resources/XML/Generated/resources.hxx
         ./Resources/XML/Generated/level-resources.hxx
-        ./Resources/XML/Generated/level-resources.cxx)
+        ./Resources/XML/Generated/level-resources.cxx API/XMLParser/LevelParserAPI.cpp Game/Components/EntityObject.cpp Game/Components/EntityObject.hpp)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)

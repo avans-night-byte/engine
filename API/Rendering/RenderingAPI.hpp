@@ -5,9 +5,22 @@ class Spritesheet;
 class PhysicsEngineAdapter;
 class RenderingEngineAdapter;
 class Vector2;
-class Level;
+class TMXLevel;
 
 #include <string>
+
+struct TMXLevelData {
+public:
+    TMXLevelData(const std::string _tmxPath, const std::string spriteSheetPath, const std::string&spriteId)
+        :tmxPath(_tmxPath), spritesheetPath(spriteSheetPath), spriteId(spriteId)
+    {
+
+    }
+
+    const std::string tmxPath;
+    const std::string spritesheetPath;
+    const std::string spriteId;
+};
 
 class RenderingAPI {
 public:
@@ -21,10 +34,7 @@ public:
 
     virtual void createText(std::string fontName, const char* text, const int fontSize, SDL_Color color, std::string textureId) const = 0;
 
-    virtual Level *loadLevel(const std::string &tmxPath,
-                             const std::string &spritesheetPath,
-                             const std::string &spritesheetId,
-                             PhysicsEngineAdapter &physicsEngineAdapter) = 0;
+    virtual TMXLevel *loadLevel(const TMXLevelData& levelData, PhysicsEngineAdapter &physicsEngineAdapter) = 0;
 
 public:
     [[nodiscard]] virtual const RenderingEngineAdapter& GetRendererAdapter() const = 0;

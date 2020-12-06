@@ -9,7 +9,7 @@
     <objects>
 
         <object>
-            <name>Character</name>
+            <name>Sascha</name>
             <components>
                 <worldPositionComponent>
                     <common:positionF>

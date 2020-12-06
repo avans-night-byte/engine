@@ -47,7 +47,7 @@ void MenuParser::render() {
 
 }
 
-MenuParser::MenuParser(const EngineRenderingAPI &renderer) : _renderer(renderer) {}
+MenuParser::MenuParser(const RenderingAPI &renderer) : _renderer(renderer) {}
 
 void MenuParser::onClick(Input input) {
     std::cout << input.x << std::endl;

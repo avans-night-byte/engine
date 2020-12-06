@@ -36,9 +36,8 @@ public:
 
     void drawRectangle(Vector2 &position, float width, float height, std::string &color, float opacity) const override;
 
-    Level *loadLevel(const std::string &tmxPath, const std::string &spritesheetPath, const std::string &spritesheetId,
-                     PhysicsEngineAdapter &physicsEngineAdapter) override;
+    TMXLevel *loadLevel(const TMXLevelData &levelData, PhysicsEngineAdapter &physicsEngineAdapter) override;
 
 private:
-    [[nodiscard]] const RenderingEngineAdapter &GetRendererAdapter() const override;
+    [[nodiscard]] RenderingEngineAdapter &GetRendererAdapter() const override;
 };

@@ -572,6 +572,7 @@ namespace Common
   class events;
   class collider;
   class position;
+  class positionF;
   class size;
   class color;
   class onEnter;
@@ -2015,6 +2016,196 @@ namespace Common
      */
     virtual 
     ~position ();
+
+    // Implementation.
+    //
+
+    //@cond
+
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< x_type > x_;
+    ::xsd::cxx::tree::one< y_type > y_;
+
+    //@endcond
+  };
+
+  /**
+   * @brief Class corresponding to the %positionF schema type.
+   *
+   * @nosubgrouping
+   */
+  class positionF: public ::xml_schema::type
+  {
+    public:
+    /**
+     * @name x
+     *
+     * @brief Accessor and modifier functions for the %x
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::float_ x_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< x_type, char > x_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const x_type&
+    x () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    x_type&
+    x ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    x (const x_type& x);
+
+    //@}
+
+    /**
+     * @name y
+     *
+     * @brief Accessor and modifier functions for the %y
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::float_ y_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< y_type, char > y_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const y_type&
+    y () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    y_type&
+    y ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    y (const y_type& x);
+
+    //@}
+
+    /**
+     * @name Constructors
+     */
+    //@{
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    positionF (const x_type&,
+               const y_type&);
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    positionF (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    positionF (const positionF& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual positionF*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    positionF&
+    operator= (const positionF& x);
+
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
+    virtual 
+    ~positionF ();
 
     // Implementation.
     //
@@ -5378,6 +5569,259 @@ namespace Common
   position_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
              ::xml_schema::flags f = 0,
              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  //@}
+
+  /**
+   * @name Parsing functions for the %positionF document root.
+   */
+  //@{
+
+  /**
+   * @brief Parse a URI or a local file.
+   *
+   * @param uri A URI or a local file name.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function uses exceptions to report parsing errors.
+   */
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (const ::std::string& uri,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  /**
+   * @brief Parse a URI or a local file with an error handler.
+   *
+   * @param uri A URI or a local file name.
+   * @param eh An error handler.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function reports parsing errors by calling the error handler.
+   */
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (const ::std::string& uri,
+              ::xml_schema::error_handler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  /**
+   * @brief Parse a URI or a local file with a Xerces-C++ DOM error
+   * handler.
+   *
+   * @param uri A URI or a local file name.
+   * @param eh A Xerces-C++ DOM error handler.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function reports parsing errors by calling the error handler.
+   */
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (const ::std::string& uri,
+              ::xercesc::DOMErrorHandler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  /**
+   * @brief Parse a standard input stream.
+   *
+   * @param is A standrad input stream.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function uses exceptions to report parsing errors.
+   */
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::std::istream& is,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  /**
+   * @brief Parse a standard input stream with an error handler.
+   *
+   * @param is A standrad input stream.
+   * @param eh An error handler.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function reports parsing errors by calling the error handler.
+   */
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::std::istream& is,
+              ::xml_schema::error_handler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  /**
+   * @brief Parse a standard input stream with a Xerces-C++ DOM error
+   * handler.
+   *
+   * @param is A standrad input stream.
+   * @param eh A Xerces-C++ DOM error handler.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function reports parsing errors by calling the error handler.
+   */
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::std::istream& is,
+              ::xercesc::DOMErrorHandler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  /**
+   * @brief Parse a standard input stream with a resource id.
+   *
+   * @param is A standrad input stream.
+   * @param id A resource id.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * The resource id is used to identify the document being parsed in
+   * diagnostics as well as to resolve relative paths.
+   *
+   * This function uses exceptions to report parsing errors.
+   */
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::std::istream& is,
+              const ::std::string& id,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  /**
+   * @brief Parse a standard input stream with a resource id and an
+   * error handler.
+   *
+   * @param is A standrad input stream.
+   * @param id A resource id.
+   * @param eh An error handler.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * The resource id is used to identify the document being parsed in
+   * diagnostics as well as to resolve relative paths.
+   *
+   * This function reports parsing errors by calling the error handler.
+   */
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::std::istream& is,
+              const ::std::string& id,
+              ::xml_schema::error_handler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  /**
+   * @brief Parse a standard input stream with a resource id and a
+   * Xerces-C++ DOM error handler.
+   *
+   * @param is A standrad input stream.
+   * @param id A resource id.
+   * @param eh A Xerces-C++ DOM error handler.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * The resource id is used to identify the document being parsed in
+   * diagnostics as well as to resolve relative paths.
+   *
+   * This function reports parsing errors by calling the error handler.
+   */
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::std::istream& is,
+              const ::std::string& id,
+              ::xercesc::DOMErrorHandler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  /**
+   * @brief Parse a Xerces-C++ input source.
+   *
+   * @param is A Xerces-C++ input source.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function uses exceptions to report parsing errors.
+   */
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::xercesc::InputSource& is,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  /**
+   * @brief Parse a Xerces-C++ input source with an error handler.
+   *
+   * @param is A Xerces-C++ input source.
+   * @param eh An error handler.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function reports parsing errors by calling the error handler.
+   */
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::xercesc::InputSource& is,
+              ::xml_schema::error_handler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  /**
+   * @brief Parse a Xerces-C++ input source with a Xerces-C++ DOM
+   * error handler.
+   *
+   * @param is A Xerces-C++ input source.
+   * @param eh A Xerces-C++ DOM error handler.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function reports parsing errors by calling the error handler.
+   */
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::xercesc::InputSource& is,
+              ::xercesc::DOMErrorHandler& eh,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  /**
+   * @brief Parse a Xerces-C++ DOM document.
+   *
+   * @param d A Xerces-C++ DOM document.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   */
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (const ::xercesc::DOMDocument& d,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
+
+  /**
+   * @brief Parse a Xerces-C++ DOM document.
+   *
+   * @param d A pointer to the Xerces-C++ DOM document.
+   * @param f Parsing flags.
+   * @param p Parsing properties. 
+   * @return A pointer to the root of the object model.
+   *
+   * This function is normally used together with the keep_dom and
+   * own_dom parsing flags to assign ownership of the DOM document
+   * to the object model.
+   */
+  ::std::unique_ptr< ::Common::positionF >
+  positionF_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+              ::xml_schema::flags f = 0,
+              const ::xml_schema::properties& p = ::xml_schema::properties ());
 
   //@}
 

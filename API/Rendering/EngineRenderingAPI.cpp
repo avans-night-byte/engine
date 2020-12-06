@@ -1,6 +1,6 @@
 #include "EngineRenderingAPI.hpp"
 
-#include "../../Engine/Rendering/Level.hpp"
+#include "../../Engine/Rendering/TMXLevel.hpp"
 #include <utility>
 
 TextureManager *EngineRenderingAPI::GetTextureManager()
@@ -60,7 +60,7 @@ bool EngineRenderingAPI::loadTexture(const char *path, std::string textureId) co
     return RenderingEngineAdapter::GetTextureManager()->load(path, textureId, _renderer);
 }
 
-const RenderingEngineAdapter &EngineRenderingAPI::GetRendererAdapter() const {
+RenderingEngineAdapter &EngineRenderingAPI::GetRendererAdapter() const {
     return *_adapter;
 }
 
@@ -69,8 +69,10 @@ void EngineRenderingAPI::drawRectangle(Vector2 &position, float width, float hei
 
 }
 
-Level *EngineRenderingAPI::loadLevel(const std::string &tmxPath, const std::string &spritesheetPath,
-                                     const std::string &spritesheetId,
-                                     PhysicsEngineAdapter &physicsEngineAdapter) {
-    return new Level(tmxPath.c_str(), spritesheetPath.c_str(), spritesheetId.c_str(), *this, physicsEngineAdapter);
+TMXLevel *EngineRenderingAPI::loadLevel(const TMXLevelData &levelData, PhysicsEngineAdapter &physicsEngineAdapter) {
+    return new TMXLevel(levelData.tmxPath.c_str(),
+                        levelData.spritesheetPath.c_str(),
+                        levelData.spriteId.c_str(),
+                        *this,
+                        physicsEngineAdapter);
 }
