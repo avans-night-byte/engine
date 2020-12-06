@@ -4,8 +4,14 @@
 #include "../Audio/Adapter/SDLAudioEngineAdapter.hpp"
 
 
+MenuParser *MenuParser::_instance = nullptr;
+
 MenuParser::MenuParser(const RenderingAPI &renderer) : _renderer(renderer) {
+    if (_instance != nullptr) {
+        throw std::runtime_error("[ERROR] [MenuParser] Manager has already been initiated!");
+    }
     _resourceManager = ResourceManager::GetInstance();
+    _instance = this;
 }
 
 void MenuParser::openScene(const std::string &path) {
@@ -138,6 +144,13 @@ void MenuParser::onClick(Input input) {
             }
         }
     }
+}
+
+MenuParser *MenuParser::getInstance() {
+    if (_instance == nullptr) {
+        throw std::runtime_error("No instance found!");
+    }
+    return _instance;
 }
 
 

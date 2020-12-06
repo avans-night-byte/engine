@@ -2,6 +2,7 @@
 #include "ResourceManager.hpp"
 #include "../Rendering/TextureManager.hpp"
 #include "../Audio/Adapter/SDLAudioEngineAdapter.hpp"
+#include "../XMLParser/MenuParser.hpp"
 #include <memory>
 #include <filesystem>
 
@@ -112,7 +113,7 @@ void ResourceManager::loadResource(const std::string &resource) {
         }
         case SCENES: {
             auto &scene = _scenes[resource];
-            // TODO: MenuParser::getInstance()->openScene(_basePath + scene->path())
+            MenuParser::getInstance()->openScene(_basePath + scene->path());
             break;
         }
         case LEVELS:

@@ -8,7 +8,20 @@
 #include <memory>
 
 class MenuParser {
+
+private:
+    static MenuParser *_instance;
+
+    std::map<std::string, std::unique_ptr<TextWrapper>> _textItems;
+    const RenderingAPI &_renderer;
+    std::unique_ptr<Menu::menu> _menu;
+
 public:
+
+    MenuParser(MenuParser &other) = delete;
+
+    void operator=(const MenuParser &) = delete;
+
     explicit MenuParser(const RenderingAPI &renderer);
 
     void openScene(const std::string &path);
@@ -17,11 +30,9 @@ public:
 
     void onClick(Input input);
 
-private:
+    static MenuParser *getInstance();
 
-    std::map<std::string, std::unique_ptr<TextWrapper>> _textItems;
-    const RenderingAPI &_renderer;
-    std::unique_ptr<Menu::menu> _menu;
+private:
 
     void renderButtons();
 
