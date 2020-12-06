@@ -14,10 +14,8 @@ MenuParser::MenuParser(const RenderingAPI &renderer) : _renderer(renderer) {
     _instance = this;
 }
 
-void MenuParser::openScene(const std::string &path) {
-
-
-    // TODO: Clear old items, do some checks?
+void MenuParser::initialize(const std::string &path) {
+    SDLAudioEngineAdapter* audioEngineAdapter = SDLAudioEngineAdapter::getInstance();
 
     _menu = Menu::menu_(path);
 
@@ -52,10 +50,11 @@ void MenuParser::openScene(const std::string &path) {
         index++;
     }
 
-    // TODO: Stop music if there is a new track play it, otherwise stop the old and play the new (if present)
-    if(_menu->backgroundMusic().present()) {
-        SDLAudioEngineAdapter::getInstance()->playFromMemory(_menu->backgroundMusic()->c_str());
+    if(_menu->backgroundMusic().present() && _previousSong != _menu->backgroundMusic()->c_str()) {
+        audioEngineAdapter->playFromMemory(_menu->backgroundMusic()->c_str());
+        _previousSong = _menu->backgroundMusic()->c_str();
     }
+
 
 }
 
@@ -138,7 +137,8 @@ void MenuParser::onClick(Input input) {
             if (v2.x <= input.x && v2.y <= input.y && (v2.x + button.size().width()) >= input.x &&
                 (v2.y + button.size().height()) >= input.y) {
 
-                _resourceManager->loadResource("menu2");
+                std::string nig = "Credits";
+                ResourceManager::GetInstance()->loadResource(nig);
 
                 std::cout << "button clicked" << std::endl;
             }

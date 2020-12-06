@@ -33,6 +33,15 @@
             <path>Sounds/background.wav</path>
         </music>
     </music>
-    <scenes/>
+    <scenes>
+        <scene>
+            <name>MainMenu</name>
+            <path>XML/Definition/MainMenu.xml</path>
+        </scene>
+        <scene>
+            <name>Credits</name>
+            <path>XML/Definition/Credits.xml</path>
+        </scene>
+    </scenes>
     <levels/>
 </gr:resources>

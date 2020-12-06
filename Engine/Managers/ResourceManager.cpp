@@ -83,9 +83,11 @@ void ResourceManager::loadRequiredResources(const std::vector<std::string> &reso
 }
 
 void ResourceManager::loadResource(const std::string &resource) {
-    if (!_resources.count(resource))
+    if (!_resources.count(resource)) {
         throw std::invalid_argument("[ERROR] [ResourceManager] Fatal error! Required resource with name '" + resource +
                                     "' not found. Register it in resources first.");
+    }
+
 
     // If it's already loaded in, we can skip it.
     if (std::find(_loadedResources.begin(), _loadedResources.end(), resource) != _loadedResources.end()) {
@@ -113,7 +115,7 @@ void ResourceManager::loadResource(const std::string &resource) {
         }
         case SCENES: {
             auto &scene = _scenes[resource];
-            MenuParser::getInstance()->openScene(_basePath + scene->path());
+            MenuParser::getInstance()->initialize(_basePath + scene->path());
             break;
         }
         case LEVELS:

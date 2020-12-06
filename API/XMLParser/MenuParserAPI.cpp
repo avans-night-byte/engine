@@ -7,7 +7,7 @@ MenuParserAPI::MenuParserAPI(RenderingAPI &renderer, Event<Input>& event){
 }
 
 void MenuParserAPI::loadScene(std::string path) {
-    return menuParser->openScene(path);
+    return menuParser->initialize(path);
 }
 
 void MenuParserAPI::render() {

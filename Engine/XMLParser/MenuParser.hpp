@@ -15,6 +15,7 @@ private:
     std::map<std::string, std::unique_ptr<TextWrapper>> _textItems;
     const RenderingAPI &_renderer;
     std::unique_ptr<Menu::menu> _menu;
+    std::string _previousSong;
 
 public:
 
@@ -24,7 +25,7 @@ public:
 
     explicit MenuParser(const RenderingAPI &renderer);
 
-    void openScene(const std::string &path);
+    void initialize(const std::string &path);
 
     void render();
 

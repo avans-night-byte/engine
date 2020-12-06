@@ -1,0 +1,45 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<menu:menu
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="Menu  ../Schemas/menu.xsd"
+        xmlns:menu="Menu"
+        xmlns:common="Common">
+
+    <name>Credits</name>
+    <common:color>
+        <hex>#7d00ab</hex>
+        <alpha>255</alpha>
+    </common:color>
+    <backgroundMusic>mainmenu_music</backgroundMusic>
+    <buttons>
+        
+    </buttons>
+    <texts>
+        <text>
+            <common:position>
+                <x>50</x>
+                <y>50</y>
+            </common:position>
+            <common:color>
+                <hex>a83258</hex>
+                <alpha>255</alpha>
+            </common:color>
+            <content>Real shizzle</content>
+        </text>
+        <text>
+            <common:position>
+                <x>350</x>
+                <y>50</y>
+            </common:position>
+            <common:color>
+                <hex>c9c947</hex>
+                <alpha>100</alpha>
+            </common:color>
+            <content>HEEEYJJJ</content>
+        </text>
+    </texts>
+    <images/>
+    <common:preloadResources>
+        <resource>mainmenu_music</resource>
+    </common:preloadResources>
+</menu:menu>
