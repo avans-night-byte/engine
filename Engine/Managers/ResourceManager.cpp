@@ -1,20 +1,21 @@
 #include <iostream>
 #include "ResourceManager.hpp"
 #include "../Rendering/TextureManager.hpp"
+#include "../Audio/Adapter/SDLAudioEngineAdapter.hpp"
 #include <memory>
 #include <filesystem>
 
-ResourceManager* ResourceManager::_instance = nullptr;
+ResourceManager *ResourceManager::_instance = nullptr;
 
-ResourceManager* ResourceManager::GetInstance() {
-    if(_instance == nullptr){
+ResourceManager *ResourceManager::GetInstance() {
+    if (_instance == nullptr) {
         throw std::runtime_error("No instance found!");
     }
     return _instance;
 }
 
 ResourceManager::ResourceManager(const std::string &resourcePath, bool debug) {
-    if(_instance != nullptr) {
+    if (_instance != nullptr) {
         throw std::runtime_error("[ERROR] [ResourceManager] Manager has already been initiated!");
     }
 
@@ -94,7 +95,6 @@ void ResourceManager::loadResource(const std::string &resource) {
 
     switch (type) {
         case TEXTURES: {
-            // TODO: TextureManager create the texture in memory
             auto &texture = _textures[resource];
             TextureManager::GetInstance()->load((_basePath + texture->path()).c_str(), texture->name());
             break;
@@ -105,12 +105,16 @@ void ResourceManager::loadResource(const std::string &resource) {
         case SOUNDS:
             // TODO: Create a new sound
             break;
-        case MUSIC:
-            // TODO: Create a new sound (but music)
+        case MUSIC: {
+            auto &music_ = _music[resource];
+            SDLAudioEngineAdapter::getInstance()->loadInMemory(_basePath + music_->path(), music_->name(), music);
             break;
-        case SCENES:
-            // TODO: Load the scene
+        }
+        case SCENES: {
+            auto &scene = _scenes[resource];
+            // TODO: MenuParser::getInstance()->openScene(_basePath + scene->path())
             break;
+        }
         case LEVELS:
             // TODO: Load the level
             break;

@@ -1,6 +1,7 @@
 #include <string>
 #include <regex>
 #include "MenuParser.hpp"
+#include "../Audio/Adapter/SDLAudioEngineAdapter.hpp"
 
 
 MenuParser::MenuParser(const RenderingAPI &renderer) : _renderer(renderer) {
@@ -39,6 +40,10 @@ void MenuParser::openScene(const std::string &path) {
 
         _textItems[createdString] = std::unique_ptr<TextWrapper>(wrapper);
         index++;
+    }
+
+    if(_menu->backgroundMusic().present()) {
+        SDLAudioEngineAdapter::getInstance()->playFromMemory(_menu->backgroundMusic()->c_str());
     }
 
 }
@@ -121,6 +126,8 @@ void MenuParser::onClick(Input input) {
         if (button.events().onClick().present()) {
             if (v2.x <= input.x && v2.y <= input.y && (v2.x + button.size().width()) >= input.x &&
                 (v2.y + button.size().height()) >= input.y) {
+
+                _resourceManager->loadResource("menu2");
 
                 std::cout << "button clicked" << std::endl;
             }

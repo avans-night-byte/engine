@@ -129,6 +129,36 @@ namespace Menu
     this->color_.set (std::move (x));
   }
 
+  const menu::backgroundMusic_optional& menu::
+  backgroundMusic () const
+  {
+    return this->backgroundMusic_;
+  }
+
+  menu::backgroundMusic_optional& menu::
+  backgroundMusic ()
+  {
+    return this->backgroundMusic_;
+  }
+
+  void menu::
+  backgroundMusic (const backgroundMusic_type& x)
+  {
+    this->backgroundMusic_.set (x);
+  }
+
+  void menu::
+  backgroundMusic (const backgroundMusic_optional& x)
+  {
+    this->backgroundMusic_ = x;
+  }
+
+  void menu::
+  backgroundMusic (::std::unique_ptr< backgroundMusic_type > x)
+  {
+    this->backgroundMusic_.set (std::move (x));
+  }
+
   const menu::buttons_optional& menu::
   buttons () const
   {
@@ -690,6 +720,7 @@ namespace Menu
     name_ (name, this),
     resources_ (this),
     color_ (this),
+    backgroundMusic_ (this),
     buttons_ (this),
     texts_ (texts, this),
     images_ (images, this),
@@ -706,6 +737,7 @@ namespace Menu
     name_ (name, this),
     resources_ (this),
     color_ (this),
+    backgroundMusic_ (this),
     buttons_ (this),
     texts_ (std::move (texts), this),
     images_ (std::move (images), this),
@@ -721,6 +753,7 @@ namespace Menu
     name_ (x.name_, f, this),
     resources_ (x.resources_, f, this),
     color_ (x.color_, f, this),
+    backgroundMusic_ (x.backgroundMusic_, f, this),
     buttons_ (x.buttons_, f, this),
     texts_ (x.texts_, f, this),
     images_ (x.images_, f, this),
@@ -736,6 +769,7 @@ namespace Menu
     name_ (this),
     resources_ (this),
     color_ (this),
+    backgroundMusic_ (this),
     buttons_ (this),
     texts_ (this),
     images_ (this),
@@ -796,6 +830,20 @@ namespace Menu
         if (!this->color_)
         {
           this->color_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // backgroundMusic
+      //
+      if (n.name () == "backgroundMusic" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< backgroundMusic_type > r (
+          backgroundMusic_traits::create (i, f, this));
+
+        if (!this->backgroundMusic_)
+        {
+          this->backgroundMusic_.set (::std::move (r));
           continue;
         }
       }
@@ -904,6 +952,7 @@ namespace Menu
       this->name_ = x.name_;
       this->resources_ = x.resources_;
       this->color_ = x.color_;
+      this->backgroundMusic_ = x.backgroundMusic_;
       this->buttons_ = x.buttons_;
       this->texts_ = x.texts_;
       this->images_ = x.images_;

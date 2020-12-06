@@ -29,54 +29,10 @@
     </sounds>
     <music>
         <music>
-            <name>background_mainmenu</name>
+            <name>mainmenu_music</name>
             <path>Sounds/background.wav</path>
         </music>
     </music>
     <scenes/>
     <levels/>
 </gr:resources>
-
-
-        <!--
-            <textures>
-                <texture>
-                    <name>photo_martijn</name>
-                    <path>../../Resources/....</path>
-                </texture>
-            </textures>
-            <sprites>
-                <sprite>
-                    <name>character</name>
-                    <path>../images//...</path>
-                    <jsonPath>../../Resources/sprite.json</jsonPath>
-                </sprite>
-                <sprite>
-                    <name>bruh</name>
-                    <path>../../images/</path>
-                    <size>
-                        <width>16</width>
-                        <height>16</height>
-                    </size>
-                </sprite>
-            </sprites>
-            <sounds>
-
-            </sounds>
-            <music>
-
-            </music>
-            <scenes>
-
-            </scenes>
-            <levels>
-                <level>
-                    <name>level_1</name>
-                    <path>/Resources/example.tmx</path>
-                </level>
-                <level>
-                    <name>gunshop</name>
-                    <path>/Resources/gunshop.tmx</path>
-                </level>
-            </levels>
-        -->

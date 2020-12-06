@@ -13,12 +13,15 @@ class AudioAPI {
 
 public:
     ~AudioAPI();
+
     AudioAPI();
 
     AudioAPI(const AudioAPI &other) = default;
+
     AudioAPI(AudioAPI &&other) noexcept = default;
 
     AudioAPI &operator=(const AudioAPI &other) = default;
+
     AudioAPI &operator=(AudioAPI &&other) noexcept = default;
 
     std::vector<std::string> getAudioNames();
@@ -27,7 +30,7 @@ public:
 
     void playFromPath(const std::string &path, AudioType &type);
 
-    void loadInMemory(const std::string &path, AudioType &type);
+    void loadInMemory(const std::string &path, const std::string &name, AudioType type);
 
     static void stopAudio();
 

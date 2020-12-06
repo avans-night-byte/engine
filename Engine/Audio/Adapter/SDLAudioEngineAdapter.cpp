@@ -10,9 +10,12 @@
  * Only loading and playing of a new file requires an instance of the object
  **/
 
+
+
 /**
  * Constructor initializes the Mix_OpenAudio en Mix_init once so it can be used later.
  **/
+
 SDLAudioEngineAdapter::SDLAudioEngineAdapter() {
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
         printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
@@ -29,7 +32,7 @@ SDLAudioEngineAdapter::~SDLAudioEngineAdapter() {
     _sounds.clear();
 }
 
-SDLAudioEngineAdapter &SDLAudioEngineAdapter::operator=(const SDLAudioEngineAdapter& other) {
+SDLAudioEngineAdapter &SDLAudioEngineAdapter::operator=(const SDLAudioEngineAdapter &other) {
     return *this = SDLAudioEngineAdapter(other);
 }
 
@@ -57,7 +60,7 @@ std::vector<std::string> SDLAudioEngineAdapter::getAudioNames() {
 void SDLAudioEngineAdapter::playFromMemory(const std::string &name) {
 
     if (_musicTracks.count(name) > 0) {
-        Mix_Music* music = _musicTracks.at(name);
+        Mix_Music *music = _musicTracks.at(name);
         Mix_PlayMusic(music, 1);
         return;
     }
@@ -76,12 +79,11 @@ void SDLAudioEngineAdapter::playFromMemory(const std::string &name) {
  * @tparam AudioType&
  * @param type
  **/
-void SDLAudioEngineAdapter::loadInMemory(const std::string &path, AudioType &type) {
+void SDLAudioEngineAdapter::loadInMemory(const std::string &path, const std::string &name, AudioType type) {
 
     auto index = path.find_last_of('/');
     if (index == std::string::npos) index = 0;
 
-    std::string name = path.substr(index, path.length());
 
     switch (type) {
         case music:
@@ -208,7 +210,7 @@ void SDLAudioEngineAdapter::stopSounds() {
  * Pauses/resumes the music channel
  **/
 void SDLAudioEngineAdapter::toggleMusic() {
-    if(Mix_PausedMusic())
+    if (Mix_PausedMusic())
         Mix_ResumeMusic();
     else
         Mix_PauseMusic();
@@ -220,7 +222,7 @@ void SDLAudioEngineAdapter::toggleMusic() {
  * @param channel
 * */
 void SDLAudioEngineAdapter::toggleSound(int channel) {
-    if(Mix_Paused(channel))
+    if (Mix_Paused(channel))
         Mix_Pause(channel);
     else
         Mix_Resume(channel);
@@ -230,8 +232,18 @@ void SDLAudioEngineAdapter::toggleSound(int channel) {
  * Pauses/resumes all the sound channels
  **/
 void SDLAudioEngineAdapter::toggleSounds() {
-    if(Mix_Paused(-1))
+    if (Mix_Paused(-1))
         Mix_Pause(-1);
     else
         Mix_Resume(-1);
+}
+
+SDLAudioEngineAdapter *SDLAudioEngineAdapter::_instance = nullptr;
+
+
+SDLAudioEngineAdapter *SDLAudioEngineAdapter::getInstance() {
+    if (_instance == nullptr) {
+        _instance = new SDLAudioEngineAdapter();
+    }
+    return _instance;
 }
