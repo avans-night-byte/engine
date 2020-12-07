@@ -449,22 +449,28 @@ namespace LevelResources
     this->bodyShape_.set (std::move (x));
   }
 
-  const physicsComponent::contactHandler_type& physicsComponent::
+  const physicsComponent::contactHandler_optional& physicsComponent::
   contactHandler () const
   {
-    return this->contactHandler_.get ();
+    return this->contactHandler_;
   }
 
-  physicsComponent::contactHandler_type& physicsComponent::
+  physicsComponent::contactHandler_optional& physicsComponent::
   contactHandler ()
   {
-    return this->contactHandler_.get ();
+    return this->contactHandler_;
   }
 
   void physicsComponent::
   contactHandler (const contactHandler_type& x)
   {
     this->contactHandler_.set (x);
+  }
+
+  void physicsComponent::
+  contactHandler (const contactHandler_optional& x)
+  {
+    this->contactHandler_ = x;
   }
 
   void physicsComponent::
@@ -1479,26 +1485,24 @@ namespace LevelResources
   physicsComponent::
   physicsComponent (const friction_type& friction,
                     const bodyType_type& bodyType,
-                    const bodyShape_type& bodyShape,
-                    const contactHandler_type& contactHandler)
+                    const bodyShape_type& bodyShape)
   : ::xml_schema::type (),
     friction_ (friction, this),
     bodyType_ (bodyType, this),
     bodyShape_ (bodyShape, this),
-    contactHandler_ (contactHandler, this)
+    contactHandler_ (this)
   {
   }
 
   physicsComponent::
   physicsComponent (const friction_type& friction,
                     const bodyType_type& bodyType,
-                    ::std::unique_ptr< bodyShape_type > bodyShape,
-                    const contactHandler_type& contactHandler)
+                    ::std::unique_ptr< bodyShape_type > bodyShape)
   : ::xml_schema::type (),
     friction_ (friction, this),
     bodyType_ (bodyType, this),
     bodyShape_ (std::move (bodyShape), this),
-    contactHandler_ (contactHandler, this)
+    contactHandler_ (this)
   {
   }
 
@@ -1590,7 +1594,7 @@ namespace LevelResources
         ::std::unique_ptr< contactHandler_type > r (
           contactHandler_traits::create (i, f, this));
 
-        if (!contactHandler_.present ())
+        if (!this->contactHandler_)
         {
           this->contactHandler_.set (::std::move (r));
           continue;
@@ -1618,13 +1622,6 @@ namespace LevelResources
     {
       throw ::xsd::cxx::tree::expected_element< char > (
         "bodyShape",
-        "");
-    }
-
-    if (!contactHandler_.present ())
-    {
-      throw ::xsd::cxx::tree::expected_element< char > (
-        "contactHandler",
         "");
     }
   }

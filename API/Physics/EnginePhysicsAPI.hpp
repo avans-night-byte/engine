@@ -66,11 +66,15 @@ public:
         physicsEngineAdapter->setFixedRotation(i, b);
     }
 
+    void setContactHandler(BodyId i, ContactHandler *pHandler) override {
+        physicsEngineAdapter->setContactHandler(i, pHandler);
+    }
+
     void destroyBody(BodyId i) const override {
         physicsEngineAdapter->destroyBody(i);
     }
 
-    inline unique_ptr<PhysicsEngineAdapter>& getPhysicsEngineAdapter()
+    inline unique_ptr<PhysicsEngineAdapter>& getPhysicsEngineAdapter() override
     {
         return physicsEngineAdapter;
     }

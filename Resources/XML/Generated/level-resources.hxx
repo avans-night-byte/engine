@@ -2374,7 +2374,7 @@ namespace LevelResources
      * @name contactHandler
      *
      * @brief Accessor and modifier functions for the %contactHandler
-     * required element.
+     * optional element.
      */
     //@{
 
@@ -2384,24 +2384,30 @@ namespace LevelResources
     typedef ::LevelResources::componentName contactHandler_type;
 
     /**
+     * @brief Element optional container type.
+     */
+    typedef ::xsd::cxx::tree::optional< contactHandler_type > contactHandler_optional;
+
+    /**
      * @brief Element traits type.
      */
     typedef ::xsd::cxx::tree::traits< contactHandler_type, char > contactHandler_traits;
 
     /**
-     * @brief Return a read-only (constant) reference to the element.
+     * @brief Return a read-only (constant) reference to the element
+     * container.
      *
-     * @return A constant reference to the element.
+     * @return A constant reference to the optional container.
      */
-    const contactHandler_type&
+    const contactHandler_optional&
     contactHandler () const;
 
     /**
-     * @brief Return a read-write reference to the element.
+     * @brief Return a read-write reference to the element container.
      *
-     * @return A reference to the element.
+     * @return A reference to the optional container.
      */
-    contactHandler_type&
+    contactHandler_optional&
     contactHandler ();
 
     /**
@@ -2416,12 +2422,24 @@ namespace LevelResources
     contactHandler (const contactHandler_type& x);
 
     /**
+     * @brief Set the element value.
+     *
+     * @param x An optional container with the new value to set.
+     *
+     * If the value is present in @a x then this function makes a copy 
+     * of this value and sets it as the new value of the element.
+     * Otherwise the element container is set the 'not present' state.
+     */
+    void
+    contactHandler (const contactHandler_optional& x);
+
+    /**
      * @brief Set the element value without copying.
      *
      * @param p A new value to use.
      *
-     * This function will try to use the passed value directly
-     * instead of making a copy.
+     * This function will try to use the passed value directly instead
+     * of making a copy.
      */
     void
     contactHandler (::std::unique_ptr< contactHandler_type > p);
@@ -2439,8 +2457,7 @@ namespace LevelResources
      */
     physicsComponent (const friction_type&,
                       const bodyType_type&,
-                      const bodyShape_type&,
-                      const contactHandler_type&);
+                      const bodyShape_type&);
 
     /**
      * @brief Create an instance from the ultimate base and
@@ -2452,8 +2469,7 @@ namespace LevelResources
      */
     physicsComponent (const friction_type&,
                       const bodyType_type&,
-                      ::std::unique_ptr< bodyShape_type >,
-                      const contactHandler_type&);
+                      ::std::unique_ptr< bodyShape_type >);
 
     /**
      * @brief Create an instance from a DOM element.
@@ -2528,7 +2544,7 @@ namespace LevelResources
     ::xsd::cxx::tree::one< friction_type > friction_;
     ::xsd::cxx::tree::one< bodyType_type > bodyType_;
     ::xsd::cxx::tree::one< bodyShape_type > bodyShape_;
-    ::xsd::cxx::tree::one< contactHandler_type > contactHandler_;
+    contactHandler_optional contactHandler_;
 
     //@endcond
   };

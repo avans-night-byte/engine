@@ -51,7 +51,7 @@
                             <xs:element name="friction" type="lr:floatCap"/>
                             <xs:element name="bodyType" type="lr:bodyType"/>
                             <xs:element name="bodyShape" type="lr:bodyShape"/>
-                            <xs:element name="contactHandler" type="lr:componentName"/>
+                            <xs:element name="contactHandler" type="lr:componentName" minOccurs="0"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
