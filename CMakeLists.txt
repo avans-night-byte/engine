@@ -103,7 +103,7 @@ add_executable(NightByte ./Main.cpp
         ./Resources/XML/Generated/resources.cxx
         ./Resources/XML/Generated/resources.hxx
         ./Resources/XML/Generated/level-resources.hxx
-        ./Resources/XML/Generated/level-resources.cxx API/XMLParser/LevelParserAPI.cpp Game/Components/EntityObject.cpp Game/Components/EntityObject.hpp)
+        ./Resources/XML/Generated/level-resources.cxx API/XMLParser/LevelParserAPI.cpp Game/Components/EntityObject.cpp Game/Components/EntityObject.hpp Game/Scenes/LevelBase.cpp Game/ContactHandlers/OnTouchExplosionHandler.hpp)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)

@@ -71,7 +71,7 @@ void TMXLevel::render(RenderingAPI& renderingAPI) {
     }
 }
 
-void TMXLevel::initObjects(std::vector<LoadedObjectData>& outLoadedObjects) {
+void TMXLevel::initObjects(std::map<std::string, LoadedObjectData>& outLoadedObjects) {
     const auto &layers = _tmap.getLayers();
 
     for (const auto &layer : layers) {
@@ -88,7 +88,7 @@ void TMXLevel::initObjects(std::vector<LoadedObjectData>& outLoadedObjects) {
                 loadedObject.objectName = object.getName();
                 loadedObject.position = Vector2(position.x * scale, position.y * scale);
 
-                outLoadedObjects.push_back(loadedObject);
+                outLoadedObjects[loadedObject.objectName] = loadedObject;
             }
         }
     }
@@ -190,9 +190,5 @@ void TMXLevel::cleanup() {
 }
 
 TMXLevel::~TMXLevel() {
-    for (unsigned int bodyId: bodies)
-    {
-        physicsEngineAdapter.destroyBody(bodyId);
-    }
 }
 

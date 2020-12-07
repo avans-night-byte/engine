@@ -9,18 +9,43 @@
     <objects>
 
         <object>
-            <name>Sascha</name>
+            <name>Sascha Varken</name>
             <components>
-                <worldPositionComponent>
-                    <common:positionF>
-                        <x>1</x>
-                        <y>2</y>
-                    </common:positionF>
-                </worldPositionComponent>
+                <component>
+                    <componentName>WorldPositionComponent</componentName>
+                    <worldPositionComponent>
+                        <common:positionF>
+                            <x>20</x>
+                            <y>30</y>
+                        </common:positionF>
+                    </worldPositionComponent>
+                </component>
 
-                <physicsComponent>
-                    <friction>1</friction>
-                </physicsComponent>
+                <component>
+                    <componentName>PhysicsComponent</componentName>
+                    <physicsComponent>
+                        <friction>0.5</friction>
+                        <bodyType>Dynamic</bodyType>
+                        <bodyShape>
+                            <box>
+                                <width>10</width>
+                                <height>20</height>
+                                <common:positionF>
+                                    <x>40</x>
+                                    <y>50</y>
+                                </common:positionF>
+                            </box>
+                        </bodyShape>
+                        <contactHandler>CharacterComponent</contactHandler>
+                    </physicsComponent>
+                </component>
+
+                <component>
+                    <componentName>SaschaVarkenComponent</componentName>
+                    <saschaVarkenComponent>
+                        <honger>1</honger>
+                    </saschaVarkenComponent>
+                </component>
             </components>
 
         </object>

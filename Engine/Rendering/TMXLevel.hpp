@@ -40,8 +40,7 @@ public:
 
     void cleanup();
 
-
-    void initObjects(std::vector<LoadedObjectData> &outLoadedObjects);
+    void initObjects(std::map<std::string, LoadedObjectData> &outLoadedObjects);
 
     void initStaticCollision();
 };
