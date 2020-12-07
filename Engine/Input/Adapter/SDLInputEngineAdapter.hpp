@@ -16,6 +16,8 @@ public:
     Input getMouseInput(SDL_Event input) const override;
     Input getControllerInput(SDL_Event input) const override;
     Input getControllerMotionInput(SDL_Event input) const override;
+    void getMousePosition(int &x, int &y) const override;
+
     ~SDLInputEngineAdapter(){};
 
 private:

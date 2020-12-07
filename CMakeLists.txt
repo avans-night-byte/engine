@@ -36,8 +36,8 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/Component.hpp
         ./Game/Components/RenderComponent.cpp
         ./Game/Components/RenderComponent.hpp
-        ./Game/Components/WorldPositionComponent.cpp
-        ./Game/Components/WorldPositionComponent.hpp
+        Game/Components/TransformComponent.cpp
+        Game/Components/TransformComponent.hpp
         ./Game/Scenes/Menu/MainMenu.hpp
         ./Game/Scenes/Example/ExampleScene.cpp
         ./Game/Scenes/Example/ExampleScene.hpp
@@ -85,7 +85,7 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Resources/XML/Generated/wall.cxx
         ./Engine/Resources/XML/Generated/common.cxx
         ./Engine/Resources/XML/Generated/common.hxx
-        Game/Scenes/Level10/LevelCharlie.cpp Game/Scenes/Level10/LevelCharlie.hpp)
+        Game/Scenes/Level10/LevelCharlie.cpp Game/Scenes/Level10/LevelCharlie.hpp Game/Components/HealthComponent.cpp Game/Components/HealthComponent.hpp)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)

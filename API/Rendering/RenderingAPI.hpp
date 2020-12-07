@@ -8,6 +8,10 @@ class RenderingAPI {
 
     virtual bool loadTexture(const char *path, std::string textureId) = 0;
 
+    virtual void drawLine(Vector2 a, Vector2 b) const = 0;
+
+
+
 public:
     [[nodiscard]] virtual const RenderingEngineAdapter& GetRendererAdapter() const = 0;
 };

@@ -216,3 +216,9 @@ void SDLInputEngineAdapter::closeController() const
     SDL_GameControllerClose(gameController);
     gameController == NULL;
 }
+
+void SDLInputEngineAdapter::getMousePosition(int &x, int &y) const {
+    SDL_GetMouseState(&x,&y);
+}
+
+

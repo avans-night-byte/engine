@@ -61,3 +61,8 @@ bool EngineRenderingAPI::loadTexture(const char *path, std::string textureId)
 const RenderingEngineAdapter &EngineRenderingAPI::GetRendererAdapter() const {
     return *_adapter;
 }
+
+void EngineRenderingAPI::drawLine(Vector2 a, Vector2 b) const {
+    SDL_RenderDrawLine(_renderer, a.x, a.y, b.x, b.y);
+
+}

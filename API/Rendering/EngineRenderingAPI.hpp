@@ -26,6 +26,7 @@ public:
 
     Spritesheet *createSpriteSheet(char const *path, char const *jsonPath, std::string spriteSheetId);
 
+    void drawLine(Vector2 a, Vector2 b) const override;
     void createText(std::string fontName, const char* text, const int fontSize, SDL_Color color, std::string textureId);
 
     static TextureManager *GetTextureManager();

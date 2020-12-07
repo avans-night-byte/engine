@@ -67,6 +67,11 @@ public:
         physicsEngineAdapter->setFixedRotation(i, b);
     }
 
+
+    void setAngle(const BodyId i, float angle) const override {
+        physicsEngineAdapter->setAngle(i, angle);
+    }
+
     void destroyBody(BodyId i) const override {
         physicsEngineAdapter->destroyBody(i);
     }

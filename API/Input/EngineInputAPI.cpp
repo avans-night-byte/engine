@@ -10,3 +10,7 @@ Input EngineInputAPI::getInput() const {
 EngineInputAPI::~EngineInputAPI() {
     delete _adapter;
 }
+
+void EngineInputAPI::getMousePosition(int &x, int &y) const {
+    return _adapter->getMousePosition(x,y);
+}

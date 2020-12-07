@@ -11,6 +11,7 @@ class EngineInputAPI : public InputAPI {
     InputEngineAdapter* _adapter;
    public:
     EngineInputAPI();
+    void getMousePosition(int &x, int &y) const override;
     Input getInput() const override;
     ~EngineInputAPI();
 };

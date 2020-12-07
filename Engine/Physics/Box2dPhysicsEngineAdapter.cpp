@@ -2,7 +2,7 @@
 
 // TODO: Remove this shit
 #include "../../Game/Components/NextLevelComponent.hpp"
-
+#include <cmath>
 unsigned int
 Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
                                       Vector2 position,
@@ -106,7 +106,8 @@ void Box2DPhysicsEngineAdapter::referencePositionToBody(BodyId bodyId, float &x,
 
 inline RPosition Box2DPhysicsEngineAdapter::getRPosition(BodyId bodyId) {
     b2Body *body = bodies[bodyId];
-    return RPosition(body->GetPosition().x, body->GetPosition().y);
+
+    return RPosition(body->GetPosition().x, body->GetPosition().y, (body->GetAngle() * 180.f / M_PI));
 }
 
 void Box2DPhysicsEngineAdapter::DebugDraw(const RenderingEngineAdapter& renderingAdapter, SDL_Renderer &renderer) {
@@ -147,4 +148,9 @@ void Box2DPhysicsEngineAdapter::getVelocity(Vector2 &velocity, BodyId bodyId) co
 void Box2DPhysicsEngineAdapter::setFixedRotation(const BodyId bodyId, bool b) {
     b2Body *body = bodies[bodyId];
     body->SetFixedRotation(b);
+}
+
+void Box2DPhysicsEngineAdapter::setAngle(BodyId bodyId, float angle) {
+    b2Body *body = bodies[bodyId];
+    body->SetTransform(body->GetPosition(), angle);
 }

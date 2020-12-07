@@ -78,4 +78,5 @@ public:
     virtual void setLinearVelocity(const BodyId bodyId, const Vector2 &vector2) = 0;
 
     virtual void setFixedRotation(const BodyId bodyId, bool b) = 0;
+    virtual void setAngle(const BodyId bodyId, float angle) = 0;
 };
