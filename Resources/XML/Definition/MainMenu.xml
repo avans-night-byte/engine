@@ -27,8 +27,8 @@
             </common:color>
             <common:events>
                 <onClick>
-                    <playSound>click</playSound>
-                    <loadScene>level-1</loadScene>
+                    <playSound>oof</playSound>
+                    <loadScene>Credits</loadScene>
                 </onClick>
             </common:events>
         </button>
@@ -48,8 +48,7 @@
             </common:color>
             <common:events>
                 <onClick>
-                    <playSound>click</playSound>
-                    <loadScene>level-1</loadScene>
+                    <custom>close</custom>
                 </onClick>
             </common:events>
         </button>
@@ -64,23 +63,24 @@
                 <hex>a83258</hex>
                 <alpha>255</alpha>
             </common:color>
-            <content>Real shizzle</content>
+            <content>I'm going to end my life</content>
         </text>
         <text>
             <common:position>
                 <x>350</x>
-                <y>50</y>
+                <y>100</y>
             </common:position>
             <common:color>
                 <hex>c9c947</hex>
                 <alpha>100</alpha>
             </common:color>
-            <content>HEEEYJJJ</content>
+            <content>😀😀😀😀😀</content>
         </text>
     </texts>
     <images/>
     <common:preloadResources>
         <resource>mainmenu_background</resource>
         <resource>mainmenu_music</resource>
+        <resource>oof</resource>
     </common:preloadResources>
 </menu:menu>

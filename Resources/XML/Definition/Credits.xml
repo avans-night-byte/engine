@@ -12,7 +12,27 @@
     </common:color>
     <backgroundMusic>mainmenu_music</backgroundMusic>
     <buttons>
-        
+        <button>
+            <common:position>
+                <x>100</x>
+                <y>100</y>
+            </common:position>
+            <common:size>
+                <width>500</width>
+                <height>150</height>
+            </common:size>
+            <content>Back</content>
+            <common:color>
+                <hex>db80f2</hex>
+                <alpha>40</alpha>
+            </common:color>
+            <common:events>
+                <onClick>
+                    <playSound>oof</playSound>
+                    <loadScene>MainMenu</loadScene>
+                </onClick>
+            </common:events>
+        </button>
     </buttons>
     <texts>
         <text>

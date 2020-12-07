@@ -113,9 +113,11 @@ void ResourceManager::loadResource(const std::string &resource) {
         case SPRITES:
             // TODO: Create a new spritesheet
             break;
-        case SOUNDS:
-            // TODO: Create a new sound
+        case SOUNDS: {
+            auto &sound_ = _sounds[resource];
+            SDLAudioEngineAdapter::getInstance()->loadInMemory(_basePath + sound_->path(), sound_->name(), sound);
             break;
+        }
         case MUSIC: {
             auto &music_ = _music[resource];
             SDLAudioEngineAdapter::getInstance()->loadInMemory(_basePath + music_->path(), music_->name(), music);

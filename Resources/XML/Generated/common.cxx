@@ -885,6 +885,36 @@ namespace Common
     this->loadScene_.set (std::move (x));
   }
 
+  const onClick::custom_optional& onClick::
+  custom () const
+  {
+    return this->custom_;
+  }
+
+  onClick::custom_optional& onClick::
+  custom ()
+  {
+    return this->custom_;
+  }
+
+  void onClick::
+  custom (const custom_type& x)
+  {
+    this->custom_.set (x);
+  }
+
+  void onClick::
+  custom (const custom_optional& x)
+  {
+    this->custom_ = x;
+  }
+
+  void onClick::
+  custom (::std::unique_ptr< custom_type > x)
+  {
+    this->custom_.set (std::move (x));
+  }
+
 
   // size1
   // 
@@ -2472,7 +2502,8 @@ namespace Common
   onClick ()
   : ::xml_schema::type (),
     playSound_ (this),
-    loadScene_ (this)
+    loadScene_ (this),
+    custom_ (this)
   {
   }
 
@@ -2482,7 +2513,8 @@ namespace Common
            ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
     playSound_ (x.playSound_, f, this),
-    loadScene_ (x.loadScene_, f, this)
+    loadScene_ (x.loadScene_, f, this),
+    custom_ (x.custom_, f, this)
   {
   }
 
@@ -2492,7 +2524,8 @@ namespace Common
            ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     playSound_ (this),
-    loadScene_ (this)
+    loadScene_ (this),
+    custom_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -2539,6 +2572,20 @@ namespace Common
         }
       }
 
+      // custom
+      //
+      if (n.name () == "custom" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< custom_type > r (
+          custom_traits::create (i, f, this));
+
+        if (!this->custom_)
+        {
+          this->custom_.set (::std::move (r));
+          continue;
+        }
+      }
+
       break;
     }
   }
@@ -2558,6 +2605,7 @@ namespace Common
       static_cast< ::xml_schema::type& > (*this) = x;
       this->playSound_ = x.playSound_;
       this->loadScene_ = x.loadScene_;
+      this->custom_ = x.custom_;
     }
 
     return *this;

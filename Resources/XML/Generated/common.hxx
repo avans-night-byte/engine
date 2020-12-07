@@ -4022,6 +4022,82 @@ namespace Common
     //@}
 
     /**
+     * @name custom
+     *
+     * @brief Accessor and modifier functions for the %custom
+     * optional element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::string custom_type;
+
+    /**
+     * @brief Element optional container type.
+     */
+    typedef ::xsd::cxx::tree::optional< custom_type > custom_optional;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< custom_type, char > custom_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element
+     * container.
+     *
+     * @return A constant reference to the optional container.
+     */
+    const custom_optional&
+    custom () const;
+
+    /**
+     * @brief Return a read-write reference to the element container.
+     *
+     * @return A reference to the optional container.
+     */
+    custom_optional&
+    custom ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    custom (const custom_type& x);
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x An optional container with the new value to set.
+     *
+     * If the value is present in @a x then this function makes a copy 
+     * of this value and sets it as the new value of the element.
+     * Otherwise the element container is set the 'not present' state.
+     */
+    void
+    custom (const custom_optional& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly instead
+     * of making a copy.
+     */
+    void
+    custom (::std::unique_ptr< custom_type > p);
+
+    //@}
+
+    /**
      * @name Constructors
      */
     //@{
@@ -4104,6 +4180,7 @@ namespace Common
     protected:
     playSound_optional playSound_;
     loadScene_optional loadScene_;
+    custom_optional custom_;
 
     //@endcond
   };

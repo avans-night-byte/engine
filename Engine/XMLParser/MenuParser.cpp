@@ -15,7 +15,7 @@ MenuParser::MenuParser(const RenderingAPI &renderer) : _renderer(renderer) {
 }
 
 void MenuParser::initialize(const std::string &path) {
-    SDLAudioEngineAdapter* audioEngineAdapter = SDLAudioEngineAdapter::getInstance();
+    SDLAudioEngineAdapter *audioEngineAdapter = SDLAudioEngineAdapter::getInstance();
 
     _menu = Menu::menu_(path);
 
@@ -51,8 +51,7 @@ void MenuParser::initialize(const std::string &path) {
     }
 
 
-
-    if(_menu->backgroundMusic().present() && _previousSong != _menu->backgroundMusic()->c_str()) {
+    if (_menu->backgroundMusic().present() && _previousSong != _menu->backgroundMusic()->c_str()) {
         audioEngineAdapter->playFromMemory(_menu->backgroundMusic()->c_str());
         _previousSong = _menu->backgroundMusic()->c_str();
     }
@@ -65,7 +64,7 @@ void MenuParser::render() {
 
     if (_menu->color().present()) {
         _renderer.drawBackground(_menu->color()->hex(), _menu->color()->alpha());
-    } else{
+    } else {
         _renderer.drawTexture(_menu->resources()->default_(), 0, 0, 1920, 1080, 1, 0);
     }
 
@@ -110,11 +109,12 @@ void MenuParser::renderText() {
     }
 }
 
-void MenuParser::renderImages(){
+void MenuParser::renderImages() {
     int index = 0;
 
     for (auto image : _menu->images().image()) {
-        _renderer.drawTexture(image.resources().default_(), image.position().x(), image.position().y(), image.size().width(), image.size().height(), 1, 0);
+        _renderer.drawTexture(image.resources().default_(), image.position().x(), image.position().y(),
+                              image.size().width(), image.size().height(), 1, 0);
         index++;
     }
 
@@ -150,10 +150,22 @@ void MenuParser::onClick(Input input) {
             if (v2.x <= input.x && v2.y <= input.y && (v2.x + button.size().width()) >= input.x &&
                 (v2.y + button.size().height()) >= input.y) {
 
-                std::string nig = "Credits";
-                ResourceManager::getInstance()->loadResource(nig);
+                if (button.events().onClick()->playSound().present())
+                    SDLAudioEngineAdapter::getInstance()->playFromMemory(
+                            button.events().onClick()->playSound()->c_str());
 
-                std::cout << "button clicked" << std::endl;
+                if (button.events().onClick()->loadScene().present())
+                    ResourceManager::getInstance()->loadResource(button.events().onClick()->loadScene()->c_str());
+
+                if (button.events().onClick()->custom().present()) {
+                    const std::string action = button.events().onClick()->custom()->c_str();
+
+                    if(action == "close") {
+                        // TODO: Close
+                    }
+                }
+
+                return;
             }
         }
     }
