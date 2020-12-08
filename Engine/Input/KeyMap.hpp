@@ -17,7 +17,7 @@ public:
 
     /** Keymap for device 2: controller */
     inline static std::map<SDL_Keycode, InputAction> controllerMap = {
-            {SDL_CONTROLLER_BUTTON_A,             InputAction{.code = "CONTROLLER_BUTTON_A", .action = "JUMP"}},
+            {SDL_CONTROLLER_BUTTON_A,             InputAction{.code = "CONTROLLER_BUTTON_A", .action = "SHOOT"}},
             {SDL_CONTROLLER_BUTTON_B,             InputAction{.code = "CONTROLLER_BUTTON_B", .action = ""}},
             {SDL_CONTROLLER_BUTTON_X,             InputAction{.code = "CONTROLLER_BUTTON_X", .action = ""}},
             {SDL_CONTROLLER_BUTTON_Y,             InputAction{.code = "CONTROLLER_BUTTON_Y", .action = ""}},
@@ -46,7 +46,7 @@ public:
             {SDLK_s,            InputAction{.code = "S", .action = "DOWN"}},
             {SDLK_a,            InputAction{.code = "A", .action = "LEFT"}},
             {SDLK_d,            InputAction{.code = "D", .action = "RIGHT"}},
-            {SDLK_SPACE,        InputAction{.code = "SPACE", .action = "JUMP"}},
+            {SDLK_SPACE,        InputAction{.code = "SPACE", .action = "SHOOT"}},
             {SDLK_e,            InputAction{.code = "E", .action = "INVENTORY"}},
             {SDLK_q,            InputAction{.code = "Q", .action = "QUIT"}},
             {SDLK_BACKSLASH,    InputAction{.code = "\\", .action = "BACKSLASH"}},
