@@ -10,6 +10,18 @@
             <name>mainmenu_background</name>
             <path>Sprites/background.png</path>
         </texture>
+        <texture>
+            <name>github_logo</name>
+            <path>Sprites/github_button.png</path>
+        </texture>
+        <texture>
+            <name>sascha</name>
+            <path>Sprites/egg.png</path>
+        </texture>
+        <texture>
+            <name>minion</name>
+            <path>Sprites/booty-bum.gif</path>
+        </texture>
     </textures>
     <sprites>
         <sprite>
@@ -23,6 +35,10 @@
     </sprites>
     <sounds>
         <sound>
+            <name>bonk</name>
+            <path>Sounds/bonk.wav</path>
+        </sound>
+        <sound>
             <name>oof</name>
             <path>Sounds/oof.wav</path>
         </sound>
@@ -31,6 +47,10 @@
         <music>
             <name>mainmenu_music</name>
             <path>Sounds/background.wav</path>
+        </music>
+        <music>
+            <name>background_2</name>
+            <path>Sounds/background_2.wav</path>
         </music>
     </music>
     <scenes>

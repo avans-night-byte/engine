@@ -10,7 +10,7 @@
         <hex>#7d00ab</hex>
         <alpha>255</alpha>
     </common:color>
-    <backgroundMusic>mainmenu_music</backgroundMusic>
+    <backgroundMusic>background_2</backgroundMusic>
     <buttons>
         <button>
             <common:position>
@@ -28,7 +28,7 @@
             </common:color>
             <common:events>
                 <onClick>
-                    <playSound>oof</playSound>
+                    <playSound>bonk</playSound>
                     <loadScene>MainMenu</loadScene>
                 </onClick>
             </common:events>
@@ -48,18 +48,44 @@
         </text>
         <text>
             <common:position>
-                <x>350</x>
-                <y>50</y>
+                <x>1000</x>
+                <y>250</y>
             </common:position>
             <common:color>
-                <hex>c9c947</hex>
-                <alpha>100</alpha>
+                <hex>ffffff</hex>
+                <alpha>255</alpha>
             </common:color>
-            <content>HEEEYJJJ</content>
+            <content>Ik ben sascha ;)</content>
         </text>
     </texts>
-    <images/>
+    <images>
+        <image>
+            <common:position>
+                <x>400</x>
+                <y>50</y>
+            </common:position>
+            <common:size>
+                <width>638</width>
+                <height>1000</height>
+            </common:size>
+            <common:resources>
+                <default>sascha</default>
+            </common:resources>
+        </image>
+        <image>
+            <common:position>
+                <x>400</x>
+                <y>50</y>
+            </common:position>
+            <common:size>
+                <width>220</width>
+                <height>117</height>
+            </common:size>
+            <common:resources>
+                <default>minion</default>
+            </common:resources>
+        </image>
+    </images>
     <common:preloadResources>
-        <resource>mainmenu_music</resource>
     </common:preloadResources>
 </menu:menu>
