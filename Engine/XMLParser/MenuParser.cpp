@@ -125,7 +125,7 @@ void MenuParser::renderImages() {
 
 }
 
-SDL_Color MenuParser::HexToRGB(std::string hex, float opacity) const {
+SDL_Color MenuParser::HexToRGB(std::string hex, float opacity) {
 
     std::regex pattern("#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})");
 
@@ -145,7 +145,7 @@ SDL_Color MenuParser::HexToRGB(std::string hex, float opacity) const {
 
 }
 
-void MenuParser::onClick(Input input) {
+void MenuParser::onClick(const Input& input) {
     if (!_menu->buttons().present()) return;
 
     for (auto button : _menu->buttons()->button()) {

@@ -29,7 +29,7 @@ public:
 
     void render();
 
-    void onClick(Input input);
+    void onClick(const Input& input);
 
     static MenuParser *getInstance();
 
@@ -46,7 +46,7 @@ private:
 
     ResourceManager *_resourceManager = nullptr;
 
-    SDL_Color HexToRGB(std::string hex, float opacity) const;
+    static SDL_Color HexToRGB(std::string hex, float opacity) ;
 
     void renderImages();
 };
