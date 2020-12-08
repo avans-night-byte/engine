@@ -13,9 +13,9 @@ struct TMXLevelData;
 
 class LevelParserAPI {
 private:
-    std::unique_ptr<LevelXMLParser> levelXMLParser;
-    std::unique_ptr<TMXLevel> levelLoader;
 
 public:
-    void LoadLevel(const TMXLevelData& levelData, const std::string &resourcePath);
+    static TMXLevel* loadLevel(std::multimap<std::string, const LevelResources::component *> &outEntities,
+                          const TMXLevelData &levelData,
+                          const std::string &resourcePath);
 };
