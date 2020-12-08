@@ -123,8 +123,8 @@ Input SDLInputEngineAdapter::getControllerMotionInput(SDL_Event controllerEvent)
 {
     int deadZone = 16000;
     
-    int x = 0;
-    int y = 0;
+    float x = 0;
+    float y = 0;
     std::string code = "";
     std::string action = "";
 
