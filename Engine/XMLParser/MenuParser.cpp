@@ -91,6 +91,8 @@ void MenuParser::renderButtons() {
                                 button.position().y() + ((button.size().height() / 2) - textWrapper->getSize().y / 2));
         } else {
             //TODO: draw rectangle with resource image
+
+            _renderer.drawTexture(   button.resources()->default_(), v2.x, v2.y, button.size().width(), button.size().height(), 1, 0);
             //_renderer.drawRectangle(v2, button.size().width(), button.size().height(), button.color()->hex(), button.color()->alpha());
         }
         index++;
