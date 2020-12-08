@@ -44,13 +44,17 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/PhysicsComponent.cpp
         ./Game/Components/PhysicsComponent.hpp
         ./Game/Components/CharacterComponent.cpp
-        Game/Components/CharacterComponent.hpp
+        ./Game/Components/CharacterComponent.hpp
         ./Game/Scenes/Level1/Level1.cpp
         ./Game/Scenes/Level1/Level1.hpp
         ./Game/Scenes/Level10/LevelCharlie.cpp
         ./Game/Scenes/Level10/LevelCharlie.hpp
         ./Game/Components/NextLevelComponent.cpp
         ./Game/Components/NextLevelComponent.hpp
+        ./Game/Components/EntityObject.cpp
+        ./Game/Components/EntityObject.hpp
+        ./Game/Scenes/LevelBase.cpp
+        ./Game/ContactHandlers/ExplosionCrate.hpp
 
         # Engine
         ./Engine/Engine.cpp
@@ -67,12 +71,12 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Physics/BodyType.hpp
         ./Engine/Physics/Box2dPhysicsEngineAdapter.cpp
         ./Engine/Physics/PhysicsDebug/Box2dDrawDebug.hpp
-        Engine/Rendering/TMXLevel.cpp
-        Engine/Rendering/TMXLevel.hpp
+        ./Engine/Rendering/TMXLevel.cpp
+        ./Engine/Rendering/TMXLevel.hpp
         ./Engine/Physics/ContactListener.hpp
         ./Engine/Physics/ContactHandler.hpp
-        Engine/XMLParser/LevelXMLParser.hpp
-        Engine/XMLParser/LevelXMLParser.cpp
+        ./Engine/XMLParser/LevelXMLParser.hpp
+        ./Engine/XMLParser/LevelXMLParser.cpp
         ./Engine/XMLParser/MenuParser.cpp
         ./Engine/XMLParser/MenuParser.hpp
         ./Engine/Managers/ResourceManager.cpp
@@ -92,6 +96,7 @@ add_executable(NightByte ./Main.cpp
         ./API/RPosition.hpp
         ./API/XMLParser/MenuParserAPI.cpp
         ./API/XMLParser/MenuParserAPI.hpp
+        ./API/XMLParser/LevelParserAPI.cpp
 
         # XML
         ./Resources/XML/Generated/wall.hxx
@@ -103,7 +108,7 @@ add_executable(NightByte ./Main.cpp
         ./Resources/XML/Generated/resources.cxx
         ./Resources/XML/Generated/resources.hxx
         ./Resources/XML/Generated/level-resources.hxx
-        ./Resources/XML/Generated/level-resources.cxx API/XMLParser/LevelParserAPI.cpp Game/Components/EntityObject.cpp Game/Components/EntityObject.hpp Game/Scenes/LevelBase.cpp Game/ContactHandlers/OnTouchExplosionHandler.hpp)
+        ./Resources/XML/Generated/level-resources.cxx)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)

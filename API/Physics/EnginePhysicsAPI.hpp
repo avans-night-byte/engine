@@ -66,7 +66,7 @@ public:
         physicsEngineAdapter->setFixedRotation(i, b);
     }
 
-    void setContactHandler(BodyId i, ContactHandler *pHandler) override {
+    void setContactHandler(BodyId i, ContactHandler *pHandler) const override {
         physicsEngineAdapter->setContactHandler(i, pHandler);
     }
 

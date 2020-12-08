@@ -15,10 +15,15 @@
                     <componentName>WorldPositionComponent</componentName>
                     <worldPositionComponent>
                         <common:positionF>
-                            <x>20</x>
-                            <y>30</y>
+                            <x>50</x>
+                            <y>50</y>
                         </common:positionF>
                     </worldPositionComponent>
+                </component>
+
+                <component>
+                    <componentName>ExplosionCrate</componentName>
+                    <explosionCrate/>
                 </component>
 
                 <component>
@@ -28,27 +33,18 @@
                         <bodyType>Dynamic</bodyType>
                         <bodyShape>
                             <box>
-                                <width>10</width>
-                                <height>20</height>
+                                <width>50</width>
+                                <height>50</height>
                                 <common:positionF>
-                                    <x>40</x>
-                                    <y>50</y>
+                                    <x>100.50</x>
+                                    <y>147.08</y>
                                 </common:positionF>
                             </box>
                         </bodyShape>
-                        <contactHandler>CharacterComponent</contactHandler>
+                        <contactHandler>ExplosionCrate</contactHandler>
                     </physicsComponent>
                 </component>
-
-                <component>
-                    <componentName>SaschaVarkenComponent</componentName>
-                    <saschaVarkenComponent>
-                        <honger>1</honger>
-                    </saschaVarkenComponent>
-                </component>
             </components>
-
         </object>
-
     </objects>
 </lr:level>

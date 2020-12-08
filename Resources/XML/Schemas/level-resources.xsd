@@ -56,11 +56,22 @@
                     </xs:complexType>
                 </xs:element>
 
-                <!-- Sascha Varken Component -->
-                <xs:element name="saschaVarkenComponent">
+                <!-- Character Component -->
+                <xs:element name="characterComponent">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="honger" type="lr:floatCap"/>
+
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+
+
+                <!-- Contact Handler -->
+                <xs:element name="explosionCrate">
+                    <xs:complexType>
+                        <xs:sequence>
+
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -74,7 +85,7 @@
             <xs:pattern value="CharacterComponent"/>
             <xs:pattern value="PhysicsComponent"/>
             <xs:pattern value="NextLevelComponent"/>
-            <xs:pattern value="SaschaVarkenComponent"/>
+            <xs:pattern value="ExplosionCrate"/>
         </xs:restriction>
     </xs:simpleType>
 

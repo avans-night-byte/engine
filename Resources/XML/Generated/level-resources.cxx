@@ -193,36 +193,6 @@ namespace LevelResources
     this->physicsComponent_.set (std::move (x));
   }
 
-  const component::saschaVarkenComponent_optional& component::
-  saschaVarkenComponent () const
-  {
-    return this->saschaVarkenComponent_;
-  }
-
-  component::saschaVarkenComponent_optional& component::
-  saschaVarkenComponent ()
-  {
-    return this->saschaVarkenComponent_;
-  }
-
-  void component::
-  saschaVarkenComponent (const saschaVarkenComponent_type& x)
-  {
-    this->saschaVarkenComponent_.set (x);
-  }
-
-  void component::
-  saschaVarkenComponent (const saschaVarkenComponent_optional& x)
-  {
-    this->saschaVarkenComponent_ = x;
-  }
-
-  void component::
-  saschaVarkenComponent (::std::unique_ptr< saschaVarkenComponent_type > x)
-  {
-    this->saschaVarkenComponent_.set (std::move (x));
-  }
-
 
   // componentName
   // 
@@ -477,34 +447,6 @@ namespace LevelResources
   contactHandler (::std::unique_ptr< contactHandler_type > x)
   {
     this->contactHandler_.set (std::move (x));
-  }
-
-
-  // saschaVarkenComponent
-  // 
-
-  const saschaVarkenComponent::honger_type& saschaVarkenComponent::
-  honger () const
-  {
-    return this->honger_.get ();
-  }
-
-  saschaVarkenComponent::honger_type& saschaVarkenComponent::
-  honger ()
-  {
-    return this->honger_.get ();
-  }
-
-  void saschaVarkenComponent::
-  honger (const honger_type& x)
-  {
-    this->honger_.set (x);
-  }
-
-  void saschaVarkenComponent::
-  honger (::std::unique_ptr< honger_type > x)
-  {
-    this->honger_.set (std::move (x));
   }
 
 
@@ -771,8 +713,7 @@ namespace LevelResources
   : ::xml_schema::type (),
     componentName_ (componentName, this),
     worldPositionComponent_ (this),
-    physicsComponent_ (this),
-    saschaVarkenComponent_ (this)
+    physicsComponent_ (this)
   {
   }
 
@@ -783,8 +724,7 @@ namespace LevelResources
   : ::xml_schema::type (x, f, c),
     componentName_ (x.componentName_, f, this),
     worldPositionComponent_ (x.worldPositionComponent_, f, this),
-    physicsComponent_ (x.physicsComponent_, f, this),
-    saschaVarkenComponent_ (x.saschaVarkenComponent_, f, this)
+    physicsComponent_ (x.physicsComponent_, f, this)
   {
   }
 
@@ -795,8 +735,7 @@ namespace LevelResources
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     componentName_ (this),
     worldPositionComponent_ (this),
-    physicsComponent_ (this),
-    saschaVarkenComponent_ (this)
+    physicsComponent_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -857,20 +796,6 @@ namespace LevelResources
         }
       }
 
-      // saschaVarkenComponent
-      //
-      if (n.name () == "saschaVarkenComponent" && n.namespace_ ().empty ())
-      {
-        ::std::unique_ptr< saschaVarkenComponent_type > r (
-          saschaVarkenComponent_traits::create (i, f, this));
-
-        if (!this->saschaVarkenComponent_)
-        {
-          this->saschaVarkenComponent_.set (::std::move (r));
-          continue;
-        }
-      }
-
       break;
     }
 
@@ -898,7 +823,6 @@ namespace LevelResources
       this->componentName_ = x.componentName_;
       this->worldPositionComponent_ = x.worldPositionComponent_;
       this->physicsComponent_ = x.physicsComponent_;
-      this->saschaVarkenComponent_ = x.saschaVarkenComponent_;
     }
 
     return *this;
@@ -1650,98 +1574,6 @@ namespace LevelResources
 
   physicsComponent::
   ~physicsComponent ()
-  {
-  }
-
-  // saschaVarkenComponent
-  //
-
-  saschaVarkenComponent::
-  saschaVarkenComponent (const honger_type& honger)
-  : ::xml_schema::type (),
-    honger_ (honger, this)
-  {
-  }
-
-  saschaVarkenComponent::
-  saschaVarkenComponent (const saschaVarkenComponent& x,
-                         ::xml_schema::flags f,
-                         ::xml_schema::container* c)
-  : ::xml_schema::type (x, f, c),
-    honger_ (x.honger_, f, this)
-  {
-  }
-
-  saschaVarkenComponent::
-  saschaVarkenComponent (const ::xercesc::DOMElement& e,
-                         ::xml_schema::flags f,
-                         ::xml_schema::container* c)
-  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-    honger_ (this)
-  {
-    if ((f & ::xml_schema::flags::base) == 0)
-    {
-      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
-      this->parse (p, f);
-    }
-  }
-
-  void saschaVarkenComponent::
-  parse (::xsd::cxx::xml::dom::parser< char >& p,
-         ::xml_schema::flags f)
-  {
-    for (; p.more_content (); p.next_content (false))
-    {
-      const ::xercesc::DOMElement& i (p.cur_element ());
-      const ::xsd::cxx::xml::qualified_name< char > n (
-        ::xsd::cxx::xml::dom::name< char > (i));
-
-      // honger
-      //
-      if (n.name () == "honger" && n.namespace_ ().empty ())
-      {
-        ::std::unique_ptr< honger_type > r (
-          honger_traits::create (i, f, this));
-
-        if (!honger_.present ())
-        {
-          this->honger_.set (::std::move (r));
-          continue;
-        }
-      }
-
-      break;
-    }
-
-    if (!honger_.present ())
-    {
-      throw ::xsd::cxx::tree::expected_element< char > (
-        "honger",
-        "");
-    }
-  }
-
-  saschaVarkenComponent* saschaVarkenComponent::
-  _clone (::xml_schema::flags f,
-          ::xml_schema::container* c) const
-  {
-    return new class saschaVarkenComponent (*this, f, c);
-  }
-
-  saschaVarkenComponent& saschaVarkenComponent::
-  operator= (const saschaVarkenComponent& x)
-  {
-    if (this != &x)
-    {
-      static_cast< ::xml_schema::type& > (*this) = x;
-      this->honger_ = x.honger_;
-    }
-
-    return *this;
-  }
-
-  saschaVarkenComponent::
-  ~saschaVarkenComponent ()
   {
   }
 

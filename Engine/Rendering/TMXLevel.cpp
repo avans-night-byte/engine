@@ -112,12 +112,6 @@ void TMXLevel::initStaticCollision(){
                     {
                         isSensor = true;
                     }
-                    if(property.getName() == "component" && property.getType() == tmx::Property::Type::String)
-                    {
-
-                        // TODO: Hardcoded please create a system for this.
-                        handler = new NextLevelComponent(0);
-                    }
                 }
 
                 BodyId bodyId;

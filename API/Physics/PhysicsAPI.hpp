@@ -44,5 +44,5 @@ public:
 
     virtual std::unique_ptr<PhysicsEngineAdapter>& getPhysicsEngineAdapter() = 0;
 
-    virtual void setContactHandler(BodyId i, ContactHandler *pHandler) = 0;
+    virtual void setContactHandler(BodyId i, ContactHandler *pHandler) const = 0;
 };

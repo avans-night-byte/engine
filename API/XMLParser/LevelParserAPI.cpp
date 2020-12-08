@@ -6,21 +6,22 @@
 #include "../Rendering/EngineRenderingAPI.hpp"
 
 
-void LevelParserAPI::loadLevel(std::multimap<std::string, const LevelResources::component *> &outEntities,
+TMXLevel* LevelParserAPI::loadLevel(std::multimap<std::string, const LevelResources::component *> &outEntities,
                                const TMXLevelData &levelData,
                                const std::string &resourcePath) {
     auto *renderingApi = Game::getInstance()->getRenderingApi();
 
     auto *physicsApi = Game::getInstance()->getPhysicsAPI();
 
-    auto levelLoader = std::unique_ptr<TMXLevel>(renderingApi->loadLevel(levelData,
-                                                                         *physicsApi->getPhysicsEngineAdapter()));
+    auto tmxLevel = renderingApi->loadLevel(levelData, *physicsApi->getPhysicsEngineAdapter());
 
     auto loadedObjects = std::map<std::string, LoadedObjectData>();
-    levelLoader->initObjects(loadedObjects);
+    tmxLevel->initObjects(loadedObjects);
 
     auto levelXMLParser = std::make_unique<LevelXMLParser>();
     levelXMLParser->LoadLevel(outEntities,
                               loadedObjects,
                               resourcePath);
+
+    return tmxLevel;
 }

@@ -574,7 +574,6 @@ namespace LevelResources
   class box;
   class worldPositionComponent;
   class physicsComponent;
-  class saschaVarkenComponent;
   class level;
   class objects;
   class object;
@@ -1070,82 +1069,6 @@ namespace LevelResources
     //@}
 
     /**
-     * @name saschaVarkenComponent
-     *
-     * @brief Accessor and modifier functions for the %saschaVarkenComponent
-     * optional element.
-     */
-    //@{
-
-    /**
-     * @brief Element type.
-     */
-    typedef ::LevelResources::saschaVarkenComponent saschaVarkenComponent_type;
-
-    /**
-     * @brief Element optional container type.
-     */
-    typedef ::xsd::cxx::tree::optional< saschaVarkenComponent_type > saschaVarkenComponent_optional;
-
-    /**
-     * @brief Element traits type.
-     */
-    typedef ::xsd::cxx::tree::traits< saschaVarkenComponent_type, char > saschaVarkenComponent_traits;
-
-    /**
-     * @brief Return a read-only (constant) reference to the element
-     * container.
-     *
-     * @return A constant reference to the optional container.
-     */
-    const saschaVarkenComponent_optional&
-    saschaVarkenComponent () const;
-
-    /**
-     * @brief Return a read-write reference to the element container.
-     *
-     * @return A reference to the optional container.
-     */
-    saschaVarkenComponent_optional&
-    saschaVarkenComponent ();
-
-    /**
-     * @brief Set the element value.
-     *
-     * @param x A new value to set.
-     *
-     * This function makes a copy of its argument and sets it as
-     * the new value of the element.
-     */
-    void
-    saschaVarkenComponent (const saschaVarkenComponent_type& x);
-
-    /**
-     * @brief Set the element value.
-     *
-     * @param x An optional container with the new value to set.
-     *
-     * If the value is present in @a x then this function makes a copy 
-     * of this value and sets it as the new value of the element.
-     * Otherwise the element container is set the 'not present' state.
-     */
-    void
-    saschaVarkenComponent (const saschaVarkenComponent_optional& x);
-
-    /**
-     * @brief Set the element value without copying.
-     *
-     * @param p A new value to use.
-     *
-     * This function will try to use the passed value directly instead
-     * of making a copy.
-     */
-    void
-    saschaVarkenComponent (::std::unique_ptr< saschaVarkenComponent_type > p);
-
-    //@}
-
-    /**
      * @name Constructors
      */
     //@{
@@ -1229,7 +1152,6 @@ namespace LevelResources
     ::xsd::cxx::tree::one< componentName_type > componentName_;
     worldPositionComponent_optional worldPositionComponent_;
     physicsComponent_optional physicsComponent_;
-    saschaVarkenComponent_optional saschaVarkenComponent_;
 
     //@endcond
   };
@@ -2545,158 +2467,6 @@ namespace LevelResources
     ::xsd::cxx::tree::one< bodyType_type > bodyType_;
     ::xsd::cxx::tree::one< bodyShape_type > bodyShape_;
     contactHandler_optional contactHandler_;
-
-    //@endcond
-  };
-
-  /**
-   * @brief Class corresponding to the %saschaVarkenComponent schema type.
-   *
-   * @nosubgrouping
-   */
-  class saschaVarkenComponent: public ::xml_schema::type
-  {
-    public:
-    /**
-     * @name honger
-     *
-     * @brief Accessor and modifier functions for the %honger
-     * required element.
-     */
-    //@{
-
-    /**
-     * @brief Element type.
-     */
-    typedef ::LevelResources::floatCap honger_type;
-
-    /**
-     * @brief Element traits type.
-     */
-    typedef ::xsd::cxx::tree::traits< honger_type, char > honger_traits;
-
-    /**
-     * @brief Return a read-only (constant) reference to the element.
-     *
-     * @return A constant reference to the element.
-     */
-    const honger_type&
-    honger () const;
-
-    /**
-     * @brief Return a read-write reference to the element.
-     *
-     * @return A reference to the element.
-     */
-    honger_type&
-    honger ();
-
-    /**
-     * @brief Set the element value.
-     *
-     * @param x A new value to set.
-     *
-     * This function makes a copy of its argument and sets it as
-     * the new value of the element.
-     */
-    void
-    honger (const honger_type& x);
-
-    /**
-     * @brief Set the element value without copying.
-     *
-     * @param p A new value to use.
-     *
-     * This function will try to use the passed value directly
-     * instead of making a copy.
-     */
-    void
-    honger (::std::unique_ptr< honger_type > p);
-
-    //@}
-
-    /**
-     * @name Constructors
-     */
-    //@{
-
-    /**
-     * @brief Create an instance from the ultimate base and
-     * initializers for required elements and attributes.
-     */
-    saschaVarkenComponent (const honger_type&);
-
-    /**
-     * @brief Create an instance from a DOM element.
-     *
-     * @param e A DOM element to extract the data from.
-     * @param f Flags to create the new instance with.
-     * @param c A pointer to the object that will contain the new
-     * instance.
-     */
-    saschaVarkenComponent (const ::xercesc::DOMElement& e,
-                           ::xml_schema::flags f = 0,
-                           ::xml_schema::container* c = 0);
-
-    /**
-     * @brief Copy constructor.
-     *
-     * @param x An instance to make a copy of.
-     * @param f Flags to create the copy with.
-     * @param c A pointer to the object that will contain the copy.
-     *
-     * For polymorphic object models use the @c _clone function instead.
-     */
-    saschaVarkenComponent (const saschaVarkenComponent& x,
-                           ::xml_schema::flags f = 0,
-                           ::xml_schema::container* c = 0);
-
-    /**
-     * @brief Copy the instance polymorphically.
-     *
-     * @param f Flags to create the copy with.
-     * @param c A pointer to the object that will contain the copy.
-     * @return A pointer to the dynamically allocated copy.
-     *
-     * This function ensures that the dynamic type of the instance is
-     * used for copying and should be used for polymorphic object
-     * models instead of the copy constructor.
-     */
-    virtual saschaVarkenComponent*
-    _clone (::xml_schema::flags f = 0,
-            ::xml_schema::container* c = 0) const;
-
-    /**
-     * @brief Copy assignment operator.
-     *
-     * @param x An instance to make a copy of.
-     * @return A reference to itself.
-     *
-     * For polymorphic object models use the @c _clone function instead.
-     */
-    saschaVarkenComponent&
-    operator= (const saschaVarkenComponent& x);
-
-    //@}
-
-    /**
-     * @brief Destructor.
-     */
-    virtual 
-    ~saschaVarkenComponent ();
-
-    // Implementation.
-    //
-
-    //@cond
-
-    protected:
-    void
-    parse (::xsd::cxx::xml::dom::parser< char >&,
-           ::xml_schema::flags);
-
-    protected:
-    ::xsd::cxx::tree::one< honger_type > honger_;
 
     //@endcond
   };

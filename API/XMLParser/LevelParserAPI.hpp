@@ -15,7 +15,7 @@ class LevelParserAPI {
 private:
 
 public:
-    static void loadLevel(std::multimap<std::string, const LevelResources::component *> &outEntities,
-                   const TMXLevelData &levelData,
-                   const std::string &resourcePath);
+    static TMXLevel* loadLevel(std::multimap<std::string, const LevelResources::component *> &outEntities,
+                          const TMXLevelData &levelData,
+                          const std::string &resourcePath);
 };
