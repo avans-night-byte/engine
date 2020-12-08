@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<walls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schemas/wall.xsd">
+    <className>NightByte.Engine.Entities.Wall</className>
+    <!-- Level 1: Wood -->
+    <wall>
+        <!-- Specific properties -->
+        <name>Wood</name>
+        <level>wall1</level>
+        <baseHealth>100</baseHealth>
+
+        <pricing>
+            <cost>25</cost>
+            <upgrade>
+                <cost>25</cost>
+                <nextLevel>wall2</nextLevel>
+            </upgrade>
+        </pricing>
+
+
+        <!-- Common properties -->
+        <resources>
+            <default>wall1_default</default>
+        </resources>
+
+        <collider hasCollision="true">
+            <size>
+                <width>1</width>
+                <height>1</height>
+            </size>
+        </collider>
+
+        <events>
+            <onAttacked>
+                <soundAction>../assets/wall_attack.ogg</soundAction>
+            </onAttacked>
+        </events>
+    </wall>
+
+    <!-- Level 2: Stone -->
+    <wall>
+        <!-- Specific properties -->
+        <name>Stone</name>
+        <level>wall2</level>
+        <baseHealth>200</baseHealth>
+
+        <pricing>
+            <cost>50</cost>
+            <upgrade>
+                <cost>50</cost>
+                <nextLevel>wall3</nextLevel>
+            </upgrade>
+        </pricing>
+
+        <!-- Common properties -->
+        <assets>
+            <base repeat="no-repeat">
+                <file>../assets/example.png</file>
+            </base>
+        </assets>
+
+        <collider hasCollision="true">
+            <size>
+                <width>1</width>
+                <height>1</height>
+            </size>
+        </collider>
+
+        <events>
+            <onEnter>
+                <soundAction>...</soundAction>
+                <loadAction>city1_1.xml</loadAction>
+            </onEnter>
+        </events>
+    </wall>
+
+    <!-- Level 3: Metal -->
+    <wall>
+        <!-- Specific properties -->
+        <name>Metal</name>
+        <level>wall3</level>
+        <baseHealth>350</baseHealth>
+
+        <pricing>
+            <cost>100</cost>
+            <upgrade>
+                <cost>75</cost>
+                <nextLevel>wall4</nextLevel>
+            </upgrade>
+        </pricing>
+
+        <!-- Common properties -->
+        <assets>
+            <base repeat="no-repeat">
+                <file>../assets/example.png</file>
+            </base>
+        </assets>
+
+        <collider hasCollision="true">
+            <size>
+                <width>1</width>
+                <height>1</height>
+            </size>
+        </collider>
+
+        <events>
+            <onEnter>
+                <soundAction>...</soundAction>
+                <loadAction>city1_1.xml</loadAction>
+            </onEnter>
+        </events>
+    </wall>
+
+    <!-- Level 4: Hardened Metal -->
+    <wall>
+        <!-- Specific properties -->
+        <name>Hardened Metal</name>
+        <level>wall4</level>
+        <baseHealth>550</baseHealth>
+
+        <pricing>
+            <cost>175</cost>
+            <upgrade>
+                <cost>125</cost>
+                <nextLevel>wall5</nextLevel>
+            </upgrade>
+        </pricing>
+
+
+        <!-- Common properties -->
+        <assets>
+            <base repeat="no-repeat">
+                <file>../assets/example.png</file>
+            </base>
+        </assets>
+
+        <collider hasCollision="true">
+            <size>
+                <width>1</width>
+                <height>1</height>
+            </size>
+        </collider>
+
+        <events>
+            <onEnter>
+                <soundAction>...</soundAction>
+                <loadAction>city1_1.xml</loadAction>
+            </onEnter>
+        </events>
+    </wall>
+
+    <!-- Level 5: Steel -->
+    <wall>
+        <!-- Specific properties -->
+        <name>Steel</name>
+        <level>wall5</level>
+        <baseHealth>800</baseHealth>
+
+        <pricing>
+            <cost>300</cost>
+            <upgrade>
+                <cost>200</cost>
+                <nextLevel>wall6</nextLevel>
+            </upgrade>
+        </pricing>
+
+        <powers>
+            <restoresHP>100</restoresHP>
+        </powers>
+
+        <!-- Common properties -->
+        <assets>
+            <base repeat="no-repeat">
+                <file>../assets/example.png</file>
+            </base>
+        </assets>
+
+        <collider hasCollision="true">
+            <size>
+                <width>1</width>
+                <height>1</height>
+            </size>
+        </collider>
+
+        <events>
+            <onEnter>
+                <soundAction>...</soundAction>
+                <loadAction>city1_1.xml</loadAction>
+            </onEnter>
+        </events>
+    </wall>
+
+    <!-- Level 6: Obsidian -->
+    <wall>
+        <!-- Specific properties -->
+        <name>Steel</name>
+        <level>wall6</level>
+        <baseHealth>800</baseHealth>
+
+        <pricing>
+            <cost>300</cost>
+        </pricing>
+
+        <powers>
+            <restoresHP>150</restoresHP>
+            <explosionImmune>true</explosionImmune>
+        </powers>
+
+        <!-- Common properties -->
+        <assets>
+            <base repeat="no-repeat">
+                <file>../assets/example.png</file>
+            </base>
+        </assets>
+
+        <collider hasCollision="true">
+            <size>
+                <width>1</width>
+                <height>1</height>
+            </size>
+        </collider>
+
+        <events>
+            <onEnter>
+                <soundAction>...</soundAction>
+                <loadAction>city1_1.xml</loadAction>
+            </onEnter>
+        </events>
+    </wall>
+</walls>

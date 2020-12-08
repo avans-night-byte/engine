@@ -10,3 +10,7 @@ Input EngineInputAPI::getInput() const {
 EngineInputAPI::~EngineInputAPI() {
     delete _adapter;
 }
+
+Event<Input>& EngineInputAPI::getInputEvent() {
+    return _adapter->getInputEvent();
+}

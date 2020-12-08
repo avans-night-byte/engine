@@ -1,4 +1,5 @@
 #include "TextureManager.hpp"
+#include "../Engine.hpp"
 #include <iostream>
 
 TextureManager* TextureManager::instance = nullptr;
@@ -22,12 +23,11 @@ bool TextureManager::CreateTexture(SDL_Surface *surface, std::string textureId, 
         return false;
     }
 
-    SDL_FreeSurface(surface);
     TextureMap[textureId] = surfaceTexture;
     return true;
 }
 
-bool TextureManager::load(const char *path, std::string textureId, SDL_Renderer *renderer) {
+bool TextureManager::load(const char *path, const std::string& textureId) {
     SDL_Surface* tmpSurface = IMG_Load(path);
     std::cout << IMG_GetError() << std::endl;
     
@@ -36,43 +36,27 @@ bool TextureManager::load(const char *path, std::string textureId, SDL_Renderer 
         return false;
     }
     
-    SDL_Texture* surfaceTexture = SDL_CreateTextureFromSurface(renderer, tmpSurface);
-    SDL_FreeSurface(tmpSurface);
+    SDL_Texture* surfaceTexture = SDL_CreateTextureFromSurface(Engine::getInstance()->getRenderer(), tmpSurface);
+
     if(surfaceTexture == nullptr){
         return false;
     }
-
     TextureMap[textureId] = surfaceTexture;
+    SDL_FreeSurface(tmpSurface);
     return true;
 }
 
 void TextureManager::draw(std::string textureId, int x, int y, int width, int height, double scale, double r, SDL_Renderer *renderer,
                      SDL_RendererFlip flip) {
-
-
-    auto texture = TextureMap[textureId];
     // Copy the srcrect to the distrect.
-    SDL_Rect srcRect;
-    SDL_Rect destRect;
-
-    srcRect.x = 0;
-    srcRect.y = 0;
+    auto texture = TextureMap[textureId];
 
     if(width == 0 && height == 0){
         SDL_QueryTexture(texture, NULL,NULL, &width, &height);
     }
+    SDL_Rect destRect = { x, y , width, height };
 
-
-    srcRect.w = destRect.w = width;
-    srcRect.h = destRect.h = height;
-
-    destRect.h = destRect.h *scale;
-    destRect.w = destRect.w *scale;
-
-    destRect.x = x;
-    destRect.y = y;
-
-    SDL_RenderCopyEx(renderer, texture, &srcRect, &destRect,0,0, flip);
+    SDL_RenderCopyEx(renderer, texture, NULL, &destRect,0, NULL,  flip);
 }
 
 void TextureManager::drawFrame(std::string id, float x, float y, int width, int height, int currentRow, int currentFrame, SDL_Renderer *pRenderer, SDL_RendererFlip flip)
@@ -115,6 +99,16 @@ TextureManager::~TextureManager() {
     {
         this->clearFromTextureMap(it->first);
     }
+}
+
+Vector2 TextureManager::getDimensions(std::string id) {
+    auto texture = TextureMap[id];
+
+    int width;
+    int height;
+    SDL_QueryTexture(texture, NULL,NULL, &width, &height);
+
+    return Vector2((float)width, (float)height);
 }
 
 

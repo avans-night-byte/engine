@@ -12,7 +12,7 @@ public:
     Engine *_engine;
 
     EngineWindowAPI(Engine *engine);
-    ~EngineWindowAPI();
+    ~EngineWindowAPI() = default;
 
     void initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT) const override;
     void closeWindow() const override;

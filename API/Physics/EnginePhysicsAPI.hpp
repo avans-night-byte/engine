@@ -1,7 +1,6 @@
 #pragma once
 
 #include "./PhysicsAPI.hpp"
-#include "../../Engine/Physics/PhysicsEngineAdapter.hpp"
 #include "../../Engine/Physics/Box2DPhysicsEngineAdapter.hpp"
 #include "../Rendering/EngineRenderingAPI.hpp"
 
@@ -25,7 +24,7 @@ public:
                                                 box2DBoxData.position,
                                                 box2DBoxData.size,
                                                 box2DBoxData.isSensor,
-                                                box2DBoxData.userdata);
+                                                box2DBoxData.userData);
     }
 
     inline BodyId createStaticBody(const Box2DCircleData &box2DCircleData) const override {
@@ -67,11 +66,15 @@ public:
         physicsEngineAdapter->setFixedRotation(i, b);
     }
 
+    void setContactHandler(BodyId i, ContactHandler *pHandler) const override {
+        physicsEngineAdapter->setContactHandler(i, pHandler);
+    }
+
     void destroyBody(BodyId i) const override {
         physicsEngineAdapter->destroyBody(i);
     }
 
-    inline unique_ptr<PhysicsEngineAdapter>& getPhysicsEngineAdapter()
+    inline unique_ptr<PhysicsEngineAdapter>& getPhysicsEngineAdapter() override
     {
         return physicsEngineAdapter;
     }

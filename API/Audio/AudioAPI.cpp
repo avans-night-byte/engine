@@ -20,8 +20,8 @@ std::vector<std::string> AudioAPI::getAudioNames() {
     return _adapter->getAudioNames();
 }
 
-void AudioAPI::loadInMemory(const std::string &path, AudioType &type) {
-    _adapter->loadInMemory(path, type);
+void AudioAPI::loadInMemory(const std::string &path, const std::string &name, AudioType type) {
+    _adapter->loadInMemory(path, name, type);
 }
 
 void AudioAPI::playFromPath(const std::string &path, AudioType &type) {

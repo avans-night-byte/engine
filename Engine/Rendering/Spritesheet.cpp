@@ -12,7 +12,7 @@ Spritesheet::Spritesheet(const char *path, std::string spriteSheetid, int width,
 {
     textureId = spriteSheetid;
     sdlRenderer = renderer;
-    TextureManager::GetInstance()->load(path, textureId, renderer);
+    TextureManager::GetInstance()->load(path, textureId);
 
     // Define the height/width of each sprite by rows/columns.
     m_clip.w = width;
@@ -58,7 +58,7 @@ Spritesheet::Spritesheet(const char *path, const char *jsonPath, std::string spr
     textureId = spriteSheetId;
     sdlRenderer = renderer;
 
-    TextureManager::GetInstance()->load(path, textureId, renderer);
+    TextureManager::GetInstance()->load(path, textureId);
 
     // Load the json file contents into the class variable.
     std::ifstream i(jsonPath);

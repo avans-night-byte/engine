@@ -7,6 +7,9 @@
 #include "../AudioType.h"
 
 class SDLAudioEngineAdapter {
+
+private:
+    static SDLAudioEngineAdapter *_instance;
 public:
 
     SDLAudioEngineAdapter();
@@ -23,7 +26,7 @@ public:
 
     std::vector<std::string> getAudioNames();
 
-    void loadInMemory(const std::string &path, AudioType &type);
+    void loadInMemory(const std::string &path, const std::string &name, AudioType type);
 
     void playFromPath(const std::string &path, AudioType &type);
 
@@ -54,6 +57,9 @@ public:
     static void toggleSound(int channel);
 
     static void toggleSounds();
+
+    static SDLAudioEngineAdapter *getInstance();
+
 private:
     std::map<std::string, Mix_Music *> _musicTracks;
     std::map<std::string, Mix_Chunk *> _sounds;

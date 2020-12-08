@@ -1,16 +1,20 @@
 #include <iostream>
-#include <SDL_ttf.h>
 #include "./Engine.hpp"
+#include "Rendering/TextureManager.hpp"
+
 
 // Dependencies
 #include "SDL.h"
 #include "SDL_surface.h"
 #include "SDL_video.h"
 #include "SDL_render.h"
+#include <SDL_ttf.h>
+
 
 // Variables
 SDL_Window *window = nullptr;
 SDL_Renderer *renderer = nullptr;
+
 
 /**
  * Initialize the game window
@@ -60,4 +64,24 @@ void Engine::closeWindow() {
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
+}
+
+
+// Singleton
+Engine *Engine::instance_{nullptr};
+std::mutex Engine::mutex_;
+
+
+Engine *Engine::getInstance() {
+    std::lock_guard<std::mutex> lock(mutex_);
+
+    if(instance_ == nullptr) {
+        instance_ = new Engine();
+    }
+
+    return instance_;
+}
+
+TextureManager *Engine::getTextureManager() {
+    return TextureManager::GetInstance();
 }

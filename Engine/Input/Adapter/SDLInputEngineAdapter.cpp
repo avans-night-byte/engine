@@ -22,37 +22,52 @@ SDL_GameController *gameController;
  * 
  * @returns Input{device, x, y, keyMap}
  */
-Input SDLInputEngineAdapter::getInput() const
-{
+Input SDLInputEngineAdapter::getInput() {
     SDL_Event e;
-
+    Input i = Input{.device = Input::NONE, .x = -1, .y = -1, .keyMap = InputAction{.code = "", .action = ""}};
     while (SDL_PollEvent(&e))
     {
         switch (e.type)
         {
         case SDL_KEYDOWN:
-            return getKeyInput(e.key.keysym.sym, e.type);
+            i = getKeyInput(e.key.keysym.sym, e.type);
+            _inputEvent(i);
+            return i;
         case SDL_KEYUP:
-            return getKeyInput(e.key.keysym.sym, e.type);
+            i = getKeyInput(e.key.keysym.sym, e.type);
+            _inputEvent(i);
+            return i;
         case SDL_CONTROLLERBUTTONDOWN:
-            return getControllerInput(e);
+            i = getControllerInput(e);
+            _inputEvent(i);
+            return i;
         case SDL_CONTROLLERAXISMOTION:
-            return getControllerMotionInput(e);
+            i = getControllerMotionInput(e);
+            _inputEvent(i);
+            return i;
         case SDL_MOUSEBUTTONDOWN:
-            return getMouseInput(e);
+            i = getMouseInput(e);
+            _inputEvent(i);
+            return i;
         case SDL_CONTROLLERDEVICEADDED:
             openController(e.cdevice.which);
-            return Input{
-                .device = Input::CONTROLLER, .x = -1, .y = -1, .keyMap = InputAction{.code = "CONTROLLER_DEVICE_ADDED", .action = ""}};
+            i = Input{
+                    .device = Input::CONTROLLER, .x = -1, .y = -1, .keyMap = InputAction{.code = "CONTROLLER_DEVICE_ADDED", .action = ""}};
+            _inputEvent(i);
+            return i;
         case SDL_CONTROLLERDEVICEREMOVED:
             closeController();
-            return Input{ .device = Input::CONTROLLER, .x = -1, .y = -1, .keyMap = InputAction{.code = "CONTROLLER_DEVICE_REMOVED", .action = ""}};
+            i = Input{ .device = Input::CONTROLLER, .x = -1, .y = -1, .keyMap = InputAction{.code = "CONTROLLER_DEVICE_REMOVED", .action = ""}};
+            _inputEvent(i);
+            return i;
         case SDL_QUIT:
-            return Input{.device = Input::OTHER, .x = -1, .y = -1, .keyMap = InputAction{.code = "QUIT", .action = "QUIT"}};
+            i = Input{.device = Input::OTHER, .x = -1, .y = -1, .keyMap = InputAction{.code = "QUIT", .action = "QUIT"}};
+            _inputEvent(i);
+            return i;
         }
     }
 
-    return Input{.device = Input::NONE, .x = -1, .y = -1, .keyMap = InputAction{.code = "", .action = ""}};
+    return i;
 }
 
 /**
@@ -75,7 +90,7 @@ Input SDLInputEngineAdapter::getKeyInput(SDL_Keycode keyEvent, Uint32 type) cons
  * @param SDL_Event mouseEvent - SDL Event that was received.
  * @returns Input{device, x, y, keyMap}
  */
-Input SDLInputEngineAdapter::getMouseInput(SDL_Event mouseEvent) const
+Input SDLInputEngineAdapter::getMouseInput(SDL_Event mouseEvent)
 {
     InputAction keyMap = KeyMap::mouseMap[mouseEvent.button.button];
     int mouseX = mouseEvent.button.x;
@@ -108,8 +123,8 @@ Input SDLInputEngineAdapter::getControllerMotionInput(SDL_Event controllerEvent)
 {
     int deadZone = 16000;
     
-    int x = 0;
-    int y = 0;
+    float x = 0;
+    float y = 0;
     std::string code = "";
     std::string action = "";
 
@@ -215,4 +230,8 @@ void SDLInputEngineAdapter::closeController() const
     std::cout << "Controller Disconnected" << std::endl;
     SDL_GameControllerClose(gameController);
     gameController == NULL;
+}
+
+Event<Input>& SDLInputEngineAdapter::getInputEvent() {
+    return _inputEvent;
 }

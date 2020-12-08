@@ -5,49 +5,46 @@
 #include "../../API/Physics/PhysicsAPI.hpp"
 #include "../Rendering/Adapter/RenderingEngineAdapter.hpp"
 #include "ContactHandler.hpp"
+#include "../../API/RPosition.hpp"
 #include <vector>
+
 
 typedef signed int int32;
 typedef unsigned int BodyId;
-struct RPosition;
 
-struct Box2DBoxData
+
+struct Box2DData {
+    BodyType bodyType;
+    Vector2 position;
+    bool isSensor = false;
+    ContactHandler* userData = nullptr;
+};
+
+struct Box2DBoxData : public Box2DData
 {
     Box2DBoxData() {
 
     }
 
-    BodyType bodyType;
-    Vector2 position;
     Vector2 size;
-    bool isSensor = false;
-    ContactHandler* userdata = nullptr;
 };
 
-struct Box2DCircleData
+struct Box2DCircleData : public Box2DData
 {
     Box2DCircleData() {
 
     }
 
-    BodyType bodyType;
-    Vector2 position;
     float radius;
-    bool isSensor;
-    ContactHandler* userData = nullptr;
 };
 
-struct Box2DPolygonData
+struct Box2DPolygonData : public Box2DData
 {
     Box2DPolygonData() {
 
     }
 
-    BodyType bodyType;
-    Vector2 position;
-    bool isSensor;
     std::vector<Vector2> points;
-    ContactHandler* userData = nullptr;
 };
 
 class PhysicsEngineAdapter {
@@ -78,4 +75,6 @@ public:
     virtual void setLinearVelocity(const BodyId bodyId, const Vector2 &vector2) = 0;
 
     virtual void setFixedRotation(const BodyId bodyId, bool b) = 0;
+
+    virtual void setContactHandler(BodyId i, ContactHandler *pHandler) = 0;
 };

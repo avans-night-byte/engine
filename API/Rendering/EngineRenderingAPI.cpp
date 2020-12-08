@@ -1,5 +1,6 @@
 #include "EngineRenderingAPI.hpp"
 
+#include "../../Engine/Rendering/TMXLevel.hpp"
 #include <utility>
 
 TextureManager *EngineRenderingAPI::GetTextureManager()
@@ -29,8 +30,9 @@ EngineRenderingAPI::createSpriteSheet(const char *path, const char *jsonPath, st
     return _adapter->createSpriteSheet(path, jsonPath, std::move(spriteSheetId), _renderer);
 }
 
-void EngineRenderingAPI::createText(std::string fontName, const char* text, const int fontSize, SDL_Color color, std::string textureId){
-    return _adapter->createText(fontName, text, fontSize, color, textureId, _renderer);
+void EngineRenderingAPI::createText(std::string fontName, const char *text, const int fontSize, SDL_Color color,
+                                    std::string textureId) const {
+    _adapter->createText(fontName, text, fontSize, color, textureId, _renderer);
 }
 
 
@@ -43,7 +45,7 @@ void EngineRenderingAPI::createText(std::string fontName, const char* text, cons
  * @param scale
  * @param r
  */
-void EngineRenderingAPI::drawTexture(std::string textureId, int x, int y, int width, int height, double scale, double r)
+void EngineRenderingAPI::drawTexture(std::string textureId, int x, int y, int width, int height, double scale, double r) const
 {
     return _adapter->drawTexture(textureId, x, y, width, height, scale, r, _renderer, SDL_FLIP_NONE);
 }
@@ -55,9 +57,27 @@ void EngineRenderingAPI::drawTexture(std::string textureId, int x, int y, int wi
  */
 bool EngineRenderingAPI::loadTexture(const char *path, std::string textureId)
 {
-    return RenderingEngineAdapter::GetTextureManager()->load(path, textureId, _renderer);
+    return RenderingEngineAdapter::GetTextureManager()->load(path, textureId);
 }
 
-const RenderingEngineAdapter &EngineRenderingAPI::GetRendererAdapter() const {
+RenderingEngineAdapter &EngineRenderingAPI::GetRendererAdapter() const {
     return *_adapter;
+}
+
+void EngineRenderingAPI::drawRectangle(Vector2 &position, float width, float height, std::string& color, float opacity) const {
+    _adapter->drawRectangle(position, width, height, color, opacity, _renderer);
+
+}
+
+TMXLevel *EngineRenderingAPI::loadLevel(const TMXLevelData &levelData, PhysicsEngineAdapter &physicsEngineAdapter) {
+    return new TMXLevel(levelData.tmxPath.c_str(),
+                        levelData.spritesheetPath.c_str(),
+                        levelData.spriteId.c_str(),
+                        *this,
+                        physicsEngineAdapter);
+}
+
+void EngineRenderingAPI::drawBackground(std::string hex, float alpha) const {
+    _adapter->drawBackground(hex, alpha, _renderer);
+
 }

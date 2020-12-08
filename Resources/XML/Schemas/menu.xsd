@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:cmn="Common"
+           targetNamespace="Menu">
+
+    <xs:import schemaLocation="common.xsd"
+               namespace="Common"/>
+
+    <xs:element name="menu">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+                <xs:choice>
+                    <xs:element ref="cmn:resources"/>
+                    <xs:element ref="cmn:color"/>
+                </xs:choice>
+                <xs:element name="backgroundMusic" minOccurs="0" type="xs:string"/>
+                <xs:element name="buttons" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="button" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element ref="cmn:position"/>
+                                        <xs:element ref="cmn:size"/>
+                                        <xs:element name="content" type="xs:string" minOccurs="0"/>
+                                        <xs:choice>
+                                            <xs:element ref="cmn:color"/>
+                                            <xs:element name="resources">
+                                                <xs:complexType>
+                                                    <xs:complexContent>
+                                                        <xs:extension base="cmn:baseResources">
+                                                            <xs:sequence>
+                                                                <xs:element name="hover" type="xs:string"
+                                                                            minOccurs="0"/>
+                                                                <xs:element name="click" type="xs:string"
+                                                                            minOccurs="0"/>
+                                                            </xs:sequence>
+                                                        </xs:extension>
+                                                    </xs:complexContent>
+                                                </xs:complexType>
+                                            </xs:element>
+                                        </xs:choice>
+                                        <xs:element ref="cmn:events"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="texts">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="text" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element ref="cmn:position"/>
+                                        <xs:element ref="cmn:color"/>
+                                        <xs:element name="content" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="images">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="image" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element ref="cmn:position"/>
+                                        <xs:element ref="cmn:size"/>
+                                        <xs:element ref="cmn:resources" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element ref="cmn:preloadResources"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

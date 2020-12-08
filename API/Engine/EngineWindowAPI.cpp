@@ -16,8 +16,3 @@ SDL_Renderer *EngineWindowAPI::getRenderer() const
 {
     return _engine->getRenderer();
 }
-
-EngineWindowAPI::~EngineWindowAPI()
-{
-    delete _engine;
-}

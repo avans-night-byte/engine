@@ -1,18 +1,22 @@
 #pragma once
 
-#include "memory"
-#include "../../Engine/Physics/BodyType.hpp"
-#include "../../Engine/Vector2.hpp"
 #include "../../Engine/Physics/PhysicsEngineAdapter.hpp"
-#include "../Rendering/RenderingAPI.hpp"
-#include "../RPosition.hpp"
+
+#include "memory"
+#include "b2_types.h"
 #include "../../Engine/Physics/ContactHandler.hpp"
 
 class PhysicsEngineAdapter;
+class RenderingAPI;
+class SDL_Renderer;
+
 typedef unsigned int BodyId;
 struct Box2DBoxData;
 struct Box2DCircleData;
 struct Box2DPolygonData;
+
+struct RPosition;
+class Vector2;
 
 class PhysicsAPI {
 public:
@@ -40,4 +44,5 @@ public:
 
     virtual std::unique_ptr<PhysicsEngineAdapter>& getPhysicsEngineAdapter() = 0;
 
+    virtual void setContactHandler(BodyId i, ContactHandler *pHandler) const = 0;
 };

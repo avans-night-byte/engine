@@ -37,7 +37,6 @@ Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
     return bodies.size() - 1;
 }
 
-
 BodyId Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
                                              Vector2 position,
                                              const std::vector<Vector2> &points,
@@ -98,6 +97,9 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
     return bodies.size() - 1;
 }
 
+
+
+
 void Box2DPhysicsEngineAdapter::referencePositionToBody(BodyId bodyId, float &x, float &y) {
     b2Body *body = bodies[bodyId];
     x = body->GetPosition().x;
@@ -147,4 +149,9 @@ void Box2DPhysicsEngineAdapter::getVelocity(Vector2 &velocity, BodyId bodyId) co
 void Box2DPhysicsEngineAdapter::setFixedRotation(const BodyId bodyId, bool b) {
     b2Body *body = bodies[bodyId];
     body->SetFixedRotation(b);
+}
+
+void Box2DPhysicsEngineAdapter::setContactHandler(BodyId i, ContactHandler *pHandler) {
+    b2Body *body = bodies[i];
+    body->GetUserData().pointer = (uintptr_t)pHandler;
 }
