@@ -1,18 +1,18 @@
 var searchData=
 [
-  ['gameresources_129',['GameResources',['../namespaceGameResources.html',1,'']]],
-  ['gday_130',['gday',['../namespacexml__schema.html#a80cbdd05209953df8c443ba8d81d4c25',1,'xml_schema']]],
-  ['getaudionames_131',['getAudioNames',['../classSDLAudioEngineAdapter.html#a1a7fa2a4cb9c71bdc0c187ad9055c63c',1,'SDLAudioEngineAdapter']]],
-  ['getchannelsaveragevolume_132',['getChannelsAverageVolume',['../classSDLAudioEngineAdapter.html#a755fc7491f41997bacd06264074d91e5',1,'SDLAudioEngineAdapter']]],
-  ['getchannelvolume_133',['getChannelVolume',['../classSDLAudioEngineAdapter.html#a67070122dca2075bebbff0a480561869',1,'SDLAudioEngineAdapter']]],
-  ['getcontrollerinput_134',['getControllerInput',['../classSDLInputEngineAdapter.html#a12a188984b769c6210335481e2062c37',1,'SDLInputEngineAdapter']]],
-  ['getcontrollermotioninput_135',['getControllerMotionInput',['../classSDLInputEngineAdapter.html#a2ee77f44322c6fa425fb73d8a1a31bea',1,'SDLInputEngineAdapter']]],
-  ['getinput_136',['getInput',['../classSDLInputEngineAdapter.html#af4dff5dabe2a8918fbefca4e945606a6',1,'SDLInputEngineAdapter']]],
-  ['getkeyinput_137',['getKeyInput',['../classSDLInputEngineAdapter.html#a247bdda44c11b932ea53f7b33e8356d5',1,'SDLInputEngineAdapter']]],
-  ['getmouseinput_138',['getMouseInput',['../classSDLInputEngineAdapter.html#ac0a1eafdc5a3ff0bdc06130e9b1cab95',1,'SDLInputEngineAdapter']]],
-  ['getmusicvolume_139',['getMusicVolume',['../classSDLAudioEngineAdapter.html#aee13c81b860242277a89f3993d312562',1,'SDLAudioEngineAdapter']]],
-  ['gmonth_140',['gmonth',['../namespacexml__schema.html#afe97b9ae1d131c601ce16f8bb4cdc022',1,'xml_schema']]],
-  ['gmonth_5fday_141',['gmonth_day',['../namespacexml__schema.html#a61e87eff200c80a4fce76244d6d01296',1,'xml_schema']]],
-  ['gyear_142',['gyear',['../namespacexml__schema.html#a180526e3ae3592e56a0037c1f2ec8e5b',1,'xml_schema']]],
-  ['gyear_5fmonth_143',['gyear_month',['../namespacexml__schema.html#a8da9330a638589b1ef456991753a2804',1,'xml_schema']]]
+  ['gameresources_155',['GameResources',['../namespaceGameResources.html',1,'']]],
+  ['gday_156',['gday',['../namespacexml__schema.html#a80cbdd05209953df8c443ba8d81d4c25',1,'xml_schema']]],
+  ['getaudionames_157',['getAudioNames',['../classSDLAudioEngineAdapter.html#a1a7fa2a4cb9c71bdc0c187ad9055c63c',1,'SDLAudioEngineAdapter']]],
+  ['getchannelsaveragevolume_158',['getChannelsAverageVolume',['../classSDLAudioEngineAdapter.html#a755fc7491f41997bacd06264074d91e5',1,'SDLAudioEngineAdapter']]],
+  ['getchannelvolume_159',['getChannelVolume',['../classSDLAudioEngineAdapter.html#a67070122dca2075bebbff0a480561869',1,'SDLAudioEngineAdapter']]],
+  ['getcontrollerinput_160',['getControllerInput',['../classSDLInputEngineAdapter.html#a12a188984b769c6210335481e2062c37',1,'SDLInputEngineAdapter']]],
+  ['getcontrollermotioninput_161',['getControllerMotionInput',['../classSDLInputEngineAdapter.html#a2ee77f44322c6fa425fb73d8a1a31bea',1,'SDLInputEngineAdapter']]],
+  ['getinput_162',['getInput',['../classSDLInputEngineAdapter.html#af4dff5dabe2a8918fbefca4e945606a6',1,'SDLInputEngineAdapter']]],
+  ['getkeyinput_163',['getKeyInput',['../classSDLInputEngineAdapter.html#a247bdda44c11b932ea53f7b33e8356d5',1,'SDLInputEngineAdapter']]],
+  ['getmouseinput_164',['getMouseInput',['../classSDLInputEngineAdapter.html#ac0a1eafdc5a3ff0bdc06130e9b1cab95',1,'SDLInputEngineAdapter']]],
+  ['getmusicvolume_165',['getMusicVolume',['../classSDLAudioEngineAdapter.html#aee13c81b860242277a89f3993d312562',1,'SDLAudioEngineAdapter']]],
+  ['gmonth_166',['gmonth',['../namespacexml__schema.html#afe97b9ae1d131c601ce16f8bb4cdc022',1,'xml_schema']]],
+  ['gmonth_5fday_167',['gmonth_day',['../namespacexml__schema.html#a61e87eff200c80a4fce76244d6d01296',1,'xml_schema']]],
+  ['gyear_168',['gyear',['../namespacexml__schema.html#a180526e3ae3592e56a0037c1f2ec8e5b',1,'xml_schema']]],
+  ['gyear_5fmonth_169',['gyear_month',['../namespacexml__schema.html#a8da9330a638589b1ef456991753a2804',1,'xml_schema']]]
 ];
