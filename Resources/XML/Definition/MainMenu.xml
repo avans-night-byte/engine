@@ -27,7 +27,7 @@
             </common:color>
             <common:events>
                 <onClick>
-                    <playSound>oof</playSound>
+                    <playSound>bonk</playSound>
                     <loadScene>Credits</loadScene>
                 </onClick>
             </common:events>
@@ -46,6 +46,25 @@
                 <hex>fcba03</hex>
                 <alpha>255</alpha>
             </common:color>
+            <common:events>
+                <onClick>
+                    <custom>close</custom>
+                </onClick>
+            </common:events>
+        </button>
+        <button>
+            <common:position>
+                <x>400</x>
+                <y>400</y>
+            </common:position>
+            <common:size>
+                <width>200</width>
+                <height>200</height>
+            </common:size>
+            <content>e</content>
+            <resources>
+                <default>github_logo</default>
+            </resources>
             <common:events>
                 <onClick>
                     <custom>close</custom>
@@ -74,13 +93,31 @@
                 <hex>c9c947</hex>
                 <alpha>100</alpha>
             </common:color>
-            <content>😀😀😀😀😀</content>
+            <content>Biiiiirthv</content>
         </text>
     </texts>
-    <images/>
+    <images>
+        <image>
+            <common:position>
+                <x>1000</x>
+                <y>1000</y>
+            </common:position>
+            <common:size>
+                <width>100</width>
+                <height>100</height>
+            </common:size>
+            <common:resources>
+                <default>github_logo</default>
+            </common:resources>
+        </image>
+    </images>
     <common:preloadResources>
         <resource>mainmenu_background</resource>
         <resource>mainmenu_music</resource>
-        <resource>oof</resource>
+        <resource>bonk</resource>
+        <resource>github_logo</resource>
+        <resource>sascha</resource>
+        <resource>background_2</resource>
+        <resource>minion</resource>
     </common:preloadResources>
 </menu:menu>

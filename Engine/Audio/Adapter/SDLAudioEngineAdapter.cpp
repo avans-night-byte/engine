@@ -24,6 +24,8 @@ SDLAudioEngineAdapter::SDLAudioEngineAdapter() {
     if (Mix_Init(MIX_INIT_MP3) < 0) {
         printf("Failed to init Mix: %s\n", Mix_GetError());
     }
+
+    Mix_AllocateChannels(100);
 }
 
 SDLAudioEngineAdapter::~SDLAudioEngineAdapter() {
@@ -61,7 +63,7 @@ void SDLAudioEngineAdapter::playFromMemory(const std::string &name) {
 
     if (_musicTracks.count(name) > 0) {
         Mix_Music *music = _musicTracks.at(name);
-        Mix_PlayMusic(music, 1);
+        Mix_PlayMusic(music, -1);
         return;
     }
 
@@ -70,6 +72,7 @@ void SDLAudioEngineAdapter::playFromMemory(const std::string &name) {
         Mix_PlayChannel(-1, soundEffect, 0);
     }
 }
+
 
 /**
  * Uses the given path and type to add the file in the correct map
@@ -80,11 +83,6 @@ void SDLAudioEngineAdapter::playFromMemory(const std::string &name) {
  * @param type
  **/
 void SDLAudioEngineAdapter::loadInMemory(const std::string &path, const std::string &name, AudioType type) {
-
-    auto index = path.find_last_of('/');
-    if (index == std::string::npos) index = 0;
-
-
     switch (type) {
         case music:
             _musicTracks[name] = Mix_LoadMUS(path.c_str());
@@ -110,7 +108,7 @@ void SDLAudioEngineAdapter::playFromPath(const std::string &path, AudioType &typ
     switch (type) {
         case music:
             if (mixMusic != nullptr) {
-                Mix_PlayMusic(mixMusic, 1);
+                Mix_PlayMusic(mixMusic, -1);
             }
             break;
         case sound:

@@ -28,8 +28,11 @@ void MenuParser::initialize(const std::string &path) {
     if (_menu->buttons().present()) {
         int index = 0;
         for (auto button : _menu->buttons()->button()) {
+            if(!button.content().present())
+                continue;
+
             auto createdString = _buttonPrefix + std::to_string(index);
-            auto wrapper = TextWrapper::createText(_renderer, button.content().c_str(),
+            auto wrapper = TextWrapper::createText(_renderer, button.content()->c_str(),
                                                    (_fontPath + "Montserrat-Bold.ttf").c_str(), 32,
                                                    SDL_Color{255, 255, 255}, createdString);
 
@@ -68,8 +71,8 @@ void MenuParser::render() {
         _renderer.drawTexture(_menu->resources()->default_(), 0, 0, 1920, 1080, 1, 0);
     }
 
-    MenuParser::renderText();
     MenuParser::renderImages();
+    MenuParser::renderText();
     MenuParser::renderButtons();
 }
 
@@ -91,6 +94,8 @@ void MenuParser::renderButtons() {
                                 button.position().y() + ((button.size().height() / 2) - textWrapper->getSize().y / 2));
         } else {
             //TODO: draw rectangle with resource image
+
+            _renderer.drawTexture(   button.resources()->default_(), v2.x, v2.y, button.size().width(), button.size().height(), 1, 0);
             //_renderer.drawRectangle(v2, button.size().width(), button.size().height(), button.color()->hex(), button.color()->alpha());
         }
         index++;

@@ -379,22 +379,28 @@ namespace Menu
     this->size_.set (std::move (x));
   }
 
-  const button::content_type& button::
+  const button::content_optional& button::
   content () const
   {
-    return this->content_.get ();
+    return this->content_;
   }
 
-  button::content_type& button::
+  button::content_optional& button::
   content ()
   {
-    return this->content_.get ();
+    return this->content_;
   }
 
   void button::
   content (const content_type& x)
   {
     this->content_.set (x);
+  }
+
+  void button::
+  content (const content_optional& x)
+  {
+    this->content_ = x;
   }
 
   void button::
@@ -1219,12 +1225,11 @@ namespace Menu
   button::
   button (const position_type& position,
           const size_type& size,
-          const content_type& content,
           const events_type& events)
   : ::xml_schema::type (),
     position_ (position, this),
     size_ (size, this),
-    content_ (content, this),
+    content_ (this),
     color_ (this),
     resources_ (this),
     events_ (events, this)
@@ -1234,12 +1239,11 @@ namespace Menu
   button::
   button (::std::unique_ptr< position_type > position,
           ::std::unique_ptr< size_type > size,
-          const content_type& content,
           ::std::unique_ptr< events_type > events)
   : ::xml_schema::type (),
     position_ (std::move (position), this),
     size_ (std::move (size), this),
-    content_ (content, this),
+    content_ (this),
     color_ (this),
     resources_ (this),
     events_ (std::move (events), this)
@@ -1324,7 +1328,7 @@ namespace Menu
         ::std::unique_ptr< content_type > r (
           content_traits::create (i, f, this));
 
-        if (!content_.present ())
+        if (!this->content_)
         {
           this->content_.set (::std::move (r));
           continue;
@@ -1388,13 +1392,6 @@ namespace Menu
       throw ::xsd::cxx::tree::expected_element< char > (
         "size",
         "Common");
-    }
-
-    if (!content_.present ())
-    {
-      throw ::xsd::cxx::tree::expected_element< char > (
-        "content",
-        "");
     }
 
     if (!events_.present ())

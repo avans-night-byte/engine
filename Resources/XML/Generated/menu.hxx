@@ -1853,7 +1853,7 @@ namespace Menu
      * @name content
      *
      * @brief Accessor and modifier functions for the %content
-     * required element.
+     * optional element.
      */
     //@{
 
@@ -1863,24 +1863,30 @@ namespace Menu
     typedef ::xml_schema::string content_type;
 
     /**
+     * @brief Element optional container type.
+     */
+    typedef ::xsd::cxx::tree::optional< content_type > content_optional;
+
+    /**
      * @brief Element traits type.
      */
     typedef ::xsd::cxx::tree::traits< content_type, char > content_traits;
 
     /**
-     * @brief Return a read-only (constant) reference to the element.
+     * @brief Return a read-only (constant) reference to the element
+     * container.
      *
-     * @return A constant reference to the element.
+     * @return A constant reference to the optional container.
      */
-    const content_type&
+    const content_optional&
     content () const;
 
     /**
-     * @brief Return a read-write reference to the element.
+     * @brief Return a read-write reference to the element container.
      *
-     * @return A reference to the element.
+     * @return A reference to the optional container.
      */
-    content_type&
+    content_optional&
     content ();
 
     /**
@@ -1895,12 +1901,24 @@ namespace Menu
     content (const content_type& x);
 
     /**
+     * @brief Set the element value.
+     *
+     * @param x An optional container with the new value to set.
+     *
+     * If the value is present in @a x then this function makes a copy 
+     * of this value and sets it as the new value of the element.
+     * Otherwise the element container is set the 'not present' state.
+     */
+    void
+    content (const content_optional& x);
+
+    /**
      * @brief Set the element value without copying.
      *
      * @param p A new value to use.
      *
-     * This function will try to use the passed value directly
-     * instead of making a copy.
+     * This function will try to use the passed value directly instead
+     * of making a copy.
      */
     void
     content (::std::unique_ptr< content_type > p);
@@ -2128,7 +2146,6 @@ namespace Menu
      */
     button (const position_type&,
             const size_type&,
-            const content_type&,
             const events_type&);
 
     /**
@@ -2141,7 +2158,6 @@ namespace Menu
      */
     button (::std::unique_ptr< position_type >,
             ::std::unique_ptr< size_type >,
-            const content_type&,
             ::std::unique_ptr< events_type >);
 
     /**
@@ -2216,7 +2232,7 @@ namespace Menu
     protected:
     ::xsd::cxx::tree::one< position_type > position_;
     ::xsd::cxx::tree::one< size_type > size_;
-    ::xsd::cxx::tree::one< content_type > content_;
+    content_optional content_;
     color_optional color_;
     resources_optional resources_;
     ::xsd::cxx::tree::one< events_type > events_;
