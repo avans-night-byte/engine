@@ -125,7 +125,7 @@ void MenuParser::renderImages() {
 
 }
 
-SDL_Color MenuParser::HexToRGB(std::string hex, float opacity) {
+SDL_Color MenuParser::HexToRGB(const std::string& hex, float opacity) {
 
     std::regex pattern("#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})");
 

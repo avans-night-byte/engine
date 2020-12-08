@@ -46,7 +46,7 @@ private:
 
     ResourceManager *_resourceManager = nullptr;
 
-    static SDL_Color HexToRGB(std::string hex, float opacity) ;
+    static SDL_Color HexToRGB(const std::string& hex, float opacity) ;
 
     void renderImages();
 };
