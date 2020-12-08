@@ -51,6 +51,10 @@ add_executable(NightByte ./Main.cpp
         ./Game/Scenes/Level1/Level1.hpp
         ./Game/Components/NextLevelComponent.cpp
         ./Game/Components/NextLevelComponent.hpp
+        ./Game/Scenes/Level10/LevelCharlie.cpp
+        ./Game/Scenes/Level10/LevelCharlie.hpp
+        ./Game/Components/HealthComponent.cpp
+        ./Game/Components/HealthComponent.hpp
         # Engine
         ./Engine/Engine.cpp
         ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
@@ -85,7 +89,7 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Resources/XML/Generated/wall.cxx
         ./Engine/Resources/XML/Generated/common.cxx
         ./Engine/Resources/XML/Generated/common.hxx
-        Game/Scenes/Level10/LevelCharlie.cpp Game/Scenes/Level10/LevelCharlie.hpp)
+        )
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)

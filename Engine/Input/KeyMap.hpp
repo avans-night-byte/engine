@@ -51,5 +51,9 @@ public:
             {SDLK_q,            InputAction{.code = "Q", .action = "QUIT"}},
             {SDLK_BACKSLASH,    InputAction{.code = "\\", .action = "BACKSLASH"}},
             {SDLK_RIGHTBRACKET, InputAction{.code = "]", .action = "RIGHTBRACKET"}},
+            {SDLK_k,            InputAction{.code = "K", .action = "KILL"}},
+            {SDLK_h,            InputAction{.code = "H", .action = "HIT"}},
+            {SDLK_r,            InputAction{.code = "R", .action = "REVIVE"}},
+
     };
 };
