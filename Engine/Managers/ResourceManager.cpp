@@ -15,12 +15,12 @@ ResourceManager *ResourceManager::getInstance() {
     return _instance;
 }
 
-ResourceManager* ResourceManager::instantiate(const std::string &resourcePath, bool debug) {
+ResourceManager *ResourceManager::instantiate(const std::string &resourcePath, bool debug) {
     if (_instance != nullptr) {
         throw std::runtime_error("[ERROR] [ResourceManager] Manager has already been initiated!");
     }
 
-    if(_instance == nullptr){
+    if (_instance == nullptr) {
         _instance = new ResourceManager(resourcePath, debug);
     }
 
@@ -132,6 +132,9 @@ void ResourceManager::loadResource(const std::string &resource) {
             // TODO: Load the level
             break;
     }
+
+    if (type != SCENES && type != LEVELS)
+        _loadedResources.push_back(resource);
 }
 
 void ResourceManager::unloadResource(std::string resource) {
