@@ -82,12 +82,15 @@ Inheritance diagram for SDLInputEngineAdapter:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7a8c2a7371fe3791659ee82097899abf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structInput.html">Input</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLInputEngineAdapter.html#a7a8c2a7371fe3791659ee82097899abf">getInput</a> () const override</td></tr>
-<tr class="separator:a7a8c2a7371fe3791659ee82097899abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49a618970f7ecf6e039b29dee8e6a876"><td class="memItemLeft" align="right" valign="top"><a id="a49a618970f7ecf6e039b29dee8e6a876"></a>
+<a class="el" href="classEvent.html">Event</a>&lt; <a class="el" href="structInput.html">Input</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getInputEvent</b> () override</td></tr>
+<tr class="separator:a49a618970f7ecf6e039b29dee8e6a876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4dff5dabe2a8918fbefca4e945606a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structInput.html">Input</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLInputEngineAdapter.html#af4dff5dabe2a8918fbefca4e945606a6">getInput</a> () override</td></tr>
+<tr class="separator:af4dff5dabe2a8918fbefca4e945606a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a247bdda44c11b932ea53f7b33e8356d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structInput.html">Input</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLInputEngineAdapter.html#a247bdda44c11b932ea53f7b33e8356d5">getKeyInput</a> (SDL_Keycode input, Uint32 type=SDL_KEYDOWN) const override</td></tr>
 <tr class="separator:a247bdda44c11b932ea53f7b33e8356d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dabc74b1e769e1fe12be8045384c728"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structInput.html">Input</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLInputEngineAdapter.html#a1dabc74b1e769e1fe12be8045384c728">getMouseInput</a> (SDL_Event input) const override</td></tr>
-<tr class="separator:a1dabc74b1e769e1fe12be8045384c728"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0a1eafdc5a3ff0bdc06130e9b1cab95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structInput.html">Input</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLInputEngineAdapter.html#ac0a1eafdc5a3ff0bdc06130e9b1cab95">getMouseInput</a> (SDL_Event input) override</td></tr>
+<tr class="separator:ac0a1eafdc5a3ff0bdc06130e9b1cab95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12a188984b769c6210335481e2062c37"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structInput.html">Input</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLInputEngineAdapter.html#a12a188984b769c6210335481e2062c37">getControllerInput</a> (SDL_Event input) const override</td></tr>
 <tr class="separator:a12a188984b769c6210335481e2062c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ee77f44322c6fa425fb73d8a1a31bea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structInput.html">Input</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLInputEngineAdapter.html#a2ee77f44322c6fa425fb73d8a1a31bea">getControllerMotionInput</a> (SDL_Event input) const override</td></tr>
@@ -122,7 +125,7 @@ Public Member Functions</h2></td></tr>
 <p>Handles Keymapping for device 2: CONTROLLER.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">SDL_Event</td><td>controllerEvent - SDL Event that was received. </td></tr>
+    <tr><td class="paramname">SDL_Event</td><td>controllerEvent - SDL <a class="el" href="classEvent.html">Event</a> that was received. </td></tr>
   </table>
   </dd>
 </dl>
@@ -158,7 +161,7 @@ Public Member Functions</h2></td></tr>
 <p>Handles Axis motion events for the controller. Note: At this time this only logs which axis was moved.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">SDL_Event</td><td>controllerEvent - SDL Event that was received. </td></tr>
+    <tr><td class="paramname">SDL_Event</td><td>controllerEvent - SDL <a class="el" href="classEvent.html">Event</a> that was received. </td></tr>
   </table>
   </dd>
 </dl>
@@ -182,8 +185,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7a8c2a7371fe3791659ee82097899abf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a8c2a7371fe3791659ee82097899abf">&#9670;&nbsp;</a></span>getInput()</h2>
+<a id="af4dff5dabe2a8918fbefca4e945606a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4dff5dabe2a8918fbefca4e945606a6">&#9670;&nbsp;</a></span>getInput()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -195,7 +198,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname"><a class="el" href="structInput.html">Input</a> SDLInputEngineAdapter::getInput </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -265,8 +268,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a1dabc74b1e769e1fe12be8045384c728"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1dabc74b1e769e1fe12be8045384c728">&#9670;&nbsp;</a></span>getMouseInput()</h2>
+<a id="ac0a1eafdc5a3ff0bdc06130e9b1cab95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0a1eafdc5a3ff0bdc06130e9b1cab95">&#9670;&nbsp;</a></span>getMouseInput()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -279,7 +282,7 @@ Public Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">SDL_Event&#160;</td>
           <td class="paramname"><em>mouseEvent</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -291,7 +294,7 @@ Public Member Functions</h2></td></tr>
 <p>Handles Keymapping for device 1: MOUSE.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">SDL_Event</td><td>mouseEvent - SDL Event that was received. </td></tr>
+    <tr><td class="paramname">SDL_Event</td><td>mouseEvent - SDL <a class="el" href="classEvent.html">Event</a> that was received. </td></tr>
   </table>
   </dd>
 </dl>

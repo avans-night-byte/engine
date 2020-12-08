@@ -84,54 +84,60 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    ~<a class="code" href="classAudioAPI.html">AudioAPI</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classAudioAPI.html#a304eaaaa17f99ef401abfb4bea6fbfb6">AudioAPI</a>();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classAudioAPI.html#a304eaaaa17f99ef401abfb4bea6fbfb6">AudioAPI</a>(<span class="keyword">const</span> <a class="code" href="classAudioAPI.html">AudioAPI</a> &amp;other) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classAudioAPI.html#a304eaaaa17f99ef401abfb4bea6fbfb6">AudioAPI</a>(<a class="code" href="classAudioAPI.html">AudioAPI</a> &amp;&amp;other) noexcept = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classAudioAPI.html#a304eaaaa17f99ef401abfb4bea6fbfb6">AudioAPI</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classAudioAPI.html#a304eaaaa17f99ef401abfb4bea6fbfb6">AudioAPI</a>(<span class="keyword">const</span> <a class="code" href="classAudioAPI.html">AudioAPI</a> &amp;other) = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classAudioAPI.html">AudioAPI</a> &amp;operator=(<span class="keyword">const</span> <a class="code" href="classAudioAPI.html">AudioAPI</a> &amp;other) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classAudioAPI.html">AudioAPI</a> &amp;operator=(<a class="code" href="classAudioAPI.html">AudioAPI</a> &amp;&amp;other) noexcept = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    std::vector&lt;std::string&gt; getAudioNames();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> playFromMemory(<span class="keyword">const</span> std::string &amp;name);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> playFromPath(<span class="keyword">const</span> std::string &amp;path, AudioType &amp;type);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> loadInMemory(<span class="keyword">const</span> std::string &amp;path, AudioType &amp;type);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> stopAudio();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> stopMusic();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> stopSound(<span class="keywordtype">int</span> channel);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> stopSounds();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> changeMasterVolume(<span class="keywordtype">int</span> volume);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> changeChannelVolume(<span class="keywordtype">int</span> channel, <span class="keywordtype">int</span> volume);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> changeMusicVolume(<span class="keywordtype">int</span> volume);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> getChannelsAverageVolume();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> getChannelVolume(<span class="keywordtype">int</span> channel);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> getMusicVolume();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> toggleMusic();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> toggleSound(<span class="keywordtype">int</span> channel);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> toggleSounds();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapter</a> *_adapter;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classAudioAPI.html#a304eaaaa17f99ef401abfb4bea6fbfb6">AudioAPI</a>(<a class="code" href="classAudioAPI.html">AudioAPI</a> &amp;&amp;other) noexcept = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classAudioAPI.html">AudioAPI</a> &amp;operator=(<span class="keyword">const</span> <a class="code" href="classAudioAPI.html">AudioAPI</a> &amp;other) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classAudioAPI.html">AudioAPI</a> &amp;operator=(<a class="code" href="classAudioAPI.html">AudioAPI</a> &amp;&amp;other) noexcept = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::vector&lt;std::string&gt; getAudioNames();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> playFromMemory(<span class="keyword">const</span> <a class="code" href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">std::string</a> &amp;<a class="code" href="namespacexml__schema.html#a2f1617231643eded4c3b9aa5f1ed6c08">name</a>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> playFromPath(<span class="keyword">const</span> <a class="code" href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">std::string</a> &amp;path, AudioType &amp;<a class="code" href="namespacexml__schema.html#a4bf7f144ce936a6a393de26f4cb707f0">type</a>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> loadInMemory(<span class="keyword">const</span> <a class="code" href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">std::string</a> &amp;path, <span class="keyword">const</span> <a class="code" href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">std::string</a> &amp;<a class="code" href="namespacexml__schema.html#a2f1617231643eded4c3b9aa5f1ed6c08">name</a>, AudioType <a class="code" href="namespacexml__schema.html#a4bf7f144ce936a6a393de26f4cb707f0">type</a>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> stopAudio();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> stopMusic();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> stopSound(<span class="keywordtype">int</span> channel);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> stopSounds();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> changeMasterVolume(<span class="keywordtype">int</span> volume);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> changeChannelVolume(<span class="keywordtype">int</span> channel, <span class="keywordtype">int</span> volume);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> changeMusicVolume(<span class="keywordtype">int</span> volume);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> getChannelsAverageVolume();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> getChannelVolume(<span class="keywordtype">int</span> channel);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> getMusicVolume();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> toggleMusic();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> toggleSound(<span class="keywordtype">int</span> channel);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> toggleSounds();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapter</a> *_adapter;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassSDLAudioEngineAdapter_html"><div class="ttname"><a href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapter</a></div><div class="ttdef"><b>Definition:</b> SDLAudioEngineAdapter.hpp:9</div></div>
+<div class="ttc" id="anamespacexml__schema_html_ac0cec83a330f0024e4e318b3deac5104"><div class="ttname"><a href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">xml_schema::string</a></div><div class="ttdeci">::xsd::cxx::tree::string&lt; char, simple_type &gt; string</div><div class="ttdoc">C++ type corresponding to the string XML Schema built-in type.</div><div class="ttdef"><b>Definition:</b> common.hxx:255</div></div>
 <div class="ttc" id="aclassAudioAPI_html_a304eaaaa17f99ef401abfb4bea6fbfb6"><div class="ttname"><a href="classAudioAPI.html#a304eaaaa17f99ef401abfb4bea6fbfb6">AudioAPI::AudioAPI</a></div><div class="ttdeci">AudioAPI()</div><div class="ttdef"><b>Definition:</b> AudioAPI.cpp:7</div></div>
+<div class="ttc" id="anamespacexml__schema_html_a2f1617231643eded4c3b9aa5f1ed6c08"><div class="ttname"><a href="namespacexml__schema.html#a2f1617231643eded4c3b9aa5f1ed6c08">xml_schema::name</a></div><div class="ttdeci">::xsd::cxx::tree::name&lt; char, token &gt; name</div><div class="ttdoc">C++ type corresponding to the Name XML Schema built-in type.</div><div class="ttdef"><b>Definition:</b> common.hxx:273</div></div>
+<div class="ttc" id="anamespacexml__schema_html_a4bf7f144ce936a6a393de26f4cb707f0"><div class="ttname"><a href="namespacexml__schema.html#a4bf7f144ce936a6a393de26f4cb707f0">xml_schema::type</a></div><div class="ttdeci">::xsd::cxx::tree::type type</div><div class="ttdoc">C++ type corresponding to the anyType XML Schema built-in type.</div><div class="ttdef"><b>Definition:</b> common.hxx:104</div></div>
 <div class="ttc" id="aclassAudioAPI_html"><div class="ttname"><a href="classAudioAPI.html">AudioAPI</a></div><div class="ttdef"><b>Definition:</b> AudioAPI.hpp:12</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

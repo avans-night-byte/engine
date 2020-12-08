@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['night_20byte_20engine_51',['Night Byte Engine',['../index.html',1,'']]],
-  ['none_52',['NONE',['../structInput.html#a90f2398be06274fc301d15b7cb00f026ac27e2e633e6394c7b38434b8167b237d',1,'Input']]]
+  ['keyboard_177',['KEYBOARD',['../structInput.html#a90f2398be06274fc301d15b7cb00f026ad50e721bdc2e60d122bc063ded4c685f',1,'Input']]],
+  ['keyboardmap_178',['keyboardMap',['../classKeyMap.html#a26bf20c3d21beb6f78b2d92fe0096f41',1,'KeyMap']]],
+  ['keymap_179',['KeyMap',['../classKeyMap.html',1,'KeyMap'],['../structInput.html#a9f5c1d5be805dd8c576814776a2889f3',1,'Input::keyMap()']]]
 ];

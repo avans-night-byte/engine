@@ -83,21 +83,27 @@ Inheritance diagram for EngineRenderingAPI:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab025d5e991c6c80da4fd1e4e9575564c"><td class="memItemLeft" align="right" valign="top"><a id="ab025d5e991c6c80da4fd1e4e9575564c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>EngineRenderingAPI</b> (<a class="el" href="classEngine.html">Engine</a> *engine)</td></tr>
-<tr class="separator:ab025d5e991c6c80da4fd1e4e9575564c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f2c15a427d0a0455fc787c36c252c1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#a6f2c15a427d0a0455fc787c36c252c1c">drawTexture</a> (std::string textureId, int x, int y, int width, int height, double scale, double r) override</td></tr>
-<tr class="separator:a6f2c15a427d0a0455fc787c36c252c1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c1a7a1698149a50d3f773927557f078"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#a9c1a7a1698149a50d3f773927557f078">drawTexture</a> (std::string textureId, int x, int y, int width, int height, double scale, double r) const override</td></tr>
+<tr class="separator:a9c1a7a1698149a50d3f773927557f078"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3618f114e0942c214283ddbbd453f13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSpritesheet.html">Spritesheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#af3618f114e0942c214283ddbbd453f13">createSpriteSheet</a> (char const *path, std::string spriteSheetId, int rows, int columns, int width, int height) const override</td></tr>
 <tr class="separator:af3618f114e0942c214283ddbbd453f13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a056de440460c502eb9f889ed5096b5b8"><td class="memItemLeft" align="right" valign="top"><a id="a056de440460c502eb9f889ed5096b5b8"></a>
 <a class="el" href="classSpritesheet.html">Spritesheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createSpriteSheet</b> (char const *path, char const *jsonPath, std::string spriteSheetId)</td></tr>
 <tr class="separator:a056de440460c502eb9f889ed5096b5b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68f3c557f2ae712b83a5c5b73356204d"><td class="memItemLeft" align="right" valign="top"><a id="a68f3c557f2ae712b83a5c5b73356204d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>createText</b> (std::string fontName, const char *text, const int fontSize, SDL_Color color, std::string textureId)</td></tr>
-<tr class="separator:a68f3c557f2ae712b83a5c5b73356204d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1bb48b407db43c0d96da7c8e0d3287e"><td class="memItemLeft" align="right" valign="top"><a id="ac1bb48b407db43c0d96da7c8e0d3287e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>createText</b> (std::string fontName, const char *text, const int fontSize, SDL_Color color, std::string textureId) const override</td></tr>
+<tr class="separator:ac1bb48b407db43c0d96da7c8e0d3287e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47533095f1e6ae95ba3728a61a06e771"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#a47533095f1e6ae95ba3728a61a06e771">loadTexture</a> (const char *path, std::string textureId) override</td></tr>
 <tr class="separator:a47533095f1e6ae95ba3728a61a06e771"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e439e15c6e23453bff985827c217f84"><td class="memItemLeft" align="right" valign="top"><a id="a2e439e15c6e23453bff985827c217f84"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawRectangle</b> (<a class="el" href="structVector2.html">Vector2</a> &amp;position, float width, float height, std::string &amp;color, float opacity) const override</td></tr>
+<tr class="separator:a2e439e15c6e23453bff985827c217f84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfbd3e2645ece5d67c52a2b8d684cf3a"><td class="memItemLeft" align="right" valign="top"><a id="acfbd3e2645ece5d67c52a2b8d684cf3a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawBackground</b> (std::string hex, float alpha) const override</td></tr>
+<tr class="separator:acfbd3e2645ece5d67c52a2b8d684cf3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2898357215990eafb3076e21ec36712f"><td class="memItemLeft" align="right" valign="top"><a id="a2898357215990eafb3076e21ec36712f"></a>
+<a class="el" href="classTMXLevel.html">TMXLevel</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>loadLevel</b> (const <a class="el" href="structTMXLevelData.html">TMXLevelData</a> &amp;levelData, <a class="el" href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a> &amp;physicsEngineAdapter) override</td></tr>
+<tr class="separator:a2898357215990eafb3076e21ec36712f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -182,8 +188,8 @@ static <a class="el" href="classTextureManager.html">TextureManager</a> *&#160;<
 
 </div>
 </div>
-<a id="a6f2c15a427d0a0455fc787c36c252c1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f2c15a427d0a0455fc787c36c252c1c">&#9670;&nbsp;</a></span>drawTexture()</h2>
+<a id="a9c1a7a1698149a50d3f773927557f078"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c1a7a1698149a50d3f773927557f078">&#9670;&nbsp;</a></span>drawTexture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -236,7 +242,7 @@ static <a class="el" href="classTextureManager.html">TextureManager</a> *&#160;<
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>

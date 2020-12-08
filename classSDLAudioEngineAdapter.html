@@ -88,8 +88,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af02b84deb3daaa4b27ff9d243a5841f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a7fa2a4cb9c71bdc0c187ad9055c63c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a1a7fa2a4cb9c71bdc0c187ad9055c63c">getAudioNames</a> ()</td></tr>
 <tr class="separator:a1a7fa2a4cb9c71bdc0c187ad9055c63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7a1fd781382b60a4768a633ec1a2e0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#ae7a1fd781382b60a4768a633ec1a2e0e">loadInMemory</a> (const std::string &amp;path, AudioType &amp;type)</td></tr>
-<tr class="separator:ae7a1fd781382b60a4768a633ec1a2e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad25feaf607337f6595f55463e5c6715e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#ad25feaf607337f6595f55463e5c6715e">loadInMemory</a> (const std::string &amp;path, const std::string &amp;name, AudioType type)</td></tr>
+<tr class="separator:ad25feaf607337f6595f55463e5c6715e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fe391b8b72a735c54669ac6deb2ba89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a6fe391b8b72a735c54669ac6deb2ba89">playFromPath</a> (const std::string &amp;path, AudioType &amp;type)</td></tr>
 <tr class="separator:a6fe391b8b72a735c54669ac6deb2ba89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad4ba62055cdd5787230383b278c62c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#aad4ba62055cdd5787230383b278c62c7">playFromMemory</a> (const std::string &amp;name)</td></tr>
@@ -123,6 +123,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:aa6f0b1c83b5cd54b6e3f5365b1898b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2c27343ab87c4397bd462066d04fcf7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#aa2c27343ab87c4397bd462066d04fcf7">toggleSounds</a> ()</td></tr>
 <tr class="separator:aa2c27343ab87c4397bd462066d04fcf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4499a736e928721c8fc5bedb5ea7852"><td class="memItemLeft" align="right" valign="top"><a id="ab4499a736e928721c8fc5bedb5ea7852"></a>
+static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapter</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getInstance</b> ()</td></tr>
+<tr class="separator:ab4499a736e928721c8fc5bedb5ea7852"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5e3aa2c208ed2e83089f47d22afdfe1e"></a>
@@ -379,8 +382,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae7a1fd781382b60a4768a633ec1a2e0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7a1fd781382b60a4768a633ec1a2e0e">&#9670;&nbsp;</a></span>loadInMemory()</h2>
+<a id="ad25feaf607337f6595f55463e5c6715e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad25feaf607337f6595f55463e5c6715e">&#9670;&nbsp;</a></span>loadInMemory()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -394,7 +397,13 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">AudioType &amp;&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AudioType&#160;</td>
           <td class="paramname"><em>type</em>&#160;</td>
         </tr>
         <tr>

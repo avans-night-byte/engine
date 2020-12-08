@@ -76,24 +76,28 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;SDL.h&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;SDL_events.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;../Input.hpp&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classInputEngineAdapter.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classInputEngineAdapter.html">InputEngineAdapter</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getInput() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classInputEngineAdapter.html">InputEngineAdapter</a>() {}</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getKeyInput(SDL_Keycode input, Uint32 type) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getMouseInput(SDL_Event input) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getControllerInput(SDL_Event input) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getControllerMotionInput(SDL_Event input) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> closeController() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> openController(<span class="keywordtype">int</span> deviceId) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../../Event.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classInputEngineAdapter.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classInputEngineAdapter.html">InputEngineAdapter</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classEvent.html">Event&lt;Input&gt;</a>&amp; getInputEvent() = 0;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getInput() = 0;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classInputEngineAdapter.html">InputEngineAdapter</a>() {}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getKeyInput(SDL_Keycode input, Uint32 <a class="code" href="namespacexml__schema.html#a4bf7f144ce936a6a393de26f4cb707f0">type</a>) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getMouseInput(SDL_Event input) = 0;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getControllerInput(SDL_Event input) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getControllerMotionInput(SDL_Event input) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> closeController() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> openController(<span class="keywordtype">int</span> deviceId) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructInput_html"><div class="ttname"><a href="structInput.html">Input</a></div><div class="ttdef"><b>Definition:</b> Input.hpp:20</div></div>
-<div class="ttc" id="aclassInputEngineAdapter_html"><div class="ttname"><a href="classInputEngineAdapter.html">InputEngineAdapter</a></div><div class="ttdef"><b>Definition:</b> InputEngineAdapter.hpp:13</div></div>
+<div class="ttc" id="aclassEvent_html"><div class="ttname"><a href="classEvent.html">Event&lt; Input &gt;</a></div></div>
+<div class="ttc" id="anamespacexml__schema_html_a4bf7f144ce936a6a393de26f4cb707f0"><div class="ttname"><a href="namespacexml__schema.html#a4bf7f144ce936a6a393de26f4cb707f0">xml_schema::type</a></div><div class="ttdeci">::xsd::cxx::tree::type type</div><div class="ttdoc">C++ type corresponding to the anyType XML Schema built-in type.</div><div class="ttdef"><b>Definition:</b> common.hxx:104</div></div>
+<div class="ttc" id="aclassInputEngineAdapter_html"><div class="ttname"><a href="classInputEngineAdapter.html">InputEngineAdapter</a></div><div class="ttdef"><b>Definition:</b> InputEngineAdapter.hpp:14</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

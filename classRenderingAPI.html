@@ -80,6 +80,27 @@ Inheritance diagram for RenderingAPI:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a92d40d36f0f6084abcf9896e02fb65b8"><td class="memItemLeft" align="right" valign="top"><a id="a92d40d36f0f6084abcf9896e02fb65b8"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>drawTexture</b> (std::string textureId, int x, int y, int width, int height, double scale, double r) const =0</td></tr>
+<tr class="separator:a92d40d36f0f6084abcf9896e02fb65b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a366d112e06e3ec6ea61ff4180cbfd25a"><td class="memItemLeft" align="right" valign="top"><a id="a366d112e06e3ec6ea61ff4180cbfd25a"></a>
+virtual <a class="el" href="classSpritesheet.html">Spritesheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createSpriteSheet</b> (char const *path, std::string spriteSheetId, int rows, int columns, int width, int height) const =0</td></tr>
+<tr class="separator:a366d112e06e3ec6ea61ff4180cbfd25a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace1590182522678fff16349b48f975fb"><td class="memItemLeft" align="right" valign="top"><a id="ace1590182522678fff16349b48f975fb"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>loadTexture</b> (const char *path, std::string textureId)=0</td></tr>
+<tr class="separator:ace1590182522678fff16349b48f975fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86a4853469c8e9fb12ea0fd9b9565b4c"><td class="memItemLeft" align="right" valign="top"><a id="a86a4853469c8e9fb12ea0fd9b9565b4c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>drawRectangle</b> (<a class="el" href="structVector2.html">Vector2</a> &amp;position, float width, float height, std::string &amp;color, float opacity=1) const =0</td></tr>
+<tr class="separator:a86a4853469c8e9fb12ea0fd9b9565b4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48d19c0287859a969de6fd200763fa4d"><td class="memItemLeft" align="right" valign="top"><a id="a48d19c0287859a969de6fd200763fa4d"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>createText</b> (std::string fontName, const char *text, const int fontSize, SDL_Color color, std::string textureId) const =0</td></tr>
+<tr class="separator:a48d19c0287859a969de6fd200763fa4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bd5826ad5c09d98f0bc58571319b66d"><td class="memItemLeft" align="right" valign="top"><a id="a4bd5826ad5c09d98f0bc58571319b66d"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>drawBackground</b> (std::string hex, float alpha) const =0</td></tr>
+<tr class="separator:a4bd5826ad5c09d98f0bc58571319b66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfc05e52b35c8df2dfddeb4910419a9f"><td class="memItemLeft" align="right" valign="top"><a id="abfc05e52b35c8df2dfddeb4910419a9f"></a>
+virtual <a class="el" href="classTMXLevel.html">TMXLevel</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>loadLevel</b> (const <a class="el" href="structTMXLevelData.html">TMXLevelData</a> &amp;levelData, <a class="el" href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a> &amp;physicsEngineAdapter)=0</td></tr>
+<tr class="separator:abfc05e52b35c8df2dfddeb4910419a9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee0c3475dbff06df3c2ba32a33fa3136"><td class="memItemLeft" align="right" valign="top"><a id="aee0c3475dbff06df3c2ba32a33fa3136"></a>
 virtual const <a class="el" href="classRenderingEngineAdapter.html">RenderingEngineAdapter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetRendererAdapter</b> () const =0</td></tr>
 <tr class="separator:aee0c3475dbff06df3c2ba32a33fa3136"><td class="memSeparator" colspan="2">&#160;</td></tr>

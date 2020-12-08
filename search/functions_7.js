@@ -1,8 +1,12 @@
 var searchData=
 [
-  ['sdlaudioengineadapter_158',['SDLAudioEngineAdapter',['../classSDLAudioEngineAdapter.html#a5e3aa2c208ed2e83089f47d22afdfe1e',1,'SDLAudioEngineAdapter']]],
-  ['stopaudio_159',['stopAudio',['../classSDLAudioEngineAdapter.html#a2be86ae2ccf4b77598bc4f3c93fbd999',1,'SDLAudioEngineAdapter']]],
-  ['stopmusic_160',['stopMusic',['../classSDLAudioEngineAdapter.html#affad599a24fe5f439441ed092ba40ff7',1,'SDLAudioEngineAdapter']]],
-  ['stopsound_161',['stopSound',['../classSDLAudioEngineAdapter.html#a68f7ff8a08a1620d0297192bfee0c44b',1,'SDLAudioEngineAdapter']]],
-  ['stopsounds_162',['stopSounds',['../classSDLAudioEngineAdapter.html#aede2492c7160126709b48a43b2088e34',1,'SDLAudioEngineAdapter']]]
+  ['getaudionames_634',['getAudioNames',['../classSDLAudioEngineAdapter.html#a1a7fa2a4cb9c71bdc0c187ad9055c63c',1,'SDLAudioEngineAdapter']]],
+  ['getchannelsaveragevolume_635',['getChannelsAverageVolume',['../classSDLAudioEngineAdapter.html#a755fc7491f41997bacd06264074d91e5',1,'SDLAudioEngineAdapter']]],
+  ['getchannelvolume_636',['getChannelVolume',['../classSDLAudioEngineAdapter.html#a67070122dca2075bebbff0a480561869',1,'SDLAudioEngineAdapter']]],
+  ['getcontrollerinput_637',['getControllerInput',['../classSDLInputEngineAdapter.html#a12a188984b769c6210335481e2062c37',1,'SDLInputEngineAdapter']]],
+  ['getcontrollermotioninput_638',['getControllerMotionInput',['../classSDLInputEngineAdapter.html#a2ee77f44322c6fa425fb73d8a1a31bea',1,'SDLInputEngineAdapter']]],
+  ['getinput_639',['getInput',['../classSDLInputEngineAdapter.html#af4dff5dabe2a8918fbefca4e945606a6',1,'SDLInputEngineAdapter']]],
+  ['getkeyinput_640',['getKeyInput',['../classSDLInputEngineAdapter.html#a247bdda44c11b932ea53f7b33e8356d5',1,'SDLInputEngineAdapter']]],
+  ['getmouseinput_641',['getMouseInput',['../classSDLInputEngineAdapter.html#ac0a1eafdc5a3ff0bdc06130e9b1cab95',1,'SDLInputEngineAdapter']]],
+  ['getmusicvolume_642',['getMusicVolume',['../classSDLAudioEngineAdapter.html#aee13c81b860242277a89f3993d312562',1,'SDLAudioEngineAdapter']]]
 ];
