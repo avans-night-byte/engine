@@ -26,7 +26,7 @@ struct Input
         CONTROLLER = 2, /**< Device 2: Controller */
         OTHER = 3       /**< Device 3: Other (e.g. the console) */
     } device;
-    int x;              /**< X coordinate within the window */
-    int y;              /**< Y coordinate within the window */
+    float x;              /**< X coordinate within the window */
+    float y;              /**< Y coordinate within the window */
     InputAction keyMap; /**< InputAction struct containing code and action */
 };
