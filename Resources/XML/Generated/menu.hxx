@@ -569,9 +569,11 @@ namespace Menu
   class buttons;
   class texts;
   class images;
+  class boxes;
   class button;
   class text;
   class image;
+  class box;
   class resources;
 }
 
@@ -1030,7 +1032,7 @@ namespace Menu
      * @name images
      *
      * @brief Accessor and modifier functions for the %images
-     * required element.
+     * optional element.
      */
     //@{
 
@@ -1040,24 +1042,30 @@ namespace Menu
     typedef ::Menu::images images_type;
 
     /**
+     * @brief Element optional container type.
+     */
+    typedef ::xsd::cxx::tree::optional< images_type > images_optional;
+
+    /**
      * @brief Element traits type.
      */
     typedef ::xsd::cxx::tree::traits< images_type, char > images_traits;
 
     /**
-     * @brief Return a read-only (constant) reference to the element.
+     * @brief Return a read-only (constant) reference to the element
+     * container.
      *
-     * @return A constant reference to the element.
+     * @return A constant reference to the optional container.
      */
-    const images_type&
+    const images_optional&
     images () const;
 
     /**
-     * @brief Return a read-write reference to the element.
+     * @brief Return a read-write reference to the element container.
      *
-     * @return A reference to the element.
+     * @return A reference to the optional container.
      */
-    images_type&
+    images_optional&
     images ();
 
     /**
@@ -1072,15 +1080,103 @@ namespace Menu
     images (const images_type& x);
 
     /**
+     * @brief Set the element value.
+     *
+     * @param x An optional container with the new value to set.
+     *
+     * If the value is present in @a x then this function makes a copy 
+     * of this value and sets it as the new value of the element.
+     * Otherwise the element container is set the 'not present' state.
+     */
+    void
+    images (const images_optional& x);
+
+    /**
      * @brief Set the element value without copying.
      *
      * @param p A new value to use.
      *
-     * This function will try to use the passed value directly
-     * instead of making a copy.
+     * This function will try to use the passed value directly instead
+     * of making a copy.
      */
     void
     images (::std::unique_ptr< images_type > p);
+
+    //@}
+
+    /**
+     * @name boxes
+     *
+     * @brief Accessor and modifier functions for the %boxes
+     * optional element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::Menu::boxes boxes_type;
+
+    /**
+     * @brief Element optional container type.
+     */
+    typedef ::xsd::cxx::tree::optional< boxes_type > boxes_optional;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< boxes_type, char > boxes_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element
+     * container.
+     *
+     * @return A constant reference to the optional container.
+     */
+    const boxes_optional&
+    boxes () const;
+
+    /**
+     * @brief Return a read-write reference to the element container.
+     *
+     * @return A reference to the optional container.
+     */
+    boxes_optional&
+    boxes ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    boxes (const boxes_type& x);
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x An optional container with the new value to set.
+     *
+     * If the value is present in @a x then this function makes a copy 
+     * of this value and sets it as the new value of the element.
+     * Otherwise the element container is set the 'not present' state.
+     */
+    void
+    boxes (const boxes_optional& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly instead
+     * of making a copy.
+     */
+    void
+    boxes (::std::unique_ptr< boxes_type > p);
 
     //@}
 
@@ -1153,7 +1249,6 @@ namespace Menu
      */
     menu (const name_type&,
           const texts_type&,
-          const images_type&,
           const preloadResources_type&);
 
     /**
@@ -1166,7 +1261,6 @@ namespace Menu
      */
     menu (const name_type&,
           ::std::unique_ptr< texts_type >,
-          ::std::unique_ptr< images_type >,
           ::std::unique_ptr< preloadResources_type >);
 
     /**
@@ -1245,7 +1339,8 @@ namespace Menu
     backgroundMusic_optional backgroundMusic_;
     buttons_optional buttons_;
     ::xsd::cxx::tree::one< texts_type > texts_;
-    ::xsd::cxx::tree::one< images_type > images_;
+    images_optional images_;
+    boxes_optional boxes_;
     ::xsd::cxx::tree::one< preloadResources_type > preloadResources_;
 
     //@endcond
@@ -1721,6 +1816,164 @@ namespace Menu
 
     protected:
     image_sequence image_;
+
+    //@endcond
+  };
+
+  /**
+   * @brief Class corresponding to the %boxes schema type.
+   *
+   * @nosubgrouping
+   */
+  class boxes: public ::xml_schema::type
+  {
+    public:
+    /**
+     * @name box
+     *
+     * @brief Accessor and modifier functions for the %box
+     * sequence element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::Menu::box box_type;
+
+    /**
+     * @brief Element sequence container type.
+     */
+    typedef ::xsd::cxx::tree::sequence< box_type > box_sequence;
+
+    /**
+     * @brief Element iterator type.
+     */
+    typedef box_sequence::iterator box_iterator;
+
+    /**
+     * @brief Element constant iterator type.
+     */
+    typedef box_sequence::const_iterator box_const_iterator;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< box_type, char > box_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element
+     * sequence.
+     *
+     * @return A constant reference to the sequence container.
+     */
+    const box_sequence&
+    box () const;
+
+    /**
+     * @brief Return a read-write reference to the element sequence.
+     *
+     * @return A reference to the sequence container.
+     */
+    box_sequence&
+    box ();
+
+    /**
+     * @brief Copy elements from a given sequence.
+     *
+     * @param s A sequence to copy elements from.
+     *
+     * For each element in @a s this function makes a copy and adds it 
+     * to the sequence. Note that this operation completely changes the 
+     * sequence and all old elements will be lost.
+     */
+    void
+    box (const box_sequence& s);
+
+    //@}
+
+    /**
+     * @name Constructors
+     */
+    //@{
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    boxes ();
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    boxes (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    boxes (const boxes& x,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual boxes*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    boxes&
+    operator= (const boxes& x);
+
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
+    virtual 
+    ~boxes ();
+
+    // Implementation.
+    //
+
+    //@cond
+
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    box_sequence box_;
 
     //@endcond
   };
@@ -2804,6 +3057,290 @@ namespace Menu
     ::xsd::cxx::tree::one< position_type > position_;
     ::xsd::cxx::tree::one< size_type > size_;
     ::xsd::cxx::tree::one< resources_type > resources_;
+
+    //@endcond
+  };
+
+  /**
+   * @brief Class corresponding to the %box schema type.
+   *
+   * @nosubgrouping
+   */
+  class box: public ::xml_schema::type
+  {
+    public:
+    /**
+     * @name position
+     *
+     * @brief Accessor and modifier functions for the %position
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::Common::position position_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< position_type, char > position_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const position_type&
+    position () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    position_type&
+    position ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    position (const position_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    position (::std::unique_ptr< position_type > p);
+
+    //@}
+
+    /**
+     * @name size
+     *
+     * @brief Accessor and modifier functions for the %size
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::Common::size size_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< size_type, char > size_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const size_type&
+    size () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    size_type&
+    size ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    size (const size_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    size (::std::unique_ptr< size_type > p);
+
+    //@}
+
+    /**
+     * @name color
+     *
+     * @brief Accessor and modifier functions for the %color
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::Common::color color_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< color_type, char > color_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const color_type&
+    color () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    color_type&
+    color ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    color (const color_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    color (::std::unique_ptr< color_type > p);
+
+    //@}
+
+    /**
+     * @name Constructors
+     */
+    //@{
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    box (const position_type&,
+         const size_type&,
+         const color_type&);
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes
+     * (::std::unique_ptr version).
+     *
+     * This constructor will try to use the passed values directly
+     * instead of making copies.
+     */
+    box (::std::unique_ptr< position_type >,
+         ::std::unique_ptr< size_type >,
+         ::std::unique_ptr< color_type >);
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    box (const ::xercesc::DOMElement& e,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    box (const box& x,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual box*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    box&
+    operator= (const box& x);
+
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
+    virtual 
+    ~box ();
+
+    // Implementation.
+    //
+
+    //@cond
+
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< position_type > position_;
+    ::xsd::cxx::tree::one< size_type > size_;
+    ::xsd::cxx::tree::one< color_type > color_;
 
     //@endcond
   };

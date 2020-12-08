@@ -193,6 +193,66 @@ namespace LevelResources
     this->physicsComponent_.set (std::move (x));
   }
 
+  const component::characterComponent_optional& component::
+  characterComponent () const
+  {
+    return this->characterComponent_;
+  }
+
+  component::characterComponent_optional& component::
+  characterComponent ()
+  {
+    return this->characterComponent_;
+  }
+
+  void component::
+  characterComponent (const characterComponent_type& x)
+  {
+    this->characterComponent_.set (x);
+  }
+
+  void component::
+  characterComponent (const characterComponent_optional& x)
+  {
+    this->characterComponent_ = x;
+  }
+
+  void component::
+  characterComponent (::std::unique_ptr< characterComponent_type > x)
+  {
+    this->characterComponent_.set (std::move (x));
+  }
+
+  const component::explosionCrate_optional& component::
+  explosionCrate () const
+  {
+    return this->explosionCrate_;
+  }
+
+  component::explosionCrate_optional& component::
+  explosionCrate ()
+  {
+    return this->explosionCrate_;
+  }
+
+  void component::
+  explosionCrate (const explosionCrate_type& x)
+  {
+    this->explosionCrate_.set (x);
+  }
+
+  void component::
+  explosionCrate (const explosionCrate_optional& x)
+  {
+    this->explosionCrate_ = x;
+  }
+
+  void component::
+  explosionCrate (::std::unique_ptr< explosionCrate_type > x)
+  {
+    this->explosionCrate_.set (std::move (x));
+  }
+
 
   // componentName
   // 
@@ -448,6 +508,14 @@ namespace LevelResources
   {
     this->contactHandler_.set (std::move (x));
   }
+
+
+  // characterComponent
+  // 
+
+
+  // explosionCrate
+  // 
 
 
   // level
@@ -713,7 +781,9 @@ namespace LevelResources
   : ::xml_schema::type (),
     componentName_ (componentName, this),
     worldPositionComponent_ (this),
-    physicsComponent_ (this)
+    physicsComponent_ (this),
+    characterComponent_ (this),
+    explosionCrate_ (this)
   {
   }
 
@@ -724,7 +794,9 @@ namespace LevelResources
   : ::xml_schema::type (x, f, c),
     componentName_ (x.componentName_, f, this),
     worldPositionComponent_ (x.worldPositionComponent_, f, this),
-    physicsComponent_ (x.physicsComponent_, f, this)
+    physicsComponent_ (x.physicsComponent_, f, this),
+    characterComponent_ (x.characterComponent_, f, this),
+    explosionCrate_ (x.explosionCrate_, f, this)
   {
   }
 
@@ -735,7 +807,9 @@ namespace LevelResources
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     componentName_ (this),
     worldPositionComponent_ (this),
-    physicsComponent_ (this)
+    physicsComponent_ (this),
+    characterComponent_ (this),
+    explosionCrate_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -796,6 +870,34 @@ namespace LevelResources
         }
       }
 
+      // characterComponent
+      //
+      if (n.name () == "characterComponent" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< characterComponent_type > r (
+          characterComponent_traits::create (i, f, this));
+
+        if (!this->characterComponent_)
+        {
+          this->characterComponent_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // explosionCrate
+      //
+      if (n.name () == "explosionCrate" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< explosionCrate_type > r (
+          explosionCrate_traits::create (i, f, this));
+
+        if (!this->explosionCrate_)
+        {
+          this->explosionCrate_.set (::std::move (r));
+          continue;
+        }
+      }
+
       break;
     }
 
@@ -823,6 +925,8 @@ namespace LevelResources
       this->componentName_ = x.componentName_;
       this->worldPositionComponent_ = x.worldPositionComponent_;
       this->physicsComponent_ = x.physicsComponent_;
+      this->characterComponent_ = x.characterComponent_;
+      this->explosionCrate_ = x.explosionCrate_;
     }
 
     return *this;
@@ -1574,6 +1678,114 @@ namespace LevelResources
 
   physicsComponent::
   ~physicsComponent ()
+  {
+  }
+
+  // characterComponent
+  //
+
+  characterComponent::
+  characterComponent ()
+  : ::xml_schema::type ()
+  {
+  }
+
+  characterComponent::
+  characterComponent (const characterComponent& x,
+                      ::xml_schema::flags f,
+                      ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c)
+  {
+  }
+
+  characterComponent::
+  characterComponent (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f,
+                      ::xml_schema::container* c)
+  : ::xml_schema::type (e, f, c)
+  {
+  }
+
+  characterComponent::
+  characterComponent (const ::xercesc::DOMAttr& a,
+                      ::xml_schema::flags f,
+                      ::xml_schema::container* c)
+  : ::xml_schema::type (a, f, c)
+  {
+  }
+
+  characterComponent::
+  characterComponent (const ::std::string& s,
+                      const ::xercesc::DOMElement* e,
+                      ::xml_schema::flags f,
+                      ::xml_schema::container* c)
+  : ::xml_schema::type (s, e, f, c)
+  {
+  }
+
+  characterComponent* characterComponent::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class characterComponent (*this, f, c);
+  }
+
+  characterComponent::
+  ~characterComponent ()
+  {
+  }
+
+  // explosionCrate
+  //
+
+  explosionCrate::
+  explosionCrate ()
+  : ::xml_schema::type ()
+  {
+  }
+
+  explosionCrate::
+  explosionCrate (const explosionCrate& x,
+                  ::xml_schema::flags f,
+                  ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c)
+  {
+  }
+
+  explosionCrate::
+  explosionCrate (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f,
+                  ::xml_schema::container* c)
+  : ::xml_schema::type (e, f, c)
+  {
+  }
+
+  explosionCrate::
+  explosionCrate (const ::xercesc::DOMAttr& a,
+                  ::xml_schema::flags f,
+                  ::xml_schema::container* c)
+  : ::xml_schema::type (a, f, c)
+  {
+  }
+
+  explosionCrate::
+  explosionCrate (const ::std::string& s,
+                  const ::xercesc::DOMElement* e,
+                  ::xml_schema::flags f,
+                  ::xml_schema::container* c)
+  : ::xml_schema::type (s, e, f, c)
+  {
+  }
+
+  explosionCrate* explosionCrate::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class explosionCrate (*this, f, c);
+  }
+
+  explosionCrate::
+  ~explosionCrate ()
   {
   }
 
