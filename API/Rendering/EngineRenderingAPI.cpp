@@ -45,7 +45,7 @@ void EngineRenderingAPI::createText(std::string fontName, const char *text, cons
  * @param scale
  * @param r
  */
-void EngineRenderingAPI::drawTexture(std::string textureId, int x, int y, int width, int height, double scale, double r) const
+void EngineRenderingAPI::drawTexture(std::string textureId, float x, float y, float width, float height, double scale, double r) const
 {
     return _adapter->drawTexture(textureId, x, y, width, height, scale, r, _renderer, SDL_FLIP_NONE);
 }

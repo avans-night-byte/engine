@@ -21,7 +21,7 @@ void LevelXMLParser::LoadLevel(std::multimap<std::string, const Components::comp
 
             if (loadedObjectFound && component.componentName() == "WorldPositionComponent") {
                 auto &worldPositionComponent = component.worldPositionComponent();
-                auto positionF = worldPositionComponent->positionF();
+                auto positionF = worldPositionComponent->position();
                 positionF.x() = it->second.position.x;
                 positionF.y() = it->second.position.y;
             }

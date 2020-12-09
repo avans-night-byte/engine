@@ -29,7 +29,7 @@ public:
 class RenderingAPI {
 public:
     virtual void
-    drawTexture(std::string textureId, int x, int y, int width, int height, double scale, double r) const = 0;
+    drawTexture(std::string textureId, float x, float y, float width, float height, double scale, double r) const = 0;
 
     virtual Spritesheet *
     createSpriteSheet(char const *path, std::string spriteSheetId, int rows, int columns, int width,

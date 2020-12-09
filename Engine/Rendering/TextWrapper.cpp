@@ -29,11 +29,11 @@ TextWrapper::TextWrapper(std::string text, const char *fontPath, int fontSize, S
     _size = TextureManager::GetInstance()->getDimensions(_textureId);
 }
 
-void TextWrapper::render(int x, int y, int width, int height, double scale, double r) {
+void TextWrapper::render(float x, float y, int width, int height, double scale, double r) {
     _renderingAPI.drawTexture(_textureId, x, y, width, height, scale, r);
 }
 
-void TextWrapper::render(int x, int y) {
+void TextWrapper::render(float x, float y) {
     _renderingAPI.drawTexture(_textureId, x, y, _size.x, _size.y, 1, 0);
 }
 

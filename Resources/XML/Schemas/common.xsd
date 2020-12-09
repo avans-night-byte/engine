@@ -93,36 +93,8 @@
     </xs:element>
 
 
-    <!-- Physics -->
-    <xs:element name="collider">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="size">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="width" type="xs:int"/>
-                            <xs:element name="height" type="xs:int"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-            </xs:sequence>
-            <xs:attribute name="hasCollision" type="xs:boolean" use="required"/>
-        </xs:complexType>
-    </xs:element>
-
-
     <!-- Position -->
     <xs:element name="position">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="x" type="xs:integer"/>
-                <xs:element name="y" type="xs:integer"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
-    <!-- Float Position -->
-    <xs:element name="positionF">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="x" type="xs:float"/>
@@ -135,8 +107,8 @@
     <xs:element name="size">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="width" type="xs:integer"/>
-                <xs:element name="height" type="xs:integer"/>
+                <xs:element name="width" type="xs:float"/>
+                <xs:element name="height" type="xs:float"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

@@ -50,6 +50,9 @@ private:
 protected:
     explicit ResourceManager(const std::string &resourcePath, bool debug = true);
 public:
+    // TODO: Improve?
+    bool inMenu = false;
+
     /**
      * Loads all required resources and unloads non-required ones.
      *

@@ -10,7 +10,7 @@ TextureManager *RenderingEngineAdapter::GetTextureManager() {
 }
 
 void
-RenderingEngineAdapter::drawTexture(std::string textureId, int x, int y, int width, int height, double scale, double r,
+RenderingEngineAdapter::drawTexture(std::string textureId, float x, float y, float width, float height, double scale, double r,
                                     SDL_Renderer *renderer, SDL_RendererFlip flip) {
     TextureManager *textureManager = TextureManager::GetInstance();
 

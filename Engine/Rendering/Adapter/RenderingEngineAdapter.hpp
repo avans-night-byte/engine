@@ -19,7 +19,7 @@ private:
     SDL_Color HexToRGB(std::string hex, float opacity) const;
     void drawRectContent(Vector2 &position, float width, float height, std::string &content, SDL_Renderer *renderer);
 public:
-    void drawTexture(std::string textureId, int x, int y, int width, int height, double scale, double r,
+    void drawTexture(std::string textureId, float x, float y, float width, float height, double scale, double r,
                      SDL_Renderer *renderer, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
     Spritesheet *

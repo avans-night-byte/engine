@@ -41,8 +41,8 @@ private:
 
     std::string _buttonPrefix = "button_";
     std::string _textPrefix = "text_";
-    std::string _imagePrefix = "image_";
     std::string _fontPath = "../../Resources/Fonts/";
+    static std::map<std::string, SDL_Color> _colors;
 
     ResourceManager *_resourceManager = nullptr;
 

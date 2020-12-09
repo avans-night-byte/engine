@@ -235,30 +235,6 @@ namespace Walls
     this->resources_.set (std::move (x));
   }
 
-  const wall::collider_type& wall::
-  collider () const
-  {
-    return this->collider_.get ();
-  }
-
-  wall::collider_type& wall::
-  collider ()
-  {
-    return this->collider_.get ();
-  }
-
-  void wall::
-  collider (const collider_type& x)
-  {
-    this->collider_.set (x);
-  }
-
-  void wall::
-  collider (::std::unique_ptr< collider_type > x)
-  {
-    this->collider_.set (std::move (x));
-  }
-
   const wall::events_type& wall::
   events () const
   {
@@ -554,7 +530,6 @@ namespace Walls
         const baseHealth_type& baseHealth,
         const pricing_type& pricing,
         const resources_type& resources,
-        const collider_type& collider,
         const events_type& events)
   : ::xml_schema::type (),
     name_ (name, this),
@@ -563,7 +538,6 @@ namespace Walls
     pricing_ (pricing, this),
     powers_ (this),
     resources_ (resources, this),
-    collider_ (collider, this),
     events_ (events, this)
   {
   }
@@ -574,7 +548,6 @@ namespace Walls
         const baseHealth_type& baseHealth,
         ::std::unique_ptr< pricing_type > pricing,
         ::std::unique_ptr< resources_type > resources,
-        ::std::unique_ptr< collider_type > collider,
         ::std::unique_ptr< events_type > events)
   : ::xml_schema::type (),
     name_ (name, this),
@@ -583,7 +556,6 @@ namespace Walls
     pricing_ (std::move (pricing), this),
     powers_ (this),
     resources_ (std::move (resources), this),
-    collider_ (std::move (collider), this),
     events_ (std::move (events), this)
   {
   }
@@ -599,7 +571,6 @@ namespace Walls
     pricing_ (x.pricing_, f, this),
     powers_ (x.powers_, f, this),
     resources_ (x.resources_, f, this),
-    collider_ (x.collider_, f, this),
     events_ (x.events_, f, this)
   {
   }
@@ -615,7 +586,6 @@ namespace Walls
     pricing_ (this),
     powers_ (this),
     resources_ (this),
-    collider_ (this),
     events_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
@@ -716,20 +686,6 @@ namespace Walls
         }
       }
 
-      // collider
-      //
-      if (n.name () == "collider" && n.namespace_ () == "Common")
-      {
-        ::std::unique_ptr< collider_type > r (
-          collider_traits::create (i, f, this));
-
-        if (!collider_.present ())
-        {
-          this->collider_.set (::std::move (r));
-          continue;
-        }
-      }
-
       // events
       //
       if (n.name () == "events" && n.namespace_ () == "Common")
@@ -782,13 +738,6 @@ namespace Walls
         "Common");
     }
 
-    if (!collider_.present ())
-    {
-      throw ::xsd::cxx::tree::expected_element< char > (
-        "collider",
-        "Common");
-    }
-
     if (!events_.present ())
     {
       throw ::xsd::cxx::tree::expected_element< char > (
@@ -816,7 +765,6 @@ namespace Walls
       this->pricing_ = x.pricing_;
       this->powers_ = x.powers_;
       this->resources_ = x.resources_;
-      this->collider_ = x.collider_;
       this->events_ = x.events_;
     }
 

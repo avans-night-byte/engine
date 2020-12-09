@@ -28,7 +28,7 @@ void MenuParser::initialize(const std::string &path) {
     if (_menu->buttons().present()) {
         int index = 0;
         for (auto button : _menu->buttons()->button()) {
-            if(!button.content().present())
+            if (!button.content().present())
                 continue;
 
             auto createdString = _buttonPrefix + std::to_string(index);
@@ -83,22 +83,27 @@ void MenuParser::renderButtons() {
     if (!_menu->buttons().present()) return;
 
     for (auto button : _menu->buttons()->button()) {
-        Vector2 v2(button.position().x(), button.position().y());
+        float posX = button.position().x();
+        float posY = button.position().y();
+
+        float width = button.size().width();
+        float height = button.size().height();
+
+        Vector2 v2(posX, posY);
 
         if (button.color().present()) {
-            _renderer.drawRectangle(v2, button.size().width(), button.size().height(), button.color()->hex(),
-                                    button.color()->alpha());
             auto id = _buttonPrefix + std::to_string(index);
             auto textWrapper = (&_textItems[id])->get();
 
-            textWrapper->render(button.position().x() + ((button.size().width() / 2) - textWrapper->getSize().x / 2),
-                                button.position().y() + ((button.size().height() / 2) - textWrapper->getSize().y / 2));
-        } else {
-            //TODO: draw rectangle with resource image
+            _renderer.drawRectangle(v2, width, height, button.color()->hex(), button.color()->alpha());
 
-            _renderer.drawTexture(   button.resources()->default_(), v2.x, v2.y, button.size().width(), button.size().height(), 1, 0);
-            //_renderer.drawRectangle(v2, button.size().width(), button.size().height(), button.color()->hex(), button.color()->alpha());
+            textWrapper->render((posX + (width / 2) - textWrapper->getSize().x / 2),
+                                (posY + (height / 2) - textWrapper->getSize().y / 2)
+            );
+        } else {
+            _renderer.drawTexture(button.resources()->default_(), v2.x, v2.y, width, height, 1, 0);
         }
+
         index++;
     }
 }
@@ -126,7 +131,7 @@ void MenuParser::renderImages() {
 
 }
 
-void MenuParser::renderBoxes(){
+void MenuParser::renderBoxes() {
     int index = 0;
     if (!_menu->boxes().present()) return;
 
@@ -139,7 +144,11 @@ void MenuParser::renderBoxes(){
     }
 }
 
-SDL_Color MenuParser::HexToRGB(const std::string& hex, float opacity) {
+std::map<std::string, SDL_Color> MenuParser::_colors = std::map<std::string, SDL_Color>();
+
+SDL_Color MenuParser::HexToRGB(const std::string &hex, float opacity) {
+    if (_colors.count(hex))
+        return _colors[hex];
 
     std::regex pattern("#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})");
 
@@ -152,6 +161,8 @@ SDL_Color MenuParser::HexToRGB(const std::string& hex, float opacity) {
         color.b = std::stoi(match[3].str(), nullptr, 16);
         color.a = opacity;
 
+        _colors[hex] = color;
+
         return color;
     } else {
         throw " is an invalid rgb color\n";
@@ -159,50 +170,52 @@ SDL_Color MenuParser::HexToRGB(const std::string& hex, float opacity) {
 
 }
 
-void MenuParser::onClick(const Input& input) {
+void MenuParser::onClick(const Input &input) {
     if (!_menu->buttons().present()) return;
 
     for (auto button : _menu->buttons()->button()) {
-        Vector2 v2(button.position().x(), button.position().y());
+        if (!button.events().onClick().present())
+            continue;
 
-        if (button.events().onClick().present()) {
-            if (v2.x <= input.x && v2.y <= input.y && (v2.x + button.size().width()) >= input.x &&
-                (v2.y + button.size().height()) >= input.y) {
+        Vector2 buttonPos(button.position().x(), button.position().y());
+        Vector2 buttonBounds(buttonPos.x + button.size().width(), buttonPos.y + button.size().height());
 
-                if (button.events().onClick()->playSound().present())
-                    SDLAudioEngineAdapter::getInstance()->playFromMemory(
-                            button.events().onClick()->playSound()->c_str());
+        if (buttonPos.x <= input.x && buttonPos.y <= input.y && buttonBounds.x >= input.x &&
+            buttonBounds.y >= input.y) {
 
-                if (button.events().onClick()->loadScene().present())
-                    ResourceManager::getInstance()->loadResource(button.events().onClick()->loadScene()->c_str());
+            if (button.events().onClick()->playSound().present())
+                SDLAudioEngineAdapter::getInstance()->playFromMemory(
+                        button.events().onClick()->playSound()->c_str());
 
-                if(button.events().onClick()->loadURL().present()){
+            if (button.events().onClick()->loadScene().present())
+                ResourceManager::getInstance()->loadResource(button.events().onClick()->loadScene()->c_str());
+
+            if (button.events().onClick()->loadURL().present()) {
 #if WIN32
-                    //Windows open
-                    std::string command = "start ";
-                    command += button.events().onClick()->loadURL()->c_str();
-                    system(command.c_str());
+                //Windows open
+                std::string command = "start ";
+                command += button.events().onClick()->loadURL()->c_str();
+                system(command.c_str());
 #endif
 
 #if __linux__
-                    //Linux open
-                    command = "open ";
-                    command += button.events().onClick()->loadURL()->c_str();
-                    system(command.c_str());
+                //Linux open
+                command = "open ";
+                command += button.events().onClick()->loadURL()->c_str();
+                system(command.c_str());
 #endif
-                }
-
-
-                if (button.events().onClick()->custom().present()) {
-                    const std::string action = button.events().onClick()->custom()->c_str();
-
-                    if(action == "close") {
-                        // TODO: Close
-                    }
-                }
-
-                return;
             }
+
+
+            if (button.events().onClick()->custom().present()) {
+                const std::string action = button.events().onClick()->custom()->c_str();
+
+                if (action == "close") {
+                    // TODO: Close
+                }
+            }
+
+            return;
         }
     }
 }

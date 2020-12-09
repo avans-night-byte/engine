@@ -49,7 +49,6 @@
                 </xs:element>
 
                 <xs:element ref="cmn:resources"/>
-                <xs:element ref="cmn:collider"/>
                 <xs:element ref="cmn:events"/>
 
             </xs:sequence>

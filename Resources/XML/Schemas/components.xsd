@@ -26,7 +26,7 @@
                 <xs:element name="worldPositionComponent">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element ref="common:positionF"/>
+                            <xs:element ref="common:position"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -87,7 +87,7 @@
             <xs:element name="circle">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element ref="common:positionF"/>
+                        <xs:element ref="common:position"/>
                         <xs:element name="radius" type="xs:float"/>
                     </xs:sequence>
                 </xs:complexType>
@@ -97,7 +97,7 @@
                     <xs:sequence>
                         <xs:element name="width" type="xs:float"/>
                         <xs:element name="height" type="xs:float"/>
-                        <xs:element ref="common:positionF"/>
+                        <xs:element ref="common:position"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>

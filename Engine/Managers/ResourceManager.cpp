@@ -126,10 +126,14 @@ void ResourceManager::loadResource(const std::string &resource) {
         case SCENES: {
             auto &scene = _scenes[resource];
             MenuParser::getInstance()->initialize(_basePath + scene->path());
+            inMenu = true;
             break;
         }
         case LEVELS:
+            inMenu = false;
             // TODO: Load the level
+            // Game->initialize(...,...,...,..)
+            //
             break;
     }
 

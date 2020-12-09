@@ -1635,9 +1635,9 @@ namespace Components
   {
     public:
     /**
-     * @name positionF
+     * @name position
      *
-     * @brief Accessor and modifier functions for the %positionF
+     * @brief Accessor and modifier functions for the %position
      * required element.
      */
     //@{
@@ -1645,28 +1645,28 @@ namespace Components
     /**
      * @brief Element type.
      */
-    typedef ::Common::positionF positionF_type;
+    typedef ::Common::position position_type;
 
     /**
      * @brief Element traits type.
      */
-    typedef ::xsd::cxx::tree::traits< positionF_type, char > positionF_traits;
+    typedef ::xsd::cxx::tree::traits< position_type, char > position_traits;
 
     /**
      * @brief Return a read-only (constant) reference to the element.
      *
      * @return A constant reference to the element.
      */
-    const positionF_type&
-    positionF () const;
+    const position_type&
+    position () const;
 
     /**
      * @brief Return a read-write reference to the element.
      *
      * @return A reference to the element.
      */
-    positionF_type&
-    positionF ();
+    position_type&
+    position ();
 
     /**
      * @brief Set the element value.
@@ -1677,7 +1677,7 @@ namespace Components
      * the new value of the element.
      */
     void
-    positionF (const positionF_type& x);
+    position (const position_type& x);
 
     /**
      * @brief Set the element value without copying.
@@ -1688,7 +1688,7 @@ namespace Components
      * instead of making a copy.
      */
     void
-    positionF (::std::unique_ptr< positionF_type > p);
+    position (::std::unique_ptr< position_type > p);
 
     //@}
 
@@ -1701,7 +1701,7 @@ namespace Components
      * @brief Create an instance from the ultimate base and
      * initializers for required elements and attributes.
      */
-    worldPositionComponent (const positionF_type&);
+    worldPositionComponent (const position_type&);
 
     /**
      * @brief Create an instance from the ultimate base and
@@ -1711,7 +1711,7 @@ namespace Components
      * This constructor will try to use the passed values directly
      * instead of making copies.
      */
-    worldPositionComponent (::std::unique_ptr< positionF_type >);
+    worldPositionComponent (::std::unique_ptr< position_type >);
 
     /**
      * @brief Create an instance from a DOM element.
@@ -1783,7 +1783,7 @@ namespace Components
            ::xml_schema::flags);
 
     protected:
-    ::xsd::cxx::tree::one< positionF_type > positionF_;
+    ::xsd::cxx::tree::one< position_type > position_;
 
     //@endcond
   };
@@ -2384,9 +2384,9 @@ namespace Components
   {
     public:
     /**
-     * @name positionF
+     * @name position
      *
-     * @brief Accessor and modifier functions for the %positionF
+     * @brief Accessor and modifier functions for the %position
      * required element.
      */
     //@{
@@ -2394,28 +2394,28 @@ namespace Components
     /**
      * @brief Element type.
      */
-    typedef ::Common::positionF positionF_type;
+    typedef ::Common::position position_type;
 
     /**
      * @brief Element traits type.
      */
-    typedef ::xsd::cxx::tree::traits< positionF_type, char > positionF_traits;
+    typedef ::xsd::cxx::tree::traits< position_type, char > position_traits;
 
     /**
      * @brief Return a read-only (constant) reference to the element.
      *
      * @return A constant reference to the element.
      */
-    const positionF_type&
-    positionF () const;
+    const position_type&
+    position () const;
 
     /**
      * @brief Return a read-write reference to the element.
      *
      * @return A reference to the element.
      */
-    positionF_type&
-    positionF ();
+    position_type&
+    position ();
 
     /**
      * @brief Set the element value.
@@ -2426,7 +2426,7 @@ namespace Components
      * the new value of the element.
      */
     void
-    positionF (const positionF_type& x);
+    position (const position_type& x);
 
     /**
      * @brief Set the element value without copying.
@@ -2437,7 +2437,7 @@ namespace Components
      * instead of making a copy.
      */
     void
-    positionF (::std::unique_ptr< positionF_type > p);
+    position (::std::unique_ptr< position_type > p);
 
     //@}
 
@@ -2497,7 +2497,7 @@ namespace Components
      * @brief Create an instance from the ultimate base and
      * initializers for required elements and attributes.
      */
-    circle (const positionF_type&,
+    circle (const position_type&,
             const radius_type&);
 
     /**
@@ -2508,7 +2508,7 @@ namespace Components
      * This constructor will try to use the passed values directly
      * instead of making copies.
      */
-    circle (::std::unique_ptr< positionF_type >,
+    circle (::std::unique_ptr< position_type >,
             const radius_type&);
 
     /**
@@ -2581,7 +2581,7 @@ namespace Components
            ::xml_schema::flags);
 
     protected:
-    ::xsd::cxx::tree::one< positionF_type > positionF_;
+    ::xsd::cxx::tree::one< position_type > position_;
     ::xsd::cxx::tree::one< radius_type > radius_;
 
     //@endcond
@@ -2690,9 +2690,9 @@ namespace Components
     //@}
 
     /**
-     * @name positionF
+     * @name position
      *
-     * @brief Accessor and modifier functions for the %positionF
+     * @brief Accessor and modifier functions for the %position
      * required element.
      */
     //@{
@@ -2700,28 +2700,28 @@ namespace Components
     /**
      * @brief Element type.
      */
-    typedef ::Common::positionF positionF_type;
+    typedef ::Common::position position_type;
 
     /**
      * @brief Element traits type.
      */
-    typedef ::xsd::cxx::tree::traits< positionF_type, char > positionF_traits;
+    typedef ::xsd::cxx::tree::traits< position_type, char > position_traits;
 
     /**
      * @brief Return a read-only (constant) reference to the element.
      *
      * @return A constant reference to the element.
      */
-    const positionF_type&
-    positionF () const;
+    const position_type&
+    position () const;
 
     /**
      * @brief Return a read-write reference to the element.
      *
      * @return A reference to the element.
      */
-    positionF_type&
-    positionF ();
+    position_type&
+    position ();
 
     /**
      * @brief Set the element value.
@@ -2732,7 +2732,7 @@ namespace Components
      * the new value of the element.
      */
     void
-    positionF (const positionF_type& x);
+    position (const position_type& x);
 
     /**
      * @brief Set the element value without copying.
@@ -2743,7 +2743,7 @@ namespace Components
      * instead of making a copy.
      */
     void
-    positionF (::std::unique_ptr< positionF_type > p);
+    position (::std::unique_ptr< position_type > p);
 
     //@}
 
@@ -2758,7 +2758,7 @@ namespace Components
      */
     box (const width_type&,
          const height_type&,
-         const positionF_type&);
+         const position_type&);
 
     /**
      * @brief Create an instance from the ultimate base and
@@ -2770,7 +2770,7 @@ namespace Components
      */
     box (const width_type&,
          const height_type&,
-         ::std::unique_ptr< positionF_type >);
+         ::std::unique_ptr< position_type >);
 
     /**
      * @brief Create an instance from a DOM element.
@@ -2844,7 +2844,7 @@ namespace Components
     protected:
     ::xsd::cxx::tree::one< width_type > width_;
     ::xsd::cxx::tree::one< height_type > height_;
-    ::xsd::cxx::tree::one< positionF_type > positionF_;
+    ::xsd::cxx::tree::one< position_type > position_;
 
     //@endcond
   };

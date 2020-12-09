@@ -269,28 +269,28 @@ namespace Components
   // worldPositionComponent
   // 
 
-  const worldPositionComponent::positionF_type& worldPositionComponent::
-  positionF () const
+  const worldPositionComponent::position_type& worldPositionComponent::
+  position () const
   {
-    return this->positionF_.get ();
+    return this->position_.get ();
   }
 
-  worldPositionComponent::positionF_type& worldPositionComponent::
-  positionF ()
+  worldPositionComponent::position_type& worldPositionComponent::
+  position ()
   {
-    return this->positionF_.get ();
-  }
-
-  void worldPositionComponent::
-  positionF (const positionF_type& x)
-  {
-    this->positionF_.set (x);
+    return this->position_.get ();
   }
 
   void worldPositionComponent::
-  positionF (::std::unique_ptr< positionF_type > x)
+  position (const position_type& x)
   {
-    this->positionF_.set (std::move (x));
+    this->position_.set (x);
+  }
+
+  void worldPositionComponent::
+  position (::std::unique_ptr< position_type > x)
+  {
+    this->position_.set (std::move (x));
   }
 
 
@@ -417,28 +417,28 @@ namespace Components
   // circle
   // 
 
-  const circle::positionF_type& circle::
-  positionF () const
+  const circle::position_type& circle::
+  position () const
   {
-    return this->positionF_.get ();
+    return this->position_.get ();
   }
 
-  circle::positionF_type& circle::
-  positionF ()
+  circle::position_type& circle::
+  position ()
   {
-    return this->positionF_.get ();
-  }
-
-  void circle::
-  positionF (const positionF_type& x)
-  {
-    this->positionF_.set (x);
+    return this->position_.get ();
   }
 
   void circle::
-  positionF (::std::unique_ptr< positionF_type > x)
+  position (const position_type& x)
   {
-    this->positionF_.set (std::move (x));
+    this->position_.set (x);
+  }
+
+  void circle::
+  position (::std::unique_ptr< position_type > x)
+  {
+    this->position_.set (std::move (x));
   }
 
   const circle::radius_type& circle::
@@ -499,28 +499,28 @@ namespace Components
     this->height_.set (x);
   }
 
-  const box::positionF_type& box::
-  positionF () const
+  const box::position_type& box::
+  position () const
   {
-    return this->positionF_.get ();
+    return this->position_.get ();
   }
 
-  box::positionF_type& box::
-  positionF ()
+  box::position_type& box::
+  position ()
   {
-    return this->positionF_.get ();
-  }
-
-  void box::
-  positionF (const positionF_type& x)
-  {
-    this->positionF_.set (x);
+    return this->position_.get ();
   }
 
   void box::
-  positionF (::std::unique_ptr< positionF_type > x)
+  position (const position_type& x)
   {
-    this->positionF_.set (std::move (x));
+    this->position_.set (x);
+  }
+
+  void box::
+  position (::std::unique_ptr< position_type > x)
+  {
+    this->position_.set (std::move (x));
   }
 }
 
@@ -997,16 +997,16 @@ namespace Components
   //
 
   worldPositionComponent::
-  worldPositionComponent (const positionF_type& positionF)
+  worldPositionComponent (const position_type& position)
   : ::xml_schema::type (),
-    positionF_ (positionF, this)
+    position_ (position, this)
   {
   }
 
   worldPositionComponent::
-  worldPositionComponent (::std::unique_ptr< positionF_type > positionF)
+  worldPositionComponent (::std::unique_ptr< position_type > position)
   : ::xml_schema::type (),
-    positionF_ (std::move (positionF), this)
+    position_ (std::move (position), this)
   {
   }
 
@@ -1015,7 +1015,7 @@ namespace Components
                           ::xml_schema::flags f,
                           ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
-    positionF_ (x.positionF_, f, this)
+    position_ (x.position_, f, this)
   {
   }
 
@@ -1024,7 +1024,7 @@ namespace Components
                           ::xml_schema::flags f,
                           ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-    positionF_ (this)
+    position_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -1043,16 +1043,16 @@ namespace Components
       const ::xsd::cxx::xml::qualified_name< char > n (
         ::xsd::cxx::xml::dom::name< char > (i));
 
-      // positionF
+      // position
       //
-      if (n.name () == "positionF" && n.namespace_ () == "Common")
+      if (n.name () == "position" && n.namespace_ () == "Common")
       {
-        ::std::unique_ptr< positionF_type > r (
-          positionF_traits::create (i, f, this));
+        ::std::unique_ptr< position_type > r (
+          position_traits::create (i, f, this));
 
-        if (!positionF_.present ())
+        if (!position_.present ())
         {
-          this->positionF_.set (::std::move (r));
+          this->position_.set (::std::move (r));
           continue;
         }
       }
@@ -1060,10 +1060,10 @@ namespace Components
       break;
     }
 
-    if (!positionF_.present ())
+    if (!position_.present ())
     {
       throw ::xsd::cxx::tree::expected_element< char > (
-        "positionF",
+        "position",
         "Common");
     }
   }
@@ -1081,7 +1081,7 @@ namespace Components
     if (this != &x)
     {
       static_cast< ::xml_schema::type& > (*this) = x;
-      this->positionF_ = x.positionF_;
+      this->position_ = x.position_;
     }
 
     return *this;
@@ -1400,19 +1400,19 @@ namespace Components
   //
 
   circle::
-  circle (const positionF_type& positionF,
+  circle (const position_type& position,
           const radius_type& radius)
   : ::xml_schema::type (),
-    positionF_ (positionF, this),
+    position_ (position, this),
     radius_ (radius, this)
   {
   }
 
   circle::
-  circle (::std::unique_ptr< positionF_type > positionF,
+  circle (::std::unique_ptr< position_type > position,
           const radius_type& radius)
   : ::xml_schema::type (),
-    positionF_ (std::move (positionF), this),
+    position_ (std::move (position), this),
     radius_ (radius, this)
   {
   }
@@ -1422,7 +1422,7 @@ namespace Components
           ::xml_schema::flags f,
           ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
-    positionF_ (x.positionF_, f, this),
+    position_ (x.position_, f, this),
     radius_ (x.radius_, f, this)
   {
   }
@@ -1432,7 +1432,7 @@ namespace Components
           ::xml_schema::flags f,
           ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-    positionF_ (this),
+    position_ (this),
     radius_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
@@ -1452,16 +1452,16 @@ namespace Components
       const ::xsd::cxx::xml::qualified_name< char > n (
         ::xsd::cxx::xml::dom::name< char > (i));
 
-      // positionF
+      // position
       //
-      if (n.name () == "positionF" && n.namespace_ () == "Common")
+      if (n.name () == "position" && n.namespace_ () == "Common")
       {
-        ::std::unique_ptr< positionF_type > r (
-          positionF_traits::create (i, f, this));
+        ::std::unique_ptr< position_type > r (
+          position_traits::create (i, f, this));
 
-        if (!positionF_.present ())
+        if (!position_.present ())
         {
-          this->positionF_.set (::std::move (r));
+          this->position_.set (::std::move (r));
           continue;
         }
       }
@@ -1480,10 +1480,10 @@ namespace Components
       break;
     }
 
-    if (!positionF_.present ())
+    if (!position_.present ())
     {
       throw ::xsd::cxx::tree::expected_element< char > (
-        "positionF",
+        "position",
         "Common");
     }
 
@@ -1508,7 +1508,7 @@ namespace Components
     if (this != &x)
     {
       static_cast< ::xml_schema::type& > (*this) = x;
-      this->positionF_ = x.positionF_;
+      this->position_ = x.position_;
       this->radius_ = x.radius_;
     }
 
@@ -1526,22 +1526,22 @@ namespace Components
   box::
   box (const width_type& width,
        const height_type& height,
-       const positionF_type& positionF)
+       const position_type& position)
   : ::xml_schema::type (),
     width_ (width, this),
     height_ (height, this),
-    positionF_ (positionF, this)
+    position_ (position, this)
   {
   }
 
   box::
   box (const width_type& width,
        const height_type& height,
-       ::std::unique_ptr< positionF_type > positionF)
+       ::std::unique_ptr< position_type > position)
   : ::xml_schema::type (),
     width_ (width, this),
     height_ (height, this),
-    positionF_ (std::move (positionF), this)
+    position_ (std::move (position), this)
   {
   }
 
@@ -1552,7 +1552,7 @@ namespace Components
   : ::xml_schema::type (x, f, c),
     width_ (x.width_, f, this),
     height_ (x.height_, f, this),
-    positionF_ (x.positionF_, f, this)
+    position_ (x.position_, f, this)
   {
   }
 
@@ -1563,7 +1563,7 @@ namespace Components
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     width_ (this),
     height_ (this),
-    positionF_ (this)
+    position_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -1604,16 +1604,16 @@ namespace Components
         }
       }
 
-      // positionF
+      // position
       //
-      if (n.name () == "positionF" && n.namespace_ () == "Common")
+      if (n.name () == "position" && n.namespace_ () == "Common")
       {
-        ::std::unique_ptr< positionF_type > r (
-          positionF_traits::create (i, f, this));
+        ::std::unique_ptr< position_type > r (
+          position_traits::create (i, f, this));
 
-        if (!positionF_.present ())
+        if (!position_.present ())
         {
-          this->positionF_.set (::std::move (r));
+          this->position_.set (::std::move (r));
           continue;
         }
       }
@@ -1635,10 +1635,10 @@ namespace Components
         "");
     }
 
-    if (!positionF_.present ())
+    if (!position_.present ())
     {
       throw ::xsd::cxx::tree::expected_element< char > (
-        "positionF",
+        "position",
         "Common");
     }
   }
@@ -1658,7 +1658,7 @@ namespace Components
       static_cast< ::xml_schema::type& > (*this) = x;
       this->width_ = x.width_;
       this->height_ = x.height_;
-      this->positionF_ = x.positionF_;
+      this->position_ = x.position_;
     }
 
     return *this;
