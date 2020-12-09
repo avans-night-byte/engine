@@ -94,7 +94,7 @@
                     <hex>ffffff</hex>
                     <alpha>255</alpha>
                 </common:color>
-                <content>Credits</content>
+                <content>Quit</content>
             </text>
             <common:color>
                 <hex>000000</hex>
