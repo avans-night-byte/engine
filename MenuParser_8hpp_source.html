@@ -112,12 +112,12 @@ $(function() {
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">std::string</a> _buttonPrefix = <span class="stringliteral">&quot;button_&quot;</span>;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">std::string</a> _textPrefix = <span class="stringliteral">&quot;text_&quot;</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">std::string</a> _imagePrefix = <span class="stringliteral">&quot;image_&quot;</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">std::string</a> _fontPath = <span class="stringliteral">&quot;../../Resources/Fonts/&quot;</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">std::string</a> _fontPath = <span class="stringliteral">&quot;../../Resources/Fonts/&quot;</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">static</span> std::map&lt;std::string, SDL_Color&gt; _colors;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classResourceManager.html">ResourceManager</a> *_resourceManager = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">static</span> SDL_Color HexToRGB(<a class="code" href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">std::string</a> hex, <span class="keywordtype">float</span> opacity) ;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">static</span> SDL_Color HexToRGB(<span class="keyword">const</span> <a class="code" href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">std::string</a>&amp; hex, <span class="keywordtype">float</span> opacity) ;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> renderImages();</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
