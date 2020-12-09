@@ -60,5 +60,4 @@ public:
 
 
     void setAngle(BodyId bodyId, float angle) const override;
-
 };
