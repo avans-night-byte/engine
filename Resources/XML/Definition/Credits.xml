@@ -5,26 +5,139 @@
         xmlns:menu="Menu"
         xmlns:common="Common">
 
-    <name>Credits</name>
-    <common:color>
-        <hex>#7d00ab</hex>
-        <alpha>255</alpha>
-    </common:color>
-    <backgroundMusic>background_2</backgroundMusic>
+    <name>MainMenu</name>
+    <common:resources>
+        <default>mainmenu_background</default>
+    </common:resources>
+    <backgroundMusic>mainmenu_music</backgroundMusic>
     <buttons>
         <button>
             <common:position>
-                <x>100</x>
-                <y>100</y>
+                <x>600</x>
+                <y>300</y>
+            </common:position>
+            <common:size>
+                <width>200</width>
+                <height>200</height>
+            </common:size>
+            <content>e</content>
+            <resources>
+                <default>huseyin</default>
+            </resources>
+            <common:events>
+                <onClick>
+                    <loadURL>https://github.com/sakirma</loadURL>
+                </onClick>
+            </common:events>
+        </button>
+        <button>
+            <common:position>
+                <x>850</x>
+                <y>300</y>
+            </common:position>
+            <common:size>
+                <width>200</width>
+                <height>200</height>
+            </common:size>
+            <content>e</content>
+            <resources>
+                <default>martijn</default>
+            </resources>
+            <common:events>
+                <onClick>
+                    <loadURL>https://github.com/avans-night-byte/engine</loadURL>
+                </onClick>
+            </common:events>
+        </button>
+        <button>
+            <common:position>
+                <x>1100</x>
+                <y>300</y>
+            </common:position>
+            <common:size>
+                <width>200</width>
+                <height>200</height>
+            </common:size>
+            <content>e</content>
+            <resources>
+                <default>yannick</default>
+            </resources>
+            <common:events>
+                <onClick>
+                    <loadURL>https://github.com/Ker0h</loadURL>
+                </onClick>
+            </common:events>
+        </button>
+        <button>
+            <common:position>
+                <x>600</x>
+                <y>570</y>
+            </common:position>
+            <common:size>
+                <width>200</width>
+                <height>200</height>
+            </common:size>
+            <content>e</content>
+            <resources>
+                <default>marco</default>
+            </resources>
+            <common:events>
+                <onClick>
+                    <loadURL>https://github.com/marc0tjevp</loadURL>
+                </onClick>
+            </common:events>
+        </button>
+        <button>
+            <common:position>
+                <x>850</x>
+                <y>570</y>
+            </common:position>
+            <common:size>
+                <width>200</width>
+                <height>200</height>
+            </common:size>
+            <content>e</content>
+            <resources>
+                <default>storm</default>
+            </resources>
+            <common:events>
+                <onClick>
+                    <loadURL>https://github.com/Stormlolwut</loadURL>
+                </onClick>
+            </common:events>
+        </button>
+        <button>
+            <common:position>
+                <x>1100</x>
+                <y>570</y>
+            </common:position>
+            <common:size>
+                <width>200</width>
+                <height>200</height>
+            </common:size>
+            <content>e</content>
+            <resources>
+                <default>sascha_real</default>
+            </resources>
+            <common:events>
+                <onClick>
+                    <loadURL>https://github.com/SaschaMendel</loadURL>
+                </onClick>
+            </common:events>
+        </button>
+        <button>
+            <common:position>
+                <x>700</x>
+                <y>850</y>
             </common:position>
             <common:size>
                 <width>500</width>
-                <height>150</height>
+                <height>70</height>
             </common:size>
             <content>Back</content>
             <common:color>
-                <hex>db80f2</hex>
-                <alpha>40</alpha>
+                <hex>8c8c8c</hex>
+                <alpha>100</alpha>
             </common:color>
             <common:events>
                 <onClick>
@@ -37,55 +150,108 @@
     <texts>
         <text>
             <common:position>
-                <x>50</x>
-                <y>50</y>
-            </common:position>
-            <common:color>
-                <hex>a83258</hex>
-                <alpha>255</alpha>
-            </common:color>
-            <content>Real shizzle</content>
-        </text>
-        <text>
-            <common:position>
-                <x>1000</x>
-                <y>250</y>
+                <x>620</x>
+                <y>200</y>
             </common:position>
             <common:color>
                 <hex>ffffff</hex>
                 <alpha>255</alpha>
             </common:color>
-            <content>Ik ben sascha ;)</content>
+            <content>NightByte is proudly brought to you by...</content>
+        </text>
+        <text>
+            <common:position>
+                <x>630</x>
+                <y>510</y>
+            </common:position>
+            <common:color>
+                <hex>ffffff</hex>
+                <alpha>255</alpha>
+            </common:color>
+            <content>Huseyin</content>
+        </text>
+        <text>
+            <common:position>
+                <x>890</x>
+                <y>510</y>
+            </common:position>
+            <common:color>
+                <hex>ffffff</hex>
+                <alpha>255</alpha>
+            </common:color>
+            <content>Martijn</content>
+        </text>
+        <text>
+            <common:position>
+                <x>1140</x>
+                <y>510</y>
+            </common:position>
+            <common:color>
+                <hex>ffffff</hex>
+                <alpha>255</alpha>
+            </common:color>
+            <content>Yannick</content>
+        </text>
+        <text>
+            <common:position>
+                <x>640</x>
+                <y>780</y>
+            </common:position>
+            <common:color>
+                <hex>ffffff</hex>
+                <alpha>255</alpha>
+            </common:color>
+            <content>Marco</content>
+        </text>
+        <text>
+            <common:position>
+                <x>900</x>
+                <y>780</y>
+            </common:position>
+            <common:color>
+                <hex>ffffff</hex>
+                <alpha>255</alpha>
+            </common:color>
+            <content>Storm</content>
+        </text>
+        <text>
+            <common:position>
+                <x>1140</x>
+                <y>780</y>
+            </common:position>
+            <common:color>
+                <hex>ffffff</hex>
+                <alpha>255</alpha>
+            </common:color>
+            <content>Sascha</content>
         </text>
     </texts>
-    <images>
-        <image>
+    <images/>
+    <boxes>
+        <box>
             <common:position>
-                <x>400</x>
-                <y>50</y>
+                <x>550</x>
+                <y>150</y>
             </common:position>
             <common:size>
-                <width>638</width>
-                <height>1000</height>
+                <width>800</width>
+                <height>800</height>
             </common:size>
-            <common:resources>
-                <default>sascha</default>
-            </common:resources>
-        </image>
-        <image>
-            <common:position>
-                <x>400</x>
-                <y>50</y>
-            </common:position>
-            <common:size>
-                <width>220</width>
-                <height>117</height>
-            </common:size>
-            <common:resources>
-                <default>minion</default>
-            </common:resources>
-        </image>
-    </images>
+            <common:color>
+                <hex>000000</hex>
+                <alpha>100</alpha>
+            </common:color>
+        </box>
+    </boxes>
     <common:preloadResources>
+        <resource>mainmenu_background</resource>
+        <resource>mainmenu_music</resource>
+        <resource>bonk</resource>
+        <resource>sascha_real</resource>
+        <resource>storm</resource>
+        <resource>huseyin</resource>
+        <resource>martijn</resource>
+        <resource>marco</resource>
+        <resource>yannick</resource>
     </common:preloadResources>
 </menu:menu>

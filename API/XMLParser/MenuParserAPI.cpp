@@ -2,6 +2,7 @@
 
 
 MenuParserAPI::MenuParserAPI(RenderingAPI &renderer, Event<Input>& event){
+
     menuParser = std::make_unique<MenuParser>(renderer);
     event += std::bind(&MenuParserAPI::onClick, this, std::placeholders::_1);
 }

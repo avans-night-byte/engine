@@ -28,7 +28,7 @@
             <common:events>
                 <onClick>
                     <playSound>bonk</playSound>
-                    <loadScene>Credits</loadScene>
+                    <loadScene>Cursed</loadScene>
                 </onClick>
             </common:events>
         </button>
