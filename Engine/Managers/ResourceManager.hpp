@@ -25,6 +25,8 @@ private:
     std::vector<std::string> _loadedResources;
     std::map<std::string, ResourceType> _resources;
 
+    std::string _previousScene;
+
     // Textures
     std::map<std::string, std::unique_ptr<GameResources::texture>> _textures;
     // std::map<std::string, std::unique_ptr<f>> _loadedTextures;
@@ -50,6 +52,9 @@ private:
 protected:
     explicit ResourceManager(const std::string &resourcePath, bool debug = true);
 public:
+    // TODO: Improve?
+    bool inMenu = false;
+
     /**
      * Loads all required resources and unloads non-required ones.
      *

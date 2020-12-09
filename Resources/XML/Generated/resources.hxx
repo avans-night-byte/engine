@@ -2825,6 +2825,180 @@ namespace GameResources
   {
     public:
     /**
+     * @name spriteName
+     *
+     * @brief Accessor and modifier functions for the %spriteName
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::string spriteName_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< spriteName_type, char > spriteName_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const spriteName_type&
+    spriteName () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    spriteName_type&
+    spriteName ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    spriteName (const spriteName_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    spriteName (::std::unique_ptr< spriteName_type > p);
+
+    //@}
+
+    /**
+     * @name spriteSheetPath
+     *
+     * @brief Accessor and modifier functions for the %spriteSheetPath
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::string spriteSheetPath_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< spriteSheetPath_type, char > spriteSheetPath_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const spriteSheetPath_type&
+    spriteSheetPath () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    spriteSheetPath_type&
+    spriteSheetPath ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    spriteSheetPath (const spriteSheetPath_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    spriteSheetPath (::std::unique_ptr< spriteSheetPath_type > p);
+
+    //@}
+
+    /**
+     * @name tmxPath
+     *
+     * @brief Accessor and modifier functions for the %tmxPath
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::string tmxPath_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< tmxPath_type, char > tmxPath_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const tmxPath_type&
+    tmxPath () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    tmxPath_type&
+    tmxPath ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    tmxPath (const tmxPath_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    tmxPath (::std::unique_ptr< tmxPath_type > p);
+
+    //@}
+
+    /**
      * @name Constructors
      */
     //@{
@@ -2834,7 +3008,10 @@ namespace GameResources
      * initializers for required elements and attributes.
      */
     level (const name_type&,
-           const path_type&);
+           const path_type&,
+           const spriteName_type&,
+           const spriteSheetPath_type&,
+           const tmxPath_type&);
 
     /**
      * @brief Create an instance from a DOM element.
@@ -2876,6 +3053,17 @@ namespace GameResources
     _clone (::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0) const;
 
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    level&
+    operator= (const level& x);
+
     //@}
 
     /**
@@ -2883,6 +3071,23 @@ namespace GameResources
      */
     virtual 
     ~level ();
+
+    // Implementation.
+    //
+
+    //@cond
+
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< spriteName_type > spriteName_;
+    ::xsd::cxx::tree::one< spriteSheetPath_type > spriteSheetPath_;
+    ::xsd::cxx::tree::one< tmxPath_type > tmxPath_;
+
+    //@endcond
   };
 }
 

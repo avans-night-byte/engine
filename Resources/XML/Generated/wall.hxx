@@ -1176,64 +1176,6 @@ namespace Walls
     //@}
 
     /**
-     * @name collider
-     *
-     * @brief Accessor and modifier functions for the %collider
-     * required element.
-     */
-    //@{
-
-    /**
-     * @brief Element type.
-     */
-    typedef ::Common::collider collider_type;
-
-    /**
-     * @brief Element traits type.
-     */
-    typedef ::xsd::cxx::tree::traits< collider_type, char > collider_traits;
-
-    /**
-     * @brief Return a read-only (constant) reference to the element.
-     *
-     * @return A constant reference to the element.
-     */
-    const collider_type&
-    collider () const;
-
-    /**
-     * @brief Return a read-write reference to the element.
-     *
-     * @return A reference to the element.
-     */
-    collider_type&
-    collider ();
-
-    /**
-     * @brief Set the element value.
-     *
-     * @param x A new value to set.
-     *
-     * This function makes a copy of its argument and sets it as
-     * the new value of the element.
-     */
-    void
-    collider (const collider_type& x);
-
-    /**
-     * @brief Set the element value without copying.
-     *
-     * @param p A new value to use.
-     *
-     * This function will try to use the passed value directly
-     * instead of making a copy.
-     */
-    void
-    collider (::std::unique_ptr< collider_type > p);
-
-    //@}
-
-    /**
      * @name events
      *
      * @brief Accessor and modifier functions for the %events
@@ -1305,7 +1247,6 @@ namespace Walls
           const baseHealth_type&,
           const pricing_type&,
           const resources_type&,
-          const collider_type&,
           const events_type&);
 
     /**
@@ -1321,7 +1262,6 @@ namespace Walls
           const baseHealth_type&,
           ::std::unique_ptr< pricing_type >,
           ::std::unique_ptr< resources_type >,
-          ::std::unique_ptr< collider_type >,
           ::std::unique_ptr< events_type >);
 
     /**
@@ -1400,7 +1340,6 @@ namespace Walls
     ::xsd::cxx::tree::one< pricing_type > pricing_;
     powers_optional powers_;
     ::xsd::cxx::tree::one< resources_type > resources_;
-    ::xsd::cxx::tree::one< collider_type > collider_;
     ::xsd::cxx::tree::one< events_type > events_;
 
     //@endcond

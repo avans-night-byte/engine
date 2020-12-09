@@ -574,6 +574,7 @@ namespace Menu
   class text;
   class image;
   class box;
+  class text1;
   class resources;
 }
 
@@ -2103,9 +2104,9 @@ namespace Menu
     //@}
 
     /**
-     * @name content
+     * @name text
      *
-     * @brief Accessor and modifier functions for the %content
+     * @brief Accessor and modifier functions for the %text
      * optional element.
      */
     //@{
@@ -2113,17 +2114,17 @@ namespace Menu
     /**
      * @brief Element type.
      */
-    typedef ::xml_schema::string content_type;
+    typedef ::Menu::text1 text_type;
 
     /**
      * @brief Element optional container type.
      */
-    typedef ::xsd::cxx::tree::optional< content_type > content_optional;
+    typedef ::xsd::cxx::tree::optional< text_type > text_optional;
 
     /**
      * @brief Element traits type.
      */
-    typedef ::xsd::cxx::tree::traits< content_type, char > content_traits;
+    typedef ::xsd::cxx::tree::traits< text_type, char > text_traits;
 
     /**
      * @brief Return a read-only (constant) reference to the element
@@ -2131,16 +2132,16 @@ namespace Menu
      *
      * @return A constant reference to the optional container.
      */
-    const content_optional&
-    content () const;
+    const text_optional&
+    text () const;
 
     /**
      * @brief Return a read-write reference to the element container.
      *
      * @return A reference to the optional container.
      */
-    content_optional&
-    content ();
+    text_optional&
+    text ();
 
     /**
      * @brief Set the element value.
@@ -2151,7 +2152,7 @@ namespace Menu
      * the new value of the element.
      */
     void
-    content (const content_type& x);
+    text (const text_type& x);
 
     /**
      * @brief Set the element value.
@@ -2163,7 +2164,7 @@ namespace Menu
      * Otherwise the element container is set the 'not present' state.
      */
     void
-    content (const content_optional& x);
+    text (const text_optional& x);
 
     /**
      * @brief Set the element value without copying.
@@ -2174,7 +2175,7 @@ namespace Menu
      * of making a copy.
      */
     void
-    content (::std::unique_ptr< content_type > p);
+    text (::std::unique_ptr< text_type > p);
 
     //@}
 
@@ -2485,7 +2486,7 @@ namespace Menu
     protected:
     ::xsd::cxx::tree::one< position_type > position_;
     ::xsd::cxx::tree::one< size_type > size_;
-    content_optional content_;
+    text_optional text_;
     color_optional color_;
     resources_optional resources_;
     ::xsd::cxx::tree::one< events_type > events_;
@@ -2618,6 +2619,64 @@ namespace Menu
     //@}
 
     /**
+     * @name font
+     *
+     * @brief Accessor and modifier functions for the %font
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::Common::font font_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< font_type, char > font_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const font_type&
+    font () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    font_type&
+    font ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    font (const font_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    font (::std::unique_ptr< font_type > p);
+
+    //@}
+
+    /**
      * @name content
      *
      * @brief Accessor and modifier functions for the %content
@@ -2686,6 +2745,7 @@ namespace Menu
      */
     text (const position_type&,
           const color_type&,
+          const font_type&,
           const content_type&);
 
     /**
@@ -2698,6 +2758,7 @@ namespace Menu
      */
     text (::std::unique_ptr< position_type >,
           ::std::unique_ptr< color_type >,
+          ::std::unique_ptr< font_type >,
           const content_type&);
 
     /**
@@ -2772,6 +2833,7 @@ namespace Menu
     protected:
     ::xsd::cxx::tree::one< position_type > position_;
     ::xsd::cxx::tree::one< color_type > color_;
+    ::xsd::cxx::tree::one< font_type > font_;
     ::xsd::cxx::tree::one< content_type > content_;
 
     //@endcond
@@ -3341,6 +3403,290 @@ namespace Menu
     ::xsd::cxx::tree::one< position_type > position_;
     ::xsd::cxx::tree::one< size_type > size_;
     ::xsd::cxx::tree::one< color_type > color_;
+
+    //@endcond
+  };
+
+  /**
+   * @brief Class corresponding to the %text1 schema type.
+   *
+   * @nosubgrouping
+   */
+  class text1: public ::xml_schema::type
+  {
+    public:
+    /**
+     * @name font
+     *
+     * @brief Accessor and modifier functions for the %font
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::Common::font font_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< font_type, char > font_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const font_type&
+    font () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    font_type&
+    font ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    font (const font_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    font (::std::unique_ptr< font_type > p);
+
+    //@}
+
+    /**
+     * @name color
+     *
+     * @brief Accessor and modifier functions for the %color
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::Common::color color_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< color_type, char > color_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const color_type&
+    color () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    color_type&
+    color ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    color (const color_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    color (::std::unique_ptr< color_type > p);
+
+    //@}
+
+    /**
+     * @name content
+     *
+     * @brief Accessor and modifier functions for the %content
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::string content_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< content_type, char > content_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const content_type&
+    content () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    content_type&
+    content ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    content (const content_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    content (::std::unique_ptr< content_type > p);
+
+    //@}
+
+    /**
+     * @name Constructors
+     */
+    //@{
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    text1 (const font_type&,
+           const color_type&,
+           const content_type&);
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes
+     * (::std::unique_ptr version).
+     *
+     * This constructor will try to use the passed values directly
+     * instead of making copies.
+     */
+    text1 (::std::unique_ptr< font_type >,
+           ::std::unique_ptr< color_type >,
+           const content_type&);
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    text1 (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    text1 (const text1& x,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual text1*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    text1&
+    operator= (const text1& x);
+
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
+    virtual 
+    ~text1 ();
+
+    // Implementation.
+    //
+
+    //@cond
+
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< font_type > font_;
+    ::xsd::cxx::tree::one< color_type > color_;
+    ::xsd::cxx::tree::one< content_type > content_;
 
     //@endcond
   };

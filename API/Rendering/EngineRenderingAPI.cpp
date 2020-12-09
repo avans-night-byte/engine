@@ -45,7 +45,7 @@ void EngineRenderingAPI::createText(std::string fontName, const char *text, cons
  * @param scale
  * @param r
  */
-void EngineRenderingAPI::drawTexture(std::string textureId, int x, int y, int width, int height, double scale, double r) const
+void EngineRenderingAPI::drawTexture(std::string textureId, float x, float y, float width, float height, double scale, double r) const
 {
     return _adapter->drawTexture(textureId, x, y, width, height, scale, r, _renderer, SDL_FLIP_NONE);
 }
@@ -69,7 +69,7 @@ void EngineRenderingAPI::drawRectangle(Vector2 &position, float width, float hei
 
 }
 
-TMXLevel *EngineRenderingAPI::loadLevel(const TMXLevelData &levelData, PhysicsEngineAdapter &physicsEngineAdapter) {
+TMXLevel *EngineRenderingAPI::loadLevel(const LevelData &levelData, PhysicsEngineAdapter &physicsEngineAdapter) {
     return new TMXLevel(levelData.tmxPath.c_str(),
                         levelData.spritesheetPath.c_str(),
                         levelData.spriteId.c_str(),

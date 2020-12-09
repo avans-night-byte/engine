@@ -6,18 +6,29 @@
 #include "../Input/Input.hpp"
 #include "../Managers/ResourceManager.hpp"
 #include <memory>
+#include <stack>
 
 class MenuParser {
 
 private:
-    static MenuParser *_instance;
-
     std::map<std::string, std::unique_ptr<TextWrapper>> _textItems;
+
     const RenderingAPI &_renderer;
     std::unique_ptr<Menu::menu> _menu;
     std::string _previousSong;
 
+    std::string _buttonPrefix = "button_";
+    std::string _textPrefix = "text_";
+    std::string _fontPath = "../../Resources/Fonts/";
+
+    static MenuParser *_instance;
+    static std::map<std::string, SDL_Color> _colors;
+
+    ResourceManager *_resourceManager = nullptr;
+
 public:
+
+    std::stack<std::string> PreviousScenes;
 
     MenuParser(MenuParser &other) = delete;
 
@@ -39,14 +50,7 @@ private:
 
     void renderText();
 
-    std::string _buttonPrefix = "button_";
-    std::string _textPrefix = "text_";
-    std::string _imagePrefix = "image_";
-    std::string _fontPath = "../../Resources/Fonts/";
-
-    ResourceManager *_resourceManager = nullptr;
-
-    static SDL_Color HexToRGB(std::string hex, float opacity) ;
+    static SDL_Color HexToRGB(const std::string& hex, float opacity) ;
 
     void renderImages();
 

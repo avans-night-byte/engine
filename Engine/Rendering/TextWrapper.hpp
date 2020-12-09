@@ -16,7 +16,7 @@ private:
 public:
     Vector2 getSize();
     std::string getTextureId();
-    void render(int x, int y, int width, int height, double scale, double r);
-    void render(int x, int y);
+    void render(float x, float y, int width, int height, double scale, double r);
+    void render(float x, float y);
     static TextWrapper* createText(const RenderingAPI& _renderingAPI, std::string text, const char* fontPath, int fontSize, SDL_Color color, std::string textureId);
 };

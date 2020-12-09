@@ -26,7 +26,7 @@
                 <xs:element name="worldPositionComponent">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element ref="common:positionF"/>
+                            <xs:element ref="common:position"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -35,6 +35,7 @@
                 <xs:element name="physicsComponent">
                     <xs:complexType>
                         <xs:sequence>
+                            <xs:element ref="common:position"/>
                             <xs:element name="friction" type="comp:floatCap"/>
                             <xs:element name="bodyType" type="comp:bodyType"/>
                             <xs:element name="bodyShape" type="comp:bodyShape"/>
@@ -54,11 +55,20 @@
                 </xs:element>
 
 
-                <!-- Contact Handler -->
+                <!-- ExplosionCrate Component -->
                 <xs:element name="explosionCrate">
                     <xs:complexType>
                         <xs:sequence>
 
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- NextLevel Component -->
+                <xs:element name="nextLevelComponent">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="levelName" type="xs:string"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -87,7 +97,7 @@
             <xs:element name="circle">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element ref="common:positionF"/>
+                        <xs:element ref="common:position"/>
                         <xs:element name="radius" type="xs:float"/>
                     </xs:sequence>
                 </xs:complexType>
@@ -97,7 +107,6 @@
                     <xs:sequence>
                         <xs:element name="width" type="xs:float"/>
                         <xs:element name="height" type="xs:float"/>
-                        <xs:element ref="common:positionF"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>

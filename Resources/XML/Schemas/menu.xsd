@@ -23,7 +23,16 @@
                                     <xs:sequence>
                                         <xs:element ref="cmn:position"/>
                                         <xs:element ref="cmn:size"/>
-                                        <xs:element name="content" type="xs:string" minOccurs="0"/>
+                                        <xs:element name="text" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element ref="cmn:font" />
+                                                    <xs:element ref="cmn:color"/>
+                                                    <xs:element name="content" type="xs:string"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+
                                         <xs:choice>
                                             <xs:element ref="cmn:color"/>
                                             <xs:element name="resources">
@@ -56,6 +65,7 @@
                                     <xs:sequence>
                                         <xs:element ref="cmn:position"/>
                                         <xs:element ref="cmn:color"/>
+                                        <xs:element ref="cmn:font" />
                                         <xs:element name="content" type="xs:string"/>
                                     </xs:sequence>
                                 </xs:complexType>
