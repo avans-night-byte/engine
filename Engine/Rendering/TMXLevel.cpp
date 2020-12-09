@@ -172,8 +172,10 @@ void TMXLevel::initStaticCollision(){
                         break;
                 }
 
-
-                bodies.push_back(bodyId);
+                if(bodyId != 0)
+                {
+                    bodies.push_back(bodyId);
+                }
             }
         }
     }

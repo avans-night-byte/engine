@@ -15,7 +15,7 @@ class Box2DPhysicsEngineAdapter : public PhysicsEngineAdapter {
 private:
     b2World world = b2World(b2Vec2_zero);
     unique_ptr<ContactListener> contactListener;
-    vector<b2Body *> bodies = vector<b2Body *>();
+    map<BodyId, b2Body *> bodies{};
     vector<b2Body *> bodiesToDestroy = {};
 
     unique_ptr<Box2dDrawDebug> drawDebug = nullptr;
@@ -27,8 +27,8 @@ public:
     }
 
     ~Box2DPhysicsEngineAdapter() override {
-        for (b2Body *body : bodies) {
-            world.DestroyBody(body);
+        for (auto &body : bodies) {
+            world.DestroyBody(body.second);
         }
 
         bodies.clear();

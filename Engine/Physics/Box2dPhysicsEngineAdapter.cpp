@@ -3,6 +3,7 @@
 // TODO: Remove this shit
 #include "../../Game/Components/NextLevelComponent.hpp"
 #include <cmath>
+
 unsigned int
 Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
                                       Vector2 position,
@@ -33,7 +34,7 @@ Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
 
     body->CreateFixture(&fixtureDef);
 
-    bodies.push_back(body);
+    bodies[bodies.size()] = (body);
     return bodies.size() - 1;
 }
 
@@ -69,7 +70,7 @@ BodyId Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
     fixtureDef.friction = 1.0f;
     body->CreateFixture(&fixtureDef);
 
-    bodies.push_back(body);
+    bodies[bodies.size()] = (body);
     return bodies.size() - 1;
 }
 
@@ -93,7 +94,7 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
     fixtureDef.friction = 1.0f;
     body->CreateFixture(&fixtureDef);
 
-    bodies.push_back(body);
+    bodies[bodies.size()] = (body);
     return bodies.size() - 1;
 }
 
@@ -140,7 +141,7 @@ void Box2DPhysicsEngineAdapter::setLinearVelocity(const BodyId bodyId, const Vec
 }
 
 void Box2DPhysicsEngineAdapter::getVelocity(Vector2 &velocity, BodyId bodyId) const {
-    b2Vec2 b2Vec2 = bodies[bodyId]->GetLinearVelocity();
+    b2Vec2 b2Vec2 = bodies.find(bodyId)->second->GetLinearVelocity();
     velocity = Vector2(b2Vec2.x, b2Vec2.y);
 }
 
@@ -153,16 +154,15 @@ void Box2DPhysicsEngineAdapter::destroyBody(BodyId bodyID) {
     auto *body = bodies[bodyID];
 
     bodiesToDestroy.push_back(body);
-    bodies.erase(bodies.begin());
+    bodies.erase(bodyID);
 }
 
 // TODO: Make a map instead of the vector list to destroy all bodies OF a level. map{Level, Bodies}
 void Box2DPhysicsEngineAdapter::sweepBodies() {
-    if(!world.IsLocked())
-    {
-        for (auto * body: bodiesToDestroy)
-        {
-            world.DestroyBody(body);
+    if (!world.IsLocked()) {
+        for (auto *body: bodiesToDestroy) {
+            if (body != nullptr)
+                world.DestroyBody(body);
         }
 
         bodiesToDestroy.clear();
@@ -175,8 +175,8 @@ bool Box2DPhysicsEngineAdapter::bodiesAreDestroyed() {
 }
 
 
-void Box2DPhysicsEngineAdapter::setAngle(BodyId bodyId, float angle) const{
-    b2Body *body = bodies[bodyId];
+void Box2DPhysicsEngineAdapter::setAngle(BodyId bodyId, float angle) const {
+    b2Body *body = bodies.find(bodyId)->second;
 
     body->SetTransform(body->GetPosition(), angle);
 }
