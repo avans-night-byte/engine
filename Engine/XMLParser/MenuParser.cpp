@@ -19,7 +19,6 @@ void MenuParser::initialize(const std::string &path) {
     SDLAudioEngineAdapter *audioEngineAdapter = SDLAudioEngineAdapter::getInstance();
 
     _menu = Menu::menu_(path);
-
     _textItems = std::map<std::string, std::unique_ptr<TextWrapper>>();
 
     for (auto &resource : _menu->preloadResources().resource()) {
@@ -189,11 +188,19 @@ void MenuParser::onClick(const Input &input) {
                 SDLAudioEngineAdapter::getInstance()->playFromMemory(
                         button.events().onClick()->playSound()->c_str());
 
-            if (button.events().onClick()->loadScene().present())
-                ResourceManager::getInstance()->loadResource(button.events().onClick()->loadScene()->c_str());
+            if (button.events().onClick()->loadScene().present()){
 
-            if(button.events().onClick()->loadLevel().present())
-                ResourceManager::getInstance()->loadResource(button.events().onClick()->loadLevel()->c_str());
+                std::string nextScene = button.events().onClick()->loadScene()->c_str();
+
+                if(nextScene == "Previous"){
+                    nextScene = PreviousScenes.top();
+                    PreviousScenes.pop();
+                }
+                else{
+                    PreviousScenes.push(_menu->name());
+                }
+                ResourceManager::getInstance()->loadResource(nextScene);
+            }
 
             if (button.events().onClick()->loadURL().present()) {
 #if WIN32

@@ -2,6 +2,7 @@
 #include "../Rendering/TMXLevel.hpp"
 #include "Generated/components.hxx"
 #include "Generated/level-resources.hxx"
+#include "MenuParser.hpp"
 
 #include <iostream>
 #include <map>
@@ -10,6 +11,8 @@ void LevelXMLParser::loadLevel(std::multimap<std::string, Components::component 
                                const std::map<std::string, LoadedObjectData> &loadedObjects,
                                const std::string &path) {
     std::unique_ptr<LevelResources::level> level = LevelResources::level_(path);
+
+    MenuParser::getInstance()->PreviousScenes.push(level->name());
 
     for (LevelResources::object &object : level->objects().object()) {
 

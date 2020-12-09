@@ -1,11 +1,11 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <menu:menu
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="Menu  ../Schemas/menu.xsd"
+        xsi:schemaLocation="Menu ../Schemas/menu.xsd"
         xmlns:menu="Menu"
         xmlns:common="Common">
 
-    <name>MainMenu</name>
+    <name>Credits</name>
     <common:resources>
         <default>mainmenu_background</default>
     </common:resources>
@@ -219,7 +219,7 @@
             <common:events>
                 <onClick>
                     <playSound>bonk</playSound>
-                    <loadScene>MainMenu</loadScene>
+                    <loadScene>Previous</loadScene>
                 </onClick>
             </common:events>
         </button>
