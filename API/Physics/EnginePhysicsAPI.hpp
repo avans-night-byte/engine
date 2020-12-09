@@ -75,7 +75,13 @@ public:
         physicsEngineAdapter->destroyBody(i);
     }
 
+    bool bodiesAreDestroyed() override {
+        return physicsEngineAdapter->bodiesAreDestroyed();
+    }
 
+    void sweepBodies() override {
+        physicsEngineAdapter->sweepBodies();
+    }
 
     inline unique_ptr<PhysicsEngineAdapter>& getPhysicsEngineAdapter() override
     {

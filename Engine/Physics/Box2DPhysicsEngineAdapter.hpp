@@ -16,6 +16,7 @@ private:
     b2World world = b2World(b2Vec2_zero);
     unique_ptr<ContactListener> contactListener;
     vector<b2Body *> bodies = vector<b2Body *>();
+    vector<b2Body *> bodiesToDestroy = {};
 
     unique_ptr<Box2dDrawDebug> drawDebug = nullptr;
 
@@ -46,9 +47,7 @@ public:
 
     inline RPosition getRPosition(BodyId bodyId) override;
 
-    inline void destroyBody(BodyId bodyID) override {
-        world.DestroyBody(bodies[bodyID]);
-    }
+    inline void destroyBody(BodyId bodyID) override;
 
     void DebugDraw(const RenderingEngineAdapter &renderingAdapter, SDL_Renderer &renderer) override;
 
@@ -60,4 +59,8 @@ public:
 
 
     void setAngle(BodyId bodyId, float angle) const override;
+
+    void sweepBodies() override;
+
+    bool bodiesAreDestroyed() override;
 };
