@@ -39,10 +39,11 @@ public:
     virtual void setLinearVelocity(const BodyId bodyId, const Vector2 &vector2) const = 0;
 
     virtual void setFixedRotation(const BodyId i, bool b) const = 0;
+    virtual void setAngle(const BodyId i, float rotation) const = 0;
+
 
     virtual void destroyBody(BodyId i) const = 0;
 
-    virtual void setAngle(const BodyId bodyId, float angle) const = 0;
 
     virtual std::unique_ptr<PhysicsEngineAdapter>& getPhysicsEngineAdapter() = 0;
 };

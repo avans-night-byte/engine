@@ -30,6 +30,8 @@ public:
     void createText(std::string fontName, const char *text, int fontSize, SDL_Color color,
                     std::string textureId) const override;
 
+    void drawLine(Vector2 a, Vector2 b) const override;
+
     static TextureManager *GetTextureManager();
 
     bool loadTexture(const char *path, std::string textureId) override;

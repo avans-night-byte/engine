@@ -52,6 +52,10 @@ public:
 
     virtual TMXLevel *loadLevel(const LevelData &levelData, PhysicsEngineAdapter &physicsEngineAdapter) = 0;
 
+    virtual void drawLine(Vector2 a, Vector2 b) const = 0;
+
+
+
 public:
     [[nodiscard]] virtual const RenderingEngineAdapter &GetRendererAdapter() const = 0;
 };

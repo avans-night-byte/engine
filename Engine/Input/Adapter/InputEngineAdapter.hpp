@@ -25,4 +25,5 @@ private:
     virtual Input getControllerMotionInput(SDL_Event input) const = 0;
     virtual void closeController() const = 0;
     virtual void openController(int deviceId) const = 0;
+
 };

@@ -81,3 +81,9 @@ void EngineRenderingAPI::drawBackground(std::string hex, float alpha) const {
     _adapter->drawBackground(hex, alpha, _renderer);
 
 }
+
+
+void EngineRenderingAPI::drawLine(Vector2 a, Vector2 b) const {
+    SDL_RenderDrawLine(_renderer, a.x, a.y, b.x, b.y);
+
+}
