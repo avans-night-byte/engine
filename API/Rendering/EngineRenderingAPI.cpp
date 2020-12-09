@@ -18,10 +18,9 @@ TextureManager *EngineRenderingAPI::GetTextureManager()
  * @return Spritesheet
  */
 Spritesheet *
-EngineRenderingAPI::createSpriteSheet(const char *path, std::string spriteSheetId, int rows, int columns, int width,
-                                      int height) const
+EngineRenderingAPI::createSpriteSheet(char const *path, std::string spriteSheetId, int width, int height) const
 {
-    return _adapter->createSpriteSheet(path, spriteSheetId, rows, columns, width, height, _renderer);
+    return _adapter->createSpriteSheet(path, spriteSheetId, width, height);
 }
 
 Spritesheet *

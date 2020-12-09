@@ -7,11 +7,12 @@
 
     <xs:simpleType name="componentName" id="componentName">
         <xs:restriction base="xs:string">
-            <xs:pattern value="WorldPositionComponent"/>
+            <xs:pattern value="TransformComponent"/>
             <xs:pattern value="CharacterComponent"/>
             <xs:pattern value="PhysicsComponent"/>
             <xs:pattern value="NextLevelComponent"/>
             <xs:pattern value="ExplosionCrate"/>
+            <xs:pattern value="RenderComponent"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -23,10 +24,19 @@
 
             <xs:choice>
                 <!-- World Position Component -->
-                <xs:element name="worldPositionComponent">
+                <xs:element name="transformComponent">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element ref="common:position"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="renderComponent">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="spriteId" type="xs:string"/>
+                            <xs:element name="spritePath" type="xs:string"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>

@@ -37,8 +37,7 @@ public:
     drawTexture(std::string textureId, float x, float y, float width, float height, double scale, double r) const = 0;
 
     virtual Spritesheet *
-    createSpriteSheet(char const *path, std::string spriteSheetId, int rows, int columns, int width,
-                      int height) const = 0;
+    createSpriteSheet(char const *path, std::string spriteSheetId, int width, int height) const = 0;
 
     virtual bool loadTexture(const char *path, std::string textureId) = 0;
 

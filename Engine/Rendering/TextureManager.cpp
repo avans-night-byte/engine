@@ -56,7 +56,7 @@ void TextureManager::draw(std::string textureId, int x, int y, int width, int he
     }
     SDL_Rect destRect = { x, y , width, height };
 
-    SDL_RenderCopyEx(renderer, texture, NULL, &destRect,0, NULL,  flip);
+    SDL_RenderCopyEx(renderer, texture, NULL, &destRect, r, NULL,  flip);
 }
 
 void

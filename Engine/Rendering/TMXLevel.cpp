@@ -13,7 +13,7 @@ TMXLevel::TMXLevel(const char *tmxPath,
                    const RenderingAPI &renderingAPI,
                    PhysicsEngineAdapter &physicsEngineAdapter) : physicsEngineAdapter(physicsEngineAdapter) {
     _tSpritesheet = renderingAPI.createSpriteSheet(spritesheetPath,
-                                                   spritesheetId, 40, 40, 16, 16);
+                                                   spritesheetId, 16, 16);
     if (!_tmap.load(tmxPath))
     {
         return;

@@ -1,6 +1,7 @@
 #include <regex>
 #include <SDL_ttf.h>
 #include "RenderingEngineAdapter.hpp"
+#include "../../Engine.hpp"
 
 typedef signed int int32;
 
@@ -26,9 +27,8 @@ void RenderingEngineAdapter::drawBackground(std::string color, float alpha, SDL_
 }
 
 Spritesheet *
-RenderingEngineAdapter::createSpriteSheet(char const *path, std::string spriteSheetId, int rows, int columns, int width,
-                                          int height, SDL_Renderer *renderer) {
-    return new Spritesheet(path, spriteSheetId, width, height, renderer);
+RenderingEngineAdapter::createSpriteSheet(char const *path, std::string spriteSheetId, int width, int height) {
+    return new Spritesheet(path, spriteSheetId, width, height, Engine::getInstance()->getRenderer());
 }
 
 
@@ -99,25 +99,6 @@ void RenderingEngineAdapter::drawLine(const Vector2 &begin, const Vector2 &end, 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
     SDL_RenderDrawLineF(renderer, begin.x, begin.y, end.x, end.y);
 }
-
-//void RenderingEngineAdapter::drawSolidRectangle(const Vector2 &position,
-//                                                const Vector2 &size,
-//                                                SDL_Renderer *renderer) const {
-//    float x = position.x;
-//    float y = position.y;
-//
-//    SDL_FRect rect;
-//    rect.x = x;
-//    rect.y = y;
-//    rect.w = size.x;
-//    rect.h = size.y;
-//
-//    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 200);
-//    SDL_RenderFillRectF(renderer, &rect);
-//    SDL_RenderDrawRectF(renderer, &rect);
-//
-//    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-//}
 
 void RenderingEngineAdapter::drawCircle(const Vector2 &center, const float &radius, SDL_Renderer *renderer) const {
     float x = center.x;

@@ -23,7 +23,7 @@ void LevelXMLParser::loadLevel(std::multimap<std::string, Components::component 
             std::cout << component.componentName() << std::endl;
 
             if (objectPersistsInTMX && component.componentName() == "WorldPositionComponent") {
-                auto &worldPositionComponent = component.worldPositionComponent();
+                auto &worldPositionComponent = component.transformComponent();
                 auto &positionF = worldPositionComponent->position();
                 positionF.x() = it->second.position.x;
                 positionF.y() = it->second.position.y;
