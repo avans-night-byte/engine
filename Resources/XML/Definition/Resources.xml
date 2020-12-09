@@ -26,6 +26,30 @@
             <name>nightbyte_logo</name>
             <path>Sprites/NightByte.png</path>
         </texture>
+        <texture>
+            <name>huseyin</name>
+            <path>Sprites/Huseyin.png</path>
+        </texture>
+        <texture>
+            <name>marco</name>
+            <path>Sprites/Marco.png</path>
+        </texture>
+        <texture>
+            <name>martijn</name>
+            <path>Sprites/Martijn.png</path>
+        </texture>
+        <texture>
+            <name>sascha_real</name>
+            <path>Sprites/Sascha.png</path>
+        </texture>
+        <texture>
+            <name>storm</name>
+            <path>Sprites/Storm.png</path>
+        </texture>
+        <texture>
+            <name>yannick</name>
+            <path>Sprites/Yannick.png</path>
+        </texture>
     </textures>
     <sprites>
         <sprite>
@@ -65,6 +89,10 @@
         <scene>
             <name>Credits</name>
             <path>XML/Definition/Credits.xml</path>
+        </scene>
+        <scene>
+            <name>Cursed</name>
+            <path>XML/Definition/Cursed.xml</path>
         </scene>
     </scenes>
     <levels/>

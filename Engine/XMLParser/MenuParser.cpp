@@ -10,6 +10,7 @@ MenuParser::MenuParser(const RenderingAPI &renderer) : _renderer(renderer) {
     if (_instance != nullptr) {
         throw std::runtime_error("[ERROR] [MenuParser] Manager has already been initiated!");
     }
+
     _resourceManager = ResourceManager::getInstance();
     _instance = this;
 }
