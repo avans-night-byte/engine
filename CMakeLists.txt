@@ -93,19 +93,7 @@ add_executable(NightByte ./Main.cpp
         ./API/RPosition.hpp
         ./API/XMLParser/MenuParserAPI.cpp
         ./API/XMLParser/MenuParserAPI.hpp
-        ./API/XMLParser/LevelParserAPI.cpp
-
-        # XML
-        ./Resources/XML/Generated/wall.hxx
-        ./Resources/XML/Generated/wall.cxx
-        ./Resources/XML/Generated/common.cxx
-        ./Resources/XML/Generated/common.hxx
-        ./Resources/XML/Generated/menu.cxx
-        ./Resources/XML/Generated/menu.hxx
-        ./Resources/XML/Generated/resources.cxx
-        ./Resources/XML/Generated/resources.hxx
-        ./Resources/XML/Generated/level-resources.hxx
-        ./Resources/XML/Generated/level-resources.cxx)
+        ./API/XMLParser/LevelParserAPI.cpp)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)
@@ -117,12 +105,27 @@ target_include_directories(NightByte PUBLIC
         ${SDL2_MIXER_SOURCE_DIR}/include
         ${SDL2IMAGE_SOURCE_DIR}
         ${TMXLITE_SOURCE_DIR}
-        ${XSD_INCLUDE_DIR}
         ${SDL2TTF_SOURCE_DIR}
-        ./Resources/XML/)
+        )
 
+add_library(XMLResources SHARED
+        ./Resources/XML/Generated/wall.hxx
+        ./Resources/XML/Generated/wall.cxx
+        ./Resources/XML/Generated/common.cxx
+        ./Resources/XML/Generated/common.hxx
+        ./Resources/XML/Generated/menu.cxx
+        ./Resources/XML/Generated/menu.hxx
+        ./Resources/XML/Generated/resources.cxx
+        ./Resources/XML/Generated/resources.hxx
+        ./Resources/XML/Generated/level-resources.hxx
+        ./Resources/XML/Generated/level-resources.cxx
+        ./Resources/XML/Generated/components.hxx
+        ./Resources/XML/Generated/components.cxx)
 
-target_link_libraries(NightByte SDL2 box2d  SDL2::image XercesC::XercesC SDL2_mixer tmxlite SDL2_ttf)
+target_link_libraries(XMLResources PUBLIC XercesC::XercesC )
+target_include_directories(XMLResources PUBLIC ${XSD_INCLUDE_DIR} ./Resources/XML/)
+
+target_link_libraries(NightByte SDL2 box2d  SDL2::image SDL2_mixer tmxlite SDL2_ttf XMLResources)
 
 if (MSVC OR MSYS OR MINGW)
     target_link_libraries(NightByte winpthread)

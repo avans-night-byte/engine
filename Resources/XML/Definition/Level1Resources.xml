@@ -3,7 +3,8 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="LevelResources  ../Schemas/level-resources.xsd"
         xmlns:lr="LevelResources"
-        xmlns:common="Common">
+        xmlns:common="Common"
+        xmlns:comp="Components">
 
     <name>Level1</name>
     <objects>
