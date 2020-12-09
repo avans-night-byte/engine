@@ -12,14 +12,13 @@ namespace Components {
 
 class TMXLevel;
 
-struct TMXLevelData;
+struct LevelData;
 
 
 class LevelParserAPI {
 private:
 
 public:
-    static TMXLevel* loadLevel(std::multimap<std::string, const Components::component *> &outEntities,
-                          const TMXLevelData &levelData,
-                          const std::string &resourcePath);
+    static TMXLevel *loadLevel(std::multimap<std::string, Components::component *> &outEntities,
+                               const LevelData &levelData);
 };
