@@ -193,11 +193,11 @@ void MenuParser::onClick(const Input &input) {
                 std::string nextScene = button.events().onClick()->loadScene()->c_str();
 
                 if(nextScene == "Previous"){
-                    nextScene = _previousScene;
-                    _previousScene = _menu->name();
+                    nextScene = PreviousScenes.top();
+                    PreviousScenes.pop();
                 }
                 else{
-                    _previousScene = _menu->name();
+                    PreviousScenes.push(_menu->name());
                 }
                 ResourceManager::getInstance()->loadResource(nextScene);
             }
