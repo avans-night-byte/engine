@@ -83,15 +83,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9baec44b78e27ed81cfc48678c07a587"><td class="memItemLeft" align="right" valign="top"><a id="a9baec44b78e27ed81cfc48678c07a587"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const float &amp;timeStep, const int32 &amp;velocityIterations, const int32 &amp;positionIterations)=0</td></tr>
 <tr class="separator:a9baec44b78e27ed81cfc48678c07a587"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaeb01c649abb0ae9328d861139600d06"><td class="memItemLeft" align="right" valign="top"><a id="aaeb01c649abb0ae9328d861139600d06"></a>
-virtual BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (const <a class="el" href="structBox2DBoxData.html">Box2DBoxData</a> &amp;box2DBoxData) const =0</td></tr>
-<tr class="separator:aaeb01c649abb0ae9328d861139600d06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77ba8919efe6074ffccf742a13f823b3"><td class="memItemLeft" align="right" valign="top"><a id="a77ba8919efe6074ffccf742a13f823b3"></a>
-virtual BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (const <a class="el" href="structBox2DCircleData.html">Box2DCircleData</a> &amp;box2DCircleData) const =0</td></tr>
-<tr class="separator:a77ba8919efe6074ffccf742a13f823b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a2dd0292565ecb00a4d2ceb0dd42b01"><td class="memItemLeft" align="right" valign="top"><a id="a4a2dd0292565ecb00a4d2ceb0dd42b01"></a>
-virtual BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (const <a class="el" href="structBox2DPolygonData.html">Box2DPolygonData</a> &amp;box2DPolygonData) const =0</td></tr>
-<tr class="separator:a4a2dd0292565ecb00a4d2ceb0dd42b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab94f34d23afa153063db574382c57569"><td class="memItemLeft" align="right" valign="top"><a id="ab94f34d23afa153063db574382c57569"></a>
+virtual BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (const <a class="el" href="structBox2DBoxData.html">Box2DBoxData</a> &amp;box2DBoxData) const =0</td></tr>
+<tr class="separator:ab94f34d23afa153063db574382c57569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a806299011b5d489206357e0a56a08a7a"><td class="memItemLeft" align="right" valign="top"><a id="a806299011b5d489206357e0a56a08a7a"></a>
+virtual BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (const <a class="el" href="structBox2DCircleData.html">Box2DCircleData</a> &amp;box2DCircleData) const =0</td></tr>
+<tr class="separator:a806299011b5d489206357e0a56a08a7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa00c4e81178ac080721e791b3bf8f27"><td class="memItemLeft" align="right" valign="top"><a id="aaa00c4e81178ac080721e791b3bf8f27"></a>
+virtual BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (const <a class="el" href="structBox2DPolygonData.html">Box2DPolygonData</a> &amp;box2DPolygonData) const =0</td></tr>
+<tr class="separator:aaa00c4e81178ac080721e791b3bf8f27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b49bd33353920bdeeedb8e838a0c9f5"><td class="memItemLeft" align="right" valign="top"><a id="a8b49bd33353920bdeeedb8e838a0c9f5"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>destroyBody</b> (BodyId bodyId)=0</td></tr>
 <tr class="separator:a8b49bd33353920bdeeedb8e838a0c9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -116,9 +116,6 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>destroyBody</
 <tr class="memitem:a0841cbd1aa137ecc8dec9c8adcf2df8b"><td class="memItemLeft" align="right" valign="top"><a id="a0841cbd1aa137ecc8dec9c8adcf2df8b"></a>
 virtual std::unique_ptr&lt; <a class="el" href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getPhysicsEngineAdapter</b> ()=0</td></tr>
 <tr class="separator:a0841cbd1aa137ecc8dec9c8adcf2df8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e24e3498d26174511e8a325209ef3d4"><td class="memItemLeft" align="right" valign="top"><a id="a6e24e3498d26174511e8a325209ef3d4"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setContactHandler</b> (BodyId i, <a class="el" href="classContactHandler.html">ContactHandler</a> *pHandler) const =0</td></tr>
-<tr class="separator:a6e24e3498d26174511e8a325209ef3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>API/Physics/<a class="el" href="PhysicsAPI_8hpp_source.html">PhysicsAPI.hpp</a></li>

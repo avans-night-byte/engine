@@ -83,15 +83,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a12a87895b481db43031372d2b759e4f3"><td class="memItemLeft" align="right" valign="top"><a id="a12a87895b481db43031372d2b759e4f3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const float &amp;timeStep, const int32 &amp;velocityIterations, const int32 &amp;positionIterations) override</td></tr>
 <tr class="separator:a12a87895b481db43031372d2b759e4f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27bfd82dd7e0f875cf84406d359fdc74"><td class="memItemLeft" align="right" valign="top"><a id="a27bfd82dd7e0f875cf84406d359fdc74"></a>
-BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (const <a class="el" href="structBox2DBoxData.html">Box2DBoxData</a> &amp;box2DBoxData) const override</td></tr>
-<tr class="separator:a27bfd82dd7e0f875cf84406d359fdc74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb25ed73deff66125c7f6f8553ca21da"><td class="memItemLeft" align="right" valign="top"><a id="abb25ed73deff66125c7f6f8553ca21da"></a>
-BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (const <a class="el" href="structBox2DCircleData.html">Box2DCircleData</a> &amp;box2DCircleData) const override</td></tr>
-<tr class="separator:abb25ed73deff66125c7f6f8553ca21da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b03b6e2e953572a44498d9c837533f1"><td class="memItemLeft" align="right" valign="top"><a id="a7b03b6e2e953572a44498d9c837533f1"></a>
-BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createStaticBody</b> (const <a class="el" href="structBox2DPolygonData.html">Box2DPolygonData</a> &amp;box2DPolygonData) const override</td></tr>
-<tr class="separator:a7b03b6e2e953572a44498d9c837533f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4df2f280e938613f3f2f3e9f1394b47c"><td class="memItemLeft" align="right" valign="top"><a id="a4df2f280e938613f3f2f3e9f1394b47c"></a>
+BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (const <a class="el" href="structBox2DBoxData.html">Box2DBoxData</a> &amp;box2DBoxData) const override</td></tr>
+<tr class="separator:a4df2f280e938613f3f2f3e9f1394b47c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed0a374b541ec2f1eaeeaf369690213e"><td class="memItemLeft" align="right" valign="top"><a id="aed0a374b541ec2f1eaeeaf369690213e"></a>
+BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (const <a class="el" href="structBox2DCircleData.html">Box2DCircleData</a> &amp;box2DCircleData) const override</td></tr>
+<tr class="separator:aed0a374b541ec2f1eaeeaf369690213e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab19774bf79b3191d99e83ed91961ec83"><td class="memItemLeft" align="right" valign="top"><a id="ab19774bf79b3191d99e83ed91961ec83"></a>
+BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (const <a class="el" href="structBox2DPolygonData.html">Box2DPolygonData</a> &amp;box2DPolygonData) const override</td></tr>
+<tr class="separator:ab19774bf79b3191d99e83ed91961ec83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0248983c69498ab55c6807202da72016"><td class="memItemLeft" align="right" valign="top"><a id="a0248983c69498ab55c6807202da72016"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>destroyBody</b> (BodyId bodyID) override</td></tr>
 <tr class="separator:a0248983c69498ab55c6807202da72016"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,9 +110,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setLinearVelocity</b>
 <tr class="memitem:a9cc6ac319249fda8a28e45df2c084f4c"><td class="memItemLeft" align="right" valign="top"><a id="a9cc6ac319249fda8a28e45df2c084f4c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setFixedRotation</b> (const BodyId i, bool b) const override</td></tr>
 <tr class="separator:a9cc6ac319249fda8a28e45df2c084f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1162af4cd1e8b778351059bf82dda9d0"><td class="memItemLeft" align="right" valign="top"><a id="a1162af4cd1e8b778351059bf82dda9d0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setContactHandler</b> (BodyId i, <a class="el" href="classContactHandler.html">ContactHandler</a> *pHandler) const override</td></tr>
-<tr class="separator:a1162af4cd1e8b778351059bf82dda9d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9db951432ca0c4238995928c41f7262b"><td class="memItemLeft" align="right" valign="top"><a id="a9db951432ca0c4238995928c41f7262b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>destroyBody</b> (BodyId i) const override</td></tr>
 <tr class="separator:a9db951432ca0c4238995928c41f7262b"><td class="memSeparator" colspan="2">&#160;</td></tr>

@@ -76,25 +76,27 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="level-resources_8hxx.html">Generated/level-resources.hxx</a>&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">struct </span><a class="code" href="structLoadedObjectData.html">LoadedObjectData</a>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">class </span>EntityObject;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classLevelXMLParser.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLevelXMLParser.html">LevelXMLParser</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceComponents.html">Components</a> {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">class </span>component;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">struct </span><a class="code" href="structLoadedObjectData.html">LoadedObjectData</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">class </span>EntityObject;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> LoadLevel(std::multimap&lt;std::string, const LevelResources::component *&gt; &amp;outEntities,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                   <span class="keyword">const</span> std::map&lt;std::string, LoadedObjectData&gt; &amp;loadedObjects, <span class="keyword">const</span> <a class="code" href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">std::string</a> &amp;path);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classLevelXMLParser.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLevelXMLParser.html">LevelXMLParser</a> {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> LoadLevel(std::multimap&lt;std::string, const Components::component *&gt; &amp;outEntities,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                   <span class="keyword">const</span> std::map&lt;std::string, LoadedObjectData&gt; &amp;loadedObjects, <span class="keyword">const</span> <a class="code" href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">std::string</a> &amp;path);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacexml__schema_html_ac0cec83a330f0024e4e318b3deac5104"><div class="ttname"><a href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">xml_schema::string</a></div><div class="ttdeci">::xsd::cxx::tree::string&lt; char, simple_type &gt; string</div><div class="ttdoc">C++ type corresponding to the string XML Schema built-in type.</div><div class="ttdef"><b>Definition:</b> common.hxx:255</div></div>
-<div class="ttc" id="aclassLevelXMLParser_html"><div class="ttname"><a href="classLevelXMLParser.html">LevelXMLParser</a></div><div class="ttdef"><b>Definition:</b> LevelXMLParser.hpp:14</div></div>
+<div class="ttc" id="aclassLevelXMLParser_html"><div class="ttname"><a href="classLevelXMLParser.html">LevelXMLParser</a></div><div class="ttdef"><b>Definition:</b> LevelXMLParser.hpp:16</div></div>
 <div class="ttc" id="astructLoadedObjectData_html"><div class="ttname"><a href="structLoadedObjectData.html">LoadedObjectData</a></div><div class="ttdef"><b>Definition:</b> TMXLevel.hpp:15</div></div>
-<div class="ttc" id="alevel-resources_8hxx_html"><div class="ttname"><a href="level-resources_8hxx.html">level-resources.hxx</a></div><div class="ttdoc">Generated from level-resources.xsd.</div></div>
+<div class="ttc" id="anamespaceComponents_html"><div class="ttname"><a href="namespaceComponents.html">Components</a></div><div class="ttdoc">C++ namespace for the Components schema namespace.</div><div class="ttdef"><b>Definition:</b> LevelParserAPI.hpp:9</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
