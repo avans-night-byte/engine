@@ -180,7 +180,11 @@ void TMXLevel::initStaticCollision(){
 }
 
 void TMXLevel::cleanup() {
-    //TODO: Unload everything.
+    for (BodyId bodyId : bodies) {
+        physicsEngineAdapter.destroyBody(bodyId);
+    }
+
+    bodies.clear();
 }
 
 TMXLevel::~TMXLevel() {

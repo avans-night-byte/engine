@@ -8,7 +8,7 @@ Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
                                       Vector2 position,
                                       Vector2 size,
                                       const bool &isSensor,
-                                      ContactHandler* userData) {
+                                      ContactHandler *userData) {
     b2BodyDef bodyDef;
     bodyDef.type = static_cast<b2BodyType>(static_cast<int>(bodyType));
     bodyDef.position.Set(position.x, position.y);
@@ -16,7 +16,7 @@ Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
     bodyDef.angularDamping = 0.1f;
 
     b2BodyUserData bodyUserData;
-    bodyUserData.pointer = (uintptr_t)userData;
+    bodyUserData.pointer = (uintptr_t) userData;
 
     bodyDef.userData = bodyUserData;
 
@@ -41,7 +41,7 @@ BodyId Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
                                              Vector2 position,
                                              const std::vector<Vector2> &points,
                                              const bool &isSensor,
-                                             ContactHandler* userData) {
+                                             ContactHandler *userData) {
     b2BodyDef bodyDef;
     bodyDef.type = static_cast<b2BodyType>(static_cast<int>(bodyType));
 
@@ -52,13 +52,13 @@ BodyId Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
 
 
     std::vector<b2Vec2> verts;
-    for(auto it = std::begin(points); it != std::end(points); ++it) {
+    for (auto it = std::begin(points); it != std::end(points); ++it) {
         verts.emplace_back(it->x, it->y);
     }
 
 
     b2PolygonShape polygon;
-    b2Vec2 arrayVec [verts.size()];
+    b2Vec2 arrayVec[verts.size()];
     std::copy(verts.begin(), verts.end(), arrayVec);
     polygonShape.Set(arrayVec, verts.size());
 
@@ -77,7 +77,7 @@ BodyId Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
 unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
                                                    Vector2 position,
                                                    float radius,
-                                                   ContactHandler* userData) {
+                                                   ContactHandler *userData) {
     b2BodyDef bodyDef;
     bodyDef.type = static_cast<b2BodyType>(static_cast<int>(bodyType));
     bodyDef.position.Set(position.x, position.y);
@@ -98,8 +98,6 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
 }
 
 
-
-
 void Box2DPhysicsEngineAdapter::referencePositionToBody(BodyId bodyId, float &x, float &y) {
     b2Body *body = bodies[bodyId];
     x = body->GetPosition().x;
@@ -112,9 +110,8 @@ inline RPosition Box2DPhysicsEngineAdapter::getRPosition(BodyId bodyId) {
     return RPosition(body->GetPosition().x, body->GetPosition().y, (body->GetAngle() * 180.f / M_PI));
 }
 
-void Box2DPhysicsEngineAdapter::DebugDraw(const RenderingEngineAdapter& renderingAdapter, SDL_Renderer &renderer) {
-    if(drawDebug == nullptr)
-    {
+void Box2DPhysicsEngineAdapter::DebugDraw(const RenderingEngineAdapter &renderingAdapter, SDL_Renderer &renderer) {
+    if (drawDebug == nullptr) {
         drawDebug = make_unique<Box2dDrawDebug>(renderingAdapter, renderer);
 
         world.SetDebugDraw(drawDebug.get());
@@ -151,6 +148,32 @@ void Box2DPhysicsEngineAdapter::setFixedRotation(const BodyId bodyId, bool b) {
     b2Body *body = bodies[bodyId];
     body->SetFixedRotation(b);
 }
+
+void Box2DPhysicsEngineAdapter::destroyBody(BodyId bodyID) {
+    auto *body = bodies[bodyID];
+
+    bodiesToDestroy.push_back(body);
+    bodies.erase(bodies.begin());
+}
+
+// TODO: Make a map instead of the vector list to destroy all bodies OF a level. map{Level, Bodies}
+void Box2DPhysicsEngineAdapter::sweepBodies() {
+    if(!world.IsLocked())
+    {
+        for (auto * body: bodiesToDestroy)
+        {
+            world.DestroyBody(body);
+        }
+
+        bodiesToDestroy.clear();
+    }
+}
+
+// TODO: Make a map instead of the vector list to destroy all bodies OF a level. map{Level, Bodies}
+bool Box2DPhysicsEngineAdapter::bodiesAreDestroyed() {
+    return bodiesToDestroy.empty();
+}
+
 
 void Box2DPhysicsEngineAdapter::setAngle(BodyId bodyId, float angle) const{
     b2Body *body = bodies[bodyId];
