@@ -29,13 +29,14 @@ void MenuParser::initialize(const std::string &path) {
     if (_menu->buttons().present()) {
         int index = 0;
         for (auto button : _menu->buttons()->button()) {
-            if (!button.content().present())
+            if (!button.text().present())
                 continue;
 
             auto createdString = _buttonPrefix + std::to_string(index);
-            auto wrapper = TextWrapper::createText(_renderer, button.content()->c_str(),
-                                                   (_fontPath + "Montserrat-Bold.ttf").c_str(), 32,
-                                                   SDL_Color{255, 255, 255}, createdString);
+            const auto font = _fontPath + button.text()->font().family() + "-" + button.text()->font().weight() +".ttf";
+            auto wrapper = TextWrapper::createText(_renderer, button.text()->content().c_str(),
+                                                   (font).c_str(), button.text()->font().size(),
+                                                   HexToRGB(button.text()->color().hex(), button.text()->color().alpha()), createdString);
 
             _textItems[createdString] = std::unique_ptr<TextWrapper>(wrapper);
             index++;
@@ -47,7 +48,7 @@ void MenuParser::initialize(const std::string &path) {
 
         auto createdString = _textPrefix + std::to_string(index);
         auto wrapper = TextWrapper::createText(_renderer, text.content().c_str(),
-                                               (_fontPath + "Montserrat-Regular.ttf").c_str(), 32,
+                                               (_fontPath + text.font().family() + "-" + text.font().weight() +".ttf").c_str(), text.font().size(),
                                                HexToRGB(text.color().hex(), text.color().alpha()), createdString);
 
         _textItems[createdString] = std::unique_ptr<TextWrapper>(wrapper);
