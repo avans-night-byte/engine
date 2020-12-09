@@ -915,6 +915,36 @@ namespace Common
     this->custom_.set (std::move (x));
   }
 
+  const onClick::loadURL_optional& onClick::
+  loadURL () const
+  {
+    return this->loadURL_;
+  }
+
+  onClick::loadURL_optional& onClick::
+  loadURL ()
+  {
+    return this->loadURL_;
+  }
+
+  void onClick::
+  loadURL (const loadURL_type& x)
+  {
+    this->loadURL_.set (x);
+  }
+
+  void onClick::
+  loadURL (const loadURL_optional& x)
+  {
+    this->loadURL_ = x;
+  }
+
+  void onClick::
+  loadURL (::std::unique_ptr< loadURL_type > x)
+  {
+    this->loadURL_.set (std::move (x));
+  }
+
 
   // size1
   // 
@@ -2503,7 +2533,8 @@ namespace Common
   : ::xml_schema::type (),
     playSound_ (this),
     loadScene_ (this),
-    custom_ (this)
+    custom_ (this),
+    loadURL_ (this)
   {
   }
 
@@ -2514,7 +2545,8 @@ namespace Common
   : ::xml_schema::type (x, f, c),
     playSound_ (x.playSound_, f, this),
     loadScene_ (x.loadScene_, f, this),
-    custom_ (x.custom_, f, this)
+    custom_ (x.custom_, f, this),
+    loadURL_ (x.loadURL_, f, this)
   {
   }
 
@@ -2525,7 +2557,8 @@ namespace Common
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     playSound_ (this),
     loadScene_ (this),
-    custom_ (this)
+    custom_ (this),
+    loadURL_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -2586,6 +2619,20 @@ namespace Common
         }
       }
 
+      // loadURL
+      //
+      if (n.name () == "loadURL" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< loadURL_type > r (
+          loadURL_traits::create (i, f, this));
+
+        if (!this->loadURL_)
+        {
+          this->loadURL_.set (::std::move (r));
+          continue;
+        }
+      }
+
       break;
     }
   }
@@ -2606,6 +2653,7 @@ namespace Common
       this->playSound_ = x.playSound_;
       this->loadScene_ = x.loadScene_;
       this->custom_ = x.custom_;
+      this->loadURL_ = x.loadURL_;
     }
 
     return *this;

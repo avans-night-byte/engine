@@ -93,8 +93,8 @@ Input SDLInputEngineAdapter::getKeyInput(SDL_Keycode keyEvent, Uint32 type) cons
 Input SDLInputEngineAdapter::getMouseInput(SDL_Event mouseEvent)
 {
     InputAction keyMap = KeyMap::mouseMap[mouseEvent.button.button];
-    int mouseX = mouseEvent.button.x;
-    int mouseY = mouseEvent.button.y;
+    float mouseX = mouseEvent.button.x;
+    float mouseY = mouseEvent.button.y;
 
     return Input{
         .device = Input::MOUSE, .x = mouseX, .y = mouseY, .keyMap = keyMap};

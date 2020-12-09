@@ -14,7 +14,7 @@
         <button>
             <common:position>
                 <x>100</x>
-                <y>100</y>
+                <y>300</y>
             </common:position>
             <common:size>
                 <width>500</width>
@@ -22,8 +22,8 @@
             </common:size>
             <content>Start game</content>
             <common:color>
-                <hex>db80f2</hex>
-                <alpha>40</alpha>
+                <hex>000000</hex>
+                <alpha>100</alpha>
             </common:color>
             <common:events>
                 <onClick>
@@ -35,16 +35,37 @@
         <button>
             <common:position>
                 <x>100</x>
-                <y>300</y>
+                <y>500</y>
             </common:position>
             <common:size>
-                <width>200</width>
-                <height>50</height>
+                <width>500</width>
+                <height>150</height>
+            </common:size>
+            <content>Credits</content>
+            <common:color>
+                <hex>000000</hex>
+                <alpha>100</alpha>
+            </common:color>
+            <common:events>
+                <onClick>
+                    <playSound>bonk</playSound>
+                    <loadScene>Credits</loadScene>
+                </onClick>
+            </common:events>
+        </button>
+        <button>
+            <common:position>
+                <x>100</x>
+                <y>700</y>
+            </common:position>
+            <common:size>
+                <width>500</width>
+                <height>150</height>
             </common:size>
             <content>Stop Game</content>
             <common:color>
-                <hex>fcba03</hex>
-                <alpha>255</alpha>
+                <hex>000000</hex>
+                <alpha>100</alpha>
             </common:color>
             <common:events>
                 <onClick>
@@ -54,8 +75,8 @@
         </button>
         <button>
             <common:position>
-                <x>400</x>
-                <y>400</y>
+                <x>1700</x>
+                <y>900</y>
             </common:position>
             <common:size>
                 <width>200</width>
@@ -67,50 +88,43 @@
             </resources>
             <common:events>
                 <onClick>
-                    <custom>close</custom>
+                    <loadURL>https://github.com/avans-night-byte/engine</loadURL>
                 </onClick>
             </common:events>
         </button>
     </buttons>
-    <texts>
-        <text>
-            <common:position>
-                <x>50</x>
-                <y>50</y>
-            </common:position>
-            <common:color>
-                <hex>a83258</hex>
-                <alpha>255</alpha>
-            </common:color>
-            <content>I'm going to end my life</content>
-        </text>
-        <text>
-            <common:position>
-                <x>350</x>
-                <y>100</y>
-            </common:position>
-            <common:color>
-                <hex>c9c947</hex>
-                <alpha>100</alpha>
-            </common:color>
-            <content>Biiiiirthv</content>
-        </text>
-    </texts>
+    <texts/>
     <images>
         <image>
             <common:position>
-                <x>1000</x>
-                <y>1000</y>
+                <x>230</x>
+                <y>30</y>
             </common:position>
             <common:size>
-                <width>100</width>
-                <height>100</height>
+                <width>250</width>
+                <height>250</height>
             </common:size>
             <common:resources>
-                <default>github_logo</default>
+                <default>nightbyte_logo</default>
             </common:resources>
         </image>
     </images>
+    <boxes>
+        <box>
+            <common:position>
+                <x>1738</x>
+                <y>938</y>
+            </common:position>
+            <common:size>
+                <width>120</width>
+                <height>120</height>
+            </common:size>
+            <common:color>
+                <hex>000000</hex>
+                <alpha>100</alpha>
+            </common:color>
+        </box>
+    </boxes>
     <common:preloadResources>
         <resource>mainmenu_background</resource>
         <resource>mainmenu_music</resource>
@@ -118,6 +132,7 @@
         <resource>github_logo</resource>
         <resource>sascha</resource>
         <resource>background_2</resource>
+        <resource>nightbyte_logo</resource>
         <resource>minion</resource>
     </common:preloadResources>
 </menu:menu>

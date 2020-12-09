@@ -63,7 +63,7 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="images">
+                <xs:element name="images" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="image" minOccurs="0" maxOccurs="unbounded">
@@ -72,6 +72,21 @@
                                         <xs:element ref="cmn:position"/>
                                         <xs:element ref="cmn:size"/>
                                         <xs:element ref="cmn:resources" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="boxes" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="box" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element ref="cmn:position"/>
+                                        <xs:element ref="cmn:size"/>
+                                        <xs:element ref="cmn:color"/>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>

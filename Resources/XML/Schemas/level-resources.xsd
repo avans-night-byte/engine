@@ -1,109 +1,13 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:lr="LevelResources"
            xmlns:common="Common"
+           xmlns:comp="Components"
            targetNamespace="LevelResources">
 
-    <xs:import schemaLocation="common.xsd"
-               namespace="Common"/>
-
-    <xs:complexType name="bodyShape">
-        <xs:choice>
-            <xs:element name="circle">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element ref="common:positionF"/>
-                        <xs:element name="radius" type="xs:float"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="box">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="width" type="xs:float"/>
-                        <xs:element name="height" type="xs:float"/>
-                        <xs:element ref="common:positionF"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-        </xs:choice>
-    </xs:complexType>
-
-    <xs:complexType name="component">
-        <xs:sequence>
-            <xs:element name="componentName"
-                        type="lr:componentName"
-                        minOccurs="1" maxOccurs="1"/>
-
-            <xs:choice>
-                <!-- World Position Component -->
-                <xs:element name="worldPositionComponent">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element ref="common:positionF"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-
-                <!-- Physics Component -->
-                <xs:element name="physicsComponent">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="friction" type="lr:floatCap"/>
-                            <xs:element name="bodyType" type="lr:bodyType"/>
-                            <xs:element name="bodyShape" type="lr:bodyShape"/>
-                            <xs:element name="contactHandler" type="lr:componentName" minOccurs="0"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-
-                <!-- Character Component -->
-                <xs:element name="characterComponent">
-                    <xs:complexType>
-                        <xs:sequence>
-
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
+    <xs:import schemaLocation="common.xsd" namespace="Common"/>
+    <xs:import schemaLocation="components.xsd" namespace="Components"/>
 
 
-
-                <!-- Contact Handler -->
-                <xs:element name="explosionCrate">
-                    <xs:complexType>
-                        <xs:sequence>
-
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-            </xs:choice>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:simpleType name="componentName" id="componentName">
-        <xs:restriction base="xs:string">
-            <xs:pattern value="WorldPositionComponent"/>
-            <xs:pattern value="CharacterComponent"/>
-            <xs:pattern value="PhysicsComponent"/>
-            <xs:pattern value="NextLevelComponent"/>
-            <xs:pattern value="ExplosionCrate"/>
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:simpleType name="floatCap" id="floatCap">
-        <xs:restriction base="xs:float">
-            <xs:minInclusive value="0"/>
-            <xs:maxInclusive value="1"/>
-        </xs:restriction>
-    </xs:simpleType>
-
-
-    <xs:simpleType name="bodyType" id="bodyType">
-        <xs:restriction base="xs:string">
-            <xs:pattern value="Dynamic"/>
-            <xs:pattern value="Static"/>
-            <xs:pattern value="Kinematic"/>
-        </xs:restriction>
-    </xs:simpleType>
 
     <xs:element name="level">
         <xs:complexType>
@@ -121,7 +25,7 @@
                                                 <xs:sequence>
 
                                                     <xs:element name="component"
-                                                                type="lr:component"
+                                                                type="comp:component"
                                                                 maxOccurs="unbounded"/>
 
                                                 </xs:sequence>

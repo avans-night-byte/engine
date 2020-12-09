@@ -150,8 +150,3 @@ void Box2DPhysicsEngineAdapter::setFixedRotation(const BodyId bodyId, bool b) {
     b2Body *body = bodies[bodyId];
     body->SetFixedRotation(b);
 }
-
-void Box2DPhysicsEngineAdapter::setContactHandler(BodyId i, ContactHandler *pHandler) {
-    b2Body *body = bodies[i];
-    body->GetUserData().pointer = (uintptr_t)pHandler;
-}

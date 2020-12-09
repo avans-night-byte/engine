@@ -71,6 +71,7 @@ void MenuParser::render() {
         _renderer.drawTexture(_menu->resources()->default_(), 0, 0, 1920, 1080, 1, 0);
     }
 
+    MenuParser::renderBoxes();
     MenuParser::renderImages();
     MenuParser::renderText();
     MenuParser::renderButtons();
@@ -117,12 +118,25 @@ void MenuParser::renderText() {
 void MenuParser::renderImages() {
     int index = 0;
 
-    for (auto image : _menu->images().image()) {
+    for (auto image : _menu->images()->image()) {
         _renderer.drawTexture(image.resources().default_(), image.position().x(), image.position().y(),
                               image.size().width(), image.size().height(), 1, 0);
         index++;
     }
 
+}
+
+void MenuParser::renderBoxes(){
+    int index = 0;
+    if (!_menu->boxes().present()) return;
+
+    for (auto box : _menu->boxes()->box()) {
+        Vector2 v2(box.position().x(), box.position().y());
+
+        _renderer.drawRectangle(v2, box.size().width(), box.size().height(), box.color().hex(),
+                                box.color().alpha());
+        index++;
+    }
 }
 
 SDL_Color MenuParser::HexToRGB(std::string hex, float opacity) {
@@ -161,6 +175,23 @@ void MenuParser::onClick(const Input& input) {
 
                 if (button.events().onClick()->loadScene().present())
                     ResourceManager::getInstance()->loadResource(button.events().onClick()->loadScene()->c_str());
+
+                if(button.events().onClick()->loadURL().present()){
+#if WIN32
+                    //Windows open
+                    std::string command = "start ";
+                    command += button.events().onClick()->loadURL()->c_str();
+                    system(command.c_str());
+#endif
+
+#if __linux__
+                    //Linux open
+                    command = "open ";
+                    command += button.events().onClick()->loadURL()->c_str();
+                    system(command.c_str());
+#endif
+                }
+
 
                 if (button.events().onClick()->custom().present()) {
                     const std::string action = button.events().onClick()->custom()->c_str();

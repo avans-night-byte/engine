@@ -19,7 +19,7 @@ public:
 
 
     // TODO: Create a Helper function for BodyId
-    inline BodyId createStaticBody(const Box2DBoxData &box2DBoxData) const override {
+    inline BodyId createBody(const Box2DBoxData &box2DBoxData) const override {
         return physicsEngineAdapter->createBody(box2DBoxData.bodyType,
                                                 box2DBoxData.position,
                                                 box2DBoxData.size,
@@ -27,14 +27,14 @@ public:
                                                 box2DBoxData.userData);
     }
 
-    inline BodyId createStaticBody(const Box2DCircleData &box2DCircleData) const override {
+    inline BodyId createBody(const Box2DCircleData &box2DCircleData) const override {
         return physicsEngineAdapter->createBody(box2DCircleData.bodyType,
                                                 box2DCircleData.position,
                                                 box2DCircleData.radius,
                                                 box2DCircleData.userData);
     }
 
-    inline BodyId createStaticBody(const Box2DPolygonData &box2DPolygonData) const override {
+    inline BodyId createBody(const Box2DPolygonData &box2DPolygonData) const override {
         return physicsEngineAdapter->createBody(box2DPolygonData.bodyType,
                                                 box2DPolygonData.position,
                                                 box2DPolygonData.points,
@@ -64,10 +64,6 @@ public:
 
     void setFixedRotation(const BodyId i, bool b) const override {
         physicsEngineAdapter->setFixedRotation(i, b);
-    }
-
-    void setContactHandler(BodyId i, ContactHandler *pHandler) const override {
-        physicsEngineAdapter->setContactHandler(i, pHandler);
     }
 
     void destroyBody(BodyId i) const override {

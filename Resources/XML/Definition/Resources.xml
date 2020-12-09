@@ -22,6 +22,10 @@
             <name>minion</name>
             <path>Sprites/booty-bum.gif</path>
         </texture>
+        <texture>
+            <name>nightbyte_logo</name>
+            <path>Sprites/NightByte.png</path>
+        </texture>
     </textures>
     <sprites>
         <sprite>

@@ -84,6 +84,7 @@
                             <xs:element name="playSound" type="xs:anyURI" minOccurs="0"/>
                             <xs:element name="loadScene" type="xs:anyURI" minOccurs="0"/>
                             <xs:element name="custom" type="xs:string" minOccurs="0"/>
+                            <xs:element name="loadURL" type="xs:string" minOccurs="0" />
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>

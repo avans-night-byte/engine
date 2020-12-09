@@ -1,10 +1,12 @@
 #include "LevelXMLParser.hpp"
 #include "../Rendering/TMXLevel.hpp"
+#include "Generated/components.hxx"
+#include "Generated/level-resources.hxx"
 
 #include <iostream>
 #include <map>
 
-void LevelXMLParser::LoadLevel(std::multimap<std::string, const LevelResources::component *> &outEntities,
+void LevelXMLParser::LoadLevel(std::multimap<std::string, const Components::component *> &outEntities,
                                const std::map<std::string, LoadedObjectData> &loadedObjects,
                                const std::string &path) {
     std::unique_ptr<LevelResources::level> level = LevelResources::level_(path);
@@ -25,7 +27,7 @@ void LevelXMLParser::LoadLevel(std::multimap<std::string, const LevelResources::
             }
 
             // componentName  -> Factory
-            auto pair = std::pair<std::string, const LevelResources::component *>(object.name().c_str(),
+            auto pair = std::pair<std::string, const Components::component *>(object.name().c_str(),
                                                                                   component._clone());
 
             outEntities.insert(pair);
