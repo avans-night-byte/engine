@@ -7,9 +7,8 @@
 #include "Generated/components.hxx"
 
 
-TMXLevel* LevelParserAPI::loadLevel(std::multimap<std::string, const Components::component *> &outEntities,
-                               const TMXLevelData &levelData,
-                               const std::string &resourcePath) {
+TMXLevel* LevelParserAPI::loadLevel(std::multimap<std::string, Components::component *> &outEntities,
+                               const LevelData &levelData) {
     auto *renderingApi = Game::getInstance()->getRenderingApi();
 
     auto *physicsApi = Game::getInstance()->getPhysicsAPI();
@@ -20,9 +19,9 @@ TMXLevel* LevelParserAPI::loadLevel(std::multimap<std::string, const Components:
     tmxLevel->initObjects(loadedObjects);
 
     auto levelXMLParser = std::make_unique<LevelXMLParser>();
-    levelXMLParser->LoadLevel(outEntities,
+    levelXMLParser->loadLevel(outEntities,
                               loadedObjects,
-                              resourcePath);
+                              levelData.levelResourcePath);
 
     return tmxLevel;
 }

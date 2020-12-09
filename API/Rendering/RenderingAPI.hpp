@@ -14,16 +14,21 @@ class TMXLevel;
 
 #include <string>
 
-struct TMXLevelData {
+struct LevelData {
 public:
-    TMXLevelData(const std::string _tmxPath, const std::string spriteSheetPath, const std::string &spriteId)
-            : tmxPath(_tmxPath), spritesheetPath(spriteSheetPath), spriteId(spriteId) {
+    LevelData(const std::string _tmxPath,
+              const std::string spriteSheetPath,
+              const std::string &spriteId,
+              const std::string &levelResourcePath)
+            : tmxPath(_tmxPath), spritesheetPath(spriteSheetPath), spriteId(spriteId),
+              levelResourcePath(levelResourcePath) {
 
     }
 
     const std::string tmxPath;
     const std::string spritesheetPath;
     const std::string spriteId;
+    const std::string levelResourcePath;
 };
 
 class RenderingAPI {
@@ -45,7 +50,7 @@ public:
 
     virtual void drawBackground(std::string hex, float alpha) const = 0;
 
-    virtual TMXLevel *loadLevel(const TMXLevelData &levelData, PhysicsEngineAdapter &physicsEngineAdapter) = 0;
+    virtual TMXLevel *loadLevel(const LevelData &levelData, PhysicsEngineAdapter &physicsEngineAdapter) = 0;
 
 public:
     [[nodiscard]] virtual const RenderingEngineAdapter &GetRendererAdapter() const = 0;

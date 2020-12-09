@@ -1,12 +1,12 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <lr:level
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="LevelResources  ../Schemas/level-resources.xsd"
+        xsi:schemaLocation="LevelResources  ../../Schemas/level-resources.xsd"
         xmlns:lr="LevelResources"
         xmlns:common="Common"
         xmlns:comp="Components">
 
-    <name>Level1</name>
+    <name>Level2</name>
     <objects>
 
         <object>
@@ -30,16 +30,16 @@
                 <component>
                     <componentName>PhysicsComponent</componentName>
                     <physicsComponent>
+                        <common:position>
+                            <x>0</x>
+                            <y>0</y>
+                        </common:position>
                         <friction>0.5</friction>
                         <bodyType>Dynamic</bodyType>
                         <bodyShape>
                             <box>
                                 <width>50</width>
                                 <height>50</height>
-                                <common:position>
-                                    <x>100.50</x>
-                                    <y>147.08</y>
-                                </common:position>
                             </box>
                         </bodyShape>
                         <isSensor>false</isSensor>

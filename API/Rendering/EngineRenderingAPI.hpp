@@ -38,7 +38,7 @@ public:
 
     void drawBackground(std::string hex, float alpha) const override;
 
-    TMXLevel *loadLevel(const TMXLevelData &levelData, PhysicsEngineAdapter &physicsEngineAdapter) override;
+    TMXLevel *loadLevel(const LevelData &levelData, PhysicsEngineAdapter &physicsEngineAdapter) override;
 
 private:
     [[nodiscard]] RenderingEngineAdapter &GetRendererAdapter() const override;

@@ -1,0 +1,96 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<lr:level
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="LevelResources  ../../Schemas/level-resources.xsd"
+        xmlns:lr="LevelResources"
+        xmlns:common="Common"
+        xmlns:comp="Components">
+
+    <name>Level1</name>
+    <objects>
+
+        <object>
+            <name>Sascha Varken</name>
+            <components>
+                <component>
+                    <componentName>WorldPositionComponent</componentName>
+                    <worldPositionComponent>
+                        <common:position>
+                            <x>50</x>
+                            <y>50</y>
+                        </common:position>
+                    </worldPositionComponent>
+                </component>
+
+                <component>
+                    <componentName>ExplosionCrate</componentName>
+                    <explosionCrate/>
+                </component>
+
+                <component>
+                    <componentName>PhysicsComponent</componentName>
+                    <physicsComponent>
+                        <common:position>
+                            <x>0</x>
+                            <y>0</y>
+                        </common:position>
+                        <friction>0.5</friction>
+                        <bodyType>Dynamic</bodyType>
+                        <bodyShape>
+                            <box>
+                                <width>50</width>
+                                <height>50</height>
+                            </box>
+                        </bodyShape>
+                        <isSensor>false</isSensor>
+                        <contactHandler>ExplosionCrate</contactHandler>
+                        <contactHandler>ExplosionCrate</contactHandler>
+                    </physicsComponent>
+                </component>
+
+            </components>
+        </object>
+
+        <object>
+            <name>To Level Charlie</name>
+            <components>
+                <component>
+                    <componentName>WorldPositionComponent</componentName>
+                    <worldPositionComponent>
+                        <common:position>
+                            <x>1</x>
+                            <y>2</y>
+                        </common:position>
+                    </worldPositionComponent>
+                </component>
+
+                <component>
+                    <componentName>NextLevelComponent</componentName>
+                    <nextLevelComponent>
+                        <levelName>LevelCharlie</levelName>
+                    </nextLevelComponent>
+                </component>
+
+                <component>
+                    <componentName>PhysicsComponent</componentName>
+                    <physicsComponent>
+                        <common:position>
+                            <x>0</x>
+                            <y>0</y>
+                        </common:position>
+                        <friction>0</friction>
+                        <bodyType>Static</bodyType>
+                        <bodyShape>
+                            <box>
+                                <width>50</width>
+                                <height>50</height>
+                            </box>
+                        </bodyShape>
+                        <isSensor>true</isSensor>
+                        <contactHandler>NextLevelComponent</contactHandler>
+                    </physicsComponent>
+                </component>
+            </components>
+        </object>
+    </objects>
+</lr:level>

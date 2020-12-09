@@ -39,7 +39,7 @@
             <common:events>
                 <onClick>
                     <playSound>bonk</playSound>
-                    <loadScene>Cursed</loadScene>
+                    <loadLevel>Level1</loadLevel>
                 </onClick>
             </common:events>
         </button>

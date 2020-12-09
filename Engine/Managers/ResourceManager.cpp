@@ -1,8 +1,11 @@
-#include <iostream>
 #include "ResourceManager.hpp"
 #include "../Rendering/TextureManager.hpp"
 #include "../Audio/Adapter/SDLAudioEngineAdapter.hpp"
 #include "../XMLParser/MenuParser.hpp"
+#include "../../Game/Game.hpp"
+#include "../../Game/Scenes/LevelBase.hpp"
+
+#include <iostream>
 #include <memory>
 #include <filesystem>
 
@@ -77,6 +80,13 @@ ResourceManager::ResourceManager(const std::string &resourcePath, bool debug) {
             _scenes[name] = std::unique_ptr<GameResources::scene>(scene._clone());
         }
 
+        // Discover levels
+        for (GameResources::level &level : resources->levels().level()) {
+            verifyFile("Level", LEVELS, level.name(), level.path());
+
+            std::string name = level.name();
+            _levels[name] = std::unique_ptr<GameResources::level>(level._clone());
+        }
 
     } catch (const xml_schema::exception &e) {
         std::cout << e << std::endl;
@@ -129,12 +139,18 @@ void ResourceManager::loadResource(const std::string &resource) {
             inMenu = true;
             break;
         }
-        case LEVELS:
+        case LEVELS: {
             inMenu = false;
-            // TODO: Load the level
-            // Game->initialize(...,...,...,..)
-            //
+
+            auto &level = _levels[resource];
+            const LevelData tmxData = LevelData(_basePath + level->tmxPath(),
+                                                _basePath + level->spriteSheetPath(),
+                                                level->spriteName(),
+                                                _basePath + level->path());
+
+            Game::getInstance()->initializeLeveL(level->name().c_str(), tmxData);
             break;
+        }
     }
 
     if (type != SCENES && type != LEVELS)

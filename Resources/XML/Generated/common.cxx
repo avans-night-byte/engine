@@ -869,6 +869,36 @@ namespace Common
     this->loadScene_.set (std::move (x));
   }
 
+  const onClick::loadLevel_optional& onClick::
+  loadLevel () const
+  {
+    return this->loadLevel_;
+  }
+
+  onClick::loadLevel_optional& onClick::
+  loadLevel ()
+  {
+    return this->loadLevel_;
+  }
+
+  void onClick::
+  loadLevel (const loadLevel_type& x)
+  {
+    this->loadLevel_.set (x);
+  }
+
+  void onClick::
+  loadLevel (const loadLevel_optional& x)
+  {
+    this->loadLevel_ = x;
+  }
+
+  void onClick::
+  loadLevel (::std::unique_ptr< loadLevel_type > x)
+  {
+    this->loadLevel_.set (std::move (x));
+  }
+
   const onClick::custom_optional& onClick::
   custom () const
   {
@@ -2380,6 +2410,7 @@ namespace Common
   : ::xml_schema::type (),
     playSound_ (this),
     loadScene_ (this),
+    loadLevel_ (this),
     custom_ (this),
     loadURL_ (this)
   {
@@ -2392,6 +2423,7 @@ namespace Common
   : ::xml_schema::type (x, f, c),
     playSound_ (x.playSound_, f, this),
     loadScene_ (x.loadScene_, f, this),
+    loadLevel_ (x.loadLevel_, f, this),
     custom_ (x.custom_, f, this),
     loadURL_ (x.loadURL_, f, this)
   {
@@ -2404,6 +2436,7 @@ namespace Common
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     playSound_ (this),
     loadScene_ (this),
+    loadLevel_ (this),
     custom_ (this),
     loadURL_ (this)
   {
@@ -2448,6 +2481,20 @@ namespace Common
         if (!this->loadScene_)
         {
           this->loadScene_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // loadLevel
+      //
+      if (n.name () == "loadLevel" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< loadLevel_type > r (
+          loadLevel_traits::create (i, f, this));
+
+        if (!this->loadLevel_)
+        {
+          this->loadLevel_.set (::std::move (r));
           continue;
         }
       }
@@ -2499,6 +2546,7 @@ namespace Common
       static_cast< ::xml_schema::type& > (*this) = x;
       this->playSound_ = x.playSound_;
       this->loadScene_ = x.loadScene_;
+      this->loadLevel_ = x.loadLevel_;
       this->custom_ = x.custom_;
       this->loadURL_ = x.loadURL_;
     }

@@ -95,5 +95,20 @@
             <path>XML/Definition/Cursed.xml</path>
         </scene>
     </scenes>
-    <levels/>
+    <levels>
+        <level>
+            <name>Level1</name>
+            <path>XML/Definition/Levels/Level1Resources.xml</path>
+            <spriteName>Overworld</spriteName>
+            <spriteSheetPath>Sprites/Overworld.png</spriteSheetPath>
+            <tmxPath>TMX/example.tmx</tmxPath>
+        </level>
+        <level>
+            <name>LevelCharlie</name>
+            <path>XML/Definition/Levels/LevelCharlie.xml</path>
+            <spriteName>Overworld</spriteName>
+            <spriteSheetPath>Sprites/Overworld.png</spriteSheetPath>
+            <tmxPath>TMX/LevelCharlie.tmx</tmxPath>
+        </level>
+    </levels>
 </gr:resources>

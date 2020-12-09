@@ -480,6 +480,78 @@ namespace GameResources
 
   // level
   // 
+
+  const level::spriteName_type& level::
+  spriteName () const
+  {
+    return this->spriteName_.get ();
+  }
+
+  level::spriteName_type& level::
+  spriteName ()
+  {
+    return this->spriteName_.get ();
+  }
+
+  void level::
+  spriteName (const spriteName_type& x)
+  {
+    this->spriteName_.set (x);
+  }
+
+  void level::
+  spriteName (::std::unique_ptr< spriteName_type > x)
+  {
+    this->spriteName_.set (std::move (x));
+  }
+
+  const level::spriteSheetPath_type& level::
+  spriteSheetPath () const
+  {
+    return this->spriteSheetPath_.get ();
+  }
+
+  level::spriteSheetPath_type& level::
+  spriteSheetPath ()
+  {
+    return this->spriteSheetPath_.get ();
+  }
+
+  void level::
+  spriteSheetPath (const spriteSheetPath_type& x)
+  {
+    this->spriteSheetPath_.set (x);
+  }
+
+  void level::
+  spriteSheetPath (::std::unique_ptr< spriteSheetPath_type > x)
+  {
+    this->spriteSheetPath_.set (std::move (x));
+  }
+
+  const level::tmxPath_type& level::
+  tmxPath () const
+  {
+    return this->tmxPath_.get ();
+  }
+
+  level::tmxPath_type& level::
+  tmxPath ()
+  {
+    return this->tmxPath_.get ();
+  }
+
+  void level::
+  tmxPath (const tmxPath_type& x)
+  {
+    this->tmxPath_.set (x);
+  }
+
+  void level::
+  tmxPath (::std::unique_ptr< tmxPath_type > x)
+  {
+    this->tmxPath_.set (std::move (x));
+  }
 }
 
 #include <xsd/cxx/xml/dom/parsing-source.hxx>
@@ -1631,9 +1703,15 @@ namespace GameResources
 
   level::
   level (const name_type& name,
-         const path_type& path)
+         const path_type& path,
+         const spriteName_type& spriteName,
+         const spriteSheetPath_type& spriteSheetPath,
+         const tmxPath_type& tmxPath)
   : ::GameResources::baseGameResource (name,
-                                       path)
+                                       path),
+    spriteName_ (spriteName, this),
+    spriteSheetPath_ (spriteSheetPath, this),
+    tmxPath_ (tmxPath, this)
   {
   }
 
@@ -1641,7 +1719,10 @@ namespace GameResources
   level (const level& x,
          ::xml_schema::flags f,
          ::xml_schema::container* c)
-  : ::GameResources::baseGameResource (x, f, c)
+  : ::GameResources::baseGameResource (x, f, c),
+    spriteName_ (x.spriteName_, f, this),
+    spriteSheetPath_ (x.spriteSheetPath_, f, this),
+    tmxPath_ (x.tmxPath_, f, this)
   {
   }
 
@@ -1649,8 +1730,95 @@ namespace GameResources
   level (const ::xercesc::DOMElement& e,
          ::xml_schema::flags f,
          ::xml_schema::container* c)
-  : ::GameResources::baseGameResource (e, f, c)
+  : ::GameResources::baseGameResource (e, f | ::xml_schema::flags::base, c),
+    spriteName_ (this),
+    spriteSheetPath_ (this),
+    tmxPath_ (this)
   {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void level::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    this->::GameResources::baseGameResource::parse (p, f);
+
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // spriteName
+      //
+      if (n.name () == "spriteName" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< spriteName_type > r (
+          spriteName_traits::create (i, f, this));
+
+        if (!spriteName_.present ())
+        {
+          this->spriteName_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // spriteSheetPath
+      //
+      if (n.name () == "spriteSheetPath" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< spriteSheetPath_type > r (
+          spriteSheetPath_traits::create (i, f, this));
+
+        if (!spriteSheetPath_.present ())
+        {
+          this->spriteSheetPath_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // tmxPath
+      //
+      if (n.name () == "tmxPath" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< tmxPath_type > r (
+          tmxPath_traits::create (i, f, this));
+
+        if (!tmxPath_.present ())
+        {
+          this->tmxPath_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!spriteName_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "spriteName",
+        "");
+    }
+
+    if (!spriteSheetPath_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "spriteSheetPath",
+        "");
+    }
+
+    if (!tmxPath_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "tmxPath",
+        "");
+    }
   }
 
   level* level::
@@ -1658,6 +1826,20 @@ namespace GameResources
           ::xml_schema::container* c) const
   {
     return new class level (*this, f, c);
+  }
+
+  level& level::
+  operator= (const level& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::GameResources::baseGameResource& > (*this) = x;
+      this->spriteName_ = x.spriteName_;
+      this->spriteSheetPath_ = x.spriteSheetPath_;
+      this->tmxPath_ = x.tmxPath_;
+    }
+
+    return *this;
   }
 
   level::
