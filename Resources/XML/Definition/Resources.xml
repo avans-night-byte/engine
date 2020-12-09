@@ -94,6 +94,14 @@
             <name>Cursed</name>
             <path>XML/Definition/Cursed.xml</path>
         </scene>
+        <scene>
+            <name>Options</name>
+            <path>XML/Definition/Options.xml</path>
+        </scene>
+        <scene>
+            <name>Help</name>
+            <path>XML/Definition/Help.xml</path>
+        </scene>
     </scenes>
     <levels/>
 </gr:resources>
