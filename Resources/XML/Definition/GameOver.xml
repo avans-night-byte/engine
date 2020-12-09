@@ -5,7 +5,7 @@
         xmlns:menu="Menu"
         xmlns:common="Common">
 
-    <name>Help</name>
+    <name>GameOver</name>
     <common:resources>
         <default>mainmenu_background</default>
     </common:resources>
@@ -13,8 +13,8 @@
     <buttons>
         <button>
             <common:position>
-                <x>100</x>
-                <y>850</y>
+                <x>700</x>
+                <y>500</y>
             </common:position>
             <common:size>
                 <width>500</width>
@@ -30,16 +30,48 @@
                     <hex>ffffff</hex>
                     <alpha>255</alpha>
                 </common:color>
-                <content>Back</content>
+                <content>Load Save</content>
             </text>
             <common:color>
-                <hex>8c8c8c</hex>
+                <hex>000000</hex>
                 <alpha>100</alpha>
             </common:color>
             <common:events>
                 <onClick>
                     <playSound>bonk</playSound>
-                    <loadScene>Previous</loadScene>
+                    <loadScene>Cursed</loadScene>
+                </onClick>
+            </common:events>
+        </button>
+        <button>
+            <common:position>
+                <x>700</x>
+                <y>700</y>
+            </common:position>
+            <common:size>
+                <width>500</width>
+                <height>150</height>
+            </common:size>
+            <text>
+                <common:font>
+                    <family>Montserrat</family>
+                    <weight>Bold</weight>
+                    <size>32</size>
+                </common:font>
+                <common:color>
+                    <hex>ffffff</hex>
+                    <alpha>255</alpha>
+                </common:color>
+                <content>Quit</content>
+            </text>
+            <common:color>
+                <hex>000000</hex>
+                <alpha>100</alpha>
+            </common:color>
+            <common:events>
+                <onClick>
+                    <playSound>bonk</playSound>
+                    <loadScene>MainMenu</loadScene>
                 </onClick>
             </common:events>
         </button>
@@ -47,8 +79,8 @@
     <texts>
         <text>
             <common:position>
-                <x>100</x>
-                <y>100</y>
+                <x>730</x>
+                <y>300</y>
             </common:position>
             <common:color>
                 <hex>ffffff</hex>
@@ -57,14 +89,14 @@
             <common:font>
                 <family>Montserrat</family>
                 <weight>Bold</weight>
-                <size>42</size>
+                <size>72</size>
             </common:font>
-            <content>Controls</content>
+            <content>Game Over</content>
         </text>
         <text>
             <common:position>
-                <x>100</x>
-                <y>190</y>
+                <x>700</x>
+                <y>400</y>
             </common:position>
             <common:color>
                 <hex>ffffff</hex>
@@ -73,77 +105,29 @@
             <common:font>
                 <family>Montserrat</family>
                 <weight>Regular</weight>
-                <size>32</size>
+                <size>25</size>
             </common:font>
-            <content>WASD: Walking in all four directions</content>
-        </text>
-        <text>
-            <common:position>
-                <x>100</x>
-                <y>280</y>
-            </common:position>
-            <common:color>
-                <hex>ffffff</hex>
-                <alpha>255</alpha>
-            </common:color>
-            <common:font>
-                <family>Montserrat</family>
-                <weight>Regular</weight>
-                <size>32</size>
-            </common:font>
-            <content>E: Open/Close inventory</content>
-        </text>
-        <text>
-            <common:position>
-                <x>100</x>
-                <y>460</y>
-            </common:position>
-            <common:color>
-                <hex>ffffff</hex>
-                <alpha>255</alpha>
-            </common:color>
-            <common:font>
-                <family>Montserrat</family>
-                <weight>Regular</weight>
-                <size>32</size>
-            </common:font>
-            <content>R: Reload gun</content>
-        </text>
-        <text>
-            <common:position>
-                <x>100</x>
-                <y>370</y>
-            </common:position>
-            <common:color>
-                <hex>ffffff</hex>
-                <alpha>255</alpha>
-            </common:color>
-            <common:font>
-                <family>Montserrat</family>
-                <weight>Regular</weight>
-                <size>32</size>
-            </common:font>
-            <content>Mouse1: Shoot/Place item</content>
+            <content>Quit the game or try again if you dare...</content>
         </text>
     </texts>
-    <images/>
-    <boxes>
-        <box>
+    <images>
+        <image>
             <common:position>
-                <x>30</x>
+                <x>830</x>
                 <y>30</y>
             </common:position>
             <common:size>
-                <width>1855</width>
-                <height>1000</height>
+                <width>250</width>
+                <height>250</height>
             </common:size>
-            <common:color>
-                <hex>000000</hex>
-                <alpha>100</alpha>
-            </common:color>
-        </box>
-    </boxes>
+            <common:resources>
+                <default>nightbyte_logo</default>
+            </common:resources>
+        </image>
+    </images>
+    <boxes/>
     <common:preloadResources>
+        <resource>nightbyte_logo</resource>
         <resource>mainmenu_background</resource>
         <resource>mainmenu_music</resource>
         <resource>bonk</resource>

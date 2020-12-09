@@ -102,6 +102,10 @@
             <name>Help</name>
             <path>XML/Definition/Help.xml</path>
         </scene>
+        <scene>
+            <name>GameOver</name>
+            <path>XML/Definition/GameOver.xml</path>
+        </scene>
     </scenes>
     <levels/>
 </gr:resources>

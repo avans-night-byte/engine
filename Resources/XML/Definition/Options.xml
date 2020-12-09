@@ -13,7 +13,7 @@
     <buttons>
         <button>
             <common:position>
-                <x>100</x>
+                <x>700</x>
                 <y>300</y>
             </common:position>
             <common:size>
@@ -45,7 +45,7 @@
         </button>
         <button>
             <common:position>
-                <x>100</x>
+                <x>700</x>
                 <y>500</y>
             </common:position>
             <common:size>
@@ -77,7 +77,7 @@
         </button>
         <button>
             <common:position>
-                <x>100</x>
+                <x>700</x>
                 <y>700</y>
             </common:position>
             <common:size>
@@ -109,9 +109,24 @@
         </button>
     </buttons>
     <texts/>
-    <images/>
+    <images>
+        <image>
+            <common:position>
+                <x>830</x>
+                <y>30</y>
+            </common:position>
+            <common:size>
+                <width>250</width>
+                <height>250</height>
+            </common:size>
+            <common:resources>
+                <default>nightbyte_logo</default>
+            </common:resources>
+        </image>
+    </images>
     <boxes/>
     <common:preloadResources>
+        <resource>nightbyte_logo</resource>
         <resource>mainmenu_background</resource>
         <resource>mainmenu_music</resource>
         <resource>bonk</resource>
