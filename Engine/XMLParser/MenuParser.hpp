@@ -49,6 +49,8 @@ private:
     static SDL_Color HexToRGB(const std::string& hex, float opacity) ;
 
     void renderImages();
+
+    void renderBoxes();
 };
 
 
