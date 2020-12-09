@@ -416,6 +416,76 @@ namespace Common
   }
 
 
+  // font
+  // 
+
+  const font::family_type& font::
+  family () const
+  {
+    return this->family_.get ();
+  }
+
+  font::family_type& font::
+  family ()
+  {
+    return this->family_.get ();
+  }
+
+  void font::
+  family (const family_type& x)
+  {
+    this->family_.set (x);
+  }
+
+  void font::
+  family (::std::unique_ptr< family_type > x)
+  {
+    this->family_.set (std::move (x));
+  }
+
+  const font::weight_type& font::
+  weight () const
+  {
+    return this->weight_.get ();
+  }
+
+  font::weight_type& font::
+  weight ()
+  {
+    return this->weight_.get ();
+  }
+
+  void font::
+  weight (const weight_type& x)
+  {
+    this->weight_.set (x);
+  }
+
+  void font::
+  weight (::std::unique_ptr< weight_type > x)
+  {
+    this->weight_.set (std::move (x));
+  }
+
+  const font::size_type& font::
+  size () const
+  {
+    return this->size_.get ();
+  }
+
+  font::size_type& font::
+  size ()
+  {
+    return this->size_.get ();
+  }
+
+  void font::
+  size (const size_type& x)
+  {
+    this->size_.set (x);
+  }
+
+
   // onEnter
   // 
 
@@ -1643,6 +1713,147 @@ namespace Common
 
   color::
   ~color ()
+  {
+  }
+
+  // font
+  //
+
+  font::
+  font (const family_type& family,
+        const weight_type& weight,
+        const size_type& size)
+  : ::xml_schema::type (),
+    family_ (family, this),
+    weight_ (weight, this),
+    size_ (size, this)
+  {
+  }
+
+  font::
+  font (const font& x,
+        ::xml_schema::flags f,
+        ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    family_ (x.family_, f, this),
+    weight_ (x.weight_, f, this),
+    size_ (x.size_, f, this)
+  {
+  }
+
+  font::
+  font (const ::xercesc::DOMElement& e,
+        ::xml_schema::flags f,
+        ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    family_ (this),
+    weight_ (this),
+    size_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void font::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // family
+      //
+      if (n.name () == "family" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< family_type > r (
+          family_traits::create (i, f, this));
+
+        if (!family_.present ())
+        {
+          this->family_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // weight
+      //
+      if (n.name () == "weight" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< weight_type > r (
+          weight_traits::create (i, f, this));
+
+        if (!weight_.present ())
+        {
+          this->weight_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // size
+      //
+      if (n.name () == "size" && n.namespace_ ().empty ())
+      {
+        if (!size_.present ())
+        {
+          this->size_.set (size_traits::create (i, f, this));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!family_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "family",
+        "");
+    }
+
+    if (!weight_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "weight",
+        "");
+    }
+
+    if (!size_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "size",
+        "");
+    }
+  }
+
+  font* font::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class font (*this, f, c);
+  }
+
+  font& font::
+  operator= (const font& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->family_ = x.family_;
+      this->weight_ = x.weight_;
+      this->size_ = x.size_;
+    }
+
+    return *this;
+  }
+
+  font::
+  ~font ()
   {
   }
 
@@ -3900,6 +4111,272 @@ namespace Common
       n.name (),
       n.namespace_ (),
       "color",
+      "Common");
+  }
+
+  ::std::unique_ptr< ::Common::font >
+  font_ (const ::std::string& u,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::tree::error_handler< char > h;
+
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        u, h, p, f));
+
+    h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
+
+    return ::std::unique_ptr< ::Common::font > (
+      ::Common::font_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Common::font >
+  font_ (const ::std::string& u,
+         ::xml_schema::error_handler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        u, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Common::font > (
+      ::Common::font_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Common::font >
+  font_ (const ::std::string& u,
+         ::xercesc::DOMErrorHandler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        u, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Common::font > (
+      ::Common::font_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Common::font >
+  font_ (::std::istream& is,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is);
+    return ::Common::font_ (isrc, f, p);
+  }
+
+  ::std::unique_ptr< ::Common::font >
+  font_ (::std::istream& is,
+         ::xml_schema::error_handler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is);
+    return ::Common::font_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Common::font >
+  font_ (::std::istream& is,
+         ::xercesc::DOMErrorHandler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::sax::std_input_source isrc (is);
+    return ::Common::font_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Common::font >
+  font_ (::std::istream& is,
+         const ::std::string& sid,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+    return ::Common::font_ (isrc, f, p);
+  }
+
+  ::std::unique_ptr< ::Common::font >
+  font_ (::std::istream& is,
+         const ::std::string& sid,
+         ::xml_schema::error_handler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+    return ::Common::font_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Common::font >
+  font_ (::std::istream& is,
+         const ::std::string& sid,
+         ::xercesc::DOMErrorHandler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+    return ::Common::font_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Common::font >
+  font_ (::xercesc::InputSource& i,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::tree::error_handler< char > h;
+
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        i, h, p, f));
+
+    h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
+
+    return ::std::unique_ptr< ::Common::font > (
+      ::Common::font_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Common::font >
+  font_ (::xercesc::InputSource& i,
+         ::xml_schema::error_handler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        i, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Common::font > (
+      ::Common::font_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Common::font >
+  font_ (::xercesc::InputSource& i,
+         ::xercesc::DOMErrorHandler& h,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        i, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Common::font > (
+      ::Common::font_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Common::font >
+  font_ (const ::xercesc::DOMDocument& doc,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties& p)
+  {
+    if (f & ::xml_schema::flags::keep_dom)
+    {
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
+
+      return ::std::unique_ptr< ::Common::font > (
+        ::Common::font_ (
+          std::move (d), f | ::xml_schema::flags::own_dom, p));
+    }
+
+    const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (e));
+
+    if (n.name () == "font" &&
+        n.namespace_ () == "Common")
+    {
+      ::std::unique_ptr< ::Common::font > r (
+        ::xsd::cxx::tree::traits< ::Common::font, char >::create (
+          e, f, 0));
+      return r;
+    }
+
+    throw ::xsd::cxx::tree::unexpected_element < char > (
+      n.name (),
+      n.namespace_ (),
+      "font",
+      "Common");
+  }
+
+  ::std::unique_ptr< ::Common::font >
+  font_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+         ::xml_schema::flags f,
+         const ::xml_schema::properties&)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > c (
+      ((f & ::xml_schema::flags::keep_dom) &&
+       !(f & ::xml_schema::flags::own_dom))
+      ? static_cast< ::xercesc::DOMDocument* > (d->cloneNode (true))
+      : 0);
+
+    ::xercesc::DOMDocument& doc (c.get () ? *c : *d);
+    const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
+
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (e));
+
+    if (f & ::xml_schema::flags::keep_dom)
+      doc.setUserData (::xml_schema::dom::tree_node_key,
+                       (c.get () ? &c : &d),
+                       0);
+
+    if (n.name () == "font" &&
+        n.namespace_ () == "Common")
+    {
+      ::std::unique_ptr< ::Common::font > r (
+        ::xsd::cxx::tree::traits< ::Common::font, char >::create (
+          e, f, 0));
+      return r;
+    }
+
+    throw ::xsd::cxx::tree::unexpected_element < char > (
+      n.name (),
+      n.namespace_ (),
+      "font",
       "Common");
   }
 }

@@ -437,34 +437,34 @@ namespace Menu
     this->size_.set (std::move (x));
   }
 
-  const button::content_optional& button::
-  content () const
+  const button::text_optional& button::
+  text () const
   {
-    return this->content_;
+    return this->text_;
   }
 
-  button::content_optional& button::
-  content ()
+  button::text_optional& button::
+  text ()
   {
-    return this->content_;
-  }
-
-  void button::
-  content (const content_type& x)
-  {
-    this->content_.set (x);
+    return this->text_;
   }
 
   void button::
-  content (const content_optional& x)
+  text (const text_type& x)
   {
-    this->content_ = x;
+    this->text_.set (x);
   }
 
   void button::
-  content (::std::unique_ptr< content_type > x)
+  text (const text_optional& x)
   {
-    this->content_.set (std::move (x));
+    this->text_ = x;
+  }
+
+  void button::
+  text (::std::unique_ptr< text_type > x)
+  {
+    this->text_.set (std::move (x));
   }
 
   const button::color_optional& button::
@@ -601,6 +601,30 @@ namespace Menu
   color (::std::unique_ptr< color_type > x)
   {
     this->color_.set (std::move (x));
+  }
+
+  const text::font_type& text::
+  font () const
+  {
+    return this->font_.get ();
+  }
+
+  text::font_type& text::
+  font ()
+  {
+    return this->font_.get ();
+  }
+
+  void text::
+  font (const font_type& x)
+  {
+    this->font_.set (x);
+  }
+
+  void text::
+  font (::std::unique_ptr< font_type > x)
+  {
+    this->font_.set (std::move (x));
   }
 
   const text::content_type& text::
@@ -777,6 +801,82 @@ namespace Menu
   color (::std::unique_ptr< color_type > x)
   {
     this->color_.set (std::move (x));
+  }
+
+
+  // text1
+  // 
+
+  const text1::font_type& text1::
+  font () const
+  {
+    return this->font_.get ();
+  }
+
+  text1::font_type& text1::
+  font ()
+  {
+    return this->font_.get ();
+  }
+
+  void text1::
+  font (const font_type& x)
+  {
+    this->font_.set (x);
+  }
+
+  void text1::
+  font (::std::unique_ptr< font_type > x)
+  {
+    this->font_.set (std::move (x));
+  }
+
+  const text1::color_type& text1::
+  color () const
+  {
+    return this->color_.get ();
+  }
+
+  text1::color_type& text1::
+  color ()
+  {
+    return this->color_.get ();
+  }
+
+  void text1::
+  color (const color_type& x)
+  {
+    this->color_.set (x);
+  }
+
+  void text1::
+  color (::std::unique_ptr< color_type > x)
+  {
+    this->color_.set (std::move (x));
+  }
+
+  const text1::content_type& text1::
+  content () const
+  {
+    return this->content_.get ();
+  }
+
+  text1::content_type& text1::
+  content ()
+  {
+    return this->content_.get ();
+  }
+
+  void text1::
+  content (const content_type& x)
+  {
+    this->content_.set (x);
+  }
+
+  void text1::
+  content (::std::unique_ptr< content_type > x)
+  {
+    this->content_.set (std::move (x));
   }
 
 
@@ -1455,7 +1555,7 @@ namespace Menu
   : ::xml_schema::type (),
     position_ (position, this),
     size_ (size, this),
-    content_ (this),
+    text_ (this),
     color_ (this),
     resources_ (this),
     events_ (events, this)
@@ -1469,7 +1569,7 @@ namespace Menu
   : ::xml_schema::type (),
     position_ (std::move (position), this),
     size_ (std::move (size), this),
-    content_ (this),
+    text_ (this),
     color_ (this),
     resources_ (this),
     events_ (std::move (events), this)
@@ -1483,7 +1583,7 @@ namespace Menu
   : ::xml_schema::type (x, f, c),
     position_ (x.position_, f, this),
     size_ (x.size_, f, this),
-    content_ (x.content_, f, this),
+    text_ (x.text_, f, this),
     color_ (x.color_, f, this),
     resources_ (x.resources_, f, this),
     events_ (x.events_, f, this)
@@ -1497,7 +1597,7 @@ namespace Menu
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     position_ (this),
     size_ (this),
-    content_ (this),
+    text_ (this),
     color_ (this),
     resources_ (this),
     events_ (this)
@@ -1547,16 +1647,16 @@ namespace Menu
         }
       }
 
-      // content
+      // text
       //
-      if (n.name () == "content" && n.namespace_ ().empty ())
+      if (n.name () == "text" && n.namespace_ ().empty ())
       {
-        ::std::unique_ptr< content_type > r (
-          content_traits::create (i, f, this));
+        ::std::unique_ptr< text_type > r (
+          text_traits::create (i, f, this));
 
-        if (!this->content_)
+        if (!this->text_)
         {
-          this->content_.set (::std::move (r));
+          this->text_.set (::std::move (r));
           continue;
         }
       }
@@ -1643,7 +1743,7 @@ namespace Menu
       static_cast< ::xml_schema::type& > (*this) = x;
       this->position_ = x.position_;
       this->size_ = x.size_;
-      this->content_ = x.content_;
+      this->text_ = x.text_;
       this->color_ = x.color_;
       this->resources_ = x.resources_;
       this->events_ = x.events_;
@@ -1663,10 +1763,12 @@ namespace Menu
   text::
   text (const position_type& position,
         const color_type& color,
+        const font_type& font,
         const content_type& content)
   : ::xml_schema::type (),
     position_ (position, this),
     color_ (color, this),
+    font_ (font, this),
     content_ (content, this)
   {
   }
@@ -1674,10 +1776,12 @@ namespace Menu
   text::
   text (::std::unique_ptr< position_type > position,
         ::std::unique_ptr< color_type > color,
+        ::std::unique_ptr< font_type > font,
         const content_type& content)
   : ::xml_schema::type (),
     position_ (std::move (position), this),
     color_ (std::move (color), this),
+    font_ (std::move (font), this),
     content_ (content, this)
   {
   }
@@ -1689,6 +1793,7 @@ namespace Menu
   : ::xml_schema::type (x, f, c),
     position_ (x.position_, f, this),
     color_ (x.color_, f, this),
+    font_ (x.font_, f, this),
     content_ (x.content_, f, this)
   {
   }
@@ -1700,6 +1805,7 @@ namespace Menu
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     position_ (this),
     color_ (this),
+    font_ (this),
     content_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
@@ -1747,6 +1853,20 @@ namespace Menu
         }
       }
 
+      // font
+      //
+      if (n.name () == "font" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< font_type > r (
+          font_traits::create (i, f, this));
+
+        if (!font_.present ())
+        {
+          this->font_.set (::std::move (r));
+          continue;
+        }
+      }
+
       // content
       //
       if (n.name () == "content" && n.namespace_ ().empty ())
@@ -1778,6 +1898,13 @@ namespace Menu
         "Common");
     }
 
+    if (!font_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "font",
+        "Common");
+    }
+
     if (!content_.present ())
     {
       throw ::xsd::cxx::tree::expected_element< char > (
@@ -1801,6 +1928,7 @@ namespace Menu
       static_cast< ::xml_schema::type& > (*this) = x;
       this->position_ = x.position_;
       this->color_ = x.color_;
+      this->font_ = x.font_;
       this->content_ = x.content_;
     }
 
@@ -2119,6 +2247,161 @@ namespace Menu
 
   box::
   ~box ()
+  {
+  }
+
+  // text1
+  //
+
+  text1::
+  text1 (const font_type& font,
+         const color_type& color,
+         const content_type& content)
+  : ::xml_schema::type (),
+    font_ (font, this),
+    color_ (color, this),
+    content_ (content, this)
+  {
+  }
+
+  text1::
+  text1 (::std::unique_ptr< font_type > font,
+         ::std::unique_ptr< color_type > color,
+         const content_type& content)
+  : ::xml_schema::type (),
+    font_ (std::move (font), this),
+    color_ (std::move (color), this),
+    content_ (content, this)
+  {
+  }
+
+  text1::
+  text1 (const text1& x,
+         ::xml_schema::flags f,
+         ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    font_ (x.font_, f, this),
+    color_ (x.color_, f, this),
+    content_ (x.content_, f, this)
+  {
+  }
+
+  text1::
+  text1 (const ::xercesc::DOMElement& e,
+         ::xml_schema::flags f,
+         ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    font_ (this),
+    color_ (this),
+    content_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void text1::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // font
+      //
+      if (n.name () == "font" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< font_type > r (
+          font_traits::create (i, f, this));
+
+        if (!font_.present ())
+        {
+          this->font_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // color
+      //
+      if (n.name () == "color" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< color_type > r (
+          color_traits::create (i, f, this));
+
+        if (!color_.present ())
+        {
+          this->color_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // content
+      //
+      if (n.name () == "content" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< content_type > r (
+          content_traits::create (i, f, this));
+
+        if (!content_.present ())
+        {
+          this->content_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!font_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "font",
+        "Common");
+    }
+
+    if (!color_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "color",
+        "Common");
+    }
+
+    if (!content_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "content",
+        "");
+    }
+  }
+
+  text1* text1::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class text1 (*this, f, c);
+  }
+
+  text1& text1::
+  operator= (const text1& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->font_ = x.font_;
+      this->color_ = x.color_;
+      this->content_ = x.content_;
+    }
+
+    return *this;
+  }
+
+  text1::
+  ~text1 ()
   {
   }
 

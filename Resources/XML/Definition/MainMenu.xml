@@ -20,7 +20,18 @@
                 <width>500</width>
                 <height>150</height>
             </common:size>
-            <content>Start game</content>
+            <text>
+                <common:font>
+                    <family>Montserrat</family>
+                    <weight>Bold</weight>
+                    <size>32</size>
+                </common:font>
+                <common:color>
+                    <hex>ffffff</hex>
+                    <alpha>255</alpha>
+                </common:color>
+                <content>Start Game</content>
+            </text>
             <common:color>
                 <hex>000000</hex>
                 <alpha>100</alpha>
@@ -41,7 +52,18 @@
                 <width>500</width>
                 <height>150</height>
             </common:size>
-            <content>Credits</content>
+            <text>
+                <common:font>
+                    <family>Montserrat</family>
+                    <weight>Bold</weight>
+                    <size>32</size>
+                </common:font>
+                <common:color>
+                    <hex>ffffff</hex>
+                    <alpha>255</alpha>
+                </common:color>
+                <content>Credits</content>
+            </text>
             <common:color>
                 <hex>000000</hex>
                 <alpha>100</alpha>
@@ -62,7 +84,18 @@
                 <width>500</width>
                 <height>150</height>
             </common:size>
-            <content>Stop Game</content>
+            <text>
+                <common:font>
+                    <family>Montserrat</family>
+                    <weight>Bold</weight>
+                    <size>32</size>
+                </common:font>
+                <common:color>
+                    <hex>ffffff</hex>
+                    <alpha>255</alpha>
+                </common:color>
+                <content>Credits</content>
+            </text>
             <common:color>
                 <hex>000000</hex>
                 <alpha>100</alpha>
@@ -82,7 +115,18 @@
                 <width>200</width>
                 <height>200</height>
             </common:size>
-            <content>e</content>
+            <text>
+                <common:font>
+                    <family>Montserrat</family>
+                    <weight>Regular</weight>
+                    <size>32</size>
+                </common:font>
+                <common:color>
+                    <hex>ffffff</hex>
+                    <alpha>0</alpha>
+                </common:color>
+                <content>e</content>
+            </text>
             <resources>
                 <default>github_logo</default>
             </resources>
