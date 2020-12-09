@@ -41,9 +41,12 @@
                                 </common:positionF>
                             </box>
                         </bodyShape>
+                        <isSensor>false</isSensor>
+                        <contactHandler>ExplosionCrate</contactHandler>
                         <contactHandler>ExplosionCrate</contactHandler>
                     </physicsComponent>
                 </component>
+
             </components>
         </object>
     </objects>

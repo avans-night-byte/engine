@@ -51,7 +51,8 @@
                             <xs:element name="friction" type="lr:floatCap"/>
                             <xs:element name="bodyType" type="lr:bodyType"/>
                             <xs:element name="bodyShape" type="lr:bodyShape"/>
-                            <xs:element name="contactHandler" type="lr:componentName" minOccurs="0"/>
+                            <xs:element name="isSensor" type="xs:boolean"/>
+                            <xs:element name="contactHandler" type="lr:componentName" minOccurs="0" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>

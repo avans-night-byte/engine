@@ -479,6 +479,24 @@ namespace LevelResources
     this->bodyShape_.set (std::move (x));
   }
 
+  const physicsComponent::isSensor_type& physicsComponent::
+  isSensor () const
+  {
+    return this->isSensor_.get ();
+  }
+
+  physicsComponent::isSensor_type& physicsComponent::
+  isSensor ()
+  {
+    return this->isSensor_.get ();
+  }
+
+  void physicsComponent::
+  isSensor (const isSensor_type& x)
+  {
+    this->isSensor_.set (x);
+  }
+
   const physicsComponent::contactHandler_optional& physicsComponent::
   contactHandler () const
   {
@@ -1513,11 +1531,13 @@ namespace LevelResources
   physicsComponent::
   physicsComponent (const friction_type& friction,
                     const bodyType_type& bodyType,
-                    const bodyShape_type& bodyShape)
+                    const bodyShape_type& bodyShape,
+                    const isSensor_type& isSensor)
   : ::xml_schema::type (),
     friction_ (friction, this),
     bodyType_ (bodyType, this),
     bodyShape_ (bodyShape, this),
+    isSensor_ (isSensor, this),
     contactHandler_ (this)
   {
   }
@@ -1525,11 +1545,13 @@ namespace LevelResources
   physicsComponent::
   physicsComponent (const friction_type& friction,
                     const bodyType_type& bodyType,
-                    ::std::unique_ptr< bodyShape_type > bodyShape)
+                    ::std::unique_ptr< bodyShape_type > bodyShape,
+                    const isSensor_type& isSensor)
   : ::xml_schema::type (),
     friction_ (friction, this),
     bodyType_ (bodyType, this),
     bodyShape_ (std::move (bodyShape), this),
+    isSensor_ (isSensor, this),
     contactHandler_ (this)
   {
   }
@@ -1542,6 +1564,7 @@ namespace LevelResources
     friction_ (x.friction_, f, this),
     bodyType_ (x.bodyType_, f, this),
     bodyShape_ (x.bodyShape_, f, this),
+    isSensor_ (x.isSensor_, f, this),
     contactHandler_ (x.contactHandler_, f, this)
   {
   }
@@ -1554,6 +1577,7 @@ namespace LevelResources
     friction_ (this),
     bodyType_ (this),
     bodyShape_ (this),
+    isSensor_ (this),
     contactHandler_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
@@ -1615,6 +1639,17 @@ namespace LevelResources
         }
       }
 
+      // isSensor
+      //
+      if (n.name () == "isSensor" && n.namespace_ ().empty ())
+      {
+        if (!isSensor_.present ())
+        {
+          this->isSensor_.set (isSensor_traits::create (i, f, this));
+          continue;
+        }
+      }
+
       // contactHandler
       //
       if (n.name () == "contactHandler" && n.namespace_ ().empty ())
@@ -1652,6 +1687,13 @@ namespace LevelResources
         "bodyShape",
         "");
     }
+
+    if (!isSensor_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "isSensor",
+        "");
+    }
   }
 
   physicsComponent* physicsComponent::
@@ -1670,6 +1712,7 @@ namespace LevelResources
       this->friction_ = x.friction_;
       this->bodyType_ = x.bodyType_;
       this->bodyShape_ = x.bodyShape_;
+      this->isSensor_ = x.isSensor_;
       this->contactHandler_ = x.contactHandler_;
     }
 

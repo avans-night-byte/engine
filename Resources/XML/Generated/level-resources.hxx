@@ -2449,6 +2449,53 @@ namespace LevelResources
     //@}
 
     /**
+     * @name isSensor
+     *
+     * @brief Accessor and modifier functions for the %isSensor
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::boolean isSensor_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< isSensor_type, char > isSensor_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const isSensor_type&
+    isSensor () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    isSensor_type&
+    isSensor ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    isSensor (const isSensor_type& x);
+
+    //@}
+
+    /**
      * @name contactHandler
      *
      * @brief Accessor and modifier functions for the %contactHandler
@@ -2535,7 +2582,8 @@ namespace LevelResources
      */
     physicsComponent (const friction_type&,
                       const bodyType_type&,
-                      const bodyShape_type&);
+                      const bodyShape_type&,
+                      const isSensor_type&);
 
     /**
      * @brief Create an instance from the ultimate base and
@@ -2547,7 +2595,8 @@ namespace LevelResources
      */
     physicsComponent (const friction_type&,
                       const bodyType_type&,
-                      ::std::unique_ptr< bodyShape_type >);
+                      ::std::unique_ptr< bodyShape_type >,
+                      const isSensor_type&);
 
     /**
      * @brief Create an instance from a DOM element.
@@ -2622,6 +2671,7 @@ namespace LevelResources
     ::xsd::cxx::tree::one< friction_type > friction_;
     ::xsd::cxx::tree::one< bodyType_type > bodyType_;
     ::xsd::cxx::tree::one< bodyShape_type > bodyShape_;
+    ::xsd::cxx::tree::one< isSensor_type > isSensor_;
     contactHandler_optional contactHandler_;
 
     //@endcond
