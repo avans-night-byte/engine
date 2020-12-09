@@ -79,7 +79,7 @@ TextureManager::drawFrame(std::string id, float x, float y, int width, int heigh
 
 void TextureManager::drawFrame(std::string id, SDL_Rect *srcRect, float x, float y, SDL_Renderer *pRenderer,
                                SDL_RendererFlip flip,
-                               float scale, float rotation)
+                               float scale, float rotation, SDL_FPoint *pivot)
 {
     SDL_FRect destRect; //destination rectangle
 
@@ -87,7 +87,9 @@ void TextureManager::drawFrame(std::string id, SDL_Rect *srcRect, float x, float
     destRect.y = y;
     destRect.w = srcRect->w * scale;
     destRect.h = srcRect->h * scale;
-    SDL_RenderCopyExF(pRenderer, TextureMap[id], srcRect, &destRect, rotation, nullptr, flip); //Load current frame on the buffer game.
+
+
+    SDL_RenderCopyExF(pRenderer, TextureMap[id], srcRect, &destRect, rotation, pivot, flip); //Load current frame on the buffer game.
 }
 
 
@@ -114,5 +116,6 @@ Vector2 TextureManager::getDimensions(std::string id) {
 
     return Vector2((float)width, (float)height);
 }
+
 
 

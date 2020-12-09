@@ -21,7 +21,8 @@ public:
                    SDL_Renderer *pRenderer, SDL_RendererFlip flip, float rotation);
 
     void drawFrame(std::string id, SDL_Rect *srcRect, float x, float y, SDL_Renderer *pRenderer, SDL_RendererFlip flip,
-                   float scale = 1, float rotation = 0);
+                   float scale = 1, float rotation = 0, SDL_FPoint *pivot = nullptr );
+
     void clearFromTextureMap(std::string id);
     Vector2 getDimensions(std::string id);
     static TextureManager* GetInstance();
