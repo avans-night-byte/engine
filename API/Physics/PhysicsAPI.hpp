@@ -22,11 +22,11 @@ class PhysicsAPI {
 public:
     virtual void update(const float& timeStep, const int32& velocityIterations, const int32& positionIterations) = 0;
 
-    virtual BodyId createStaticBody(const Box2DBoxData& box2DBoxData) const = 0;
+    virtual BodyId createBody(const Box2DBoxData& box2DBoxData) const = 0;
 
-    virtual BodyId createStaticBody(const Box2DCircleData& box2DCircleData) const = 0;
+    virtual BodyId createBody(const Box2DCircleData& box2DCircleData) const = 0;
 
-    virtual BodyId createStaticBody(const Box2DPolygonData& box2DPolygonData) const = 0;
+    virtual BodyId createBody(const Box2DPolygonData& box2DPolygonData) const = 0;
 
     virtual void destroyBody(BodyId bodyId) = 0;
 
@@ -43,6 +43,4 @@ public:
     virtual void destroyBody(BodyId i) const = 0;
 
     virtual std::unique_ptr<PhysicsEngineAdapter>& getPhysicsEngineAdapter() = 0;
-
-    virtual void setContactHandler(BodyId i, ContactHandler *pHandler) const = 0;
 };

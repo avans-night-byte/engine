@@ -8,7 +8,7 @@ class ContactListener : public b2ContactListener {
 
 
     void BeginContact(b2Contact *contact) override {
-        if (auto* bodyUserData = (ContactHandler*)( contact->GetFixtureA()->GetBody()->GetUserData().pointer)) {
+        if (auto *bodyUserData = (ContactHandler *) (contact->GetFixtureA()->GetBody()->GetUserData().pointer)) {
             bodyUserData->startContact();
         }
 

@@ -4,9 +4,10 @@
 #include "../../Game/Game.hpp"
 #include "../Physics/PhysicsAPI.hpp"
 #include "../Rendering/EngineRenderingAPI.hpp"
+#include "Generated/components.hxx"
 
 
-TMXLevel* LevelParserAPI::loadLevel(std::multimap<std::string, const LevelResources::component *> &outEntities,
+TMXLevel* LevelParserAPI::loadLevel(std::multimap<std::string, const Components::component *> &outEntities,
                                const TMXLevelData &levelData,
                                const std::string &resourcePath) {
     auto *renderingApi = Game::getInstance()->getRenderingApi();

@@ -18,7 +18,7 @@ namespace xsd
         {
           const XMLCh* n (a.getLocalName ());
 
-          // If this DOM doesn't support namespaces then use getName.
+          // If this DOM doesn't support namespaces then use name.
           //
           if (n != 0)
           {
