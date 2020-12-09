@@ -42,5 +42,7 @@ public:
 
     virtual void destroyBody(BodyId i) const = 0;
 
+    virtual void setAngle(const BodyId bodyId, float angle) const = 0;
+
     virtual std::unique_ptr<PhysicsEngineAdapter>& getPhysicsEngineAdapter() = 0;
 };

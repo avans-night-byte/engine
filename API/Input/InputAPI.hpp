@@ -6,4 +6,5 @@ class InputAPI {
     [[nodiscard]] virtual Input getInput() const = 0;
     virtual Event<Input>& getInputEvent() = 0;
     virtual ~InputAPI() = default;
+    virtual void getMousePosition(int &x, int &y) const = 0;
 };

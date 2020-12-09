@@ -20,6 +20,7 @@ public:
     [[nodiscard]] Input getControllerInput(SDL_Event input) const override;
     [[nodiscard]] Input getControllerMotionInput(SDL_Event input) const override;
     ~SDLInputEngineAdapter() override= default;
+    void getMousePosition(int &x, int &y) const override;
 
 private:
     Event<Input> _inputEvent;

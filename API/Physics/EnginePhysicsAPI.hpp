@@ -70,6 +70,10 @@ public:
         physicsEngineAdapter->destroyBody(i);
     }
 
+    void setAngle( const BodyId bodyId, float angle) const override{
+        physicsEngineAdapter->setAngle(bodyId, angle);
+    }
+
     inline unique_ptr<PhysicsEngineAdapter>& getPhysicsEngineAdapter() override
     {
         return physicsEngineAdapter;

@@ -14,3 +14,10 @@ EngineInputAPI::~EngineInputAPI() {
 Event<Input>& EngineInputAPI::getInputEvent() {
     return _adapter->getInputEvent();
 }
+
+void EngineInputAPI::getMousePosition(int &x, int &y) const {
+    return _adapter->getMousePosition(x, y);
+}
+
+
+

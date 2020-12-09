@@ -150,3 +150,8 @@ void Box2DPhysicsEngineAdapter::setFixedRotation(const BodyId bodyId, bool b) {
     b2Body *body = bodies[bodyId];
     body->SetFixedRotation(b);
 }
+
+void Box2DPhysicsEngineAdapter::setAngle(BodyId bodyId, float angle) const {
+    b2Body *body = bodies[bodyId];
+    body->SetTransform(body->GetPosition(), angle);
+}

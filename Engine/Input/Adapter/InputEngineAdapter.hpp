@@ -16,6 +16,7 @@ public:
     virtual Event<Input>& getInputEvent() = 0;
     virtual Input getInput() = 0;
     virtual ~InputEngineAdapter() {}
+    virtual void getMousePosition(int &x, int &y) const = 0;
 
 private:
     virtual Input getKeyInput(SDL_Keycode input, Uint32 type) const = 0;

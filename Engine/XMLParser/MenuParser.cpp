@@ -204,6 +204,7 @@ void MenuParser::onClick(const Input &input) {
 #endif
 
 #if __linux__
+                std::string command = "start ";
                 //Linux open
                 command = "open ";
                 command += button.events().onClick()->loadURL()->c_str();

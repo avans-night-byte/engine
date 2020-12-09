@@ -57,4 +57,8 @@ public:
     void setLinearVelocity(BodyId bodyId, const Vector2 &vector2) override;
 
     void setFixedRotation(BodyId bodyId, bool b) override;
+
+
+    void setAngle(BodyId bodyId, float angle) const override;
+
 };
