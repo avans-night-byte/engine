@@ -39,7 +39,7 @@
             <common:events>
                 <onClick>
                     <playSound>bonk</playSound>
-                    <loadScene>GameOver</loadScene>
+                    <loadScene>Level1</loadScene>
                 </onClick>
             </common:events>
         </button>

@@ -202,10 +202,6 @@ void MenuParser::onClick(const Input &input) {
                 ResourceManager::getInstance()->loadResource(nextScene);
             }
 
-
-            if(button.events().onClick()->loadLevel().present())
-                ResourceManager::getInstance()->loadResource(button.events().onClick()->loadLevel()->c_str());
-
             if (button.events().onClick()->loadURL().present()) {
 #if WIN32
                 //Windows open
