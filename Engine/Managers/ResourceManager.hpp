@@ -25,7 +25,6 @@ private:
     std::vector<std::string> _loadedResources;
     std::map<std::string, ResourceType> _resources;
 
-    std::string _previousScene;
 
     // Textures
     std::map<std::string, std::unique_ptr<GameResources::texture>> _textures;
@@ -52,6 +51,9 @@ private:
 protected:
     explicit ResourceManager(const std::string &resourcePath, bool debug = true);
 public:
+    // TODO: PLEASE IMPROVE
+    std::string _currentLevel;
+
     // TODO: Improve?
     bool inMenu = false;
 

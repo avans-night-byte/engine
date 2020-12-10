@@ -405,6 +405,42 @@ namespace Components
     this->spritePath_.set (std::move (x));
   }
 
+  const renderComponent::width_type& renderComponent::
+  width () const
+  {
+    return this->width_.get ();
+  }
+
+  renderComponent::width_type& renderComponent::
+  width ()
+  {
+    return this->width_.get ();
+  }
+
+  void renderComponent::
+  width (const width_type& x)
+  {
+    this->width_.set (x);
+  }
+
+  const renderComponent::height_type& renderComponent::
+  height () const
+  {
+    return this->height_.get ();
+  }
+
+  renderComponent::height_type& renderComponent::
+  height ()
+  {
+    return this->height_.get ();
+  }
+
+  void renderComponent::
+  height (const height_type& x)
+  {
+    this->height_.set (x);
+  }
+
 
   // physicsComponent
   // 
@@ -1273,10 +1309,14 @@ namespace Components
 
   renderComponent::
   renderComponent (const spriteId_type& spriteId,
-                   const spritePath_type& spritePath)
+                   const spritePath_type& spritePath,
+                   const width_type& width,
+                   const height_type& height)
   : ::xml_schema::type (),
     spriteId_ (spriteId, this),
-    spritePath_ (spritePath, this)
+    spritePath_ (spritePath, this),
+    width_ (width, this),
+    height_ (height, this)
   {
   }
 
@@ -1286,7 +1326,9 @@ namespace Components
                    ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
     spriteId_ (x.spriteId_, f, this),
-    spritePath_ (x.spritePath_, f, this)
+    spritePath_ (x.spritePath_, f, this),
+    width_ (x.width_, f, this),
+    height_ (x.height_, f, this)
   {
   }
 
@@ -1296,7 +1338,9 @@ namespace Components
                    ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     spriteId_ (this),
-    spritePath_ (this)
+    spritePath_ (this),
+    width_ (this),
+    height_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -1343,6 +1387,28 @@ namespace Components
         }
       }
 
+      // width
+      //
+      if (n.name () == "width" && n.namespace_ ().empty ())
+      {
+        if (!width_.present ())
+        {
+          this->width_.set (width_traits::create (i, f, this));
+          continue;
+        }
+      }
+
+      // height
+      //
+      if (n.name () == "height" && n.namespace_ ().empty ())
+      {
+        if (!height_.present ())
+        {
+          this->height_.set (height_traits::create (i, f, this));
+          continue;
+        }
+      }
+
       break;
     }
 
@@ -1357,6 +1423,20 @@ namespace Components
     {
       throw ::xsd::cxx::tree::expected_element< char > (
         "spritePath",
+        "");
+    }
+
+    if (!width_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "width",
+        "");
+    }
+
+    if (!height_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "height",
         "");
     }
   }
@@ -1376,6 +1456,8 @@ namespace Components
       static_cast< ::xml_schema::type& > (*this) = x;
       this->spriteId_ = x.spriteId_;
       this->spritePath_ = x.spritePath_;
+      this->width_ = x.width_;
+      this->height_ = x.height_;
     }
 
     return *this;

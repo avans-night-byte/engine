@@ -22,13 +22,15 @@
                     </transformComponent>
                 </component>
 
-<!--                <component>-->
-<!--                    <componentName>RenderComponent</componentName>-->
-<!--                    <renderComponent>-->
-<!--                        <spriteId>CrateTNT</spriteId>-->
-<!--                        <spritePath>../../Resources/Sprites/Wooden_Crate.png</spritePath>-->
-<!--                    </renderComponent>-->
-<!--                </component>-->
+                <component>
+                    <componentName>RenderComponent</componentName>
+                    <renderComponent>
+                        <spriteId>CrateTNT</spriteId>
+                        <spritePath>../../Resources/Sprites/Wooden_Crate.png</spritePath>
+                        <width>100</width>
+                        <height>100</height>
+                    </renderComponent>
+                </component>
 
                 <component>
                     <componentName>ExplosionCrate</componentName>

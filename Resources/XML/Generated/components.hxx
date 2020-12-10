@@ -2069,6 +2069,100 @@ namespace Components
     //@}
 
     /**
+     * @name width
+     *
+     * @brief Accessor and modifier functions for the %width
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::float_ width_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< width_type, char > width_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const width_type&
+    width () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    width_type&
+    width ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    width (const width_type& x);
+
+    //@}
+
+    /**
+     * @name height
+     *
+     * @brief Accessor and modifier functions for the %height
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::float_ height_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< height_type, char > height_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const height_type&
+    height () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    height_type&
+    height ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    height (const height_type& x);
+
+    //@}
+
+    /**
      * @name Constructors
      */
     //@{
@@ -2078,7 +2172,9 @@ namespace Components
      * initializers for required elements and attributes.
      */
     renderComponent (const spriteId_type&,
-                     const spritePath_type&);
+                     const spritePath_type&,
+                     const width_type&,
+                     const height_type&);
 
     /**
      * @brief Create an instance from a DOM element.
@@ -2152,6 +2248,8 @@ namespace Components
     protected:
     ::xsd::cxx::tree::one< spriteId_type > spriteId_;
     ::xsd::cxx::tree::one< spritePath_type > spritePath_;
+    ::xsd::cxx::tree::one< width_type > width_;
+    ::xsd::cxx::tree::one< height_type > height_;
 
     //@endcond
   };

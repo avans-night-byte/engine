@@ -141,14 +141,18 @@ void ResourceManager::loadResource(const std::string &resource) {
         }
         case LEVELS: {
             inMenu = false;
+            MenuParser::getInstance()->PreviousScenes.push(resource);
+            if (_currentLevel != resource) {
+                auto &level = _levels[resource];
+                const LevelData tmxData = LevelData(_basePath + level->tmxPath(),
+                                                    _basePath + level->spriteSheetPath(),
+                                                    level->spriteName(),
+                                                    _basePath + level->path());
 
-            auto &level = _levels[resource];
-            const LevelData tmxData = LevelData(_basePath + level->tmxPath(),
-                                                _basePath + level->spriteSheetPath(),
-                                                level->spriteName(),
-                                                _basePath + level->path());
+                Game::getInstance()->initializeLeveL(level->name().c_str(), tmxData);
+                _currentLevel = resource;
+            }
 
-            Game::getInstance()->initializeLeveL(level->name().c_str(), tmxData);
             break;
         }
     }

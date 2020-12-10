@@ -37,6 +37,9 @@
                         <xs:sequence>
                             <xs:element name="spriteId" type="xs:string"/>
                             <xs:element name="spritePath" type="xs:string"/>
+                            <xs:element name="width" type="xs:float"/>
+                            <xs:element name="height" type="xs:float"/>
+
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>

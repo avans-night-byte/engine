@@ -13,8 +13,8 @@ Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
     b2BodyDef bodyDef;
     bodyDef.type = static_cast<b2BodyType>(static_cast<int>(bodyType));
     bodyDef.position.Set(position.x, position.y);
-    bodyDef.linearDamping = 0.1f;
-    bodyDef.angularDamping = 0.1f;
+    bodyDef.linearDamping = 1.0f;
+    bodyDef.angularDamping = 1.0f;
 
     b2BodyUserData bodyUserData;
     bodyUserData.pointer = (uintptr_t) userData;
