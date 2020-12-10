@@ -13,13 +13,13 @@
             <name>Sascha Varken</name>
             <components>
                 <component>
-                    <componentName>WorldPositionComponent</componentName>
-                    <worldPositionComponent>
+                    <componentName>TransformComponent</componentName>
+                    <transformComponent>
                         <common:position>
                             <x>50</x>
                             <y>50</y>
                         </common:position>
-                    </worldPositionComponent>
+                    </transformComponent>
                 </component>
 
                 <component>
