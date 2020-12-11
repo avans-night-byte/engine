@@ -8,6 +8,9 @@
 #include <memory>
 #include <stack>
 
+class RenderingAPI;
+
+
 class MenuParser {
 
 private:

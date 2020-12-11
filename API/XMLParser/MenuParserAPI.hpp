@@ -1,9 +1,10 @@
 #pragma once
 
 #include <string>
-#include "../Rendering/EngineRenderingAPI.hpp"
 #include "../../Engine/XMLParser/MenuParser.hpp"
 #include "../../Engine/Event.h"
+
+class RenderingAPI;
 
 class MenuParserAPI {
 public:

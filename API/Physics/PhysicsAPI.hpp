@@ -3,7 +3,7 @@
 #include "../../Engine/Physics/PhysicsEngineAdapter.hpp"
 
 #include "memory"
-#include "b2_types.h"
+#include <b2_types.h>
 #include "../../Engine/Physics/ContactHandler.hpp"
 
 class PhysicsEngineAdapter;
