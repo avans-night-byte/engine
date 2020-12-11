@@ -84,15 +84,17 @@ $(function() {
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classEvent.html">Event&lt;Input&gt;</a>&amp; getInputEvent() = 0;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getInput() = 0;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classInputEngineAdapter.html">InputEngineAdapter</a>() {}</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getKeyInput(SDL_Keycode input, Uint32 <a class="code" href="namespacexml__schema.html#a4bf7f144ce936a6a393de26f4cb707f0">type</a>) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getMouseInput(SDL_Event input) = 0;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getControllerInput(SDL_Event input) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getControllerMotionInput(SDL_Event input) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> closeController() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> openController(<span class="keywordtype">int</span> deviceId) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> getMousePosition(<span class="keywordtype">int</span> &amp;x, <span class="keywordtype">int</span> &amp;y) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getKeyInput(SDL_Keycode input, Uint32 <a class="code" href="namespacexml__schema.html#a4bf7f144ce936a6a393de26f4cb707f0">type</a>) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getMouseInput(SDL_Event input) = 0;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getControllerInput(SDL_Event input) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structInput.html">Input</a> getControllerMotionInput(SDL_Event input) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> closeController() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> openController(<span class="keywordtype">int</span> deviceId) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructInput_html"><div class="ttname"><a href="structInput.html">Input</a></div><div class="ttdef"><b>Definition:</b> Input.hpp:20</div></div>
 <div class="ttc" id="aclassEvent_html"><div class="ttname"><a href="classEvent.html">Event&lt; Input &gt;</a></div></div>
