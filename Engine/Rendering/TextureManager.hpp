@@ -17,8 +17,12 @@ public:
     bool load(char const *path, const std::string& textureId);
     void draw(std::string textureId, int x, int y, int w, int h, double scale, double r, SDL_Renderer* renderer, SDL_RendererFlip = SDL_FLIP_NONE);
 
-    void drawFrame(std::string id, float x, float y, int width, int height, int currentRow, int currentFrame, SDL_Renderer *pRenderer, SDL_RendererFlip flip);
-    void drawFrame(std::string id, SDL_Rect* srcRect, float x, float y, SDL_Renderer *pRenderer, SDL_RendererFlip flip, float scale = 1);
+    void drawFrame(std::string id, float x, float y, int width, int height, int currentRow, int currentFrame,
+                   SDL_Renderer *pRenderer, SDL_RendererFlip flip, float rotation);
+
+    void drawFrame(std::string id, SDL_Rect *srcRect, float x, float y, SDL_Renderer *pRenderer, SDL_RendererFlip flip,
+                   float scale = 1, float rotation = 0, SDL_FPoint *pivot = nullptr );
+
     void clearFromTextureMap(std::string id);
     Vector2 getDimensions(std::string id);
     static TextureManager* GetInstance();

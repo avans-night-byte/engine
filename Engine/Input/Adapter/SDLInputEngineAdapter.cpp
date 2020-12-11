@@ -235,3 +235,7 @@ void SDLInputEngineAdapter::closeController() const
 Event<Input>& SDLInputEngineAdapter::getInputEvent() {
     return _inputEvent;
 }
+
+void SDLInputEngineAdapter::getMousePosition(int &x, int &y) const {
+    SDL_GetMouseState(&x, &y);
+}

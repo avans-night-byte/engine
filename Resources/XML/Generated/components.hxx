@@ -570,7 +570,8 @@ namespace Components
   class floatCap;
   class bodyType;
   class bodyShape;
-  class worldPositionComponent;
+  class transformComponent;
+  class renderComponent;
   class physicsComponent;
   class characterComponent;
   class explosionCrate;
@@ -781,9 +782,9 @@ namespace Components
     //@}
 
     /**
-     * @name worldPositionComponent
+     * @name transformComponent
      *
-     * @brief Accessor and modifier functions for the %worldPositionComponent
+     * @brief Accessor and modifier functions for the %transformComponent
      * optional element.
      */
     //@{
@@ -791,17 +792,17 @@ namespace Components
     /**
      * @brief Element type.
      */
-    typedef ::Components::worldPositionComponent worldPositionComponent_type;
+    typedef ::Components::transformComponent transformComponent_type;
 
     /**
      * @brief Element optional container type.
      */
-    typedef ::xsd::cxx::tree::optional< worldPositionComponent_type > worldPositionComponent_optional;
+    typedef ::xsd::cxx::tree::optional< transformComponent_type > transformComponent_optional;
 
     /**
      * @brief Element traits type.
      */
-    typedef ::xsd::cxx::tree::traits< worldPositionComponent_type, char > worldPositionComponent_traits;
+    typedef ::xsd::cxx::tree::traits< transformComponent_type, char > transformComponent_traits;
 
     /**
      * @brief Return a read-only (constant) reference to the element
@@ -809,16 +810,16 @@ namespace Components
      *
      * @return A constant reference to the optional container.
      */
-    const worldPositionComponent_optional&
-    worldPositionComponent () const;
+    const transformComponent_optional&
+    transformComponent () const;
 
     /**
      * @brief Return a read-write reference to the element container.
      *
      * @return A reference to the optional container.
      */
-    worldPositionComponent_optional&
-    worldPositionComponent ();
+    transformComponent_optional&
+    transformComponent ();
 
     /**
      * @brief Set the element value.
@@ -829,7 +830,7 @@ namespace Components
      * the new value of the element.
      */
     void
-    worldPositionComponent (const worldPositionComponent_type& x);
+    transformComponent (const transformComponent_type& x);
 
     /**
      * @brief Set the element value.
@@ -841,7 +842,7 @@ namespace Components
      * Otherwise the element container is set the 'not present' state.
      */
     void
-    worldPositionComponent (const worldPositionComponent_optional& x);
+    transformComponent (const transformComponent_optional& x);
 
     /**
      * @brief Set the element value without copying.
@@ -852,7 +853,83 @@ namespace Components
      * of making a copy.
      */
     void
-    worldPositionComponent (::std::unique_ptr< worldPositionComponent_type > p);
+    transformComponent (::std::unique_ptr< transformComponent_type > p);
+
+    //@}
+
+    /**
+     * @name renderComponent
+     *
+     * @brief Accessor and modifier functions for the %renderComponent
+     * optional element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::Components::renderComponent renderComponent_type;
+
+    /**
+     * @brief Element optional container type.
+     */
+    typedef ::xsd::cxx::tree::optional< renderComponent_type > renderComponent_optional;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< renderComponent_type, char > renderComponent_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element
+     * container.
+     *
+     * @return A constant reference to the optional container.
+     */
+    const renderComponent_optional&
+    renderComponent () const;
+
+    /**
+     * @brief Return a read-write reference to the element container.
+     *
+     * @return A reference to the optional container.
+     */
+    renderComponent_optional&
+    renderComponent ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    renderComponent (const renderComponent_type& x);
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x An optional container with the new value to set.
+     *
+     * If the value is present in @a x then this function makes a copy 
+     * of this value and sets it as the new value of the element.
+     * Otherwise the element container is set the 'not present' state.
+     */
+    void
+    renderComponent (const renderComponent_optional& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly instead
+     * of making a copy.
+     */
+    void
+    renderComponent (::std::unique_ptr< renderComponent_type > p);
 
     //@}
 
@@ -1242,7 +1319,8 @@ namespace Components
 
     protected:
     ::xsd::cxx::tree::one< componentName_type > componentName_;
-    worldPositionComponent_optional worldPositionComponent_;
+    transformComponent_optional transformComponent_;
+    renderComponent_optional renderComponent_;
     physicsComponent_optional physicsComponent_;
     characterComponent_optional characterComponent_;
     explosionCrate_optional explosionCrate_;
@@ -1705,11 +1783,11 @@ namespace Components
   };
 
   /**
-   * @brief Class corresponding to the %worldPositionComponent schema type.
+   * @brief Class corresponding to the %transformComponent schema type.
    *
    * @nosubgrouping
    */
-  class worldPositionComponent: public ::xml_schema::type
+  class transformComponent: public ::xml_schema::type
   {
     public:
     /**
@@ -1779,7 +1857,7 @@ namespace Components
      * @brief Create an instance from the ultimate base and
      * initializers for required elements and attributes.
      */
-    worldPositionComponent (const position_type&);
+    transformComponent (const position_type&);
 
     /**
      * @brief Create an instance from the ultimate base and
@@ -1789,7 +1867,7 @@ namespace Components
      * This constructor will try to use the passed values directly
      * instead of making copies.
      */
-    worldPositionComponent (::std::unique_ptr< position_type >);
+    transformComponent (::std::unique_ptr< position_type >);
 
     /**
      * @brief Create an instance from a DOM element.
@@ -1799,9 +1877,9 @@ namespace Components
      * @param c A pointer to the object that will contain the new
      * instance.
      */
-    worldPositionComponent (const ::xercesc::DOMElement& e,
-                            ::xml_schema::flags f = 0,
-                            ::xml_schema::container* c = 0);
+    transformComponent (const ::xercesc::DOMElement& e,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
 
     /**
      * @brief Copy constructor.
@@ -1812,9 +1890,9 @@ namespace Components
      *
      * For polymorphic object models use the @c _clone function instead.
      */
-    worldPositionComponent (const worldPositionComponent& x,
-                            ::xml_schema::flags f = 0,
-                            ::xml_schema::container* c = 0);
+    transformComponent (const transformComponent& x,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
 
     /**
      * @brief Copy the instance polymorphically.
@@ -1827,7 +1905,7 @@ namespace Components
      * used for copying and should be used for polymorphic object
      * models instead of the copy constructor.
      */
-    virtual worldPositionComponent*
+    virtual transformComponent*
     _clone (::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0) const;
 
@@ -1839,8 +1917,8 @@ namespace Components
      *
      * For polymorphic object models use the @c _clone function instead.
      */
-    worldPositionComponent&
-    operator= (const worldPositionComponent& x);
+    transformComponent&
+    operator= (const transformComponent& x);
 
     //@}
 
@@ -1848,7 +1926,7 @@ namespace Components
      * @brief Destructor.
      */
     virtual 
-    ~worldPositionComponent ();
+    ~transformComponent ();
 
     // Implementation.
     //
@@ -1862,6 +1940,316 @@ namespace Components
 
     protected:
     ::xsd::cxx::tree::one< position_type > position_;
+
+    //@endcond
+  };
+
+  /**
+   * @brief Class corresponding to the %renderComponent schema type.
+   *
+   * @nosubgrouping
+   */
+  class renderComponent: public ::xml_schema::type
+  {
+    public:
+    /**
+     * @name spriteId
+     *
+     * @brief Accessor and modifier functions for the %spriteId
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::string spriteId_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< spriteId_type, char > spriteId_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const spriteId_type&
+    spriteId () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    spriteId_type&
+    spriteId ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    spriteId (const spriteId_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    spriteId (::std::unique_ptr< spriteId_type > p);
+
+    //@}
+
+    /**
+     * @name spritePath
+     *
+     * @brief Accessor and modifier functions for the %spritePath
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::string spritePath_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< spritePath_type, char > spritePath_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const spritePath_type&
+    spritePath () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    spritePath_type&
+    spritePath ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    spritePath (const spritePath_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    spritePath (::std::unique_ptr< spritePath_type > p);
+
+    //@}
+
+    /**
+     * @name width
+     *
+     * @brief Accessor and modifier functions for the %width
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::float_ width_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< width_type, char > width_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const width_type&
+    width () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    width_type&
+    width ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    width (const width_type& x);
+
+    //@}
+
+    /**
+     * @name height
+     *
+     * @brief Accessor and modifier functions for the %height
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::float_ height_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< height_type, char > height_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const height_type&
+    height () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    height_type&
+    height ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    height (const height_type& x);
+
+    //@}
+
+    /**
+     * @name Constructors
+     */
+    //@{
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    renderComponent (const spriteId_type&,
+                     const spritePath_type&,
+                     const width_type&,
+                     const height_type&);
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    renderComponent (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    renderComponent (const renderComponent& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual renderComponent*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    renderComponent&
+    operator= (const renderComponent& x);
+
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
+    virtual 
+    ~renderComponent ();
+
+    // Implementation.
+    //
+
+    //@cond
+
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< spriteId_type > spriteId_;
+    ::xsd::cxx::tree::one< spritePath_type > spritePath_;
+    ::xsd::cxx::tree::one< width_type > width_;
+    ::xsd::cxx::tree::one< height_type > height_;
 
     //@endcond
   };

@@ -22,13 +22,14 @@ public:
 
     void drawTexture(std::string textureId, float x, float y, float width, float height, double scale, double r) const override;
 
-    Spritesheet *createSpriteSheet(char const *path, std::string spriteSheetId, int rows, int columns, int width,
-                                   int height) const override;
+    Spritesheet *createSpriteSheet(char const *path, std::string spriteSheetId, int width, int height) const override;
 
     Spritesheet *createSpriteSheet(char const *path, char const *jsonPath, std::string spriteSheetId);
 
     void createText(std::string fontName, const char *text, int fontSize, SDL_Color color,
                     std::string textureId) const override;
+
+    void drawLine(Vector2 a, Vector2 b) const override;
 
     static TextureManager *GetTextureManager();
 

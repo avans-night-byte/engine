@@ -23,8 +23,7 @@ public:
                      SDL_Renderer *renderer, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
     Spritesheet *
-    createSpriteSheet(char const *path, std::string spriteSheetId, int rows, int columns, int width, int height,
-                      SDL_Renderer *renderer);
+    createSpriteSheet(char const *path, std::string spriteSheetId, int width, int height);
 
     Spritesheet *
     createSpriteSheet(char const *path, char const *jsonPath, std::string spriteSheetId,

@@ -37,8 +37,7 @@ public:
     drawTexture(std::string textureId, float x, float y, float width, float height, double scale, double r) const = 0;
 
     virtual Spritesheet *
-    createSpriteSheet(char const *path, std::string spriteSheetId, int rows, int columns, int width,
-                      int height) const = 0;
+    createSpriteSheet(char const *path, std::string spriteSheetId, int width, int height) const = 0;
 
     virtual bool loadTexture(const char *path, std::string textureId) = 0;
 
@@ -51,6 +50,10 @@ public:
     virtual void drawBackground(std::string hex, float alpha) const = 0;
 
     virtual TMXLevel *loadLevel(const LevelData &levelData, PhysicsEngineAdapter &physicsEngineAdapter) = 0;
+
+    virtual void drawLine(Vector2 a, Vector2 b) const = 0;
+
+
 
 public:
     [[nodiscard]] virtual const RenderingEngineAdapter &GetRendererAdapter() const = 0;

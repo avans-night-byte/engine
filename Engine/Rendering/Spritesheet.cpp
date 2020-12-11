@@ -48,9 +48,9 @@ void Spritesheet::select_sprite(int x, int y)
 
 
 
-void Spritesheet::draw_selected_sprite(float x, float y, float scale)
+void Spritesheet::draw_selected_sprite(float x, float y, float scale, float rotation)
 {
-    return TextureManager::GetInstance()->drawFrame(textureId, &m_clip, x, y, sdlRenderer, SDL_FLIP_NONE , scale);
+    return TextureManager::GetInstance()->drawFrame(textureId, &m_clip, x, y, sdlRenderer, SDL_FLIP_NONE, scale, rotation);
 }
 
 

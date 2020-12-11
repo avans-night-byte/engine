@@ -73,34 +73,64 @@ namespace Components
     this->componentName_.set (std::move (x));
   }
 
-  const component::worldPositionComponent_optional& component::
-  worldPositionComponent () const
+  const component::transformComponent_optional& component::
+  transformComponent () const
   {
-    return this->worldPositionComponent_;
+    return this->transformComponent_;
   }
 
-  component::worldPositionComponent_optional& component::
-  worldPositionComponent ()
+  component::transformComponent_optional& component::
+  transformComponent ()
   {
-    return this->worldPositionComponent_;
-  }
-
-  void component::
-  worldPositionComponent (const worldPositionComponent_type& x)
-  {
-    this->worldPositionComponent_.set (x);
+    return this->transformComponent_;
   }
 
   void component::
-  worldPositionComponent (const worldPositionComponent_optional& x)
+  transformComponent (const transformComponent_type& x)
   {
-    this->worldPositionComponent_ = x;
+    this->transformComponent_.set (x);
   }
 
   void component::
-  worldPositionComponent (::std::unique_ptr< worldPositionComponent_type > x)
+  transformComponent (const transformComponent_optional& x)
   {
-    this->worldPositionComponent_.set (std::move (x));
+    this->transformComponent_ = x;
+  }
+
+  void component::
+  transformComponent (::std::unique_ptr< transformComponent_type > x)
+  {
+    this->transformComponent_.set (std::move (x));
+  }
+
+  const component::renderComponent_optional& component::
+  renderComponent () const
+  {
+    return this->renderComponent_;
+  }
+
+  component::renderComponent_optional& component::
+  renderComponent ()
+  {
+    return this->renderComponent_;
+  }
+
+  void component::
+  renderComponent (const renderComponent_type& x)
+  {
+    this->renderComponent_.set (x);
+  }
+
+  void component::
+  renderComponent (const renderComponent_optional& x)
+  {
+    this->renderComponent_ = x;
+  }
+
+  void component::
+  renderComponent (::std::unique_ptr< renderComponent_type > x)
+  {
+    this->renderComponent_.set (std::move (x));
   }
 
   const component::physicsComponent_optional& component::
@@ -296,31 +326,119 @@ namespace Components
   }
 
 
-  // worldPositionComponent
+  // transformComponent
   // 
 
-  const worldPositionComponent::position_type& worldPositionComponent::
+  const transformComponent::position_type& transformComponent::
   position () const
   {
     return this->position_.get ();
   }
 
-  worldPositionComponent::position_type& worldPositionComponent::
+  transformComponent::position_type& transformComponent::
   position ()
   {
     return this->position_.get ();
   }
 
-  void worldPositionComponent::
+  void transformComponent::
   position (const position_type& x)
   {
     this->position_.set (x);
   }
 
-  void worldPositionComponent::
+  void transformComponent::
   position (::std::unique_ptr< position_type > x)
   {
     this->position_.set (std::move (x));
+  }
+
+
+  // renderComponent
+  // 
+
+  const renderComponent::spriteId_type& renderComponent::
+  spriteId () const
+  {
+    return this->spriteId_.get ();
+  }
+
+  renderComponent::spriteId_type& renderComponent::
+  spriteId ()
+  {
+    return this->spriteId_.get ();
+  }
+
+  void renderComponent::
+  spriteId (const spriteId_type& x)
+  {
+    this->spriteId_.set (x);
+  }
+
+  void renderComponent::
+  spriteId (::std::unique_ptr< spriteId_type > x)
+  {
+    this->spriteId_.set (std::move (x));
+  }
+
+  const renderComponent::spritePath_type& renderComponent::
+  spritePath () const
+  {
+    return this->spritePath_.get ();
+  }
+
+  renderComponent::spritePath_type& renderComponent::
+  spritePath ()
+  {
+    return this->spritePath_.get ();
+  }
+
+  void renderComponent::
+  spritePath (const spritePath_type& x)
+  {
+    this->spritePath_.set (x);
+  }
+
+  void renderComponent::
+  spritePath (::std::unique_ptr< spritePath_type > x)
+  {
+    this->spritePath_.set (std::move (x));
+  }
+
+  const renderComponent::width_type& renderComponent::
+  width () const
+  {
+    return this->width_.get ();
+  }
+
+  renderComponent::width_type& renderComponent::
+  width ()
+  {
+    return this->width_.get ();
+  }
+
+  void renderComponent::
+  width (const width_type& x)
+  {
+    this->width_.set (x);
+  }
+
+  const renderComponent::height_type& renderComponent::
+  height () const
+  {
+    return this->height_.get ();
+  }
+
+  renderComponent::height_type& renderComponent::
+  height ()
+  {
+    return this->height_.get ();
+  }
+
+  void renderComponent::
+  height (const height_type& x)
+  {
+    this->height_.set (x);
   }
 
 
@@ -665,7 +783,8 @@ namespace Components
   component (const componentName_type& componentName)
   : ::xml_schema::type (),
     componentName_ (componentName, this),
-    worldPositionComponent_ (this),
+    transformComponent_ (this),
+    renderComponent_ (this),
     physicsComponent_ (this),
     characterComponent_ (this),
     explosionCrate_ (this),
@@ -679,7 +798,8 @@ namespace Components
              ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
     componentName_ (x.componentName_, f, this),
-    worldPositionComponent_ (x.worldPositionComponent_, f, this),
+    transformComponent_ (x.transformComponent_, f, this),
+    renderComponent_ (x.renderComponent_, f, this),
     physicsComponent_ (x.physicsComponent_, f, this),
     characterComponent_ (x.characterComponent_, f, this),
     explosionCrate_ (x.explosionCrate_, f, this),
@@ -693,7 +813,8 @@ namespace Components
              ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     componentName_ (this),
-    worldPositionComponent_ (this),
+    transformComponent_ (this),
+    renderComponent_ (this),
     physicsComponent_ (this),
     characterComponent_ (this),
     explosionCrate_ (this),
@@ -730,16 +851,30 @@ namespace Components
         }
       }
 
-      // worldPositionComponent
+      // transformComponent
       //
-      if (n.name () == "worldPositionComponent" && n.namespace_ ().empty ())
+      if (n.name () == "transformComponent" && n.namespace_ ().empty ())
       {
-        ::std::unique_ptr< worldPositionComponent_type > r (
-          worldPositionComponent_traits::create (i, f, this));
+        ::std::unique_ptr< transformComponent_type > r (
+          transformComponent_traits::create (i, f, this));
 
-        if (!this->worldPositionComponent_)
+        if (!this->transformComponent_)
         {
-          this->worldPositionComponent_.set (::std::move (r));
+          this->transformComponent_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // renderComponent
+      //
+      if (n.name () == "renderComponent" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< renderComponent_type > r (
+          renderComponent_traits::create (i, f, this));
+
+        if (!this->renderComponent_)
+        {
+          this->renderComponent_.set (::std::move (r));
           continue;
         }
       }
@@ -825,7 +960,8 @@ namespace Components
     {
       static_cast< ::xml_schema::type& > (*this) = x;
       this->componentName_ = x.componentName_;
-      this->worldPositionComponent_ = x.worldPositionComponent_;
+      this->transformComponent_ = x.transformComponent_;
+      this->renderComponent_ = x.renderComponent_;
       this->physicsComponent_ = x.physicsComponent_;
       this->characterComponent_ = x.characterComponent_;
       this->explosionCrate_ = x.explosionCrate_;
@@ -1069,36 +1205,36 @@ namespace Components
   {
   }
 
-  // worldPositionComponent
+  // transformComponent
   //
 
-  worldPositionComponent::
-  worldPositionComponent (const position_type& position)
+  transformComponent::
+  transformComponent (const position_type& position)
   : ::xml_schema::type (),
     position_ (position, this)
   {
   }
 
-  worldPositionComponent::
-  worldPositionComponent (::std::unique_ptr< position_type > position)
+  transformComponent::
+  transformComponent (::std::unique_ptr< position_type > position)
   : ::xml_schema::type (),
     position_ (std::move (position), this)
   {
   }
 
-  worldPositionComponent::
-  worldPositionComponent (const worldPositionComponent& x,
-                          ::xml_schema::flags f,
-                          ::xml_schema::container* c)
+  transformComponent::
+  transformComponent (const transformComponent& x,
+                      ::xml_schema::flags f,
+                      ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
     position_ (x.position_, f, this)
   {
   }
 
-  worldPositionComponent::
-  worldPositionComponent (const ::xercesc::DOMElement& e,
-                          ::xml_schema::flags f,
-                          ::xml_schema::container* c)
+  transformComponent::
+  transformComponent (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f,
+                      ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     position_ (this)
   {
@@ -1109,7 +1245,7 @@ namespace Components
     }
   }
 
-  void worldPositionComponent::
+  void transformComponent::
   parse (::xsd::cxx::xml::dom::parser< char >& p,
          ::xml_schema::flags f)
   {
@@ -1144,15 +1280,15 @@ namespace Components
     }
   }
 
-  worldPositionComponent* worldPositionComponent::
+  transformComponent* transformComponent::
   _clone (::xml_schema::flags f,
           ::xml_schema::container* c) const
   {
-    return new class worldPositionComponent (*this, f, c);
+    return new class transformComponent (*this, f, c);
   }
 
-  worldPositionComponent& worldPositionComponent::
-  operator= (const worldPositionComponent& x)
+  transformComponent& transformComponent::
+  operator= (const transformComponent& x)
   {
     if (this != &x)
     {
@@ -1163,8 +1299,172 @@ namespace Components
     return *this;
   }
 
-  worldPositionComponent::
-  ~worldPositionComponent ()
+  transformComponent::
+  ~transformComponent ()
+  {
+  }
+
+  // renderComponent
+  //
+
+  renderComponent::
+  renderComponent (const spriteId_type& spriteId,
+                   const spritePath_type& spritePath,
+                   const width_type& width,
+                   const height_type& height)
+  : ::xml_schema::type (),
+    spriteId_ (spriteId, this),
+    spritePath_ (spritePath, this),
+    width_ (width, this),
+    height_ (height, this)
+  {
+  }
+
+  renderComponent::
+  renderComponent (const renderComponent& x,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    spriteId_ (x.spriteId_, f, this),
+    spritePath_ (x.spritePath_, f, this),
+    width_ (x.width_, f, this),
+    height_ (x.height_, f, this)
+  {
+  }
+
+  renderComponent::
+  renderComponent (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    spriteId_ (this),
+    spritePath_ (this),
+    width_ (this),
+    height_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void renderComponent::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // spriteId
+      //
+      if (n.name () == "spriteId" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< spriteId_type > r (
+          spriteId_traits::create (i, f, this));
+
+        if (!spriteId_.present ())
+        {
+          this->spriteId_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // spritePath
+      //
+      if (n.name () == "spritePath" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< spritePath_type > r (
+          spritePath_traits::create (i, f, this));
+
+        if (!spritePath_.present ())
+        {
+          this->spritePath_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // width
+      //
+      if (n.name () == "width" && n.namespace_ ().empty ())
+      {
+        if (!width_.present ())
+        {
+          this->width_.set (width_traits::create (i, f, this));
+          continue;
+        }
+      }
+
+      // height
+      //
+      if (n.name () == "height" && n.namespace_ ().empty ())
+      {
+        if (!height_.present ())
+        {
+          this->height_.set (height_traits::create (i, f, this));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!spriteId_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "spriteId",
+        "");
+    }
+
+    if (!spritePath_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "spritePath",
+        "");
+    }
+
+    if (!width_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "width",
+        "");
+    }
+
+    if (!height_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "height",
+        "");
+    }
+  }
+
+  renderComponent* renderComponent::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class renderComponent (*this, f, c);
+  }
+
+  renderComponent& renderComponent::
+  operator= (const renderComponent& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->spriteId_ = x.spriteId_;
+      this->spritePath_ = x.spritePath_;
+      this->width_ = x.width_;
+      this->height_ = x.height_;
+    }
+
+    return *this;
+  }
+
+  renderComponent::
+  ~renderComponent ()
   {
   }
 

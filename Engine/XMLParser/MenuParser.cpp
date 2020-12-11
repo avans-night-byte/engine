@@ -2,6 +2,7 @@
 #include <regex>
 #include "MenuParser.hpp"
 #include "../Audio/Adapter/SDLAudioEngineAdapter.hpp"
+#include "../Rendering/TextWrapper.hpp"
 
 
 MenuParser *MenuParser::_instance = nullptr;
@@ -211,6 +212,7 @@ void MenuParser::onClick(const Input &input) {
 #endif
 
 #if __linux__
+                std::string command = "start ";
                 //Linux open
                 command = "open ";
                 command += button.events().onClick()->loadURL()->c_str();
@@ -223,7 +225,7 @@ void MenuParser::onClick(const Input &input) {
                 const std::string action = button.events().onClick()->custom()->c_str();
 
                 if (action == "close") {
-                    // TODO: Close
+
                 }
             }
 

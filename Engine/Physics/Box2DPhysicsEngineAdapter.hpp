@@ -15,7 +15,8 @@ class Box2DPhysicsEngineAdapter : public PhysicsEngineAdapter {
 private:
     b2World world = b2World(b2Vec2_zero);
     unique_ptr<ContactListener> contactListener;
-    vector<b2Body *> bodies = vector<b2Body *>();
+    map<BodyId, b2Body *> bodies{};
+    vector<b2Body *> bodiesToDestroy = {};
 
     unique_ptr<Box2dDrawDebug> drawDebug = nullptr;
 
@@ -26,8 +27,8 @@ public:
     }
 
     ~Box2DPhysicsEngineAdapter() override {
-        for (b2Body *body : bodies) {
-            world.DestroyBody(body);
+        for (auto &body : bodies) {
+            world.DestroyBody(body.second);
         }
 
         bodies.clear();
@@ -46,9 +47,7 @@ public:
 
     inline RPosition getRPosition(BodyId bodyId) override;
 
-    inline void destroyBody(BodyId bodyID) override {
-        world.DestroyBody(bodies[bodyID]);
-    }
+    inline void destroyBody(BodyId bodyID) override;
 
     void DebugDraw(const RenderingEngineAdapter &renderingAdapter, SDL_Renderer &renderer) override;
 
@@ -57,4 +56,11 @@ public:
     void setLinearVelocity(BodyId bodyId, const Vector2 &vector2) override;
 
     void setFixedRotation(BodyId bodyId, bool b) override;
+
+
+    void setAngle(BodyId bodyId, float angle) const override;
+
+    void sweepBodies() override;
+
+    bool bodiesAreDestroyed() override;
 };

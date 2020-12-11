@@ -13,7 +13,7 @@ TMXLevel::TMXLevel(const char *tmxPath,
                    const RenderingAPI &renderingAPI,
                    PhysicsEngineAdapter &physicsEngineAdapter) : physicsEngineAdapter(physicsEngineAdapter) {
     _tSpritesheet = renderingAPI.createSpriteSheet(spritesheetPath,
-                                                   spritesheetId, 40, 40, 16, 16);
+                                                   spritesheetId, 16, 16);
     if (!_tmap.load(tmxPath))
     {
         return;
@@ -172,15 +172,21 @@ void TMXLevel::initStaticCollision(){
                         break;
                 }
 
-
-                bodies.push_back(bodyId);
+                if(bodyId != 0)
+                {
+                    bodies.push_back(bodyId);
+                }
             }
         }
     }
 }
 
 void TMXLevel::cleanup() {
-    //TODO: Unload everything.
+    for (BodyId bodyId : bodies) {
+        physicsEngineAdapter.destroyBody(bodyId);
+    }
+
+    bodies.clear();
 }
 
 TMXLevel::~TMXLevel() {

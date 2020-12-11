@@ -3,7 +3,7 @@
 #include "../../Engine/Physics/PhysicsEngineAdapter.hpp"
 
 #include "memory"
-#include "b2_types.h"
+#include <b2_types.h>
 #include "../../Engine/Physics/ContactHandler.hpp"
 
 class PhysicsEngineAdapter;
@@ -39,8 +39,13 @@ public:
     virtual void setLinearVelocity(const BodyId bodyId, const Vector2 &vector2) const = 0;
 
     virtual void setFixedRotation(const BodyId i, bool b) const = 0;
+    virtual void setAngle(const BodyId i, float rotation) const = 0;
 
     virtual void destroyBody(BodyId i) const = 0;
 
     virtual std::unique_ptr<PhysicsEngineAdapter>& getPhysicsEngineAdapter() = 0;
+
+    virtual bool bodiesAreDestroyed() = 0;
+
+    virtual void sweepBodies() = 0;
 };

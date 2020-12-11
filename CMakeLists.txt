@@ -34,14 +34,14 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/Component.hpp
         ./Game/Components/RenderComponent.cpp
         ./Game/Components/RenderComponent.hpp
-        ./Game/Components/WorldPositionComponent.cpp
-        ./Game/Components/WorldPositionComponent.hpp
+        ./Game/Components/TransformComponent.hpp
         ./Game/Scenes/Example/ExampleScene.cpp
         ./Game/Scenes/Example/ExampleScene.hpp
         ./Game/Components/PhysicsComponent.cpp
         ./Game/Components/PhysicsComponent.hpp
         ./Game/Components/CharacterComponent.cpp
         ./Game/Components/CharacterComponent.hpp
+        ./Game/Components/TransformComponent.cpp
         ./Game/Scenes/Level1/Level1.cpp
         ./Game/Scenes/Level1/Level1.hpp
         ./Game/Scenes/Level10/LevelCharlie.cpp
@@ -150,6 +150,13 @@ if (MSVC OR MSYS OR MINGW)
             "${CMAKE_CXX_COMPILER}/../libiconv-2.dll"
             "${CMAKE_CXX_COMPILER}/../libunistring-2.dll"
             "${CMAKE_CXX_COMPILER}/../libintl-8.dll"
+            "${CMAKE_CXX_COMPILER}/../libfreetype-6.dll"
+            "${CMAKE_CXX_COMPILER}/../libharfbuzz-0.dll"
+            "${CMAKE_CXX_COMPILER}/../libbz2-1.dll"
+            "${CMAKE_CXX_COMPILER}/../libpng16-16.dll"
+            "${CMAKE_CXX_COMPILER}/../libglib-2.0-0.dll"
+            "${CMAKE_CXX_COMPILER}/../libgraphite2.dll"
+            "${CMAKE_CXX_COMPILER}/../libpcre-1.dll"
             )
 
     foreach (file_i ${dep})
@@ -159,9 +166,3 @@ if (MSVC OR MSYS OR MINGW)
                 $<TARGET_FILE_DIR:NightByte>)
     endforeach ()
 endif ()
-
-# TODO Might add every Resources into the bin folder?
-add_custom_command(TARGET NightByte POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_directory
-        ${CMAKE_SOURCE_DIR}/Resources/XML/Definition
-        ${CMAKE_BINARY_DIR}/bin/xml)

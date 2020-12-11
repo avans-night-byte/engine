@@ -75,4 +75,10 @@ public:
     virtual void setLinearVelocity(const BodyId bodyId, const Vector2 &vector2) = 0;
 
     virtual void setFixedRotation(const BodyId bodyId, bool b) = 0;
+
+    virtual void setAngle(BodyId bodyId, float angle) const = 0;
+
+    virtual void sweepBodies() = 0;
+
+    virtual bool bodiesAreDestroyed() = 0;
 };

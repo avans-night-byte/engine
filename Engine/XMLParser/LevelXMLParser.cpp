@@ -12,7 +12,7 @@ void LevelXMLParser::loadLevel(std::multimap<std::string, Components::component 
                                const std::string &path) {
     std::unique_ptr<LevelResources::level> level = LevelResources::level_(path);
 
-    MenuParser::getInstance()->PreviousScenes.push(level->name());
+
 
     for (LevelResources::object &object : level->objects().object()) {
 
@@ -22,8 +22,8 @@ void LevelXMLParser::loadLevel(std::multimap<std::string, Components::component 
         for (auto &component : object.components().component()) {
             std::cout << component.componentName() << std::endl;
 
-            if (objectPersistsInTMX && component.componentName() == "WorldPositionComponent") {
-                auto &worldPositionComponent = component.worldPositionComponent();
+            if (objectPersistsInTMX && component.componentName() == "TransformComponent") {
+                auto &worldPositionComponent = component.transformComponent();
                 auto &positionF = worldPositionComponent->position();
                 positionF.x() = it->second.position.x;
                 positionF.y() = it->second.position.y;

@@ -18,10 +18,9 @@ TextureManager *EngineRenderingAPI::GetTextureManager()
  * @return Spritesheet
  */
 Spritesheet *
-EngineRenderingAPI::createSpriteSheet(const char *path, std::string spriteSheetId, int rows, int columns, int width,
-                                      int height) const
+EngineRenderingAPI::createSpriteSheet(char const *path, std::string spriteSheetId, int width, int height) const
 {
-    return _adapter->createSpriteSheet(path, spriteSheetId, rows, columns, width, height, _renderer);
+    return _adapter->createSpriteSheet(path, spriteSheetId, width, height);
 }
 
 Spritesheet *
@@ -79,5 +78,11 @@ TMXLevel *EngineRenderingAPI::loadLevel(const LevelData &levelData, PhysicsEngin
 
 void EngineRenderingAPI::drawBackground(std::string hex, float alpha) const {
     _adapter->drawBackground(hex, alpha, _renderer);
+
+}
+
+
+void EngineRenderingAPI::drawLine(Vector2 a, Vector2 b) const {
+    SDL_RenderDrawLine(_renderer, a.x, a.y, b.x, b.y);
 
 }

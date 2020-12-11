@@ -2,21 +2,22 @@
 
 // TODO: Remove this shit
 #include "../../Game/Components/NextLevelComponent.hpp"
+#include <cmath>
 
 unsigned int
 Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
                                       Vector2 position,
                                       Vector2 size,
                                       const bool &isSensor,
-                                      ContactHandler* userData) {
+                                      ContactHandler *userData) {
     b2BodyDef bodyDef;
     bodyDef.type = static_cast<b2BodyType>(static_cast<int>(bodyType));
     bodyDef.position.Set(position.x, position.y);
-    bodyDef.linearDamping = 0.1f;
-    bodyDef.angularDamping = 0.1f;
+    bodyDef.linearDamping = 1.0f;
+    bodyDef.angularDamping = 1.0f;
 
     b2BodyUserData bodyUserData;
-    bodyUserData.pointer = (uintptr_t)userData;
+    bodyUserData.pointer = (uintptr_t) userData;
 
     bodyDef.userData = bodyUserData;
 
@@ -33,7 +34,7 @@ Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
 
     body->CreateFixture(&fixtureDef);
 
-    bodies.push_back(body);
+    bodies[bodies.size()] = (body);
     return bodies.size() - 1;
 }
 
@@ -41,7 +42,7 @@ BodyId Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
                                              Vector2 position,
                                              const std::vector<Vector2> &points,
                                              const bool &isSensor,
-                                             ContactHandler* userData) {
+                                             ContactHandler *userData) {
     b2BodyDef bodyDef;
     bodyDef.type = static_cast<b2BodyType>(static_cast<int>(bodyType));
 
@@ -52,13 +53,13 @@ BodyId Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
 
 
     std::vector<b2Vec2> verts;
-    for(auto it = std::begin(points); it != std::end(points); ++it) {
+    for (auto it = std::begin(points); it != std::end(points); ++it) {
         verts.emplace_back(it->x, it->y);
     }
 
 
     b2PolygonShape polygon;
-    b2Vec2 arrayVec [verts.size()];
+    b2Vec2 arrayVec[verts.size()];
     std::copy(verts.begin(), verts.end(), arrayVec);
     polygonShape.Set(arrayVec, verts.size());
 
@@ -69,7 +70,7 @@ BodyId Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
     fixtureDef.friction = 1.0f;
     body->CreateFixture(&fixtureDef);
 
-    bodies.push_back(body);
+    bodies[bodies.size()] = (body);
     return bodies.size() - 1;
 }
 
@@ -77,7 +78,7 @@ BodyId Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
 unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
                                                    Vector2 position,
                                                    float radius,
-                                                   ContactHandler* userData) {
+                                                   ContactHandler *userData) {
     b2BodyDef bodyDef;
     bodyDef.type = static_cast<b2BodyType>(static_cast<int>(bodyType));
     bodyDef.position.Set(position.x, position.y);
@@ -93,11 +94,9 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
     fixtureDef.friction = 1.0f;
     body->CreateFixture(&fixtureDef);
 
-    bodies.push_back(body);
+    bodies[bodies.size()] = (body);
     return bodies.size() - 1;
 }
-
-
 
 
 void Box2DPhysicsEngineAdapter::referencePositionToBody(BodyId bodyId, float &x, float &y) {
@@ -108,12 +107,12 @@ void Box2DPhysicsEngineAdapter::referencePositionToBody(BodyId bodyId, float &x,
 
 inline RPosition Box2DPhysicsEngineAdapter::getRPosition(BodyId bodyId) {
     b2Body *body = bodies[bodyId];
-    return RPosition(body->GetPosition().x, body->GetPosition().y);
+
+    return RPosition(body->GetPosition().x, body->GetPosition().y, (body->GetAngle() * 180.f / M_PI));
 }
 
-void Box2DPhysicsEngineAdapter::DebugDraw(const RenderingEngineAdapter& renderingAdapter, SDL_Renderer &renderer) {
-    if(drawDebug == nullptr)
-    {
+void Box2DPhysicsEngineAdapter::DebugDraw(const RenderingEngineAdapter &renderingAdapter, SDL_Renderer &renderer) {
+    if (drawDebug == nullptr) {
         drawDebug = make_unique<Box2dDrawDebug>(renderingAdapter, renderer);
 
         world.SetDebugDraw(drawDebug.get());
@@ -142,11 +141,42 @@ void Box2DPhysicsEngineAdapter::setLinearVelocity(const BodyId bodyId, const Vec
 }
 
 void Box2DPhysicsEngineAdapter::getVelocity(Vector2 &velocity, BodyId bodyId) const {
-    b2Vec2 b2Vec2 = bodies[bodyId]->GetLinearVelocity();
+    b2Vec2 b2Vec2 = bodies.find(bodyId)->second->GetLinearVelocity();
     velocity = Vector2(b2Vec2.x, b2Vec2.y);
 }
 
 void Box2DPhysicsEngineAdapter::setFixedRotation(const BodyId bodyId, bool b) {
     b2Body *body = bodies[bodyId];
     body->SetFixedRotation(b);
+}
+
+void Box2DPhysicsEngineAdapter::destroyBody(BodyId bodyID) {
+    auto *body = bodies[bodyID];
+
+    bodiesToDestroy.push_back(body);
+    bodies.erase(bodyID);
+}
+
+// TODO: Make a map instead of the vector list to destroy all bodies OF a level. map{Level, Bodies}
+void Box2DPhysicsEngineAdapter::sweepBodies() {
+    if (!world.IsLocked()) {
+        for (auto *body: bodiesToDestroy) {
+            if (body != nullptr)
+                world.DestroyBody(body);
+        }
+
+        bodiesToDestroy.clear();
+    }
+}
+
+// TODO: Make a map instead of the vector list to destroy all bodies OF a level. map{Level, Bodies}
+bool Box2DPhysicsEngineAdapter::bodiesAreDestroyed() {
+    return bodiesToDestroy.empty();
+}
+
+
+void Box2DPhysicsEngineAdapter::setAngle(BodyId bodyId, float angle) const {
+    b2Body *body = bodies.find(bodyId)->second;
+
+    body->SetTransform(body->GetPosition(), angle);
 }

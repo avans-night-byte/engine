@@ -14,4 +14,6 @@ class EngineInputAPI : public InputAPI {
     [[nodiscard]] Input getInput() const override;
     Event<Input>& getInputEvent() override;
     ~EngineInputAPI() override;
+    void getMousePosition(int &x, int &y) const override;
+
 };
