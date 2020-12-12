@@ -80,6 +80,8 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Managers/ResourceManager.hpp
         ./Engine/Rendering/TextWrapper.cpp
         ./Engine/Rendering/TextWrapper.hpp
+        ./Engine/Physics/BodyHandler.cpp
+        ./Engine/Physics/BodyHandler.hpp
 
         # API
         ./API/Input/EngineInputAPI.cpp
@@ -93,7 +95,8 @@ add_executable(NightByte ./Main.cpp
         ./API/RPosition.hpp
         ./API/XMLParser/MenuParserAPI.cpp
         ./API/XMLParser/MenuParserAPI.hpp
-        ./API/XMLParser/LevelParserAPI.cpp API/Physics/BodyHandlerAPI.hpp Engine/Physics/BodyHandler.cpp Engine/Physics/BodyHandler.hpp)
+        ./API/XMLParser/LevelParserAPI.cpp
+        ./API/Physics/BodyHandlerAPI.hpp)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)
