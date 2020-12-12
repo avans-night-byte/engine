@@ -132,7 +132,7 @@
             </resources>
             <common:events>
                 <onClick>
-                    <loadURL>https://github.com/avans-night-byte/_engine</loadURL>
+                    <loadURL>https://github.com/avans-night-byte/engine</loadURL>
                 </onClick>
             </common:events>
         </button>
