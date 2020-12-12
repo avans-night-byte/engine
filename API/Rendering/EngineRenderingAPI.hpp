@@ -7,7 +7,7 @@
 class TextureManager;
 
 /**
- * This class acts as a facade for the engine, it stores and references variables and constants needed for rendering
+ * This class acts as a facade for the _engine, it stores and references variables and constants needed for rendering
  * and resource allocation like textures.
  */
 class EngineRenderingAPI : public RenderingAPI {

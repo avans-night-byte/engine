@@ -12,7 +12,7 @@ typedef signed int int32;
 #include <SDL.h>
 
 
-// TODO: Store the SDL_renderer here, in the engine instead of the API?
+// TODO: Store the SDL_renderer here, in the _engine instead of the API?
 
 class RenderingEngineAdapter {
 private:
