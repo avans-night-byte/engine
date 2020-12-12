@@ -130,7 +130,7 @@ void TMXLevel::initStaticCollision(){
                                 (object.getPosition().y * scale) + (rect.height * scale) / 2
                         );
 
-                        bodyId = Game::getInstance()->getPhysicsAPI()->createBody(box2DBoxData);
+                        bodyId = Game::getInstance()->getPhysicsAPI().createBody(box2DBoxData);
                         break;
                     }
 
@@ -148,7 +148,7 @@ void TMXLevel::initStaticCollision(){
                                 (object.getPosition().y * scale) + (rect.height * scale) / 2
                         );
 
-                        bodyId = Game::getInstance()->getPhysicsAPI()->createBody(box2DCircleData);
+                        bodyId = Game::getInstance()->getPhysicsAPI().createBody(box2DCircleData);
                         break;
                     }
                     case tmx::Object::Shape::Polygon:
@@ -165,7 +165,7 @@ void TMXLevel::initStaticCollision(){
 
                         polygonData.points = points;
 
-                        bodyId = Game::getInstance()->getPhysicsAPI()->createBody(polygonData);
+                        bodyId = Game::getInstance()->getPhysicsAPI().createBody(polygonData);
                         break;
                     }
                     case tmx::Object::Shape::Text:

@@ -12,9 +12,9 @@ private:
 
 protected:
     Engine() = default;
-    ~Engine() = default;
 
 public:
+    ~Engine() = default;
     Engine(Engine &other) = delete;
 
     void operator=(const Engine&) = delete;
