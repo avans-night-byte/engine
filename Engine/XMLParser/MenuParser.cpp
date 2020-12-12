@@ -33,10 +33,12 @@ void MenuParser::initialize(const std::string &path) {
                 continue;
 
             auto createdString = _buttonPrefix + std::to_string(index);
-            const auto font = _fontPath + button.text()->font().family() + "-" + button.text()->font().weight() +".ttf";
+            const auto font =
+                    _fontPath + button.text()->font().family() + "-" + button.text()->font().weight() + ".ttf";
             auto wrapper = TextWrapper::createText(_renderer, button.text()->content().c_str(),
                                                    (font).c_str(), button.text()->font().size(),
-                                                   HexToRGB(button.text()->color().hex(), button.text()->color().alpha()), createdString);
+                                                   HexToRGB(button.text()->color().hex(),
+                                                            button.text()->color().alpha()), createdString);
 
             _textItems[createdString] = std::unique_ptr<TextWrapper>(wrapper);
             index++;
@@ -48,7 +50,8 @@ void MenuParser::initialize(const std::string &path) {
 
         auto createdString = _textPrefix + std::to_string(index);
         auto wrapper = TextWrapper::createText(_renderer, text.content().c_str(),
-                                               (_fontPath + text.font().family() + "-" + text.font().weight() +".ttf").c_str(), text.font().size(),
+                                               (_fontPath + text.font().family() + "-" + text.font().weight() +
+                                                ".ttf").c_str(), text.font().size(),
                                                HexToRGB(text.color().hex(), text.color().alpha()), createdString);
 
         _textItems[createdString] = std::unique_ptr<TextWrapper>(wrapper);
@@ -185,19 +188,32 @@ void MenuParser::onClick(const Input &input) {
         if (buttonPos.x <= input.x && buttonPos.y <= input.y && buttonBounds.x >= input.x &&
             buttonBounds.y >= input.y) {
 
+
+            if (button.events().onClick()->custom().present()) {
+                const std::string action = button.events().onClick()->custom()->c_str();
+
+                if (action == "unloadLevel") {
+                    // TODO: This class needs to be refactored, would be nice if game could be called from here(another eventhandler?)
+                    ResourceManager::getInstance()->quitLevel = true;
+                }
+
+                if (action == "close") {
+
+                }
+            }
+
             if (button.events().onClick()->playSound().present())
                 SDLAudioEngineAdapter::getInstance()->playFromMemory(
                         button.events().onClick()->playSound()->c_str());
 
-            if (button.events().onClick()->loadScene().present()){
+            if (button.events().onClick()->loadScene().present()) {
 
                 std::string nextScene = button.events().onClick()->loadScene()->c_str();
 
-                if(nextScene == "Previous"){
+                if (nextScene == "Previous") {
                     nextScene = PreviousScenes.top();
                     PreviousScenes.pop();
-                }
-                else{
+                } else {
                     PreviousScenes.push(_menu->name());
                 }
                 ResourceManager::getInstance()->loadResource(nextScene);
@@ -218,15 +234,6 @@ void MenuParser::onClick(const Input &input) {
                 command += button.events().onClick()->loadURL()->c_str();
                 system(command.c_str());
 #endif
-            }
-
-
-            if (button.events().onClick()->custom().present()) {
-                const std::string action = button.events().onClick()->custom()->c_str();
-
-                if (action == "close") {
-
-                }
             }
 
             return;

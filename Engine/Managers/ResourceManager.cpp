@@ -137,21 +137,22 @@ void ResourceManager::loadResource(const std::string &resource) {
             auto &scene = _scenes[resource];
             MenuParser::getInstance()->initialize(_basePath + scene->path());
             inMenu = true;
+            if (quitLevel) {
+                Game::getInstance()->unloadLevel();
+                quitLevel = false;
+            }
             break;
         }
         case LEVELS: {
             inMenu = false;
             MenuParser::getInstance()->PreviousScenes.push(resource);
-            if (_currentLevel != resource) {
-                auto &level = _levels[resource];
-                const LevelData tmxData = LevelData(_basePath + level->tmxPath(),
-                                                    _basePath + level->spriteSheetPath(),
-                                                    level->spriteName(),
-                                                    _basePath + level->path());
+            auto &level = _levels[resource];
 
-                Game::getInstance()->initializeLeveL(level->name().c_str(), tmxData);
-                _currentLevel = resource;
-            }
+            const LevelData tmxData = LevelData(_basePath + level->tmxPath(),
+                                                _basePath + level->spriteSheetPath(),
+                                                level->spriteName(),
+                                                _basePath + level->path());
+            Game::getInstance()->initializeLeveL(level->name().c_str(), tmxData);
 
             break;
         }

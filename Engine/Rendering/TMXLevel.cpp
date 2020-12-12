@@ -14,8 +14,7 @@ TMXLevel::TMXLevel(const char *tmxPath,
                    PhysicsEngineAdapter &physicsEngineAdapter) : physicsEngineAdapter(physicsEngineAdapter) {
     _tSpritesheet = renderingAPI.createSpriteSheet(spritesheetPath,
                                                    spritesheetId, 16, 16);
-    if (!_tmap.load(tmxPath))
-    {
+    if (!_tmap.load(tmxPath)) {
         return;
     }
 
@@ -31,7 +30,7 @@ TMXLevel::TMXLevel(const char *tmxPath,
     this->initStaticCollision(); // TODO: Remove this
 }
 
-void TMXLevel::render(RenderingAPI& renderingAPI) {
+void TMXLevel::render(RenderingAPI &renderingAPI) {
     const auto &layers = _tmap.getLayers();
 
     for (const auto &layer : layers) {
@@ -71,7 +70,7 @@ void TMXLevel::render(RenderingAPI& renderingAPI) {
     }
 }
 
-void TMXLevel::initObjects(std::map<std::string, LoadedObjectData>& outLoadedObjects) {
+void TMXLevel::initObjects(std::map<std::string, LoadedObjectData> &outLoadedObjects) {
     const auto &layers = _tmap.getLayers();
 
     for (const auto &layer : layers) {
@@ -94,7 +93,7 @@ void TMXLevel::initObjects(std::map<std::string, LoadedObjectData>& outLoadedObj
     }
 }
 
-void TMXLevel::initStaticCollision(){
+void TMXLevel::initStaticCollision() {
     const auto &layers = _tmap.getLayers();
 
     for (const auto &layer : layers) {
@@ -105,18 +104,14 @@ void TMXLevel::initStaticCollision(){
                 std::vector<Vector2> points = std::vector<Vector2>();
 
                 bool isSensor = false;
-                ContactHandler* handler = nullptr;
-                for(const auto &property : object.getProperties())
-                {
-                    if(property.getName() == "isSensor")
-                    {
+                ContactHandler *handler = nullptr;
+                for (const auto &property : object.getProperties()) {
+                    if (property.getName() == "isSensor") {
                         isSensor = true;
                     }
                 }
 
-                BodyId bodyId;
-                switch(object.getShape())
-                {
+                switch (object.getShape()) {
                     case tmx::Object::Shape::Rectangle: {
                         auto rect = object.getAABB();
 
@@ -130,12 +125,11 @@ void TMXLevel::initStaticCollision(){
                                 (object.getPosition().y * scale) + (rect.height * scale) / 2
                         );
 
-                        bodyId = Game::getInstance()->getPhysicsAPI().createBody(box2DBoxData);
+                        bodies.push_back(Game::getInstance()->getPhysicsAPI().createBody(box2DBoxData));
                         break;
                     }
 
-                    case tmx::Object::Shape::Ellipse:
-                    {
+                    case tmx::Object::Shape::Ellipse: {
                         auto rect = object.getAABB();
 
                         Box2DCircleData box2DCircleData;
@@ -148,7 +142,7 @@ void TMXLevel::initStaticCollision(){
                                 (object.getPosition().y * scale) + (rect.height * scale) / 2
                         );
 
-                        bodyId = Game::getInstance()->getPhysicsAPI().createBody(box2DCircleData);
+                        bodies.push_back(Game::getInstance()->getPhysicsAPI().createBody(box2DCircleData));
                         break;
                     }
                     case tmx::Object::Shape::Polygon:
@@ -160,21 +154,16 @@ void TMXLevel::initStaticCollision(){
                         polygonData.position = Vector2(object.getPosition().x * scale, object.getPosition().y * scale);
 
                         for (const auto &point : object.getPoints()) {
-                            points.push_back(Vector2(point.x * scale, point.y * scale));
+                            points.emplace_back(point.x * scale, point.y * scale);
                         }
 
                         polygonData.points = points;
 
-                        bodyId = Game::getInstance()->getPhysicsAPI().createBody(polygonData);
+                        bodies.push_back(Game::getInstance()->getPhysicsAPI().createBody(polygonData));
                         break;
                     }
                     case tmx::Object::Shape::Text:
                         break;
-                }
-
-                if(bodyId != 0)
-                {
-                    bodies.push_back(bodyId);
                 }
             }
         }
