@@ -21,6 +21,7 @@ private:
     std::string _basePath;
     bool _debug;
 
+
     // Resources
     std::vector<std::string> _loadedResources;
     std::map<std::string, ResourceType> _resources;
@@ -51,9 +52,8 @@ private:
 protected:
     explicit ResourceManager(const std::string &resourcePath, bool debug = true);
 public:
-    // TODO: PLEASE IMPROVE
-    std::string _currentLevel;
-
+    // TODO: should be removed when MenuParser is refactored.
+    bool quitLevel = false;
     // TODO: Improve?
     bool inMenu = false;
 
@@ -70,4 +70,6 @@ public:
 
     static ResourceManager* getInstance();
     static ResourceManager* instantiate(const std::string &resourcePath, bool debug = true);
+
+
 };

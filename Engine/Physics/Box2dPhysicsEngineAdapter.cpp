@@ -153,25 +153,9 @@ void Box2DPhysicsEngineAdapter::setFixedRotation(const BodyId bodyId, bool b) {
 void Box2DPhysicsEngineAdapter::destroyBody(BodyId bodyID) {
     auto *body = bodies[bodyID];
 
-    bodiesToDestroy.push_back(body);
+
+    world.DestroyBody(body);
     bodies.erase(bodyID);
-}
-
-// TODO: Make a map instead of the vector list to destroy all bodies OF a level. map{Level, Bodies}
-void Box2DPhysicsEngineAdapter::sweepBodies() {
-    if (!world.IsLocked()) {
-        for (auto *body: bodiesToDestroy) {
-            if (body != nullptr)
-                world.DestroyBody(body);
-        }
-
-        bodiesToDestroy.clear();
-    }
-}
-
-// TODO: Make a map instead of the vector list to destroy all bodies OF a level. map{Level, Bodies}
-bool Box2DPhysicsEngineAdapter::bodiesAreDestroyed() {
-    return bodiesToDestroy.empty();
 }
 
 
@@ -179,4 +163,8 @@ void Box2DPhysicsEngineAdapter::setAngle(BodyId bodyId, float angle) const {
     b2Body *body = bodies.find(bodyId)->second;
 
     body->SetTransform(body->GetPosition(), angle);
+}
+
+bool Box2DPhysicsEngineAdapter::isWorldLocked() const {
+    return world.IsLocked();
 }
