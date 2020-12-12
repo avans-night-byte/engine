@@ -17,17 +17,15 @@ typedef signed int int32;
 class RenderingEngineAdapter {
 private:
     SDL_Color HexToRGB(std::string hex, float opacity) const;
-    void drawRectContent(Vector2 &position, float width, float height, std::string &content, SDL_Renderer *renderer);
+
 public:
     void drawTexture(std::string textureId, float x, float y, float width, float height, double scale, double r,
                      SDL_Renderer *renderer, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
-    Spritesheet *
-    createSpriteSheet(char const *path, std::string spriteSheetId, int width, int height);
+    Spritesheet *createSpriteSheet(const std::string &path, std::string &spriteSheetId, int width, int height);
 
-    Spritesheet *
-    createSpriteSheet(char const *path, char const *jsonPath, std::string spriteSheetId,
-                      SDL_Renderer *renderer);
+    Spritesheet *createSpriteSheet(const std::string &path, const std::string &jsonPath, std::string &spriteSheetId,
+                                   SDL_Renderer *renderer);
 
     static TextureManager *GetTextureManager();
 
@@ -39,12 +37,13 @@ public:
 
     void drawCircle(const Vector2 &center, const float &radius, SDL_Renderer *renderer) const;
 
-    void drawRectangle(Vector2 &vector2, float width, float height, const std::string& color, float opacity, SDL_Renderer *renderer) const;
+    void drawRectangle(Vector2 &vector2, float width, float height, const std::string &color, float opacity,
+                       SDL_Renderer *renderer) const;
 
 
-
-    void createText(std::string fontName, const char *text, const int fontSize, SDL_Color color, std::string textureId,
+    void createText(const std::string &fontName, const std::string &text, const int fontSize, const std::string &hex,
+                    const std::string &textureId,
                     SDL_Renderer *renderer);
 
-    void drawBackground(std::string color, float alpha, SDL_Renderer *renderer);
+    void drawBackground(std::string &color, float alpha, SDL_Renderer *renderer);
 };

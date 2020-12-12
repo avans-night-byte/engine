@@ -19,7 +19,7 @@ RenderingEngineAdapter::drawTexture(std::string textureId, float x, float y, flo
     return textureManager->draw(textureId, x, y, width, height, scale, r, renderer, flip);
 }
 
-void RenderingEngineAdapter::drawBackground(std::string color, float alpha, SDL_Renderer *renderer){
+void RenderingEngineAdapter::drawBackground(std::string &color, float alpha, SDL_Renderer *renderer){
     SDL_Color c = HexToRGB(color, alpha);
     SDL_SetRenderDrawColor(renderer, c.r, c.g, c.b, c.a);
 
@@ -27,7 +27,7 @@ void RenderingEngineAdapter::drawBackground(std::string color, float alpha, SDL_
 }
 
 Spritesheet *
-RenderingEngineAdapter::createSpriteSheet(char const *path, std::string spriteSheetId, int width, int height) {
+RenderingEngineAdapter::createSpriteSheet(const std::string &path, std::string &spriteSheetId, int width, int height) {
     return new Spritesheet(path, spriteSheetId, width, height, Engine::getInstance()->getRenderer());
 }
 
@@ -127,17 +127,16 @@ void RenderingEngineAdapter::drawCircle(const Vector2 &center, const float &radi
 
 
 
-Spritesheet *
-RenderingEngineAdapter::createSpriteSheet(const char *path, const char *jsonPath, std::string spriteSheetId,
+Spritesheet *RenderingEngineAdapter::createSpriteSheet(const std::string &path, const std::string &jsonPath, std::string &spriteSheetId,
                                           SDL_Renderer *renderer) {
-    return new Spritesheet(path, jsonPath, std::move(spriteSheetId), renderer);
+    return new Spritesheet(path, jsonPath, spriteSheetId, renderer);
 }
 
-void RenderingEngineAdapter::createText(std::string fontName, const char* text, const int fontSize, SDL_Color color, std::string textureId,  SDL_Renderer *renderer){
+void RenderingEngineAdapter::createText(const std::string &fontName, const std::string &text, const int fontSize, const std::string &hex, const std::string &textureId,  SDL_Renderer *renderer){
     TTF_Font* font = TTF_OpenFont(fontName.c_str(), fontSize);
-    SDL_Surface* surfaceMessage = TTF_RenderUTF8_Blended(font, text, color);
+    SDL_Surface* surfaceMessage = TTF_RenderUTF8_Blended(font, text.c_str(), HexToRGB(hex, 255));
 
-    RenderingEngineAdapter::GetTextureManager()->CreateTexture(surfaceMessage, std::move(textureId), renderer);
+    RenderingEngineAdapter::GetTextureManager()->CreateTexture(surfaceMessage, textureId, renderer);
     TTF_CloseFont(font);
 }
 

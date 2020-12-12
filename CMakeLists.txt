@@ -81,13 +81,15 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Rendering/TextWrapper.cpp
         ./Engine/Rendering/TextWrapper.hpp
 
+
         # API
         ./API/Input/EngineInputAPI.cpp
-        ./API/Audio/AudioAPI.cpp
+        ./API/Audio/EngineAudioAPI.cpp
         ./API/Rendering/EngineRenderingAPI.hpp
         ./API/Rendering/EngineRenderingAPI.cpp
         ./API/Engine/EngineWindowAPI.cpp
         ./API/Engine/WindowAPI.hpp
+        ./API/Audio/AudioAPI.h
         ./API/Physics/EnginePhysicsAPI.hpp
         ./API/Physics/PhysicsAPI.hpp
         ./API/RPosition.hpp

@@ -125,12 +125,12 @@ void ResourceManager::loadResource(const std::string &resource) {
             break;
         case SOUNDS: {
             auto &sound_ = _sounds[resource];
-            SDLAudioEngineAdapter::getInstance()->loadInMemory(_basePath + sound_->path(), sound_->name(), sound);
+            SDLAudioEngineAdapter::getInstance().loadInMemory(_basePath + sound_->path(), sound_->name(), sound);
             break;
         }
         case MUSIC: {
             auto &music_ = _music[resource];
-            SDLAudioEngineAdapter::getInstance()->loadInMemory(_basePath + music_->path(), music_->name(), music);
+            SDLAudioEngineAdapter::getInstance().loadInMemory(_basePath + music_->path(), music_->name(), music);
             break;
         }
         case SCENES: {

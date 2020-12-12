@@ -20,24 +20,24 @@ public:
 
     };
 
-    void drawTexture(std::string textureId, float x, float y, float width, float height, double scale, double r) const override;
+    void drawTexture(const std::string &textureId, float x, float y, float width, float height, double scale, double r) const override;
 
-    Spritesheet *createSpriteSheet(char const *path, std::string spriteSheetId, int width, int height) const override;
+    Spritesheet *createSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const override;
 
-    Spritesheet *createSpriteSheet(char const *path, char const *jsonPath, std::string spriteSheetId);
+    Spritesheet *createSpriteSheet(const std::string &path, const std::string &jsonPath, std::string &spriteSheetId);
 
-    void createText(std::string fontName, const char *text, int fontSize, SDL_Color color,
-                    std::string textureId) const override;
+    void createText(const std::string &fontName, const std::string &text, int fontSize, const std::string &hex,
+                    const std::string &textureId) const override;
 
-    void drawLine(Vector2 a, Vector2 b) const override;
+    void drawLine(Vector2 &a, Vector2 &b) const override;
 
     static TextureManager *GetTextureManager();
 
-    bool loadTexture(const char *path, std::string textureId) override;
+    bool loadTexture(const std::string &path, std::string &textureId) override;
 
     void drawRectangle(Vector2 &position, float width, float height, std::string &color, float opacity) const override;
 
-    void drawBackground(std::string hex, float alpha) const override;
+    void drawBackground(std::string &hex, float alpha) const override;
 
     TMXLevel *loadLevel(const LevelData &levelData, PhysicsEngineAdapter &physicsEngineAdapter) override;
 

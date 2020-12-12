@@ -4,8 +4,6 @@
 
 #include "TextWrapper.hpp"
 
-#include <utility>
-#include "../../Game/Game.hpp"
 
 Vector2 TextWrapper::getSize() {
     return _size;
@@ -15,17 +13,16 @@ std::string TextWrapper::getTextureId() {
     return _textureId;
 }
 
-TextWrapper*
-TextWrapper::createText(const RenderingAPI& _renderingAPI, std::string text, const char *fontPath, int fontSize,
-                        SDL_Color color,
-                        std::string textureId) {
+TextWrapper* TextWrapper::createText(const RenderingAPI& _renderingAPI, std::string &text, const std::string &fontPath, int fontSize,
+                        std::string &hex,
+                        const std::string& textureId) {
 
-    _renderingAPI.createText(fontPath, text.c_str(), fontSize, color, textureId);
-    return new TextWrapper(text, fontPath, fontSize, color, textureId, _renderingAPI);
+    _renderingAPI.createText(fontPath, text, fontSize, hex, textureId);
+    return new TextWrapper(text, fontPath, fontSize, hex, textureId, _renderingAPI);
 }
 
-TextWrapper::TextWrapper(std::string text, const char *fontPath, int fontSize, SDL_Color color,
-                         std::string textureId, const RenderingAPI& renderingAPI) : _text(std::move(text)), _textureId(std::move(textureId)), _renderingAPI(renderingAPI) {
+TextWrapper::TextWrapper(std::string text, const std::string& fontPath, int fontSize, const std::string& hex,
+                         std::string textureId, const RenderingAPI &renderingAPI) : _text(std::move(text)), _textureId(std::move(textureId)), _renderingAPI(renderingAPI) {
     _size = TextureManager::GetInstance()->getDimensions(_textureId);
 }
 
