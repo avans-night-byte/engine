@@ -118,12 +118,18 @@
                         <bodyType>Static</bodyType>
                         <bodyShape>
                             <box>
-                                <width>50</width>
-                                <height>50</height>
+                                <width>30</width>
+                                <height>13</height>
                             </box>
                         </bodyShape>
+                        <isBullet>true</isBullet>
                         <isSensor>false</isSensor>
                     </physicsComponent>
+                </component>
+
+                <component>
+                    <componentName>BulletComponent</componentName>
+                    <bulletComponent/>
                 </component>
 
                 <component>

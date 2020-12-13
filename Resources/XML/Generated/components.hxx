@@ -575,6 +575,7 @@ namespace Components
   class physicsComponent;
   class characterComponent;
   class explosionCrate;
+  class bulletComponent;
   class nextLevelComponent;
   class circle;
   class box;
@@ -1162,6 +1163,82 @@ namespace Components
     //@}
 
     /**
+     * @name bulletComponent
+     *
+     * @brief Accessor and modifier functions for the %bulletComponent
+     * optional element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::Components::bulletComponent bulletComponent_type;
+
+    /**
+     * @brief Element optional container type.
+     */
+    typedef ::xsd::cxx::tree::optional< bulletComponent_type > bulletComponent_optional;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< bulletComponent_type, char > bulletComponent_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element
+     * container.
+     *
+     * @return A constant reference to the optional container.
+     */
+    const bulletComponent_optional&
+    bulletComponent () const;
+
+    /**
+     * @brief Return a read-write reference to the element container.
+     *
+     * @return A reference to the optional container.
+     */
+    bulletComponent_optional&
+    bulletComponent ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    bulletComponent (const bulletComponent_type& x);
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x An optional container with the new value to set.
+     *
+     * If the value is present in @a x then this function makes a copy 
+     * of this value and sets it as the new value of the element.
+     * Otherwise the element container is set the 'not present' state.
+     */
+    void
+    bulletComponent (const bulletComponent_optional& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly instead
+     * of making a copy.
+     */
+    void
+    bulletComponent (::std::unique_ptr< bulletComponent_type > p);
+
+    //@}
+
+    /**
      * @name nextLevelComponent
      *
      * @brief Accessor and modifier functions for the %nextLevelComponent
@@ -1324,6 +1401,7 @@ namespace Components
     physicsComponent_optional physicsComponent_;
     characterComponent_optional characterComponent_;
     explosionCrate_optional explosionCrate_;
+    bulletComponent_optional bulletComponent_;
     nextLevelComponent_optional nextLevelComponent_;
 
     //@endcond
@@ -2495,10 +2573,83 @@ namespace Components
     //@}
 
     /**
+     * @name isBullet
+     *
+     * @brief Accessor and modifier functions for the %isBullet
+     * optional element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::boolean isBullet_type;
+
+    /**
+     * @brief Element optional container type.
+     */
+    typedef ::xsd::cxx::tree::optional< isBullet_type > isBullet_optional;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< isBullet_type, char > isBullet_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element
+     * container.
+     *
+     * @return A constant reference to the optional container.
+     */
+    const isBullet_optional&
+    isBullet () const;
+
+    /**
+     * @brief Return a read-write reference to the element container.
+     *
+     * @return A reference to the optional container.
+     */
+    isBullet_optional&
+    isBullet ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    isBullet (const isBullet_type& x);
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x An optional container with the new value to set.
+     *
+     * If the value is present in @a x then this function makes a copy 
+     * of this value and sets it as the new value of the element.
+     * Otherwise the element container is set the 'not present' state.
+     */
+    void
+    isBullet (const isBullet_optional& x);
+
+    /**
+     * @brief Return the default value for the element.
+     *
+     * @return The element's default value.
+     */
+    static isBullet_type
+    isBullet_default_value ();
+
+    //@}
+
+    /**
      * @name isSensor
      *
      * @brief Accessor and modifier functions for the %isSensor
-     * required element.
+     * optional element.
      */
     //@{
 
@@ -2508,24 +2659,30 @@ namespace Components
     typedef ::xml_schema::boolean isSensor_type;
 
     /**
+     * @brief Element optional container type.
+     */
+    typedef ::xsd::cxx::tree::optional< isSensor_type > isSensor_optional;
+
+    /**
      * @brief Element traits type.
      */
     typedef ::xsd::cxx::tree::traits< isSensor_type, char > isSensor_traits;
 
     /**
-     * @brief Return a read-only (constant) reference to the element.
+     * @brief Return a read-only (constant) reference to the element
+     * container.
      *
-     * @return A constant reference to the element.
+     * @return A constant reference to the optional container.
      */
-    const isSensor_type&
+    const isSensor_optional&
     isSensor () const;
 
     /**
-     * @brief Return a read-write reference to the element.
+     * @brief Return a read-write reference to the element container.
      *
-     * @return A reference to the element.
+     * @return A reference to the optional container.
      */
-    isSensor_type&
+    isSensor_optional&
     isSensor ();
 
     /**
@@ -2538,6 +2695,26 @@ namespace Components
      */
     void
     isSensor (const isSensor_type& x);
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x An optional container with the new value to set.
+     *
+     * If the value is present in @a x then this function makes a copy 
+     * of this value and sets it as the new value of the element.
+     * Otherwise the element container is set the 'not present' state.
+     */
+    void
+    isSensor (const isSensor_optional& x);
+
+    /**
+     * @brief Return the default value for the element.
+     *
+     * @return The element's default value.
+     */
+    static isSensor_type
+    isSensor_default_value ();
 
     //@}
 
@@ -2617,8 +2794,7 @@ namespace Components
     physicsComponent (const position_type&,
                       const friction_type&,
                       const bodyType_type&,
-                      const bodyShape_type&,
-                      const isSensor_type&);
+                      const bodyShape_type&);
 
     /**
      * @brief Create an instance from the ultimate base and
@@ -2631,8 +2807,7 @@ namespace Components
     physicsComponent (::std::unique_ptr< position_type >,
                       const friction_type&,
                       const bodyType_type&,
-                      ::std::unique_ptr< bodyShape_type >,
-                      const isSensor_type&);
+                      ::std::unique_ptr< bodyShape_type >);
 
     /**
      * @brief Create an instance from a DOM element.
@@ -2708,7 +2883,8 @@ namespace Components
     ::xsd::cxx::tree::one< friction_type > friction_;
     ::xsd::cxx::tree::one< bodyType_type > bodyType_;
     ::xsd::cxx::tree::one< bodyShape_type > bodyShape_;
-    ::xsd::cxx::tree::one< isSensor_type > isSensor_;
+    isBullet_optional isBullet_;
+    isSensor_optional isSensor_;
     contactHandler_sequence contactHandler_;
 
     //@endcond
@@ -2900,6 +3076,100 @@ namespace Components
      */
     virtual 
     ~explosionCrate ();
+  };
+
+  /**
+   * @brief Class corresponding to the %bulletComponent schema type.
+   *
+   * @nosubgrouping
+   */
+  class bulletComponent: public ::xml_schema::type
+  {
+    public:
+    /**
+     * @name Constructors
+     */
+    //@{
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    bulletComponent ();
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    bulletComponent (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Create an instance from a DOM attribute.
+     *
+     * @param a A DOM attribute to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    bulletComponent (const ::xercesc::DOMAttr& a,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Create an instance from a string fragment.
+     *
+     * @param s A string fragment to extract the data from.
+     * @param e A pointer to DOM element containing the string fragment.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    bulletComponent (const ::std::string& s,
+                     const ::xercesc::DOMElement* e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    bulletComponent (const bulletComponent& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual bulletComponent*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
+    virtual 
+    ~bulletComponent ();
   };
 
   /**
