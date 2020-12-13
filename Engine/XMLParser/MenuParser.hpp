@@ -14,15 +14,15 @@ class RenderingAPI;
 class MenuParser {
 
 private:
-    std::map<std::string, std::unique_ptr<TextWrapper>> _textItems;
+    std::map<std::string, TextWrapper*> _textItems;
 
     const RenderingAPI &_renderer;
     std::unique_ptr<Menu::menu> _menu;
     std::string _previousSong;
 
-    std::string _buttonPrefix = "button_";
-    std::string _textPrefix = "text_";
-    std::string _fontPath = "../../Resources/Fonts/";
+    const std::string _buttonPrefix = "button_";
+    const std::string _textPrefix = "text_";
+    const std::string _fontPath = "../../Resources/Fonts/";
 
     static MenuParser *_instance;
     static std::map<std::string, SDL_Color> _colors;
@@ -52,8 +52,6 @@ private:
     void renderButtons();
 
     void renderText();
-
-    static SDL_Color HexToRGB(const std::string& hex, float opacity) ;
 
     void renderImages();
 

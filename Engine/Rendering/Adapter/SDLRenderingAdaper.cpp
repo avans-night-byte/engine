@@ -1,25 +1,23 @@
 #include <regex>
 #include <SDL_ttf.h>
-#include "RenderingEngineAdapter.hpp"
+#include "SDLRenderingAdapter.hpp"
 #include "../../Engine.hpp"
 
 typedef signed int int32;
 
 
-TextureManager *RenderingEngineAdapter::GetTextureManager() {
+TextureManager *SDLRenderingAdapter::GetTextureManager() {
     return TextureManager::GetInstance();
 }
 
-void
-RenderingEngineAdapter::drawTexture(std::string textureId, float x, float y, float width, float height, double scale, double r,
-                                    SDL_Renderer *renderer, SDL_RendererFlip flip) {
+void SDLRenderingAdapter::drawTexture(std::string textureId, float x, float y, float width, float height, double scale,
+                                      double r,
+                                      SDL_Renderer *renderer, SDL_RendererFlip flip) {
     TextureManager *textureManager = TextureManager::GetInstance();
-
-
     return textureManager->draw(textureId, x, y, width, height, scale, r, renderer, flip);
 }
 
-void RenderingEngineAdapter::drawBackground(std::string color, float alpha, SDL_Renderer *renderer){
+void SDLRenderingAdapter::drawBackground(std::string &color, float alpha, SDL_Renderer *renderer) {
     SDL_Color c = HexToRGB(color, alpha);
     SDL_SetRenderDrawColor(renderer, c.r, c.g, c.b, c.a);
 
@@ -27,16 +25,15 @@ void RenderingEngineAdapter::drawBackground(std::string color, float alpha, SDL_
 }
 
 Spritesheet *
-RenderingEngineAdapter::createSpriteSheet(char const *path, std::string spriteSheetId, int width, int height) {
+SDLRenderingAdapter::createSpriteSheet(const std::string &path, std::string &spriteSheetId, int width, int height) {
     return new Spritesheet(path, spriteSheetId, width, height, Engine::getInstance()->getRenderer());
 }
 
 
-
-void RenderingEngineAdapter::drawBox(const Vector2 *vertices, int32 vertexCount, SDL_Renderer *renderer) const {
+void SDLRenderingAdapter::drawBox(const Vector2 *vertices, int32 vertexCount, SDL_Renderer *renderer) const {
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
 
-    SDL_FPoint points[vertexCount ];
+    SDL_FPoint points[vertexCount];
     for (int i = 0; i < vertexCount; ++i) {
         SDL_FPoint p = SDL_FPoint();
         p.x = vertices[i].x;
@@ -46,17 +43,17 @@ void RenderingEngineAdapter::drawBox(const Vector2 *vertices, int32 vertexCount,
     }
 
 
-    int size = sizeof(points)/sizeof(points[0]);
+    int size = sizeof(points) / sizeof(points[0]);
     Vector2 begin = Vector2(points[0].x, points[0].y);
-    Vector2 end = Vector2(points[size-1].x, points[size-1].y);
+    Vector2 end = Vector2(points[size - 1].x, points[size - 1].y);
 
     drawLine(begin, end, renderer);
     SDL_RenderDrawLinesF(renderer, points, vertexCount);
 }
 
 
-
-void RenderingEngineAdapter::drawRectangle(Vector2 &position, float width, float height, const std::string& color, float opacity, SDL_Renderer *renderer) const {
+void SDLRenderingAdapter::drawRectangle(Vector2 &position, float width, float height, const std::string &color,
+                                        float opacity, SDL_Renderer *renderer) const {
 
     SDL_Color sdlColor = HexToRGB(color, opacity);
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
@@ -72,13 +69,12 @@ void RenderingEngineAdapter::drawRectangle(Vector2 &position, float width, float
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 }
 
-SDL_Color RenderingEngineAdapter::HexToRGB(std::string hex, float opacity) const {
+SDL_Color SDLRenderingAdapter::HexToRGB(std::string hex, float opacity) const {
 
     std::regex pattern("#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})");
 
     std::smatch match;
-    if (std::regex_match(hex, match, pattern))
-    {
+    if (std::regex_match(hex, match, pattern)) {
         SDL_Color color;
 
         color.r = std::stoi(match[1].str(), nullptr, 16);
@@ -87,28 +83,25 @@ SDL_Color RenderingEngineAdapter::HexToRGB(std::string hex, float opacity) const
         color.a = opacity;
 
         return color;
-    }
-    else
-    {
-       throw " is an invalid rgb color\n";
+    } else {
+        throw " is an invalid rgb color\n";
     }
 
 }
 
-void RenderingEngineAdapter::drawLine(const Vector2 &begin, const Vector2 &end, SDL_Renderer *renderer) const {
+void SDLRenderingAdapter::drawLine(const Vector2 &begin, const Vector2 &end, SDL_Renderer *renderer) const {
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
     SDL_RenderDrawLineF(renderer, begin.x, begin.y, end.x, end.y);
 }
 
-void RenderingEngineAdapter::drawCircle(const Vector2 &center, const float &radius, SDL_Renderer *renderer) const {
+void SDLRenderingAdapter::drawCircle(const Vector2 &center, const float &radius, SDL_Renderer *renderer) const {
     float x = center.x;
     float y = center.y;
     float iRadius = radius;
     int num_segments = iRadius * iRadius;
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-    for(int ii = 0; ii < num_segments; ii++)
-    {
+    for (int ii = 0; ii < num_segments; ii++) {
         float theta = 2.0f * 3.1415926f * float(ii) / float(num_segments);//get the current angle
 
         float cx = iRadius * cosf(theta);//calculate the x component
@@ -126,19 +119,24 @@ void RenderingEngineAdapter::drawCircle(const Vector2 &center, const float &radi
 }
 
 
-
 Spritesheet *
-RenderingEngineAdapter::createSpriteSheet(const char *path, const char *jsonPath, std::string spriteSheetId,
-                                          SDL_Renderer *renderer) {
-    return new Spritesheet(path, jsonPath, std::move(spriteSheetId), renderer);
+SDLRenderingAdapter::createSpriteSheet(const std::string &path, const std::string &jsonPath, std::string &spriteSheetId,
+                                       SDL_Renderer *renderer) {
+    return new Spritesheet(path, jsonPath, spriteSheetId, renderer);
 }
 
-void RenderingEngineAdapter::createText(std::string fontName, const char* text, const int fontSize, SDL_Color color, std::string textureId,  SDL_Renderer *renderer){
-    TTF_Font* font = TTF_OpenFont(fontName.c_str(), fontSize);
-    SDL_Surface* surfaceMessage = TTF_RenderUTF8_Blended(font, text, color);
+void SDLRenderingAdapter::createText(const std::string &fontName, const std::string &text, const int fontSize,
+                                     const std::string &hex, const std::string &textureId, SDL_Renderer *renderer) {
+    TTF_Font *font = TTF_OpenFont(fontName.c_str(), fontSize);
+    SDL_Surface *surfaceMessage = TTF_RenderUTF8_Blended(font, text.c_str(), HexToRGB(hex, 255));
 
-    RenderingEngineAdapter::GetTextureManager()->CreateTexture(surfaceMessage, std::move(textureId), renderer);
+    SDLRenderingAdapter::GetTextureManager()->CreateTexture(surfaceMessage, textureId, renderer);
     TTF_CloseFont(font);
+}
+
+void SDLRenderingAdapter::render(SDL_Renderer *pRenderer) {
+    SDL_RenderPresent(pRenderer);
+    SDL_RenderClear(pRenderer);
 }
 
 
