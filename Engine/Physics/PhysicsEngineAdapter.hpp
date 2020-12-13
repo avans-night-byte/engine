@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Vector2.hpp"
+#include "../Helpers/Vector2.hpp"
 #include "BodyType.hpp"
 #include "../../API/Physics/PhysicsAPI.hpp"
 #include "../Rendering/Adapter/SDLRenderingAdapter.hpp"
@@ -54,7 +54,7 @@ public:
     virtual ~PhysicsEngineAdapter() = default;
 
 public:
-    virtual void update(const float &timeStep, const int32 &velocityIterations, const int32 &positionIterations) = 0;
+    virtual void update(float timeStep) = 0;
 
     virtual BodyId createBody(BodyType bodyType, Vector2 position, Vector2 size, const bool &isSensor = false, ContactHandler* handler = nullptr) = 0;
 

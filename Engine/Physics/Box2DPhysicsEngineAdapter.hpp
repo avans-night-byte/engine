@@ -2,11 +2,13 @@
 
 #include <vector>
 #include <memory>
+#include <chrono>
 #include "box2d.h"
 
 #include "PhysicsEngineAdapter.hpp"
 #include "PhysicsDebug//Box2dDrawDebug.hpp"
 #include "ContactListener.hpp"
+#include "../../Engine/Managers/ResourceManager.hpp"
 
 using namespace std;
 
@@ -18,6 +20,9 @@ private:
     map<BodyId, b2Body *> bodies{};
 
     unique_ptr<Box2dDrawDebug> drawDebug = nullptr;
+
+    int32 _velocityIterations = 6;
+    int32 _positionIterations = 2;
 
 public:
     Box2DPhysicsEngineAdapter(){
@@ -34,7 +39,7 @@ public:
     }
 
 public:
-    void update(const float &timeStep, const int32 &velocityIterations, const int32 &positionIterations) override;
+    void update(float deltaTime) override;
 
     BodyId createBody(BodyType bodyType, Vector2 position, Vector2 size, const bool &isSensor = false, ContactHandler* userData = nullptr) override;
 

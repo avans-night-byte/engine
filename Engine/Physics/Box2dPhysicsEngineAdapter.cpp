@@ -2,6 +2,7 @@
 
 // TODO: Remove this shit
 #include "../../Game/Components/NextLevelComponent.hpp"
+#include "../../Game/Helpers/GameTime.h"
 #include <cmath>
 
 unsigned int
@@ -51,12 +52,10 @@ BodyId Box2DPhysicsEngineAdapter::createBody(BodyType bodyType,
     b2Body *body = world.CreateBody(&bodyDef);
     b2PolygonShape polygonShape;
 
-
     std::vector<b2Vec2> verts;
     for (auto it = std::begin(points); it != std::end(points); ++it) {
         verts.emplace_back(it->x, it->y);
     }
-
 
     b2PolygonShape polygon;
     b2Vec2 arrayVec[verts.size()];
@@ -107,7 +106,6 @@ void Box2DPhysicsEngineAdapter::referencePositionToBody(BodyId bodyId, float &x,
 
 inline RPosition Box2DPhysicsEngineAdapter::getRPosition(BodyId bodyId) {
     b2Body *body = bodies[bodyId];
-
     return RPosition(body->GetPosition().x, body->GetPosition().y, (body->GetAngle() * 180.f / M_PI));
 }
 
@@ -129,9 +127,11 @@ void Box2DPhysicsEngineAdapter::DebugDraw(const SDLRenderingAdapter &renderingAd
     world.DebugDraw();
 }
 
-void Box2DPhysicsEngineAdapter::update(const float &timeStep, const int32 &velocityIterations,
-                                       const int32 &positionIterations) {
-    world.Step(timeStep, velocityIterations, positionIterations);
+void Box2DPhysicsEngineAdapter::update(float timeStep) {
+
+    if (!ResourceManager::getInstance()->inMenu) {
+        world.Step(timeStep, _velocityIterations, _positionIterations);
+    }
 }
 
 void Box2DPhysicsEngineAdapter::setLinearVelocity(const BodyId bodyId, const Vector2 &vector2) {

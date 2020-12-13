@@ -10,7 +10,7 @@
 #include "../Rendering/TextWrapper.hpp"
 #include "../Input/Input.hpp"
 #include "../Managers/ResourceManager.hpp"
-#include "../../Engine/Event.h"
+#include "../Helpers/Event.h"
 
 class RenderingAPI;
 

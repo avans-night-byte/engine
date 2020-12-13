@@ -1,8 +1,9 @@
 #pragma once
+
 #include <queue>
 #include <functional>
 
-template <typename tArg0>
+template<typename tArg0>
 class Event {
 
 
@@ -13,13 +14,18 @@ private:
     funcPtrSeq list;
 
 public:
-    Event& operator +=(funcPtr function) {
+    Event &operator+=(funcPtr function) {
         list.push_back(function);
         return *this;
     };
 
-    void operator()(tArg0 arg){
-        for(typename funcPtrSeq::iterator it(list.begin()); it != list.end(); ++it){
+    Event clear() {
+        list.clear();
+        return *this;
+    };
+
+    void operator()(tArg0 arg) {
+        for (typename funcPtrSeq::iterator it(list.begin()); it != list.end(); ++it) {
             (*it)(arg);
         }
     }

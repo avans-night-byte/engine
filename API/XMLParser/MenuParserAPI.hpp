@@ -2,7 +2,7 @@
 
 #include <string>
 #include "../../Engine/XMLParser/MenuParser.hpp"
-#include "../../Engine/Event.h"
+#include "../../Engine/Helpers/Event.h"
 
 class RenderingAPI;
 
