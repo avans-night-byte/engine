@@ -16,7 +16,6 @@ private:
     b2World world = b2World(b2Vec2_zero);
     unique_ptr<ContactListener> contactListener;
     map<BodyId, b2Body *> bodies{};
-    vector<b2Body *> bodiesToDestroy = {};
 
     unique_ptr<Box2dDrawDebug> drawDebug = nullptr;
 
@@ -57,10 +56,7 @@ public:
 
     void setFixedRotation(BodyId bodyId, bool b) override;
 
-
     void setAngle(BodyId bodyId, float angle) const override;
 
-    void sweepBodies() override;
-
-    bool bodiesAreDestroyed() override;
+    [[nodiscard]] bool isWorldLocked() const override;
 };

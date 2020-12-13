@@ -13,7 +13,7 @@ TMXLevel* LevelParserAPI::loadLevel(std::multimap<std::string, Components::compo
 
     auto &physicsApi = Game::getInstance()->getPhysicsAPI();
 
-    auto tmxLevel = renderingApi.loadLevel(levelData, *physicsApi.getPhysicsEngineAdapter());
+    auto tmxLevel = renderingApi.loadLevel(levelData, physicsApi.getPhysicsEngineAdapter());
 
     auto loadedObjects = std::map<std::string, LoadedObjectData>();
     tmxLevel->initObjects(loadedObjects);

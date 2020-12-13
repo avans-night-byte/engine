@@ -78,7 +78,5 @@ public:
 
     virtual void setAngle(BodyId bodyId, float angle) const = 0;
 
-    virtual void sweepBodies() = 0;
-
-    virtual bool bodiesAreDestroyed() = 0;
+    virtual bool isWorldLocked() const = 0;
 };

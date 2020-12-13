@@ -43,9 +43,5 @@ public:
 
     virtual void destroyBody(BodyId i) const = 0;
 
-    virtual std::unique_ptr<PhysicsEngineAdapter>& getPhysicsEngineAdapter() = 0;
-
-    virtual bool bodiesAreDestroyed() = 0;
-
-    virtual void sweepBodies() = 0;
+    virtual PhysicsEngineAdapter& getPhysicsEngineAdapter() const = 0;
 };

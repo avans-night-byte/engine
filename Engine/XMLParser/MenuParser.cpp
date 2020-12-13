@@ -56,6 +56,7 @@ void MenuParser::initialize(const std::string &path) {
         index++;
     }
 
+
     if (_menu->backgroundMusic().present() && _previousSong != _menu->backgroundMusic()->c_str()) {
         audioEngineAdapter.playFromMemory(_menu->backgroundMusic()->c_str());
         _previousSong = _menu->backgroundMusic()->c_str();
@@ -159,19 +160,32 @@ void MenuParser::onClick(const Input &input) {
         if (buttonPos.x <= input.x && buttonPos.y <= input.y && buttonBounds.x >= input.x &&
             buttonBounds.y >= input.y) {
 
+
+            if (button.events().onClick()->custom().present()) {
+                const std::string action = button.events().onClick()->custom()->c_str();
+
+                if (action == "unloadLevel") {
+                    // TODO: This class needs to be refactored, would be nice if game could be called from here(another eventhandler?)
+                    ResourceManager::getInstance()->quitLevel = true;
+                }
+
+                if (action == "close") {
+
+                }
+            }
+
             if (button.events().onClick()->playSound().present())
                 SDLAudioEngineAdapter::getInstance().playFromMemory(
                         button.events().onClick()->playSound()->c_str());
 
-            if (button.events().onClick()->loadScene().present()){
+            if (button.events().onClick()->loadScene().present()) {
 
                 std::string nextScene = button.events().onClick()->loadScene()->c_str();
 
-                if(nextScene == "Previous"){
+                if (nextScene == "Previous") {
                     nextScene = PreviousScenes.top();
                     PreviousScenes.pop();
-                }
-                else{
+                } else {
                     PreviousScenes.push(_menu->name());
                 }
                 ResourceManager::getInstance()->loadResource(nextScene);
@@ -192,15 +206,6 @@ void MenuParser::onClick(const Input &input) {
                 command += button.events().onClick()->loadURL()->c_str();
                 system(command.c_str());
 #endif
-            }
-
-
-            if (button.events().onClick()->custom().present()) {
-                const std::string action = button.events().onClick()->custom()->c_str();
-
-                if (action == "close") {
-
-                }
             }
 
             return;
