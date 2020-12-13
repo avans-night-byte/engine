@@ -153,7 +153,6 @@ void Box2DPhysicsEngineAdapter::setFixedRotation(const BodyId bodyId, bool b) {
 void Box2DPhysicsEngineAdapter::destroyBody(BodyId bodyID) {
     auto *body = bodies[bodyID];
 
-
     world.DestroyBody(body);
     bodies.erase(bodyID);
 }

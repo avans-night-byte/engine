@@ -6,6 +6,7 @@
         xmlns:common="Common"
         xmlns:comp="Components">
 
+    <!-- TODO: Global Resource like: bullets -->
     <name>Level1</name>
     <objects>
 
@@ -100,6 +101,52 @@
                         <contactHandler>NextLevelComponent</contactHandler>
                     </physicsComponent>
                 </component>
+            </components>
+        </object>
+
+        <object>
+            <name>bullet1</name>
+            <components>
+                <component>
+                    <componentName>PhysicsComponent</componentName>
+                    <physicsComponent>
+                        <common:position>
+                            <x>200</x>
+                            <y>200</y>
+                        </common:position>
+                        <friction>1</friction>
+                        <bodyType>Static</bodyType>
+                        <bodyShape>
+                            <box>
+                                <width>50</width>
+                                <height>50</height>
+                            </box>
+                        </bodyShape>
+                        <isSensor>false</isSensor>
+                    </physicsComponent>
+                </component>
+
+                <component>
+                    <componentName>TransformComponent</componentName>
+                    <transformComponent>
+                        <common:position>
+                            <x>200</x>
+                            <y>200</y>
+                        </common:position>
+                    </transformComponent>
+                </component>
+
+                <component>
+                    <componentName>RenderComponent</componentName>
+                    <renderComponent>
+                        <spriteId>bullet</spriteId>
+                        <spritePath>../../Resources/Sprites/bullet1.png</spritePath>
+                        <width>60</width>
+                        <height>25</height>
+                    </renderComponent>
+                </component>
+
+
             </components>
         </object>
     </objects>
