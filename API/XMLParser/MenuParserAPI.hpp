@@ -12,6 +12,7 @@ public:
     void loadScene(std::string path);
     void render();
     void onClick(Input input);
+    Event<std::string> &getCustomEventHandler();
 private:
     std::unique_ptr<MenuParser> menuParser;
 };

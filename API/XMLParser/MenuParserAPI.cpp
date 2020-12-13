@@ -17,3 +17,7 @@ void MenuParserAPI::render() {
 void MenuParserAPI::onClick(Input input) {
     menuParser->onClick(input);
 }
+
+Event<std::string> &MenuParserAPI::getCustomEventHandler() {
+    return menuParser->getCustomEventHandler();
+}

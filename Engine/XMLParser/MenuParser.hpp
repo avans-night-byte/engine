@@ -1,12 +1,16 @@
 #pragma once
 
+
+#include <memory>
+#include <stack>
+
+
 #include "../../API/Rendering/EngineRenderingAPI.hpp"
 #include "../../Resources/XML/Generated/menu.hxx"
 #include "../Rendering/TextWrapper.hpp"
 #include "../Input/Input.hpp"
 #include "../Managers/ResourceManager.hpp"
-#include <memory>
-#include <stack>
+#include "../../Engine/Event.h"
 
 class RenderingAPI;
 
@@ -28,7 +32,7 @@ private:
     static std::map<std::string, SDL_Color> _colors;
 
     ResourceManager *_resourceManager = nullptr;
-
+    Event<std::string> _customEventHandler;
 public:
 
     std::stack<std::string> PreviousScenes;
@@ -47,7 +51,11 @@ public:
 
     static MenuParser *getInstance();
 
+    Event<std::string> &getCustomEventHandler();
+
 private:
+
+    ~MenuParser();
 
     void renderButtons();
 
