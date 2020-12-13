@@ -5,7 +5,7 @@
 
 TextureManager *EngineRenderingAPI::GetTextureManager()
 {
-    return RenderingEngineAdapter::GetTextureManager();
+    return SDLRenderingAdapter::GetTextureManager();
 }
 
 /**
@@ -17,21 +17,19 @@ TextureManager *EngineRenderingAPI::GetTextureManager()
  * @param height
  * @return Spritesheet
  */
-Spritesheet *
-EngineRenderingAPI::createSpriteSheet(char const *path, std::string spriteSheetId, int width, int height) const
+Spritesheet *EngineRenderingAPI::createSpriteSheet(const std::string path, std::string spriteSheetId, int width, int height) const
 {
     return _adapter->createSpriteSheet(path, spriteSheetId, width, height);
 }
 
-Spritesheet *
-EngineRenderingAPI::createSpriteSheet(const char *path, const char *jsonPath, std::string spriteSheetId)
+Spritesheet *EngineRenderingAPI::createSpriteSheet(const std::string &path, const std::string &jsonPath, std::string &spriteSheetId)
 {
-    return _adapter->createSpriteSheet(path, jsonPath, std::move(spriteSheetId), _renderer);
+    return _adapter->createSpriteSheet(path, jsonPath, spriteSheetId, _renderer);
 }
 
-void EngineRenderingAPI::createText(std::string fontName, const char *text, const int fontSize, SDL_Color color,
-                                    std::string textureId) const {
-    _adapter->createText(fontName, text, fontSize, color, textureId, _renderer);
+void EngineRenderingAPI::createText(const std::string &fontName, const std::string &text, const int fontSize, const std::string &hex,
+                                    const std::string &textureId) const {
+    _adapter->createText(fontName, text, fontSize, hex, textureId, _renderer);
 }
 
 
@@ -44,7 +42,7 @@ void EngineRenderingAPI::createText(std::string fontName, const char *text, cons
  * @param scale
  * @param r
  */
-void EngineRenderingAPI::drawTexture(std::string textureId, float x, float y, float width, float height, double scale, double r) const
+void EngineRenderingAPI::drawTexture(const std::string &textureId, float x, float y, float width, float height, double scale, double r) const
 {
     return _adapter->drawTexture(textureId, x, y, width, height, scale, r, _renderer, SDL_FLIP_NONE);
 }
@@ -54,12 +52,12 @@ void EngineRenderingAPI::drawTexture(std::string textureId, float x, float y, fl
  * @param textureId
  * @return success
  */
-bool EngineRenderingAPI::loadTexture(const char *path, std::string textureId)
+bool EngineRenderingAPI::loadTexture(const std::string &path, std::string &textureId)
 {
-    return RenderingEngineAdapter::GetTextureManager()->load(path, textureId);
+    return SDLRenderingAdapter::GetTextureManager()->load(path, textureId);
 }
 
-RenderingEngineAdapter &EngineRenderingAPI::GetRendererAdapter() const {
+SDLRenderingAdapter &EngineRenderingAPI::GetRendererAdapter() const {
     return *_adapter;
 }
 
@@ -76,13 +74,17 @@ TMXLevel *EngineRenderingAPI::loadLevel(const LevelData &levelData, PhysicsEngin
                         physicsEngineAdapter);
 }
 
-void EngineRenderingAPI::drawBackground(std::string hex, float alpha) const {
+void EngineRenderingAPI::drawBackground(std::string &hex, float alpha) const {
     _adapter->drawBackground(hex, alpha, _renderer);
 
 }
 
 
-void EngineRenderingAPI::drawLine(Vector2 a, Vector2 b) const {
+void EngineRenderingAPI::drawLine(Vector2 &a, Vector2 &b) const {
     SDL_RenderDrawLine(_renderer, a.x, a.y, b.x, b.y);
 
+}
+
+void EngineRenderingAPI::render() const {
+    _adapter->render(_renderer);
 }

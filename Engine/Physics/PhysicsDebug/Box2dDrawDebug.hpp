@@ -1,15 +1,15 @@
 #pragma once
 
 #include "b2_draw.h"
-#include "../../Rendering/Adapter/RenderingEngineAdapter.hpp"
+#include "../../Rendering/Adapter/SDLRenderingAdapter.hpp"
 
 class Box2dDrawDebug : public b2Draw {
 private:
-    const RenderingEngineAdapter &renderingEngineAdapter;
+    const SDLRenderingAdapter &renderingEngineAdapter;
     SDL_Renderer &renderer;
 
 public:
-    explicit Box2dDrawDebug(const RenderingEngineAdapter &adapter, SDL_Renderer &renderer) :
+    explicit Box2dDrawDebug(const SDLRenderingAdapter &adapter, SDL_Renderer &renderer) :
             renderingEngineAdapter(adapter), renderer(renderer) {
 
     }

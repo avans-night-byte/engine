@@ -7,11 +7,12 @@
 
 
 //TODO: Load metadata from json file.
-Spritesheet::Spritesheet(const char *path, std::string spriteSheetid, int width, int height,
+Spritesheet::Spritesheet(const std::string &path, std::string &spriteSheetid, int width, int height,
                          SDL_Renderer *renderer)
 {
     textureId = spriteSheetid;
     sdlRenderer = renderer;
+
     TextureManager::GetInstance()->load(path, textureId);
 
     // Define the height/width of each sprite by rows/columns.
@@ -54,7 +55,7 @@ void Spritesheet::draw_selected_sprite(float x, float y, float scale, float rota
 }
 
 
-Spritesheet::Spritesheet(const char *path, const char *jsonPath, std::string spriteSheetId, SDL_Renderer *renderer) {
+Spritesheet::Spritesheet(const std::string &path, const std::string &jsonPath, std::string &spriteSheetId, SDL_Renderer *renderer) {
     textureId = spriteSheetId;
     sdlRenderer = renderer;
 
