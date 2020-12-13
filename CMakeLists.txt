@@ -52,6 +52,8 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/EntityObject.hpp
         ./Game/Scenes/LevelBase.cpp
         ./Game/ContactHandlers/ExplosionCrate.hpp
+        ./Game/UI/FrameCounter.cpp
+        ./Game/UI/FrameCounter.h
 
         # Engine
         ./Engine/Engine.cpp

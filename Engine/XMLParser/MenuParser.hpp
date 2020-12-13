@@ -53,9 +53,9 @@ public:
 
     Event<std::string> &getCustomEventHandler();
 
-private:
-
     ~MenuParser();
+
+private:
 
     void renderButtons();
 
