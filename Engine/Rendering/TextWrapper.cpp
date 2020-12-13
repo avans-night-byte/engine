@@ -1,9 +1,4 @@
-//
-// Created by sascha on 12/3/20.
-//
-
 #include "TextWrapper.hpp"
-
 
 Vector2 TextWrapper::getSize() {
     return _size;

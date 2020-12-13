@@ -6,7 +6,7 @@ class Spritesheet;
 
 class PhysicsEngineAdapter;
 
-class RenderingEngineAdapter;
+class SDLRenderingAdapter;
 
 class Vector2;
 
@@ -51,7 +51,9 @@ public:
 
     virtual void drawLine(Vector2 &a, Vector2 &b) const = 0;
 
+    virtual void render() const = 0;
+
 
 public:
-    [[nodiscard]] virtual const RenderingEngineAdapter &GetRendererAdapter() const = 0;
+    [[nodiscard]] virtual const SDLRenderingAdapter &GetRendererAdapter() const = 0;
 };

@@ -5,7 +5,7 @@
 
 TextureManager *EngineRenderingAPI::GetTextureManager()
 {
-    return RenderingEngineAdapter::GetTextureManager();
+    return SDLRenderingAdapter::GetTextureManager();
 }
 
 /**
@@ -54,10 +54,10 @@ void EngineRenderingAPI::drawTexture(const std::string &textureId, float x, floa
  */
 bool EngineRenderingAPI::loadTexture(const std::string &path, std::string &textureId)
 {
-    return RenderingEngineAdapter::GetTextureManager()->load(path, textureId);
+    return SDLRenderingAdapter::GetTextureManager()->load(path, textureId);
 }
 
-RenderingEngineAdapter &EngineRenderingAPI::GetRendererAdapter() const {
+SDLRenderingAdapter &EngineRenderingAPI::GetRendererAdapter() const {
     return *_adapter;
 }
 
@@ -83,4 +83,8 @@ void EngineRenderingAPI::drawBackground(std::string &hex, float alpha) const {
 void EngineRenderingAPI::drawLine(Vector2 &a, Vector2 &b) const {
     SDL_RenderDrawLine(_renderer, a.x, a.y, b.x, b.y);
 
+}
+
+void EngineRenderingAPI::render() const {
+    _adapter->render(_renderer);
 }

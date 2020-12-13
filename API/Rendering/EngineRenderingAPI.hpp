@@ -2,7 +2,7 @@
 
 #include "RenderingAPI.hpp"
 #include "../../Engine/Engine.hpp"
-#include "../../Engine/Rendering/Adapter/RenderingEngineAdapter.hpp"
+#include "../../Engine/Rendering/Adapter/SDLRenderingAdapter.hpp"
 
 class TextureManager;
 
@@ -12,11 +12,11 @@ class TextureManager;
  */
 class EngineRenderingAPI : public RenderingAPI {
 private:
-    RenderingEngineAdapter *_adapter;
+    SDLRenderingAdapter *_adapter;
     SDL_Renderer *_renderer;
 
 public:
-    EngineRenderingAPI() : _renderer(Engine::getInstance()->getRenderer()), _adapter(new RenderingEngineAdapter{}) {
+    EngineRenderingAPI() : _renderer(Engine::getInstance()->getRenderer()), _adapter(new SDLRenderingAdapter{}) {
 
     };
 
@@ -41,6 +41,8 @@ public:
 
     TMXLevel *loadLevel(const LevelData &levelData, PhysicsEngineAdapter &physicsEngineAdapter) override;
 
+    void render() const override;
+
 private:
-    [[nodiscard]] RenderingEngineAdapter &GetRendererAdapter() const override;
+    [[nodiscard]] SDLRenderingAdapter &GetRendererAdapter() const override;
 };

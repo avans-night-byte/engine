@@ -3,7 +3,7 @@
 #include "../Vector2.hpp"
 #include "BodyType.hpp"
 #include "../../API/Physics/PhysicsAPI.hpp"
-#include "../Rendering/Adapter/RenderingEngineAdapter.hpp"
+#include "../Rendering/Adapter/SDLRenderingAdapter.hpp"
 #include "ContactHandler.hpp"
 #include "../../API/RPosition.hpp"
 #include <vector>
@@ -68,7 +68,7 @@ public:
 
     virtual void destroyBody(BodyId BodyID) = 0;
 
-    virtual void DebugDraw(const RenderingEngineAdapter &renderingAdapter, SDL_Renderer &renderer) = 0;
+    virtual void DebugDraw(const SDLRenderingAdapter &renderingAdapter, SDL_Renderer &renderer) = 0;
 
     virtual void getVelocity(Vector2 &velocity, BodyId bodyId) const = 0;
 

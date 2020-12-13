@@ -111,7 +111,7 @@ inline RPosition Box2DPhysicsEngineAdapter::getRPosition(BodyId bodyId) {
     return RPosition(body->GetPosition().x, body->GetPosition().y, (body->GetAngle() * 180.f / M_PI));
 }
 
-void Box2DPhysicsEngineAdapter::DebugDraw(const RenderingEngineAdapter &renderingAdapter, SDL_Renderer &renderer) {
+void Box2DPhysicsEngineAdapter::DebugDraw(const SDLRenderingAdapter &renderingAdapter, SDL_Renderer &renderer) {
     if (drawDebug == nullptr) {
         drawDebug = make_unique<Box2dDrawDebug>(renderingAdapter, renderer);
 

@@ -80,6 +80,7 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Managers/ResourceManager.hpp
         ./Engine/Rendering/TextWrapper.cpp
         ./Engine/Rendering/TextWrapper.hpp
+        ./Engine/Rendering/Adapter/EngineRenderingAdapter.h
 
 
         # API
