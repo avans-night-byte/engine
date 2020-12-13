@@ -75,27 +75,27 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3f4a9fb06654110a6bfa849caee91087"><td class="memItemLeft" align="right" valign="top"><a id="a3f4a9fb06654110a6bfa849caee91087"></a>
 SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>GetTexture</b> (std::string textureId)</td></tr>
 <tr class="separator:a3f4a9fb06654110a6bfa849caee91087"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad026488af1580df96be702e344b4e6cc"><td class="memItemLeft" align="right" valign="top"><a id="ad026488af1580df96be702e344b4e6cc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>CreateTexture</b> (SDL_Surface *surface, std::string textureId, SDL_Renderer *renderer)</td></tr>
-<tr class="separator:ad026488af1580df96be702e344b4e6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b855938c9833d36ca7a4d44166db01f"><td class="memItemLeft" align="right" valign="top"><a id="a7b855938c9833d36ca7a4d44166db01f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (char const *path, const std::string &amp;textureId)</td></tr>
-<tr class="separator:a7b855938c9833d36ca7a4d44166db01f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a482a4e7d7b154048b67e46854d353799"><td class="memItemLeft" align="right" valign="top"><a id="a482a4e7d7b154048b67e46854d353799"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (std::string textureId, int x, int y, int w, int h, double scale, double r, SDL_Renderer *renderer, SDL_RendererFlip=SDL_FLIP_NONE)</td></tr>
-<tr class="separator:a482a4e7d7b154048b67e46854d353799"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8f1c465e27076f9c14e70b359129e6b"><td class="memItemLeft" align="right" valign="top"><a id="ae8f1c465e27076f9c14e70b359129e6b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawFrame</b> (std::string id, float x, float y, int width, int height, int currentRow, int currentFrame, SDL_Renderer *pRenderer, SDL_RendererFlip flip, float rotation)</td></tr>
-<tr class="separator:ae8f1c465e27076f9c14e70b359129e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac769760d85e8bd6d21427f9f7f0b6765"><td class="memItemLeft" align="right" valign="top"><a id="ac769760d85e8bd6d21427f9f7f0b6765"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawFrame</b> (std::string id, SDL_Rect *srcRect, float x, float y, SDL_Renderer *pRenderer, SDL_RendererFlip flip, float scale=1, float rotation=0, SDL_FPoint *pivot=nullptr)</td></tr>
-<tr class="separator:ac769760d85e8bd6d21427f9f7f0b6765"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3331ef959848aee5bcbd8d082cfe54d6"><td class="memItemLeft" align="right" valign="top"><a id="a3331ef959848aee5bcbd8d082cfe54d6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clearFromTextureMap</b> (std::string id)</td></tr>
-<tr class="separator:a3331ef959848aee5bcbd8d082cfe54d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f8cd9be0e16c925815040156df8e4b5"><td class="memItemLeft" align="right" valign="top"><a id="a5f8cd9be0e16c925815040156df8e4b5"></a>
-<a class="el" href="structVector2.html">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getDimensions</b> (std::string id)</td></tr>
-<tr class="separator:a5f8cd9be0e16c925815040156df8e4b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affcae12e7c5b1609571a97f8bbaad6b1"><td class="memItemLeft" align="right" valign="top"><a id="affcae12e7c5b1609571a97f8bbaad6b1"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>CreateTexture</b> (SDL_Surface *surface, const std::string &amp;textureId, SDL_Renderer *renderer)</td></tr>
+<tr class="separator:affcae12e7c5b1609571a97f8bbaad6b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6a4adf27b5ec9d2e896fe09cea60fac"><td class="memItemLeft" align="right" valign="top"><a id="af6a4adf27b5ec9d2e896fe09cea60fac"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (const std::string &amp;path, const std::string &amp;textureId)</td></tr>
+<tr class="separator:af6a4adf27b5ec9d2e896fe09cea60fac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5a6449f5924e1885e2d26557bb674a4"><td class="memItemLeft" align="right" valign="top"><a id="ad5a6449f5924e1885e2d26557bb674a4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (std::string &amp;textureId, int x, int y, int w, int h, double scale, double r, SDL_Renderer *renderer, SDL_RendererFlip=SDL_FLIP_NONE)</td></tr>
+<tr class="separator:ad5a6449f5924e1885e2d26557bb674a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedb6d859614a4c0a45bef5e76ee8b28c"><td class="memItemLeft" align="right" valign="top"><a id="aedb6d859614a4c0a45bef5e76ee8b28c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawFrame</b> (std::string &amp;id, float x, float y, int width, int height, int currentRow, int currentFrame, SDL_Renderer *pRenderer, SDL_RendererFlip flip, float rotation)</td></tr>
+<tr class="separator:aedb6d859614a4c0a45bef5e76ee8b28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81648907835cbc65cc8bf88505cbb237"><td class="memItemLeft" align="right" valign="top"><a id="a81648907835cbc65cc8bf88505cbb237"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawFrame</b> (std::string &amp;id, SDL_Rect *srcRect, float x, float y, SDL_Renderer *pRenderer, SDL_RendererFlip flip, float scale=1, float rotation=0, SDL_FPoint *pivot=nullptr)</td></tr>
+<tr class="separator:a81648907835cbc65cc8bf88505cbb237"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53c1348a0bf8886b8fc786eb7f4f82ec"><td class="memItemLeft" align="right" valign="top"><a id="a53c1348a0bf8886b8fc786eb7f4f82ec"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clearFromTextureMap</b> (std::string &amp;id)</td></tr>
+<tr class="separator:a53c1348a0bf8886b8fc786eb7f4f82ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92f53787efa24caf4451119ac08a7645"><td class="memItemLeft" align="right" valign="top"><a id="a92f53787efa24caf4451119ac08a7645"></a>
+<a class="el" href="structVector2.html">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getDimensions</b> (const std::string &amp;id)</td></tr>
+<tr class="separator:a92f53787efa24caf4451119ac08a7645"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>

@@ -83,30 +83,33 @@ Inheritance diagram for EngineRenderingAPI:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a11a4efbb5be8c3eebec8758f4f17042a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#a11a4efbb5be8c3eebec8758f4f17042a">drawTexture</a> (std::string textureId, float x, float y, float width, float height, double scale, double r) const override</td></tr>
-<tr class="separator:a11a4efbb5be8c3eebec8758f4f17042a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae65808e6a12d9bc60fc192b7245527a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSpritesheet.html">Spritesheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#ae65808e6a12d9bc60fc192b7245527a7">createSpriteSheet</a> (char const *path, std::string spriteSheetId, int width, int height) const override</td></tr>
-<tr class="separator:ae65808e6a12d9bc60fc192b7245527a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a056de440460c502eb9f889ed5096b5b8"><td class="memItemLeft" align="right" valign="top"><a id="a056de440460c502eb9f889ed5096b5b8"></a>
-<a class="el" href="classSpritesheet.html">Spritesheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createSpriteSheet</b> (char const *path, char const *jsonPath, std::string spriteSheetId)</td></tr>
-<tr class="separator:a056de440460c502eb9f889ed5096b5b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab76bcdea9257a3564a411b58c32c787c"><td class="memItemLeft" align="right" valign="top"><a id="ab76bcdea9257a3564a411b58c32c787c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>createText</b> (std::string fontName, const char *text, int fontSize, SDL_Color color, std::string textureId) const override</td></tr>
-<tr class="separator:ab76bcdea9257a3564a411b58c32c787c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad55ca5d519732296eda6835f3d4bcec4"><td class="memItemLeft" align="right" valign="top"><a id="ad55ca5d519732296eda6835f3d4bcec4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawLine</b> (<a class="el" href="structVector2.html">Vector2</a> a, <a class="el" href="structVector2.html">Vector2</a> b) const override</td></tr>
-<tr class="separator:ad55ca5d519732296eda6835f3d4bcec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47533095f1e6ae95ba3728a61a06e771"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#a47533095f1e6ae95ba3728a61a06e771">loadTexture</a> (const char *path, std::string textureId) override</td></tr>
-<tr class="separator:a47533095f1e6ae95ba3728a61a06e771"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a267cad658cecf1fd88aa57863e9c3f79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#a267cad658cecf1fd88aa57863e9c3f79">drawTexture</a> (const std::string &amp;textureId, float x, float y, float width, float height, double scale, double r) const override</td></tr>
+<tr class="separator:a267cad658cecf1fd88aa57863e9c3f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac20568fa914fe2a3efca021fefeb5e6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSpritesheet.html">Spritesheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#ac20568fa914fe2a3efca021fefeb5e6e">createSpriteSheet</a> (std::string path, std::string spriteSheetId, int width, int height) const override</td></tr>
+<tr class="separator:ac20568fa914fe2a3efca021fefeb5e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54b558504a98f3e122cd22f260741bc7"><td class="memItemLeft" align="right" valign="top"><a id="a54b558504a98f3e122cd22f260741bc7"></a>
+<a class="el" href="classSpritesheet.html">Spritesheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createSpriteSheet</b> (const std::string &amp;path, const std::string &amp;jsonPath, std::string &amp;spriteSheetId)</td></tr>
+<tr class="separator:a54b558504a98f3e122cd22f260741bc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58d9a0255a421a280679e948d3697e3b"><td class="memItemLeft" align="right" valign="top"><a id="a58d9a0255a421a280679e948d3697e3b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>createText</b> (const std::string &amp;fontName, const std::string &amp;text, int fontSize, const std::string &amp;hex, const std::string &amp;textureId) const override</td></tr>
+<tr class="separator:a58d9a0255a421a280679e948d3697e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af79a33e3f1e2522fe06732847df18b5f"><td class="memItemLeft" align="right" valign="top"><a id="af79a33e3f1e2522fe06732847df18b5f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawLine</b> (<a class="el" href="structVector2.html">Vector2</a> &amp;a, <a class="el" href="structVector2.html">Vector2</a> &amp;b) const override</td></tr>
+<tr class="separator:af79a33e3f1e2522fe06732847df18b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63b63955f98d02030c8ad36ed4474443"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#a63b63955f98d02030c8ad36ed4474443">loadTexture</a> (const std::string &amp;path, std::string &amp;textureId) override</td></tr>
+<tr class="separator:a63b63955f98d02030c8ad36ed4474443"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e439e15c6e23453bff985827c217f84"><td class="memItemLeft" align="right" valign="top"><a id="a2e439e15c6e23453bff985827c217f84"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawRectangle</b> (<a class="el" href="structVector2.html">Vector2</a> &amp;position, float width, float height, std::string &amp;color, float opacity) const override</td></tr>
 <tr class="separator:a2e439e15c6e23453bff985827c217f84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfbd3e2645ece5d67c52a2b8d684cf3a"><td class="memItemLeft" align="right" valign="top"><a id="acfbd3e2645ece5d67c52a2b8d684cf3a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawBackground</b> (std::string hex, float alpha) const override</td></tr>
-<tr class="separator:acfbd3e2645ece5d67c52a2b8d684cf3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32dace0d737989860820f97e7ae67323"><td class="memItemLeft" align="right" valign="top"><a id="a32dace0d737989860820f97e7ae67323"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawBackground</b> (std::string &amp;hex, float alpha) const override</td></tr>
+<tr class="separator:a32dace0d737989860820f97e7ae67323"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb71bf89775e93f02adf2474d7fe8a5f"><td class="memItemLeft" align="right" valign="top"><a id="aeb71bf89775e93f02adf2474d7fe8a5f"></a>
 <a class="el" href="classTMXLevel.html">TMXLevel</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>loadLevel</b> (const <a class="el" href="structLevelData.html">LevelData</a> &amp;levelData, <a class="el" href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a> &amp;physicsEngineAdapter) override</td></tr>
 <tr class="separator:aeb71bf89775e93f02adf2474d7fe8a5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d7d72d3fb2b7389fe587a9f155b06b3"><td class="memItemLeft" align="right" valign="top"><a id="a1d7d72d3fb2b7389fe587a9f155b06b3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>render</b> () const override</td></tr>
+<tr class="separator:a1d7d72d3fb2b7389fe587a9f155b06b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -117,8 +120,8 @@ static <a class="el" href="classTextureManager.html">TextureManager</a> *&#160;<
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class acts as a facade for the _engine, it stores and references variables and constants needed for rendering and resource allocation like textures. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae65808e6a12d9bc60fc192b7245527a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae65808e6a12d9bc60fc192b7245527a7">&#9670;&nbsp;</a></span>createSpriteSheet()</h2>
+<a id="ac20568fa914fe2a3efca021fefeb5e6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac20568fa914fe2a3efca021fefeb5e6e">&#9670;&nbsp;</a></span>createSpriteSheet()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -129,7 +132,7 @@ static <a class="el" href="classTextureManager.html">TextureManager</a> *&#160;<
         <tr>
           <td class="memname"><a class="el" href="classSpritesheet.html">Spritesheet</a> * EngineRenderingAPI::createSpriteSheet </td>
           <td>(</td>
-          <td class="paramtype">char const *&#160;</td>
+          <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>path</em>, </td>
         </tr>
         <tr>
@@ -179,8 +182,8 @@ static <a class="el" href="classTextureManager.html">TextureManager</a> *&#160;<
 
 </div>
 </div>
-<a id="a11a4efbb5be8c3eebec8758f4f17042a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11a4efbb5be8c3eebec8758f4f17042a">&#9670;&nbsp;</a></span>drawTexture()</h2>
+<a id="a267cad658cecf1fd88aa57863e9c3f79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a267cad658cecf1fd88aa57863e9c3f79">&#9670;&nbsp;</a></span>drawTexture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -191,7 +194,7 @@ static <a class="el" href="classTextureManager.html">TextureManager</a> *&#160;<
         <tr>
           <td class="memname">void EngineRenderingAPI::drawTexture </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>textureId</em>, </td>
         </tr>
         <tr>
@@ -259,8 +262,8 @@ static <a class="el" href="classTextureManager.html">TextureManager</a> *&#160;<
 
 </div>
 </div>
-<a id="a47533095f1e6ae95ba3728a61a06e771"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47533095f1e6ae95ba3728a61a06e771">&#9670;&nbsp;</a></span>loadTexture()</h2>
+<a id="a63b63955f98d02030c8ad36ed4474443"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63b63955f98d02030c8ad36ed4474443">&#9670;&nbsp;</a></span>loadTexture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -271,13 +274,13 @@ static <a class="el" href="classTextureManager.html">TextureManager</a> *&#160;<
         <tr>
           <td class="memname">bool EngineRenderingAPI::loadTexture </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>path</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
           <td class="paramname"><em>textureId</em>&#160;</td>
         </tr>
         <tr>

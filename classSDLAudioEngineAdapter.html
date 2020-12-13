@@ -69,6 +69,15 @@ $(function() {
 <div class="title">SDLAudioEngineAdapter Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Inheritance diagram for SDLAudioEngineAdapter:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classSDLAudioEngineAdapter.png" usemap="#SDLAudioEngineAdapter_map" alt=""/>
+  <map id="SDLAudioEngineAdapter_map" name="SDLAudioEngineAdapter_map">
+<area href="classAudioEngineAdapter.html" alt="AudioEngineAdapter" shape="rect" coords="0,0,153,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -86,46 +95,46 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af02b84deb3daaa4b27ff9d243a5841f5"><td class="memItemLeft" align="right" valign="top"><a id="af02b84deb3daaa4b27ff9d243a5841f5"></a>
 <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapter</a> &amp;&amp;other) noexcept=default</td></tr>
 <tr class="separator:af02b84deb3daaa4b27ff9d243a5841f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a7fa2a4cb9c71bdc0c187ad9055c63c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a1a7fa2a4cb9c71bdc0c187ad9055c63c">getAudioNames</a> ()</td></tr>
-<tr class="separator:a1a7fa2a4cb9c71bdc0c187ad9055c63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad25feaf607337f6595f55463e5c6715e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#ad25feaf607337f6595f55463e5c6715e">loadInMemory</a> (const std::string &amp;path, const std::string &amp;name, AudioType type)</td></tr>
-<tr class="separator:ad25feaf607337f6595f55463e5c6715e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fe391b8b72a735c54669ac6deb2ba89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a6fe391b8b72a735c54669ac6deb2ba89">playFromPath</a> (const std::string &amp;path, AudioType &amp;type)</td></tr>
-<tr class="separator:a6fe391b8b72a735c54669ac6deb2ba89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad4ba62055cdd5787230383b278c62c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#aad4ba62055cdd5787230383b278c62c7">playFromMemory</a> (const std::string &amp;name)</td></tr>
-<tr class="separator:aad4ba62055cdd5787230383b278c62c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb7927ee614f14bc29614b3880a1fa40"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#abb7927ee614f14bc29614b3880a1fa40">getAudioNames</a> () override</td></tr>
+<tr class="separator:abb7927ee614f14bc29614b3880a1fa40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fd035da0ad8e7c8a73060ee93c8c081"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a9fd035da0ad8e7c8a73060ee93c8c081">loadInMemory</a> (const std::string &amp;path, const std::string &amp;name, AudioType type) override</td></tr>
+<tr class="separator:a9fd035da0ad8e7c8a73060ee93c8c081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa34286f8a0bc3819dba05bf328826ef1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#aa34286f8a0bc3819dba05bf328826ef1">playFromPath</a> (const std::string &amp;path, AudioType &amp;type) override</td></tr>
+<tr class="separator:aa34286f8a0bc3819dba05bf328826ef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a913e3dfc78750057aecfe4eb3292c6e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a913e3dfc78750057aecfe4eb3292c6e3">playFromMemory</a> (const std::string &amp;name) override</td></tr>
+<tr class="separator:a913e3dfc78750057aecfe4eb3292c6e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67bcb9d0acc291dc1311606a29a79d9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a67bcb9d0acc291dc1311606a29a79d9c">changeMasterVolume</a> (int volume) override</td></tr>
+<tr class="separator:a67bcb9d0acc291dc1311606a29a79d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c7f48de42ddcb677ada5c64d9b0c9a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a2c7f48de42ddcb677ada5c64d9b0c9a7">changeChannelVolume</a> (int channel, int volume) override</td></tr>
+<tr class="separator:a2c7f48de42ddcb677ada5c64d9b0c9a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41f1599afe3b329c34af531f9a090a67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a41f1599afe3b329c34af531f9a090a67">changeMusicVolume</a> (int volume) override</td></tr>
+<tr class="separator:a41f1599afe3b329c34af531f9a090a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dd805577cc96a9042380ce2df78c464"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a6dd805577cc96a9042380ce2df78c464">getChannelsAverageVolume</a> () override</td></tr>
+<tr class="separator:a6dd805577cc96a9042380ce2df78c464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affd5ed920b072a87de929717ec239a9d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#affd5ed920b072a87de929717ec239a9d">getChannelVolume</a> (int channel) override</td></tr>
+<tr class="separator:affd5ed920b072a87de929717ec239a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a274cf82a1f15a2029c96e898bd840348"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a274cf82a1f15a2029c96e898bd840348">getMusicVolume</a> () override</td></tr>
+<tr class="separator:a274cf82a1f15a2029c96e898bd840348"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a133f8894e56c5a8ed75df2315a016ed4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a133f8894e56c5a8ed75df2315a016ed4">stopAudio</a> () override</td></tr>
+<tr class="separator:a133f8894e56c5a8ed75df2315a016ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4157888df530d7e0889303ac1072434"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#ad4157888df530d7e0889303ac1072434">stopMusic</a> () override</td></tr>
+<tr class="separator:ad4157888df530d7e0889303ac1072434"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6feddfde18b40f9e80897ab462e2918b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a6feddfde18b40f9e80897ab462e2918b">stopSound</a> (int channel) override</td></tr>
+<tr class="separator:a6feddfde18b40f9e80897ab462e2918b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95e790ce64e679f6272411c6f7d35bfa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a95e790ce64e679f6272411c6f7d35bfa">stopSounds</a> () override</td></tr>
+<tr class="separator:a95e790ce64e679f6272411c6f7d35bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a891b8184ff7457cbd35f2be052efe0b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a891b8184ff7457cbd35f2be052efe0b0">toggleMusic</a> () override</td></tr>
+<tr class="separator:a891b8184ff7457cbd35f2be052efe0b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34d70dbcdd1529d916fc3f10cdaa49bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a34d70dbcdd1529d916fc3f10cdaa49bb">toggleSound</a> (int channel) override</td></tr>
+<tr class="separator:a34d70dbcdd1529d916fc3f10cdaa49bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a596e199b3b2ce30e17d5b1c109b53b8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a596e199b3b2ce30e17d5b1c109b53b8d">toggleSounds</a> () override</td></tr>
+<tr class="separator:a596e199b3b2ce30e17d5b1c109b53b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:acb9f2c7453626881a7e1a8d94fae82ee"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#acb9f2c7453626881a7e1a8d94fae82ee">changeMasterVolume</a> (int volume)</td></tr>
-<tr class="separator:acb9f2c7453626881a7e1a8d94fae82ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a219f4f21593e3d1b54ca9ace0e868b8f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a219f4f21593e3d1b54ca9ace0e868b8f">changeChannelVolume</a> (int channel, int volume)</td></tr>
-<tr class="separator:a219f4f21593e3d1b54ca9ace0e868b8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2c4d31b1b46512ab96ee43ca0692b8e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#af2c4d31b1b46512ab96ee43ca0692b8e">changeMusicVolume</a> (int volume)</td></tr>
-<tr class="separator:af2c4d31b1b46512ab96ee43ca0692b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a755fc7491f41997bacd06264074d91e5"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a755fc7491f41997bacd06264074d91e5">getChannelsAverageVolume</a> ()</td></tr>
-<tr class="separator:a755fc7491f41997bacd06264074d91e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67070122dca2075bebbff0a480561869"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a67070122dca2075bebbff0a480561869">getChannelVolume</a> (int channel)</td></tr>
-<tr class="separator:a67070122dca2075bebbff0a480561869"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee13c81b860242277a89f3993d312562"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#aee13c81b860242277a89f3993d312562">getMusicVolume</a> ()</td></tr>
-<tr class="separator:aee13c81b860242277a89f3993d312562"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2be86ae2ccf4b77598bc4f3c93fbd999"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a2be86ae2ccf4b77598bc4f3c93fbd999">stopAudio</a> ()</td></tr>
-<tr class="separator:a2be86ae2ccf4b77598bc4f3c93fbd999"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affad599a24fe5f439441ed092ba40ff7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#affad599a24fe5f439441ed092ba40ff7">stopMusic</a> ()</td></tr>
-<tr class="separator:affad599a24fe5f439441ed092ba40ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68f7ff8a08a1620d0297192bfee0c44b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a68f7ff8a08a1620d0297192bfee0c44b">stopSound</a> (int channel)</td></tr>
-<tr class="separator:a68f7ff8a08a1620d0297192bfee0c44b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aede2492c7160126709b48a43b2088e34"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#aede2492c7160126709b48a43b2088e34">stopSounds</a> ()</td></tr>
-<tr class="separator:aede2492c7160126709b48a43b2088e34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a300ad4ced980f874fbeb264ac109a71e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#a300ad4ced980f874fbeb264ac109a71e">toggleMusic</a> ()</td></tr>
-<tr class="separator:a300ad4ced980f874fbeb264ac109a71e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6f0b1c83b5cd54b6e3f5365b1898b47"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#aa6f0b1c83b5cd54b6e3f5365b1898b47">toggleSound</a> (int channel)</td></tr>
-<tr class="separator:aa6f0b1c83b5cd54b6e3f5365b1898b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2c27343ab87c4397bd462066d04fcf7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSDLAudioEngineAdapter.html#aa2c27343ab87c4397bd462066d04fcf7">toggleSounds</a> ()</td></tr>
-<tr class="separator:aa2c27343ab87c4397bd462066d04fcf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4499a736e928721c8fc5bedb5ea7852"><td class="memItemLeft" align="right" valign="top"><a id="ab4499a736e928721c8fc5bedb5ea7852"></a>
-static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapter</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getInstance</b> ()</td></tr>
-<tr class="separator:ab4499a736e928721c8fc5bedb5ea7852"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3274794a6630e06405f5c87de7a53e42"><td class="memItemLeft" align="right" valign="top"><a id="a3274794a6630e06405f5c87de7a53e42"></a>
+static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getInstance</b> ()</td></tr>
+<tr class="separator:a3274794a6630e06405f5c87de7a53e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5e3aa2c208ed2e83089f47d22afdfe1e"></a>
@@ -149,8 +158,8 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a219f4f21593e3d1b54ca9ace0e868b8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a219f4f21593e3d1b54ca9ace0e868b8f">&#9670;&nbsp;</a></span>changeChannelVolume()</h2>
+<a id="a2c7f48de42ddcb677ada5c64d9b0c9a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c7f48de42ddcb677ada5c64d9b0c9a7">&#9670;&nbsp;</a></span>changeChannelVolume()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,7 +187,7 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -207,10 +216,12 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
   </dd>
 </dl>
 
+<p>Implements <a class="el" href="classAudioEngineAdapter.html">AudioEngineAdapter</a>.</p>
+
 </div>
 </div>
-<a id="acb9f2c7453626881a7e1a8d94fae82ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb9f2c7453626881a7e1a8d94fae82ee">&#9670;&nbsp;</a></span>changeMasterVolume()</h2>
+<a id="a67bcb9d0acc291dc1311606a29a79d9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67bcb9d0acc291dc1311606a29a79d9c">&#9670;&nbsp;</a></span>changeMasterVolume()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -228,7 +239,7 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -245,10 +256,12 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
   </dd>
 </dl>
 
+<p>Implements <a class="el" href="classAudioEngineAdapter.html">AudioEngineAdapter</a>.</p>
+
 </div>
 </div>
-<a id="af2c4d31b1b46512ab96ee43ca0692b8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2c4d31b1b46512ab96ee43ca0692b8e">&#9670;&nbsp;</a></span>changeMusicVolume()</h2>
+<a id="a41f1599afe3b329c34af531f9a090a67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41f1599afe3b329c34af531f9a090a67">&#9670;&nbsp;</a></span>changeMusicVolume()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -266,7 +279,7 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -283,13 +296,18 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
   </dd>
 </dl>
 
+<p>Implements <a class="el" href="classAudioEngineAdapter.html">AudioEngineAdapter</a>.</p>
+
 </div>
 </div>
-<a id="a1a7fa2a4cb9c71bdc0c187ad9055c63c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a7fa2a4cb9c71bdc0c187ad9055c63c">&#9670;&nbsp;</a></span>getAudioNames()</h2>
+<a id="abb7927ee614f14bc29614b3880a1fa40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb7927ee614f14bc29614b3880a1fa40">&#9670;&nbsp;</a></span>getAudioNames()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt; std::string &gt; SDLAudioEngineAdapter::getAudioNames </td>
@@ -298,13 +316,20 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Returns a vector of key strings that are loaded in memory </p><dl class="section return"><dt>Returns</dt><dd>std::vector&lt;std::string&gt; </dd></dl>
 
+<p>Implements <a class="el" href="classAudioEngineAdapter.html">AudioEngineAdapter</a>.</p>
+
 </div>
 </div>
-<a id="a755fc7491f41997bacd06264074d91e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a755fc7491f41997bacd06264074d91e5">&#9670;&nbsp;</a></span>getChannelsAverageVolume()</h2>
+<a id="a6dd805577cc96a9042380ce2df78c464"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dd805577cc96a9042380ce2df78c464">&#9670;&nbsp;</a></span>getChannelsAverageVolume()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -321,16 +346,18 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <p>Returns the average volume of all the sound channels except the music channel </p><dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
 
+<p>Implements <a class="el" href="classAudioEngineAdapter.html">AudioEngineAdapter</a>.</p>
+
 </div>
 </div>
-<a id="a67070122dca2075bebbff0a480561869"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67070122dca2075bebbff0a480561869">&#9670;&nbsp;</a></span>getChannelVolume()</h2>
+<a id="affd5ed920b072a87de929717ec239a9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affd5ed920b072a87de929717ec239a9d">&#9670;&nbsp;</a></span>getChannelVolume()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -348,16 +375,18 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <p>Returns volume of the specified channel </p><dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
 
+<p>Implements <a class="el" href="classAudioEngineAdapter.html">AudioEngineAdapter</a>.</p>
+
 </div>
 </div>
-<a id="aee13c81b860242277a89f3993d312562"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee13c81b860242277a89f3993d312562">&#9670;&nbsp;</a></span>getMusicVolume()</h2>
+<a id="a274cf82a1f15a2029c96e898bd840348"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a274cf82a1f15a2029c96e898bd840348">&#9670;&nbsp;</a></span>getMusicVolume()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -374,19 +403,24 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <p>Returns the volume of the music channel </p><dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
 
+<p>Implements <a class="el" href="classAudioEngineAdapter.html">AudioEngineAdapter</a>.</p>
+
 </div>
 </div>
-<a id="ad25feaf607337f6595f55463e5c6715e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad25feaf607337f6595f55463e5c6715e">&#9670;&nbsp;</a></span>loadInMemory()</h2>
+<a id="a9fd035da0ad8e7c8a73060ee93c8c081"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fd035da0ad8e7c8a73060ee93c8c081">&#9670;&nbsp;</a></span>loadInMemory()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SDLAudioEngineAdapter::loadInMemory </td>
@@ -412,6 +446,11 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Uses the given path and type to add the file in the correct map This is used for sounds that are common in the game (Footstep, gunshot, etc..) </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -438,13 +477,18 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
   </dd>
 </dl>
 
+<p>Implements <a class="el" href="classAudioEngineAdapter.html">AudioEngineAdapter</a>.</p>
+
 </div>
 </div>
-<a id="aad4ba62055cdd5787230383b278c62c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad4ba62055cdd5787230383b278c62c7">&#9670;&nbsp;</a></span>playFromMemory()</h2>
+<a id="a913e3dfc78750057aecfe4eb3292c6e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a913e3dfc78750057aecfe4eb3292c6e3">&#9670;&nbsp;</a></span>playFromMemory()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SDLAudioEngineAdapter::playFromMemory </td>
@@ -454,6 +498,11 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>plays the file that is connected to the given name (string key) </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -468,13 +517,18 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
   </dd>
 </dl>
 
+<p>Implements <a class="el" href="classAudioEngineAdapter.html">AudioEngineAdapter</a>.</p>
+
 </div>
 </div>
-<a id="a6fe391b8b72a735c54669ac6deb2ba89"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6fe391b8b72a735c54669ac6deb2ba89">&#9670;&nbsp;</a></span>playFromPath()</h2>
+<a id="aa34286f8a0bc3819dba05bf328826ef1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa34286f8a0bc3819dba05bf328826ef1">&#9670;&nbsp;</a></span>playFromPath()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SDLAudioEngineAdapter::playFromPath </td>
@@ -494,6 +548,11 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Immediately plays the file from the given path. This is used for sounds that are uncommon and are only used in specific cases </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -520,10 +579,12 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
   </dd>
 </dl>
 
+<p>Implements <a class="el" href="classAudioEngineAdapter.html">AudioEngineAdapter</a>.</p>
+
 </div>
 </div>
-<a id="a2be86ae2ccf4b77598bc4f3c93fbd999"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2be86ae2ccf4b77598bc4f3c93fbd999">&#9670;&nbsp;</a></span>stopAudio()</h2>
+<a id="a133f8894e56c5a8ed75df2315a016ed4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a133f8894e56c5a8ed75df2315a016ed4">&#9670;&nbsp;</a></span>stopAudio()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -540,16 +601,18 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <p>Stops all the audio that is currently playing </p>
 
+<p>Implements <a class="el" href="classAudioEngineAdapter.html">AudioEngineAdapter</a>.</p>
+
 </div>
 </div>
-<a id="affad599a24fe5f439441ed092ba40ff7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#affad599a24fe5f439441ed092ba40ff7">&#9670;&nbsp;</a></span>stopMusic()</h2>
+<a id="ad4157888df530d7e0889303ac1072434"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4157888df530d7e0889303ac1072434">&#9670;&nbsp;</a></span>stopMusic()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -566,16 +629,18 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <p>Stops the music that is currently playing </p>
 
+<p>Implements <a class="el" href="classAudioEngineAdapter.html">AudioEngineAdapter</a>.</p>
+
 </div>
 </div>
-<a id="a68f7ff8a08a1620d0297192bfee0c44b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68f7ff8a08a1620d0297192bfee0c44b">&#9670;&nbsp;</a></span>stopSound()</h2>
+<a id="a6feddfde18b40f9e80897ab462e2918b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6feddfde18b40f9e80897ab462e2918b">&#9670;&nbsp;</a></span>stopSound()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -593,7 +658,7 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -610,10 +675,12 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
   </dd>
 </dl>
 
+<p>Implements <a class="el" href="classAudioEngineAdapter.html">AudioEngineAdapter</a>.</p>
+
 </div>
 </div>
-<a id="aede2492c7160126709b48a43b2088e34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aede2492c7160126709b48a43b2088e34">&#9670;&nbsp;</a></span>stopSounds()</h2>
+<a id="a95e790ce64e679f6272411c6f7d35bfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95e790ce64e679f6272411c6f7d35bfa">&#9670;&nbsp;</a></span>stopSounds()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -630,16 +697,18 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <p>Stops all the channel sounds excluding the music channel </p>
 
+<p>Implements <a class="el" href="classAudioEngineAdapter.html">AudioEngineAdapter</a>.</p>
+
 </div>
 </div>
-<a id="a300ad4ced980f874fbeb264ac109a71e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a300ad4ced980f874fbeb264ac109a71e">&#9670;&nbsp;</a></span>toggleMusic()</h2>
+<a id="a891b8184ff7457cbd35f2be052efe0b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a891b8184ff7457cbd35f2be052efe0b0">&#9670;&nbsp;</a></span>toggleMusic()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -656,16 +725,18 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <p>Pauses/resumes the music channel </p>
 
+<p>Implements <a class="el" href="classAudioEngineAdapter.html">AudioEngineAdapter</a>.</p>
+
 </div>
 </div>
-<a id="aa6f0b1c83b5cd54b6e3f5365b1898b47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6f0b1c83b5cd54b6e3f5365b1898b47">&#9670;&nbsp;</a></span>toggleSound()</h2>
+<a id="a34d70dbcdd1529d916fc3f10cdaa49bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34d70dbcdd1529d916fc3f10cdaa49bb">&#9670;&nbsp;</a></span>toggleSound()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -683,7 +754,7 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -700,10 +771,12 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
   </dd>
 </dl>
 
+<p>Implements <a class="el" href="classAudioEngineAdapter.html">AudioEngineAdapter</a>.</p>
+
 </div>
 </div>
-<a id="aa2c27343ab87c4397bd462066d04fcf7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2c27343ab87c4397bd462066d04fcf7">&#9670;&nbsp;</a></span>toggleSounds()</h2>
+<a id="a596e199b3b2ce30e17d5b1c109b53b8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a596e199b3b2ce30e17d5b1c109b53b8d">&#9670;&nbsp;</a></span>toggleSounds()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -720,11 +793,13 @@ static <a class="el" href="classSDLAudioEngineAdapter.html">SDLAudioEngineAdapte
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <p>Pauses/resumes all the sound channels </p>
+
+<p>Implements <a class="el" href="classAudioEngineAdapter.html">AudioEngineAdapter</a>.</p>
 
 </div>
 </div>
