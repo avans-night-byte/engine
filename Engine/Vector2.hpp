@@ -26,4 +26,8 @@ public:
     Vector2 operator*(float scale) const {
         return Vector2(x * scale, y * scale);
     }
+
+    Vector2 operator*(const Vector2& other) {
+        return Vector2(x * other.x, y * other.y);
+    }
 };

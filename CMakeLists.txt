@@ -80,6 +80,8 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Managers/ResourceManager.hpp
         ./Engine/Rendering/TextWrapper.cpp
         ./Engine/Rendering/TextWrapper.hpp
+        ./Engine/Physics/BodyHandler.cpp
+        ./Engine/Physics/BodyHandler.hpp
         ./Engine/Rendering/Adapter/EngineRenderingAdapter.h
 
 
@@ -93,10 +95,11 @@ add_executable(NightByte ./Main.cpp
         ./API/Audio/AudioAPI.h
         ./API/Physics/EnginePhysicsAPI.hpp
         ./API/Physics/PhysicsAPI.hpp
-        ./API/RPosition.hpp
+        API/RTransform.hpp
         ./API/XMLParser/MenuParserAPI.cpp
         ./API/XMLParser/MenuParserAPI.hpp
-        ./API/XMLParser/LevelParserAPI.cpp API/Physics/BodyHandlerAPI.hpp Engine/Physics/BodyHandler.cpp Engine/Physics/BodyHandler.hpp)
+        ./API/XMLParser/LevelParserAPI.cpp
+        ./API/Physics/BodyHandlerAPI.hpp Game/Components/WeaponComponent.cpp Game/Components/WeaponComponent.hpp Game/Components/BulletComponent.cpp Game/Components/BulletComponent.hpp)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)

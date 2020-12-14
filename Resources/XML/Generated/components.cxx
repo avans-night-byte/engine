@@ -223,6 +223,36 @@ namespace Components
     this->explosionCrate_.set (std::move (x));
   }
 
+  const component::bulletComponent_optional& component::
+  bulletComponent () const
+  {
+    return this->bulletComponent_;
+  }
+
+  component::bulletComponent_optional& component::
+  bulletComponent ()
+  {
+    return this->bulletComponent_;
+  }
+
+  void component::
+  bulletComponent (const bulletComponent_type& x)
+  {
+    this->bulletComponent_.set (x);
+  }
+
+  void component::
+  bulletComponent (const bulletComponent_optional& x)
+  {
+    this->bulletComponent_ = x;
+  }
+
+  void component::
+  bulletComponent (::std::unique_ptr< bulletComponent_type > x)
+  {
+    this->bulletComponent_.set (std::move (x));
+  }
+
   const component::nextLevelComponent_optional& component::
   nextLevelComponent () const
   {
@@ -541,22 +571,64 @@ namespace Components
     this->bodyShape_.set (std::move (x));
   }
 
-  const physicsComponent::isSensor_type& physicsComponent::
-  isSensor () const
+  const physicsComponent::isBullet_optional& physicsComponent::
+  isBullet () const
   {
-    return this->isSensor_.get ();
+    return this->isBullet_;
   }
 
-  physicsComponent::isSensor_type& physicsComponent::
+  physicsComponent::isBullet_optional& physicsComponent::
+  isBullet ()
+  {
+    return this->isBullet_;
+  }
+
+  void physicsComponent::
+  isBullet (const isBullet_type& x)
+  {
+    this->isBullet_.set (x);
+  }
+
+  void physicsComponent::
+  isBullet (const isBullet_optional& x)
+  {
+    this->isBullet_ = x;
+  }
+
+  physicsComponent::isBullet_type physicsComponent::
+  isBullet_default_value ()
+  {
+    return isBullet_type (false);
+  }
+
+  const physicsComponent::isSensor_optional& physicsComponent::
+  isSensor () const
+  {
+    return this->isSensor_;
+  }
+
+  physicsComponent::isSensor_optional& physicsComponent::
   isSensor ()
   {
-    return this->isSensor_.get ();
+    return this->isSensor_;
   }
 
   void physicsComponent::
   isSensor (const isSensor_type& x)
   {
     this->isSensor_.set (x);
+  }
+
+  void physicsComponent::
+  isSensor (const isSensor_optional& x)
+  {
+    this->isSensor_ = x;
+  }
+
+  physicsComponent::isSensor_type physicsComponent::
+  isSensor_default_value ()
+  {
+    return isSensor_type (false);
   }
 
   const physicsComponent::contactHandler_sequence& physicsComponent::
@@ -583,6 +655,10 @@ namespace Components
 
 
   // explosionCrate
+  // 
+
+
+  // bulletComponent
   // 
 
 
@@ -788,6 +864,7 @@ namespace Components
     physicsComponent_ (this),
     characterComponent_ (this),
     explosionCrate_ (this),
+    bulletComponent_ (this),
     nextLevelComponent_ (this)
   {
   }
@@ -803,6 +880,7 @@ namespace Components
     physicsComponent_ (x.physicsComponent_, f, this),
     characterComponent_ (x.characterComponent_, f, this),
     explosionCrate_ (x.explosionCrate_, f, this),
+    bulletComponent_ (x.bulletComponent_, f, this),
     nextLevelComponent_ (x.nextLevelComponent_, f, this)
   {
   }
@@ -818,6 +896,7 @@ namespace Components
     physicsComponent_ (this),
     characterComponent_ (this),
     explosionCrate_ (this),
+    bulletComponent_ (this),
     nextLevelComponent_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
@@ -921,6 +1000,20 @@ namespace Components
         }
       }
 
+      // bulletComponent
+      //
+      if (n.name () == "bulletComponent" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< bulletComponent_type > r (
+          bulletComponent_traits::create (i, f, this));
+
+        if (!this->bulletComponent_)
+        {
+          this->bulletComponent_.set (::std::move (r));
+          continue;
+        }
+      }
+
       // nextLevelComponent
       //
       if (n.name () == "nextLevelComponent" && n.namespace_ ().empty ())
@@ -965,6 +1058,7 @@ namespace Components
       this->physicsComponent_ = x.physicsComponent_;
       this->characterComponent_ = x.characterComponent_;
       this->explosionCrate_ = x.explosionCrate_;
+      this->bulletComponent_ = x.bulletComponent_;
       this->nextLevelComponent_ = x.nextLevelComponent_;
     }
 
@@ -1475,14 +1569,14 @@ namespace Components
   physicsComponent (const position_type& position,
                     const friction_type& friction,
                     const bodyType_type& bodyType,
-                    const bodyShape_type& bodyShape,
-                    const isSensor_type& isSensor)
+                    const bodyShape_type& bodyShape)
   : ::xml_schema::type (),
     position_ (position, this),
     friction_ (friction, this),
     bodyType_ (bodyType, this),
     bodyShape_ (bodyShape, this),
-    isSensor_ (isSensor, this),
+    isBullet_ (this),
+    isSensor_ (this),
     contactHandler_ (this)
   {
   }
@@ -1491,14 +1585,14 @@ namespace Components
   physicsComponent (::std::unique_ptr< position_type > position,
                     const friction_type& friction,
                     const bodyType_type& bodyType,
-                    ::std::unique_ptr< bodyShape_type > bodyShape,
-                    const isSensor_type& isSensor)
+                    ::std::unique_ptr< bodyShape_type > bodyShape)
   : ::xml_schema::type (),
     position_ (std::move (position), this),
     friction_ (friction, this),
     bodyType_ (bodyType, this),
     bodyShape_ (std::move (bodyShape), this),
-    isSensor_ (isSensor, this),
+    isBullet_ (this),
+    isSensor_ (this),
     contactHandler_ (this)
   {
   }
@@ -1512,6 +1606,7 @@ namespace Components
     friction_ (x.friction_, f, this),
     bodyType_ (x.bodyType_, f, this),
     bodyShape_ (x.bodyShape_, f, this),
+    isBullet_ (x.isBullet_, f, this),
     isSensor_ (x.isSensor_, f, this),
     contactHandler_ (x.contactHandler_, f, this)
   {
@@ -1526,6 +1621,7 @@ namespace Components
     friction_ (this),
     bodyType_ (this),
     bodyShape_ (this),
+    isBullet_ (this),
     isSensor_ (this),
     contactHandler_ (this)
   {
@@ -1602,11 +1698,22 @@ namespace Components
         }
       }
 
+      // isBullet
+      //
+      if (n.name () == "isBullet" && n.namespace_ ().empty ())
+      {
+        if (!this->isBullet_)
+        {
+          this->isBullet_.set (isBullet_traits::create (i, f, this));
+          continue;
+        }
+      }
+
       // isSensor
       //
       if (n.name () == "isSensor" && n.namespace_ ().empty ())
       {
-        if (!isSensor_.present ())
+        if (!this->isSensor_)
         {
           this->isSensor_.set (isSensor_traits::create (i, f, this));
           continue;
@@ -1654,13 +1761,6 @@ namespace Components
         "bodyShape",
         "");
     }
-
-    if (!isSensor_.present ())
-    {
-      throw ::xsd::cxx::tree::expected_element< char > (
-        "isSensor",
-        "");
-    }
   }
 
   physicsComponent* physicsComponent::
@@ -1680,6 +1780,7 @@ namespace Components
       this->friction_ = x.friction_;
       this->bodyType_ = x.bodyType_;
       this->bodyShape_ = x.bodyShape_;
+      this->isBullet_ = x.isBullet_;
       this->isSensor_ = x.isSensor_;
       this->contactHandler_ = x.contactHandler_;
     }
@@ -1797,6 +1898,60 @@ namespace Components
 
   explosionCrate::
   ~explosionCrate ()
+  {
+  }
+
+  // bulletComponent
+  //
+
+  bulletComponent::
+  bulletComponent ()
+  : ::xml_schema::type ()
+  {
+  }
+
+  bulletComponent::
+  bulletComponent (const bulletComponent& x,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c)
+  {
+  }
+
+  bulletComponent::
+  bulletComponent (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (e, f, c)
+  {
+  }
+
+  bulletComponent::
+  bulletComponent (const ::xercesc::DOMAttr& a,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (a, f, c)
+  {
+  }
+
+  bulletComponent::
+  bulletComponent (const ::std::string& s,
+                   const ::xercesc::DOMElement* e,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (s, e, f, c)
+  {
+  }
+
+  bulletComponent* bulletComponent::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class bulletComponent (*this, f, c);
+  }
+
+  bulletComponent::
+  ~bulletComponent ()
   {
   }
 

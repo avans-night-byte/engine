@@ -9,7 +9,7 @@ private:
     const unique_ptr<PhysicsEngineAdapter> _physicsEngineAdapter;
 
 public:
-    EnginePhysicsAPI() : _physicsEngineAdapter(make_unique<Box2DPhysicsEngineAdapter>()){
+    EnginePhysicsAPI() : _physicsEngineAdapter(make_unique<Box2DPhysicsEngineAdapter>()) {
     }
 
     void update(const float &timeStep, const int32 &velocityIterations, const int32 &positionIterations) override {
@@ -19,37 +19,26 @@ public:
 
     // TODO: Create a Helper function for BodyId
     inline BodyId createBody(const Box2DBoxData &box2DBoxData) const override {
-        return _physicsEngineAdapter->createBody(box2DBoxData.bodyType,
-                                                 box2DBoxData.position,
-                                                 box2DBoxData.size,
-                                                 box2DBoxData.isSensor,
-                                                 box2DBoxData.userData);
+        return _physicsEngineAdapter->createBody(box2DBoxData);
     }
 
     inline BodyId createBody(const Box2DCircleData &box2DCircleData) const override {
-        return _physicsEngineAdapter->createBody(box2DCircleData.bodyType,
-                                                 box2DCircleData.position,
-                                                 box2DCircleData.radius,
-                                                 box2DCircleData.userData);
+        return _physicsEngineAdapter->createBody(box2DCircleData);
     }
 
     inline BodyId createBody(const Box2DPolygonData &box2DPolygonData) const override {
-        return _physicsEngineAdapter->createBody(box2DPolygonData.bodyType,
-                                                 box2DPolygonData.position,
-                                                 box2DPolygonData.points,
-                                                 box2DPolygonData.isSensor,
-                                                 box2DPolygonData.userData);
+        return _physicsEngineAdapter->createBody(box2DPolygonData);
     }
 
     inline void destroyBody(BodyId bodyID) override {
         _physicsEngineAdapter->destroyBody(bodyID);
     }
 
-    RPosition getRPosition(BodyId bodyId) const override {
+    RTransform getRPosition(BodyId bodyId) const override {
         return _physicsEngineAdapter->getRPosition(bodyId);
     }
 
-    void DebugDraw(const RenderingAPI &renderingApi, SDL_Renderer& renderer) override {
+    void DebugDraw(const RenderingAPI &renderingApi, SDL_Renderer &renderer) override {
         _physicsEngineAdapter->DebugDraw(renderingApi.GetRendererAdapter(), renderer);
     }
 
@@ -65,6 +54,9 @@ public:
         _physicsEngineAdapter->setFixedRotation(i, b);
     }
 
+    void addForce(const BodyId i, Vector2 direction) const override {
+        _physicsEngineAdapter->addForce(i, direction);
+    }
 
     void setAngle(const BodyId i, float angle) const override {
         _physicsEngineAdapter->setAngle(i, angle);
@@ -74,8 +66,11 @@ public:
         _physicsEngineAdapter->destroyBody(i);
     }
 
-    inline PhysicsEngineAdapter& getPhysicsEngineAdapter() const override
-    {
+    void setTransform(unsigned int bodyId, Vector2 pos, float angle) const override {
+        _physicsEngineAdapter->setTransform(bodyId, pos, angle);
+    }
+
+    inline PhysicsEngineAdapter &getPhysicsEngineAdapter() const override {
         return *_physicsEngineAdapter.get();
     }
 };

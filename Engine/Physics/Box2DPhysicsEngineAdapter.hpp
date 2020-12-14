@@ -36,15 +36,15 @@ public:
 public:
     void update(const float &timeStep, const int32 &velocityIterations, const int32 &positionIterations) override;
 
-    BodyId createBody(BodyType bodyType, Vector2 position, Vector2 size, const bool &isSensor = false, ContactHandler* userData = nullptr) override;
+    BodyId createBody(const Box2DBoxData& box2dBoxData) override;
 
-    BodyId createBody(BodyType bodyType, Vector2 position, float radius, ContactHandler* userData = nullptr) override;
+    BodyId createBody(const Box2DCircleData &box2DCircleData) override;
 
-    BodyId createBody(BodyType bodyType, Vector2 position, const std::vector<Vector2> &points, const bool &isSensor, ContactHandler* userData = nullptr) override;
+    BodyId createBody(const Box2DPolygonData &box2DPolygonData) override;
 
     void referencePositionToBody(BodyId bodyId, float &x, float &y) override;
 
-    inline RPosition getRPosition(BodyId bodyId) override;
+    inline RTransform getRPosition(BodyId bodyId) override;
 
     inline void destroyBody(BodyId bodyID) override;
 
@@ -52,7 +52,11 @@ public:
 
     void getVelocity(Vector2 &velocity, BodyId bodyId) const override;
 
+    void addForce(const BodyId i, Vector2 direction) const override;
+
     void setLinearVelocity(BodyId bodyId, const Vector2 &vector2) override;
+
+    void setTransform(unsigned int bodyId, Vector2 pos, float angle) const override;
 
     void setFixedRotation(BodyId bodyId, bool b) override;
 
