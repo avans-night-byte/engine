@@ -5,7 +5,7 @@
 #include "../../API/Physics/PhysicsAPI.hpp"
 #include "../Rendering/Adapter/SDLRenderingAdapter.hpp"
 #include "ContactHandler.hpp"
-#include "../../API/RPosition.hpp"
+#include "../../API/RTransform.hpp"
 #include <vector>
 
 
@@ -16,6 +16,7 @@ typedef unsigned int BodyId;
 struct Box2DData {
     BodyType bodyType;
     Vector2 position;
+    bool isBullet = false;
     bool isSensor = false;
     ContactHandler* userData = nullptr;
 };
@@ -56,15 +57,15 @@ public:
 public:
     virtual void update(float timeStep) = 0;
 
-    virtual BodyId createBody(BodyType bodyType, Vector2 position, Vector2 size, const bool &isSensor = false, ContactHandler* handler = nullptr) = 0;
+    virtual BodyId createBody(const Box2DBoxData& box2dBoxData) = 0;
 
-    virtual BodyId createBody(BodyType bodyType, Vector2 position, float radius, ContactHandler* handler = nullptr) = 0;
+    virtual BodyId createBody(const Box2DCircleData &box2DCircleData) = 0;
 
-    virtual BodyId createBody(BodyType bodyType, Vector2 position, const std::vector<Vector2> &points, const bool &isSensor, ContactHandler* handler = nullptr) = 0;
+    virtual BodyId createBody(const Box2DPolygonData &box2DPolygonData) = 0;
 
     virtual void referencePositionToBody(BodyId bodyId, float &x, float &y) = 0;
 
-    virtual RPosition getRPosition(BodyId bodyId) = 0;
+    virtual RTransform getRPosition(BodyId bodyId) = 0;
 
     virtual void destroyBody(BodyId BodyID) = 0;
 
@@ -72,7 +73,11 @@ public:
 
     virtual void getVelocity(Vector2 &velocity, BodyId bodyId) const = 0;
 
+    virtual void addForce(const BodyId i, Vector2 direction) const = 0;
+
     virtual void setLinearVelocity(const BodyId bodyId, const Vector2 &vector2) = 0;
+
+    virtual void setTransform(unsigned int bodyId, Vector2 pos, float angle) const = 0;
 
     virtual void setFixedRotation(const BodyId bodyId, bool b) = 0;
 
