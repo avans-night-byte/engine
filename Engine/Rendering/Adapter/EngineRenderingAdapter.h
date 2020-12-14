@@ -2,7 +2,7 @@
 
 #include <SDL_render.h>
 #include <string>
-#include "../../Vector2.hpp"
+#include "../../Helpers/Vector2.hpp"
 #include "SDLRenderingAdapter.hpp"
 #include "../TextureManager.hpp"
 

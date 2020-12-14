@@ -12,8 +12,8 @@ public:
     EnginePhysicsAPI() : _physicsEngineAdapter(make_unique<Box2DPhysicsEngineAdapter>()) {
     }
 
-    void update(const float &timeStep, const int32 &velocityIterations, const int32 &positionIterations) override {
-        _physicsEngineAdapter->update(timeStep, velocityIterations, positionIterations);
+    void update(float timeStep) override {
+        _physicsEngineAdapter->update(timeStep);
     }
 
 

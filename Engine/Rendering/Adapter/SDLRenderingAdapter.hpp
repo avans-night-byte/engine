@@ -8,7 +8,7 @@ typedef signed int int32;
 
 #include "../TextureManager.hpp"
 #include "../Spritesheet.hpp"
-#include "../../Vector2.hpp"
+#include "../../Helpers/Vector2.hpp"
 #include "EngineRenderingAdapter.h"
 #include <SDL.h>
 

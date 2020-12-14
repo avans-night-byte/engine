@@ -20,19 +20,19 @@ class Vector2;
 
 class PhysicsAPI {
 public:
-    virtual void update(const float& timeStep, const int32& velocityIterations, const int32& positionIterations) = 0;
+    virtual void update(float deltaTime) = 0;
 
-    virtual BodyId createBody(const Box2DBoxData& box2DBoxData) const = 0;
+    virtual BodyId createBody(const Box2DBoxData &box2DBoxData) const = 0;
 
-    virtual BodyId createBody(const Box2DCircleData& box2DCircleData) const = 0;
+    virtual BodyId createBody(const Box2DCircleData &box2DCircleData) const = 0;
 
-    virtual BodyId createBody(const Box2DPolygonData& box2DPolygonData) const = 0;
+    virtual BodyId createBody(const Box2DPolygonData &box2DPolygonData) const = 0;
 
     virtual void destroyBody(BodyId bodyId) = 0;
 
     virtual RTransform getRPosition(BodyId bodyId) const = 0;
 
-    virtual void DebugDraw(const RenderingAPI &renderingApi, SDL_Renderer& renderer) = 0;
+    virtual void DebugDraw(const RenderingAPI &renderingApi, SDL_Renderer &renderer) = 0;
 
     virtual void GetVelocity(Vector2 &velocity, const BodyId bodyId) const = 0;
 

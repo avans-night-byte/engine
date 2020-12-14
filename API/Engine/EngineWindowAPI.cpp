@@ -1,15 +1,15 @@
 #include "./EngineWindowAPI.hpp"
 
-EngineWindowAPI::EngineWindowAPI(Engine &engine) : _engine{engine} {}
+EngineWindowAPI::EngineWindowAPI() : _engine(*Engine::getInstance()) {}
 
 void EngineWindowAPI::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT) const
 {
-    return _engine.initWindow(SCREEN_WIDTH, SCREEN_HEIGHT);
+    return Engine::initWindow(SCREEN_WIDTH, SCREEN_HEIGHT);
 }
 
 void EngineWindowAPI::closeWindow() const
 {
-    return _engine.closeWindow();
+    return Engine::closeWindow();
 }
 
 SDL_Renderer *EngineWindowAPI::getRenderer() const

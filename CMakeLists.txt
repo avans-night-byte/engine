@@ -52,6 +52,10 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/EntityObject.hpp
         ./Game/Scenes/LevelBase.cpp
         ./Game/ContactHandlers/ExplosionCrate.hpp
+        ./Game/UI/FrameCounter.cpp
+        ./Game/UI/FrameCounter.h
+        ./Game/Helpers/GameTime.cpp
+        ./Game/Helpers/GameTime.h
 
         # Engine
         ./Engine/Engine.cpp
@@ -64,7 +68,7 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Audio/AudioType.h
         ./Engine/Physics/PhysicsEngineAdapter.hpp
         ./Engine/Physics/Box2DPhysicsEngineAdapter.hpp
-        ./Engine/Vector2.hpp
+        Engine/Helpers/Vector2.hpp
         ./Engine/Physics/BodyType.hpp
         ./Engine/Physics/Box2dPhysicsEngineAdapter.cpp
         ./Engine/Physics/PhysicsDebug/Box2dDrawDebug.hpp

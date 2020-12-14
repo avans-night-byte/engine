@@ -2,7 +2,7 @@
 
 #include <string>
 #include "../../Engine/XMLParser/MenuParser.hpp"
-#include "../../Engine/Event.h"
+#include "../../Engine/Helpers/Event.h"
 
 class RenderingAPI;
 
@@ -12,6 +12,7 @@ public:
     void loadScene(std::string path);
     void render();
     void onClick(Input input);
+    Event<std::string> &getCustomEventHandler();
 private:
     std::unique_ptr<MenuParser> menuParser;
 };

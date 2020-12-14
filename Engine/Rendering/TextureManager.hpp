@@ -4,7 +4,7 @@
 #include <SDL_image.h>
 #include <map>
 #include <string>
-#include "../Vector2.hpp"
+#include "../Helpers/Vector2.hpp"
 
 class TextureManager {
 private:

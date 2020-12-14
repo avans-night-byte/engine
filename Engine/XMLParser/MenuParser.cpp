@@ -16,6 +16,10 @@ MenuParser::MenuParser(const RenderingAPI &renderer) : _renderer(renderer) {
     _instance = this;
 }
 
+MenuParser::~MenuParser() {
+    _textItems.clear();
+}
+
 void MenuParser::initialize(const std::string &path) {
     AudioEngineAdapter &audioEngineAdapter = SDLAudioEngineAdapter::getInstance();
 
@@ -148,7 +152,7 @@ void MenuParser::renderBoxes() {
 }
 
 void MenuParser::onClick(const Input &input) {
-    if (!_menu->buttons().present()) return;
+    if (!_menu->buttons().present() || !_resourceManager->inMenu) return;
 
     for (auto button : _menu->buttons()->button()) {
         if (!button.events().onClick().present())
@@ -163,15 +167,7 @@ void MenuParser::onClick(const Input &input) {
 
             if (button.events().onClick()->custom().present()) {
                 const std::string action = button.events().onClick()->custom()->c_str();
-
-                if (action == "unloadLevel") {
-                    // TODO: This class needs to be refactored, would be nice if game could be called from here(another eventhandler?)
-                    ResourceManager::getInstance()->quitLevel = true;
-                }
-
-                if (action == "close") {
-
-                }
+                _customEventHandler(action);
             }
 
             if (button.events().onClick()->playSound().present())
@@ -218,6 +214,10 @@ MenuParser *MenuParser::getInstance() {
         throw std::runtime_error("No instance found!");
     }
     return _instance;
+}
+
+Event <std::string> &MenuParser::getCustomEventHandler() {
+    return _customEventHandler;
 }
 
 
