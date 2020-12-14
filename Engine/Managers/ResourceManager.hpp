@@ -53,6 +53,7 @@ protected:
     explicit ResourceManager(const std::string &resourcePath, bool debug = true);
 public:
     // TODO: should be removed when MenuParser is refactored.
+    std::string _currentLevel;
     bool quitLevel = false;
     // TODO: Improve?
     bool inMenu = false;
