@@ -9,7 +9,7 @@ class Event {
 
 private:
     typedef std::function<void(tArg0)> funcPtr;
-    typedef std::deque<funcPtr> funcPtrSeq;
+    typedef std::vector<funcPtr> funcPtrSeq;
 
     funcPtrSeq list;
 
@@ -19,13 +19,12 @@ public:
         return *this;
     };
 
-    Event clear() {
-        list.clear();
-        return *this;
-    };
-
     void operator()(tArg0 arg) {
         for (typename funcPtrSeq::iterator it(list.begin()); it != list.end(); ++it) {
+            if(*it == nullptr){
+                list.erase(it);
+                continue;
+            }
             (*it)(arg);
         }
     }

@@ -128,10 +128,7 @@ void Box2DPhysicsEngineAdapter::DebugDraw(const SDLRenderingAdapter &renderingAd
 }
 
 void Box2DPhysicsEngineAdapter::update(float timeStep) {
-
-    if (!ResourceManager::getInstance()->inMenu) {
         world.Step(timeStep, _velocityIterations, _positionIterations);
-    }
 }
 
 void Box2DPhysicsEngineAdapter::setLinearVelocity(const BodyId bodyId, const Vector2 &vector2) {
