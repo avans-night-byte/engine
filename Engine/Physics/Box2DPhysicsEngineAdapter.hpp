@@ -10,23 +10,21 @@
 #include "ContactListener.hpp"
 #include "../../Engine/Managers/ResourceManager.hpp"
 
-using namespace std;
-
 class Box2DPhysicsEngineAdapter : public PhysicsEngineAdapter {
 
 private:
     b2World world = b2World(b2Vec2_zero);
-    unique_ptr<ContactListener> contactListener;
-    map<BodyId, b2Body *> bodies{};
+    std::unique_ptr<ContactListener> contactListener;
+    std::map<BodyId, b2Body *> bodies{};
 
-    unique_ptr<Box2dDrawDebug> drawDebug = nullptr;
+    std::unique_ptr<Box2dDrawDebug> drawDebug = nullptr;
 
     int32 _velocityIterations = 6;
     int32 _positionIterations = 2;
 
 public:
     Box2DPhysicsEngineAdapter(){
-        contactListener = make_unique<ContactListener>();
+        contactListener = std::make_unique<ContactListener>();
         world.SetContactListener(&(*contactListener));
     }
 

@@ -2,11 +2,14 @@
 <xs:schema
         xmlns:xs="http://www.w3.org/2001/XMLSchema"
         xmlns:cmn="Common"
+        xmlns:comp="Components"
         xmlns:res="GameResources"
         targetNamespace="GameResources">
 
     <xs:import schemaLocation="common.xsd"
                namespace="Common"/>
+    <xs:import schemaLocation="components.xsd"
+               namespace="Components"/>
 
     <xs:complexType name="baseGameResource">
         <xs:sequence>
@@ -115,6 +118,21 @@
                                                 <xs:element name="tmxPath" type="xs:string"/>
                                             </xs:sequence>
                                         </xs:extension>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- PreObjects -->
+                <xs:element name="objectLists">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="objectList" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="res:baseGameResource"/>
                                     </xs:complexContent>
                                 </xs:complexType>
                             </xs:element>

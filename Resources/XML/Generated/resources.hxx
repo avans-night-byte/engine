@@ -573,12 +573,14 @@ namespace GameResources
   class music;
   class scenes;
   class levels;
+  class objectLists;
   class texture;
   class sprite;
   class sound;
   class music1;
   class scene;
   class level;
+  class objectList;
 }
 
 
@@ -597,6 +599,8 @@ namespace GameResources
 #include <xsd/cxx/xml/dom/parsing-header.hxx>
 
 #include "common.hxx"
+
+#include "components.hxx"
 
 /**
  * @brief C++ namespace for the %GameResources
@@ -1231,6 +1235,64 @@ namespace GameResources
     //@}
 
     /**
+     * @name objectLists
+     *
+     * @brief Accessor and modifier functions for the %objectLists
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::GameResources::objectLists objectLists_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< objectLists_type, char > objectLists_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const objectLists_type&
+    objectLists () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    objectLists_type&
+    objectLists ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    objectLists (const objectLists_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    objectLists (::std::unique_ptr< objectLists_type > p);
+
+    //@}
+
+    /**
      * @name Constructors
      */
     //@{
@@ -1245,7 +1307,8 @@ namespace GameResources
                const sounds_type&,
                const music_type&,
                const scenes_type&,
-               const levels_type&);
+               const levels_type&,
+               const objectLists_type&);
 
     /**
      * @brief Create an instance from the ultimate base and
@@ -1261,7 +1324,8 @@ namespace GameResources
                ::std::unique_ptr< sounds_type >,
                ::std::unique_ptr< music_type >,
                ::std::unique_ptr< scenes_type >,
-               ::std::unique_ptr< levels_type >);
+               ::std::unique_ptr< levels_type >,
+               ::std::unique_ptr< objectLists_type >);
 
     /**
      * @brief Create an instance from a DOM element.
@@ -1340,6 +1404,7 @@ namespace GameResources
     ::xsd::cxx::tree::one< music_type > music_;
     ::xsd::cxx::tree::one< scenes_type > scenes_;
     ::xsd::cxx::tree::one< levels_type > levels_;
+    ::xsd::cxx::tree::one< objectLists_type > objectLists_;
 
     //@endcond
   };
@@ -2293,6 +2358,164 @@ namespace GameResources
   };
 
   /**
+   * @brief Class corresponding to the %objectLists schema type.
+   *
+   * @nosubgrouping
+   */
+  class objectLists: public ::xml_schema::type
+  {
+    public:
+    /**
+     * @name objectList
+     *
+     * @brief Accessor and modifier functions for the %objectList
+     * sequence element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::GameResources::objectList objectList_type;
+
+    /**
+     * @brief Element sequence container type.
+     */
+    typedef ::xsd::cxx::tree::sequence< objectList_type > objectList_sequence;
+
+    /**
+     * @brief Element iterator type.
+     */
+    typedef objectList_sequence::iterator objectList_iterator;
+
+    /**
+     * @brief Element constant iterator type.
+     */
+    typedef objectList_sequence::const_iterator objectList_const_iterator;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< objectList_type, char > objectList_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element
+     * sequence.
+     *
+     * @return A constant reference to the sequence container.
+     */
+    const objectList_sequence&
+    objectList () const;
+
+    /**
+     * @brief Return a read-write reference to the element sequence.
+     *
+     * @return A reference to the sequence container.
+     */
+    objectList_sequence&
+    objectList ();
+
+    /**
+     * @brief Copy elements from a given sequence.
+     *
+     * @param s A sequence to copy elements from.
+     *
+     * For each element in @a s this function makes a copy and adds it 
+     * to the sequence. Note that this operation completely changes the 
+     * sequence and all old elements will be lost.
+     */
+    void
+    objectList (const objectList_sequence& s);
+
+    //@}
+
+    /**
+     * @name Constructors
+     */
+    //@{
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    objectLists ();
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    objectLists (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    objectLists (const objectLists& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual objectLists*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    objectLists&
+    operator= (const objectLists& x);
+
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
+    virtual 
+    ~objectLists ();
+
+    // Implementation.
+    //
+
+    //@cond
+
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    objectList_sequence objectList_;
+
+    //@endcond
+  };
+
+  /**
    * @brief Class corresponding to the %texture schema type.
    *
    * @nosubgrouping
@@ -3088,6 +3311,75 @@ namespace GameResources
     ::xsd::cxx::tree::one< tmxPath_type > tmxPath_;
 
     //@endcond
+  };
+
+  /**
+   * @brief Class corresponding to the %objectList schema type.
+   *
+   * @nosubgrouping
+   */
+  class objectList: public ::GameResources::baseGameResource
+  {
+    public:
+    /**
+     * @name Constructors
+     */
+    //@{
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    objectList (const name_type&,
+                const path_type&);
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    objectList (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    objectList (const objectList& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual objectList*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
+    virtual 
+    ~objectList ();
   };
 }
 

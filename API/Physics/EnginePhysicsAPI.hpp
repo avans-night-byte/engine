@@ -6,10 +6,10 @@
 
 class EnginePhysicsAPI : public PhysicsAPI {
 private:
-    const unique_ptr<PhysicsEngineAdapter> _physicsEngineAdapter;
+    const std::unique_ptr<PhysicsEngineAdapter> _physicsEngineAdapter;
 
 public:
-    EnginePhysicsAPI() : _physicsEngineAdapter(make_unique<Box2DPhysicsEngineAdapter>()) {
+    EnginePhysicsAPI() : _physicsEngineAdapter(std::make_unique<Box2DPhysicsEngineAdapter>()) {
     }
 
     void update(float timeStep) override {

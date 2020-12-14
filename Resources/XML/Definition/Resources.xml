@@ -123,4 +123,10 @@
             <tmxPath>TMX/LevelCharlie.tmx</tmxPath>
         </level>
     </levels>
+    <objectLists>
+        <objectList>
+            <name>Main</name>
+            <path>XML/Definition/PreObject.xml</path>
+        </objectList>
+    </objectLists>
 </gr:resources>

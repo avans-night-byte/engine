@@ -103,7 +103,7 @@ add_executable(NightByte ./Main.cpp
         ./API/XMLParser/MenuParserAPI.cpp
         ./API/XMLParser/MenuParserAPI.hpp
         ./API/XMLParser/LevelParserAPI.cpp
-        ./API/Physics/BodyHandlerAPI.hpp Game/Components/WeaponComponent.cpp Game/Components/WeaponComponent.hpp Game/Components/BulletComponent.cpp Game/Components/BulletComponent.hpp)
+        ./API/Physics/BodyHandlerAPI.hpp Game/Components/WeaponComponent.cpp Game/Components/WeaponComponent.hpp Game/Components/BulletComponent.cpp Game/Components/BulletComponent.hpp Game/Pooling/PoolingSystem.hpp)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)
@@ -130,7 +130,9 @@ add_library(XMLResources SHARED
         ./Resources/XML/Generated/level-resources.hxx
         ./Resources/XML/Generated/level-resources.cxx
         ./Resources/XML/Generated/components.hxx
-        ./Resources/XML/Generated/components.cxx)
+        ./Resources/XML/Generated/components.cxx
+        ./Resources/XML/Generated/objects.hxx
+        ./Resources/XML/Generated/objects.cxx)
 
 target_link_libraries(XMLResources PUBLIC XercesC::XercesC )
 target_include_directories(XMLResources PUBLIC ${XSD_INCLUDE_DIR} ./Resources/XML/)

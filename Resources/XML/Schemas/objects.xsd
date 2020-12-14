@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:obj="Objects"
+           xmlns:comp="Components"
+           targetNamespace="Objects">
+
+    <xs:import schemaLocation="components.xsd"
+               namespace="Components"/>
+
+    <xs:element name="objectList">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="object" type="obj:object" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="object">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="components">
+                <xs:complexType>
+                    <xs:sequence>
+
+                        <xs:element name="component"
+                                    type="comp:component"
+                                    maxOccurs="unbounded"/>
+
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

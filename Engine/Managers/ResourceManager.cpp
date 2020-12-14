@@ -88,6 +88,15 @@ ResourceManager::ResourceManager(const std::string &resourcePath, bool debug) {
             _levels[name] = std::unique_ptr<GameResources::level>(level._clone());
         }
 
+        // Discover Object list
+        for (GameResources::objectList &objectList : resources->objectLists().objectList())
+        {
+            verifyFile("PreObject", OBJECTLIST, objectList.name(), objectList.path());
+
+            std::string name = objectList.name();
+            _preObjects[name] = std::unique_ptr<GameResources::objectList>(objectList._clone());
+        }
+
     } catch (const xml_schema::exception &e) {
         std::cout << e << std::endl;
     }
