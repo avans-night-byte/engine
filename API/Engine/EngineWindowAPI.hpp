@@ -11,7 +11,7 @@ class EngineWindowAPI : public WindowAPI
 public:
     Engine &_engine;
 
-    explicit EngineWindowAPI(Engine &engine);
+     EngineWindowAPI();
     ~EngineWindowAPI() = default;
 
     void initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT) const override;

@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "../Vector2.hpp"
+#include "../Helpers/Vector2.hpp"
 #include "Adapter/SDLRenderingAdapter.hpp"
 #include "../../API/Rendering/EngineRenderingAPI.hpp"
 #include <SDL_ttf.h>

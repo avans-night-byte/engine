@@ -143,9 +143,8 @@ void Box2DPhysicsEngineAdapter::DebugDraw(const SDLRenderingAdapter &renderingAd
     world.DebugDraw();
 }
 
-void Box2DPhysicsEngineAdapter::update(const float &timeStep, const int32 &velocityIterations,
-                                       const int32 &positionIterations) {
-    world.Step(timeStep, velocityIterations, positionIterations);
+void Box2DPhysicsEngineAdapter::update(float timeStep) {
+        world.Step(timeStep, _velocityIterations, _positionIterations);
 }
 
 void Box2DPhysicsEngineAdapter::setLinearVelocity(const BodyId bodyId, const Vector2 &vector2) {
