@@ -86,7 +86,7 @@ $(function() {
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">struct </span><a class="code" href="structBox2DCircleData.html">Box2DCircleData</a>;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">struct </span><a class="code" href="structBox2DPolygonData.html">Box2DPolygonData</a>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">struct </span><a class="code" href="structRPosition.html">RPosition</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">struct </span><a class="code" href="structRTransform.html">RTransform</a>;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">class </span><a class="code" href="structVector2.html">Vector2</a>;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classPhysicsAPI.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPhysicsAPI.html">PhysicsAPI</a> {</div>
@@ -101,7 +101,7 @@ $(function() {
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> destroyBody(BodyId bodyId) = 0;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structRPosition.html">RPosition</a> getRPosition(BodyId bodyId) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structRTransform.html">RTransform</a> getRPosition(BodyId bodyId) <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> DebugDraw(<span class="keyword">const</span> <a class="code" href="classRenderingAPI.html">RenderingAPI</a> &amp;renderingApi, SDL_Renderer&amp; renderer) = 0;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
@@ -110,21 +110,26 @@ $(function() {
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setLinearVelocity(<span class="keyword">const</span> BodyId bodyId, <span class="keyword">const</span> <a class="code" href="structVector2.html">Vector2</a> &amp;vector2) <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setFixedRotation(<span class="keyword">const</span> BodyId i, <span class="keywordtype">bool</span> b) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setAngle(<span class="keyword">const</span> BodyId i, <span class="keywordtype">float</span> rotation) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> destroyBody(BodyId i) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a>&amp; getPhysicsEngineAdapter() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> addForce(<span class="keyword">const</span> BodyId i, <a class="code" href="structVector2.html">Vector2</a>) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setAngle(<span class="keyword">const</span> BodyId i, <span class="keywordtype">float</span> rotation) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> destroyBody(BodyId i) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a>&amp; getPhysicsEngineAdapter() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setTransform(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bodyId, <a class="code" href="structVector2.html">Vector2</a> pos, <span class="keywordtype">float</span> angle) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructBox2DBoxData_html"><div class="ttname"><a href="structBox2DBoxData.html">Box2DBoxData</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:24</div></div>
-<div class="ttc" id="aclassPhysicsEngineAdapter_html"><div class="ttname"><a href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:50</div></div>
+<div class="ttc" id="astructBox2DBoxData_html"><div class="ttname"><a href="structBox2DBoxData.html">Box2DBoxData</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:25</div></div>
+<div class="ttc" id="aclassPhysicsEngineAdapter_html"><div class="ttname"><a href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:51</div></div>
 <div class="ttc" id="aclassRenderingAPI_html"><div class="ttname"><a href="classRenderingAPI.html">RenderingAPI</a></div><div class="ttdef"><b>Definition:</b> RenderingAPI.hpp:34</div></div>
-<div class="ttc" id="astructRPosition_html"><div class="ttname"><a href="structRPosition.html">RPosition</a></div><div class="ttdef"><b>Definition:</b> RPosition.hpp:4</div></div>
-<div class="ttc" id="astructBox2DCircleData_html"><div class="ttname"><a href="structBox2DCircleData.html">Box2DCircleData</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:33</div></div>
-<div class="ttc" id="astructBox2DPolygonData_html"><div class="ttname"><a href="structBox2DPolygonData.html">Box2DPolygonData</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:42</div></div>
+<div class="ttc" id="astructBox2DCircleData_html"><div class="ttname"><a href="structBox2DCircleData.html">Box2DCircleData</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:34</div></div>
+<div class="ttc" id="astructBox2DPolygonData_html"><div class="ttname"><a href="structBox2DPolygonData.html">Box2DPolygonData</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:43</div></div>
 <div class="ttc" id="astructVector2_html"><div class="ttname"><a href="structVector2.html">Vector2</a></div><div class="ttdef"><b>Definition:</b> Vector2.hpp:4</div></div>
 <div class="ttc" id="aclassPhysicsAPI_html"><div class="ttname"><a href="classPhysicsAPI.html">PhysicsAPI</a></div><div class="ttdef"><b>Definition:</b> PhysicsAPI.hpp:21</div></div>
+<div class="ttc" id="astructRTransform_html"><div class="ttname"><a href="structRTransform.html">RTransform</a></div><div class="ttdef"><b>Definition:</b> RTransform.hpp:4</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

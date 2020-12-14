@@ -95,9 +95,9 @@ virtual BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody<
 <tr class="memitem:a8b49bd33353920bdeeedb8e838a0c9f5"><td class="memItemLeft" align="right" valign="top"><a id="a8b49bd33353920bdeeedb8e838a0c9f5"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>destroyBody</b> (BodyId bodyId)=0</td></tr>
 <tr class="separator:a8b49bd33353920bdeeedb8e838a0c9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49c2589105db82ab77397dcc1f33ae5a"><td class="memItemLeft" align="right" valign="top"><a id="a49c2589105db82ab77397dcc1f33ae5a"></a>
-virtual <a class="el" href="structRPosition.html">RPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getRPosition</b> (BodyId bodyId) const =0</td></tr>
-<tr class="separator:a49c2589105db82ab77397dcc1f33ae5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0338bfe8f1db55e123785f8e868118f"><td class="memItemLeft" align="right" valign="top"><a id="aa0338bfe8f1db55e123785f8e868118f"></a>
+virtual <a class="el" href="structRTransform.html">RTransform</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getRPosition</b> (BodyId bodyId) const =0</td></tr>
+<tr class="separator:aa0338bfe8f1db55e123785f8e868118f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7db754bbea61ff189ab7d5ad4988c635"><td class="memItemLeft" align="right" valign="top"><a id="a7db754bbea61ff189ab7d5ad4988c635"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>DebugDraw</b> (const <a class="el" href="classRenderingAPI.html">RenderingAPI</a> &amp;renderingApi, SDL_Renderer &amp;renderer)=0</td></tr>
 <tr class="separator:a7db754bbea61ff189ab7d5ad4988c635"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,6 +110,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setLinearVelo
 <tr class="memitem:a3b0f4f88935f111ad52208064e9a03cd"><td class="memItemLeft" align="right" valign="top"><a id="a3b0f4f88935f111ad52208064e9a03cd"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setFixedRotation</b> (const BodyId i, bool b) const =0</td></tr>
 <tr class="separator:a3b0f4f88935f111ad52208064e9a03cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d9384e4f73a60ffd48fb80b2fcbb971"><td class="memItemLeft" align="right" valign="top"><a id="a7d9384e4f73a60ffd48fb80b2fcbb971"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addForce</b> (const BodyId i, <a class="el" href="structVector2.html">Vector2</a>) const =0</td></tr>
+<tr class="separator:a7d9384e4f73a60ffd48fb80b2fcbb971"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1c7cff29e9bbef5b6f1d91fb7fc16bb"><td class="memItemLeft" align="right" valign="top"><a id="ae1c7cff29e9bbef5b6f1d91fb7fc16bb"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setAngle</b> (const BodyId i, float rotation) const =0</td></tr>
 <tr class="separator:ae1c7cff29e9bbef5b6f1d91fb7fc16bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,6 +122,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>destroyBody</
 <tr class="memitem:a6b57e7d9cf99fe11de4d7e60ea172234"><td class="memItemLeft" align="right" valign="top"><a id="a6b57e7d9cf99fe11de4d7e60ea172234"></a>
 virtual <a class="el" href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getPhysicsEngineAdapter</b> () const =0</td></tr>
 <tr class="separator:a6b57e7d9cf99fe11de4d7e60ea172234"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b9632978ea898b55332f7dfed368a4c"><td class="memItemLeft" align="right" valign="top"><a id="a8b9632978ea898b55332f7dfed368a4c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setTransform</b> (unsigned int bodyId, <a class="el" href="structVector2.html">Vector2</a> pos, float angle) const =0</td></tr>
+<tr class="separator:a8b9632978ea898b55332f7dfed368a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>API/Physics/<a class="el" href="PhysicsAPI_8hpp_source.html">PhysicsAPI.hpp</a></li>
