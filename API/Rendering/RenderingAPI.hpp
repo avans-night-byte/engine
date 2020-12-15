@@ -37,11 +37,10 @@ public:
 
     virtual Spritesheet *createSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const = 0;
 
-    virtual bool loadTexture(const std::string &path, std::string &textureId) = 0;
+    virtual bool loadTexture(const std::string &path, const std::string &textureId) = 0;
 
     virtual void drawRectangle(Vector2 &position, float width, float height, std::string &color, float opacity = 1) const = 0;
 
-    //TODO: SDL_Color in de API weghalen
     virtual void createText(const std::string &fontPath, const std::string &text, const int fontSize, const std::string &hex,
                             const std::string &textureId) const = 0;
 

@@ -18,5 +18,5 @@ public:
     std::string getTextureId();
     void render(float x, float y, int width, int height, double scale, double r);
     void render(float x, float y);
-    static TextWrapper* createText(const RenderingAPI &renderingAPI, std::string &text, const std::string &fontPath, int fontSize, std::string &hex, const std::string& textureId);
+    static TextWrapper* createText(const RenderingAPI &renderingAPI, const std::string &text, const std::string &fontPath, int fontSize, const std::string &hex, const std::string& textureId);
 };

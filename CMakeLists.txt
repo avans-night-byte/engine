@@ -56,6 +56,10 @@ add_executable(NightByte ./Main.cpp
         ./Game/UI/FrameCounter.h
         ./Game/Helpers/GameTime.cpp
         ./Game/Helpers/GameTime.h
+        ./Game/Components/Inventory/InventoryComponent.cpp
+        ./Game/Components/Inventory/InventoryComponent.hpp
+        ./Game/Components/Inventory/InventoryItem.cpp
+        ./Game/Components/Inventory/InventoryItem.hpp
 
         # Engine
         ./Engine/Engine.cpp

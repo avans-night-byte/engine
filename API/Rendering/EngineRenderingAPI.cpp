@@ -52,7 +52,7 @@ void EngineRenderingAPI::drawTexture(const std::string &textureId, float x, floa
  * @param textureId
  * @return success
  */
-bool EngineRenderingAPI::loadTexture(const std::string &path, std::string &textureId)
+bool EngineRenderingAPI::loadTexture(const std::string &path, const std::string &textureId)
 {
     return SDLRenderingAdapter::GetTextureManager()->load(path, textureId);
 }
