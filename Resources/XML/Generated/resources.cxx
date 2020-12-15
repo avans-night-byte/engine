@@ -602,6 +602,30 @@ namespace GameResources
 
   // objectList
   // 
+
+  const objectList::pool_type& objectList::
+  pool () const
+  {
+    return this->pool_.get ();
+  }
+
+  objectList::pool_type& objectList::
+  pool ()
+  {
+    return this->pool_.get ();
+  }
+
+  void objectList::
+  pool (const pool_type& x)
+  {
+    this->pool_.set (x);
+  }
+
+  void objectList::
+  pool (::std::unique_ptr< pool_type > x)
+  {
+    this->pool_.set (std::move (x));
+  }
 }
 
 #include <xsd/cxx/xml/dom/parsing-source.hxx>
@@ -2012,9 +2036,11 @@ namespace GameResources
 
   objectList::
   objectList (const name_type& name,
-              const path_type& path)
+              const path_type& path,
+              const pool_type& pool)
   : ::GameResources::baseGameResource (name,
-                                       path)
+                                       path),
+    pool_ (pool, this)
   {
   }
 
@@ -2022,7 +2048,8 @@ namespace GameResources
   objectList (const objectList& x,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-  : ::GameResources::baseGameResource (x, f, c)
+  : ::GameResources::baseGameResource (x, f, c),
+    pool_ (x.pool_, f, this)
   {
   }
 
@@ -2030,8 +2057,51 @@ namespace GameResources
   objectList (const ::xercesc::DOMElement& e,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-  : ::GameResources::baseGameResource (e, f, c)
+  : ::GameResources::baseGameResource (e, f | ::xml_schema::flags::base, c),
+    pool_ (this)
   {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void objectList::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    this->::GameResources::baseGameResource::parse (p, f);
+
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // pool
+      //
+      if (n.name () == "pool" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< pool_type > r (
+          pool_traits::create (i, f, this));
+
+        if (!pool_.present ())
+        {
+          this->pool_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!pool_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "pool",
+        "");
+    }
   }
 
   objectList* objectList::
@@ -2039,6 +2109,18 @@ namespace GameResources
           ::xml_schema::container* c) const
   {
     return new class objectList (*this, f, c);
+  }
+
+  objectList& objectList::
+  operator= (const objectList& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::GameResources::baseGameResource& > (*this) = x;
+      this->pool_ = x.pool_;
+    }
+
+    return *this;
   }
 
   objectList::

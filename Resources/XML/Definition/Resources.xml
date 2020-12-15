@@ -125,8 +125,9 @@
     </levels>
     <objectLists>
         <objectList>
-            <name>Main</name>
-            <path>XML/Definition/PreObject.xml</path>
+            <name>MainObjects</name>
+            <path>XML/Definition/Objects/MainObjects.xml</path>
+            <pool>XML/Definition/Objects/PoolObjects.xml</pool>
         </objectList>
     </objectLists>
 </gr:resources>

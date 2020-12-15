@@ -35,17 +35,11 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/RenderComponent.cpp
         ./Game/Components/RenderComponent.hpp
         ./Game/Components/TransformComponent.hpp
-        ./Game/Scenes/Example/ExampleScene.cpp
-        ./Game/Scenes/Example/ExampleScene.hpp
         ./Game/Components/PhysicsComponent.cpp
         ./Game/Components/PhysicsComponent.hpp
         ./Game/Components/CharacterComponent.cpp
         ./Game/Components/CharacterComponent.hpp
         ./Game/Components/TransformComponent.cpp
-        ./Game/Scenes/Level1/Level1.cpp
-        ./Game/Scenes/Level1/Level1.hpp
-        ./Game/Scenes/Level10/LevelCharlie.cpp
-        ./Game/Scenes/Level10/LevelCharlie.hpp
         ./Game/Components/NextLevelComponent.cpp
         ./Game/Components/NextLevelComponent.hpp
         ./Game/Components/EntityObject.cpp
@@ -56,6 +50,13 @@ add_executable(NightByte ./Main.cpp
         ./Game/UI/FrameCounter.h
         ./Game/Helpers/GameTime.cpp
         ./Game/Helpers/GameTime.h
+        ./Game/Components/WeaponComponent.cpp
+        ./Game/Components/WeaponComponent.hpp
+        ./Game/Components/BulletComponent.cpp
+        ./Game/Components/BulletComponent.hpp
+        ./Game/Object/Pool.hpp
+        ./Game/Object/GlobalObjects.cpp
+        ./Game/Object/GlobalObjects.hpp
 
         # Engine
         ./Engine/Engine.cpp
@@ -68,7 +69,7 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Audio/AudioType.h
         ./Engine/Physics/PhysicsEngineAdapter.hpp
         ./Engine/Physics/Box2DPhysicsEngineAdapter.hpp
-        Engine/Helpers/Vector2.hpp
+        ./Engine/Helpers/Vector2.hpp
         ./Engine/Physics/BodyType.hpp
         ./Engine/Physics/Box2dPhysicsEngineAdapter.cpp
         ./Engine/Physics/PhysicsDebug/Box2dDrawDebug.hpp
@@ -76,8 +77,8 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Rendering/TMXLevel.hpp
         ./Engine/Physics/ContactListener.hpp
         ./Engine/Physics/ContactHandler.hpp
-        ./Engine/XMLParser/LevelXMLParser.hpp
-        ./Engine/XMLParser/LevelXMLParser.cpp
+        ./Engine/XMLParser/EntityXMLParser.hpp
+        ./Engine/XMLParser/EntityXMLParser.cpp
         ./Engine/XMLParser/MenuParser.cpp
         ./Engine/XMLParser/MenuParser.hpp
         ./Engine/Managers/ResourceManager.cpp
@@ -99,11 +100,11 @@ add_executable(NightByte ./Main.cpp
         ./API/Audio/AudioAPI.h
         ./API/Physics/EnginePhysicsAPI.hpp
         ./API/Physics/PhysicsAPI.hpp
-        API/RTransform.hpp
+        ./API/RTransform.hpp
         ./API/XMLParser/MenuParserAPI.cpp
         ./API/XMLParser/MenuParserAPI.hpp
         ./API/XMLParser/LevelParserAPI.cpp
-        ./API/Physics/BodyHandlerAPI.hpp Game/Components/WeaponComponent.cpp Game/Components/WeaponComponent.hpp Game/Components/BulletComponent.cpp Game/Components/BulletComponent.hpp Game/Pooling/PoolingSystem.hpp)
+        ./API/Physics/BodyHandlerAPI.hpp Game/Object/ObjectLoader.cpp Game/Object/ObjectLoader.hpp)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)

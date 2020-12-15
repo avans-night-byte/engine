@@ -66,7 +66,7 @@ void EngineRenderingAPI::drawRectangle(Vector2 &position, float width, float hei
 
 }
 
-TMXLevel *EngineRenderingAPI::loadLevel(const LevelData &levelData, PhysicsEngineAdapter &physicsEngineAdapter) {
+TMXLevel *EngineRenderingAPI::loadTMX(const LevelData &levelData, PhysicsEngineAdapter &physicsEngineAdapter) {
     return new TMXLevel(levelData.tmxPath.c_str(),
                         levelData.spritesheetPath.c_str(),
                         levelData.spriteId.c_str(),

@@ -47,7 +47,7 @@ public:
 
     virtual void drawBackground(std::string &hex, float alpha) const = 0;
 
-    virtual TMXLevel *loadLevel(const LevelData &levelData, PhysicsEngineAdapter &physicsEngineAdapter) = 0;
+    virtual TMXLevel *loadTMX(const LevelData &levelData, PhysicsEngineAdapter &physicsEngineAdapter) = 0;
 
     virtual void drawLine(Vector2 &a, Vector2 &b) const = 0;
 

@@ -3322,6 +3322,64 @@ namespace GameResources
   {
     public:
     /**
+     * @name pool
+     *
+     * @brief Accessor and modifier functions for the %pool
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::string pool_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< pool_type, char > pool_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const pool_type&
+    pool () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    pool_type&
+    pool ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    pool (const pool_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    pool (::std::unique_ptr< pool_type > p);
+
+    //@}
+
+    /**
      * @name Constructors
      */
     //@{
@@ -3331,7 +3389,8 @@ namespace GameResources
      * initializers for required elements and attributes.
      */
     objectList (const name_type&,
-                const path_type&);
+                const path_type&,
+                const pool_type&);
 
     /**
      * @brief Create an instance from a DOM element.
@@ -3373,6 +3432,17 @@ namespace GameResources
     _clone (::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0) const;
 
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    objectList&
+    operator= (const objectList& x);
+
     //@}
 
     /**
@@ -3380,6 +3450,21 @@ namespace GameResources
      */
     virtual 
     ~objectList ();
+
+    // Implementation.
+    //
+
+    //@cond
+
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< pool_type > pool_;
+
+    //@endcond
   };
 }
 

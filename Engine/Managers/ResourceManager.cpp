@@ -4,6 +4,7 @@
 #include "../XMLParser/MenuParser.hpp"
 #include "../../Game/Game.hpp"
 #include "../../Game/Scenes/LevelBase.hpp"
+#include "../../Game/Object/GlobalObjects.hpp"
 
 #include <iostream>
 #include <memory>
@@ -89,8 +90,7 @@ ResourceManager::ResourceManager(const std::string &resourcePath, bool debug) {
         }
 
         // Discover Object list
-        for (GameResources::objectList &objectList : resources->objectLists().objectList())
-        {
+        for (GameResources::objectList &objectList : resources->objectLists().objectList()) {
             verifyFile("PreObject", OBJECTLIST, objectList.name(), objectList.path());
 
             std::string name = objectList.name();
@@ -157,7 +157,7 @@ void ResourceManager::loadResource(const std::string &resource) {
             inMenu = false;
             MenuParser::getInstance()->PreviousScenes.push(resource);
             auto &level = _levels[resource];
-            if(level->name().c_str() == _currentLevel)
+            if (level->name().c_str() == _currentLevel)
                 break;
 
             const LevelData tmxData = LevelData(_basePath + level->tmxPath(),
@@ -166,6 +166,13 @@ void ResourceManager::loadResource(const std::string &resource) {
                                                 _basePath + level->path());
             Game::getInstance()->initializeLeveL(level->name().c_str(), tmxData);
             _currentLevel = level->name().c_str();
+            break;
+        }
+        case OBJECTLIST: {
+            auto &objectList = _preObjects[resource];
+
+            GlobalObjects::getInstance()->initializeObjects(objectList->name(), _basePath + objectList->path());
+
             break;
         }
     }

@@ -10,7 +10,8 @@
     <xs:element name="objectList">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="object" type="obj:object" maxOccurs="unbounded"/>
+                <!-- TODO: Make a list of objects which have to be pooled -->
+                <xs:element name="object" type="obj:object" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
