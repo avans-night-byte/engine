@@ -56,6 +56,10 @@ add_executable(NightByte ./Main.cpp
         ./Game/UI/FrameCounter.h
         ./Game/Helpers/GameTime.cpp
         ./Game/Helpers/GameTime.h
+        ./Game/Components/Inventory/InventoryComponent.cpp
+        ./Game/Components/Inventory/InventoryComponent.hpp
+        ./Game/Components/Inventory/InventoryItem.cpp
+        ./Game/Components/Inventory/InventoryItem.hpp
 
         # Engine
         ./Engine/Engine.cpp
@@ -68,7 +72,7 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Audio/AudioType.h
         ./Engine/Physics/PhysicsEngineAdapter.hpp
         ./Engine/Physics/Box2DPhysicsEngineAdapter.hpp
-        Engine/Helpers/Vector2.hpp
+        API/Helpers/Vector2.hpp
         ./Engine/Physics/BodyType.hpp
         ./Engine/Physics/Box2dPhysicsEngineAdapter.cpp
         ./Engine/Physics/PhysicsDebug/Box2dDrawDebug.hpp

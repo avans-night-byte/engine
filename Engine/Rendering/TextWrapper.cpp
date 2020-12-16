@@ -8,8 +8,8 @@ std::string TextWrapper::getTextureId() {
     return _textureId;
 }
 
-TextWrapper* TextWrapper::createText(const RenderingAPI& _renderingAPI, std::string &text, const std::string &fontPath, int fontSize,
-                        std::string &hex,
+TextWrapper* TextWrapper::createText(const RenderingAPI& _renderingAPI,  const std::string &text, const std::string &fontPath, int fontSize,
+                        const std::string &hex,
                         const std::string& textureId) {
 
     _renderingAPI.createText(fontPath, text, fontSize, hex, textureId);

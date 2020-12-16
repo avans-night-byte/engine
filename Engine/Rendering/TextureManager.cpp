@@ -1,6 +1,7 @@
 #include "TextureManager.hpp"
 #include "../Engine.hpp"
 #include <iostream>
+#include <debugapi.h>
 
 TextureManager* TextureManager::instance = nullptr;
 
@@ -87,7 +88,6 @@ void TextureManager::drawFrame(std::string &id, SDL_Rect *srcRect, float x, floa
     destRect.y = y;
     destRect.w = srcRect->w * scale;
     destRect.h = srcRect->h * scale;
-
 
     SDL_RenderCopyExF(pRenderer, TextureMap[id], srcRect, &destRect, rotation, pivot, flip); //Load current frame on the buffer game.
 }
