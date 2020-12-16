@@ -60,6 +60,8 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/Inventory/InventoryComponent.hpp
         ./Game/Components/Inventory/InventoryItem.cpp
         ./Game/Components/Inventory/InventoryItem.hpp
+        ./Game/Components/Build/BuildComponent.cpp
+        ./Game/Components/Build/BuildComponent.hpp
 
         # Engine
         ./Engine/Engine.cpp
