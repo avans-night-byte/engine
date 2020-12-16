@@ -5,7 +5,7 @@
 #include <map>
 #include <vector>
 #include <tmxlite/Map.hpp>
-#include "../Helpers/Vector2.hpp"
+#include "../../API/Helpers/Vector2.hpp"
 
 class RenderingAPI;
 class Spritesheet;
