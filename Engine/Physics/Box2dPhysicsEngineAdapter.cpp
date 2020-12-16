@@ -16,6 +16,7 @@ Box2DPhysicsEngineAdapter::createBody(const Box2DBoxData &box2dBoxData) {
     bodyDef.linearDamping = 0.01f;
     bodyDef.angularDamping = 0.1f;
     bodyDef.bullet = box2dBoxData.isBullet;
+    bodyDef.enabled = box2dBoxData.isEnabled;
 
     b2BodyUserData bodyUserData;
     bodyUserData.pointer = (uintptr_t) box2dBoxData.userData;
@@ -23,6 +24,7 @@ Box2DPhysicsEngineAdapter::createBody(const Box2DBoxData &box2dBoxData) {
     bodyDef.userData = bodyUserData;
 
     b2Body *body = world.CreateBody(&bodyDef);
+
 
     b2PolygonShape box;
     box.SetAsBox(size.x, size.y);
@@ -51,6 +53,8 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(const Box2DCircleData &box2DC
     bodyDef.linearDamping = 0.1f;
     bodyDef.angularDamping = 0.1f;
     bodyDef.bullet = box2DCircleData.isBullet;
+    bodyDef.enabled = box2DCircleData.isEnabled;
+
     b2BodyUserData bodyUserData;
     bodyUserData.pointer = (uintptr_t) box2DCircleData.userData;
 
@@ -80,6 +84,7 @@ BodyId Box2DPhysicsEngineAdapter::createBody(const Box2DPolygonData &box2DPolygo
     bodyDef.type = static_cast<b2BodyType>(static_cast<int>(bodyType));
     bodyDef.position.Set(position.x, position.y);
     bodyDef.bullet = box2DPolygonData.isBullet;
+    bodyDef.enabled = box2DPolygonData.isEnabled;
 
     b2BodyUserData bodyUserData;
     bodyUserData.pointer = (uintptr_t) box2DPolygonData.userData;
@@ -193,4 +198,10 @@ void Box2DPhysicsEngineAdapter::addForce(const BodyId i, Vector2 direction) cons
 
     throw std::runtime_error("Add force is not implemented yet");
 //    body->ApplyForce(direction,  ,true)
+}
+
+void Box2DPhysicsEngineAdapter::setEnabled(BodyId id, bool b) const {
+    b2Body *body = bodies.find(id)->second;
+
+    body->SetEnabled(b);
 }

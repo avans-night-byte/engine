@@ -631,6 +631,36 @@ namespace Components
     return isSensor_type (false);
   }
 
+  const physicsComponent::isEnabled_optional& physicsComponent::
+  isEnabled () const
+  {
+    return this->isEnabled_;
+  }
+
+  physicsComponent::isEnabled_optional& physicsComponent::
+  isEnabled ()
+  {
+    return this->isEnabled_;
+  }
+
+  void physicsComponent::
+  isEnabled (const isEnabled_type& x)
+  {
+    this->isEnabled_.set (x);
+  }
+
+  void physicsComponent::
+  isEnabled (const isEnabled_optional& x)
+  {
+    this->isEnabled_ = x;
+  }
+
+  physicsComponent::isEnabled_type physicsComponent::
+  isEnabled_default_value ()
+  {
+    return isEnabled_type (true);
+  }
+
   const physicsComponent::contactHandler_sequence& physicsComponent::
   contactHandler () const
   {
@@ -1577,6 +1607,7 @@ namespace Components
     bodyShape_ (bodyShape, this),
     isBullet_ (this),
     isSensor_ (this),
+    isEnabled_ (this),
     contactHandler_ (this)
   {
   }
@@ -1593,6 +1624,7 @@ namespace Components
     bodyShape_ (std::move (bodyShape), this),
     isBullet_ (this),
     isSensor_ (this),
+    isEnabled_ (this),
     contactHandler_ (this)
   {
   }
@@ -1608,6 +1640,7 @@ namespace Components
     bodyShape_ (x.bodyShape_, f, this),
     isBullet_ (x.isBullet_, f, this),
     isSensor_ (x.isSensor_, f, this),
+    isEnabled_ (x.isEnabled_, f, this),
     contactHandler_ (x.contactHandler_, f, this)
   {
   }
@@ -1623,6 +1656,7 @@ namespace Components
     bodyShape_ (this),
     isBullet_ (this),
     isSensor_ (this),
+    isEnabled_ (this),
     contactHandler_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
@@ -1720,6 +1754,17 @@ namespace Components
         }
       }
 
+      // isEnabled
+      //
+      if (n.name () == "isEnabled" && n.namespace_ ().empty ())
+      {
+        if (!this->isEnabled_)
+        {
+          this->isEnabled_.set (isEnabled_traits::create (i, f, this));
+          continue;
+        }
+      }
+
       // contactHandler
       //
       if (n.name () == "contactHandler" && n.namespace_ ().empty ())
@@ -1782,6 +1827,7 @@ namespace Components
       this->bodyShape_ = x.bodyShape_;
       this->isBullet_ = x.isBullet_;
       this->isSensor_ = x.isSensor_;
+      this->isEnabled_ = x.isEnabled_;
       this->contactHandler_ = x.contactHandler_;
     }
 

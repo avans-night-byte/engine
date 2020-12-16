@@ -626,6 +626,58 @@ namespace GameResources
   {
     this->pool_.set (std::move (x));
   }
+
+
+  // pool
+  // 
+
+  const pool::poolName_type& pool::
+  poolName () const
+  {
+    return this->poolName_.get ();
+  }
+
+  pool::poolName_type& pool::
+  poolName ()
+  {
+    return this->poolName_.get ();
+  }
+
+  void pool::
+  poolName (const poolName_type& x)
+  {
+    this->poolName_.set (x);
+  }
+
+  void pool::
+  poolName (::std::unique_ptr< poolName_type > x)
+  {
+    this->poolName_.set (std::move (x));
+  }
+
+  const pool::poolPath_type& pool::
+  poolPath () const
+  {
+    return this->poolPath_.get ();
+  }
+
+  pool::poolPath_type& pool::
+  poolPath ()
+  {
+    return this->poolPath_.get ();
+  }
+
+  void pool::
+  poolPath (const poolPath_type& x)
+  {
+    this->poolPath_.set (x);
+  }
+
+  void pool::
+  poolPath (::std::unique_ptr< poolPath_type > x)
+  {
+    this->poolPath_.set (std::move (x));
+  }
 }
 
 #include <xsd/cxx/xml/dom/parsing-source.hxx>
@@ -2045,6 +2097,16 @@ namespace GameResources
   }
 
   objectList::
+  objectList (const name_type& name,
+              const path_type& path,
+              ::std::unique_ptr< pool_type > pool)
+  : ::GameResources::baseGameResource (name,
+                                       path),
+    pool_ (std::move (pool), this)
+  {
+  }
+
+  objectList::
   objectList (const objectList& x,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
@@ -2125,6 +2187,124 @@ namespace GameResources
 
   objectList::
   ~objectList ()
+  {
+  }
+
+  // pool
+  //
+
+  pool::
+  pool (const poolName_type& poolName,
+        const poolPath_type& poolPath)
+  : ::xml_schema::type (),
+    poolName_ (poolName, this),
+    poolPath_ (poolPath, this)
+  {
+  }
+
+  pool::
+  pool (const pool& x,
+        ::xml_schema::flags f,
+        ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    poolName_ (x.poolName_, f, this),
+    poolPath_ (x.poolPath_, f, this)
+  {
+  }
+
+  pool::
+  pool (const ::xercesc::DOMElement& e,
+        ::xml_schema::flags f,
+        ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    poolName_ (this),
+    poolPath_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void pool::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // poolName
+      //
+      if (n.name () == "poolName" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< poolName_type > r (
+          poolName_traits::create (i, f, this));
+
+        if (!poolName_.present ())
+        {
+          this->poolName_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // poolPath
+      //
+      if (n.name () == "poolPath" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< poolPath_type > r (
+          poolPath_traits::create (i, f, this));
+
+        if (!poolPath_.present ())
+        {
+          this->poolPath_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!poolName_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "poolName",
+        "");
+    }
+
+    if (!poolPath_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "poolPath",
+        "");
+    }
+  }
+
+  pool* pool::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class pool (*this, f, c);
+  }
+
+  pool& pool::
+  operator= (const pool& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->poolName_ = x.poolName_;
+      this->poolPath_ = x.poolPath_;
+    }
+
+    return *this;
+  }
+
+  pool::
+  ~pool ()
   {
   }
 }

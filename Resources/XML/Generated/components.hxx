@@ -2719,6 +2719,79 @@ namespace Components
     //@}
 
     /**
+     * @name isEnabled
+     *
+     * @brief Accessor and modifier functions for the %isEnabled
+     * optional element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::boolean isEnabled_type;
+
+    /**
+     * @brief Element optional container type.
+     */
+    typedef ::xsd::cxx::tree::optional< isEnabled_type > isEnabled_optional;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< isEnabled_type, char > isEnabled_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element
+     * container.
+     *
+     * @return A constant reference to the optional container.
+     */
+    const isEnabled_optional&
+    isEnabled () const;
+
+    /**
+     * @brief Return a read-write reference to the element container.
+     *
+     * @return A reference to the optional container.
+     */
+    isEnabled_optional&
+    isEnabled ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    isEnabled (const isEnabled_type& x);
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x An optional container with the new value to set.
+     *
+     * If the value is present in @a x then this function makes a copy 
+     * of this value and sets it as the new value of the element.
+     * Otherwise the element container is set the 'not present' state.
+     */
+    void
+    isEnabled (const isEnabled_optional& x);
+
+    /**
+     * @brief Return the default value for the element.
+     *
+     * @return The element's default value.
+     */
+    static isEnabled_type
+    isEnabled_default_value ();
+
+    //@}
+
+    /**
      * @name contactHandler
      *
      * @brief Accessor and modifier functions for the %contactHandler
@@ -2885,6 +2958,7 @@ namespace Components
     ::xsd::cxx::tree::one< bodyShape_type > bodyShape_;
     isBullet_optional isBullet_;
     isSensor_optional isSensor_;
+    isEnabled_optional isEnabled_;
     contactHandler_sequence contactHandler_;
 
     //@endcond

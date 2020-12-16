@@ -171,7 +171,10 @@ void ResourceManager::loadResource(const std::string &resource) {
         case OBJECTLIST: {
             auto &objectList = _preObjects[resource];
 
-            GlobalObjects::getInstance()->initializeObjects(objectList->name(), _basePath + objectList->path());
+            GlobalObjects::getInstance()->initializeObjects(objectList->name(),
+                                                            _basePath + objectList->path(),
+                                                            objectList->pool().poolName(),
+                                                            _basePath + objectList->pool().poolPath());
 
             break;
         }

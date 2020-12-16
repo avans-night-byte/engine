@@ -127,7 +127,10 @@
         <objectList>
             <name>MainObjects</name>
             <path>XML/Definition/Objects/MainObjects.xml</path>
-            <pool>XML/Definition/Objects/PoolObjects.xml</pool>
+            <pool>
+                <poolName>MainPool</poolName>
+                <poolPath>XML/Definition/Objects/PoolObjects.xml</poolPath>
+            </pool>
         </objectList>
     </objectLists>
 </gr:resources>

@@ -65,5 +65,7 @@ public:
 
     void setAngle(BodyId bodyId, float angle) const override;
 
+    void setEnabled(BodyId id, bool b) const override;
+
     [[nodiscard]] bool isWorldLocked() const override;
 };

@@ -104,7 +104,8 @@ add_executable(NightByte ./Main.cpp
         ./API/XMLParser/MenuParserAPI.cpp
         ./API/XMLParser/MenuParserAPI.hpp
         ./API/XMLParser/LevelParserAPI.cpp
-        ./API/Physics/BodyHandlerAPI.hpp Game/Object/ObjectLoader.cpp Game/Object/ObjectLoader.hpp)
+        ./API/Physics/BodyHandlerAPI.hpp Game/Object/ObjectLoader.cpp Game/Object/ObjectLoader.hpp
+        Game/Object/Pool.cpp)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)

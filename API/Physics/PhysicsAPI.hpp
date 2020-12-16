@@ -7,7 +7,9 @@
 #include "../../Engine/Physics/ContactHandler.hpp"
 
 class PhysicsEngineAdapter;
+
 class RenderingAPI;
+
 class SDL_Renderer;
 
 typedef unsigned int BodyId;
@@ -16,6 +18,7 @@ struct Box2DCircleData;
 struct Box2DPolygonData;
 
 struct RTransform;
+
 class Vector2;
 
 class PhysicsAPI {
@@ -46,7 +49,9 @@ public:
 
     virtual void destroyBody(BodyId i) const = 0;
 
-    virtual PhysicsEngineAdapter& getPhysicsEngineAdapter() const = 0;
+    virtual PhysicsEngineAdapter &getPhysicsEngineAdapter() const = 0;
 
     virtual void setTransform(unsigned int bodyId, Vector2 pos, float angle) const = 0;
+
+    virtual void setEnabled(BodyId id, bool b) const = 0;
 };

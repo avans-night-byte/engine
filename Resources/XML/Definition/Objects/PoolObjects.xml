@@ -24,6 +24,7 @@
                     </bodyShape>
                     <isBullet>true</isBullet>
                     <isSensor>false</isSensor>
+                    <isEnabled>false</isEnabled>
                 </physicsComponent>
             </component>
 

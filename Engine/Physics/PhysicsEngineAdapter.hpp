@@ -18,6 +18,7 @@ struct Box2DData {
     Vector2 position;
     bool isBullet = false;
     bool isSensor = false;
+    bool isEnabled = true;
     ContactHandler* userData = nullptr;
 };
 
@@ -82,6 +83,8 @@ public:
     virtual void setFixedRotation(const BodyId bodyId, bool b) = 0;
 
     virtual void setAngle(BodyId bodyId, float angle) const = 0;
+
+    virtual void setEnabled(BodyId id, bool b) const = 0;
 
     virtual bool isWorldLocked() const = 0;
 };

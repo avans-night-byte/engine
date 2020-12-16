@@ -581,6 +581,7 @@ namespace GameResources
   class scene;
   class level;
   class objectList;
+  class pool;
 }
 
 
@@ -3332,7 +3333,7 @@ namespace GameResources
     /**
      * @brief Element type.
      */
-    typedef ::xml_schema::string pool_type;
+    typedef ::GameResources::pool pool_type;
 
     /**
      * @brief Element traits type.
@@ -3391,6 +3392,18 @@ namespace GameResources
     objectList (const name_type&,
                 const path_type&,
                 const pool_type&);
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes
+     * (::std::unique_ptr version).
+     *
+     * This constructor will try to use the passed values directly
+     * instead of making copies.
+     */
+    objectList (const name_type&,
+                const path_type&,
+                ::std::unique_ptr< pool_type >);
 
     /**
      * @brief Create an instance from a DOM element.
@@ -3463,6 +3476,218 @@ namespace GameResources
 
     protected:
     ::xsd::cxx::tree::one< pool_type > pool_;
+
+    //@endcond
+  };
+
+  /**
+   * @brief Class corresponding to the %pool schema type.
+   *
+   * @nosubgrouping
+   */
+  class pool: public ::xml_schema::type
+  {
+    public:
+    /**
+     * @name poolName
+     *
+     * @brief Accessor and modifier functions for the %poolName
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::string poolName_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< poolName_type, char > poolName_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const poolName_type&
+    poolName () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    poolName_type&
+    poolName ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    poolName (const poolName_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    poolName (::std::unique_ptr< poolName_type > p);
+
+    //@}
+
+    /**
+     * @name poolPath
+     *
+     * @brief Accessor and modifier functions for the %poolPath
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::string poolPath_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< poolPath_type, char > poolPath_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const poolPath_type&
+    poolPath () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    poolPath_type&
+    poolPath ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    poolPath (const poolPath_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    poolPath (::std::unique_ptr< poolPath_type > p);
+
+    //@}
+
+    /**
+     * @name Constructors
+     */
+    //@{
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    pool (const poolName_type&,
+          const poolPath_type&);
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    pool (const ::xercesc::DOMElement& e,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    pool (const pool& x,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual pool*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    pool&
+    operator= (const pool& x);
+
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
+    virtual 
+    ~pool ();
+
+    // Implementation.
+    //
+
+    //@cond
+
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< poolName_type > poolName_;
+    ::xsd::cxx::tree::one< poolPath_type > poolPath_;
 
     //@endcond
   };

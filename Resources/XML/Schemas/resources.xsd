@@ -134,7 +134,14 @@
                                     <xs:complexContent>
                                         <xs:extension base="res:baseGameResource">
                                             <xs:sequence>
-                                                <xs:element name="pool" type="xs:string"/>
+                                                <xs:element name="pool">
+                                                    <xs:complexType>
+                                                        <xs:sequence>
+                                                            <xs:element name="poolName" type="xs:string"/>
+                                                            <xs:element name="poolPath" type="xs:string"/>
+                                                        </xs:sequence>
+                                                    </xs:complexType>
+                                                </xs:element>
                                             </xs:sequence>
                                         </xs:extension>
                                     </xs:complexContent>

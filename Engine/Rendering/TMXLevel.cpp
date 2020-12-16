@@ -142,6 +142,7 @@ void TMXLevel::initStaticCollision() {
                         box2DBoxData.bodyType = BodyType::Static;
                         box2DBoxData.userData = handler;
                         box2DBoxData.isSensor = isSensor;
+
                         box2DBoxData.size = Vector2(rect.width / 2 * scale, rect.height / 2 * scale);
                         box2DBoxData.position = Vector2(
                                 (object.getPosition().x * scale) + (rect.width * scale) / 2,

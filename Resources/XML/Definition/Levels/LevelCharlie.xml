@@ -9,59 +9,6 @@
     <name>Level2</name>
 
     <object>
-        <name>bullet1</name>
-        <components>
-            <component>
-                <componentName>PhysicsComponent</componentName>
-                <physicsComponent>
-                    <common:position>
-                        <x>200</x>
-                        <y>200</y>
-                    </common:position>
-                    <friction>1</friction>
-                    <bodyType>Dynamic</bodyType>
-                    <bodyShape>
-                        <box>
-                            <width>30</width>
-                            <height>13</height>
-                        </box>
-                    </bodyShape>
-                    <isBullet>true</isBullet>
-                    <isSensor>false</isSensor>
-                </physicsComponent>
-            </component>
-
-            <component>
-                <componentName>BulletComponent</componentName>
-                <bulletComponent/>
-            </component>
-
-            <component>
-                <componentName>TransformComponent</componentName>
-                <transformComponent>
-                    <common:position>
-                        <x>200</x>
-                        <y>200</y>
-                    </common:position>
-                </transformComponent>
-            </component>
-
-            <component>
-                <componentName>RenderComponent</componentName>
-                <renderComponent>
-                    <spriteId>bullet</spriteId>
-                    <spritePath>../../Resources/Sprites/bullet1.png</spritePath>
-                    <width>60</width>
-                    <height>25</height>
-                </renderComponent>
-            </component>
-
-
-        </components>
-    </object>
-
-
-    <object>
         <name>Sascha Varken</name>
         <components>
             <component>

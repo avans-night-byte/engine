@@ -70,6 +70,10 @@ public:
         _physicsEngineAdapter->setTransform(bodyId, pos, angle);
     }
 
+    void setEnabled(BodyId id, bool b) const override {
+        _physicsEngineAdapter->setEnabled(id, b);
+    }
+
     inline PhysicsEngineAdapter &getPhysicsEngineAdapter() const override {
         return *_physicsEngineAdapter.get();
     }
