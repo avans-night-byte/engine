@@ -4,6 +4,7 @@
 #include "../XMLParser/MenuParser.hpp"
 #include "../../Game/Game.hpp"
 #include "../../Game/Scenes/LevelBase.hpp"
+#include "../../Game/Scenes/PoolLevel.hpp"
 #include "../../Game/Object/GlobalObjects.hpp"
 
 #include <iostream>
