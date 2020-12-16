@@ -47,7 +47,7 @@ public:
             {SDLK_a,            InputAction{.code = "A", .action = "LEFT"}},
             {SDLK_d,            InputAction{.code = "D", .action = "RIGHT"}},
             {SDLK_SPACE,        InputAction{.code = "SPACE", .action = "JUMP"}},
-            {SDLK_e,            InputAction{.code = "E", .action = "INVENTORY"}},
+            {SDLK_i,            InputAction{.code = "I", .action = "INVENTORY"}},
             {SDLK_q,            InputAction{.code = "Q", .action = "QUIT"}},
             {SDLK_BACKSLASH,    InputAction{.code = "\\", .action = "BACKSLASH"}},
             {SDLK_RIGHTBRACKET, InputAction{.code = "]", .action = "RIGHTBRACKET"}},

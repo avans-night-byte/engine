@@ -60,6 +60,14 @@
                 <height>1</height>
             </common:size>
         </sprite>
+        <sprite>
+            <name>inventorySlot</name>
+            <path>Sprites/inventory_slot.png</path>
+            <common:size>
+                <width>1</width>
+                <height>1</height>
+            </common:size>
+        </sprite>
     </sprites>
     <sounds>
         <sound>
