@@ -15,35 +15,44 @@ typedef signed int int32;
 typedef unsigned int BodyId;
 
 
-struct Box2DData {
+class Box2DData {
+public:
     BodyType bodyType;
     Vector2 position;
     bool isBullet = false;
     bool isSensor = false;
     bool isEnabled = true;
     ContactHandler* userData = nullptr;
-};
 
-struct Box2DBoxData : public Box2DData
-{
-    Box2DBoxData() {
+    Box2DData() = default;
+    virtual ~Box2DData() {
 
     }
+};
 
+class Box2DBoxData : public Box2DData
+{
+public:
+    Box2DBoxData() = default;
+    ~Box2DBoxData() {
+
+    }
     Vector2 size;
 };
 
-struct Box2DCircleData : public Box2DData
+class Box2DCircleData : public Box2DData
 {
-    Box2DCircleData() {
+public:
+    Box2DCircleData() = default;
+    ~Box2DCircleData() {
 
     }
-
     float radius;
 };
 
-struct Box2DPolygonData : public Box2DData
+class Box2DPolygonData : public Box2DData
 {
+public:
     Box2DPolygonData() {
 
     }
