@@ -13,9 +13,9 @@ class RenderingAPI;
 class SDL_Renderer;
 
 typedef unsigned int BodyId;
-struct Box2DBoxData;
-struct Box2DCircleData;
-struct Box2DPolygonData;
+class Box2DBoxData;
+class Box2DCircleData;
+class Box2DPolygonData;
 
 struct RTransform;
 
