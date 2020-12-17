@@ -69,124 +69,22 @@ namespace LevelResources
     this->name_.set (std::move (x));
   }
 
-  const level::objects_type& level::
-  objects () const
-  {
-    return this->objects_.get ();
-  }
-
-  level::objects_type& level::
-  objects ()
-  {
-    return this->objects_.get ();
-  }
-
-  void level::
-  objects (const objects_type& x)
-  {
-    this->objects_.set (x);
-  }
-
-  void level::
-  objects (::std::unique_ptr< objects_type > x)
-  {
-    this->objects_.set (std::move (x));
-  }
-
-
-  // objects
-  // 
-
-  const objects::object_sequence& objects::
+  const level::object_sequence& level::
   object () const
   {
     return this->object_;
   }
 
-  objects::object_sequence& objects::
+  level::object_sequence& level::
   object ()
   {
     return this->object_;
   }
 
-  void objects::
+  void level::
   object (const object_sequence& s)
   {
     this->object_ = s;
-  }
-
-
-  // object
-  // 
-
-  const object::name_type& object::
-  name () const
-  {
-    return this->name_.get ();
-  }
-
-  object::name_type& object::
-  name ()
-  {
-    return this->name_.get ();
-  }
-
-  void object::
-  name (const name_type& x)
-  {
-    this->name_.set (x);
-  }
-
-  void object::
-  name (::std::unique_ptr< name_type > x)
-  {
-    this->name_.set (std::move (x));
-  }
-
-  const object::components_type& object::
-  components () const
-  {
-    return this->components_.get ();
-  }
-
-  object::components_type& object::
-  components ()
-  {
-    return this->components_.get ();
-  }
-
-  void object::
-  components (const components_type& x)
-  {
-    this->components_.set (x);
-  }
-
-  void object::
-  components (::std::unique_ptr< components_type > x)
-  {
-    this->components_.set (std::move (x));
-  }
-
-
-  // components
-  // 
-
-  const components::component_sequence& components::
-  component () const
-  {
-    return this->component_;
-  }
-
-  components::component_sequence& components::
-  component ()
-  {
-    return this->component_;
-  }
-
-  void components::
-  component (const component_sequence& s)
-  {
-    this->component_ = s;
   }
 }
 
@@ -198,20 +96,10 @@ namespace LevelResources
   //
 
   level::
-  level (const name_type& name,
-         const objects_type& objects)
+  level (const name_type& name)
   : ::xml_schema::type (),
     name_ (name, this),
-    objects_ (objects, this)
-  {
-  }
-
-  level::
-  level (const name_type& name,
-         ::std::unique_ptr< objects_type > objects)
-  : ::xml_schema::type (),
-    name_ (name, this),
-    objects_ (std::move (objects), this)
+    object_ (this)
   {
   }
 
@@ -221,7 +109,7 @@ namespace LevelResources
          ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
     name_ (x.name_, f, this),
-    objects_ (x.objects_, f, this)
+    object_ (x.object_, f, this)
   {
   }
 
@@ -231,7 +119,7 @@ namespace LevelResources
          ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     name_ (this),
-    objects_ (this)
+    object_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -264,18 +152,15 @@ namespace LevelResources
         }
       }
 
-      // objects
+      // object
       //
-      if (n.name () == "objects" && n.namespace_ ().empty ())
+      if (n.name () == "object" && n.namespace_ ().empty ())
       {
-        ::std::unique_ptr< objects_type > r (
-          objects_traits::create (i, f, this));
+        ::std::unique_ptr< object_type > r (
+          object_traits::create (i, f, this));
 
-        if (!objects_.present ())
-        {
-          this->objects_.set (::std::move (r));
-          continue;
-        }
+        this->object_.push_back (::std::move (r));
+        continue;
       }
 
       break;
@@ -285,13 +170,6 @@ namespace LevelResources
     {
       throw ::xsd::cxx::tree::expected_element< char > (
         "name",
-        "");
-    }
-
-    if (!objects_.present ())
-    {
-      throw ::xsd::cxx::tree::expected_element< char > (
-        "objects",
         "");
     }
   }
@@ -310,7 +188,7 @@ namespace LevelResources
     {
       static_cast< ::xml_schema::type& > (*this) = x;
       this->name_ = x.name_;
-      this->objects_ = x.objects_;
+      this->object_ = x.object_;
     }
 
     return *this;
@@ -318,297 +196,6 @@ namespace LevelResources
 
   level::
   ~level ()
-  {
-  }
-
-  // objects
-  //
-
-  objects::
-  objects ()
-  : ::xml_schema::type (),
-    object_ (this)
-  {
-  }
-
-  objects::
-  objects (const objects& x,
-           ::xml_schema::flags f,
-           ::xml_schema::container* c)
-  : ::xml_schema::type (x, f, c),
-    object_ (x.object_, f, this)
-  {
-  }
-
-  objects::
-  objects (const ::xercesc::DOMElement& e,
-           ::xml_schema::flags f,
-           ::xml_schema::container* c)
-  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-    object_ (this)
-  {
-    if ((f & ::xml_schema::flags::base) == 0)
-    {
-      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
-      this->parse (p, f);
-    }
-  }
-
-  void objects::
-  parse (::xsd::cxx::xml::dom::parser< char >& p,
-         ::xml_schema::flags f)
-  {
-    for (; p.more_content (); p.next_content (false))
-    {
-      const ::xercesc::DOMElement& i (p.cur_element ());
-      const ::xsd::cxx::xml::qualified_name< char > n (
-        ::xsd::cxx::xml::dom::name< char > (i));
-
-      // object
-      //
-      if (n.name () == "object" && n.namespace_ ().empty ())
-      {
-        ::std::unique_ptr< object_type > r (
-          object_traits::create (i, f, this));
-
-        this->object_.push_back (::std::move (r));
-        continue;
-      }
-
-      break;
-    }
-  }
-
-  objects* objects::
-  _clone (::xml_schema::flags f,
-          ::xml_schema::container* c) const
-  {
-    return new class objects (*this, f, c);
-  }
-
-  objects& objects::
-  operator= (const objects& x)
-  {
-    if (this != &x)
-    {
-      static_cast< ::xml_schema::type& > (*this) = x;
-      this->object_ = x.object_;
-    }
-
-    return *this;
-  }
-
-  objects::
-  ~objects ()
-  {
-  }
-
-  // object
-  //
-
-  object::
-  object (const name_type& name,
-          const components_type& components)
-  : ::xml_schema::type (),
-    name_ (name, this),
-    components_ (components, this)
-  {
-  }
-
-  object::
-  object (const name_type& name,
-          ::std::unique_ptr< components_type > components)
-  : ::xml_schema::type (),
-    name_ (name, this),
-    components_ (std::move (components), this)
-  {
-  }
-
-  object::
-  object (const object& x,
-          ::xml_schema::flags f,
-          ::xml_schema::container* c)
-  : ::xml_schema::type (x, f, c),
-    name_ (x.name_, f, this),
-    components_ (x.components_, f, this)
-  {
-  }
-
-  object::
-  object (const ::xercesc::DOMElement& e,
-          ::xml_schema::flags f,
-          ::xml_schema::container* c)
-  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-    name_ (this),
-    components_ (this)
-  {
-    if ((f & ::xml_schema::flags::base) == 0)
-    {
-      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
-      this->parse (p, f);
-    }
-  }
-
-  void object::
-  parse (::xsd::cxx::xml::dom::parser< char >& p,
-         ::xml_schema::flags f)
-  {
-    for (; p.more_content (); p.next_content (false))
-    {
-      const ::xercesc::DOMElement& i (p.cur_element ());
-      const ::xsd::cxx::xml::qualified_name< char > n (
-        ::xsd::cxx::xml::dom::name< char > (i));
-
-      // name
-      //
-      if (n.name () == "name" && n.namespace_ ().empty ())
-      {
-        ::std::unique_ptr< name_type > r (
-          name_traits::create (i, f, this));
-
-        if (!name_.present ())
-        {
-          this->name_.set (::std::move (r));
-          continue;
-        }
-      }
-
-      // components
-      //
-      if (n.name () == "components" && n.namespace_ ().empty ())
-      {
-        ::std::unique_ptr< components_type > r (
-          components_traits::create (i, f, this));
-
-        if (!components_.present ())
-        {
-          this->components_.set (::std::move (r));
-          continue;
-        }
-      }
-
-      break;
-    }
-
-    if (!name_.present ())
-    {
-      throw ::xsd::cxx::tree::expected_element< char > (
-        "name",
-        "");
-    }
-
-    if (!components_.present ())
-    {
-      throw ::xsd::cxx::tree::expected_element< char > (
-        "components",
-        "");
-    }
-  }
-
-  object* object::
-  _clone (::xml_schema::flags f,
-          ::xml_schema::container* c) const
-  {
-    return new class object (*this, f, c);
-  }
-
-  object& object::
-  operator= (const object& x)
-  {
-    if (this != &x)
-    {
-      static_cast< ::xml_schema::type& > (*this) = x;
-      this->name_ = x.name_;
-      this->components_ = x.components_;
-    }
-
-    return *this;
-  }
-
-  object::
-  ~object ()
-  {
-  }
-
-  // components
-  //
-
-  components::
-  components ()
-  : ::xml_schema::type (),
-    component_ (this)
-  {
-  }
-
-  components::
-  components (const components& x,
-              ::xml_schema::flags f,
-              ::xml_schema::container* c)
-  : ::xml_schema::type (x, f, c),
-    component_ (x.component_, f, this)
-  {
-  }
-
-  components::
-  components (const ::xercesc::DOMElement& e,
-              ::xml_schema::flags f,
-              ::xml_schema::container* c)
-  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-    component_ (this)
-  {
-    if ((f & ::xml_schema::flags::base) == 0)
-    {
-      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
-      this->parse (p, f);
-    }
-  }
-
-  void components::
-  parse (::xsd::cxx::xml::dom::parser< char >& p,
-         ::xml_schema::flags f)
-  {
-    for (; p.more_content (); p.next_content (false))
-    {
-      const ::xercesc::DOMElement& i (p.cur_element ());
-      const ::xsd::cxx::xml::qualified_name< char > n (
-        ::xsd::cxx::xml::dom::name< char > (i));
-
-      // component
-      //
-      if (n.name () == "component" && n.namespace_ ().empty ())
-      {
-        ::std::unique_ptr< component_type > r (
-          component_traits::create (i, f, this));
-
-        this->component_.push_back (::std::move (r));
-        continue;
-      }
-
-      break;
-    }
-  }
-
-  components* components::
-  _clone (::xml_schema::flags f,
-          ::xml_schema::container* c) const
-  {
-    return new class components (*this, f, c);
-  }
-
-  components& components::
-  operator= (const components& x)
-  {
-    if (this != &x)
-    {
-      static_cast< ::xml_schema::type& > (*this) = x;
-      this->component_ = x.component_;
-    }
-
-    return *this;
-  }
-
-  components::
-  ~components ()
   {
   }
 }

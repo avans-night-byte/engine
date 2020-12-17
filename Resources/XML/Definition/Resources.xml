@@ -131,4 +131,14 @@
             <tmxPath>TMX/LevelCharlie.tmx</tmxPath>
         </level>
     </levels>
+    <objectLists>
+        <objectList>
+            <name>MainObjects</name>
+            <path>XML/Definition/Objects/MainObjects.xml</path>
+            <pool>
+                <poolName>MainPool</poolName>
+                <poolPath>XML/Definition/Objects/PoolObjects.xml</poolPath>
+            </pool>
+        </objectList>
+    </objectLists>
 </gr:resources>

@@ -17,6 +17,10 @@ struct LoadedObjectData  {
     Vector2 position;
 };
 
+namespace Components {
+    class component;
+}
+
 class TMXLevel {
 private:
     float scale = 4;
@@ -40,7 +44,7 @@ public:
 
     void cleanup();
 
-    void initObjects(std::map<std::string, LoadedObjectData> &outLoadedObjects);
+    void getObjectPositions(const std::multimap<std::string, Components::component *> &outEntities);
 
     void initStaticCollision();
 };
