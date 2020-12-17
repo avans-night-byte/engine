@@ -77,10 +77,10 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classEnginePhysicsAPI.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEnginePhysicsAPI.html">EnginePhysicsAPI</a> : <span class="keyword">public</span> <a class="code" href="classPhysicsAPI.html">PhysicsAPI</a> {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">const</span> unique_ptr&lt;PhysicsEngineAdapter&gt; _physicsEngineAdapter;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">const</span> std::unique_ptr&lt;PhysicsEngineAdapter&gt; _physicsEngineAdapter;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classEnginePhysicsAPI.html">EnginePhysicsAPI</a>() : _physicsEngineAdapter(make_unique&lt;Box2DPhysicsEngineAdapter&gt;()) {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classEnginePhysicsAPI.html">EnginePhysicsAPI</a>() : _physicsEngineAdapter(std::make_unique&lt;Box2DPhysicsEngineAdapter&gt;()) {</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    }</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> update(<span class="keywordtype">float</span> timeStep)<span class="keyword"> override </span>{</div>
@@ -141,18 +141,22 @@ $(function() {
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        _physicsEngineAdapter-&gt;setTransform(bodyId, pos, angle);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">inline</span> <a class="code" href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a> &amp;getPhysicsEngineAdapter()<span class="keyword"> const override </span>{</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> *_physicsEngineAdapter.get();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> setEnabled(BodyId <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> b)<span class="keyword"> const override </span>{</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        _physicsEngineAdapter-&gt;setEnabled(<span class="keywordtype">id</span>, b);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;};</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">inline</span> <a class="code" href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a> &amp;getPhysicsEngineAdapter()<span class="keyword"> const override </span>{</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> *_physicsEngineAdapter.get();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructBox2DBoxData_html"><div class="ttname"><a href="structBox2DBoxData.html">Box2DBoxData</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:27</div></div>
-<div class="ttc" id="aclassPhysicsEngineAdapter_html"><div class="ttname"><a href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:53</div></div>
+<div class="ttc" id="astructBox2DBoxData_html"><div class="ttname"><a href="structBox2DBoxData.html">Box2DBoxData</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:28</div></div>
+<div class="ttc" id="aclassPhysicsEngineAdapter_html"><div class="ttname"><a href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:54</div></div>
 <div class="ttc" id="aclassRenderingAPI_html"><div class="ttname"><a href="classRenderingAPI.html">RenderingAPI</a></div><div class="ttdef"><b>Definition:</b> RenderingAPI.hpp:34</div></div>
-<div class="ttc" id="astructBox2DCircleData_html"><div class="ttname"><a href="structBox2DCircleData.html">Box2DCircleData</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:36</div></div>
-<div class="ttc" id="astructBox2DPolygonData_html"><div class="ttname"><a href="structBox2DPolygonData.html">Box2DPolygonData</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:45</div></div>
+<div class="ttc" id="astructBox2DCircleData_html"><div class="ttname"><a href="structBox2DCircleData.html">Box2DCircleData</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:37</div></div>
+<div class="ttc" id="astructBox2DPolygonData_html"><div class="ttname"><a href="structBox2DPolygonData.html">Box2DPolygonData</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:46</div></div>
 <div class="ttc" id="astructVector2_html"><div class="ttname"><a href="structVector2.html">Vector2</a></div><div class="ttdef"><b>Definition:</b> Vector2.hpp:4</div></div>
-<div class="ttc" id="aclassPhysicsAPI_html"><div class="ttname"><a href="classPhysicsAPI.html">PhysicsAPI</a></div><div class="ttdef"><b>Definition:</b> PhysicsAPI.hpp:21</div></div>
+<div class="ttc" id="aclassPhysicsAPI_html"><div class="ttname"><a href="classPhysicsAPI.html">PhysicsAPI</a></div><div class="ttdef"><b>Definition:</b> PhysicsAPI.hpp:24</div></div>
 <div class="ttc" id="aclassEnginePhysicsAPI_html"><div class="ttname"><a href="classEnginePhysicsAPI.html">EnginePhysicsAPI</a></div><div class="ttdef"><b>Definition:</b> EnginePhysicsAPI.hpp:7</div></div>
 <div class="ttc" id="astructRTransform_html"><div class="ttname"><a href="structRTransform.html">RTransform</a></div><div class="ttdef"><b>Definition:</b> RTransform.hpp:4</div></div>
 <!-- start footer part -->
