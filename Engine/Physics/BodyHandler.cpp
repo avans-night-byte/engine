@@ -2,7 +2,7 @@
 #include "PhysicsEngineAdapter.hpp"
 
 void BodyHandler::update() {
-    if (_physicsAdapter.isWorldLocked() || (onWorldLocked.empty() && onBodiesHandled.empty()))
+    if (_physicsAdapter.isWorldLocked())
         return;
 
     for (auto &it : onWorldLocked) {

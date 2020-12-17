@@ -265,6 +265,30 @@ namespace GameResources
     this->levels_.set (std::move (x));
   }
 
+  const resources::objectLists_type& resources::
+  objectLists () const
+  {
+    return this->objectLists_.get ();
+  }
+
+  resources::objectLists_type& resources::
+  objectLists ()
+  {
+    return this->objectLists_.get ();
+  }
+
+  void resources::
+  objectLists (const objectLists_type& x)
+  {
+    this->objectLists_.set (x);
+  }
+
+  void resources::
+  objectLists (::std::unique_ptr< objectLists_type > x)
+  {
+    this->objectLists_.set (std::move (x));
+  }
+
 
   // textures
   // 
@@ -395,6 +419,28 @@ namespace GameResources
   level (const level_sequence& s)
   {
     this->level_ = s;
+  }
+
+
+  // objectLists
+  // 
+
+  const objectLists::objectList_sequence& objectLists::
+  objectList () const
+  {
+    return this->objectList_;
+  }
+
+  objectLists::objectList_sequence& objectLists::
+  objectList ()
+  {
+    return this->objectList_;
+  }
+
+  void objectLists::
+  objectList (const objectList_sequence& s)
+  {
+    this->objectList_ = s;
   }
 
 
@@ -552,6 +598,86 @@ namespace GameResources
   {
     this->tmxPath_.set (std::move (x));
   }
+
+
+  // objectList
+  // 
+
+  const objectList::pool_type& objectList::
+  pool () const
+  {
+    return this->pool_.get ();
+  }
+
+  objectList::pool_type& objectList::
+  pool ()
+  {
+    return this->pool_.get ();
+  }
+
+  void objectList::
+  pool (const pool_type& x)
+  {
+    this->pool_.set (x);
+  }
+
+  void objectList::
+  pool (::std::unique_ptr< pool_type > x)
+  {
+    this->pool_.set (std::move (x));
+  }
+
+
+  // pool
+  // 
+
+  const pool::poolName_type& pool::
+  poolName () const
+  {
+    return this->poolName_.get ();
+  }
+
+  pool::poolName_type& pool::
+  poolName ()
+  {
+    return this->poolName_.get ();
+  }
+
+  void pool::
+  poolName (const poolName_type& x)
+  {
+    this->poolName_.set (x);
+  }
+
+  void pool::
+  poolName (::std::unique_ptr< poolName_type > x)
+  {
+    this->poolName_.set (std::move (x));
+  }
+
+  const pool::poolPath_type& pool::
+  poolPath () const
+  {
+    return this->poolPath_.get ();
+  }
+
+  pool::poolPath_type& pool::
+  poolPath ()
+  {
+    return this->poolPath_.get ();
+  }
+
+  void pool::
+  poolPath (const poolPath_type& x)
+  {
+    this->poolPath_.set (x);
+  }
+
+  void pool::
+  poolPath (::std::unique_ptr< poolPath_type > x)
+  {
+    this->poolPath_.set (std::move (x));
+  }
 }
 
 #include <xsd/cxx/xml/dom/parsing-source.hxx>
@@ -686,7 +812,8 @@ namespace GameResources
              const sounds_type& sounds,
              const music_type& music,
              const scenes_type& scenes,
-             const levels_type& levels)
+             const levels_type& levels,
+             const objectLists_type& objectLists)
   : ::xml_schema::type (),
     basePath_ (basePath, this),
     textures_ (textures, this),
@@ -694,7 +821,8 @@ namespace GameResources
     sounds_ (sounds, this),
     music_ (music, this),
     scenes_ (scenes, this),
-    levels_ (levels, this)
+    levels_ (levels, this),
+    objectLists_ (objectLists, this)
   {
   }
 
@@ -705,7 +833,8 @@ namespace GameResources
              ::std::unique_ptr< sounds_type > sounds,
              ::std::unique_ptr< music_type > music,
              ::std::unique_ptr< scenes_type > scenes,
-             ::std::unique_ptr< levels_type > levels)
+             ::std::unique_ptr< levels_type > levels,
+             ::std::unique_ptr< objectLists_type > objectLists)
   : ::xml_schema::type (),
     basePath_ (basePath, this),
     textures_ (std::move (textures), this),
@@ -713,7 +842,8 @@ namespace GameResources
     sounds_ (std::move (sounds), this),
     music_ (std::move (music), this),
     scenes_ (std::move (scenes), this),
-    levels_ (std::move (levels), this)
+    levels_ (std::move (levels), this),
+    objectLists_ (std::move (objectLists), this)
   {
   }
 
@@ -728,7 +858,8 @@ namespace GameResources
     sounds_ (x.sounds_, f, this),
     music_ (x.music_, f, this),
     scenes_ (x.scenes_, f, this),
-    levels_ (x.levels_, f, this)
+    levels_ (x.levels_, f, this),
+    objectLists_ (x.objectLists_, f, this)
   {
   }
 
@@ -743,7 +874,8 @@ namespace GameResources
     sounds_ (this),
     music_ (this),
     scenes_ (this),
-    levels_ (this)
+    levels_ (this),
+    objectLists_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -860,6 +992,20 @@ namespace GameResources
         }
       }
 
+      // objectLists
+      //
+      if (n.name () == "objectLists" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< objectLists_type > r (
+          objectLists_traits::create (i, f, this));
+
+        if (!objectLists_.present ())
+        {
+          this->objectLists_.set (::std::move (r));
+          continue;
+        }
+      }
+
       break;
     }
 
@@ -911,6 +1057,13 @@ namespace GameResources
         "levels",
         "");
     }
+
+    if (!objectLists_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "objectLists",
+        "");
+    }
   }
 
   resources* resources::
@@ -933,6 +1086,7 @@ namespace GameResources
       this->music_ = x.music_;
       this->scenes_ = x.scenes_;
       this->levels_ = x.levels_;
+      this->objectLists_ = x.objectLists_;
     }
 
     return *this;
@@ -1435,6 +1589,88 @@ namespace GameResources
   {
   }
 
+  // objectLists
+  //
+
+  objectLists::
+  objectLists ()
+  : ::xml_schema::type (),
+    objectList_ (this)
+  {
+  }
+
+  objectLists::
+  objectLists (const objectLists& x,
+               ::xml_schema::flags f,
+               ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    objectList_ (x.objectList_, f, this)
+  {
+  }
+
+  objectLists::
+  objectLists (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f,
+               ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    objectList_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void objectLists::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // objectList
+      //
+      if (n.name () == "objectList" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< objectList_type > r (
+          objectList_traits::create (i, f, this));
+
+        this->objectList_.push_back (::std::move (r));
+        continue;
+      }
+
+      break;
+    }
+  }
+
+  objectLists* objectLists::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class objectLists (*this, f, c);
+  }
+
+  objectLists& objectLists::
+  operator= (const objectLists& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->objectList_ = x.objectList_;
+    }
+
+    return *this;
+  }
+
+  objectLists::
+  ~objectLists ()
+  {
+  }
+
   // texture
   //
 
@@ -1844,6 +2080,231 @@ namespace GameResources
 
   level::
   ~level ()
+  {
+  }
+
+  // objectList
+  //
+
+  objectList::
+  objectList (const name_type& name,
+              const path_type& path,
+              const pool_type& pool)
+  : ::GameResources::baseGameResource (name,
+                                       path),
+    pool_ (pool, this)
+  {
+  }
+
+  objectList::
+  objectList (const name_type& name,
+              const path_type& path,
+              ::std::unique_ptr< pool_type > pool)
+  : ::GameResources::baseGameResource (name,
+                                       path),
+    pool_ (std::move (pool), this)
+  {
+  }
+
+  objectList::
+  objectList (const objectList& x,
+              ::xml_schema::flags f,
+              ::xml_schema::container* c)
+  : ::GameResources::baseGameResource (x, f, c),
+    pool_ (x.pool_, f, this)
+  {
+  }
+
+  objectList::
+  objectList (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f,
+              ::xml_schema::container* c)
+  : ::GameResources::baseGameResource (e, f | ::xml_schema::flags::base, c),
+    pool_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void objectList::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    this->::GameResources::baseGameResource::parse (p, f);
+
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // pool
+      //
+      if (n.name () == "pool" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< pool_type > r (
+          pool_traits::create (i, f, this));
+
+        if (!pool_.present ())
+        {
+          this->pool_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!pool_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "pool",
+        "");
+    }
+  }
+
+  objectList* objectList::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class objectList (*this, f, c);
+  }
+
+  objectList& objectList::
+  operator= (const objectList& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::GameResources::baseGameResource& > (*this) = x;
+      this->pool_ = x.pool_;
+    }
+
+    return *this;
+  }
+
+  objectList::
+  ~objectList ()
+  {
+  }
+
+  // pool
+  //
+
+  pool::
+  pool (const poolName_type& poolName,
+        const poolPath_type& poolPath)
+  : ::xml_schema::type (),
+    poolName_ (poolName, this),
+    poolPath_ (poolPath, this)
+  {
+  }
+
+  pool::
+  pool (const pool& x,
+        ::xml_schema::flags f,
+        ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    poolName_ (x.poolName_, f, this),
+    poolPath_ (x.poolPath_, f, this)
+  {
+  }
+
+  pool::
+  pool (const ::xercesc::DOMElement& e,
+        ::xml_schema::flags f,
+        ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    poolName_ (this),
+    poolPath_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void pool::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // poolName
+      //
+      if (n.name () == "poolName" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< poolName_type > r (
+          poolName_traits::create (i, f, this));
+
+        if (!poolName_.present ())
+        {
+          this->poolName_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // poolPath
+      //
+      if (n.name () == "poolPath" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< poolPath_type > r (
+          poolPath_traits::create (i, f, this));
+
+        if (!poolPath_.present ())
+        {
+          this->poolPath_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!poolName_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "poolName",
+        "");
+    }
+
+    if (!poolPath_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "poolPath",
+        "");
+    }
+  }
+
+  pool* pool::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class pool (*this, f, c);
+  }
+
+  pool& pool::
+  operator= (const pool& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->poolName_ = x.poolName_;
+      this->poolPath_ = x.poolPath_;
+    }
+
+    return *this;
+  }
+
+  pool::
+  ~pool ()
   {
   }
 }

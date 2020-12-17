@@ -12,7 +12,8 @@ enum ResourceType {
     SOUNDS,
     MUSIC,
     SCENES,
-    LEVELS
+    LEVELS,
+    OBJECTLIST
 };
 
 
@@ -45,6 +46,9 @@ private:
 
     // Levels
     std::map<std::string, std::unique_ptr<GameResources::level>> _levels;
+
+    // PreObject
+    std::map<std::string, std::unique_ptr<GameResources::objectList>> _preObjects;
 
     // Verification
     void verifyFile(const std::string& type, const ResourceType& resourceType, const std::string& name, const std::string& path);
