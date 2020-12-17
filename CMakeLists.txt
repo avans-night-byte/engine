@@ -35,17 +35,11 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/RenderComponent.cpp
         ./Game/Components/RenderComponent.hpp
         ./Game/Components/TransformComponent.hpp
-        ./Game/Scenes/Example/ExampleScene.cpp
-        ./Game/Scenes/Example/ExampleScene.hpp
         ./Game/Components/PhysicsComponent.cpp
         ./Game/Components/PhysicsComponent.hpp
         ./Game/Components/CharacterComponent.cpp
         ./Game/Components/CharacterComponent.hpp
         ./Game/Components/TransformComponent.cpp
-        ./Game/Scenes/Level1/Level1.cpp
-        ./Game/Scenes/Level1/Level1.hpp
-        ./Game/Scenes/Level10/LevelCharlie.cpp
-        ./Game/Scenes/Level10/LevelCharlie.hpp
         ./Game/Components/NextLevelComponent.cpp
         ./Game/Components/NextLevelComponent.hpp
         ./Game/Components/EntityObject.cpp
