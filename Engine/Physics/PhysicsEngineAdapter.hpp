@@ -8,6 +8,8 @@
 #include "../../API/RPosition.hpp"
 #include <vector>
 
+class b2World;
+
 
 typedef signed int int32;
 typedef unsigned int BodyId;
@@ -81,4 +83,6 @@ public:
     virtual void sweepBodies() = 0;
 
     virtual bool bodiesAreDestroyed() = 0;
+
+    virtual const b2World& getWorld() const = 0;
 };

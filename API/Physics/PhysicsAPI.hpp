@@ -18,6 +18,7 @@ struct Box2DPolygonData;
 struct RPosition;
 class Vector2;
 
+class b2World;
 class PhysicsAPI {
 public:
     virtual void update(const float& timeStep, const int32& velocityIterations, const int32& positionIterations) = 0;
@@ -48,4 +49,6 @@ public:
     virtual bool bodiesAreDestroyed() = 0;
 
     virtual void sweepBodies() = 0;
+
+    virtual const b2World& getWorld() const = 0;
 };

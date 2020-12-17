@@ -43,4 +43,6 @@ public:
     void initObjects(std::map<std::string, LoadedObjectData> &outLoadedObjects);
 
     void initStaticCollision();
+
+    void GetGrid(int weights[][30]);
 };

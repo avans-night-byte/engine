@@ -87,4 +87,8 @@ public:
     {
         return physicsEngineAdapter;
     }
+
+    const b2World &getWorld() const override {
+        return physicsEngineAdapter->getWorld();
+    }
 };

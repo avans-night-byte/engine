@@ -5,8 +5,10 @@
 #include "../../Game/Components/NextLevelComponent.hpp"
 #include "../Physics/PhysicsEngineAdapter.hpp"
 #include "../../API/Rendering/RenderingAPI.hpp"
-
-
+#include <box2d.h>
+#include "../../Engine/Vector2.hpp"
+#include <unordered_map>
+#include <map>;
 TMXLevel::TMXLevel(const char *tmxPath,
                    const char *spritesheetPath,
                    const char *spritesheetId,
@@ -29,6 +31,11 @@ TMXLevel::TMXLevel(const char *tmxPath,
     }
 
     this->initStaticCollision(); // TODO: Remove this
+
+
+
+
+    this->GetGrid(nullptr);
 }
 
 void TMXLevel::render(RenderingAPI& renderingAPI) {
@@ -69,6 +76,7 @@ void TMXLevel::render(RenderingAPI& renderingAPI) {
             }
         }
     }
+
 }
 
 void TMXLevel::initObjects(std::map<std::string, LoadedObjectData>& outLoadedObjects) {
@@ -190,5 +198,75 @@ void TMXLevel::cleanup() {
 }
 
 TMXLevel::~TMXLevel() {
+}
+
+
+
+
+class MyQueryCallback : public b2QueryCallback {
+private:
+    bool _hasCollider = false;
+    Vector2 _position;
+    std::map<Vector2, int> &_positions;
+public:
+    MyQueryCallback(Vector2& position, std::map<Vector2, int>& positions) : _positions(positions), _position(position){
+
+    }
+
+    bool ReportFixture(b2Fixture* fixture) {
+        if(fixture->GetBody()->GetType() == b2_staticBody){
+            _hasCollider = true;
+            _positions.emplace(_position, 1);
+        }
+        return true;
+    }
+
+    bool hasCollider(){
+        bool collided = _hasCollider;
+        return collided;
+    }
+};
+
+
+
+
+
+void TMXLevel::GetGrid(int (*weights)[30]) {
+    /**
+     * Create a upper and lower bounawdds. Basicly the bounds of the tile and query for objects.
+     * When a static object is within this bound, mark this square as an obstruction.
+     */ 
+    const auto &world = Game::getInstance()->getPhysicsAPI()->getWorld();
+//    const auto &layers = _tmap.getLayers();
+
+    std::map<Vector2, int> positions;
+
+    std::map<Vector2, int> testPositions;
+    for(int y = 0; y < 30; y++) {
+        for(int x = 0; x < 30; x++){
+            b2AABB aabb;
+
+            float xPos = x * (16 * scale);
+            float yPos = y * (16 * scale);
+
+
+            float lowerX = xPos + (16 * scale);
+            float lowerY = yPos + (16 * scale);
+
+            aabb.lowerBound = b2Vec2{xPos, yPos};
+            aabb.upperBound = b2Vec2{lowerX, lowerY};
+
+dri
+            Vector2 vector = Vector2{(float)x, (float)y};
+            auto* queryCallback = new MyQueryCallback(vector, positions);
+            world.QueryAABB(queryCallback, aabb);
+            bool hasCollided = queryCallback->hasCollider();
+
+            int weight = hasCollided ? 1 : 0;
+            weights[x][y] = weight;
+        }
+    }
+
+    std::cout << "Hallo" << std::endl;
 }
 

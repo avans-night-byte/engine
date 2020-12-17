@@ -180,3 +180,8 @@ void Box2DPhysicsEngineAdapter::setAngle(BodyId bodyId, float angle) const {
 
     body->SetTransform(body->GetPosition(), angle);
 }
+
+
+const b2World& Box2DPhysicsEngineAdapter::getWorld() const{
+    return world;
+}

@@ -63,4 +63,6 @@ public:
     void sweepBodies() override;
 
     bool bodiesAreDestroyed() override;
+
+    const b2World& getWorld() const override;
 };
