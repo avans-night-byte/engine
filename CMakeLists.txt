@@ -61,6 +61,8 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/Inventory/InventoryComponent.hpp
         ./Game/Components/Inventory/InventoryItem.cpp
         ./Game/Components/Inventory/InventoryItem.hpp
+        ./Game/Components/Build/BuildComponent.cpp
+        ./Game/Components/Build/BuildComponent.hpp
         ./Game/Object/ObjectLoader.cpp
         ./Game/Object/ObjectLoader.hpp
         ./Game/Object/Pool.cpp
@@ -78,6 +80,7 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Audio/AudioType.h
         ./Engine/Physics/PhysicsEngineAdapter.hpp
         ./Engine/Physics/Box2DPhysicsEngineAdapter.hpp
+        API/Helpers/Vector2.hpp
         ./Engine/Physics/BodyType.hpp
         ./Engine/Physics/Box2dPhysicsEngineAdapter.cpp
         ./Engine/Physics/PhysicsDebug/Box2dDrawDebug.hpp
