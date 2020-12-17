@@ -1,8 +1,9 @@
 #pragma once
 
 #include "iostream"
-#include <box2d.h>
 #include "ContactHandler.hpp"
+
+#include <box2d.h>
 
 class ContactListener : public b2ContactListener {
     void BeginContact(b2Contact *contact) override {
