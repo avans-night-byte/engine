@@ -8,7 +8,7 @@
 #include "../../API/Helpers/Vector2.hpp"
 
 class RenderingAPI;
-class Spritesheet;
+class SpriteSheet;
 class PhysicsEngineAdapter;
 class EngineRenderingAPI;
 
@@ -26,7 +26,7 @@ private:
     float scale = 4;
 
     tmx::Map _tmap;
-    Spritesheet *_tSpritesheet;
+    SpriteSheet *_tSpritesheet;
     std::map<int, Vector2> _tSpriteMap;
     std::vector<unsigned int> bodies{};
     PhysicsEngineAdapter& physicsEngineAdapter;

@@ -38,8 +38,8 @@ public:
         return _physicsEngineAdapter->getRPosition(bodyId);
     }
 
-    void DebugDraw(const RenderingAPI &renderingApi, SDL_Renderer &renderer) override {
-        _physicsEngineAdapter->DebugDraw(renderingApi.GetRendererAdapter(), renderer);
+    void debugDraw(RenderingAPI &renderingApi) override {
+        _physicsEngineAdapter->debugDraw(renderingApi.GetRendererAdapter());
     }
 
     void GetVelocity(Vector2 &velocity, const BodyId bodyId) const override {
