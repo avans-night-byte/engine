@@ -61,11 +61,12 @@ jobs:
           cmake -S . -B ./build -G "MinGW Makefiles"
 
       - name: Build Executable
+        shell: msys2 {0}
         working-directory: build+
         run: |
-          ls
           cd ./build
-          C:/tools/msys64/mingw64/bin/mingw32-make.exe
+          ls
+          make
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
