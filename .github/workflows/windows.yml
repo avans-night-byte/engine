@@ -58,16 +58,13 @@ jobs:
       - name: Build Project
         shell: msys2 {0}
         run: |
-          ls
-          mkdir ./build
-          cd ./build
-          cmake -S . -B . -G "MinGW Makefiles"
-          ls
+          cmake -S . -B ./build -G "MinGW Makefiles"
 
       - name: Build Executable
         shell: msys2 {0}
-        working-directory: build
-        run: make
+        run: |
+          cd ./build
+          make
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
