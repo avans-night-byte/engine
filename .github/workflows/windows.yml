@@ -29,6 +29,15 @@ jobs:
           git submodule sync --recursive
           git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
 
+      - name: build box2D
+        run: |
+          mkdir build
+          cd build
+          cmake -DBOX2D_BUILD_DOCS=ON ..
+          cmake --build .
+          cmake --build . --target INSTALL
+        working-directory: Libraries/Box2D
+
       - name: Build Project
         run: |
           cmake -S . -B ./build -G "MinGW Makefiles"
