@@ -24,6 +24,8 @@ jobs:
             install: >-
               base-devel
               git
+              gcc
+              make
 
       - uses: actions/checkout@v2
       - name: Check build folder cache
@@ -41,7 +43,8 @@ jobs:
           git submodule sync --recursive
           git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
 
-      - shell: msys2 {0}
+      - name: Install msys2 dependencies
+        shell: msys2 {0}
         run: |
           pacman -S mingw-w64-x86_64-xerces-c --noconfirm
           pacman -S mingw-w64-x86_64-box2d --noconfirm
