@@ -50,6 +50,7 @@ jobs:
           pacman -S mingw-w64-x86_64-box2d --noconfirm
           pacman -S mingw-w64-x86_64-glfw --noconfirm
           pacman -S mingw-w64-x86_64-cmake --noconfirm
+          pacman -S mingw-w64-x86_64-gcc --noconfirm
 
 
       - name: Build Project
