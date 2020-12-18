@@ -130,9 +130,9 @@ inline RTransform Box2DPhysicsEngineAdapter::getRPosition(BodyId bodyId) {
     return RTransform(body->GetPosition().x, body->GetPosition().y, (body->GetAngle() * 180.f / M_PI));
 }
 
-void Box2DPhysicsEngineAdapter::DebugDraw(const SDLRenderingAdapter &renderingAdapter, SDL_Renderer &renderer) {
+void Box2DPhysicsEngineAdapter::debugDraw(const EngineRenderingAdapter &renderingAdapter) {
     if (drawDebug == nullptr) {
-        drawDebug = std::make_unique<Box2dDrawDebug>(renderingAdapter, renderer);
+        drawDebug = std::make_unique<Box2dDrawDebug>(renderingAdapter);
 
         world.SetDebugDraw(drawDebug.get());
 

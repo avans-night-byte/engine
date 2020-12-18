@@ -51,7 +51,7 @@ public:
 
     inline void destroyBody(BodyId bodyID) override;
 
-    void DebugDraw(const SDLRenderingAdapter &renderingAdapter, SDL_Renderer &renderer) override;
+    void debugDraw(const EngineRenderingAdapter &renderingAdapter) override;
 
     void getVelocity(Vector2 &velocity, BodyId bodyId) const override;
 

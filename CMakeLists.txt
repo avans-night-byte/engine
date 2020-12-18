@@ -74,7 +74,7 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
         ./Engine/Audio/Adapter/SDLAudioEngineAdapter.cpp
         ./Engine/Audio/Adapter/SDLAudioEngineAdapter.hpp
-        ./Engine/Rendering/Spritesheet.cpp
+        Engine/Rendering/SpriteSheet.cpp
         ./Engine/Rendering/TextureManager.cpp
         ./Engine/Rendering/Adapter/SDLRenderingAdaper.cpp
         ./Engine/Audio/AudioType.h
@@ -98,7 +98,7 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Rendering/TextWrapper.hpp
         ./Engine/Physics/BodyHandler.cpp
         ./Engine/Physics/BodyHandler.hpp
-        ./Engine/Rendering/Adapter/EngineRenderingAdapter.h
+        ./Engine/Rendering/Adapter/EngineRenderingAdapter.hpp
 
 
         # API

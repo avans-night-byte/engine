@@ -35,7 +35,7 @@ public:
 
     virtual RTransform getRPosition(BodyId bodyId) const = 0;
 
-    virtual void DebugDraw(const RenderingAPI &renderingApi, SDL_Renderer &renderer) = 0;
+    virtual void debugDraw(RenderingAPI &renderingApi) = 0;
 
     virtual void GetVelocity(Vector2 &velocity, const BodyId bodyId) const = 0;
 

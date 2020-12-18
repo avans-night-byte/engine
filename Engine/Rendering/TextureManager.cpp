@@ -1,5 +1,7 @@
 #include "TextureManager.hpp"
 #include "../Engine.hpp"
+#include "Adapter/SDLRenderingAdapter.hpp"
+
 #include <iostream>
 #include <debugapi.h>
 
@@ -36,8 +38,9 @@ bool TextureManager::load(const std::string& path, const std::string& textureId)
         // Failed loading image.
         return false;
     }
-    
-    SDL_Texture* surfaceTexture = SDL_CreateTextureFromSurface(Engine::getInstance()->getRenderer(), tmpSurface);
+
+    auto &renderAdapter = dynamic_cast<SDLRenderingAdapter&>(Engine::getInstance()->getRenderingAdapter());
+    SDL_Texture* surfaceTexture = SDL_CreateTextureFromSurface(&renderAdapter.getRenderer(), tmpSurface);
 
     if(surfaceTexture == nullptr){
         return false;

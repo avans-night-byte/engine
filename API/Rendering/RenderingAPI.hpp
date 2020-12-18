@@ -2,11 +2,11 @@
 
 class SDL_Color;
 
-class Spritesheet;
+class SpriteSheet;
 
 class PhysicsEngineAdapter;
 
-class SDLRenderingAdapter;
+class EngineRenderingAdapter;
 
 class Vector2;
 
@@ -35,7 +35,7 @@ class RenderingAPI {
 public:
     virtual void drawTexture(const std::string &textureId, float x, float y, float width, float height, double scale, double r) const = 0;
 
-    virtual Spritesheet *createSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const = 0;
+    virtual SpriteSheet *createSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const = 0;
 
     virtual bool loadTexture(const std::string &path, const std::string &textureId) = 0;
 
@@ -52,7 +52,5 @@ public:
 
     virtual void render() const = 0;
 
-
-public:
-    [[nodiscard]] virtual const SDLRenderingAdapter &GetRendererAdapter() const = 0;
+    [[nodiscard]] virtual EngineRenderingAdapter &GetRendererAdapter() = 0;
 };

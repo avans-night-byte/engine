@@ -81,7 +81,7 @@ public:
 
     virtual void destroyBody(BodyId BodyID) = 0;
 
-    virtual void DebugDraw(const SDLRenderingAdapter &renderingAdapter, SDL_Renderer &renderer) = 0;
+    virtual void debugDraw(const EngineRenderingAdapter &renderingAdapter) = 0;
 
     virtual void getVelocity(Vector2 &velocity, BodyId bodyId) const = 0;
 

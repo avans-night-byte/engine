@@ -1,10 +1,9 @@
 #include "EngineRenderingAPI.hpp"
-
 #include "../../Engine/Rendering/TMXLevel.hpp"
+
 #include <utility>
 
-TextureManager *EngineRenderingAPI::GetTextureManager()
-{
+TextureManager *EngineRenderingAPI::GetTextureManager() {
     return SDLRenderingAdapter::GetTextureManager();
 }
 
@@ -15,21 +14,24 @@ TextureManager *EngineRenderingAPI::GetTextureManager()
  * @param columns
  * @param width
  * @param height
- * @return Spritesheet
+ * @return SpriteSheet
  */
-Spritesheet *EngineRenderingAPI::createSpriteSheet(const std::string path, std::string spriteSheetId, int width, int height) const
-{
-    return _adapter->createSpriteSheet(path, spriteSheetId, width, height);
+SpriteSheet *
+EngineRenderingAPI::createSpriteSheet(const std::string path, std::string spriteSheetId, int width, int height) const {
+    return _adapter.createSpriteSheet(path, spriteSheetId, width, height);
 }
 
-Spritesheet *EngineRenderingAPI::createSpriteSheet(const std::string &path, const std::string &jsonPath, std::string &spriteSheetId)
-{
-    return _adapter->createSpriteSheet(path, jsonPath, spriteSheetId, _renderer);
+SpriteSheet *EngineRenderingAPI::createSpriteSheet(const std::string &path, const std::string &jsonPath,
+                                                   std::string &spriteSheetId) {
+    return _adapter.createSpriteSheet(path, jsonPath, spriteSheetId);
 }
 
-void EngineRenderingAPI::createText(const std::string &fontName, const std::string &text, const int fontSize, const std::string &hex,
+void EngineRenderingAPI::createText(const std::string &fontName,
+                                    const std::string &text,
+                                    const int fontSize,
+                                    const std::string &hex,
                                     const std::string &textureId) const {
-    _adapter->createText(fontName, text, fontSize, hex, textureId, _renderer);
+    _adapter.createText(fontName, text, fontSize, hex, textureId);
 }
 
 
@@ -42,9 +44,10 @@ void EngineRenderingAPI::createText(const std::string &fontName, const std::stri
  * @param scale
  * @param r
  */
-void EngineRenderingAPI::drawTexture(const std::string &textureId, float x, float y, float width, float height, double scale, double r) const
-{
-    return _adapter->drawTexture(textureId, x, y, width, height, scale, r, _renderer, SDL_FLIP_NONE);
+void
+EngineRenderingAPI::drawTexture(const std::string &textureId, float x, float y, float width, float height, double scale,
+                                double r) const {
+    return _adapter.drawTexture(textureId, x, y, width, height, scale, r, SDL_FLIP_NONE);
 }
 
 /**
@@ -52,17 +55,13 @@ void EngineRenderingAPI::drawTexture(const std::string &textureId, float x, floa
  * @param textureId
  * @return success
  */
-bool EngineRenderingAPI::loadTexture(const std::string &path, const std::string &textureId)
-{
+bool EngineRenderingAPI::loadTexture(const std::string &path, const std::string &textureId) {
     return SDLRenderingAdapter::GetTextureManager()->load(path, textureId);
 }
 
-SDLRenderingAdapter &EngineRenderingAPI::GetRendererAdapter() const {
-    return *_adapter;
-}
-
-void EngineRenderingAPI::drawRectangle(Vector2 &position, float width, float height, std::string& color, float opacity) const {
-    _adapter->drawRectangle(position, width, height, color, opacity, _renderer);
+void EngineRenderingAPI::drawRectangle(Vector2 &position, float width, float height, std::string &color,
+                                       float opacity) const {
+    _adapter.drawRectangle(position, width, height, color, opacity);
 
 }
 
@@ -75,16 +74,19 @@ TMXLevel *EngineRenderingAPI::loadTMX(const LevelData &levelData, PhysicsEngineA
 }
 
 void EngineRenderingAPI::drawBackground(std::string &hex, float alpha) const {
-    _adapter->drawBackground(hex, alpha, _renderer);
+    _adapter.drawBackground(hex, alpha);
 
 }
 
 
 void EngineRenderingAPI::drawLine(Vector2 &a, Vector2 &b) const {
-    SDL_RenderDrawLine(_renderer, a.x, a.y, b.x, b.y);
-
+    _adapter.drawLine(a, b);
 }
 
 void EngineRenderingAPI::render() const {
-    _adapter->render(_renderer);
+    _adapter.render();
+}
+
+EngineRenderingAdapter &EngineRenderingAPI::GetRendererAdapter() {
+    return _adapter;
 }

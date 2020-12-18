@@ -12,19 +12,18 @@ class TextureManager;
  */
 class EngineRenderingAPI : public RenderingAPI {
 private:
-    SDLRenderingAdapter *_adapter;
-    SDL_Renderer *_renderer;
+    EngineRenderingAdapter& _adapter;
 
 public:
-    EngineRenderingAPI() : _renderer(Engine::getInstance()->getRenderer()), _adapter(new SDLRenderingAdapter{}) {
+    EngineRenderingAPI() : _adapter(Engine::getInstance()->getRenderingAdapter()) {
 
     };
 
     void drawTexture(const std::string &textureId, float x, float y, float width, float height, double scale, double r) const override;
 
-    Spritesheet *createSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const override;
+    SpriteSheet *createSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const override;
 
-    Spritesheet *createSpriteSheet(const std::string &path, const std::string &jsonPath, std::string &spriteSheetId);
+    SpriteSheet *createSpriteSheet(const std::string &path, const std::string &jsonPath, std::string &spriteSheetId);
 
     void createText(const std::string &fontName, const std::string &text, int fontSize, const std::string &hex,
                     const std::string &textureId) const override;
@@ -43,6 +42,5 @@ public:
 
     void render() const override;
 
-private:
-    [[nodiscard]] SDLRenderingAdapter &GetRendererAdapter() const override;
+    [[nodiscard]] EngineRenderingAdapter &GetRendererAdapter() override;
 };
