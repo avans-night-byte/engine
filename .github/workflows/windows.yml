@@ -43,8 +43,8 @@ jobs:
 
       - shell: msys2 {0}
         run: |
-          pacman -S mingw-w64-x86_64-xerces-c
-          pacman -S mingw-w64-x86_64-box2d
+          pacman -S mingw-w64-x86_64-xerces-c --noconfirm
+          pacman -S mingw-w64-x86_64-box2d --noconfirm
           pacman -S mingw-w64-x86_64-glfw --noconfirm
 
       - name: Build Project
