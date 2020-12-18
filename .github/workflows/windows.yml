@@ -61,8 +61,8 @@ jobs:
           cmake -S . -B ./build -G "MinGW Makefiles"
 
       - name: Build Executable
+        working-directory: build
         run: |
-          cd build
           make
 
       - name: Upload Artifacts
