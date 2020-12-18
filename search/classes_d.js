@@ -11,5 +11,5 @@ var searchData=
   ['sounds_723',['sounds',['../classGameResources_1_1sounds.html',1,'GameResources']]],
   ['sprite_724',['sprite',['../classGameResources_1_1sprite.html',1,'GameResources']]],
   ['sprites_725',['sprites',['../classGameResources_1_1sprites.html',1,'GameResources']]],
-  ['spritesheet_726',['Spritesheet',['../classSpritesheet.html',1,'']]]
+  ['spritesheet_726',['SpriteSheet',['../classSpriteSheet.html',1,'']]]
 ];

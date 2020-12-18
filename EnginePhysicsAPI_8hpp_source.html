@@ -109,8 +109,8 @@ $(function() {
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">return</span> _physicsEngineAdapter-&gt;getRPosition(bodyId);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> DebugDraw(<span class="keyword">const</span> <a class="code" href="classRenderingAPI.html">RenderingAPI</a> &amp;renderingApi, SDL_Renderer &amp;renderer)<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        _physicsEngineAdapter-&gt;DebugDraw(renderingApi.GetRendererAdapter(), renderer);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> debugDraw(<a class="code" href="classRenderingAPI.html">RenderingAPI</a> &amp;renderingApi)<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        _physicsEngineAdapter-&gt;debugDraw(renderingApi.GetRendererAdapter());</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> GetVelocity(<a class="code" href="structVector2.html">Vector2</a> &amp;velocity, <span class="keyword">const</span> BodyId bodyId)<span class="keyword"> const override </span>{</div>

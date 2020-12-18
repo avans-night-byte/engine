@@ -85,11 +85,11 @@ Inheritance diagram for EngineRenderingAPI:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a267cad658cecf1fd88aa57863e9c3f79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#a267cad658cecf1fd88aa57863e9c3f79">drawTexture</a> (const std::string &amp;textureId, float x, float y, float width, float height, double scale, double r) const override</td></tr>
 <tr class="separator:a267cad658cecf1fd88aa57863e9c3f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac20568fa914fe2a3efca021fefeb5e6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSpritesheet.html">Spritesheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#ac20568fa914fe2a3efca021fefeb5e6e">createSpriteSheet</a> (std::string path, std::string spriteSheetId, int width, int height) const override</td></tr>
-<tr class="separator:ac20568fa914fe2a3efca021fefeb5e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54b558504a98f3e122cd22f260741bc7"><td class="memItemLeft" align="right" valign="top"><a id="a54b558504a98f3e122cd22f260741bc7"></a>
-<a class="el" href="classSpritesheet.html">Spritesheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createSpriteSheet</b> (const std::string &amp;path, const std::string &amp;jsonPath, std::string &amp;spriteSheetId)</td></tr>
-<tr class="separator:a54b558504a98f3e122cd22f260741bc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f96a0be57fd4f0d8f7d8fb83e1550bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSpriteSheet.html">SpriteSheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#a1f96a0be57fd4f0d8f7d8fb83e1550bc">createSpriteSheet</a> (std::string path, std::string spriteSheetId, int width, int height) const override</td></tr>
+<tr class="separator:a1f96a0be57fd4f0d8f7d8fb83e1550bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f3cf98a50be1ee0a100fb26284d1971"><td class="memItemLeft" align="right" valign="top"><a id="a1f3cf98a50be1ee0a100fb26284d1971"></a>
+<a class="el" href="classSpriteSheet.html">SpriteSheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createSpriteSheet</b> (const std::string &amp;path, const std::string &amp;jsonPath, std::string &amp;spriteSheetId)</td></tr>
+<tr class="separator:a1f3cf98a50be1ee0a100fb26284d1971"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58d9a0255a421a280679e948d3697e3b"><td class="memItemLeft" align="right" valign="top"><a id="a58d9a0255a421a280679e948d3697e3b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>createText</b> (const std::string &amp;fontName, const std::string &amp;text, int fontSize, const std::string &amp;hex, const std::string &amp;textureId) const override</td></tr>
 <tr class="separator:a58d9a0255a421a280679e948d3697e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,6 +110,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>drawBackground</b> (s
 <tr class="memitem:a1d7d72d3fb2b7389fe587a9f155b06b3"><td class="memItemLeft" align="right" valign="top"><a id="a1d7d72d3fb2b7389fe587a9f155b06b3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>render</b> () const override</td></tr>
 <tr class="separator:a1d7d72d3fb2b7389fe587a9f155b06b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaba9feb3ad570000568444854d465ca"><td class="memItemLeft" align="right" valign="top"><a id="afaba9feb3ad570000568444854d465ca"></a>
+<a class="el" href="classEngineRenderingAdapter.html">EngineRenderingAdapter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetRendererAdapter</b> () override</td></tr>
+<tr class="separator:afaba9feb3ad570000568444854d465ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -120,8 +123,8 @@ static <a class="el" href="classTextureManager.html">TextureManager</a> *&#160;<
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class acts as a facade for the _engine, it stores and references variables and constants needed for rendering and resource allocation like textures. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac20568fa914fe2a3efca021fefeb5e6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac20568fa914fe2a3efca021fefeb5e6e">&#9670;&nbsp;</a></span>createSpriteSheet()</h2>
+<a id="a1f96a0be57fd4f0d8f7d8fb83e1550bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f96a0be57fd4f0d8f7d8fb83e1550bc">&#9670;&nbsp;</a></span>createSpriteSheet()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,7 +133,7 @@ static <a class="el" href="classTextureManager.html">TextureManager</a> *&#160;<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classSpritesheet.html">Spritesheet</a> * EngineRenderingAPI::createSpriteSheet </td>
+          <td class="memname"><a class="el" href="classSpriteSheet.html">SpriteSheet</a> * EngineRenderingAPI::createSpriteSheet </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>path</em>, </td>
@@ -176,7 +179,7 @@ static <a class="el" href="classTextureManager.html">TextureManager</a> *&#160;<
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classSpritesheet.html">Spritesheet</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classSpriteSheet.html">SpriteSheet</a> </dd></dl>
 
 <p>Implements <a class="el" href="classRenderingAPI.html">RenderingAPI</a>.</p>
 

@@ -62,6 +62,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classEngineRenderingAdapter-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">EngineRenderingAdapter Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -76,8 +77,45 @@ Inheritance diagram for EngineRenderingAdapter:</div>
 <area href="classSDLRenderingAdapter.html" alt="SDLRenderingAdapter" shape="rect" coords="0,56,154,80"/>
   </map>
 </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ab355fbf28ef296a30d35851cca822825"><td class="memItemLeft" align="right" valign="top"><a id="ab355fbf28ef296a30d35851cca822825"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>drawTexture</b> (std::string textureId, float x, float y, float width, float height, double scale, double r, SDL_RendererFlip flip=SDL_FLIP_NONE)=0</td></tr>
+<tr class="separator:ab355fbf28ef296a30d35851cca822825"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a142d677b08f88fc6a86210f7d4c14920"><td class="memItemLeft" align="right" valign="top"><a id="a142d677b08f88fc6a86210f7d4c14920"></a>
+virtual <a class="el" href="classSpriteSheet.html">SpriteSheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createSpriteSheet</b> (const std::string &amp;path, std::string &amp;spriteSheetId, int width, int height)=0</td></tr>
+<tr class="separator:a142d677b08f88fc6a86210f7d4c14920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a995e69cd8085c676bf3af3b27ace5525"><td class="memItemLeft" align="right" valign="top"><a id="a995e69cd8085c676bf3af3b27ace5525"></a>
+virtual <a class="el" href="classSpriteSheet.html">SpriteSheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createSpriteSheet</b> (const std::string &amp;path, const std::string &amp;jsonPath, std::string &amp;spriteSheetId)=0</td></tr>
+<tr class="separator:a995e69cd8085c676bf3af3b27ace5525"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7272bfd815949f745e0b02845a0e8aab"><td class="memItemLeft" align="right" valign="top"><a id="a7272bfd815949f745e0b02845a0e8aab"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>drawBox</b> (const <a class="el" href="structVector2.html">Vector2</a> *vertices, int32 vertexCount) const =0</td></tr>
+<tr class="separator:a7272bfd815949f745e0b02845a0e8aab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac28e143d60c963a64e93e5a6ff6fce23"><td class="memItemLeft" align="right" valign="top"><a id="ac28e143d60c963a64e93e5a6ff6fce23"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>drawLine</b> (const <a class="el" href="structVector2.html">Vector2</a> &amp;begin, const <a class="el" href="structVector2.html">Vector2</a> &amp;end) const =0</td></tr>
+<tr class="separator:ac28e143d60c963a64e93e5a6ff6fce23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a750328a5c3975a15ffbc806802bd52e4"><td class="memItemLeft" align="right" valign="top"><a id="a750328a5c3975a15ffbc806802bd52e4"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>drawCircle</b> (const <a class="el" href="structVector2.html">Vector2</a> &amp;center, const float &amp;radius) const =0</td></tr>
+<tr class="separator:a750328a5c3975a15ffbc806802bd52e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8d54646e845d8a84cd42f7773521262"><td class="memItemLeft" align="right" valign="top"><a id="ad8d54646e845d8a84cd42f7773521262"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>drawRectangle</b> (<a class="el" href="structVector2.html">Vector2</a> &amp;vector2, float width, float height, const std::string &amp;color, float opacity) const =0</td></tr>
+<tr class="separator:ad8d54646e845d8a84cd42f7773521262"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaf07fc9db0555df6edbe8169ed9759a"><td class="memItemLeft" align="right" valign="top"><a id="abaf07fc9db0555df6edbe8169ed9759a"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>createText</b> (const std::string &amp;fontName, const std::string &amp;text, int fontSize, const std::string &amp;hex, const std::string &amp;textureId)=0</td></tr>
+<tr class="separator:abaf07fc9db0555df6edbe8169ed9759a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31bd7474ba68ca096cd6524829954a34"><td class="memItemLeft" align="right" valign="top"><a id="a31bd7474ba68ca096cd6524829954a34"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>drawBackground</b> (std::string &amp;color, float alpha)=0</td></tr>
+<tr class="separator:a31bd7474ba68ca096cd6524829954a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bbc22cbeac8fff6aff28184ad13b3a9"><td class="memItemLeft" align="right" valign="top"><a id="a0bbc22cbeac8fff6aff28184ad13b3a9"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>render</b> ()=0</td></tr>
+<tr class="separator:a0bbc22cbeac8fff6aff28184ad13b3a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b3f14f88a58d7eedef4aa8352078813"><td class="memItemLeft" align="right" valign="top"><a id="a2b3f14f88a58d7eedef4aa8352078813"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>deleteRenderer</b> ()=0</td></tr>
+<tr class="separator:a2b3f14f88a58d7eedef4aa8352078813"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Engine/Rendering/Adapter/<a class="el" href="EngineRenderingAdapter_8h_source.html">EngineRenderingAdapter.h</a></li>
+<li>Engine/Rendering/Adapter/<a class="el" href="EngineRenderingAdapter_8hpp_source.html">EngineRenderingAdapter.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
