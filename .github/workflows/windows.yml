@@ -47,10 +47,14 @@ jobs:
           pacman -S mingw-w64-x86_64-box2d --noconfirm
           pacman -S mingw-w64-x86_64-glfw --noconfirm
 
-      - uses: actions/checkout@v2
-      - name: Build Project
-        run: |
-          cmake -S . -B ./build -G "MinGW Makefiles"
+
+      - name: 'build with CMake'
+        uses: lukka/run-cmake@v3
+        with:
+          cmakeListsOrSettingsJson: CMakeListsTxtAdvanced
+          cmakeListsTxtPath: '${{ github.workspace }}/CMakeLists.txt'
+          buildDirectory: '${{ github.workspace }}/build'
+          cmakeGenerator: 'MinGW Makefiles'
 
       - name: Build Executable
         run: |
