@@ -46,12 +46,12 @@ jobs:
           pacman -S mingw-w64-x86_64-xerces-c --noconfirm
           pacman -S mingw-w64-x86_64-box2d --noconfirm
           pacman -S mingw-w64-x86_64-glfw --noconfirm
+          pacman -S mingw-w64-x86_64-cmake --noconfirm
 
 
-      - name: 'build with CMake'
-        uses: lukka/run-cmake@v3
+      - name: Build Project
         run: |
-          cmake -S . -B ./build -G "MinGW Makefiles" 
+          cmake -S . -B ./build -G "MinGW Makefiles"
 
       - name: Build Executable
         run: |
