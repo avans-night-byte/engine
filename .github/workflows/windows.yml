@@ -54,6 +54,7 @@ jobs:
 
 
       - name: Build Project
+        shell: msys2 {0}
         run: |
           cmake -S . -B ./build -G "MinGW Makefiles"
 
