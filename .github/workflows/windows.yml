@@ -61,6 +61,7 @@ jobs:
           cmake -S . -B ./build -G "MinGW Makefiles"
 
       - name: Build Executable
+        working-directory: build
         run: C:\tools\msys64\mingw64\bin\mingw32-make.exe
 
       - name: Upload Artifacts
