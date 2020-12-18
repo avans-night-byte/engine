@@ -45,7 +45,7 @@ jobs:
         run: |
           pacman -S mingw-w64-x86_64-xerces-c
           pacman -S mingw-w64-x86_64-box2d
-          pacman -S mingw-w64-x86_64-glfw
+          pacman -S mingw-w64-x86_64-glfw --noconfirm
 
       - name: Build Project
         run: |
