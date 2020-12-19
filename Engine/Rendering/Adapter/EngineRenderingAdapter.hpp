@@ -11,8 +11,6 @@ public:
 
     virtual SpriteSheet *createSpriteSheet(const std::string &path, std::string &spriteSheetId, int width, int height) = 0;
 
-    virtual SpriteSheet *createSpriteSheet(const std::string &path, const std::string &jsonPath, std::string &spriteSheetId) = 0;
-
     virtual void drawBox(const Vector2 *vertices, int32 vertexCount) const = 0;
 
     virtual void drawLine(const Vector2 &begin, const Vector2 &end) const = 0;

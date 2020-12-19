@@ -21,9 +21,7 @@ public:
 
     void drawTexture(const std::string &textureId, float x, float y, float width, float height, double scale, double r) const override;
 
-    SpriteSheet *createSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const override;
-
-    SpriteSheet *createSpriteSheet(const std::string &path, const std::string &jsonPath, std::string &spriteSheetId);
+    SpriteSheet *loadSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const override;
 
     void createText(const std::string &fontName, const std::string &text, int fontSize, const std::string &hex,
                     const std::string &textureId) const override;

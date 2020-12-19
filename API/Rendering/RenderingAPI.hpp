@@ -35,7 +35,7 @@ class RenderingAPI {
 public:
     virtual void drawTexture(const std::string &textureId, float x, float y, float width, float height, double scale, double r) const = 0;
 
-    virtual SpriteSheet *createSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const = 0;
+    virtual SpriteSheet *loadSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const = 0;
 
     virtual bool loadTexture(const std::string &path, const std::string &textureId) = 0;
 

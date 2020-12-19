@@ -30,17 +30,16 @@ void SDLRenderingAdapter::drawBackground(std::string &color, float alpha) {
 }
 
 SpriteSheet *
-SDLRenderingAdapter::createSpriteSheet(const std::string &path, std::string &spriteSheetId, int width, int height) {
-    return new SpriteSheet(path, spriteSheetId, width, height, *_renderer);
+SDLRenderingAdapter::createSpriteSheet(const std::string &path,
+                                       std::string &spriteSheetId,
+                                       int width,
+                                       int height) {
+    auto it = _spriteSheets.insert(std::make_pair(spriteSheetId, std::make_unique<SpriteSheet>(path, spriteSheetId, width, height, *_renderer)));
+    if(it.second)
+        return it.first->second.get();
+
+    return nullptr;
 }
-
-
-SpriteSheet *
-SDLRenderingAdapter::createSpriteSheet(const std::string &path, const std::string &jsonPath,
-                                       std::string &spriteSheetId) {
-    return new SpriteSheet(path, jsonPath, spriteSheetId, *_renderer);
-}
-
 
 void SDLRenderingAdapter::drawBox(const Vector2 *vertices, int32 vertexCount) const {
     SDL_SetRenderDrawColor(_renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);

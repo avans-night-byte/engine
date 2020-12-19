@@ -13,8 +13,8 @@ TMXLevel::TMXLevel(const char *tmxPath,
                    const char *spritesheetId,
                    const RenderingAPI &renderingAPI,
                    PhysicsEngineAdapter &physicsEngineAdapter) : physicsEngineAdapter(physicsEngineAdapter) {
-    _tSpritesheet = renderingAPI.createSpriteSheet(spritesheetPath,
-                                                   spritesheetId, 16, 16);
+    _tSpritesheet = renderingAPI.loadSpriteSheet(spritesheetPath,
+                                                 spritesheetId, 16, 16);
     if (!_tmap.load(tmxPath)) {
         return;
     }
@@ -63,8 +63,8 @@ void TMXLevel::render(RenderingAPI &renderingAPI) {
                     auto x_pos = x * (16 * scale);
                     auto y_pos = y * (16 * scale);
 
-                    _tSpritesheet->select_sprite((texture.x / 16) - 1, texture.y / 16);
-                    _tSpritesheet->draw_selected_sprite(x_pos, y_pos, scale);
+                    _tSpritesheet->selectSprite((texture.x / 16) - 1, texture.y / 16);
+                    _tSpritesheet->drawSelectedSprite(x_pos, y_pos, scale);
                 }
             }
         }
