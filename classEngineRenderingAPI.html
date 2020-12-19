@@ -85,11 +85,8 @@ Inheritance diagram for EngineRenderingAPI:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a267cad658cecf1fd88aa57863e9c3f79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#a267cad658cecf1fd88aa57863e9c3f79">drawTexture</a> (const std::string &amp;textureId, float x, float y, float width, float height, double scale, double r) const override</td></tr>
 <tr class="separator:a267cad658cecf1fd88aa57863e9c3f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f96a0be57fd4f0d8f7d8fb83e1550bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSpriteSheet.html">SpriteSheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#a1f96a0be57fd4f0d8f7d8fb83e1550bc">createSpriteSheet</a> (std::string path, std::string spriteSheetId, int width, int height) const override</td></tr>
-<tr class="separator:a1f96a0be57fd4f0d8f7d8fb83e1550bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f3cf98a50be1ee0a100fb26284d1971"><td class="memItemLeft" align="right" valign="top"><a id="a1f3cf98a50be1ee0a100fb26284d1971"></a>
-<a class="el" href="classSpriteSheet.html">SpriteSheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createSpriteSheet</b> (const std::string &amp;path, const std::string &amp;jsonPath, std::string &amp;spriteSheetId)</td></tr>
-<tr class="separator:a1f3cf98a50be1ee0a100fb26284d1971"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad90991a6560c15bbf2fd6ab68e3f49d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSpriteSheet.html">SpriteSheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngineRenderingAPI.html#ad90991a6560c15bbf2fd6ab68e3f49d4">loadSpriteSheet</a> (std::string path, std::string spriteSheetId, int width, int height) const override</td></tr>
+<tr class="separator:ad90991a6560c15bbf2fd6ab68e3f49d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58d9a0255a421a280679e948d3697e3b"><td class="memItemLeft" align="right" valign="top"><a id="a58d9a0255a421a280679e948d3697e3b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>createText</b> (const std::string &amp;fontName, const std::string &amp;text, int fontSize, const std::string &amp;hex, const std::string &amp;textureId) const override</td></tr>
 <tr class="separator:a58d9a0255a421a280679e948d3697e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,68 +120,6 @@ static <a class="el" href="classTextureManager.html">TextureManager</a> *&#160;<
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class acts as a facade for the _engine, it stores and references variables and constants needed for rendering and resource allocation like textures. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1f96a0be57fd4f0d8f7d8fb83e1550bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f96a0be57fd4f0d8f7d8fb83e1550bc">&#9670;&nbsp;</a></span>createSpriteSheet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classSpriteSheet.html">SpriteSheet</a> * EngineRenderingAPI::createSpriteSheet </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>path</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>spriteSheetId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">path</td><td></td></tr>
-    <tr><td class="paramname">spriteSheetId</td><td></td></tr>
-    <tr><td class="paramname">rows</td><td></td></tr>
-    <tr><td class="paramname">columns</td><td></td></tr>
-    <tr><td class="paramname">width</td><td></td></tr>
-    <tr><td class="paramname">height</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classSpriteSheet.html">SpriteSheet</a> </dd></dl>
-
-<p>Implements <a class="el" href="classRenderingAPI.html">RenderingAPI</a>.</p>
-
-</div>
-</div>
 <a id="a267cad658cecf1fd88aa57863e9c3f79"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a267cad658cecf1fd88aa57863e9c3f79">&#9670;&nbsp;</a></span>drawTexture()</h2>
 
@@ -260,6 +195,68 @@ static <a class="el" href="classTextureManager.html">TextureManager</a> *&#160;<
   </table>
   </dd>
 </dl>
+
+<p>Implements <a class="el" href="classRenderingAPI.html">RenderingAPI</a>.</p>
+
+</div>
+</div>
+<a id="ad90991a6560c15bbf2fd6ab68e3f49d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad90991a6560c15bbf2fd6ab68e3f49d4">&#9670;&nbsp;</a></span>loadSpriteSheet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSpriteSheet.html">SpriteSheet</a> * EngineRenderingAPI::loadSpriteSheet </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>spriteSheetId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td></td></tr>
+    <tr><td class="paramname">spriteSheetId</td><td></td></tr>
+    <tr><td class="paramname">rows</td><td></td></tr>
+    <tr><td class="paramname">columns</td><td></td></tr>
+    <tr><td class="paramname">width</td><td></td></tr>
+    <tr><td class="paramname">height</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classSpriteSheet.html">SpriteSheet</a> </dd></dl>
 
 <p>Implements <a class="el" href="classRenderingAPI.html">RenderingAPI</a>.</p>
 
