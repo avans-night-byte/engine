@@ -30,17 +30,18 @@ void SDLRenderingAdapter::drawBackground(std::string &color, float alpha) {
 }
 
 SpriteSheet *
-SDLRenderingAdapter::createSpriteSheet(const std::string &path, std::string &spriteSheetId, int width, int height) {
-    return new SpriteSheet(path, spriteSheetId, width, height, *_renderer);
+SDLRenderingAdapter::createSpriteSheet(const std::string &path,
+                                       std::string &spriteSheetId,
+                                       int width,
+                                       int height) {
+    auto it = _spriteSheets.insert(std::make_pair(spriteSheetId,
+                                                  std::make_unique<SpriteSheet>(path, spriteSheetId, width, height,
+                                                                                *_renderer)));
+    if (it.second)
+        return it.first->second.get();
+
+    return nullptr;
 }
-
-
-SpriteSheet *
-SDLRenderingAdapter::createSpriteSheet(const std::string &path, const std::string &jsonPath,
-                                       std::string &spriteSheetId) {
-    return new SpriteSheet(path, jsonPath, spriteSheetId, *_renderer);
-}
-
 
 void SDLRenderingAdapter::drawBox(const Vector2 *vertices, int32 vertexCount) const {
     SDL_SetRenderDrawColor(_renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
@@ -135,7 +136,7 @@ void SDLRenderingAdapter::createText(const std::string &fontName, const std::str
     TTF_Font *font = TTF_OpenFont(fontName.c_str(), fontSize);
     SDL_Surface *surfaceMessage = TTF_RenderUTF8_Blended(font, text.c_str(), HexToRGB(hex, 255));
 
-    SDLRenderingAdapter::GetTextureManager()->CreateTexture(surfaceMessage, textureId, _renderer);
+    GetTextureManager()->CreateTexture(surfaceMessage, textureId, _renderer);
     TTF_CloseFont(font);
 }
 
@@ -148,14 +149,29 @@ SDL_Renderer &SDLRenderingAdapter::getRenderer() {
     return *_renderer;
 }
 
+void SDLRenderingAdapter::drawAnimation(std::string &spriteId, const Vector2 &position,
+                                        const std::vector<std::pair<int, int>> &animation, const int &speed) {
+    auto *spriteSheet = _spriteSheets[spriteId].get();
+    auto *texture = GetTextureManager()->getTexture(spriteSheet->getTextureId());
+    const int& totalFrames = animation.size();
+    int frame = (SDL_GetTicks() / speed) % totalFrames;
+
+    SDL_Rect rect;
+    rect.x = frame * 96; // Row
+    rect.y = animation[frame].second * 104; // Collum
+    rect.w = 96;
+    rect.h = 104;
+
+    SDL_FRect windowRect;
+    windowRect.x = position.x;
+    windowRect.y = position.y;
+    windowRect.w = 96;
+    windowRect.h = 104;
+
+
+    SDL_RenderCopyExF(_renderer, texture, &rect, &windowRect, 0, nullptr, SDL_RendererFlip::SDL_FLIP_NONE);
+}
+
 void SDLRenderingAdapter::deleteRenderer() {
     SDL_DestroyRenderer(_renderer);
 }
-
-
-
-
-
-
-
-

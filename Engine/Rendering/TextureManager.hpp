@@ -12,7 +12,7 @@ private:
     static TextureManager* instance;
 public:
     ~TextureManager();
-    SDL_Texture* GetTexture(std::string textureId);
+    SDL_Texture* getTexture(std::string textureId);
     bool CreateTexture(SDL_Surface * surface, const std::string &textureId, SDL_Renderer* renderer);
     bool load(const std::string &path, const std::string& textureId);
     void draw(std::string &textureId, int x, int y, int w, int h, double scale, double r, SDL_Renderer* renderer, SDL_RendererFlip = SDL_FLIP_NONE);

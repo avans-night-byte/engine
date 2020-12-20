@@ -661,22 +661,22 @@ namespace Components
     return isEnabled_type (true);
   }
 
-  const physicsComponent::contactHandler_sequence& physicsComponent::
-  contactHandler () const
+  const physicsComponent::collisionHandler_sequence& physicsComponent::
+  collisionHandler () const
   {
-    return this->contactHandler_;
+    return this->collisionHandler_;
   }
 
-  physicsComponent::contactHandler_sequence& physicsComponent::
-  contactHandler ()
+  physicsComponent::collisionHandler_sequence& physicsComponent::
+  collisionHandler ()
   {
-    return this->contactHandler_;
+    return this->collisionHandler_;
   }
 
   void physicsComponent::
-  contactHandler (const contactHandler_sequence& s)
+  collisionHandler (const collisionHandler_sequence& s)
   {
-    this->contactHandler_ = s;
+    this->collisionHandler_ = s;
   }
 
 
@@ -1608,7 +1608,7 @@ namespace Components
     isBullet_ (this),
     isSensor_ (this),
     isEnabled_ (this),
-    contactHandler_ (this)
+    collisionHandler_ (this)
   {
   }
 
@@ -1625,7 +1625,7 @@ namespace Components
     isBullet_ (this),
     isSensor_ (this),
     isEnabled_ (this),
-    contactHandler_ (this)
+    collisionHandler_ (this)
   {
   }
 
@@ -1641,7 +1641,7 @@ namespace Components
     isBullet_ (x.isBullet_, f, this),
     isSensor_ (x.isSensor_, f, this),
     isEnabled_ (x.isEnabled_, f, this),
-    contactHandler_ (x.contactHandler_, f, this)
+    collisionHandler_ (x.collisionHandler_, f, this)
   {
   }
 
@@ -1657,7 +1657,7 @@ namespace Components
     isBullet_ (this),
     isSensor_ (this),
     isEnabled_ (this),
-    contactHandler_ (this)
+    collisionHandler_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -1765,14 +1765,14 @@ namespace Components
         }
       }
 
-      // contactHandler
+      // collisionHandler
       //
-      if (n.name () == "contactHandler" && n.namespace_ ().empty ())
+      if (n.name () == "collisionHandler" && n.namespace_ ().empty ())
       {
-        ::std::unique_ptr< contactHandler_type > r (
-          contactHandler_traits::create (i, f, this));
+        ::std::unique_ptr< collisionHandler_type > r (
+          collisionHandler_traits::create (i, f, this));
 
-        this->contactHandler_.push_back (::std::move (r));
+        this->collisionHandler_.push_back (::std::move (r));
         continue;
       }
 
@@ -1828,7 +1828,7 @@ namespace Components
       this->isBullet_ = x.isBullet_;
       this->isSensor_ = x.isSensor_;
       this->isEnabled_ = x.isEnabled_;
-      this->contactHandler_ = x.contactHandler_;
+      this->collisionHandler_ = x.collisionHandler_;
     }
 
     return *this;

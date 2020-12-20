@@ -6,14 +6,28 @@ on:
   pull_request:
     branches: [develop]
 
+
+
+
 jobs:
   build-win:
     runs-on: windows-latest
 
+    defaults:
+      run:
+        shell: msys2 {0}
+
     steps:
+      - uses: msys2/setup-msys2@v2
+        with:
+            update: true
+            install: >-
+              base-devel
+              git
+              gcc
+              make
 
       - uses: actions/checkout@v2
-
       - name: Check build folder cache
         uses: actions/cache@v2
         with:
@@ -29,14 +43,27 @@ jobs:
           git submodule sync --recursive
           git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
 
+      - name: Install msys2 dependencies
+        shell: msys2 {0}
+        run: |
+          pacman -S mingw-w64-x86_64-xerces-c --noconfirm
+          pacman -S mingw-w64-x86_64-box2d --noconfirm
+          pacman -S mingw-w64-x86_64-glfw --noconfirm
+          pacman -S mingw-w64-x86_64-cmake --noconfirm
+          pacman -S mingw-w64-x86_64-make --noconfirm
+          pacman -S mingw-w64-x86_64-freetype --noconfirm
+          pacman -S mingw-w64-x86_64-gcc --noconfirm
+
+
       - name: Build Project
+        shell: msys2 {0}
         run: |
           cmake -S . -B ./build -G "MinGW Makefiles"
 
       - name: Build Executable
         run: |
-          cd build
-          make
+          cd ./build
+          C:/msys64/mingw64/bin/mingw32-make.exe
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2

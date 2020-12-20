@@ -2792,9 +2792,9 @@ namespace Components
     //@}
 
     /**
-     * @name contactHandler
+     * @name collisionHandler
      *
-     * @brief Accessor and modifier functions for the %contactHandler
+     * @brief Accessor and modifier functions for the %collisionHandler
      * sequence element.
      */
     //@{
@@ -2802,27 +2802,27 @@ namespace Components
     /**
      * @brief Element type.
      */
-    typedef ::Components::componentName contactHandler_type;
+    typedef ::Components::componentName collisionHandler_type;
 
     /**
      * @brief Element sequence container type.
      */
-    typedef ::xsd::cxx::tree::sequence< contactHandler_type > contactHandler_sequence;
+    typedef ::xsd::cxx::tree::sequence< collisionHandler_type > collisionHandler_sequence;
 
     /**
      * @brief Element iterator type.
      */
-    typedef contactHandler_sequence::iterator contactHandler_iterator;
+    typedef collisionHandler_sequence::iterator collisionHandler_iterator;
 
     /**
      * @brief Element constant iterator type.
      */
-    typedef contactHandler_sequence::const_iterator contactHandler_const_iterator;
+    typedef collisionHandler_sequence::const_iterator collisionHandler_const_iterator;
 
     /**
      * @brief Element traits type.
      */
-    typedef ::xsd::cxx::tree::traits< contactHandler_type, char > contactHandler_traits;
+    typedef ::xsd::cxx::tree::traits< collisionHandler_type, char > collisionHandler_traits;
 
     /**
      * @brief Return a read-only (constant) reference to the element
@@ -2830,16 +2830,16 @@ namespace Components
      *
      * @return A constant reference to the sequence container.
      */
-    const contactHandler_sequence&
-    contactHandler () const;
+    const collisionHandler_sequence&
+    collisionHandler () const;
 
     /**
      * @brief Return a read-write reference to the element sequence.
      *
      * @return A reference to the sequence container.
      */
-    contactHandler_sequence&
-    contactHandler ();
+    collisionHandler_sequence&
+    collisionHandler ();
 
     /**
      * @brief Copy elements from a given sequence.
@@ -2851,7 +2851,7 @@ namespace Components
      * sequence and all old elements will be lost.
      */
     void
-    contactHandler (const contactHandler_sequence& s);
+    collisionHandler (const collisionHandler_sequence& s);
 
     //@}
 
@@ -2959,7 +2959,7 @@ namespace Components
     isBullet_optional isBullet_;
     isSensor_optional isSensor_;
     isEnabled_optional isEnabled_;
-    contactHandler_sequence contactHandler_;
+    collisionHandler_sequence collisionHandler_;
 
     //@endcond
   };

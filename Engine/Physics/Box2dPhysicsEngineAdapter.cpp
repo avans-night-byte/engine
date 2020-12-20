@@ -1,7 +1,6 @@
+#include "b2_user_settings.h"
 #include "Box2DPhysicsEngineAdapter.hpp"
 
-// TODO: Remove this shit
-#include "../../Game/Components/NextLevelComponent.hpp"
 #include <cmath>
 
 unsigned int
@@ -19,7 +18,7 @@ Box2DPhysicsEngineAdapter::createBody(const Box2DBoxData &box2dBoxData) {
     bodyDef.enabled = box2dBoxData.isEnabled;
 
     b2BodyUserData bodyUserData;
-    bodyUserData.pointer = (uintptr_t) box2dBoxData.userData;
+    bodyUserData.contactHandler = box2dBoxData.contactHandler;
 
     bodyDef.userData = bodyUserData;
 
@@ -56,7 +55,7 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(const Box2DCircleData &box2DC
     bodyDef.enabled = box2DCircleData.isEnabled;
 
     b2BodyUserData bodyUserData;
-    bodyUserData.pointer = (uintptr_t) box2DCircleData.userData;
+    bodyUserData.contactHandler = box2DCircleData.contactHandler;
 
     bodyDef.userData = bodyUserData;
 
@@ -87,7 +86,7 @@ BodyId Box2DPhysicsEngineAdapter::createBody(const Box2DPolygonData &box2DPolygo
     bodyDef.enabled = box2DPolygonData.isEnabled;
 
     b2BodyUserData bodyUserData;
-    bodyUserData.pointer = (uintptr_t) box2DPolygonData.userData;
+    bodyUserData.contactHandler = box2DPolygonData.contactHandler;
 
     bodyDef.userData = bodyUserData;
 
