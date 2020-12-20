@@ -3,6 +3,12 @@
 #include "../../Engine/Input/Adapter/InputEngineAdapter.hpp"
 #include "./InputAPI.hpp"
 
+enum KeyType {
+    None = 0,
+    KeyDown = 0x300,
+    KeyUp
+};
+
 /**
  * RAII class for managing it's adapter
  */ 
