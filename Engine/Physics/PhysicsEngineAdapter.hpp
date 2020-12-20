@@ -22,7 +22,7 @@ public:
     bool isBullet = false;
     bool isSensor = false;
     bool isEnabled = true;
-    ContactHandler* userData = nullptr;
+    ContactHandler* contactHandler = nullptr;
 
     Box2DData() = default;
     virtual ~Box2DData() {

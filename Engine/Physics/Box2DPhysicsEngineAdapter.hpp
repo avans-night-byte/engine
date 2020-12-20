@@ -1,14 +1,16 @@
 #pragma once
 
-#include <vector>
-#include <memory>
-#include <chrono>
+#include "b2_user_settings.h" // must be declared before box2d
 #include "box2d.h"
 
 #include "PhysicsEngineAdapter.hpp"
 #include "PhysicsDebug//Box2dDrawDebug.hpp"
 #include "ContactListener.hpp"
 #include "../../Engine/Managers/ResourceManager.hpp"
+
+#include <vector>
+#include <memory>
+#include <chrono>
 
 class Box2DPhysicsEngineAdapter : public PhysicsEngineAdapter {
 

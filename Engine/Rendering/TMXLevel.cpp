@@ -140,7 +140,7 @@ void TMXLevel::initStaticCollision() {
 
                         Box2DBoxData box2DBoxData;
                         box2DBoxData.bodyType = BodyType::Static;
-                        box2DBoxData.userData = handler;
+                        box2DBoxData.contactHandler = handler;
                         box2DBoxData.isSensor = isSensor;
 
                         box2DBoxData.size = Vector2(rect.width / 2 * scale, rect.height / 2 * scale);
@@ -159,7 +159,7 @@ void TMXLevel::initStaticCollision() {
                         Box2DCircleData box2DCircleData;
                         box2DCircleData.bodyType = BodyType::Static;
                         box2DCircleData.radius = (rect.width * scale) * 0.5f;
-                        box2DCircleData.userData = handler;
+                        box2DCircleData.contactHandler = handler;
                         box2DCircleData.isSensor = isSensor;
                         box2DCircleData.position = Vector2(
                                 (object.getPosition().x * scale) + (rect.width * scale) / 2,
@@ -172,7 +172,7 @@ void TMXLevel::initStaticCollision() {
                     case tmx::Object::Shape::Polygon:
                     case tmx::Object::Shape::Polyline: {
                         Box2DPolygonData polygonData;
-                        polygonData.userData = handler;
+                        polygonData.contactHandler = handler;
                         polygonData.bodyType = BodyType::Static;
                         polygonData.isSensor = isSensor;
                         polygonData.position = Vector2(object.getPosition().x * scale, object.getPosition().y * scale);

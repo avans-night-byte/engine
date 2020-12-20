@@ -3,8 +3,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="LevelResources  ../../Schemas/level-resources.xsd"
         xmlns:lr="LevelResources"
-        xmlns:common="Common"
-        xmlns:comp="Components">
+        xmlns:common="Common">
 
     <name>Level2</name>
 
@@ -52,7 +51,7 @@
                         </box>
                     </bodyShape>
                     <isSensor>false</isSensor>
-                    <contactHandler>ExplosionCrate</contactHandler>
+                    <collisionHandler>>ExplosionCrate</collisionHandler>
                 </physicsComponent>
             </component>
 
@@ -102,7 +101,7 @@
                         </box>
                     </bodyShape>
                     <isSensor>false</isSensor>
-                    <contactHandler>ExplosionCrate</contactHandler>
+                    <collisionHandler>>ExplosionCrate</collisionHandler>
                 </physicsComponent>
             </component>
 
@@ -152,7 +151,7 @@
                         </box>
                     </bodyShape>
                     <isSensor>false</isSensor>
-                    <contactHandler>ExplosionCrate</contactHandler>
+                    <collisionHandler>>ExplosionCrate</collisionHandler>
                 </physicsComponent>
             </component>
 
@@ -202,7 +201,7 @@
                         </box>
                     </bodyShape>
                     <isSensor>false</isSensor>
-                    <contactHandler>ExplosionCrate</contactHandler>
+                    <collisionHandler>>ExplosionCrate</collisionHandler>
                 </physicsComponent>
             </component>
 
@@ -252,7 +251,7 @@
                         </box>
                     </bodyShape>
                     <isSensor>false</isSensor>
-                    <contactHandler>ExplosionCrate</contactHandler>
+                    <collisionHandler>ExplosionCrate</collisionHandler>
                 </physicsComponent>
             </component>
 
@@ -302,7 +301,7 @@
                         </box>
                     </bodyShape>
                     <isSensor>false</isSensor>
-                    <contactHandler>ExplosionCrate</contactHandler>
+                    <collisionHandler>ExplosionCrate</collisionHandler>
                 </physicsComponent>
             </component>
 
@@ -353,7 +352,7 @@
                         </box>
                     </bodyShape>
                     <isSensor>false</isSensor>
-                    <contactHandler>ExplosionCrate</contactHandler>
+                    <collisionHandler>ExplosionCrate</collisionHandler>
                 </physicsComponent>
             </component>
 
@@ -403,7 +402,7 @@
                         </box>
                     </bodyShape>
                     <isSensor>false</isSensor>
-                    <contactHandler>ExplosionCrate</contactHandler>
+                    <collisionHandler>ExplosionCrate</collisionHandler>
                 </physicsComponent>
             </component>
 
@@ -453,7 +452,7 @@
                         </box>
                     </bodyShape>
                     <isSensor>false</isSensor>
-                    <contactHandler>ExplosionCrate</contactHandler>
+                    <collisionHandler>ExplosionCrate</collisionHandler>
                 </physicsComponent>
             </component>
 
@@ -503,7 +502,7 @@
                         </box>
                     </bodyShape>
                     <isSensor>false</isSensor>
-                    <contactHandler>ExplosionCrate</contactHandler>
+                    <collisionHandler>ExplosionCrate</collisionHandler>
                 </physicsComponent>
             </component>
 
@@ -553,7 +552,7 @@
                         </box>
                     </bodyShape>
                     <isSensor>false</isSensor>
-                    <contactHandler>ExplosionCrate</contactHandler>
+                    <collisionHandler>ExplosionCrate</collisionHandler>
                 </physicsComponent>
             </component>
 
@@ -603,7 +602,7 @@
                         </box>
                     </bodyShape>
                     <isSensor>false</isSensor>
-                    <contactHandler>ExplosionCrate</contactHandler>
+                    <collisionHandler>ExplosionCrate</collisionHandler>
                 </physicsComponent>
             </component>
 

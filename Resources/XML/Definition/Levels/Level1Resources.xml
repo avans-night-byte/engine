@@ -31,11 +31,6 @@
             </component>
 
             <component>
-                <componentName>ExplosionCrate</componentName>
-                <explosionCrate/>
-            </component>
-
-            <component>
                 <componentName>PhysicsComponent</componentName>
                 <physicsComponent>
                     <common:position>
@@ -51,8 +46,6 @@
                         </box>
                     </bodyShape>
                     <isSensor>false</isSensor>
-                    <contactHandler>ExplosionCrate</contactHandler>
-                    <contactHandler>ExplosionCrate</contactHandler>
                 </physicsComponent>
             </component>
 
@@ -95,7 +88,7 @@
                         </box>
                     </bodyShape>
                     <isSensor>true</isSensor>
-                    <contactHandler>NextLevelComponent</contactHandler>
+                    <collisionHandler>NextLevelComponent</collisionHandler>
                 </physicsComponent>
             </component>
         </components>

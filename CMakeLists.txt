@@ -73,13 +73,13 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
         ./Engine/Audio/Adapter/SDLAudioEngineAdapter.cpp
         ./Engine/Audio/Adapter/SDLAudioEngineAdapter.hpp
-        Engine/Rendering/SpriteSheet.cpp
+        ./Engine/Rendering/SpriteSheet.cpp
         ./Engine/Rendering/TextureManager.cpp
         ./Engine/Rendering/Adapter/SDLRenderingAdaper.cpp
         ./Engine/Audio/AudioType.h
         ./Engine/Physics/PhysicsEngineAdapter.hpp
         ./Engine/Physics/Box2DPhysicsEngineAdapter.hpp
-        API/Helpers/Vector2.hpp
+        Engine/Physics/b2_user_settings.h
         ./Engine/Physics/BodyType.hpp
         ./Engine/Physics/Box2dPhysicsEngineAdapter.cpp
         ./Engine/Physics/PhysicsDebug/Box2dDrawDebug.hpp
@@ -115,7 +115,8 @@ add_executable(NightByte ./Main.cpp
         ./API/XMLParser/MenuParserAPI.hpp
         ./API/XMLParser/LevelParserAPI.cpp
         ./API/Physics/BodyHandlerAPI.hpp
-        ./API/Helpers/Vector2.hpp Game/Components/Rendering/Animation.cpp Game/Components/Rendering/Animation.hpp Game/Object/CollisionHandler.cpp Game/Object/CollisionHandler.hpp)
+        ./API/Helpers/Vector2.hpp
+        Game/Components/Rendering/Animation.cpp Game/Components/Rendering/Animation.hpp Game/Object/CollisionHandler.hpp)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)
@@ -128,6 +129,7 @@ target_include_directories(NightByte PUBLIC
         ${SDL2IMAGE_SOURCE_DIR}
         ${TMXLITE_SOURCE_DIR}
         ${SDL2TTF_SOURCE_DIR}
+        ./Engine/Physics
         )
 
 add_library(XMLResources SHARED
