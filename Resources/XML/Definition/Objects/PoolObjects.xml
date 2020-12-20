@@ -54,4 +54,96 @@
             </component>
         </components>
     </object>
+
+    <object>
+        <name>crate</name>
+        <components>
+            <component>
+                <componentName>PhysicsComponent</componentName>
+                <physicsComponent>
+                    <common:position>
+                        <x>200</x>
+                        <y>200</y>
+                    </common:position>
+                    <friction>1</friction>
+                    <bodyType>Dynamic</bodyType>
+                    <bodyShape>
+                        <box>
+                            <width>64</width>
+                            <height>64</height>
+                        </box>
+                    </bodyShape>
+                    <isBullet>false</isBullet>
+                    <isSensor>false</isSensor>
+                    <isEnabled>false</isEnabled>
+                </physicsComponent>
+            </component>
+
+            <component>
+                <componentName>TransformComponent</componentName>
+                <transformComponent>
+                    <common:position>
+                        <x>200</x>
+                        <y>200</y>
+                    </common:position>
+                </transformComponent>
+            </component>
+
+            <component>
+                <componentName>RenderComponent</componentName>
+                <renderComponent>
+                    <spriteId>crate</spriteId>
+                    <spritePath>../../Resources/Sprites/Wooden_Crate.png</spritePath>
+                    <width>128</width>
+                    <height>128</height>
+                </renderComponent>
+            </component>
+        </components>
+    </object>
+
+    <object>
+        <name>boar</name>
+        <components>
+            <component>
+                <componentName>PhysicsComponent</componentName>
+                <physicsComponent>
+                    <common:position>
+                        <x>200</x>
+                        <y>200</y>
+                    </common:position>
+                    <friction>1</friction>
+                    <bodyType>Dynamic</bodyType>
+                    <bodyShape>
+                        <box>
+                            <width>64</width>
+                            <height>64</height>
+                        </box>
+                    </bodyShape>
+                    <isBullet>false</isBullet>
+                    <isSensor>false</isSensor>
+                    <isEnabled>false</isEnabled>
+                </physicsComponent>
+            </component>
+
+            <component>
+                <componentName>TransformComponent</componentName>
+                <transformComponent>
+                    <common:position>
+                        <x>200</x>
+                        <y>200</y>
+                    </common:position>
+                </transformComponent>
+            </component>
+
+            <component>
+                <componentName>RenderComponent</componentName>
+                <renderComponent>
+                    <spriteId>boar</spriteId>
+                    <spritePath>../../Resources/Sprites/boar.png</spritePath>
+                    <width>128</width>
+                    <height>128</height>
+                </renderComponent>
+            </component>
+        </components>
+    </object>
 </obj:objectList>
