@@ -140,13 +140,5 @@
                 <poolPath>XML/Definition/Objects/PoolObjects.xml</poolPath>
             </pool>
         </objectList>
-        <objectList>
-            <name>InventoryObjects</name>
-            <path>XML/Definition/Objects/InventoryObjects.xml</path>
-            <pool>
-                <poolName>InventoryPool</poolName>
-                <poolPath>XML/Definition/Objects/InventoryObjects.xml</poolPath>
-            </pool>
-        </objectList>
     </objectLists>
 </gr:resources>
