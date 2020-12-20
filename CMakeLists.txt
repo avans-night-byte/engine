@@ -45,7 +45,6 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/EntityObject.cpp
         ./Game/Components/EntityObject.hpp
         ./Game/Scenes/LevelBase.cpp
-        ./Game/ContactHandlers/ExplosionCrate.hpp
         ./Game/UI/FrameCounter.cpp
         ./Game/UI/FrameCounter.h
         ./Game/Helpers/GameTime.cpp
@@ -116,7 +115,7 @@ add_executable(NightByte ./Main.cpp
         ./API/XMLParser/MenuParserAPI.hpp
         ./API/XMLParser/LevelParserAPI.cpp
         ./API/Physics/BodyHandlerAPI.hpp
-        ./API/Helpers/Vector2.hpp Game/Components/Rendering/Animation.cpp Game/Components/Rendering/Animation.hpp)
+        ./API/Helpers/Vector2.hpp Game/Components/Rendering/Animation.cpp Game/Components/Rendering/Animation.hpp Game/Object/CollisionHandler.cpp Game/Object/CollisionHandler.hpp)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)

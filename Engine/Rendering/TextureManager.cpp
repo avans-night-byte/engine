@@ -14,7 +14,7 @@ TextureManager* TextureManager::GetInstance() {
     return instance;
 }
 
-SDL_Texture *TextureManager::GetTexture(std::string textureId) {
+SDL_Texture *TextureManager::getTexture(std::string textureId) {
     SDL_Texture* tmpTexture = TextureMap[textureId];
     return tmpTexture;
 }

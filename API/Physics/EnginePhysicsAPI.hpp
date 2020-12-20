@@ -39,7 +39,7 @@ public:
     }
 
     void debugDraw(RenderingAPI &renderingApi) override {
-        _physicsEngineAdapter->debugDraw(renderingApi.GetRendererAdapter());
+        _physicsEngineAdapter->debugDraw(renderingApi.getRendererAdapter());
     }
 
     void GetVelocity(Vector2 &velocity, const BodyId bodyId) const override {

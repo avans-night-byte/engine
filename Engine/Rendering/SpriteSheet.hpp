@@ -20,6 +20,10 @@ public:
 
     void selectSprite(const std::string &spriteName);
 
+    inline const std::string& getTextureId() {
+        return textureId;
+    }
+
 private:
     SDL_Rect m_clip{};
     std::string textureId;

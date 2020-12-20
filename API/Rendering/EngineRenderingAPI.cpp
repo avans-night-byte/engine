@@ -82,6 +82,11 @@ void EngineRenderingAPI::render() const {
     _adapter.render();
 }
 
-EngineRenderingAdapter &EngineRenderingAPI::GetRendererAdapter() {
+void EngineRenderingAPI::drawAnimation(std::string &spriteId, const Vector2 &position,
+                                       const std::vector<std::pair<int, int>> &animation, const int &speed) {
+    _adapter.drawAnimation(spriteId, position, animation, speed);
+}
+
+EngineRenderingAdapter &EngineRenderingAPI::getRendererAdapter() {
     return _adapter;
 }
