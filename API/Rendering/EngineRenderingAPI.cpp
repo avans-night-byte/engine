@@ -17,13 +17,8 @@ TextureManager *EngineRenderingAPI::GetTextureManager() {
  * @return SpriteSheet
  */
 SpriteSheet *
-EngineRenderingAPI::createSpriteSheet(const std::string path, std::string spriteSheetId, int width, int height) const {
+EngineRenderingAPI::loadSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const {
     return _adapter.createSpriteSheet(path, spriteSheetId, width, height);
-}
-
-SpriteSheet *EngineRenderingAPI::createSpriteSheet(const std::string &path, const std::string &jsonPath,
-                                                   std::string &spriteSheetId) {
-    return _adapter.createSpriteSheet(path, jsonPath, spriteSheetId);
 }
 
 void EngineRenderingAPI::createText(const std::string &fontName,
@@ -87,6 +82,11 @@ void EngineRenderingAPI::render() const {
     _adapter.render();
 }
 
-EngineRenderingAdapter &EngineRenderingAPI::GetRendererAdapter() {
+void EngineRenderingAPI::drawAnimation(std::string &spriteId, const Vector2 &position,
+                                       const std::vector<std::pair<int, int>> &animation, const int &speed) {
+    _adapter.drawAnimation(spriteId, position, animation, speed);
+}
+
+EngineRenderingAdapter &EngineRenderingAPI::getRendererAdapter() {
     return _adapter;
 }

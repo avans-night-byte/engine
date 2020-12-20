@@ -21,9 +21,7 @@ public:
 
     void drawTexture(const std::string &textureId, float x, float y, float width, float height, double scale, double r) const override;
 
-    SpriteSheet *createSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const override;
-
-    SpriteSheet *createSpriteSheet(const std::string &path, const std::string &jsonPath, std::string &spriteSheetId);
+    [[nodiscard]] SpriteSheet *loadSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const override;
 
     void createText(const std::string &fontName, const std::string &text, int fontSize, const std::string &hex,
                     const std::string &textureId) const override;
@@ -42,5 +40,8 @@ public:
 
     void render() const override;
 
-    [[nodiscard]] EngineRenderingAdapter &GetRendererAdapter() override;
+    void drawAnimation(std::string &spriteId, const Vector2 &position,
+                       const std::vector<std::pair<int, int>> &animation, const int &speed) override;
+
+    [[nodiscard]] EngineRenderingAdapter &getRendererAdapter() override;
 };

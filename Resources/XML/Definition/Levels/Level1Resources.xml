@@ -3,8 +3,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="LevelResources  ../../Schemas/level-resources.xsd"
         xmlns:lr="LevelResources"
-        xmlns:common="Common"
-        xmlns:comp="Components">
+        xmlns:common="Common">
 
     <!-- TODO: Global Resource like: bullets -->
     <name>Level1</name>
@@ -32,11 +31,6 @@
             </component>
 
             <component>
-                <componentName>ExplosionCrate</componentName>
-                <explosionCrate/>
-            </component>
-
-            <component>
                 <componentName>PhysicsComponent</componentName>
                 <physicsComponent>
                     <common:position>
@@ -52,8 +46,6 @@
                         </box>
                     </bodyShape>
                     <isSensor>false</isSensor>
-                    <contactHandler>ExplosionCrate</contactHandler>
-                    <contactHandler>ExplosionCrate</contactHandler>
                 </physicsComponent>
             </component>
 
@@ -96,7 +88,7 @@
                         </box>
                     </bodyShape>
                     <isSensor>true</isSensor>
-                    <contactHandler>NextLevelComponent</contactHandler>
+                    <collisionHandler>NextLevelComponent</collisionHandler>
                 </physicsComponent>
             </component>
         </components>

@@ -14,17 +14,18 @@ public:
 
     ~SpriteSheet();
 
-    void draw_selected_sprite(float x, float y, float scale = 1, float rotation = 0);
+    void drawSelectedSprite(float x, float y, float scale = 1, float rotation = 0);
 
-    void select_sprite(int x, int y);
+    void selectSprite(int x, int y);
 
-    void select_sprite(const std::string &spriteName);
+    void selectSprite(const std::string &spriteName);
+
+    inline const std::string& getTextureId() {
+        return textureId;
+    }
 
 private:
     SDL_Rect m_clip{};
     std::string textureId;
     SDL_Renderer &_sdlRenderer;
-    nlohmann::json j;
-
-
 };
