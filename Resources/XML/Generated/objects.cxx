@@ -69,6 +69,30 @@ namespace Objects
     this->name_.set (std::move (x));
   }
 
+  const object::objectType_type& object::
+  objectType () const
+  {
+    return this->objectType_.get ();
+  }
+
+  object::objectType_type& object::
+  objectType ()
+  {
+    return this->objectType_.get ();
+  }
+
+  void object::
+  objectType (const objectType_type& x)
+  {
+    this->objectType_.set (x);
+  }
+
+  void object::
+  objectType (::std::unique_ptr< objectType_type > x)
+  {
+    this->objectType_.set (std::move (x));
+  }
+
   const object::components_type& object::
   components () const
   {
@@ -147,18 +171,22 @@ namespace Objects
 
   object::
   object (const name_type& name,
+          const objectType_type& objectType,
           const components_type& components)
   : ::xml_schema::type (),
     name_ (name, this),
+    objectType_ (objectType, this),
     components_ (components, this)
   {
   }
 
   object::
   object (const name_type& name,
+          const objectType_type& objectType,
           ::std::unique_ptr< components_type > components)
   : ::xml_schema::type (),
     name_ (name, this),
+    objectType_ (objectType, this),
     components_ (std::move (components), this)
   {
   }
@@ -169,6 +197,7 @@ namespace Objects
           ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
     name_ (x.name_, f, this),
+    objectType_ (x.objectType_, f, this),
     components_ (x.components_, f, this)
   {
   }
@@ -179,6 +208,7 @@ namespace Objects
           ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     name_ (this),
+    objectType_ (this),
     components_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
@@ -212,6 +242,20 @@ namespace Objects
         }
       }
 
+      // objectType
+      //
+      if (n.name () == "objectType" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< objectType_type > r (
+          objectType_traits::create (i, f, this));
+
+        if (!objectType_.present ())
+        {
+          this->objectType_.set (::std::move (r));
+          continue;
+        }
+      }
+
       // components
       //
       if (n.name () == "components" && n.namespace_ ().empty ())
@@ -233,6 +277,13 @@ namespace Objects
     {
       throw ::xsd::cxx::tree::expected_element< char > (
         "name",
+        "");
+    }
+
+    if (!objectType_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "objectType",
         "");
     }
 
@@ -258,6 +309,7 @@ namespace Objects
     {
       static_cast< ::xml_schema::type& > (*this) = x;
       this->name_ = x.name_;
+      this->objectType_ = x.objectType_;
       this->components_ = x.components_;
     }
 

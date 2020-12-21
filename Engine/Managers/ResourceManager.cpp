@@ -127,7 +127,7 @@ void ResourceManager::loadResource(const std::string &resource) {
     switch (type) {
         case TEXTURES: {
             auto &texture = _textures[resource];
-            TextureManager::GetInstance()->load((_basePath + texture->path()).c_str(), texture->name());
+            TextureManager::GetInstance()->load((_basePath + texture->path()), texture->name());
             break;
         }
         case SPRITES:
@@ -156,15 +156,17 @@ void ResourceManager::loadResource(const std::string &resource) {
         }
         case LEVELS: {
             inMenu = false;
-            MenuParser::getInstance()->PreviousScenes.push(resource);
+
             auto &level = _levels[resource];
-            if (level->name().c_str() == _currentLevel)
-                break;
+            MenuParser::getInstance()->PreviousScenes.push(resource);
+
+            if (level->name().c_str() == _currentLevel) break;
 
             const LevelData tmxData = LevelData(_basePath + level->tmxPath(),
                                                 _basePath + level->spriteSheetPath(),
                                                 level->spriteName(),
                                                 _basePath + level->path());
+
             Game::getInstance()->initializeLeveL(level->name().c_str(), tmxData);
             _currentLevel = level->name().c_str();
             break;

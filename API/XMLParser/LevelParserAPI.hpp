@@ -3,7 +3,6 @@
 #include <string>
 #include <memory>
 
-
 #include "../../Engine/XMLParser/EntityXMLParser.hpp"
 
 namespace Components {
@@ -19,9 +18,9 @@ class LevelParserAPI {
 private:
 
 public:
-    static void loadEntities(std::multimap<std::string, Components::component *> &outEntities,
+    static void loadEntities(std::multimap<EntityXMLParser::ObjectData, Components::component *> &outEntities,
                                   xsd::cxx::tree::sequence<Objects::object> &objects);
 
-    static TMXLevel *loadLevel(std::multimap<std::string, Components::component *> &outEntities,
+    static TMXLevel *loadLevel(std::multimap<EntityXMLParser::ObjectData, Components::component *> &outEntities,
                                const LevelData &levelData);
 };

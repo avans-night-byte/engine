@@ -565,6 +565,7 @@ namespace xml_schema
 //
 namespace LevelResources
 {
+  class level_resources;
   class level;
 }
 
@@ -593,6 +594,229 @@ namespace LevelResources
  */
 namespace LevelResources
 {
+  /**
+   * @brief Class corresponding to the %level-resources schema type.
+   *
+   * @nosubgrouping
+   */
+  class level_resources: public ::xml_schema::type
+  {
+    public:
+    /**
+     * @name level
+     *
+     * @brief Accessor and modifier functions for the %level
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::LevelResources::level level_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< level_type, char > level_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const level_type&
+    level () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    level_type&
+    level ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    level (const level_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    level (::std::unique_ptr< level_type > p);
+
+    //@}
+
+    /**
+     * @name preloadResources
+     *
+     * @brief Accessor and modifier functions for the %preloadResources
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::Common::preloadResources preloadResources_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< preloadResources_type, char > preloadResources_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const preloadResources_type&
+    preloadResources () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    preloadResources_type&
+    preloadResources ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    preloadResources (const preloadResources_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    preloadResources (::std::unique_ptr< preloadResources_type > p);
+
+    //@}
+
+    /**
+     * @name Constructors
+     */
+    //@{
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    level_resources (const level_type&,
+                     const preloadResources_type&);
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes
+     * (::std::unique_ptr version).
+     *
+     * This constructor will try to use the passed values directly
+     * instead of making copies.
+     */
+    level_resources (::std::unique_ptr< level_type >,
+                     ::std::unique_ptr< preloadResources_type >);
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    level_resources (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    level_resources (const level_resources& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual level_resources*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    level_resources&
+    operator= (const level_resources& x);
+
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
+    virtual 
+    ~level_resources ();
+
+    // Implementation.
+    //
+
+    //@cond
+
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< level_type > level_;
+    ::xsd::cxx::tree::one< preloadResources_type > preloadResources_;
+
+    //@endcond
+  };
+
   /**
    * @brief Class corresponding to the %level schema type.
    *
@@ -820,7 +1044,7 @@ namespace LevelResources
 namespace LevelResources
 {
   /**
-   * @name Parsing functions for the %level document root.
+   * @name Parsing functions for the %level-resources document root.
    */
   //@{
 
@@ -834,10 +1058,10 @@ namespace LevelResources
    *
    * This function uses exceptions to report parsing errors.
    */
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (const ::std::string& uri,
-          ::xml_schema::flags f = 0,
-          const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (const ::std::string& uri,
+                    ::xml_schema::flags f = 0,
+                    const ::xml_schema::properties& p = ::xml_schema::properties ());
 
   /**
    * @brief Parse a URI or a local file with an error handler.
@@ -850,11 +1074,11 @@ namespace LevelResources
    *
    * This function reports parsing errors by calling the error handler.
    */
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (const ::std::string& uri,
-          ::xml_schema::error_handler& eh,
-          ::xml_schema::flags f = 0,
-          const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (const ::std::string& uri,
+                    ::xml_schema::error_handler& eh,
+                    ::xml_schema::flags f = 0,
+                    const ::xml_schema::properties& p = ::xml_schema::properties ());
 
   /**
    * @brief Parse a URI or a local file with a Xerces-C++ DOM error
@@ -868,11 +1092,11 @@ namespace LevelResources
    *
    * This function reports parsing errors by calling the error handler.
    */
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (const ::std::string& uri,
-          ::xercesc::DOMErrorHandler& eh,
-          ::xml_schema::flags f = 0,
-          const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (const ::std::string& uri,
+                    ::xercesc::DOMErrorHandler& eh,
+                    ::xml_schema::flags f = 0,
+                    const ::xml_schema::properties& p = ::xml_schema::properties ());
 
   /**
    * @brief Parse a standard input stream.
@@ -884,10 +1108,10 @@ namespace LevelResources
    *
    * This function uses exceptions to report parsing errors.
    */
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::std::istream& is,
-          ::xml_schema::flags f = 0,
-          const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::std::istream& is,
+                    ::xml_schema::flags f = 0,
+                    const ::xml_schema::properties& p = ::xml_schema::properties ());
 
   /**
    * @brief Parse a standard input stream with an error handler.
@@ -900,11 +1124,11 @@ namespace LevelResources
    *
    * This function reports parsing errors by calling the error handler.
    */
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::std::istream& is,
-          ::xml_schema::error_handler& eh,
-          ::xml_schema::flags f = 0,
-          const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::std::istream& is,
+                    ::xml_schema::error_handler& eh,
+                    ::xml_schema::flags f = 0,
+                    const ::xml_schema::properties& p = ::xml_schema::properties ());
 
   /**
    * @brief Parse a standard input stream with a Xerces-C++ DOM error
@@ -918,11 +1142,11 @@ namespace LevelResources
    *
    * This function reports parsing errors by calling the error handler.
    */
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::std::istream& is,
-          ::xercesc::DOMErrorHandler& eh,
-          ::xml_schema::flags f = 0,
-          const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::std::istream& is,
+                    ::xercesc::DOMErrorHandler& eh,
+                    ::xml_schema::flags f = 0,
+                    const ::xml_schema::properties& p = ::xml_schema::properties ());
 
   /**
    * @brief Parse a standard input stream with a resource id.
@@ -938,11 +1162,11 @@ namespace LevelResources
    *
    * This function uses exceptions to report parsing errors.
    */
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::std::istream& is,
-          const ::std::string& id,
-          ::xml_schema::flags f = 0,
-          const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::std::istream& is,
+                    const ::std::string& id,
+                    ::xml_schema::flags f = 0,
+                    const ::xml_schema::properties& p = ::xml_schema::properties ());
 
   /**
    * @brief Parse a standard input stream with a resource id and an
@@ -960,12 +1184,12 @@ namespace LevelResources
    *
    * This function reports parsing errors by calling the error handler.
    */
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::std::istream& is,
-          const ::std::string& id,
-          ::xml_schema::error_handler& eh,
-          ::xml_schema::flags f = 0,
-          const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::std::istream& is,
+                    const ::std::string& id,
+                    ::xml_schema::error_handler& eh,
+                    ::xml_schema::flags f = 0,
+                    const ::xml_schema::properties& p = ::xml_schema::properties ());
 
   /**
    * @brief Parse a standard input stream with a resource id and a
@@ -983,12 +1207,12 @@ namespace LevelResources
    *
    * This function reports parsing errors by calling the error handler.
    */
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::std::istream& is,
-          const ::std::string& id,
-          ::xercesc::DOMErrorHandler& eh,
-          ::xml_schema::flags f = 0,
-          const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::std::istream& is,
+                    const ::std::string& id,
+                    ::xercesc::DOMErrorHandler& eh,
+                    ::xml_schema::flags f = 0,
+                    const ::xml_schema::properties& p = ::xml_schema::properties ());
 
   /**
    * @brief Parse a Xerces-C++ input source.
@@ -1000,10 +1224,10 @@ namespace LevelResources
    *
    * This function uses exceptions to report parsing errors.
    */
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::xercesc::InputSource& is,
-          ::xml_schema::flags f = 0,
-          const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::xercesc::InputSource& is,
+                    ::xml_schema::flags f = 0,
+                    const ::xml_schema::properties& p = ::xml_schema::properties ());
 
   /**
    * @brief Parse a Xerces-C++ input source with an error handler.
@@ -1016,11 +1240,11 @@ namespace LevelResources
    *
    * This function reports parsing errors by calling the error handler.
    */
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::xercesc::InputSource& is,
-          ::xml_schema::error_handler& eh,
-          ::xml_schema::flags f = 0,
-          const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::xercesc::InputSource& is,
+                    ::xml_schema::error_handler& eh,
+                    ::xml_schema::flags f = 0,
+                    const ::xml_schema::properties& p = ::xml_schema::properties ());
 
   /**
    * @brief Parse a Xerces-C++ input source with a Xerces-C++ DOM
@@ -1034,11 +1258,11 @@ namespace LevelResources
    *
    * This function reports parsing errors by calling the error handler.
    */
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::xercesc::InputSource& is,
-          ::xercesc::DOMErrorHandler& eh,
-          ::xml_schema::flags f = 0,
-          const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::xercesc::InputSource& is,
+                    ::xercesc::DOMErrorHandler& eh,
+                    ::xml_schema::flags f = 0,
+                    const ::xml_schema::properties& p = ::xml_schema::properties ());
 
   /**
    * @brief Parse a Xerces-C++ DOM document.
@@ -1048,10 +1272,10 @@ namespace LevelResources
    * @param p Parsing properties. 
    * @return A pointer to the root of the object model.
    */
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (const ::xercesc::DOMDocument& d,
-          ::xml_schema::flags f = 0,
-          const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (const ::xercesc::DOMDocument& d,
+                    ::xml_schema::flags f = 0,
+                    const ::xml_schema::properties& p = ::xml_schema::properties ());
 
   /**
    * @brief Parse a Xerces-C++ DOM document.
@@ -1065,10 +1289,10 @@ namespace LevelResources
    * own_dom parsing flags to assign ownership of the DOM document
    * to the object model.
    */
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-          ::xml_schema::flags f = 0,
-          const ::xml_schema::properties& p = ::xml_schema::properties ());
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+                    ::xml_schema::flags f = 0,
+                    const ::xml_schema::properties& p = ::xml_schema::properties ());
 
   //@}
 }

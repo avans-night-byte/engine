@@ -70,6 +70,7 @@ add_executable(NightByte ./Main.cpp
 
         # Engine
         ./Engine/Engine.cpp
+        ./Engine/Physics/b2_user_settings.h
         ./Engine/Input/Adapter/SDLInputEngineAdapter.cpp
         ./Engine/Audio/Adapter/SDLAudioEngineAdapter.cpp
         ./Engine/Audio/Adapter/SDLAudioEngineAdapter.hpp
@@ -79,7 +80,7 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Audio/AudioType.h
         ./Engine/Physics/PhysicsEngineAdapter.hpp
         ./Engine/Physics/Box2DPhysicsEngineAdapter.hpp
-        Engine/Physics/b2_user_settings.h
+
         ./Engine/Physics/BodyType.hpp
         ./Engine/Physics/Box2dPhysicsEngineAdapter.cpp
         ./Engine/Physics/PhysicsDebug/Box2dDrawDebug.hpp
