@@ -20,12 +20,12 @@ jobs:
     steps:
       - uses: msys2/setup-msys2@v2
         with:
-            update: true
-            install: >-
-              base-devel
-              git
-              gcc
-              make
+          update: true
+          install: >-
+            base-devel
+            git
+            gcc
+            make
 
       - uses: actions/checkout@v2
       - name: Check build folder cache
@@ -36,6 +36,13 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-cmake-
 
+      - name: Cache Primes
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: C:/msys64
+          key: ${{ runner.os }}-msys2
+
       - name: Checkout submodules
         shell: bash
         run: |
@@ -44,6 +51,7 @@ jobs:
           git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
 
       - name: Install msys2 dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         shell: msys2 {0}
         run: |
           pacman -S mingw-w64-x86_64-xerces-c --noconfirm
