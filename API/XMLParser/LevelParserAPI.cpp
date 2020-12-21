@@ -16,8 +16,14 @@ TMXLevel *LevelParserAPI::loadLevel(std::multimap<std::string, Components::compo
 
     auto &physicsApi = Game::getInstance()->getPhysicsAPI();
 
-    auto xmlLevel = LevelResources::level_(levelData.levelResourcePath);
-    loadEntities(outEntities, xmlLevel->object());
+    auto xmlLevel = LevelResources::level_resources_(levelData.levelResourcePath);
+
+    loadEntities(outEntities, xmlLevel->level().object());
+
+    for (auto &resource : xmlLevel.get()->preloadResources().resource()) {
+        ResourceManager::getInstance()->loadResource(resource);
+    }
+
 
     auto tmxLevel = renderingApi.loadTMX(levelData, physicsApi.getPhysicsEngineAdapter());
     tmxLevel->getObjectPositions(outEntities);

@@ -23,7 +23,7 @@
             <component>
                 <componentName>RenderComponent</componentName>
                 <renderComponent>
-                    <spriteId>CrateTNT</spriteId>
+                    <spriteId>crate</spriteId>
                     <spritePath>../../Resources/Sprites/Wooden_Crate.png</spritePath>
                     <width>100</width>
                     <height>100</height>
@@ -73,7 +73,7 @@
             <component>
                 <componentName>RenderComponent</componentName>
                 <renderComponent>
-                    <spriteId>CrateTNT</spriteId>
+                    <spriteId>crate</spriteId>
                     <spritePath>../../Resources/Sprites/Wooden_Crate.png</spritePath>
                     <width>100</width>
                     <height>100</height>
@@ -123,7 +123,7 @@
             <component>
                 <componentName>RenderComponent</componentName>
                 <renderComponent>
-                    <spriteId>CrateTNT</spriteId>
+                    <spriteId>crate</spriteId>
                     <spritePath>../../Resources/Sprites/Wooden_Crate.png</spritePath>
                     <width>100</width>
                     <height>100</height>
@@ -173,7 +173,7 @@
             <component>
                 <componentName>RenderComponent</componentName>
                 <renderComponent>
-                    <spriteId>CrateTNT</spriteId>
+                    <spriteId>crate</spriteId>
                     <spritePath>../../Resources/Sprites/Wooden_Crate.png</spritePath>
                     <width>100</width>
                     <height>100</height>
@@ -223,7 +223,7 @@
             <component>
                 <componentName>RenderComponent</componentName>
                 <renderComponent>
-                    <spriteId>CrateTNT</spriteId>
+                    <spriteId>crate</spriteId>
                     <spritePath>../../Resources/Sprites/Wooden_Crate.png</spritePath>
                     <width>100</width>
                     <height>100</height>
@@ -273,7 +273,7 @@
             <component>
                 <componentName>RenderComponent</componentName>
                 <renderComponent>
-                    <spriteId>CrateTNT</spriteId>
+                    <spriteId>crate</spriteId>
                     <spritePath>../../Resources/Sprites/Wooden_Crate.png</spritePath>
                     <width>100</width>
                     <height>100</height>
@@ -324,7 +324,7 @@
             <component>
                 <componentName>RenderComponent</componentName>
                 <renderComponent>
-                    <spriteId>CrateTNT</spriteId>
+                    <spriteId>crate</spriteId>
                     <spritePath>../../Resources/Sprites/Wooden_Crate.png</spritePath>
                     <width>100</width>
                     <height>100</height>
@@ -374,7 +374,7 @@
             <component>
                 <componentName>RenderComponent</componentName>
                 <renderComponent>
-                    <spriteId>CrateTNT</spriteId>
+                    <spriteId>crate</spriteId>
                     <spritePath>../../Resources/Sprites/Wooden_Crate.png</spritePath>
                     <width>100</width>
                     <height>100</height>
@@ -424,7 +424,7 @@
             <component>
                 <componentName>RenderComponent</componentName>
                 <renderComponent>
-                    <spriteId>CrateTNT</spriteId>
+                    <spriteId>crate</spriteId>
                     <spritePath>../../Resources/Sprites/Wooden_Crate.png</spritePath>
                     <width>100</width>
                     <height>100</height>
@@ -474,7 +474,7 @@
             <component>
                 <componentName>RenderComponent</componentName>
                 <renderComponent>
-                    <spriteId>CrateTNT</spriteId>
+                    <spriteId>crate</spriteId>
                     <spritePath>../../Resources/Sprites/Wooden_Crate.png</spritePath>
                     <width>100</width>
                     <height>100</height>
@@ -524,7 +524,7 @@
             <component>
                 <componentName>RenderComponent</componentName>
                 <renderComponent>
-                    <spriteId>CrateTNT</spriteId>
+                    <spriteId>crate</spriteId>
                     <spritePath>../../Resources/Sprites/Wooden_Crate.png</spritePath>
                     <width>100</width>
                     <height>100</height>
@@ -574,7 +574,7 @@
             <component>
                 <componentName>RenderComponent</componentName>
                 <renderComponent>
-                    <spriteId>CrateTNT</spriteId>
+                    <spriteId>crate</spriteId>
                     <spritePath>../../Resources/Sprites/Wooden_Crate.png</spritePath>
                     <width>100</width>
                     <height>100</height>
