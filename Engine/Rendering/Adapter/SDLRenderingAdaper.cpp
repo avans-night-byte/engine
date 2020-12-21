@@ -34,13 +34,16 @@ SDLRenderingAdapter::createSpriteSheet(const std::string &path,
                                        std::string &spriteSheetId,
                                        int width,
                                        int height) {
-    auto it = _spriteSheets.insert(std::make_pair(spriteSheetId,
-                                                  std::make_unique<SpriteSheet>(path, spriteSheetId, width, height,
-                                                                                *_renderer)));
-    if (it.second)
-        return it.first->second.get();
+    auto &spriteSheet = _spriteSheets[spriteSheetId];
+    if (spriteSheet != nullptr) {
+        return spriteSheet.get();
+    }
 
-    return nullptr;
+    spriteSheet = std::make_unique<SpriteSheet>(path, spriteSheetId, width, height, *_renderer);
+    auto *p = spriteSheet.get();
+    _spriteSheets[spriteSheetId] = std::move(spriteSheet);
+
+    return p;
 }
 
 void SDLRenderingAdapter::drawBox(const Vector2 *vertices, int32 vertexCount) const {
@@ -153,7 +156,7 @@ void SDLRenderingAdapter::drawAnimation(std::string &spriteId, const Vector2 &po
                                         const std::vector<std::pair<int, int>> &animation, const int &speed) {
     auto *spriteSheet = _spriteSheets[spriteId].get();
     auto *texture = GetTextureManager()->getTexture(spriteSheet->getTextureId());
-    const int& totalFrames = animation.size();
+    const int &totalFrames = animation.size();
     int frame = (SDL_GetTicks() / speed) % totalFrames;
 
     SDL_Rect rect;
