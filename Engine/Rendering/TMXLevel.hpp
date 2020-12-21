@@ -6,6 +6,7 @@
 #include <vector>
 #include <tmxlite/Map.hpp>
 #include "../Vector2.hpp"
+#include "../Astar.hpp"
 
 class RenderingAPI;
 class Spritesheet;
@@ -26,7 +27,6 @@ private:
     std::map<int, Vector2> _tSpriteMap;
     std::vector<unsigned int> bodies{};
     PhysicsEngineAdapter& physicsEngineAdapter;
-
 public:
     TMXLevel(const char *tmxPath,
              const char *spritesheetPath,
@@ -44,5 +44,5 @@ public:
 
     void initStaticCollision();
 
-    void GetGrid(int weights[][30]);
+    void GetGrid(int** weights) const;
 };
