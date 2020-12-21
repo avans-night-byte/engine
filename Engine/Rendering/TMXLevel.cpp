@@ -202,6 +202,5 @@ void TMXLevel::cleanup() {
     bodies.clear();
 }
 
-TMXLevel::~TMXLevel() {
-}
+TMXLevel::~TMXLevel() = default;
 
