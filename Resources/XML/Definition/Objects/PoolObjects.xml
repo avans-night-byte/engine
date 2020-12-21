@@ -1,6 +1,7 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <obj:objectList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:schemaLocation="Objects  ../../Schemas/objects.xsd"
+                xsi:schemaLocation="Objects  ../../Schemas/objects.xsd
+                                    Common ../../Schemas/common.xsd"
                 xmlns:obj="Objects"
                 xmlns:common="Common">
 
