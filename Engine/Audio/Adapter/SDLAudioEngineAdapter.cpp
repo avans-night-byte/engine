@@ -239,9 +239,9 @@ void SDLAudioEngineAdapter::toggleSounds() {
 SDLAudioEngineAdapter *SDLAudioEngineAdapter::_instance = nullptr;
 
 
-SDLAudioEngineAdapter *SDLAudioEngineAdapter::getInstance() {
+SDLAudioEngineAdapter &SDLAudioEngineAdapter::getInstance() {
     if (_instance == nullptr) {
         _instance = new SDLAudioEngineAdapter();
     }
-    return _instance;
+    return *_instance;
 }

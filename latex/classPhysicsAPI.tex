@@ -1,0 +1,64 @@
+\hypertarget{classPhysicsAPI}{}\doxysection{Physics\+A\+PI Class Reference}
+\label{classPhysicsAPI}\index{PhysicsAPI@{PhysicsAPI}}
+Inheritance diagram for Physics\+A\+PI\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPhysicsAPI}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPhysicsAPI_af76fc3f79370b3f8e2573a607ced22c7}\label{classPhysicsAPI_af76fc3f79370b3f8e2573a607ced22c7}} 
+virtual void {\bfseries update} (float delta\+Time)=0
+\item 
+\mbox{\Hypertarget{classPhysicsAPI_ab94f34d23afa153063db574382c57569}\label{classPhysicsAPI_ab94f34d23afa153063db574382c57569}} 
+virtual Body\+Id {\bfseries create\+Body} (const \mbox{\hyperlink{classBox2DBoxData}{Box2\+D\+Box\+Data}} \&box2\+D\+Box\+Data) const =0
+\item 
+\mbox{\Hypertarget{classPhysicsAPI_a806299011b5d489206357e0a56a08a7a}\label{classPhysicsAPI_a806299011b5d489206357e0a56a08a7a}} 
+virtual Body\+Id {\bfseries create\+Body} (const \mbox{\hyperlink{classBox2DCircleData}{Box2\+D\+Circle\+Data}} \&box2\+D\+Circle\+Data) const =0
+\item 
+\mbox{\Hypertarget{classPhysicsAPI_aaa00c4e81178ac080721e791b3bf8f27}\label{classPhysicsAPI_aaa00c4e81178ac080721e791b3bf8f27}} 
+virtual Body\+Id {\bfseries create\+Body} (const \mbox{\hyperlink{classBox2DPolygonData}{Box2\+D\+Polygon\+Data}} \&box2\+D\+Polygon\+Data) const =0
+\item 
+\mbox{\Hypertarget{classPhysicsAPI_a8b49bd33353920bdeeedb8e838a0c9f5}\label{classPhysicsAPI_a8b49bd33353920bdeeedb8e838a0c9f5}} 
+virtual void {\bfseries destroy\+Body} (Body\+Id body\+Id)=0
+\item 
+\mbox{\Hypertarget{classPhysicsAPI_aa0338bfe8f1db55e123785f8e868118f}\label{classPhysicsAPI_aa0338bfe8f1db55e123785f8e868118f}} 
+virtual \mbox{\hyperlink{structRTransform}{R\+Transform}} {\bfseries get\+R\+Position} (Body\+Id body\+Id) const =0
+\item 
+\mbox{\Hypertarget{classPhysicsAPI_a7db754bbea61ff189ab7d5ad4988c635}\label{classPhysicsAPI_a7db754bbea61ff189ab7d5ad4988c635}} 
+virtual void {\bfseries Debug\+Draw} (const \mbox{\hyperlink{classRenderingAPI}{Rendering\+A\+PI}} \&rendering\+Api, S\+D\+L\+\_\+\+Renderer \&renderer)=0
+\item 
+\mbox{\Hypertarget{classPhysicsAPI_abab2f9790e547bc3a3fde714fcd0ef2f}\label{classPhysicsAPI_abab2f9790e547bc3a3fde714fcd0ef2f}} 
+virtual void {\bfseries Get\+Velocity} (\mbox{\hyperlink{structVector2}{Vector2}} \&velocity, const Body\+Id body\+Id) const =0
+\item 
+\mbox{\Hypertarget{classPhysicsAPI_afbf99eb29e654c29218ef9926009e57c}\label{classPhysicsAPI_afbf99eb29e654c29218ef9926009e57c}} 
+virtual void {\bfseries set\+Linear\+Velocity} (const Body\+Id body\+Id, const \mbox{\hyperlink{structVector2}{Vector2}} \&vector2) const =0
+\item 
+\mbox{\Hypertarget{classPhysicsAPI_a3b0f4f88935f111ad52208064e9a03cd}\label{classPhysicsAPI_a3b0f4f88935f111ad52208064e9a03cd}} 
+virtual void {\bfseries set\+Fixed\+Rotation} (const Body\+Id i, bool b) const =0
+\item 
+\mbox{\Hypertarget{classPhysicsAPI_a7d9384e4f73a60ffd48fb80b2fcbb971}\label{classPhysicsAPI_a7d9384e4f73a60ffd48fb80b2fcbb971}} 
+virtual void {\bfseries add\+Force} (const Body\+Id i, \mbox{\hyperlink{structVector2}{Vector2}}) const =0
+\item 
+\mbox{\Hypertarget{classPhysicsAPI_ae1c7cff29e9bbef5b6f1d91fb7fc16bb}\label{classPhysicsAPI_ae1c7cff29e9bbef5b6f1d91fb7fc16bb}} 
+virtual void {\bfseries set\+Angle} (const Body\+Id i, float rotation) const =0
+\item 
+\mbox{\Hypertarget{classPhysicsAPI_a02efbbe992c3415a86822451be6b54df}\label{classPhysicsAPI_a02efbbe992c3415a86822451be6b54df}} 
+virtual void {\bfseries destroy\+Body} (Body\+Id i) const =0
+\item 
+\mbox{\Hypertarget{classPhysicsAPI_a6b57e7d9cf99fe11de4d7e60ea172234}\label{classPhysicsAPI_a6b57e7d9cf99fe11de4d7e60ea172234}} 
+virtual \mbox{\hyperlink{classPhysicsEngineAdapter}{Physics\+Engine\+Adapter}} \& {\bfseries get\+Physics\+Engine\+Adapter} () const =0
+\item 
+\mbox{\Hypertarget{classPhysicsAPI_a8b9632978ea898b55332f7dfed368a4c}\label{classPhysicsAPI_a8b9632978ea898b55332f7dfed368a4c}} 
+virtual void {\bfseries set\+Transform} (unsigned int body\+Id, \mbox{\hyperlink{structVector2}{Vector2}} pos, float angle) const =0
+\item 
+\mbox{\Hypertarget{classPhysicsAPI_aa03a3ee57e324d18e706b6da89ce45c0}\label{classPhysicsAPI_aa03a3ee57e324d18e706b6da89ce45c0}} 
+virtual void {\bfseries set\+Enabled} (Body\+Id id, bool b) const =0
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+A\+P\+I/\+Physics/Physics\+A\+P\+I.\+hpp\end{DoxyCompactItemize}

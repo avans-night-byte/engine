@@ -1,0 +1,53 @@
+\hypertarget{classSDLRenderingAdapter}{}\doxysection{S\+D\+L\+Rendering\+Adapter Class Reference}
+\label{classSDLRenderingAdapter}\index{SDLRenderingAdapter@{SDLRenderingAdapter}}
+Inheritance diagram for S\+D\+L\+Rendering\+Adapter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSDLRenderingAdapter}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSDLRenderingAdapter_a55f34d11b84f2e3f3b7b0566043257a7}\label{classSDLRenderingAdapter_a55f34d11b84f2e3f3b7b0566043257a7}} 
+void {\bfseries draw\+Texture} (std\+::string texture\+Id, float x, float y, float width, float height, double scale, double r, S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Renderer\+Flip flip=S\+D\+L\+\_\+\+F\+L\+I\+P\+\_\+\+N\+O\+NE) override
+\item 
+\mbox{\Hypertarget{classSDLRenderingAdapter_a0d50dcb47d2cec798c93652caa198b5f}\label{classSDLRenderingAdapter_a0d50dcb47d2cec798c93652caa198b5f}} 
+\mbox{\hyperlink{classSpritesheet}{Spritesheet}} $\ast$ {\bfseries create\+Sprite\+Sheet} (const std\+::string \&path, std\+::string \&sprite\+Sheet\+Id, int width, int height) override
+\item 
+\mbox{\Hypertarget{classSDLRenderingAdapter_aa2d5e886728e225f16485769c244a7bf}\label{classSDLRenderingAdapter_aa2d5e886728e225f16485769c244a7bf}} 
+\mbox{\hyperlink{classSpritesheet}{Spritesheet}} $\ast$ {\bfseries create\+Sprite\+Sheet} (const std\+::string \&path, const std\+::string \&json\+Path, std\+::string \&sprite\+Sheet\+Id, S\+D\+L\+\_\+\+Renderer $\ast$renderer) override
+\item 
+\mbox{\Hypertarget{classSDLRenderingAdapter_a17c85901c3693e136257cf2a7acbabbf}\label{classSDLRenderingAdapter_a17c85901c3693e136257cf2a7acbabbf}} 
+void {\bfseries draw\+Box} (const \mbox{\hyperlink{structVector2}{Vector2}} $\ast$vertices, int32 vertex\+Count, S\+D\+L\+\_\+\+Renderer $\ast$renderer) const override
+\item 
+\mbox{\Hypertarget{classSDLRenderingAdapter_a87aebcd2634e5dd23aa7f74389cbdf02}\label{classSDLRenderingAdapter_a87aebcd2634e5dd23aa7f74389cbdf02}} 
+void {\bfseries draw\+Line} (const \mbox{\hyperlink{structVector2}{Vector2}} \&begin, const \mbox{\hyperlink{structVector2}{Vector2}} \&end, S\+D\+L\+\_\+\+Renderer $\ast$renderer) const override
+\item 
+\mbox{\Hypertarget{classSDLRenderingAdapter_ace2e96c12da2003cb9d2a6db98610d95}\label{classSDLRenderingAdapter_ace2e96c12da2003cb9d2a6db98610d95}} 
+void {\bfseries draw\+Circle} (const \mbox{\hyperlink{structVector2}{Vector2}} \&center, const float \&radius, S\+D\+L\+\_\+\+Renderer $\ast$renderer) const override
+\item 
+\mbox{\Hypertarget{classSDLRenderingAdapter_a8835eb477654d0f601afd0919ed792d0}\label{classSDLRenderingAdapter_a8835eb477654d0f601afd0919ed792d0}} 
+void {\bfseries draw\+Rectangle} (\mbox{\hyperlink{structVector2}{Vector2}} \&vector2, float width, float height, const std\+::string \&color, float opacity, S\+D\+L\+\_\+\+Renderer $\ast$renderer) const override
+\item 
+\mbox{\Hypertarget{classSDLRenderingAdapter_a38367ef650e8e597f73004d9e4736ecc}\label{classSDLRenderingAdapter_a38367ef650e8e597f73004d9e4736ecc}} 
+void {\bfseries create\+Text} (const std\+::string \&font\+Name, const std\+::string \&text, int font\+Size, const std\+::string \&hex, const std\+::string \&texture\+Id, S\+D\+L\+\_\+\+Renderer $\ast$renderer) override
+\item 
+\mbox{\Hypertarget{classSDLRenderingAdapter_a25b1cc6bd8501b68a9562d3bfa9440e7}\label{classSDLRenderingAdapter_a25b1cc6bd8501b68a9562d3bfa9440e7}} 
+void {\bfseries draw\+Background} (std\+::string \&color, float alpha, S\+D\+L\+\_\+\+Renderer $\ast$renderer) override
+\item 
+\mbox{\Hypertarget{classSDLRenderingAdapter_a2ccd7097151af9807fb785437b708e5b}\label{classSDLRenderingAdapter_a2ccd7097151af9807fb785437b708e5b}} 
+void {\bfseries render} (S\+D\+L\+\_\+\+Renderer $\ast$p\+Renderer) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSDLRenderingAdapter_a9e7acc2d99be127df1bafee3d39b1666}\label{classSDLRenderingAdapter_a9e7acc2d99be127df1bafee3d39b1666}} 
+static \mbox{\hyperlink{classTextureManager}{Texture\+Manager}} $\ast$ {\bfseries Get\+Texture\+Manager} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Rendering/\+Adapter/S\+D\+L\+Rendering\+Adapter.\+hpp\item 
+Engine/\+Rendering/\+Adapter/S\+D\+L\+Rendering\+Adaper.\+cpp\end{DoxyCompactItemize}

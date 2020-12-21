@@ -1,0 +1,46 @@
+\hypertarget{structzxdg__popup__v6__listener}{}\doxysection{zxdg\+\_\+popup\+\_\+v6\+\_\+listener Struct Reference}
+\label{structzxdg__popup__v6__listener}\index{zxdg\_popup\_v6\_listener@{zxdg\_popup\_v6\_listener}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+void($\ast$ \mbox{\hyperlink{structzxdg__popup__v6__listener_aff1351809c72ec7e43868c0c87e722c9}{configure}} )(void $\ast$data, struct zxdg\+\_\+popup\+\_\+v6 $\ast$zxdg\+\_\+popup\+\_\+v6, int32\+\_\+t x, int32\+\_\+t y, int32\+\_\+t width, int32\+\_\+t height)
+\item 
+void($\ast$ \mbox{\hyperlink{structzxdg__popup__v6__listener_af6a12d4a9ce50cbd7289517b1add5b31}{popup\+\_\+done}} )(void $\ast$data, struct zxdg\+\_\+popup\+\_\+v6 $\ast$zxdg\+\_\+popup\+\_\+v6)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structzxdg__popup__v6__listener_aff1351809c72ec7e43868c0c87e722c9}\label{structzxdg__popup__v6__listener_aff1351809c72ec7e43868c0c87e722c9}} 
+\index{zxdg\_popup\_v6\_listener@{zxdg\_popup\_v6\_listener}!configure@{configure}}
+\index{configure@{configure}!zxdg\_popup\_v6\_listener@{zxdg\_popup\_v6\_listener}}
+\doxysubsubsection{\texorpdfstring{configure}{configure}}
+{\footnotesize\ttfamily void($\ast$ zxdg\+\_\+popup\+\_\+v6\+\_\+listener\+::configure) (void $\ast$data, struct zxdg\+\_\+popup\+\_\+v6 $\ast$zxdg\+\_\+popup\+\_\+v6, int32\+\_\+t x, int32\+\_\+t y, int32\+\_\+t width, int32\+\_\+t height)}
+
+configure the popup surface
+
+This event asks the popup surface to configure itself given the configuration. The configured state should not be applied immediately. See xdg\+\_\+surface.\+configure for details.
+
+The x and y arguments represent the position the popup was placed at given the xdg\+\_\+positioner rule, relative to the upper left corner of the window geometry of the parent surface. 
+\begin{DoxyParams}{Parameters}
+{\em x} & x position relative to parent surface window geometry \\
+\hline
+{\em y} & y position relative to parent surface window geometry \\
+\hline
+{\em width} & window geometry width \\
+\hline
+{\em height} & window geometry height \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{structzxdg__popup__v6__listener_af6a12d4a9ce50cbd7289517b1add5b31}\label{structzxdg__popup__v6__listener_af6a12d4a9ce50cbd7289517b1add5b31}} 
+\index{zxdg\_popup\_v6\_listener@{zxdg\_popup\_v6\_listener}!popup\_done@{popup\_done}}
+\index{popup\_done@{popup\_done}!zxdg\_popup\_v6\_listener@{zxdg\_popup\_v6\_listener}}
+\doxysubsubsection{\texorpdfstring{popup\_done}{popup\_done}}
+{\footnotesize\ttfamily void($\ast$ zxdg\+\_\+popup\+\_\+v6\+\_\+listener\+::popup\+\_\+done) (void $\ast$data, struct zxdg\+\_\+popup\+\_\+v6 $\ast$zxdg\+\_\+popup\+\_\+v6)}
+
+popup interaction is done
+
+The popup\+\_\+done event is sent out when a popup is dismissed by the compositor. The client should destroy the xdg\+\_\+popup object at this point. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cmake-\/build-\/debug/build/sdl/wayland-\/generated-\/protocols/xdg-\/shell-\/unstable-\/v6-\/client-\/protocol.\+h\end{DoxyCompactItemize}

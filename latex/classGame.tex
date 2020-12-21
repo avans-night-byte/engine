@@ -1,0 +1,157 @@
+\hypertarget{classGame}{}\doxysection{Game Class Reference}
+\label{classGame}\index{Game@{Game}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame_a7114e28c7a14346976717f28139e82bb}\label{classGame_a7114e28c7a14346976717f28139e82bb}} 
+{\bfseries Game} (\mbox{\hyperlink{classGame}{Game}} \&other)=delete
+\item 
+\mbox{\Hypertarget{classGame_aabf97d3e11b31fe75c178756a3bf90af}\label{classGame_aabf97d3e11b31fe75c178756a3bf90af}} 
+void {\bfseries operator=} (const \mbox{\hyperlink{classGame}{Game}} \&)=delete
+\item 
+\mbox{\Hypertarget{classGame_a14073b7ee15e3a60b72112519be85453}\label{classGame_a14073b7ee15e3a60b72112519be85453}} 
+void {\bfseries initialize} ()
+\item 
+void \mbox{\hyperlink{classGame_aede5f46c8c7bbbaf8459eeec397a11e7}{game\+Loop}} ()
+\item 
+\mbox{\Hypertarget{classGame_a325c01d4c721857c8a317656466b399c}\label{classGame_a325c01d4c721857c8a317656466b399c}} 
+\mbox{\hyperlink{classPoolLevel}{Pool\+Level}} $\ast$ {\bfseries get\+Pool\+Level} ()
+\item 
+Entity\+Id \mbox{\hyperlink{classGame_aaa9aaa8060e075bee3338d9b9abab9f1}{create\+Entity}} ()
+\item 
+void \mbox{\hyperlink{classGame_a0d56af1516edca251570e0b23db27003}{add\+Component}} (Entity\+Id id, \mbox{\hyperlink{classComponent}{Component}} $\ast$comp)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T $\ast$ \mbox{\hyperlink{classGame_a5bdb94a4001fa721d415e4a4642f845f}{get\+Component}} (Entity\+Id id)
+\item 
+\mbox{\hyperlink{classSystem}{System}}$<$ \mbox{\hyperlink{classComponent}{Component}} $>$ \mbox{\hyperlink{classGame_a7f1162b037a9a382f222502714ed9670}{get\+Components}} (Entity\+Id id)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classSystem}{System}}$<$ T $>$ \mbox{\hyperlink{classGame_ac03b3b34f6d2fdc0446e8d895f7b967d}{get\+Components}} (Entity\+Id id)
+\item 
+\mbox{\Hypertarget{classGame_a5e6435498aaf99000a0a0f547596ad8a}\label{classGame_a5e6435498aaf99000a0a0f547596ad8a}} 
+\mbox{\hyperlink{classInputAPI}{Input\+A\+PI}} \& {\bfseries get\+Input\+A\+PI} ()
+\item 
+\mbox{\Hypertarget{classGame_afdabf89999afb158ecdf85e800f7b429}\label{classGame_afdabf89999afb158ecdf85e800f7b429}} 
+\mbox{\hyperlink{classPhysicsAPI}{Physics\+A\+PI}} \& {\bfseries get\+Physics\+A\+PI} ()
+\item 
+\mbox{\Hypertarget{classGame_ac162078df4a15c4985b1ebc532adefac}\label{classGame_ac162078df4a15c4985b1ebc532adefac}} 
+\mbox{\hyperlink{classRenderingAPI}{Rendering\+A\+PI}} \& {\bfseries get\+Rendering\+Api} ()
+\item 
+\mbox{\Hypertarget{classGame_aae95e56b1630f9e4bbb56f5e77a9767a}\label{classGame_aae95e56b1630f9e4bbb56f5e77a9767a}} 
+\mbox{\hyperlink{classComponentFactory}{Component\+Factory}} $\ast$ {\bfseries get\+Component\+Factory} ()
+\item 
+\mbox{\Hypertarget{classGame_ab3e844548d933003bc7e0a9b40bf9fc7}\label{classGame_ab3e844548d933003bc7e0a9b40bf9fc7}} 
+void {\bfseries initialize\+LeveL} (const std\+::string \&level\+Name, const \mbox{\hyperlink{structLevelData}{Level\+Data}} \&data)
+\item 
+\mbox{\Hypertarget{classGame_abeee03880cc8b57dc5efffd27156f729}\label{classGame_abeee03880cc8b57dc5efffd27156f729}} 
+void {\bfseries add\+Event\+Body\+Handler} (const std\+::function$<$ void()$>$ \&function)
+\item 
+\mbox{\Hypertarget{classGame_a2ab6e00f11b050df95fdbb5750a535b2}\label{classGame_a2ab6e00f11b050df95fdbb5750a535b2}} 
+void {\bfseries unload\+Level} ()
+\item 
+\mbox{\Hypertarget{classGame_af12e0084b88359907c0761a6a281557e}\label{classGame_af12e0084b88359907c0761a6a281557e}} 
+void {\bfseries Fixed\+Update} (float delta\+Time)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classGame}{Game}} $\ast$ \mbox{\hyperlink{classGame_a19798a4f4c50037e1c5cd8c5d491fef9}{get\+Instance}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGame_a0d56af1516edca251570e0b23db27003}\label{classGame_a0d56af1516edca251570e0b23db27003}} 
+\index{Game@{Game}!addComponent@{addComponent}}
+\index{addComponent@{addComponent}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{addComponent()}{addComponent()}}
+{\footnotesize\ttfamily void Game\+::add\+Component (\begin{DoxyParamCaption}\item[{Entity\+Id}]{id,  }\item[{\mbox{\hyperlink{classComponent}{Component}} $\ast$}]{comp }\end{DoxyParamCaption})}
+
+Add a component to the specified entity. 
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em comp} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGame_aaa9aaa8060e075bee3338d9b9abab9f1}\label{classGame_aaa9aaa8060e075bee3338d9b9abab9f1}} 
+\index{Game@{Game}!createEntity@{createEntity}}
+\index{createEntity@{createEntity}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{createEntity()}{createEntity()}}
+{\footnotesize\ttfamily Entity\+Id Game\+::create\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creates an entity and pushes it to the entity collection.
+
+\begin{DoxyReturn}{Returns}
+Entity\+Id id -\/ The id of the newly created entity. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGame_aede5f46c8c7bbbaf8459eeec397a11e7}\label{classGame_aede5f46c8c7bbbaf8459eeec397a11e7}} 
+\index{Game@{Game}!gameLoop@{gameLoop}}
+\index{gameLoop@{gameLoop}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{gameLoop()}{gameLoop()}}
+{\footnotesize\ttfamily void Game\+::game\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gameloop \mbox{\Hypertarget{classGame_a5bdb94a4001fa721d415e4a4642f845f}\label{classGame_a5bdb94a4001fa721d415e4a4642f845f}} 
+\index{Game@{Game}!getComponent@{getComponent}}
+\index{getComponent@{getComponent}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getComponent()}{getComponent()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T $\ast$ Game\+::get\+Component (\begin{DoxyParamCaption}\item[{Entity\+Id}]{id }\end{DoxyParamCaption})}
+
+Gets a single component of specified type. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGame_a7f1162b037a9a382f222502714ed9670}\label{classGame_a7f1162b037a9a382f222502714ed9670}} 
+\index{Game@{Game}!getComponents@{getComponents}}
+\index{getComponents@{getComponents}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getComponents()}{getComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSystem}{System}}$<$ \mbox{\hyperlink{classComponent}{Component}} $>$ Game\+::get\+Components (\begin{DoxyParamCaption}\item[{Entity\+Id}]{id }\end{DoxyParamCaption})}
+
+Gets components by entity id of all types. 
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGame_ac03b3b34f6d2fdc0446e8d895f7b967d}\label{classGame_ac03b3b34f6d2fdc0446e8d895f7b967d}} 
+\index{Game@{Game}!getComponents@{getComponents}}
+\index{getComponents@{getComponents}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getComponents()}{getComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classSystem}{System}}$<$ T $>$ Game\+::get\+Components (\begin{DoxyParamCaption}\item[{Entity\+Id}]{id }\end{DoxyParamCaption})}
+
+Gets components by entity id of a specified type. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGame_a19798a4f4c50037e1c5cd8c5d491fef9}\label{classGame_a19798a4f4c50037e1c5cd8c5d491fef9}} 
+\index{Game@{Game}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGame}{Game}} $\ast$ Game\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+The first time we call get\+Instance we will lock the storage location and then we make sure again that the variable is null and then we set the value. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Game/Game.\+hpp\item 
+Game/Game.\+cpp\end{DoxyCompactItemize}

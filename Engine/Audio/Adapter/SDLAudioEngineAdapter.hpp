@@ -5,8 +5,9 @@
 
 #include "SDL_mixer.h"
 #include "../AudioType.h"
+#include "./AudioEngineAdapter.hpp"
 
-class SDLAudioEngineAdapter {
+class SDLAudioEngineAdapter : public AudioEngineAdapter {
 
 private:
     static SDLAudioEngineAdapter *_instance;
@@ -24,41 +25,41 @@ public:
 
     SDLAudioEngineAdapter &operator=(SDLAudioEngineAdapter &&other) noexcept = default;
 
-    std::vector<std::string> getAudioNames();
+    std::vector<std::string> getAudioNames() override;
 
-    void loadInMemory(const std::string &path, const std::string &name, AudioType type);
+    void loadInMemory(const std::string &path, const std::string &name, AudioType type) override;
 
-    void playFromPath(const std::string &path, AudioType &type);
+    void playFromPath(const std::string &path, AudioType &type) override;
 
-    void playFromMemory(const std::string &name);
+    void playFromMemory(const std::string &name) override;
 
-    static void changeMasterVolume(int volume);
+    void changeMasterVolume(int volume) override;
 
-    static void changeChannelVolume(int channel, int volume);
+    void changeChannelVolume(int channel, int volume) override;
 
-    static void changeMusicVolume(int volume);
+    void changeMusicVolume(int volume) override;
 
-    static int getChannelsAverageVolume();
+    int getChannelsAverageVolume() override;
 
-    static int getChannelVolume(int channel);
+    int getChannelVolume(int channel) override;
 
-    static int getMusicVolume();
+    int getMusicVolume() override;
 
-    static void stopAudio();
+    void stopAudio() override;
 
-    static void stopMusic();
+    void stopMusic() override;
 
-    static void stopSound(int channel);
+    void stopSound(int channel) override;
 
-    static void stopSounds();
+    void stopSounds() override;
 
-    static void toggleMusic();
+    void toggleMusic() override;
 
-    static void toggleSound(int channel);
+    void toggleSound(int channel) override;
 
-    static void toggleSounds();
+    void toggleSounds() override;
 
-    static SDLAudioEngineAdapter *getInstance();
+    static SDLAudioEngineAdapter &getInstance();
 
 private:
     std::map<std::string, Mix_Music *> _musicTracks;

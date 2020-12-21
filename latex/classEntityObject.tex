@@ -1,0 +1,66 @@
+\hypertarget{classEntityObject}{}\doxysection{Entity\+Object Class Reference}
+\label{classEntityObject}\index{EntityObject@{EntityObject}}
+Inheritance diagram for Entity\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classEntityObject}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEntityObject_a277bf3ab2cae342621086b05a017a7dc}\label{classEntityObject_a277bf3ab2cae342621086b05a017a7dc}} 
+{\bfseries Entity\+Object} (Entity\+Id id, std\+::string name=\char`\"{}\char`\"{})
+\item 
+\mbox{\Hypertarget{classEntityObject_a60968df2328ab02c90fd9cb040f4494d}\label{classEntityObject_a60968df2328ab02c90fd9cb040f4494d}} 
+\mbox{\hyperlink{classTransformComponent}{Transform\+Component}} $\ast$ {\bfseries get\+Transform} ()
+\item 
+\mbox{\Hypertarget{classEntityObject_a449877252a20b9a0f3eb7ed81f5c1d26}\label{classEntityObject_a449877252a20b9a0f3eb7ed81f5c1d26}} 
+\mbox{\hyperlink{classPhysicsComponent}{Physics\+Component}} $\ast$ {\bfseries get\+Physics\+Component} ()
+\item 
+\mbox{\Hypertarget{classEntityObject_a99459038d6833df251d32c89b257454b}\label{classEntityObject_a99459038d6833df251d32c89b257454b}} 
+const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classComponent}{Component}} $>$ $>$ \& {\bfseries get\+Components} ()
+\item 
+\mbox{\Hypertarget{classEntityObject_a0885c9d49ee697e131e788c84ffa21a6}\label{classEntityObject_a0885c9d49ee697e131e788c84ffa21a6}} 
+{\footnotesize template$<$class T $>$ }\\T $\ast$ {\bfseries get\+Component} () const
+\item 
+\mbox{\Hypertarget{classEntityObject_a4aea3a9d8e45e1eb8b3667e471ebca44}\label{classEntityObject_a4aea3a9d8e45e1eb8b3667e471ebca44}} 
+\mbox{\hyperlink{classComponent}{Component}} $\ast$ {\bfseries get\+Component} (std\+::string component\+Name)
+\item 
+\mbox{\Hypertarget{classEntityObject_ad6b36fec8e09e73194f51167c0e8389b}\label{classEntityObject_ad6b36fec8e09e73194f51167c0e8389b}} 
+void {\bfseries initialize\+Components} ()
+\item 
+\mbox{\Hypertarget{classEntityObject_ac98e4a0f36b0c0c8cdda411d7232ca5c}\label{classEntityObject_ac98e4a0f36b0c0c8cdda411d7232ca5c}} 
+void {\bfseries render} () override
+\item 
+\mbox{\Hypertarget{classEntityObject_a850e0d2c734100ff86ca6da7892c1624}\label{classEntityObject_a850e0d2c734100ff86ca6da7892c1624}} 
+void {\bfseries update} (const \mbox{\hyperlink{structInput}{Input}} \&input\+System) override
+\item 
+\mbox{\Hypertarget{classEntityObject_ad5d983310ca1abacf0aeb0453450dd61}\label{classEntityObject_ad5d983310ca1abacf0aeb0453450dd61}} 
+void {\bfseries fixed\+Update} (const float \&delta\+Time) override
+\item 
+\mbox{\Hypertarget{classEntityObject_a9fd41919da22104ca0f925d06bd63171}\label{classEntityObject_a9fd41919da22104ca0f925d06bd63171}} 
+void {\bfseries add\+Component} (\mbox{\hyperlink{classComponent}{Component}} $\ast$component)
+\item 
+\mbox{\Hypertarget{classEntityObject_a5d5d8be9f090074beb9d95cb5e0898e7}\label{classEntityObject_a5d5d8be9f090074beb9d95cb5e0898e7}} 
+std\+::string {\bfseries name} () const override
+\item 
+\mbox{\Hypertarget{classEntityObject_aaed6d70b59011a0e5d277bdbd6ff001f}\label{classEntityObject_aaed6d70b59011a0e5d277bdbd6ff001f}} 
+\mbox{\hyperlink{classComponent}{Component}} $\ast$ {\bfseries build} (Entity\+Id entity\+Id, const \mbox{\hyperlink{classComponents_1_1component}{Components\+::component}} $\ast$component) override
+\item 
+\mbox{\Hypertarget{classEntityObject_ad19bcd695d7474b1b07c75245aaaed12}\label{classEntityObject_ad19bcd695d7474b1b07c75245aaaed12}} 
+void {\bfseries initialize} (\mbox{\hyperlink{classEntityObject}{Entity\+Object}} \&entity\+Parent) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEntityObject_a95b664ad4908b126a3f4b3343bd22d56}\label{classEntityObject_a95b664ad4908b126a3f4b3343bd22d56}} 
+std\+::string {\bfseries entity\+Name}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Game/\+Components/Entity\+Object.\+hpp\item 
+Game/\+Components/Entity\+Object.\+cpp\end{DoxyCompactItemize}

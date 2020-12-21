@@ -1,0 +1,174 @@
+\hypertarget{classSDLInputEngineAdapter}{}\doxysection{S\+D\+L\+Input\+Engine\+Adapter Class Reference}
+\label{classSDLInputEngineAdapter}\index{SDLInputEngineAdapter@{SDLInputEngineAdapter}}
+
+
+{\ttfamily \#include $<$S\+D\+L\+Input\+Engine\+Adapter.\+hpp$>$}
+
+Inheritance diagram for S\+D\+L\+Input\+Engine\+Adapter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSDLInputEngineAdapter}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSDLInputEngineAdapter_a49a618970f7ecf6e039b29dee8e6a876}\label{classSDLInputEngineAdapter_a49a618970f7ecf6e039b29dee8e6a876}} 
+\mbox{\hyperlink{classEvent}{Event}}$<$ \mbox{\hyperlink{structInput}{Input}} $>$ \& {\bfseries get\+Input\+Event} () override
+\item 
+\mbox{\hyperlink{structInput}{Input}} \mbox{\hyperlink{classSDLInputEngineAdapter_af4dff5dabe2a8918fbefca4e945606a6}{get\+Input}} () override
+\item 
+\mbox{\hyperlink{structInput}{Input}} \mbox{\hyperlink{classSDLInputEngineAdapter_a247bdda44c11b932ea53f7b33e8356d5}{get\+Key\+Input}} (S\+D\+L\+\_\+\+Keycode input, Uint32 type=S\+D\+L\+\_\+\+K\+E\+Y\+D\+O\+WN) const override
+\item 
+\mbox{\hyperlink{structInput}{Input}} \mbox{\hyperlink{classSDLInputEngineAdapter_ac0a1eafdc5a3ff0bdc06130e9b1cab95}{get\+Mouse\+Input}} (S\+D\+L\+\_\+\+Event input) override
+\item 
+\mbox{\hyperlink{structInput}{Input}} \mbox{\hyperlink{classSDLInputEngineAdapter_a12a188984b769c6210335481e2062c37}{get\+Controller\+Input}} (S\+D\+L\+\_\+\+Event input) const override
+\item 
+\mbox{\hyperlink{structInput}{Input}} \mbox{\hyperlink{classSDLInputEngineAdapter_a2ee77f44322c6fa425fb73d8a1a31bea}{get\+Controller\+Motion\+Input}} (S\+D\+L\+\_\+\+Event input) const override
+\item 
+\mbox{\Hypertarget{classSDLInputEngineAdapter_a38dd8c9b5d65c967c61f8268cb2d44dc}\label{classSDLInputEngineAdapter_a38dd8c9b5d65c967c61f8268cb2d44dc}} 
+void {\bfseries get\+Mouse\+Position} (int \&x, int \&y) const override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+S\+DL Compatible \mbox{\hyperlink{structInput}{Input}} Adapter for user input. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSDLInputEngineAdapter_a12a188984b769c6210335481e2062c37}\label{classSDLInputEngineAdapter_a12a188984b769c6210335481e2062c37}} 
+\index{SDLInputEngineAdapter@{SDLInputEngineAdapter}!getControllerInput@{getControllerInput}}
+\index{getControllerInput@{getControllerInput}!SDLInputEngineAdapter@{SDLInputEngineAdapter}}
+\doxysubsubsection{\texorpdfstring{getControllerInput()}{getControllerInput()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structInput}{Input}} S\+D\+L\+Input\+Engine\+Adapter\+::get\+Controller\+Input (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Event}]{controller\+Event }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Handles Keymapping for device 2\+: C\+O\+N\+T\+R\+O\+L\+L\+ER.
+
+
+\begin{DoxyParams}{Parameters}
+{\em S\+D\+L\+\_\+\+Event} & controller\+Event -\/ S\+DL \mbox{\hyperlink{classEvent}{Event}} that was received. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structInput}{Input}}\{device, x, y, key\+Map\} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classInputEngineAdapter}{Input\+Engine\+Adapter}}.
+
+\mbox{\Hypertarget{classSDLInputEngineAdapter_a2ee77f44322c6fa425fb73d8a1a31bea}\label{classSDLInputEngineAdapter_a2ee77f44322c6fa425fb73d8a1a31bea}} 
+\index{SDLInputEngineAdapter@{SDLInputEngineAdapter}!getControllerMotionInput@{getControllerMotionInput}}
+\index{getControllerMotionInput@{getControllerMotionInput}!SDLInputEngineAdapter@{SDLInputEngineAdapter}}
+\doxysubsubsection{\texorpdfstring{getControllerMotionInput()}{getControllerMotionInput()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structInput}{Input}} S\+D\+L\+Input\+Engine\+Adapter\+::get\+Controller\+Motion\+Input (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Event}]{controller\+Event }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Handles Axis motion events for the controller. Note\+: At this time this only logs which axis was moved.
+
+
+\begin{DoxyParams}{Parameters}
+{\em S\+D\+L\+\_\+\+Event} & controller\+Event -\/ S\+DL \mbox{\hyperlink{classEvent}{Event}} that was received. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structInput}{Input}}\{device, x, y, key\+Map\} 
+\end{DoxyReturn}
+Left Joystick
+
+Left/\+Right axis
+
+Left direction
+
+Right direction
+
+Up/\+Down axis
+
+Up direction
+
+Down direction
+
+Right Joystick
+
+Left/\+Right axis
+
+Left direction
+
+Right direction
+
+Up/\+Down axis
+
+Up direction
+
+Down direction
+
+Implements \mbox{\hyperlink{classInputEngineAdapter}{Input\+Engine\+Adapter}}.
+
+\mbox{\Hypertarget{classSDLInputEngineAdapter_af4dff5dabe2a8918fbefca4e945606a6}\label{classSDLInputEngineAdapter_af4dff5dabe2a8918fbefca4e945606a6}} 
+\index{SDLInputEngineAdapter@{SDLInputEngineAdapter}!getInput@{getInput}}
+\index{getInput@{getInput}!SDLInputEngineAdapter@{SDLInputEngineAdapter}}
+\doxysubsubsection{\texorpdfstring{getInput()}{getInput()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structInput}{Input}} S\+D\+L\+Input\+Engine\+Adapter\+::get\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Function that gets called every iteration from the game\+Loop to check for input from the user. Delegates functionality for every device to underlying methods.
+
+Polled events\+:
+\begin{DoxyItemize}
+\item S\+D\+L\+\_\+\+K\+E\+Y\+D\+O\+WN, returns \mbox{\hyperlink{structInput}{Input}} struct
+\item S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+D\+O\+WN, returns \mbox{\hyperlink{structInput}{Input}} struct
+\item S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+B\+U\+T\+T\+O\+N\+D\+O\+WN, returns \mbox{\hyperlink{structInput}{Input}} struct
+\item S\+D\+L\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R\+D\+E\+V\+I\+C\+E\+A\+D\+D\+ED, void
+\item S\+D\+L\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R\+D\+E\+V\+I\+C\+E\+R\+E\+M\+O\+V\+ED, void
+\item S\+D\+L\+\_\+\+Q\+U\+IT, returns \mbox{\hyperlink{structInput}{Input}} struct
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structInput}{Input}}\{device, x, y, key\+Map\} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classInputEngineAdapter}{Input\+Engine\+Adapter}}.
+
+\mbox{\Hypertarget{classSDLInputEngineAdapter_a247bdda44c11b932ea53f7b33e8356d5}\label{classSDLInputEngineAdapter_a247bdda44c11b932ea53f7b33e8356d5}} 
+\index{SDLInputEngineAdapter@{SDLInputEngineAdapter}!getKeyInput@{getKeyInput}}
+\index{getKeyInput@{getKeyInput}!SDLInputEngineAdapter@{SDLInputEngineAdapter}}
+\doxysubsubsection{\texorpdfstring{getKeyInput()}{getKeyInput()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structInput}{Input}} S\+D\+L\+Input\+Engine\+Adapter\+::get\+Key\+Input (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Keycode}]{key\+Event,  }\item[{Uint32}]{type = {\ttfamily SDL\+\_\+KEYDOWN} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Handles Keymapping for device 0\+: K\+E\+Y\+B\+O\+A\+RD.
+
+
+\begin{DoxyParams}{Parameters}
+{\em S\+D\+L\+\_\+\+Keycode} & key\+Event -\/ S\+DL Key\+Event that was received. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structInput}{Input}}\{device, x, y, key\+Map\} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classInputEngineAdapter}{Input\+Engine\+Adapter}}.
+
+\mbox{\Hypertarget{classSDLInputEngineAdapter_ac0a1eafdc5a3ff0bdc06130e9b1cab95}\label{classSDLInputEngineAdapter_ac0a1eafdc5a3ff0bdc06130e9b1cab95}} 
+\index{SDLInputEngineAdapter@{SDLInputEngineAdapter}!getMouseInput@{getMouseInput}}
+\index{getMouseInput@{getMouseInput}!SDLInputEngineAdapter@{SDLInputEngineAdapter}}
+\doxysubsubsection{\texorpdfstring{getMouseInput()}{getMouseInput()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structInput}{Input}} S\+D\+L\+Input\+Engine\+Adapter\+::get\+Mouse\+Input (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Event}]{mouse\+Event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Handles Keymapping for device 1\+: M\+O\+U\+SE.
+
+
+\begin{DoxyParams}{Parameters}
+{\em S\+D\+L\+\_\+\+Event} & mouse\+Event -\/ S\+DL \mbox{\hyperlink{classEvent}{Event}} that was received. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structInput}{Input}}\{device, x, y, key\+Map\} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classInputEngineAdapter}{Input\+Engine\+Adapter}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Input/\+Adapter/S\+D\+L\+Input\+Engine\+Adapter.\+hpp\item 
+Engine/\+Input/\+Adapter/S\+D\+L\+Input\+Engine\+Adapter.\+cpp\end{DoxyCompactItemize}

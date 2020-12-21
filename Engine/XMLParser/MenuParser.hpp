@@ -1,31 +1,38 @@
 #pragma once
 
+
+#include <memory>
+#include <stack>
+
+
 #include "../../API/Rendering/EngineRenderingAPI.hpp"
 #include "../../Resources/XML/Generated/menu.hxx"
 #include "../Rendering/TextWrapper.hpp"
 #include "../Input/Input.hpp"
 #include "../Managers/ResourceManager.hpp"
-#include <memory>
-#include <stack>
+#include "../../API/Helpers/Event.h"
+
+class RenderingAPI;
+
 
 class MenuParser {
 
 private:
-    std::map<std::string, std::unique_ptr<TextWrapper>> _textItems;
+    std::map<std::string, TextWrapper*> _textItems;
 
     const RenderingAPI &_renderer;
     std::unique_ptr<Menu::menu> _menu;
     std::string _previousSong;
 
-    std::string _buttonPrefix = "button_";
-    std::string _textPrefix = "text_";
-    std::string _fontPath = "../../Resources/Fonts/";
+    const std::string _buttonPrefix = "button_";
+    const std::string _textPrefix = "text_";
+    const std::string _fontPath = "../../Resources/Fonts/";
 
     static MenuParser *_instance;
     static std::map<std::string, SDL_Color> _colors;
 
     ResourceManager *_resourceManager = nullptr;
-
+    Event<std::string> _customEventHandler;
 public:
 
     std::stack<std::string> PreviousScenes;
@@ -44,13 +51,15 @@ public:
 
     static MenuParser *getInstance();
 
+    Event<std::string> &getCustomEventHandler();
+
+    ~MenuParser();
+
 private:
 
     void renderButtons();
 
     void renderText();
-
-    static SDL_Color HexToRGB(const std::string& hex, float opacity) ;
 
     void renderImages();
 

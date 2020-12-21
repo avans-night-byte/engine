@@ -1,0 +1,64 @@
+\hypertarget{classPhysicsEngineAdapter}{}\doxysection{Physics\+Engine\+Adapter Class Reference}
+\label{classPhysicsEngineAdapter}\index{PhysicsEngineAdapter@{PhysicsEngineAdapter}}
+Inheritance diagram for Physics\+Engine\+Adapter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPhysicsEngineAdapter}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPhysicsEngineAdapter_abad210b47153a66b3719fa86de5b37ed}\label{classPhysicsEngineAdapter_abad210b47153a66b3719fa86de5b37ed}} 
+virtual void {\bfseries update} (float time\+Step)=0
+\item 
+\mbox{\Hypertarget{classPhysicsEngineAdapter_ac6dcb24ccc7b7db7b6bab61d6832d425}\label{classPhysicsEngineAdapter_ac6dcb24ccc7b7db7b6bab61d6832d425}} 
+virtual Body\+Id {\bfseries create\+Body} (const \mbox{\hyperlink{classBox2DBoxData}{Box2\+D\+Box\+Data}} \&box2d\+Box\+Data)=0
+\item 
+\mbox{\Hypertarget{classPhysicsEngineAdapter_a867a3381ffaf85dd9a9409f3e9ee1eba}\label{classPhysicsEngineAdapter_a867a3381ffaf85dd9a9409f3e9ee1eba}} 
+virtual Body\+Id {\bfseries create\+Body} (const \mbox{\hyperlink{classBox2DCircleData}{Box2\+D\+Circle\+Data}} \&box2\+D\+Circle\+Data)=0
+\item 
+\mbox{\Hypertarget{classPhysicsEngineAdapter_a5fa03f6924d0a88229b8c3381c4ebd26}\label{classPhysicsEngineAdapter_a5fa03f6924d0a88229b8c3381c4ebd26}} 
+virtual Body\+Id {\bfseries create\+Body} (const \mbox{\hyperlink{classBox2DPolygonData}{Box2\+D\+Polygon\+Data}} \&box2\+D\+Polygon\+Data)=0
+\item 
+\mbox{\Hypertarget{classPhysicsEngineAdapter_a114d758a4787ab34f867e14d9dada969}\label{classPhysicsEngineAdapter_a114d758a4787ab34f867e14d9dada969}} 
+virtual void {\bfseries reference\+Position\+To\+Body} (Body\+Id body\+Id, float \&x, float \&y)=0
+\item 
+\mbox{\Hypertarget{classPhysicsEngineAdapter_a7a4ce2f031889b8941f086ab60d2386c}\label{classPhysicsEngineAdapter_a7a4ce2f031889b8941f086ab60d2386c}} 
+virtual \mbox{\hyperlink{structRTransform}{R\+Transform}} {\bfseries get\+R\+Position} (Body\+Id body\+Id)=0
+\item 
+\mbox{\Hypertarget{classPhysicsEngineAdapter_ac68a34d65224765c511a595b7694be58}\label{classPhysicsEngineAdapter_ac68a34d65224765c511a595b7694be58}} 
+virtual void {\bfseries destroy\+Body} (Body\+Id Body\+ID)=0
+\item 
+\mbox{\Hypertarget{classPhysicsEngineAdapter_a135ed2c2b587328db192d7f60a36d769}\label{classPhysicsEngineAdapter_a135ed2c2b587328db192d7f60a36d769}} 
+virtual void {\bfseries Debug\+Draw} (const \mbox{\hyperlink{classSDLRenderingAdapter}{S\+D\+L\+Rendering\+Adapter}} \&rendering\+Adapter, S\+D\+L\+\_\+\+Renderer \&renderer)=0
+\item 
+\mbox{\Hypertarget{classPhysicsEngineAdapter_aceb35e74512d2f2efebe83d392dace44}\label{classPhysicsEngineAdapter_aceb35e74512d2f2efebe83d392dace44}} 
+virtual void {\bfseries get\+Velocity} (\mbox{\hyperlink{structVector2}{Vector2}} \&velocity, Body\+Id body\+Id) const =0
+\item 
+\mbox{\Hypertarget{classPhysicsEngineAdapter_a6696f31e71a024dd1f1a519226efd393}\label{classPhysicsEngineAdapter_a6696f31e71a024dd1f1a519226efd393}} 
+virtual void {\bfseries add\+Force} (const Body\+Id i, \mbox{\hyperlink{structVector2}{Vector2}} direction) const =0
+\item 
+\mbox{\Hypertarget{classPhysicsEngineAdapter_a0d2bd2ed7d73bb83869a06820da85f63}\label{classPhysicsEngineAdapter_a0d2bd2ed7d73bb83869a06820da85f63}} 
+virtual void {\bfseries set\+Linear\+Velocity} (const Body\+Id body\+Id, const \mbox{\hyperlink{structVector2}{Vector2}} \&vector2)=0
+\item 
+\mbox{\Hypertarget{classPhysicsEngineAdapter_a0709cdbae744298db5749865b171cdda}\label{classPhysicsEngineAdapter_a0709cdbae744298db5749865b171cdda}} 
+virtual void {\bfseries set\+Transform} (unsigned int body\+Id, \mbox{\hyperlink{structVector2}{Vector2}} pos, float angle) const =0
+\item 
+\mbox{\Hypertarget{classPhysicsEngineAdapter_a3f593e44fbcf4d84ee21fd100d2d9cc9}\label{classPhysicsEngineAdapter_a3f593e44fbcf4d84ee21fd100d2d9cc9}} 
+virtual void {\bfseries set\+Fixed\+Rotation} (const Body\+Id body\+Id, bool b)=0
+\item 
+\mbox{\Hypertarget{classPhysicsEngineAdapter_a550eb58f82003231cff78c91adabd2f3}\label{classPhysicsEngineAdapter_a550eb58f82003231cff78c91adabd2f3}} 
+virtual void {\bfseries set\+Angle} (Body\+Id body\+Id, float angle) const =0
+\item 
+\mbox{\Hypertarget{classPhysicsEngineAdapter_a136e724737fc7e4747969d86d7fa1fc1}\label{classPhysicsEngineAdapter_a136e724737fc7e4747969d86d7fa1fc1}} 
+virtual void {\bfseries set\+Enabled} (Body\+Id id, bool b) const =0
+\item 
+\mbox{\Hypertarget{classPhysicsEngineAdapter_ab4ede37d19fb40dff4ca2b44e40ebaf3}\label{classPhysicsEngineAdapter_ab4ede37d19fb40dff4ca2b44e40ebaf3}} 
+virtual bool {\bfseries is\+World\+Locked} () const =0
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Physics/Physics\+Engine\+Adapter.\+hpp\end{DoxyCompactItemize}

@@ -1,9 +1,10 @@
 #pragma once
 
 #include <string>
-#include "../Rendering/EngineRenderingAPI.hpp"
 #include "../../Engine/XMLParser/MenuParser.hpp"
-#include "../../Engine/Event.h"
+#include "../../API/Helpers/Event.h"
+
+class RenderingAPI;
 
 class MenuParserAPI {
 public:
@@ -11,6 +12,7 @@ public:
     void loadScene(std::string path);
     void render();
     void onClick(Input input);
+    Event<std::string> &getCustomEventHandler();
 private:
     std::unique_ptr<MenuParser> menuParser;
 };

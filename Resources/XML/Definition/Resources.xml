@@ -60,6 +60,14 @@
                 <height>1</height>
             </common:size>
         </sprite>
+        <sprite>
+            <name>inventorySlot</name>
+            <path>Sprites/inventory_slot.png</path>
+            <common:size>
+                <width>1</width>
+                <height>1</height>
+            </common:size>
+        </sprite>
     </sprites>
     <sounds>
         <sound>
@@ -123,4 +131,14 @@
             <tmxPath>TMX/LevelCharlie.tmx</tmxPath>
         </level>
     </levels>
+    <objectLists>
+        <objectList>
+            <name>MainObjects</name>
+            <path>XML/Definition/Objects/MainObjects.xml</path>
+            <pool>
+                <poolName>MainPool</poolName>
+                <poolPath>XML/Definition/Objects/PoolObjects.xml</poolPath>
+            </pool>
+        </objectList>
+    </objectLists>
 </gr:resources>

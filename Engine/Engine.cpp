@@ -4,16 +4,17 @@
 
 
 // Dependencies
-#include "SDL.h"
-#include "SDL_surface.h"
-#include "SDL_video.h"
-#include "SDL_render.h"
+#include "./Rendering/Adapter/SDLRenderingAdapter.hpp"
+
+#include <SDL.h>
+#include <SDL_surface.h>
+#include <SDL_video.h>
+#include <SDL_render.h>
 #include <SDL_ttf.h>
 
 
 // Variables
 SDL_Window *window = nullptr;
-SDL_Renderer *renderer = nullptr;
 
 
 /**
@@ -41,7 +42,8 @@ void Engine::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT) {
             printf("Window could not be created! SDL_Error: %s\n",
                    SDL_GetError());
         } else {
-            renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+            SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+            this->_renderingAdapter = std::make_unique<SDLRenderingAdapter>(renderer);
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
             SDL_RenderClear(renderer);
             SDL_RenderPresent(renderer);
@@ -51,8 +53,8 @@ void Engine::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT) {
     }
 }
 
-SDL_Renderer *Engine::getRenderer() {
-    return renderer;
+EngineRenderingAdapter &Engine::getRenderingAdapter() {
+    return *_renderingAdapter;
 }
 
 /**
@@ -61,7 +63,7 @@ SDL_Renderer *Engine::getRenderer() {
  * Clears the SDL_Window pointer in the Engine class and calls SDL_DestroyWindow & SDL_Quit.
  **/
 void Engine::closeWindow() {
-    SDL_DestroyRenderer(renderer);
+    _renderingAdapter->deleteRenderer();
     SDL_DestroyWindow(window);
     SDL_Quit();
 }
@@ -80,8 +82,4 @@ Engine *Engine::getInstance() {
     }
 
     return instance_;
-}
-
-TextureManager *Engine::getTextureManager() {
-    return TextureManager::GetInstance();
 }

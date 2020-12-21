@@ -6,11 +6,12 @@
 #include "../Physics/PhysicsEngineAdapter.hpp"
 #include "../../API/Rendering/RenderingAPI.hpp"
 #include <box2d.h>
-#include "../../Engine/Vector2.hpp"
+#include "../../API/Helpers/Vector2.hpp"
 #include "../Astar.hpp"
 #include <unordered_map>
-#include <map>;
+#include <map>
 #include <future>
+#include "Generated/components.hxx"
 
 
 TMXLevel::TMXLevel(const char *tmxPath,
@@ -18,10 +19,9 @@ TMXLevel::TMXLevel(const char *tmxPath,
                    const char *spritesheetId,
                    const RenderingAPI &renderingAPI,
                    PhysicsEngineAdapter &physicsEngineAdapter) : physicsEngineAdapter(physicsEngineAdapter) {
-    _tSpritesheet = renderingAPI.createSpriteSheet(spritesheetPath,
-                                                   spritesheetId, 16, 16);
-    if (!_tmap.load(tmxPath))
-    {
+    _tSpritesheet = renderingAPI.loadSpriteSheet(spritesheetPath,
+                                                 spritesheetId, 16, 16);
+    if (!_tmap.load(tmxPath)) {
         return;
     }
 
@@ -39,7 +39,7 @@ TMXLevel::TMXLevel(const char *tmxPath,
 
 }
 
-void TMXLevel::render(RenderingAPI& renderingAPI) {
+void TMXLevel::render(RenderingAPI &renderingAPI) {
     const auto &layers = _tmap.getLayers();
 
     for (const auto &layer : layers) {
@@ -71,16 +71,17 @@ void TMXLevel::render(RenderingAPI& renderingAPI) {
                     auto x_pos = x * (16 * scale);
                     auto y_pos = y * (16 * scale);
 
-                    _tSpritesheet->select_sprite((texture.x / 16) - 1, texture.y / 16);
-                    _tSpritesheet->draw_selected_sprite(x_pos, y_pos, scale);
+                    _tSpritesheet->selectSprite((texture.x / 16) - 1, texture.y / 16);
+                    _tSpritesheet->drawSelectedSprite(x_pos, y_pos, scale);
                 }
             }
         }
     }
 }
 
-void TMXLevel::initObjects(std::map<std::string, LoadedObjectData>& outLoadedObjects) {
+void TMXLevel::getObjectPositions(const std::multimap<std::string, Components::component *> &outEntities) {
     const auto &layers = _tmap.getLayers();
+    auto loadedObjects = std::map<std::string, LoadedObjectData>();
 
     for (const auto &layer : layers) {
         if (layer->getType() == tmx::Layer::Type::Object) {
@@ -96,13 +97,34 @@ void TMXLevel::initObjects(std::map<std::string, LoadedObjectData>& outLoadedObj
                 loadedObject.objectName = object.getName();
                 loadedObject.position = Vector2(position.x * scale, position.y * scale);
 
-                outLoadedObjects[loadedObject.objectName] = loadedObject;
+                loadedObjects[loadedObject.objectName] = loadedObject;
             }
+        }
+    }
+
+    for (auto &object : loadedObjects) {
+        auto mMapIterator = outEntities.equal_range(object.first);
+        bool transformFound = false;
+        for (auto &mIt = mMapIterator.first; mIt != mMapIterator.second; mIt++) {
+            if (!mIt->second->transformComponent().present())
+                continue;
+
+            auto &worldPositionComponent = mIt->second->transformComponent();
+            auto &positionF = worldPositionComponent->position();
+            positionF.x() = object.second.position.x;
+            positionF.y() = object.second.position.y;
+
+            transformFound = true;
+            break;
+        }
+
+        if (!transformFound) {
+            throw std::runtime_error("Object: '" + object.first + "' couldn't be attached to a resource object");
         }
     }
 }
 
-void TMXLevel::initStaticCollision(){
+void TMXLevel::initStaticCollision() {
     const auto &layers = _tmap.getLayers();
 
     for (const auto &layer : layers) {
@@ -113,76 +135,67 @@ void TMXLevel::initStaticCollision(){
                 std::vector<Vector2> points = std::vector<Vector2>();
 
                 bool isSensor = false;
-                ContactHandler* handler = nullptr;
-                for(const auto &property : object.getProperties())
-                {
-                    if(property.getName() == "isSensor")
-                    {
+                ContactHandler *handler = nullptr;
+                for (const auto &property : object.getProperties()) {
+                    if (property.getName() == "isSensor") {
                         isSensor = true;
                     }
                 }
 
-                BodyId bodyId;
-                switch(object.getShape())
-                {
+                switch (object.getShape()) {
                     case tmx::Object::Shape::Rectangle: {
                         auto rect = object.getAABB();
 
                         Box2DBoxData box2DBoxData;
                         box2DBoxData.bodyType = BodyType::Static;
-                        box2DBoxData.userData = handler;
+                        box2DBoxData.contactHandler = handler;
                         box2DBoxData.isSensor = isSensor;
+
                         box2DBoxData.size = Vector2(rect.width / 2 * scale, rect.height / 2 * scale);
                         box2DBoxData.position = Vector2(
                                 (object.getPosition().x * scale) + (rect.width * scale) / 2,
                                 (object.getPosition().y * scale) + (rect.height * scale) / 2
                         );
 
-                        bodyId = Game::getInstance()->getPhysicsAPI()->createBody(box2DBoxData);
+                        bodies.push_back(Game::getInstance()->getPhysicsAPI().createBody(box2DBoxData));
                         break;
                     }
 
-                    case tmx::Object::Shape::Ellipse:
-                    {
+                    case tmx::Object::Shape::Ellipse: {
                         auto rect = object.getAABB();
 
                         Box2DCircleData box2DCircleData;
                         box2DCircleData.bodyType = BodyType::Static;
                         box2DCircleData.radius = (rect.width * scale) * 0.5f;
-                        box2DCircleData.userData = handler;
+                        box2DCircleData.contactHandler = handler;
                         box2DCircleData.isSensor = isSensor;
                         box2DCircleData.position = Vector2(
                                 (object.getPosition().x * scale) + (rect.width * scale) / 2,
                                 (object.getPosition().y * scale) + (rect.height * scale) / 2
                         );
 
-                        bodyId = Game::getInstance()->getPhysicsAPI()->createBody(box2DCircleData);
+                        bodies.push_back(Game::getInstance()->getPhysicsAPI().createBody(box2DCircleData));
                         break;
                     }
                     case tmx::Object::Shape::Polygon:
                     case tmx::Object::Shape::Polyline: {
                         Box2DPolygonData polygonData;
-                        polygonData.userData = handler;
+                        polygonData.contactHandler = handler;
                         polygonData.bodyType = BodyType::Static;
                         polygonData.isSensor = isSensor;
                         polygonData.position = Vector2(object.getPosition().x * scale, object.getPosition().y * scale);
 
                         for (const auto &point : object.getPoints()) {
-                            points.push_back(Vector2(point.x * scale, point.y * scale));
+                            points.emplace_back(point.x * scale, point.y * scale);
                         }
 
                         polygonData.points = points;
 
-                        bodyId = Game::getInstance()->getPhysicsAPI()->createBody(polygonData);
+                        bodies.push_back(Game::getInstance()->getPhysicsAPI().createBody(polygonData));
                         break;
                     }
                     case tmx::Object::Shape::Text:
                         break;
-                }
-
-                if(bodyId != 0)
-                {
-                    bodies.push_back(bodyId);
                 }
             }
         }
@@ -197,8 +210,7 @@ void TMXLevel::cleanup() {
     bodies.clear();
 }
 
-TMXLevel::~TMXLevel() {
-}
+TMXLevel::~TMXLevel() = default;
 
 class MyQueryCallback : public b2QueryCallback {
 private:
@@ -221,7 +233,7 @@ void TMXLevel::GetGrid(int **weights) const {
      * Create a upper and lower bounawdds. Basicly the bounds of the tile and query for objects.
      * When a static object is within this bound, mark this square as an obstruction.
      */
-    const auto &world = Game::getInstance()->getPhysicsAPI()->getWorld();
+    const auto &world = Game::getInstance()->getPhysicsAPI().getWorld();
     std::map<Vector2, int> testPositions;
 
     for(int y = 0; y < 30; y++) {

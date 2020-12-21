@@ -104,6 +104,7 @@
                 <onClick>
                     <playSound>bonk</playSound>
                     <loadScene>MainMenu</loadScene>
+                    <custom>unloadLevel</custom>
                 </onClick>
             </common:events>
         </button>

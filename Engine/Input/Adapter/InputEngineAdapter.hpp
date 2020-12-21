@@ -5,7 +5,7 @@
 #include "SDL.h"
 #include "SDL_events.h"
 #include "../Input.hpp"
-#include "../../Event.h"
+#include "../../API/Helpers/Event.h"
 
 /**
  * Input Adapter for user input.

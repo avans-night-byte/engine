@@ -1,0 +1,96 @@
+\hypertarget{classPhysicsComponent}{}\doxysection{Physics\+Component Class Reference}
+\label{classPhysicsComponent}\index{PhysicsComponent@{PhysicsComponent}}
+Inheritance diagram for Physics\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPhysicsComponent}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_aa0878a7ef5f9c3eee01998186c069dad}\label{classPhysicsComponent_aa0878a7ef5f9c3eee01998186c069dad}} 
+const std\+::string \& {\bfseries get\+Contact\+Handler\+Name} ()
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_a6969117c3dc3a163daff6e2255813af7}\label{classPhysicsComponent_a6969117c3dc3a163daff6e2255813af7}} 
+void {\bfseries destroy\+Body} ()
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_a3632dfdaa97cf2f2af5a8dd910e0afca}\label{classPhysicsComponent_a3632dfdaa97cf2f2af5a8dd910e0afca}} 
+{\bfseries Physics\+Component} (Entity\+Id id)
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_aba1a15ed794f715252f8691be55581f0}\label{classPhysicsComponent_aba1a15ed794f715252f8691be55581f0}} 
+{\bfseries Physics\+Component} (Entity\+Id id, Body\+Type body\+Type, \mbox{\hyperlink{structVector2}{Vector2}} position, \mbox{\hyperlink{structVector2}{Vector2}} size)
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_ab2a8b10a9e6af1d85f1ae965c2c4d3c3}\label{classPhysicsComponent_ab2a8b10a9e6af1d85f1ae965c2c4d3c3}} 
+{\bfseries Physics\+Component} (Entity\+Id id, Body\+Type body\+Type, \mbox{\hyperlink{structVector2}{Vector2}} position, float radius)
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_a5ae9f48bb45b9c3217bbd4c958e145d1}\label{classPhysicsComponent_a5ae9f48bb45b9c3217bbd4c958e145d1}} 
+\mbox{\hyperlink{structRTransform}{R\+Transform}} {\bfseries get\+R\+Transform} ()
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_a1ae17be5f6287e049c88652f66ef1c48}\label{classPhysicsComponent_a1ae17be5f6287e049c88652f66ef1c48}} 
+void {\bfseries get\+Velocity} (\mbox{\hyperlink{structVector2}{Vector2}} \&velocity)
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_a3277d69372b2189d1ee6e82dad9dbfbf}\label{classPhysicsComponent_a3277d69372b2189d1ee6e82dad9dbfbf}} 
+void {\bfseries set\+Velocity} (const \mbox{\hyperlink{structVector2}{Vector2}} \&velocity)
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_a45fab19a500a6e325c56b273403e18f6}\label{classPhysicsComponent_a45fab19a500a6e325c56b273403e18f6}} 
+void {\bfseries set\+Fixed\+Rotation} (bool value)
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_a7c3b86855212a92575c803b7579d2a52}\label{classPhysicsComponent_a7c3b86855212a92575c803b7579d2a52}} 
+std\+::string {\bfseries name} () const override
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_ade1b87e5b08743c932c484c5b19c32bb}\label{classPhysicsComponent_ade1b87e5b08743c932c484c5b19c32bb}} 
+\mbox{\hyperlink{classComponent}{Component}} $\ast$ {\bfseries build} (Entity\+Id entity\+Id, const \mbox{\hyperlink{classComponents_1_1component}{Components\+::component}} $\ast$component) override
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_aa2a26271e61b6be8e549474f1840e590}\label{classPhysicsComponent_aa2a26271e61b6be8e549474f1840e590}} 
+void {\bfseries initialize} (\mbox{\hyperlink{classEntityObject}{Entity\+Object}} \&entity\+Parent) override
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_a699d4446b39583e8476e89e3108e0eba}\label{classPhysicsComponent_a699d4446b39583e8476e89e3108e0eba}} 
+void {\bfseries fixed\+Update} (const float \&delta\+Time) override
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_a92b31ab836c2e3b937ed52ee124cfdd0}\label{classPhysicsComponent_a92b31ab836c2e3b937ed52ee124cfdd0}} 
+void {\bfseries render} () override
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_a4c34dd69a100219cb089156855a6c395}\label{classPhysicsComponent_a4c34dd69a100219cb089156855a6c395}} 
+void {\bfseries update} (const \mbox{\hyperlink{structInput}{Input}} \&input\+System) override
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_a5227bebc461c4f227fa19cd66fe88944}\label{classPhysicsComponent_a5227bebc461c4f227fa19cd66fe88944}} 
+void {\bfseries start\+Contact} (b2\+Contact $\ast$contact) override
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_abeb0effdd12b4375663e74bb330a8381}\label{classPhysicsComponent_abeb0effdd12b4375663e74bb330a8381}} 
+void {\bfseries end\+Contact} (b2\+Contact $\ast$contact) override
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_a77aaca5cd2265d916db292087b17b607}\label{classPhysicsComponent_a77aaca5cd2265d916db292087b17b607}} 
+void {\bfseries set\+Angle} (float angle)
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_a8a7575203029dd123c66e477b76957a1}\label{classPhysicsComponent_a8a7575203029dd123c66e477b76957a1}} 
+void {\bfseries set\+Transform} (\mbox{\hyperlink{structVector2}{Vector2}} pos, float angle)
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_ae98e17b29b01fe40ff343f3fe1aef8e0}\label{classPhysicsComponent_ae98e17b29b01fe40ff343f3fe1aef8e0}} 
+void {\bfseries add\+Force} (\mbox{\hyperlink{structVector2}{Vector2}} dir)
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_ac4d614c935c934b107d96746108a2839}\label{classPhysicsComponent_ac4d614c935c934b107d96746108a2839}} 
+void {\bfseries set\+Enabled} (bool b)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_abb49dd286e30e65bddaa078bb38eaba0}\label{classPhysicsComponent_abb49dd286e30e65bddaa078bb38eaba0}} 
+static Body\+Type {\bfseries String\+To\+Body\+Type} (const std\+::string \&value)
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_a09e85dc2be02199d80a55f00e103f5c0}\label{classPhysicsComponent_a09e85dc2be02199d80a55f00e103f5c0}} 
+static \mbox{\hyperlink{classTransformComponent}{Transform\+Component}} $\ast$ {\bfseries set\+Position\+Physics\+Resource} (\mbox{\hyperlink{classEntityObject}{Entity\+Object}} $\ast$p\+Object, \mbox{\hyperlink{classComponents_1_1physicsComponent}{Components\+::physics\+Component}} \&component)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPhysicsComponent_af2a23dfa6fa18519f4e5678f2aad33b6}\label{classPhysicsComponent_af2a23dfa6fa18519f4e5678f2aad33b6}} 
+std\+::vector$<$ \mbox{\hyperlink{classContactHandler}{Contact\+Handler}} $\ast$ $>$ {\bfseries contact\+Handlers} \{\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Game/\+Components/Physics\+Component.\+hpp\item 
+Game/\+Components/Physics\+Component.\+cpp\end{DoxyCompactItemize}

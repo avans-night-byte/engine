@@ -1,0 +1,43 @@
+\hypertarget{structzxdg__toplevel__v6__listener}{}\doxysection{zxdg\+\_\+toplevel\+\_\+v6\+\_\+listener Struct Reference}
+\label{structzxdg__toplevel__v6__listener}\index{zxdg\_toplevel\_v6\_listener@{zxdg\_toplevel\_v6\_listener}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+void($\ast$ \mbox{\hyperlink{structzxdg__toplevel__v6__listener_a1415b01bd16e51004cd8b75916f281d1}{configure}} )(void $\ast$data, struct zxdg\+\_\+toplevel\+\_\+v6 $\ast$zxdg\+\_\+toplevel\+\_\+v6, int32\+\_\+t width, int32\+\_\+t height, struct wl\+\_\+array $\ast$states)
+\item 
+void($\ast$ \mbox{\hyperlink{structzxdg__toplevel__v6__listener_aa9ebb0e611ada6ececfb6f74bfbdfa46}{close}} )(void $\ast$data, struct zxdg\+\_\+toplevel\+\_\+v6 $\ast$zxdg\+\_\+toplevel\+\_\+v6)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structzxdg__toplevel__v6__listener_aa9ebb0e611ada6ececfb6f74bfbdfa46}\label{structzxdg__toplevel__v6__listener_aa9ebb0e611ada6ececfb6f74bfbdfa46}} 
+\index{zxdg\_toplevel\_v6\_listener@{zxdg\_toplevel\_v6\_listener}!close@{close}}
+\index{close@{close}!zxdg\_toplevel\_v6\_listener@{zxdg\_toplevel\_v6\_listener}}
+\doxysubsubsection{\texorpdfstring{close}{close}}
+{\footnotesize\ttfamily void($\ast$ zxdg\+\_\+toplevel\+\_\+v6\+\_\+listener\+::close) (void $\ast$data, struct zxdg\+\_\+toplevel\+\_\+v6 $\ast$zxdg\+\_\+toplevel\+\_\+v6)}
+
+surface wants to be closed
+
+The close event is sent by the compositor when the user wants the surface to be closed. This should be equivalent to the user clicking the close button in client-\/side decorations, if your application has any.
+
+This is only a request that the user intends to close the window. The client may choose to ignore this request, or show a dialog to ask the user to save their data, etc. \mbox{\Hypertarget{structzxdg__toplevel__v6__listener_a1415b01bd16e51004cd8b75916f281d1}\label{structzxdg__toplevel__v6__listener_a1415b01bd16e51004cd8b75916f281d1}} 
+\index{zxdg\_toplevel\_v6\_listener@{zxdg\_toplevel\_v6\_listener}!configure@{configure}}
+\index{configure@{configure}!zxdg\_toplevel\_v6\_listener@{zxdg\_toplevel\_v6\_listener}}
+\doxysubsubsection{\texorpdfstring{configure}{configure}}
+{\footnotesize\ttfamily void($\ast$ zxdg\+\_\+toplevel\+\_\+v6\+\_\+listener\+::configure) (void $\ast$data, struct zxdg\+\_\+toplevel\+\_\+v6 $\ast$zxdg\+\_\+toplevel\+\_\+v6, int32\+\_\+t width, int32\+\_\+t height, struct wl\+\_\+array $\ast$states)}
+
+suggest a surface change
+
+This configure event asks the client to resize its toplevel surface or to change its state. The configured state should not be applied immediately. See xdg\+\_\+surface.\+configure for details.
+
+The width and height arguments specify a hint to the window about how its surface should be resized in window geometry coordinates. See set\+\_\+window\+\_\+geometry.
+
+If the width or height arguments are zero, it means the client should decide its own window dimension. This may happen when the compositor needs to configure the state of the surface but doesn\textquotesingle{}t have any information about any previous or expected dimension.
+
+The states listed in the event specify how the width/height arguments should be interpreted, and possibly how it should be drawn.
+
+Clients must send an ack\+\_\+configure in response to this event. See xdg\+\_\+surface.\+configure and xdg\+\_\+surface.\+ack\+\_\+configure for details. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cmake-\/build-\/debug/build/sdl/wayland-\/generated-\/protocols/xdg-\/shell-\/unstable-\/v6-\/client-\/protocol.\+h\end{DoxyCompactItemize}

@@ -2,6 +2,7 @@
 #include <regex>
 #include "MenuParser.hpp"
 #include "../Audio/Adapter/SDLAudioEngineAdapter.hpp"
+#include "../Rendering/TextWrapper.hpp"
 
 
 MenuParser *MenuParser::_instance = nullptr;
@@ -15,11 +16,15 @@ MenuParser::MenuParser(const RenderingAPI &renderer) : _renderer(renderer) {
     _instance = this;
 }
 
+MenuParser::~MenuParser() {
+    _textItems.clear();
+}
+
 void MenuParser::initialize(const std::string &path) {
-    SDLAudioEngineAdapter *audioEngineAdapter = SDLAudioEngineAdapter::getInstance();
+    AudioEngineAdapter &audioEngineAdapter = SDLAudioEngineAdapter::getInstance();
 
     _menu = Menu::menu_(path);
-    _textItems = std::map<std::string, std::unique_ptr<TextWrapper>>();
+    _textItems = std::map<std::string, TextWrapper*>();
 
     for (auto &resource : _menu->preloadResources().resource()) {
         _resourceManager->loadResource(resource);
@@ -31,13 +36,14 @@ void MenuParser::initialize(const std::string &path) {
             if (!button.text().present())
                 continue;
 
-            auto createdString = _buttonPrefix + std::to_string(index);
-            const auto font = _fontPath + button.text()->font().family() + "-" + button.text()->font().weight() +".ttf";
-            auto wrapper = TextWrapper::createText(_renderer, button.text()->content().c_str(),
-                                                   (font).c_str(), button.text()->font().size(),
-                                                   HexToRGB(button.text()->color().hex(), button.text()->color().alpha()), createdString);
+            std::string createdString = _buttonPrefix + std::to_string(index);
 
-            _textItems[createdString] = std::unique_ptr<TextWrapper>(wrapper);
+            const auto font = _fontPath + button.text()->font().family() + "-" + button.text()->font().weight() +".ttf";
+            auto wrapper = TextWrapper::createText(_renderer, button.text()->content(),
+                                                   font, button.text()->font().size(),
+                                                   button.text()->color().hex(), createdString);
+            _textItems[createdString] = wrapper;
+
             index++;
         }
     }
@@ -46,17 +52,17 @@ void MenuParser::initialize(const std::string &path) {
     for (auto text : _menu->texts().text()) {
 
         auto createdString = _textPrefix + std::to_string(index);
-        auto wrapper = TextWrapper::createText(_renderer, text.content().c_str(),
-                                               (_fontPath + text.font().family() + "-" + text.font().weight() +".ttf").c_str(), text.font().size(),
-                                               HexToRGB(text.color().hex(), text.color().alpha()), createdString);
+        auto wrapper = TextWrapper::createText(_renderer, text.content(),
+                                               (_fontPath + text.font().family() + "-" + text.font().weight() +".ttf"), text.font().size(),
+                                               text.color().hex(), createdString);
 
-        _textItems[createdString] = std::unique_ptr<TextWrapper>(wrapper);
+        _textItems[createdString] = wrapper;
         index++;
     }
 
 
     if (_menu->backgroundMusic().present() && _previousSong != _menu->backgroundMusic()->c_str()) {
-        audioEngineAdapter->playFromMemory(_menu->backgroundMusic()->c_str());
+        audioEngineAdapter.playFromMemory(_menu->backgroundMusic()->c_str());
         _previousSong = _menu->backgroundMusic()->c_str();
     }
 
@@ -94,7 +100,7 @@ void MenuParser::renderButtons() {
 
         if (button.color().present()) {
             auto id = _buttonPrefix + std::to_string(index);
-            auto textWrapper = (&_textItems[id])->get();
+            auto textWrapper = _textItems[id];
 
             _renderer.drawRectangle(v2, width, height, button.color()->hex(), button.color()->alpha());
 
@@ -114,7 +120,7 @@ void MenuParser::renderText() {
     int index = 0;
     for (auto text : _menu->texts().text()) {
         auto id = _textPrefix + std::to_string(index);
-        auto textWrapper = (&_textItems[id])->get();
+        auto textWrapper = _textItems[id];
         textWrapper->render(text.position().x(), text.position().y());
 
         index++;
@@ -145,34 +151,8 @@ void MenuParser::renderBoxes() {
     }
 }
 
-std::map<std::string, SDL_Color> MenuParser::_colors = std::map<std::string, SDL_Color>();
-
-SDL_Color MenuParser::HexToRGB(const std::string &hex, float opacity) {
-    if (_colors.count(hex))
-        return _colors[hex];
-
-    std::regex pattern("#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})");
-
-    std::smatch match;
-    if (std::regex_match(hex, match, pattern)) {
-        SDL_Color color;
-
-        color.r = std::stoi(match[1].str(), nullptr, 16);
-        color.g = std::stoi(match[2].str(), nullptr, 16);
-        color.b = std::stoi(match[3].str(), nullptr, 16);
-        color.a = opacity;
-
-        _colors[hex] = color;
-
-        return color;
-    } else {
-        throw " is an invalid rgb color\n";
-    }
-
-}
-
 void MenuParser::onClick(const Input &input) {
-    if (!_menu->buttons().present()) return;
+    if (!_menu->buttons().present() || !_resourceManager->inMenu) return;
 
     for (auto button : _menu->buttons()->button()) {
         if (!button.events().onClick().present())
@@ -184,19 +164,24 @@ void MenuParser::onClick(const Input &input) {
         if (buttonPos.x <= input.x && buttonPos.y <= input.y && buttonBounds.x >= input.x &&
             buttonBounds.y >= input.y) {
 
+
+            if (button.events().onClick()->custom().present()) {
+                const std::string action = button.events().onClick()->custom()->c_str();
+                _customEventHandler(action);
+            }
+
             if (button.events().onClick()->playSound().present())
-                SDLAudioEngineAdapter::getInstance()->playFromMemory(
+                SDLAudioEngineAdapter::getInstance().playFromMemory(
                         button.events().onClick()->playSound()->c_str());
 
-            if (button.events().onClick()->loadScene().present()){
+            if (button.events().onClick()->loadScene().present()) {
 
                 std::string nextScene = button.events().onClick()->loadScene()->c_str();
 
-                if(nextScene == "Previous"){
+                if (nextScene == "Previous") {
                     nextScene = PreviousScenes.top();
                     PreviousScenes.pop();
-                }
-                else{
+                } else {
                     PreviousScenes.push(_menu->name());
                 }
                 ResourceManager::getInstance()->loadResource(nextScene);
@@ -219,15 +204,6 @@ void MenuParser::onClick(const Input &input) {
 #endif
             }
 
-
-            if (button.events().onClick()->custom().present()) {
-                const std::string action = button.events().onClick()->custom()->c_str();
-
-                if (action == "close") {
-                    // TODO: Close
-                }
-            }
-
             return;
         }
     }
@@ -238,6 +214,10 @@ MenuParser *MenuParser::getInstance() {
         throw std::runtime_error("No instance found!");
     }
     return _instance;
+}
+
+Event <std::string> &MenuParser::getCustomEventHandler() {
+    return _customEventHandler;
 }
 
 

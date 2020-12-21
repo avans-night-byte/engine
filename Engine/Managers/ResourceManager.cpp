@@ -4,6 +4,8 @@
 #include "../XMLParser/MenuParser.hpp"
 #include "../../Game/Game.hpp"
 #include "../../Game/Scenes/LevelBase.hpp"
+#include "../../Game/Scenes/PoolLevel.hpp"
+#include "../../Game/Object/GlobalObjects.hpp"
 
 #include <iostream>
 #include <memory>
@@ -88,6 +90,14 @@ ResourceManager::ResourceManager(const std::string &resourcePath, bool debug) {
             _levels[name] = std::unique_ptr<GameResources::level>(level._clone());
         }
 
+        // Discover Object list
+        for (GameResources::objectList &objectList : resources->objectLists().objectList()) {
+            verifyFile("PreObject", OBJECTLIST, objectList.name(), objectList.path());
+
+            std::string name = objectList.name();
+            _preObjects[name] = std::unique_ptr<GameResources::objectList>(objectList._clone());
+        }
+
     } catch (const xml_schema::exception &e) {
         std::cout << e << std::endl;
     }
@@ -125,33 +135,47 @@ void ResourceManager::loadResource(const std::string &resource) {
             break;
         case SOUNDS: {
             auto &sound_ = _sounds[resource];
-            SDLAudioEngineAdapter::getInstance()->loadInMemory(_basePath + sound_->path(), sound_->name(), sound);
+            SDLAudioEngineAdapter::getInstance().loadInMemory(_basePath + sound_->path(), sound_->name(), sound);
             break;
         }
         case MUSIC: {
             auto &music_ = _music[resource];
-            SDLAudioEngineAdapter::getInstance()->loadInMemory(_basePath + music_->path(), music_->name(), music);
+            SDLAudioEngineAdapter::getInstance().loadInMemory(_basePath + music_->path(), music_->name(), music);
             break;
         }
         case SCENES: {
             auto &scene = _scenes[resource];
             MenuParser::getInstance()->initialize(_basePath + scene->path());
             inMenu = true;
+            if (quitLevel) {
+                Game::getInstance()->unloadLevel();
+                quitLevel = false;
+                _currentLevel = "";
+            }
             break;
         }
         case LEVELS: {
             inMenu = false;
             MenuParser::getInstance()->PreviousScenes.push(resource);
-            if (_currentLevel != resource) {
-                auto &level = _levels[resource];
-                const LevelData tmxData = LevelData(_basePath + level->tmxPath(),
-                                                    _basePath + level->spriteSheetPath(),
-                                                    level->spriteName(),
-                                                    _basePath + level->path());
+            auto &level = _levels[resource];
+            if (level->name().c_str() == _currentLevel)
+                break;
 
-                Game::getInstance()->initializeLeveL(level->name().c_str(), tmxData);
-                _currentLevel = resource;
-            }
+            const LevelData tmxData = LevelData(_basePath + level->tmxPath(),
+                                                _basePath + level->spriteSheetPath(),
+                                                level->spriteName(),
+                                                _basePath + level->path());
+            Game::getInstance()->initializeLeveL(level->name().c_str(), tmxData);
+            _currentLevel = level->name().c_str();
+            break;
+        }
+        case OBJECTLIST: {
+            auto &objectList = _preObjects[resource];
+
+            GlobalObjects::getInstance()->initializeObjects(objectList->name(),
+                                                            _basePath + objectList->path(),
+                                                            objectList->pool().poolName(),
+                                                            _basePath + objectList->pool().poolPath());
 
             break;
         }

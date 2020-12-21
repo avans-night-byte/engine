@@ -1,0 +1,41 @@
+\hypertarget{classTextureManager}{}\doxysection{Texture\+Manager Class Reference}
+\label{classTextureManager}\index{TextureManager@{TextureManager}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTextureManager_a3f4a9fb06654110a6bfa849caee91087}\label{classTextureManager_a3f4a9fb06654110a6bfa849caee91087}} 
+S\+D\+L\+\_\+\+Texture $\ast$ {\bfseries Get\+Texture} (std\+::string texture\+Id)
+\item 
+\mbox{\Hypertarget{classTextureManager_affcae12e7c5b1609571a97f8bbaad6b1}\label{classTextureManager_affcae12e7c5b1609571a97f8bbaad6b1}} 
+bool {\bfseries Create\+Texture} (S\+D\+L\+\_\+\+Surface $\ast$surface, const std\+::string \&texture\+Id, S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\item 
+\mbox{\Hypertarget{classTextureManager_af6a4adf27b5ec9d2e896fe09cea60fac}\label{classTextureManager_af6a4adf27b5ec9d2e896fe09cea60fac}} 
+bool {\bfseries load} (const std\+::string \&path, const std\+::string \&texture\+Id)
+\item 
+\mbox{\Hypertarget{classTextureManager_ad5a6449f5924e1885e2d26557bb674a4}\label{classTextureManager_ad5a6449f5924e1885e2d26557bb674a4}} 
+void {\bfseries draw} (std\+::string \&texture\+Id, int x, int y, int w, int h, double scale, double r, S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Renderer\+Flip=S\+D\+L\+\_\+\+F\+L\+I\+P\+\_\+\+N\+O\+NE)
+\item 
+\mbox{\Hypertarget{classTextureManager_aedb6d859614a4c0a45bef5e76ee8b28c}\label{classTextureManager_aedb6d859614a4c0a45bef5e76ee8b28c}} 
+void {\bfseries draw\+Frame} (std\+::string \&id, float x, float y, int width, int height, int current\+Row, int current\+Frame, S\+D\+L\+\_\+\+Renderer $\ast$p\+Renderer, S\+D\+L\+\_\+\+Renderer\+Flip flip, float rotation)
+\item 
+\mbox{\Hypertarget{classTextureManager_a81648907835cbc65cc8bf88505cbb237}\label{classTextureManager_a81648907835cbc65cc8bf88505cbb237}} 
+void {\bfseries draw\+Frame} (std\+::string \&id, S\+D\+L\+\_\+\+Rect $\ast$src\+Rect, float x, float y, S\+D\+L\+\_\+\+Renderer $\ast$p\+Renderer, S\+D\+L\+\_\+\+Renderer\+Flip flip, float scale=1, float rotation=0, S\+D\+L\+\_\+\+F\+Point $\ast$pivot=nullptr)
+\item 
+\mbox{\Hypertarget{classTextureManager_a53c1348a0bf8886b8fc786eb7f4f82ec}\label{classTextureManager_a53c1348a0bf8886b8fc786eb7f4f82ec}} 
+void {\bfseries clear\+From\+Texture\+Map} (std\+::string \&id)
+\item 
+\mbox{\Hypertarget{classTextureManager_a92f53787efa24caf4451119ac08a7645}\label{classTextureManager_a92f53787efa24caf4451119ac08a7645}} 
+\mbox{\hyperlink{structVector2}{Vector2}} {\bfseries get\+Dimensions} (const std\+::string \&id)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTextureManager_ab73eee48ba8c35281558094e2f84013d}\label{classTextureManager_ab73eee48ba8c35281558094e2f84013d}} 
+static \mbox{\hyperlink{classTextureManager}{Texture\+Manager}} $\ast$ {\bfseries Get\+Instance} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Rendering/Texture\+Manager.\+hpp\item 
+Engine/\+Rendering/Texture\+Manager.\+cpp\end{DoxyCompactItemize}

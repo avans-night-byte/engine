@@ -1,28 +1,32 @@
 #pragma once
 
-#include <vector>
-#include <memory>
+#include "b2_user_settings.h" // must be declared before box2d
 #include "box2d.h"
 
 #include "PhysicsEngineAdapter.hpp"
 #include "PhysicsDebug//Box2dDrawDebug.hpp"
 #include "ContactListener.hpp"
+#include "../../Engine/Managers/ResourceManager.hpp"
 
-using namespace std;
+#include <vector>
+#include <memory>
+#include <chrono>
 
 class Box2DPhysicsEngineAdapter : public PhysicsEngineAdapter {
 
 private:
     b2World world = b2World(b2Vec2_zero);
-    unique_ptr<ContactListener> contactListener;
-    map<BodyId, b2Body *> bodies{};
-    vector<b2Body *> bodiesToDestroy = {};
+    std::unique_ptr<ContactListener> contactListener;
+    std::map<BodyId, b2Body *> bodies{};
 
-    unique_ptr<Box2dDrawDebug> drawDebug = nullptr;
+    std::unique_ptr<Box2dDrawDebug> drawDebug = nullptr;
+
+    int32 _velocityIterations = 6;
+    int32 _positionIterations = 2;
 
 public:
     Box2DPhysicsEngineAdapter(){
-        contactListener = make_unique<ContactListener>();
+        contactListener = std::make_unique<ContactListener>();
         world.SetContactListener(&(*contactListener));
     }
 
@@ -35,34 +39,37 @@ public:
     }
 
 public:
-    void update(const float &timeStep, const int32 &velocityIterations, const int32 &positionIterations) override;
+    void update(float deltaTime) override;
 
-    BodyId createBody(BodyType bodyType, Vector2 position, Vector2 size, const bool &isSensor = false, ContactHandler* userData = nullptr) override;
+    BodyId createBody(const Box2DBoxData& box2dBoxData) override;
 
-    BodyId createBody(BodyType bodyType, Vector2 position, float radius, ContactHandler* userData = nullptr) override;
+    BodyId createBody(const Box2DCircleData &box2DCircleData) override;
 
-    BodyId createBody(BodyType bodyType, Vector2 position, const std::vector<Vector2> &points, const bool &isSensor, ContactHandler* userData = nullptr) override;
+    BodyId createBody(const Box2DPolygonData &box2DPolygonData) override;
 
     void referencePositionToBody(BodyId bodyId, float &x, float &y) override;
 
-    inline RPosition getRPosition(BodyId bodyId) override;
+    inline RTransform getRPosition(BodyId bodyId) override;
 
     inline void destroyBody(BodyId bodyID) override;
 
-    void DebugDraw(const RenderingEngineAdapter &renderingAdapter, SDL_Renderer &renderer) override;
+    void debugDraw(const EngineRenderingAdapter &renderingAdapter) override;
 
     void getVelocity(Vector2 &velocity, BodyId bodyId) const override;
 
+    void addForce(const BodyId i, Vector2 direction) const override;
+
     void setLinearVelocity(BodyId bodyId, const Vector2 &vector2) override;
+
+    void setTransform(unsigned int bodyId, Vector2 pos, float angle) const override;
 
     void setFixedRotation(BodyId bodyId, bool b) override;
 
-
     void setAngle(BodyId bodyId, float angle) const override;
 
-    void sweepBodies() override;
+    void setEnabled(BodyId id, bool b) const override;
 
-    bool bodiesAreDestroyed() override;
-
-    const b2World& getWorld() const override;
+    [[nodiscard]] const b2World& getWorld() const override;
+    
+    [[nodiscard]] bool isWorldLocked() const override;
 };

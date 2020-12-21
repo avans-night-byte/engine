@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="2020.11.25" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="94">
+<map version="1.4" tiledversion="2020.11.25" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="105">
  <tileset firstgid="1" source="Overworld.tsx"/>
  <layer id="1" name="Base Layer" width="25" height="25">
   <data encoding="base64" compression="zlib">
@@ -49,5 +49,38 @@
   </object>
   <object id="92" x="235.636" y="71.8182" width="57.0909" height="27.0909"/>
   <object id="93" x="315.818" y="71.5455" width="57.0909" height="27.0909"/>
+  <object id="94" name="Sascha Varken 5" x="45.8224" y="141.913">
+   <point/>
+  </object>
+  <object id="95" name="Sascha Varken 3" x="168.787" y="208.175">
+   <point/>
+  </object>
+  <object id="96" name="Sascha Varken 2" x="40.8041" y="206.442">
+   <point/>
+  </object>
+  <object id="97" name="Sascha Varken 1" x="41.2586" y="89.3809">
+   <point/>
+  </object>
+  <object id="98" name="Sascha Varken" x="93.6828" y="202.714">
+   <point/>
+  </object>
+  <object id="99" name="Sascha Varken 4" x="110.725" y="158.302">
+   <point/>
+  </object>
+  <object id="100" name="Sascha Varken 8" x="48.3333" y="144.667">
+   <point/>
+  </object>
+  <object id="101" name="Sascha Varken 6" x="51" y="147.333">
+   <point/>
+  </object>
+  <object id="102" name="Sascha Varken 7" x="51" y="147.333">
+   <point/>
+  </object>
+  <object id="103" name="Sascha Varken 10" x="51" y="147.333">
+   <point/>
+  </object>
+  <object id="104" name="Sascha Varken 11" x="53.6667" y="150">
+   <point/>
+  </object>
  </objectgroup>
 </map>

@@ -5,11 +5,11 @@
 #include <map>
 #include <vector>
 #include <tmxlite/Map.hpp>
-#include "../Vector2.hpp"
+#include "../../API/Helpers/Vector2.hpp"
 #include "../Astar.hpp"
 
 class RenderingAPI;
-class Spritesheet;
+class SpriteSheet;
 class PhysicsEngineAdapter;
 class EngineRenderingAPI;
 
@@ -18,12 +18,16 @@ struct LoadedObjectData  {
     Vector2 position;
 };
 
+namespace Components {
+    class component;
+}
+
 class TMXLevel {
 private:
     float scale = 4;
 
     tmx::Map _tmap;
-    Spritesheet *_tSpritesheet;
+    SpriteSheet *_tSpritesheet;
     std::map<int, Vector2> _tSpriteMap;
     std::vector<unsigned int> bodies{};
     PhysicsEngineAdapter& physicsEngineAdapter;
@@ -40,7 +44,7 @@ public:
 
     void cleanup();
 
-    void initObjects(std::map<std::string, LoadedObjectData> &outLoadedObjects);
+    void getObjectPositions(const std::multimap<std::string, Components::component *> &outEntities);
 
     void initStaticCollision();
 
