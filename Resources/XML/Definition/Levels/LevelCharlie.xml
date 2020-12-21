@@ -10,6 +10,7 @@
 
         <object>
             <name>Sascha Varken</name>
+            <type>object</type>
             <components>
                 <component>
                     <componentName>TransformComponent</componentName>
@@ -60,6 +61,7 @@
         </object>
         <object>
             <name>Sascha Varken 1</name>
+            <type>object</type>
             <components>
                 <component>
                     <componentName>TransformComponent</componentName>
@@ -110,6 +112,7 @@
         </object>
         <object>
             <name>Sascha Varken 2</name>
+            <type>object</type>
             <components>
                 <component>
                     <componentName>TransformComponent</componentName>
@@ -160,6 +163,7 @@
         </object>
         <object>
             <name>Sascha Varken 3</name>
+            <type>object</type>
             <components>
                 <component>
                     <componentName>TransformComponent</componentName>
@@ -210,6 +214,7 @@
         </object>
         <object>
             <name>Sascha Varken 4</name>
+            <type>object</type>
             <components>
                 <component>
                     <componentName>TransformComponent</componentName>
@@ -260,6 +265,7 @@
         </object>
         <object>
             <name>Sascha Varken 5</name>
+            <type>object</type>
             <components>
                 <component>
                     <componentName>TransformComponent</componentName>
@@ -311,6 +317,7 @@
 
         <object>
             <name>Sascha Varken 6</name>
+            <type>object</type>
             <components>
                 <component>
                     <componentName>TransformComponent</componentName>
@@ -361,6 +368,7 @@
         </object>
         <object>
             <name>Sascha Varken 7</name>
+            <type>object</type>
             <components>
                 <component>
                     <componentName>TransformComponent</componentName>
@@ -411,6 +419,7 @@
         </object>
         <object>
             <name>Sascha Varken 8</name>
+            <type>object</type>
             <components>
                 <component>
                     <componentName>TransformComponent</componentName>
@@ -461,6 +470,7 @@
         </object>
         <object>
             <name>Sascha Varken 9</name>
+            <type>object</type>
             <components>
                 <component>
                     <componentName>TransformComponent</componentName>
@@ -511,6 +521,7 @@
         </object>
         <object>
             <name>Sascha Varken 10</name>
+            <type>object</type>
             <components>
                 <component>
                     <componentName>TransformComponent</componentName>
@@ -561,6 +572,7 @@
     </object>
     <object>
         <name>Sascha Varken 11</name>
+        <type>object</type>
         <components>
             <component>
                 <componentName>TransformComponent</componentName>

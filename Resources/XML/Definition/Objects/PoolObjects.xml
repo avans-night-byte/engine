@@ -6,6 +6,7 @@
 
     <object>
         <name>bullet1</name>
+        <objectType>resource</objectType>
         <components>
             <component>
                 <componentName>PhysicsComponent</componentName>
@@ -57,6 +58,7 @@
 
     <object>
         <name>crate</name>
+        <objectType>object</objectType>
         <components>
             <component>
                 <componentName>PhysicsComponent</componentName>
@@ -103,6 +105,7 @@
 
     <object>
         <name>boar</name>
+        <objectType>object</objectType>
         <components>
             <component>
                 <componentName>PhysicsComponent</componentName>

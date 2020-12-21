@@ -9,6 +9,7 @@
         <name>Level1</name>
         <object>
             <name>Sascha Varken</name>
+            <objectType>object</objectType>
             <components>
                 <component>
                     <componentName>TransformComponent</componentName>
@@ -54,6 +55,7 @@
 
         <object>
             <name>To Level Charlie</name>
+            <objectType>level_change</objectType>
             <components>
                 <component>
                     <componentName>TransformComponent</componentName>
@@ -67,6 +69,7 @@
 
                 <component>
                     <componentName>NextLevelComponent</componentName>
+
                     <nextLevelComponent>
                         <levelName>LevelCharlie</levelName>
                     </nextLevelComponent>

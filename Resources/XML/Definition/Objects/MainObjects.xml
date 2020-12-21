@@ -6,6 +6,7 @@
 
     <object>
         <name>bullet1</name>
+        <objectType>resource</objectType>
         <components>
             <component>
                 <componentName>PhysicsComponent</componentName>
