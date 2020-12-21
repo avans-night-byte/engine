@@ -71,7 +71,7 @@ void TMXLevel::render(RenderingAPI &renderingAPI) {
     }
 }
 
-void TMXLevel::getObjectPositions(const std::multimap<std::string, Components::component *> &outEntities) {
+void TMXLevel::getObjectPositions(const std::multimap<EntityXMLParser::ObjectData, Components::component *> &outEntities) {
     const auto &layers = _tmap.getLayers();
     auto loadedObjects = std::map<std::string, LoadedObjectData>();
 
@@ -95,8 +95,12 @@ void TMXLevel::getObjectPositions(const std::multimap<std::string, Components::c
     }
 
     for (auto &object : loadedObjects) {
-        auto mMapIterator = outEntities.equal_range(object.first);
+
+        EntityXMLParser::ObjectData objData { object.first, ""};
+        auto mMapIterator = outEntities.equal_range(objData);
+        
         bool transformFound = false;
+
         for (auto &mIt = mMapIterator.first; mIt != mMapIterator.second; mIt++) {
             if (!mIt->second->transformComponent().present())
                 continue;

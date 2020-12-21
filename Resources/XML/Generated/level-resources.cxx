@@ -42,6 +42,58 @@
 
 namespace LevelResources
 {
+  // level_resources
+  // 
+
+  const level_resources::level_type& level_resources::
+  level () const
+  {
+    return this->level_.get ();
+  }
+
+  level_resources::level_type& level_resources::
+  level ()
+  {
+    return this->level_.get ();
+  }
+
+  void level_resources::
+  level (const level_type& x)
+  {
+    this->level_.set (x);
+  }
+
+  void level_resources::
+  level (::std::unique_ptr< level_type > x)
+  {
+    this->level_.set (std::move (x));
+  }
+
+  const level_resources::preloadResources_type& level_resources::
+  preloadResources () const
+  {
+    return this->preloadResources_.get ();
+  }
+
+  level_resources::preloadResources_type& level_resources::
+  preloadResources ()
+  {
+    return this->preloadResources_.get ();
+  }
+
+  void level_resources::
+  preloadResources (const preloadResources_type& x)
+  {
+    this->preloadResources_.set (x);
+  }
+
+  void level_resources::
+  preloadResources (::std::unique_ptr< preloadResources_type > x)
+  {
+    this->preloadResources_.set (std::move (x));
+  }
+
+
   // level
   // 
 
@@ -92,6 +144,133 @@ namespace LevelResources
 
 namespace LevelResources
 {
+  // level_resources
+  //
+
+  level_resources::
+  level_resources (const level_type& level,
+                   const preloadResources_type& preloadResources)
+  : ::xml_schema::type (),
+    level_ (level, this),
+    preloadResources_ (preloadResources, this)
+  {
+  }
+
+  level_resources::
+  level_resources (::std::unique_ptr< level_type > level,
+                   ::std::unique_ptr< preloadResources_type > preloadResources)
+  : ::xml_schema::type (),
+    level_ (std::move (level), this),
+    preloadResources_ (std::move (preloadResources), this)
+  {
+  }
+
+  level_resources::
+  level_resources (const level_resources& x,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    level_ (x.level_, f, this),
+    preloadResources_ (x.preloadResources_, f, this)
+  {
+  }
+
+  level_resources::
+  level_resources (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    level_ (this),
+    preloadResources_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void level_resources::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // level
+      //
+      if (n.name () == "level" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< level_type > r (
+          level_traits::create (i, f, this));
+
+        if (!level_.present ())
+        {
+          this->level_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // preloadResources
+      //
+      if (n.name () == "preloadResources" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< preloadResources_type > r (
+          preloadResources_traits::create (i, f, this));
+
+        if (!preloadResources_.present ())
+        {
+          this->preloadResources_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!level_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "level",
+        "");
+    }
+
+    if (!preloadResources_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "preloadResources",
+        "Common");
+    }
+  }
+
+  level_resources* level_resources::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class level_resources (*this, f, c);
+  }
+
+  level_resources& level_resources::
+  operator= (const level_resources& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->level_ = x.level_;
+      this->preloadResources_ = x.preloadResources_;
+    }
+
+    return *this;
+  }
+
+  level_resources::
+  ~level_resources ()
+  {
+  }
+
   // level
   //
 
@@ -206,10 +385,10 @@ namespace LevelResources
 
 namespace LevelResources
 {
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (const ::std::string& u,
-          ::xml_schema::flags f,
-          const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (const ::std::string& u,
+                    ::xml_schema::flags f,
+                    const ::xml_schema::properties& p)
   {
     ::xsd::cxx::xml::auto_initializer i (
       (f & ::xml_schema::flags::dont_initialize) == 0,
@@ -223,16 +402,16 @@ namespace LevelResources
 
     h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
 
-    return ::std::unique_ptr< ::LevelResources::level > (
-      ::LevelResources::level_ (
+    return ::std::unique_ptr< ::LevelResources::level_resources > (
+      ::LevelResources::level_resources_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (const ::std::string& u,
-          ::xml_schema::error_handler& h,
-          ::xml_schema::flags f,
-          const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (const ::std::string& u,
+                    ::xml_schema::error_handler& h,
+                    ::xml_schema::flags f,
+                    const ::xml_schema::properties& p)
   {
     ::xsd::cxx::xml::auto_initializer i (
       (f & ::xml_schema::flags::dont_initialize) == 0,
@@ -245,16 +424,16 @@ namespace LevelResources
     if (!d.get ())
       throw ::xsd::cxx::tree::parsing< char > ();
 
-    return ::std::unique_ptr< ::LevelResources::level > (
-      ::LevelResources::level_ (
+    return ::std::unique_ptr< ::LevelResources::level_resources > (
+      ::LevelResources::level_resources_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (const ::std::string& u,
-          ::xercesc::DOMErrorHandler& h,
-          ::xml_schema::flags f,
-          const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (const ::std::string& u,
+                    ::xercesc::DOMErrorHandler& h,
+                    ::xml_schema::flags f,
+                    const ::xml_schema::properties& p)
   {
     ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
       ::xsd::cxx::xml::dom::parse< char > (
@@ -263,92 +442,92 @@ namespace LevelResources
     if (!d.get ())
       throw ::xsd::cxx::tree::parsing< char > ();
 
-    return ::std::unique_ptr< ::LevelResources::level > (
-      ::LevelResources::level_ (
+    return ::std::unique_ptr< ::LevelResources::level_resources > (
+      ::LevelResources::level_resources_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::std::istream& is,
-          ::xml_schema::flags f,
-          const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::std::istream& is,
+                    ::xml_schema::flags f,
+                    const ::xml_schema::properties& p)
   {
     ::xsd::cxx::xml::auto_initializer i (
       (f & ::xml_schema::flags::dont_initialize) == 0,
       (f & ::xml_schema::flags::keep_dom) == 0);
 
     ::xsd::cxx::xml::sax::std_input_source isrc (is);
-    return ::LevelResources::level_ (isrc, f, p);
+    return ::LevelResources::level_resources_ (isrc, f, p);
   }
 
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::std::istream& is,
-          ::xml_schema::error_handler& h,
-          ::xml_schema::flags f,
-          const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::std::istream& is,
+                    ::xml_schema::error_handler& h,
+                    ::xml_schema::flags f,
+                    const ::xml_schema::properties& p)
   {
     ::xsd::cxx::xml::auto_initializer i (
       (f & ::xml_schema::flags::dont_initialize) == 0,
       (f & ::xml_schema::flags::keep_dom) == 0);
 
     ::xsd::cxx::xml::sax::std_input_source isrc (is);
-    return ::LevelResources::level_ (isrc, h, f, p);
+    return ::LevelResources::level_resources_ (isrc, h, f, p);
   }
 
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::std::istream& is,
-          ::xercesc::DOMErrorHandler& h,
-          ::xml_schema::flags f,
-          const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::std::istream& is,
+                    ::xercesc::DOMErrorHandler& h,
+                    ::xml_schema::flags f,
+                    const ::xml_schema::properties& p)
   {
     ::xsd::cxx::xml::sax::std_input_source isrc (is);
-    return ::LevelResources::level_ (isrc, h, f, p);
+    return ::LevelResources::level_resources_ (isrc, h, f, p);
   }
 
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::std::istream& is,
-          const ::std::string& sid,
-          ::xml_schema::flags f,
-          const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::std::istream& is,
+                    const ::std::string& sid,
+                    ::xml_schema::flags f,
+                    const ::xml_schema::properties& p)
   {
     ::xsd::cxx::xml::auto_initializer i (
       (f & ::xml_schema::flags::dont_initialize) == 0,
       (f & ::xml_schema::flags::keep_dom) == 0);
 
     ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-    return ::LevelResources::level_ (isrc, f, p);
+    return ::LevelResources::level_resources_ (isrc, f, p);
   }
 
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::std::istream& is,
-          const ::std::string& sid,
-          ::xml_schema::error_handler& h,
-          ::xml_schema::flags f,
-          const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::std::istream& is,
+                    const ::std::string& sid,
+                    ::xml_schema::error_handler& h,
+                    ::xml_schema::flags f,
+                    const ::xml_schema::properties& p)
   {
     ::xsd::cxx::xml::auto_initializer i (
       (f & ::xml_schema::flags::dont_initialize) == 0,
       (f & ::xml_schema::flags::keep_dom) == 0);
 
     ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-    return ::LevelResources::level_ (isrc, h, f, p);
+    return ::LevelResources::level_resources_ (isrc, h, f, p);
   }
 
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::std::istream& is,
-          const ::std::string& sid,
-          ::xercesc::DOMErrorHandler& h,
-          ::xml_schema::flags f,
-          const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::std::istream& is,
+                    const ::std::string& sid,
+                    ::xercesc::DOMErrorHandler& h,
+                    ::xml_schema::flags f,
+                    const ::xml_schema::properties& p)
   {
     ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-    return ::LevelResources::level_ (isrc, h, f, p);
+    return ::LevelResources::level_resources_ (isrc, h, f, p);
   }
 
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::xercesc::InputSource& i,
-          ::xml_schema::flags f,
-          const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::xercesc::InputSource& i,
+                    ::xml_schema::flags f,
+                    const ::xml_schema::properties& p)
   {
     ::xsd::cxx::tree::error_handler< char > h;
 
@@ -358,16 +537,16 @@ namespace LevelResources
 
     h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
 
-    return ::std::unique_ptr< ::LevelResources::level > (
-      ::LevelResources::level_ (
+    return ::std::unique_ptr< ::LevelResources::level_resources > (
+      ::LevelResources::level_resources_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::xercesc::InputSource& i,
-          ::xml_schema::error_handler& h,
-          ::xml_schema::flags f,
-          const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::xercesc::InputSource& i,
+                    ::xml_schema::error_handler& h,
+                    ::xml_schema::flags f,
+                    const ::xml_schema::properties& p)
   {
     ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
       ::xsd::cxx::xml::dom::parse< char > (
@@ -376,16 +555,16 @@ namespace LevelResources
     if (!d.get ())
       throw ::xsd::cxx::tree::parsing< char > ();
 
-    return ::std::unique_ptr< ::LevelResources::level > (
-      ::LevelResources::level_ (
+    return ::std::unique_ptr< ::LevelResources::level_resources > (
+      ::LevelResources::level_resources_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::xercesc::InputSource& i,
-          ::xercesc::DOMErrorHandler& h,
-          ::xml_schema::flags f,
-          const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::xercesc::InputSource& i,
+                    ::xercesc::DOMErrorHandler& h,
+                    ::xml_schema::flags f,
+                    const ::xml_schema::properties& p)
   {
     ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
       ::xsd::cxx::xml::dom::parse< char > (
@@ -394,23 +573,23 @@ namespace LevelResources
     if (!d.get ())
       throw ::xsd::cxx::tree::parsing< char > ();
 
-    return ::std::unique_ptr< ::LevelResources::level > (
-      ::LevelResources::level_ (
+    return ::std::unique_ptr< ::LevelResources::level_resources > (
+      ::LevelResources::level_resources_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (const ::xercesc::DOMDocument& doc,
-          ::xml_schema::flags f,
-          const ::xml_schema::properties& p)
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (const ::xercesc::DOMDocument& doc,
+                    ::xml_schema::flags f,
+                    const ::xml_schema::properties& p)
   {
     if (f & ::xml_schema::flags::keep_dom)
     {
       ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
         static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
 
-      return ::std::unique_ptr< ::LevelResources::level > (
-        ::LevelResources::level_ (
+      return ::std::unique_ptr< ::LevelResources::level_resources > (
+        ::LevelResources::level_resources_ (
           std::move (d), f | ::xml_schema::flags::own_dom, p));
     }
 
@@ -418,11 +597,11 @@ namespace LevelResources
     const ::xsd::cxx::xml::qualified_name< char > n (
       ::xsd::cxx::xml::dom::name< char > (e));
 
-    if (n.name () == "level" &&
+    if (n.name () == "level-resources" &&
         n.namespace_ () == "LevelResources")
     {
-      ::std::unique_ptr< ::LevelResources::level > r (
-        ::xsd::cxx::tree::traits< ::LevelResources::level, char >::create (
+      ::std::unique_ptr< ::LevelResources::level_resources > r (
+        ::xsd::cxx::tree::traits< ::LevelResources::level_resources, char >::create (
           e, f, 0));
       return r;
     }
@@ -430,14 +609,14 @@ namespace LevelResources
     throw ::xsd::cxx::tree::unexpected_element < char > (
       n.name (),
       n.namespace_ (),
-      "level",
+      "level-resources",
       "LevelResources");
   }
 
-  ::std::unique_ptr< ::LevelResources::level >
-  level_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-          ::xml_schema::flags f,
-          const ::xml_schema::properties&)
+  ::std::unique_ptr< ::LevelResources::level_resources >
+  level_resources_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+                    ::xml_schema::flags f,
+                    const ::xml_schema::properties&)
   {
     ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > c (
       ((f & ::xml_schema::flags::keep_dom) &&
@@ -456,11 +635,11 @@ namespace LevelResources
                        (c.get () ? &c : &d),
                        0);
 
-    if (n.name () == "level" &&
+    if (n.name () == "level-resources" &&
         n.namespace_ () == "LevelResources")
     {
-      ::std::unique_ptr< ::LevelResources::level > r (
-        ::xsd::cxx::tree::traits< ::LevelResources::level, char >::create (
+      ::std::unique_ptr< ::LevelResources::level_resources > r (
+        ::xsd::cxx::tree::traits< ::LevelResources::level_resources, char >::create (
           e, f, 0));
       return r;
     }
@@ -468,7 +647,7 @@ namespace LevelResources
     throw ::xsd::cxx::tree::unexpected_element < char > (
       n.name (),
       n.namespace_ (),
-      "level",
+      "level-resources",
       "LevelResources");
   }
 }

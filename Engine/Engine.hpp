@@ -1,5 +1,7 @@
 #pragma once
 
+
+
 #include <SDL_render.h>
 #include <mutex>
 #include <memory>

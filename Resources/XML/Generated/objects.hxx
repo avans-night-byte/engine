@@ -660,6 +660,64 @@ namespace Objects
     //@}
 
     /**
+     * @name objectType
+     *
+     * @brief Accessor and modifier functions for the %objectType
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::string objectType_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< objectType_type, char > objectType_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const objectType_type&
+    objectType () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    objectType_type&
+    objectType ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    objectType (const objectType_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    objectType (::std::unique_ptr< objectType_type > p);
+
+    //@}
+
+    /**
      * @name components
      *
      * @brief Accessor and modifier functions for the %components
@@ -727,6 +785,7 @@ namespace Objects
      * initializers for required elements and attributes.
      */
     object (const name_type&,
+            const objectType_type&,
             const components_type&);
 
     /**
@@ -738,6 +797,7 @@ namespace Objects
      * instead of making copies.
      */
     object (const name_type&,
+            const objectType_type&,
             ::std::unique_ptr< components_type >);
 
     /**
@@ -811,6 +871,7 @@ namespace Objects
 
     protected:
     ::xsd::cxx::tree::one< name_type > name_;
+    ::xsd::cxx::tree::one< objectType_type > objectType_;
     ::xsd::cxx::tree::one< components_type > components_;
 
     //@endcond
