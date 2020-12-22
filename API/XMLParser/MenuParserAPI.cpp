@@ -21,3 +21,11 @@ void MenuParserAPI::onClick(Input input) {
 Event<std::string> &MenuParserAPI::getCustomEventHandler() {
     return menuParser->getCustomEventHandler();
 }
+
+void MenuParserAPI::setDynamicFieldValue(const std::string &field, const std::string &value) {
+    menuParser->setDynamicFieldValue(field, value);
+}
+
+std::map<std::string, std::string> MenuParserAPI::getDynamicFields() {
+    return menuParser->getDynamicFields();
+}

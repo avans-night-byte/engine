@@ -2503,6 +2503,64 @@ namespace Menu
   {
     public:
     /**
+     * @name text_type
+     *
+     * @brief Accessor and modifier functions for the %text_type
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::Common::text_type text_type_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< text_type_type, char > text_type_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const text_type_type&
+    text_type () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    text_type_type&
+    text_type ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    text_type (const text_type_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    text_type (::std::unique_ptr< text_type_type > p);
+
+    //@}
+
+    /**
      * @name position
      *
      * @brief Accessor and modifier functions for the %position
@@ -2743,7 +2801,8 @@ namespace Menu
      * @brief Create an instance from the ultimate base and
      * initializers for required elements and attributes.
      */
-    text (const position_type&,
+    text (const text_type_type&,
+          const position_type&,
           const color_type&,
           const font_type&,
           const content_type&);
@@ -2756,7 +2815,8 @@ namespace Menu
      * This constructor will try to use the passed values directly
      * instead of making copies.
      */
-    text (::std::unique_ptr< position_type >,
+    text (::std::unique_ptr< text_type_type >,
+          ::std::unique_ptr< position_type >,
           ::std::unique_ptr< color_type >,
           ::std::unique_ptr< font_type >,
           const content_type&);
@@ -2831,6 +2891,7 @@ namespace Menu
            ::xml_schema::flags);
 
     protected:
+    ::xsd::cxx::tree::one< text_type_type > text_type_;
     ::xsd::cxx::tree::one< position_type > position_;
     ::xsd::cxx::tree::one< color_type > color_;
     ::xsd::cxx::tree::one< font_type > font_;

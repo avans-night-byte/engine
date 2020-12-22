@@ -63,6 +63,7 @@
                             <xs:element name="text" minOccurs="0" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:sequence>
+                                        <xs:element ref="cmn:text_type"/>
                                         <xs:element ref="cmn:position"/>
                                         <xs:element ref="cmn:color"/>
                                         <xs:element ref="cmn:font" />

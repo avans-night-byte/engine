@@ -79,6 +79,9 @@
     </buttons>
     <texts>
         <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
             <common:position>
                 <x>730</x>
                 <y>300</y>
@@ -95,6 +98,9 @@
             <content>Game Over</content>
         </text>
         <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
             <common:position>
                 <x>700</x>
                 <y>400</y>
@@ -109,6 +115,25 @@
                 <size>25</size>
             </common:font>
             <content>Quit the game or try again if you dare...</content>
+        </text>
+        <text>
+            <common:text_type>
+                <dynamic>%score%</dynamic>
+            </common:text_type>
+            <common:position>
+                <x>870</x>
+                <y>450</y>
+            </common:position>
+            <common:color>
+                <hex>ffffff</hex>
+                <alpha>255</alpha>
+            </common:color>
+            <common:font>
+                <family>Montserrat</family>
+                <weight>Regular</weight>
+                <size>25</size>
+            </common:font>
+            <content>Your score: 0</content>
         </text>
     </texts>
     <images>

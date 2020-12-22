@@ -48,6 +48,9 @@
     </buttons>
     <texts>
         <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
             <common:position>
                 <x>50</x>
                 <y>50</y>
@@ -64,6 +67,9 @@
             <content>Real shizzle</content>
         </text>
         <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
             <common:position>
                 <x>1000</x>
                 <y>250</y>
