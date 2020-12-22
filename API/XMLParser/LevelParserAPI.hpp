@@ -1,9 +1,10 @@
 #pragma once
 
+#include "../../Engine/XMLParser/EntityXMLParser.hpp"
+
 #include <string>
 #include <memory>
 
-#include "../../Engine/XMLParser/EntityXMLParser.hpp"
 
 namespace Components {
     class component;
@@ -18,9 +19,9 @@ class LevelParserAPI {
 private:
 
 public:
-    static void loadEntities(std::multimap<EntityXMLParser::ObjectData, Components::component *> &outEntities,
+    static void loadEntities(std::vector<EntityXMLParser::ObjectData> &outEntities,
                                   xsd::cxx::tree::sequence<Objects::object> &objects);
 
-    static TMXLevel *loadLevel(std::multimap<EntityXMLParser::ObjectData, Components::component *> &outEntities,
+    static TMXLevel *loadLevel(std::vector<EntityXMLParser::ObjectData> &outEntities,
                                const LevelData &levelData);
 };

@@ -11,7 +11,6 @@ namespace Components {
     class component;
 }
 
-struct LoadedObjectData;
 
 class EntityObject;
 
@@ -23,24 +22,14 @@ public:
         std::string name;
         std::string type;
 
-        ObjectData(std::string name, std::string type) : name(std::move(name)), type(std::move(type)) {}
+        std::vector<Components::component*> xmlComponents;
 
-        bool operator==(const ObjectData &other) const{
-            return name == other.name;
-        }
+        ObjectData(std::string name, std::string type) : name(std::move(name)), type(std::move(type)) {
 
-        bool operator==(const std::string &other) const{
-            return name == other;
-        }
-
-        bool operator<(const ObjectData &other) const{
-            int result = name.compare(other.name);
-            if(result < 0) return true;
-            return false;
         }
     };
 
-    static void createEntities(std::multimap<ObjectData, Components::component *> &outEntities,
+    static void createEntities(std::vector<ObjectData> &outObjectData,
                         xsd::cxx::tree::sequence<Objects::object> &objects);
 };
 
