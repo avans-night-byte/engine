@@ -12,6 +12,36 @@
   </data>
  </layer>
  <objectgroup id="3" name="Object Layer">
+  <object id="6" x="155.499" y="157.166">
+   <polygon points="-7,-26 -6,-58 8.32458,-68.6103 28.5455,-76.9091 47.1526,-69.7277 63,-60 64.6364,-26.3182"/>
+  </object>
+  <object id="9" x="80.5" y="160.5" width="31" height="31"/>
+  <object id="10" x="32.5" y="81.5" width="15" height="77.5"/>
+  <object id="32" x="244" y="97.5" width="24.5" height="28.5"/>
+  <object id="33" x="304" y="70" width="32" height="24"/>
+  <object id="34" x="336.5" y="200" width="15.5" height="49"/>
+  <object id="35" x="282" y="201.667" width="43" height="44.3333"/>
+  <object id="40" x="177.413" y="135.175" width="13.5909" height="19.3522">
+   <properties>
+    <property name="isNextLevel" type="bool" value="true"/>
+    <property name="isSensor" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="43" x="0" y="0.333111" width="9.9082" height="349.434"/>
+  <object id="44" x="13.1208" y="338.015" width="379.402" height="11.0784"/>
+  <object id="45" x="389.133" y="194.09" width="6.20701" height="152.436"/>
+  <object id="46" x="0.333111" y="0.999334" width="392.738" height="12.7447"/>
+  <object id="47" x="151.818" y="131.273" width="24.9091" height="24"/>
+  <object id="48" x="191.273" y="131.455" width="25.4545" height="24"/>
+  <object id="49" x="160.545" y="175.636" width="47.4545" height="45.0909">
+   <ellipse/>
+  </object>
+  <object id="51" x="389.636" y="1" width="9.36364" height="156.818"/>
+  <object id="52" x="399.5" y="144.5" width="76" height="13.4091"/>
+  <object id="53" x="396.727" y="194.045" width="30" height="9.63636"/>
+  <object id="54" x="419.5" y="203.864" width="6.40909" height="193.636"/>
+  <object id="55" x="426.545" y="386.273" width="48.4545" height="11.4545"/>
+  <object id="56" x="469.591" y="158.273" width="4.09091" height="230.591"/>
   <object id="65" name="Sascha Varken" x="92.5" y="86.7497">
    <point/>
   </object>
