@@ -21,11 +21,6 @@ jobs:
       - uses: msys2/setup-msys2@v2
         with:
           update: true
-          install: >-
-            base-devel
-            git
-            gcc
-            make
 
       - uses: actions/checkout@v2
       - name: Check build folder cache
