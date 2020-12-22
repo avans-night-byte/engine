@@ -9,21 +9,21 @@
 class ContactListener : public b2ContactListener {
     void BeginContact(b2Contact *contact) override {
         if (auto *bodyUserData = contact->GetFixtureA()->GetBody()->GetUserData().contactHandler) {
-            bodyUserData->startContact(contact);
+            bodyUserData->startContact(contact, true);
         }
 
         if (auto *bodyUserData = contact->GetFixtureB()->GetBody()->GetUserData().contactHandler) {
-            bodyUserData->startContact(contact);
+            bodyUserData->startContact(contact, false);
         }
     }
 
     void EndContact(b2Contact *contact) override {
-        if (auto *bodyUserData = (ContactHandler *) contact->GetFixtureA()->GetBody()->GetUserData().pointer) {
-            bodyUserData->endContact(contact);
+        if (auto *bodyUserData = contact->GetFixtureA()->GetBody()->GetUserData().contactHandler) {
+            bodyUserData->endContact(contact, true);
         }
 
-        if (auto *bodyUserData = (ContactHandler *) contact->GetFixtureB()->GetBody()->GetUserData().pointer) {
-            bodyUserData->endContact(contact);
+        if (auto *bodyUserData = contact->GetFixtureB()->GetBody()->GetUserData().contactHandler) {
+            bodyUserData->endContact(contact, false);
         }
     }
 };
