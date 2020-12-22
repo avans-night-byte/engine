@@ -5,7 +5,7 @@
                 xmlns:common="Common">
 
     <object>
-        <name>bullet1</name>
+        <name>bullet</name>
         <objectType>resource</objectType>
         <components>
             <component>
