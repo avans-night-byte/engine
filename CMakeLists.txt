@@ -59,6 +59,8 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/Inventory/InventoryComponent.cpp
         ./Game/Components/Inventory/InventoryComponent.hpp
         ./Game/Components/Inventory/InventoryItem.cpp
+        ./Game/Components/AIComponent.cpp
+        ./Game/Components/AIComponent.hpp
         ./Game/Components/Inventory/InventoryItem.hpp
         ./Game/Components/Build/BuildComponent.cpp
         ./Game/Components/Build/BuildComponent.hpp
