@@ -31,11 +31,13 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-cmake-
 
-      - name: "Check MSYS2 existence"
-        id: check_files
-        uses: andstor/file-existence-action@v1.0.1
+      - name: Cache Primes
+        id: cache-primes
+        uses: actions/cache@v2
         with:
-          files: "C:/msys64/mingw64/bin/mingw32-make.exe"
+          path: "C:/msys64/"
+          key: ${{ runner.os }}-primes
+
 
       - name: Checkout submodules
         shell: bash
@@ -45,7 +47,7 @@ jobs:
           git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
 
       - name: Install msys2 dependencies
-        if: steps.check_files.outputs.files_exists == 'true'
+        if: steps.cache-primes.outputs.cache-hit != 'true'
         shell: msys2 {0}
         run: |
           pacman -S mingw-w64-x86_64-xerces-c --noconfirm
