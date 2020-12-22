@@ -15,6 +15,9 @@
     <buttons/>
     <texts>
         <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
             <common:position>
                 <x>855</x>
                 <y>600</y>
