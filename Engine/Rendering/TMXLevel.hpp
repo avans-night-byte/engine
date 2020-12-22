@@ -1,11 +1,10 @@
 #pragma once
 
-
-
 #include <map>
 #include <vector>
 #include <tmxlite/Map.hpp>
 #include "../../API/Helpers/Vector2.hpp"
+#include "../XMLParser/EntityXMLParser.hpp"
 #include "../Astar.hpp"
 
 class RenderingAPI;
@@ -44,7 +43,7 @@ public:
 
     void cleanup();
 
-    void getObjectPositions(const std::multimap<std::string, Components::component *> &outEntities);
+    void getObjectPositions(const std::multimap<EntityXMLParser::ObjectData, Components::component *> &outEntities);
 
     void initStaticCollision();
 

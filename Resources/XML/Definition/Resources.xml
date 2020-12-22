@@ -1,11 +1,24 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <gr:resources
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="GameResources  ../Schemas/resources.xsd"
+        xsi:schemaLocation="GameResources  ../Schemas/resources.xsd
+                            Common ../Schemas/common.xsd"
         xmlns:common="Common"
         xmlns:gr="GameResources">
     <basePath>../../Resources/</basePath>
     <textures>
+        <texture>
+            <name>inventory_slot</name>
+            <path>Sprites/inventory_slot.png</path>
+        </texture>
+        <texture>
+            <name>crate</name>
+            <path>Sprites/Wooden_crate.png</path>
+        </texture>
+        <texture>
+            <name>boar</name>
+            <path>Sprites/boar.png</path>
+        </texture>
         <texture>
             <name>mainmenu_background</name>
             <path>Sprites/background.png</path>
@@ -60,14 +73,6 @@
                 <height>1</height>
             </common:size>
         </sprite>
-        <sprite>
-            <name>inventorySlot</name>
-            <path>Sprites/inventory_slot.png</path>
-            <common:size>
-                <width>1</width>
-                <height>1</height>
-            </common:size>
-        </sprite>
     </sprites>
     <sounds>
         <sound>
@@ -93,6 +98,10 @@
         <scene>
             <name>MainMenu</name>
             <path>XML/Definition/MainMenu.xml</path>
+        </scene>
+        <scene>
+            <name>Loading</name>
+            <path>XML/Definition/Loading.xml</path>
         </scene>
         <scene>
             <name>Credits</name>

@@ -19,6 +19,17 @@
     <xs:complexType name="object">
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
+            <xs:element name="objectType" type="xs:string">
+<!--                <xs:simpleType>-->
+<!--                    <xs:restriction>-->
+<!--                        <xs:enumeration value="weapon"/>-->
+<!--                        <xs:enumeration value="resource"/>-->
+<!--                        <xs:enumeration value="object"/>-->
+<!--                        <xs:enumeration value="level_change"/>-->
+<!--                        <xs:enumeration value="character"/>-->
+<!--                    </xs:restriction>-->
+<!--                </xs:simpleType>-->
+            </xs:element>
             <xs:element name="components">
                 <xs:complexType>
                     <xs:sequence>

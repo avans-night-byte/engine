@@ -1,9 +1,6 @@
 #ifndef B2_USER_SETTINGS
 #define B2_USER_SETTINGS
 
-
-
-
 #include <cstdarg>
 #include <cstdint>
 #include "ContactHandler.hpp"

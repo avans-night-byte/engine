@@ -7,12 +7,18 @@
     <xs:import schemaLocation="common.xsd" namespace="Common"/>
     <xs:import schemaLocation="objects.xsd" namespace="Objects"/>
 
-
-    <xs:element name="level">
+    <xs:element name="level-resources">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="name" type="xs:string"/>
-                <xs:element name="object" type="obj:object" maxOccurs="unbounded"/>
+                <xs:element name="level">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="object" type="obj:object" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element ref="common:preloadResources"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
