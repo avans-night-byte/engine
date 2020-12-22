@@ -18,6 +18,7 @@ private:
     b2World world = b2World(b2Vec2_zero);
     std::unique_ptr<ContactListener> contactListener;
     std::map<BodyId, b2Body *> bodies{};
+    BodyId availableBodyId = 0;
 
     std::unique_ptr<Box2dDrawDebug> drawDebug = nullptr;
 

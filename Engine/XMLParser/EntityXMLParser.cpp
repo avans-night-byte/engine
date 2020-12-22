@@ -1,12 +1,10 @@
 #include "EntityXMLParser.hpp"
 
 #include <iostream>
-#include <map>
-#include <utility>
 
 
 
-void EntityXMLParser::createEntities(std::multimap<ObjectData, Components::component *> &outEntities,
+void EntityXMLParser::createEntities(std::vector<ObjectData> &outObjectData,
                                      xsd::cxx::tree::sequence<Objects::object> &objects) {
 
     for (Objects::object &object : objects) {
@@ -15,10 +13,10 @@ void EntityXMLParser::createEntities(std::multimap<ObjectData, Components::compo
             std::cout << component.componentName() << std::endl;
 
             // componentName  -> Factory
-            auto pair = std::pair<ObjectData, Components::component *>(data, component._clone());
-
-            outEntities.insert(pair);
+            data.xmlComponents.push_back(component._clone());
         }
+
+        outObjectData.push_back(data);
     }
 }
 
