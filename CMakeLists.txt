@@ -67,6 +67,8 @@ add_executable(NightByte ./Main.cpp
         ./Game/Object/Pool.cpp
         ./Game/Scenes/PoolLevel.cpp
         ./Game/Scenes/PoolLevel.hpp
+        ./Game/Components/Wallet/WalletComponent.cpp
+        ./Game/Components/Wallet/WalletComponent.hpp
 
         # Engine
         ./Engine/Engine.cpp
