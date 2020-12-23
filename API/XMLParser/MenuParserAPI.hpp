@@ -12,6 +12,8 @@ public:
     void loadScene(std::string path);
     void render();
     void onClick(Input input);
+    std::map<std::string, std::string> getDynamicFields();
+    void setDynamicFieldValue(const std::string &field, const std::string &value);
     Event<std::string> &getCustomEventHandler();
 private:
     std::unique_ptr<MenuParser> menuParser;

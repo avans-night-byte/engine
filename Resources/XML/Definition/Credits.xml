@@ -227,6 +227,9 @@
     </buttons>
     <texts>
         <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
             <common:position>
                 <x>620</x>
                 <y>200</y>
@@ -243,6 +246,9 @@
             <content>NightByte is proudly brought to you by...</content>
         </text>
         <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
             <common:position>
                 <x>630</x>
                 <y>510</y>
@@ -260,6 +266,9 @@
             <content>Huseyin</content>
         </text>
         <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
             <common:position>
                 <x>890</x>
                 <y>510</y>
@@ -277,6 +286,9 @@
             <content>Martijn</content>
         </text>
         <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
             <common:position>
                 <x>1140</x>
                 <y>510</y>
@@ -293,6 +305,9 @@
             <content>Yannick</content>
         </text>
         <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
             <common:position>
                 <x>640</x>
                 <y>780</y>
@@ -309,6 +324,9 @@
             <content>Marco</content>
         </text>
         <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
             <common:position>
                 <x>900</x>
                 <y>780</y>
@@ -325,6 +343,9 @@
             <content>Storm</content>
         </text>
         <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
             <common:position>
                 <x>1140</x>
                 <y>780</y>

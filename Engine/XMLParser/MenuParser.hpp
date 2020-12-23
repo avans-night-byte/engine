@@ -19,6 +19,7 @@ class MenuParser {
 
 private:
     std::map<std::string, TextWrapper*> _textItems;
+    std::map<std::string, std::string> _dynamicTextItems;
 
     const RenderingAPI &_renderer;
     std::unique_ptr<Menu::menu> _menu;
@@ -48,6 +49,10 @@ public:
     void render();
 
     void onClick(const Input& input);
+
+    void setDynamicFieldValue(const std::string &field, const std::string &value);
+
+    std::map<std::string, std::string> getDynamicFields();
 
     static MenuParser *getInstance();
 

@@ -123,6 +123,7 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- Font -->
     <xs:element name="font">
         <xs:complexType>
             <xs:sequence>
@@ -139,4 +140,14 @@
             <xs:maxInclusive value="255"/>
         </xs:restriction>
     </xs:simpleType>
+
+    <xs:element name="text_type">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element name="dynamic" type="xs:string" minOccurs="1"/>
+                <xs:element name="static" type="xs:string" nillable="true"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
 </xs:schema>

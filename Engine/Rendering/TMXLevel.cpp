@@ -71,7 +71,12 @@ void TMXLevel::render(RenderingAPI &renderingAPI) {
     }
 }
 
-void TMXLevel::getObjectPositions(const std::multimap<EntityXMLParser::ObjectData, Components::component *> &outEntities) {
+struct LoadedObjectData {
+    std::string objectName;
+    Vector2 position;
+};
+
+void TMXLevel::getObjectPositions(std::vector<EntityXMLParser::ObjectData> &outEntities) {
     const auto &layers = _tmap.getLayers();
     auto loadedObjects = std::map<std::string, LoadedObjectData>();
 
@@ -95,27 +100,29 @@ void TMXLevel::getObjectPositions(const std::multimap<EntityXMLParser::ObjectDat
     }
 
     for (auto &object : loadedObjects) {
-
-        EntityXMLParser::ObjectData objData { object.first, ""};
-        auto mMapIterator = outEntities.equal_range(objData);
-        
-        bool transformFound = false;
-
-        for (auto &mIt = mMapIterator.first; mIt != mMapIterator.second; mIt++) {
-            if (!mIt->second->transformComponent().present())
+        for (auto &xmlEntity : outEntities) {
+            if (xmlEntity.name != object.first)
                 continue;
 
-            auto &worldPositionComponent = mIt->second->transformComponent();
-            auto &positionF = worldPositionComponent->position();
-            positionF.x() = object.second.position.x;
-            positionF.y() = object.second.position.y;
+            bool transformFound = false;
 
-            transformFound = true;
-            break;
-        }
+            for (auto comp : xmlEntity.xmlComponents) {
+                if (!comp->transformComponent().present())
+                    continue;
 
-        if (!transformFound) {
-            throw std::runtime_error("Object: '" + object.first + "' couldn't be attached to a resource object");
+                auto &worldPositionComponent = comp->transformComponent();
+                auto &positionF = worldPositionComponent->position();
+                positionF.x() = object.second.position.x;
+                positionF.y() = object.second.position.y;
+
+                transformFound = true;
+                break;
+            }
+
+            if (!transformFound) {
+                throw std::runtime_error(
+                        "Object: '" + object.first + "' couldn't be attached to a resource object");
+            }
         }
     }
 }

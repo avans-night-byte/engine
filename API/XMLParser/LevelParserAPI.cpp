@@ -1,17 +1,17 @@
-#include <Generated/level-resources.hxx>
 #include "LevelParserAPI.hpp"
 
 #include "../../Engine/Rendering/TMXLevel.hpp"
 #include "../../Game/Game.hpp"
 
+#include <Generated/level-resources.hxx>
 
 
-void LevelParserAPI::loadEntities(std::multimap<EntityXMLParser::ObjectData, Components::component *> &outEntities,
+void LevelParserAPI::loadEntities(std::vector<EntityXMLParser::ObjectData> &outEntities,
                                        xsd::cxx::tree::sequence<Objects::object> &objects) {
     EntityXMLParser::createEntities(outEntities, objects);
 }
 
-TMXLevel *LevelParserAPI::loadLevel(std::multimap<EntityXMLParser::ObjectData, Components::component *> &outEntities, const LevelData &levelData) {
+TMXLevel *LevelParserAPI::loadLevel(std::vector<EntityXMLParser::ObjectData> &outEntities, const LevelData &levelData) {
 
     auto &renderingApi = Game::getInstance()->getRenderingApi();
     auto &physicsApi = Game::getInstance()->getPhysicsAPI();
@@ -19,7 +19,7 @@ TMXLevel *LevelParserAPI::loadLevel(std::multimap<EntityXMLParser::ObjectData, C
 
     loadEntities(outEntities, xmlLevel->level().object());
 
-    for (auto &resource : xmlLevel.get()->preloadResources().resource()) {
+    for (auto &resource : xmlLevel->preloadResources().resource()) {
         ResourceManager::getInstance()->loadResource(resource);
     }
 

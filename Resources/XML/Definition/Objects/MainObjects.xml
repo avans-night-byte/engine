@@ -1,59 +1,18 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <obj:objectList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:schemaLocation="Objects  ../../Schemas/objects.xsd"
+                xsi:schemaLocation="Objects  ../../Schemas/objects.xsd
+                                    Common ../../Schemas/common.xsd"
                 xmlns:obj="Objects"
                 xmlns:common="Common">
 
-    <object>
-        <name>bullet1</name>
-        <objectType>resource</objectType>
-        <components>
-            <component>
-                <componentName>PhysicsComponent</componentName>
-                <physicsComponent>
-                    <common:position>
-                        <x>200</x>
-                        <y>200</y>
-                    </common:position>
-                    <friction>1</friction>
-                    <bodyType>Dynamic</bodyType>
-                    <bodyShape>
-                        <box>
-                            <width>30</width>
-                            <height>13</height>
-                        </box>
-                    </bodyShape>
-                    <isBullet>true</isBullet>
-                    <isSensor>false</isSensor>
-                </physicsComponent>
-            </component>
-
-            <component>
-                <componentName>BulletComponent</componentName>
-                <bulletComponent/>
-            </component>
-
-            <component>
-                <componentName>TransformComponent</componentName>
-                <transformComponent>
-                    <common:position>
-                        <x>200</x>
-                        <y>200</y>
-                    </common:position>
-                </transformComponent>
-            </component>
-
-            <component>
-                <componentName>RenderComponent</componentName>
-                <renderComponent>
-                    <spriteId>bullet</spriteId>
-                    <spritePath>../../Resources/Sprites/bullet1.png</spritePath>
-                    <width>60</width>
-                    <height>25</height>
-                </renderComponent>
-            </component>
-        </components>
-    </object>
-
-
+<object>
+    <name>Character</name>
+    <objectType>character</objectType>
+    <components>
+        <component>
+            <componentName>CharacterComponent</componentName>
+            <characterComponent/>
+        </component>
+    </components>
+</object>
 </obj:objectList>

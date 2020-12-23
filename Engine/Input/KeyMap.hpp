@@ -53,5 +53,6 @@ public:
             {SDLK_BACKSLASH,    InputAction{.code = "\\", .action = "BACKSLASH"}},
             {SDLK_RIGHTBRACKET, InputAction{.code = "]", .action = "RIGHTBRACKET"}},
             {SDLK_ESCAPE,       InputAction{.code = "ESC", .action = "ESCAPE"}},
+            {SDLK_g,            InputAction{.code = "G", .action = "G"}},
     };
 };
