@@ -5,5 +5,14 @@
                 xmlns:obj="Objects"
                 xmlns:common="Common">
 
-
+<object>
+    <name>Character</name>
+    <objectType>character</objectType>
+    <components>
+        <component>
+            <componentName>CharacterComponent</componentName>
+            <characterComponent/>
+        </component>
+    </components>
+</object>
 </obj:objectList>
