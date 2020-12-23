@@ -13,20 +13,7 @@ jobs:
   build-win:
     runs-on: windows-latest
 
-    defaults:
-      run:
-        shell: msys2 {0}
-
     steps:
-      - uses: msys2/setup-msys2@v2
-        with:
-          update: true
-          install: >-
-            base-devel
-            git
-            gcc
-            make
-
       - uses: actions/checkout@v2
       - name: Check build folder cache
         uses: actions/cache@v2
@@ -36,11 +23,13 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-cmake-
 
-      - name: "Check MSYS2 existence"
-        id: check_files
-        uses: andstor/file-existence-action@v1.0.1
-        with:
-          files: "C:/msys64/mingw64/bin/mingw32-make.exe"
+#      - name: Cache Primes
+#        id: cache-primes
+#        uses: actions/cache@v2
+#        with:
+#          path: "C:/msys64/"
+#          key: ${{ runner.os }}-primes
+
 
       - name: Checkout submodules
         shell: bash
@@ -49,8 +38,9 @@ jobs:
           git submodule sync --recursive
           git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
 
+      - uses: msys2/setup-msys2@v2
       - name: Install msys2 dependencies
-        if: steps.check_files.outputs.files_exists == 'true'
+#        if: steps.cache-primes.outputs.cache-hit != 'true'
         shell: msys2 {0}
         run: |
           pacman -S mingw-w64-x86_64-xerces-c --noconfirm
