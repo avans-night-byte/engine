@@ -31,10 +31,10 @@ bool TextureManager::CreateTexture(SDL_Surface *surface, const std::string &text
 
 bool TextureManager::load(const std::string& path, const std::string& textureId) {
     SDL_Surface* tmpSurface = IMG_Load(path.c_str());
-    std::cout << IMG_GetError() << std::endl;
-    
+
     if(tmpSurface == nullptr){
         // Failed loading image.
+        std::cout << IMG_GetError() << std::endl;
         return false;
     }
 

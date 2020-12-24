@@ -47,6 +47,9 @@
     </buttons>
     <texts>
         <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
             <common:position>
                 <x>100</x>
                 <y>100</y>
@@ -63,6 +66,9 @@
             <content>Controls</content>
         </text>
         <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
             <common:position>
                 <x>100</x>
                 <y>190</y>
@@ -79,6 +85,9 @@
             <content>WASD: Walking in all four directions</content>
         </text>
         <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
             <common:position>
                 <x>100</x>
                 <y>280</y>
@@ -95,6 +104,9 @@
             <content>E: Open/Close inventory</content>
         </text>
         <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
             <common:position>
                 <x>100</x>
                 <y>460</y>
@@ -111,6 +123,9 @@
             <content>R: Reload gun</content>
         </text>
         <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
             <common:position>
                 <x>100</x>
                 <y>370</y>

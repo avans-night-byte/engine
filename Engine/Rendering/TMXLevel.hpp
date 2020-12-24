@@ -12,10 +12,7 @@ class SpriteSheet;
 class PhysicsEngineAdapter;
 class EngineRenderingAPI;
 
-struct LoadedObjectData  {
-    std::string objectName;
-    Vector2 position;
-};
+
 
 namespace Components {
     class component;
@@ -43,7 +40,7 @@ public:
 
     void cleanup();
 
-    void getObjectPositions(const std::multimap<EntityXMLParser::ObjectData, Components::component *> &outEntities);
+    void getObjectPositions(std::vector<EntityXMLParser::ObjectData> &outEntities);
 
     void initStaticCollision();
 

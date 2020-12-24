@@ -555,6 +555,30 @@ namespace Menu
   // text
   // 
 
+  const text::text_type_type& text::
+  text_type () const
+  {
+    return this->text_type_.get ();
+  }
+
+  text::text_type_type& text::
+  text_type ()
+  {
+    return this->text_type_.get ();
+  }
+
+  void text::
+  text_type (const text_type_type& x)
+  {
+    this->text_type_.set (x);
+  }
+
+  void text::
+  text_type (::std::unique_ptr< text_type_type > x)
+  {
+    this->text_type_.set (std::move (x));
+  }
+
   const text::position_type& text::
   position () const
   {
@@ -1761,11 +1785,13 @@ namespace Menu
   //
 
   text::
-  text (const position_type& position,
+  text (const text_type_type& text_type,
+        const position_type& position,
         const color_type& color,
         const font_type& font,
         const content_type& content)
   : ::xml_schema::type (),
+    text_type_ (text_type, this),
     position_ (position, this),
     color_ (color, this),
     font_ (font, this),
@@ -1774,11 +1800,13 @@ namespace Menu
   }
 
   text::
-  text (::std::unique_ptr< position_type > position,
+  text (::std::unique_ptr< text_type_type > text_type,
+        ::std::unique_ptr< position_type > position,
         ::std::unique_ptr< color_type > color,
         ::std::unique_ptr< font_type > font,
         const content_type& content)
   : ::xml_schema::type (),
+    text_type_ (std::move (text_type), this),
     position_ (std::move (position), this),
     color_ (std::move (color), this),
     font_ (std::move (font), this),
@@ -1791,6 +1819,7 @@ namespace Menu
         ::xml_schema::flags f,
         ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
+    text_type_ (x.text_type_, f, this),
     position_ (x.position_, f, this),
     color_ (x.color_, f, this),
     font_ (x.font_, f, this),
@@ -1803,6 +1832,7 @@ namespace Menu
         ::xml_schema::flags f,
         ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    text_type_ (this),
     position_ (this),
     color_ (this),
     font_ (this),
@@ -1824,6 +1854,20 @@ namespace Menu
       const ::xercesc::DOMElement& i (p.cur_element ());
       const ::xsd::cxx::xml::qualified_name< char > n (
         ::xsd::cxx::xml::dom::name< char > (i));
+
+      // text_type
+      //
+      if (n.name () == "text_type" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< text_type_type > r (
+          text_type_traits::create (i, f, this));
+
+        if (!text_type_.present ())
+        {
+          this->text_type_.set (::std::move (r));
+          continue;
+        }
+      }
 
       // position
       //
@@ -1884,6 +1928,13 @@ namespace Menu
       break;
     }
 
+    if (!text_type_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "text_type",
+        "Common");
+    }
+
     if (!position_.present ())
     {
       throw ::xsd::cxx::tree::expected_element< char > (
@@ -1926,6 +1977,7 @@ namespace Menu
     if (this != &x)
     {
       static_cast< ::xml_schema::type& > (*this) = x;
+      this->text_type_ = x.text_type_;
       this->position_ = x.position_;
       this->color_ = x.color_;
       this->font_ = x.font_;

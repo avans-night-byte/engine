@@ -486,6 +486,70 @@ namespace Common
   }
 
 
+  // text_type
+  //
+
+  const text_type::dynamic_optional& text_type::
+  dynamic () const
+  {
+    return this->dynamic_;
+  }
+
+  text_type::dynamic_optional& text_type::
+  dynamic ()
+  {
+    return this->dynamic_;
+  }
+
+  void text_type::
+  dynamic (const dynamic_type& x)
+  {
+    this->dynamic_.set (x);
+  }
+
+  void text_type::
+  dynamic (const dynamic_optional& x)
+  {
+    this->dynamic_ = x;
+  }
+
+  void text_type::
+  dynamic (::std::unique_ptr< dynamic_type > x)
+  {
+    this->dynamic_.set (std::move (x));
+  }
+
+  const text_type::static_optional& text_type::
+  static_ () const
+  {
+    return this->static__;
+  }
+
+  text_type::static_optional& text_type::
+  static_ ()
+  {
+    return this->static__;
+  }
+
+  void text_type::
+  static_ (const static_type& x)
+  {
+    this->static__.set (x);
+  }
+
+  void text_type::
+  static_ (const static_optional& x)
+  {
+    this->static__ = x;
+  }
+
+  void text_type::
+  static_ (::std::unique_ptr< static_type > x)
+  {
+    this->static__.set (std::move (x));
+  }
+
+
   // onEnter
   // 
 
@@ -1854,6 +1918,109 @@ namespace Common
 
   font::
   ~font ()
+  {
+  }
+
+  // text_type
+  //
+
+  text_type::
+  text_type ()
+  : ::xml_schema::type (),
+    dynamic_ (this),
+    static__ (this)
+  {
+  }
+
+  text_type::
+  text_type (const text_type& x,
+             ::xml_schema::flags f,
+             ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    dynamic_ (x.dynamic_, f, this),
+    static__ (x.static__, f, this)
+  {
+  }
+
+  text_type::
+  text_type (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f,
+             ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    dynamic_ (this),
+    static__ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void text_type::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // dynamic
+      //
+      if (n.name () == "dynamic" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< dynamic_type > r (
+          dynamic_traits::create (i, f, this));
+
+        if (!this->dynamic_)
+        {
+          this->dynamic_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // static
+      //
+      if (n.name () == "static" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< static_type > r (
+          static_traits::create (i, f, this));
+
+        if (!this->static__)
+        {
+          this->static__.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+  }
+
+  text_type* text_type::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class text_type (*this, f, c);
+  }
+
+  text_type& text_type::
+  operator= (const text_type& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->dynamic_ = x.dynamic_;
+      this->static__ = x.static__;
+    }
+
+    return *this;
+  }
+
+  text_type::
+  ~text_type ()
   {
   }
 
@@ -4377,6 +4544,272 @@ namespace Common
       n.name (),
       n.namespace_ (),
       "font",
+      "Common");
+  }
+
+  ::std::unique_ptr< ::Common::text_type >
+  text_type_ (const ::std::string& u,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::tree::error_handler< char > h;
+
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        u, h, p, f));
+
+    h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
+
+    return ::std::unique_ptr< ::Common::text_type > (
+      ::Common::text_type_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Common::text_type >
+  text_type_ (const ::std::string& u,
+              ::xml_schema::error_handler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        u, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Common::text_type > (
+      ::Common::text_type_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Common::text_type >
+  text_type_ (const ::std::string& u,
+              ::xercesc::DOMErrorHandler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        u, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Common::text_type > (
+      ::Common::text_type_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Common::text_type >
+  text_type_ (::std::istream& is,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is);
+    return ::Common::text_type_ (isrc, f, p);
+  }
+
+  ::std::unique_ptr< ::Common::text_type >
+  text_type_ (::std::istream& is,
+              ::xml_schema::error_handler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is);
+    return ::Common::text_type_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Common::text_type >
+  text_type_ (::std::istream& is,
+              ::xercesc::DOMErrorHandler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::sax::std_input_source isrc (is);
+    return ::Common::text_type_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Common::text_type >
+  text_type_ (::std::istream& is,
+              const ::std::string& sid,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+    return ::Common::text_type_ (isrc, f, p);
+  }
+
+  ::std::unique_ptr< ::Common::text_type >
+  text_type_ (::std::istream& is,
+              const ::std::string& sid,
+              ::xml_schema::error_handler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::auto_initializer i (
+      (f & ::xml_schema::flags::dont_initialize) == 0,
+      (f & ::xml_schema::flags::keep_dom) == 0);
+
+    ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+    return ::Common::text_type_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Common::text_type >
+  text_type_ (::std::istream& is,
+              const ::std::string& sid,
+              ::xercesc::DOMErrorHandler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+    return ::Common::text_type_ (isrc, h, f, p);
+  }
+
+  ::std::unique_ptr< ::Common::text_type >
+  text_type_ (::xercesc::InputSource& i,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xsd::cxx::tree::error_handler< char > h;
+
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        i, h, p, f));
+
+    h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
+
+    return ::std::unique_ptr< ::Common::text_type > (
+      ::Common::text_type_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Common::text_type >
+  text_type_ (::xercesc::InputSource& i,
+              ::xml_schema::error_handler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        i, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Common::text_type > (
+      ::Common::text_type_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Common::text_type >
+  text_type_ (::xercesc::InputSource& i,
+              ::xercesc::DOMErrorHandler& h,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+      ::xsd::cxx::xml::dom::parse< char > (
+        i, h, p, f));
+
+    if (!d.get ())
+      throw ::xsd::cxx::tree::parsing< char > ();
+
+    return ::std::unique_ptr< ::Common::text_type > (
+      ::Common::text_type_ (
+        std::move (d), f | ::xml_schema::flags::own_dom, p));
+  }
+
+  ::std::unique_ptr< ::Common::text_type >
+  text_type_ (const ::xercesc::DOMDocument& doc,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties& p)
+  {
+    if (f & ::xml_schema::flags::keep_dom)
+    {
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
+
+      return ::std::unique_ptr< ::Common::text_type > (
+        ::Common::text_type_ (
+          std::move (d), f | ::xml_schema::flags::own_dom, p));
+    }
+
+    const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (e));
+
+    if (n.name () == "text_type" &&
+        n.namespace_ () == "Common")
+    {
+      ::std::unique_ptr< ::Common::text_type > r (
+        ::xsd::cxx::tree::traits< ::Common::text_type, char >::create (
+          e, f, 0));
+      return r;
+    }
+
+    throw ::xsd::cxx::tree::unexpected_element < char > (
+      n.name (),
+      n.namespace_ (),
+      "text_type",
+      "Common");
+  }
+
+  ::std::unique_ptr< ::Common::text_type >
+  text_type_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+              ::xml_schema::flags f,
+              const ::xml_schema::properties&)
+  {
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > c (
+      ((f & ::xml_schema::flags::keep_dom) &&
+       !(f & ::xml_schema::flags::own_dom))
+      ? static_cast< ::xercesc::DOMDocument* > (d->cloneNode (true))
+      : 0);
+
+    ::xercesc::DOMDocument& doc (c.get () ? *c : *d);
+    const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
+
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (e));
+
+    if (f & ::xml_schema::flags::keep_dom)
+      doc.setUserData (::xml_schema::dom::tree_node_key,
+                       (c.get () ? &c : &d),
+                       0);
+
+    if (n.name () == "text_type" &&
+        n.namespace_ () == "Common")
+    {
+      ::std::unique_ptr< ::Common::text_type > r (
+        ::xsd::cxx::tree::traits< ::Common::text_type, char >::create (
+          e, f, 0));
+      return r;
+    }
+
+    throw ::xsd::cxx::tree::unexpected_element < char > (
+      n.name (),
+      n.namespace_ (),
+      "text_type",
       "Common");
   }
 }

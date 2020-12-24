@@ -52,6 +52,12 @@ void MenuParser::initialize(const std::string &path) {
     for (auto text : _menu->texts().text()) {
 
         auto createdString = _textPrefix + std::to_string(index);
+
+        if(text.text_type().dynamic().present()){
+            std::string id = text.text_type().dynamic()->c_str();
+            _dynamicTextItems[id] = createdString;
+        }
+
         auto wrapper = TextWrapper::createText(_renderer, text.content(),
                                                (_fontPath + text.font().family() + "-" + text.font().weight() +".ttf"), text.font().size(),
                                                text.color().hex(), createdString);
@@ -151,6 +157,28 @@ void MenuParser::renderBoxes() {
     }
 }
 
+std::map<std::string, std::string> MenuParser::getDynamicFields() {
+    return _dynamicTextItems;
+}
+
+void MenuParser::setDynamicFieldValue(const std::string &field, const std::string &value) {
+
+    for(auto &text : _menu->texts().text()){
+        if(text.text_type().dynamic().present() && text.text_type().dynamic()->c_str() == field){
+
+            auto textFieldId = _dynamicTextItems[field];
+
+            auto wrapper = TextWrapper::createText(_renderer, value,
+                                                   (_fontPath + text.font().family() + "-" + text.font().weight() +".ttf"), text.font().size(),
+                                                   text.color().hex(), textFieldId);
+
+            _textItems[textFieldId] = wrapper;
+        }
+    }
+
+
+}
+
 void MenuParser::onClick(const Input &input) {
     if (!_menu->buttons().present() || !_resourceManager->inMenu) return;
 
@@ -219,6 +247,10 @@ MenuParser *MenuParser::getInstance() {
 Event <std::string> &MenuParser::getCustomEventHandler() {
     return _customEventHandler;
 }
+
+
+
+
 
 
 
