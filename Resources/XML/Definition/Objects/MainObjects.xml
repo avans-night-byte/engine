@@ -10,6 +10,16 @@
         <objectType>character</objectType>
         <components>
             <component>
+                <componentName>WalletComponent</componentName>
+                <walletComponent/>
+            </component>
+
+            <component>
+                <componentName>TradingComponent</componentName>
+                <tradingComponent/>
+            </component>
+
+            <component>
                 <componentName>CharacterComponent</componentName>
                 <characterComponent/>
             </component>
@@ -86,6 +96,21 @@
         <name>zombie</name>
         <objectType>character</objectType>
         <components>
+            <component>
+                <componentName>TradingComponent</componentName>
+                <tradingComponent/>
+            </component>
+
+            <component>
+                <componentName>ShopkeeperComponent</componentName>
+                <shopkeeperComponent/>
+            </component>
+
+            <component>
+                <componentName>InventoryComponent</componentName>
+                <inventoryComponent/>
+            </component>
+
             <component>
                 <componentName>RenderComponent</componentName>
                 <renderComponent>

@@ -18,6 +18,9 @@
             <xs:pattern value="WeaponComponent"/>
             <xs:pattern value="InventoryComponent"/>
             <xs:pattern value="BuildComponent"/>
+            <xs:pattern value="WalletComponent"/>
+            <xs:pattern value="TradingComponent"/>
+            <xs:pattern value="ShopkeeperComponent"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -120,6 +123,27 @@
 
                 <!-- BuildComponent Component -->
                 <xs:element name="buildComponent">
+                    <xs:complexType>
+                        <xs:sequence/>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- WalletComponent Component -->
+                <xs:element name="walletComponent">
+                    <xs:complexType>
+                        <xs:sequence/>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- WalletComponent Component -->
+                <xs:element name="tradingComponent">
+                    <xs:complexType>
+                        <xs:sequence/>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- ShopkeeperComponent Component -->
+                <xs:element name="shopkeeperComponent">
                     <xs:complexType>
                         <xs:sequence/>
                     </xs:complexType>
