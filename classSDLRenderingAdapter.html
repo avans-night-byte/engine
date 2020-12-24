@@ -90,9 +90,9 @@ SDL_Renderer &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getRend
 <tr class="memitem:a8dbf1bf0381a486b1e30d95aabd53bc5"><td class="memItemLeft" align="right" valign="top"><a id="a8dbf1bf0381a486b1e30d95aabd53bc5"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawTexture</b> (std::string textureId, float x, float y, float width, float height, double scale, double r, SDL_RendererFlip flip=SDL_FLIP_NONE) override</td></tr>
 <tr class="separator:a8dbf1bf0381a486b1e30d95aabd53bc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bc0a61cb9de046ca4f6dd7113918a4c"><td class="memItemLeft" align="right" valign="top"><a id="a2bc0a61cb9de046ca4f6dd7113918a4c"></a>
-<a class="el" href="classSpriteSheet.html">SpriteSheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createSpriteSheet</b> (const std::string &amp;path, std::string &amp;spriteSheetId, int width, int height) override</td></tr>
-<tr class="separator:a2bc0a61cb9de046ca4f6dd7113918a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2cae43e8784715cf09c697504611bc6"><td class="memItemLeft" align="right" valign="top"><a id="ab2cae43e8784715cf09c697504611bc6"></a>
+<a class="el" href="classSpriteSheet.html">SpriteSheet</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createSpriteSheet</b> (const std::string &amp;path, std::string &amp;spriteSheetId, int width, int height, int offsetX, int offsetY) override</td></tr>
+<tr class="separator:ab2cae43e8784715cf09c697504611bc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9aa6798f70a03541ea9658b8d4f476c1"><td class="memItemLeft" align="right" valign="top"><a id="a9aa6798f70a03541ea9658b8d4f476c1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawBox</b> (const <a class="el" href="structVector2.html">Vector2</a> *vertices, int32 vertexCount) const override</td></tr>
 <tr class="separator:a9aa6798f70a03541ea9658b8d4f476c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -102,9 +102,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>drawLine</b> (const <
 <tr class="memitem:a8233b464f3ba9fb34eab6ba12f7507f7"><td class="memItemLeft" align="right" valign="top"><a id="a8233b464f3ba9fb34eab6ba12f7507f7"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawCircle</b> (const <a class="el" href="structVector2.html">Vector2</a> &amp;center, const float &amp;radius) const override</td></tr>
 <tr class="separator:a8233b464f3ba9fb34eab6ba12f7507f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae13fc65deb908e17e24775f832601efa"><td class="memItemLeft" align="right" valign="top"><a id="ae13fc65deb908e17e24775f832601efa"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawRectangle</b> (<a class="el" href="structVector2.html">Vector2</a> &amp;vector2, float width, float height, const std::string &amp;color, float opacity) const override</td></tr>
-<tr class="separator:ae13fc65deb908e17e24775f832601efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69fffdaac89ff5ab11f3145cdb784b9a"><td class="memItemLeft" align="right" valign="top"><a id="a69fffdaac89ff5ab11f3145cdb784b9a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawRectangle</b> (<a class="el" href="structVector2.html">Vector2</a> &amp;vector2, float width, float height, const std::string &amp;color, float opacity) override</td></tr>
+<tr class="separator:a69fffdaac89ff5ab11f3145cdb784b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ed48c3d50bd9d6f8b15559b043f43a8"><td class="memItemLeft" align="right" valign="top"><a id="a5ed48c3d50bd9d6f8b15559b043f43a8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>createText</b> (const std::string &amp;fontName, const std::string &amp;text, int fontSize, const std::string &amp;hex, const std::string &amp;textureId) override</td></tr>
 <tr class="separator:a5ed48c3d50bd9d6f8b15559b043f43a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,9 +114,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>drawBackground</b> (s
 <tr class="memitem:a1964e15428a241a84681e94c2960ae06"><td class="memItemLeft" align="right" valign="top"><a id="a1964e15428a241a84681e94c2960ae06"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>render</b> () override</td></tr>
 <tr class="separator:a1964e15428a241a84681e94c2960ae06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afca1da24a96945c5f66720ffc85b96ab"><td class="memItemLeft" align="right" valign="top"><a id="afca1da24a96945c5f66720ffc85b96ab"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawAnimation</b> (std::string &amp;spriteId, const <a class="el" href="structVector2.html">Vector2</a> &amp;position, const std::vector&lt; std::pair&lt; int, int &gt;&gt; &amp;animation, const int &amp;speed) override</td></tr>
-<tr class="separator:afca1da24a96945c5f66720ffc85b96ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30ed57570b8ff81824885b3dc94955ef"><td class="memItemLeft" align="right" valign="top"><a id="a30ed57570b8ff81824885b3dc94955ef"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawAnimation</b> (std::string &amp;spriteId, const <a class="el" href="structVector2.html">Vector2</a> &amp;position, const <a class="el" href="structVector2.html">Vector2</a> &amp;size, const int &amp;speed, const std::vector&lt; std::pair&lt; int, int &gt;&gt; &amp;animation) override</td></tr>
+<tr class="separator:a30ed57570b8ff81824885b3dc94955ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a290a8ef83b1dad287975cb9b5aeae2"><td class="memItemLeft" align="right" valign="top"><a id="a8a290a8ef83b1dad287975cb9b5aeae2"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>deleteRenderer</b> () override</td></tr>
 <tr class="separator:a8a290a8ef83b1dad287975cb9b5aeae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
