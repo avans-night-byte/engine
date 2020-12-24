@@ -15,11 +15,6 @@
             </component>
 
             <component>
-                <componentName>TradingComponent</componentName>
-                <tradingComponent/>
-            </component>
-
-            <component>
                 <componentName>CharacterComponent</componentName>
                 <characterComponent/>
             </component>
