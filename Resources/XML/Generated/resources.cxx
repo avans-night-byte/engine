@@ -451,34 +451,34 @@ namespace GameResources
   // sprite
   // 
 
-  const sprite::definition_optional& sprite::
-  definition () const
+  const sprite::spriteSheet_optional& sprite::
+  spriteSheet () const
   {
-    return this->definition_;
+    return this->spriteSheet_;
   }
 
-  sprite::definition_optional& sprite::
-  definition ()
+  sprite::spriteSheet_optional& sprite::
+  spriteSheet ()
   {
-    return this->definition_;
-  }
-
-  void sprite::
-  definition (const definition_type& x)
-  {
-    this->definition_.set (x);
+    return this->spriteSheet_;
   }
 
   void sprite::
-  definition (const definition_optional& x)
+  spriteSheet (const spriteSheet_type& x)
   {
-    this->definition_ = x;
+    this->spriteSheet_.set (x);
   }
 
   void sprite::
-  definition (::std::unique_ptr< definition_type > x)
+  spriteSheet (const spriteSheet_optional& x)
   {
-    this->definition_.set (std::move (x));
+    this->spriteSheet_ = x;
+  }
+
+  void sprite::
+  spriteSheet (::std::unique_ptr< spriteSheet_type > x)
+  {
+    this->spriteSheet_.set (std::move (x));
   }
 
   const sprite::size_optional& sprite::
@@ -625,6 +625,58 @@ namespace GameResources
   pool (::std::unique_ptr< pool_type > x)
   {
     this->pool_.set (std::move (x));
+  }
+
+
+  // spriteSheet
+  // 
+
+  const spriteSheet::spriteSize_type& spriteSheet::
+  spriteSize () const
+  {
+    return this->spriteSize_.get ();
+  }
+
+  spriteSheet::spriteSize_type& spriteSheet::
+  spriteSize ()
+  {
+    return this->spriteSize_.get ();
+  }
+
+  void spriteSheet::
+  spriteSize (const spriteSize_type& x)
+  {
+    this->spriteSize_.set (x);
+  }
+
+  void spriteSheet::
+  spriteSize (::std::unique_ptr< spriteSize_type > x)
+  {
+    this->spriteSize_.set (std::move (x));
+  }
+
+  const spriteSheet::originOffset_type& spriteSheet::
+  originOffset () const
+  {
+    return this->originOffset_.get ();
+  }
+
+  spriteSheet::originOffset_type& spriteSheet::
+  originOffset ()
+  {
+    return this->originOffset_.get ();
+  }
+
+  void spriteSheet::
+  originOffset (const originOffset_type& x)
+  {
+    this->originOffset_.set (x);
+  }
+
+  void spriteSheet::
+  originOffset (::std::unique_ptr< originOffset_type > x)
+  {
+    this->originOffset_.set (std::move (x));
   }
 
 
@@ -1718,7 +1770,7 @@ namespace GameResources
           const path_type& path)
   : ::GameResources::baseGameResource (name,
                                        path),
-    definition_ (this),
+    spriteSheet_ (this),
     size_ (this)
   {
   }
@@ -1728,7 +1780,7 @@ namespace GameResources
           ::xml_schema::flags f,
           ::xml_schema::container* c)
   : ::GameResources::baseGameResource (x, f, c),
-    definition_ (x.definition_, f, this),
+    spriteSheet_ (x.spriteSheet_, f, this),
     size_ (x.size_, f, this)
   {
   }
@@ -1738,7 +1790,7 @@ namespace GameResources
           ::xml_schema::flags f,
           ::xml_schema::container* c)
   : ::GameResources::baseGameResource (e, f | ::xml_schema::flags::base, c),
-    definition_ (this),
+    spriteSheet_ (this),
     size_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
@@ -1760,16 +1812,16 @@ namespace GameResources
       const ::xsd::cxx::xml::qualified_name< char > n (
         ::xsd::cxx::xml::dom::name< char > (i));
 
-      // definition
+      // spriteSheet
       //
-      if (n.name () == "definition" && n.namespace_ ().empty ())
+      if (n.name () == "spriteSheet" && n.namespace_ ().empty ())
       {
-        ::std::unique_ptr< definition_type > r (
-          definition_traits::create (i, f, this));
+        ::std::unique_ptr< spriteSheet_type > r (
+          spriteSheet_traits::create (i, f, this));
 
-        if (!this->definition_)
+        if (!this->spriteSheet_)
         {
-          this->definition_.set (::std::move (r));
+          this->spriteSheet_.set (::std::move (r));
           continue;
         }
       }
@@ -1805,7 +1857,7 @@ namespace GameResources
     if (this != &x)
     {
       static_cast< ::GameResources::baseGameResource& > (*this) = x;
-      this->definition_ = x.definition_;
+      this->spriteSheet_ = x.spriteSheet_;
       this->size_ = x.size_;
     }
 
@@ -2187,6 +2239,133 @@ namespace GameResources
 
   objectList::
   ~objectList ()
+  {
+  }
+
+  // spriteSheet
+  //
+
+  spriteSheet::
+  spriteSheet (const spriteSize_type& spriteSize,
+               const originOffset_type& originOffset)
+  : ::xml_schema::type (),
+    spriteSize_ (spriteSize, this),
+    originOffset_ (originOffset, this)
+  {
+  }
+
+  spriteSheet::
+  spriteSheet (::std::unique_ptr< spriteSize_type > spriteSize,
+               ::std::unique_ptr< originOffset_type > originOffset)
+  : ::xml_schema::type (),
+    spriteSize_ (std::move (spriteSize), this),
+    originOffset_ (std::move (originOffset), this)
+  {
+  }
+
+  spriteSheet::
+  spriteSheet (const spriteSheet& x,
+               ::xml_schema::flags f,
+               ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    spriteSize_ (x.spriteSize_, f, this),
+    originOffset_ (x.originOffset_, f, this)
+  {
+  }
+
+  spriteSheet::
+  spriteSheet (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f,
+               ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    spriteSize_ (this),
+    originOffset_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void spriteSheet::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // spriteSize
+      //
+      if (n.name () == "spriteSize" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< spriteSize_type > r (
+          spriteSize_traits::create (i, f, this));
+
+        if (!spriteSize_.present ())
+        {
+          this->spriteSize_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // originOffset
+      //
+      if (n.name () == "originOffset" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< originOffset_type > r (
+          originOffset_traits::create (i, f, this));
+
+        if (!originOffset_.present ())
+        {
+          this->originOffset_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!spriteSize_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "spriteSize",
+        "");
+    }
+
+    if (!originOffset_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "originOffset",
+        "");
+    }
+  }
+
+  spriteSheet* spriteSheet::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class spriteSheet (*this, f, c);
+  }
+
+  spriteSheet& spriteSheet::
+  operator= (const spriteSheet& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->spriteSize_ = x.spriteSize_;
+      this->originOffset_ = x.originOffset_;
+    }
+
+    return *this;
+  }
+
+  spriteSheet::
+  ~spriteSheet ()
   {
   }
 

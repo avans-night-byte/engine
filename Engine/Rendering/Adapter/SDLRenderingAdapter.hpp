@@ -33,7 +33,9 @@ public:
     void drawTexture(std::string textureId, float x, float y, float width, float height, double scale, double r,
                      SDL_RendererFlip flip = SDL_FLIP_NONE) override;
 
-    SpriteSheet *createSpriteSheet(const std::string &path, std::string &spriteSheetId, int width, int height) override;
+    SpriteSheet *
+    createSpriteSheet(const std::string &path, std::string &spriteSheetId, int width, int height, int offsetX,
+                      int offsetY) override;
 
     void drawBox(const Vector2 *vertices, int32 vertexCount) const override;
 
@@ -51,8 +53,8 @@ public:
 
     void render() override;
 
-    void drawAnimation(std::string &spriteId, const Vector2 &position,
-                       const std::vector<std::pair<int, int>> &animation, const int &speed) override;
+    void drawAnimation(std::string &spriteId, const Vector2 &position, const Vector2 &size, const int &speed,
+                       const std::vector<std::pair<int, int>> &animation) override;
 
     void deleteRenderer() override;
 };

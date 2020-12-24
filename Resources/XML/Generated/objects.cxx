@@ -139,6 +139,30 @@ namespace Objects
     this->object_ = s;
   }
 
+  const objectList::preloadResources_type& objectList::
+  preloadResources () const
+  {
+    return this->preloadResources_.get ();
+  }
+
+  objectList::preloadResources_type& objectList::
+  preloadResources ()
+  {
+    return this->preloadResources_.get ();
+  }
+
+  void objectList::
+  preloadResources (const preloadResources_type& x)
+  {
+    this->preloadResources_.set (x);
+  }
+
+  void objectList::
+  preloadResources (::std::unique_ptr< preloadResources_type > x)
+  {
+    this->preloadResources_.set (std::move (x));
+  }
+
 
   // components
   // 
@@ -325,9 +349,18 @@ namespace Objects
   //
 
   objectList::
-  objectList ()
+  objectList (const preloadResources_type& preloadResources)
   : ::xml_schema::type (),
-    object_ (this)
+    object_ (this),
+    preloadResources_ (preloadResources, this)
+  {
+  }
+
+  objectList::
+  objectList (::std::unique_ptr< preloadResources_type > preloadResources)
+  : ::xml_schema::type (),
+    object_ (this),
+    preloadResources_ (std::move (preloadResources), this)
   {
   }
 
@@ -336,7 +369,8 @@ namespace Objects
               ::xml_schema::flags f,
               ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
-    object_ (x.object_, f, this)
+    object_ (x.object_, f, this),
+    preloadResources_ (x.preloadResources_, f, this)
   {
   }
 
@@ -345,7 +379,8 @@ namespace Objects
               ::xml_schema::flags f,
               ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-    object_ (this)
+    object_ (this),
+    preloadResources_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -375,7 +410,28 @@ namespace Objects
         continue;
       }
 
+      // preloadResources
+      //
+      if (n.name () == "preloadResources" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< preloadResources_type > r (
+          preloadResources_traits::create (i, f, this));
+
+        if (!preloadResources_.present ())
+        {
+          this->preloadResources_.set (::std::move (r));
+          continue;
+        }
+      }
+
       break;
+    }
+
+    if (!preloadResources_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "preloadResources",
+        "Common");
     }
   }
 
@@ -393,6 +449,7 @@ namespace Objects
     {
       static_cast< ::xml_schema::type& > (*this) = x;
       this->object_ = x.object_;
+      this->preloadResources_ = x.preloadResources_;
     }
 
     return *this;

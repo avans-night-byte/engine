@@ -11,7 +11,8 @@ public:
                              SDL_RendererFlip flip = SDL_FLIP_NONE) = 0;
 
     virtual SpriteSheet *
-    createSpriteSheet(const std::string &path, std::string &spriteSheetId, int width, int height) = 0;
+    createSpriteSheet(const std::string &path, std::string &spriteSheetId, int width, int height, int offsetX,
+                      int offsetY) = 0;
 
     virtual void drawBox(const Vector2 *vertices, int32 vertexCount) const = 0;
 
@@ -30,8 +31,8 @@ public:
     virtual void render() = 0;
 
     virtual void
-    drawAnimation(std::string &spriteId, const Vector2 &position,
-                  const std::vector<std::pair<int, int>> &animation, const int &speed) = 0;
+    drawAnimation(std::string &spriteId, const Vector2 &position, const Vector2 &size, const int &speed,
+                  const std::vector<std::pair<int, int>> &animation) = 0;
 
     virtual void deleteRenderer() = 0;
 };

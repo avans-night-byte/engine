@@ -44,7 +44,7 @@ public:
 
     virtual void setFixedRotation(const BodyId i, bool b) const = 0;
 
-    virtual void addForce(const BodyId i, Vector2) const = 0;
+    virtual void addForce(const BodyId i, const Vector2 &position, Vector2) const = 0;
 
     virtual void setAngle(const BodyId i, float rotation) const = 0;
 
@@ -55,5 +55,7 @@ public:
     virtual void setTransform(unsigned int bodyId, Vector2 pos, float angle) const = 0;
 
     virtual const b2World& getWorld() const = 0;
+    virtual void addFixture(unsigned int bodyId, const Box2DBoxData &box2DBoxData) const = 0;
+
     virtual void setEnabled(BodyId id, bool b) const = 0;
 };

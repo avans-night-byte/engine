@@ -26,9 +26,14 @@
                     <componentName>RenderComponent</componentName>
                     <renderComponent>
                         <spriteId>crate</spriteId>
-                        <spritePath>../../Resources/Sprites/Wooden_Crate.png</spritePath>
-                        <width>100</width>
-                        <height>100</height>
+                        <size>
+                            <width>100</width>
+                            <height>100</height>
+                        </size>
+                        <offset>
+                            <width>0</width>
+                            <height>0</height>
+                        </offset>
                     </renderComponent>
                 </component>
 
@@ -73,7 +78,7 @@
                     <componentName>NextLevelComponent</componentName>
 
                     <nextLevelComponent>
-                        <levelName>LevelCharlie</levelName>
+                        <levelName>PlainsOpen</levelName>
                     </nextLevelComponent>
                 </component>
 
@@ -110,6 +115,7 @@
 
             </components>
         </object>
+
     </level>
     <common:preloadResources>
         <resource>crate</resource>

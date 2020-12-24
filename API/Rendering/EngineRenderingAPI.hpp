@@ -21,14 +21,15 @@ public:
 
     void drawTexture(const std::string &textureId, float x, float y, float width, float height, double scale, double r) const override;
 
-    [[nodiscard]] SpriteSheet *loadSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const override;
+    [[nodiscard]] SpriteSheet *
+    loadSpriteSheet(std::string path, std::string spriteSheetId, int width, int height, int offsetX, int offsetY) const override;
 
     void createText(const std::string &fontName, const std::string &text, int fontSize, const std::string &hex,
                     const std::string &textureId) const override;
 
     void drawLine(Vector2 &a, Vector2 &b) const override;
 
-    static TextureManager *GetTextureManager();
+    static TextureManager *getTextureManager();
 
     bool loadTexture(const std::string &path, const std::string &textureId) override;
 
@@ -40,8 +41,8 @@ public:
 
     void render() const override;
 
-    void drawAnimation(std::string &spriteId, const Vector2 &position,
-                       const std::vector<std::pair<int, int>> &animation, const int &speed) override;
+    void drawAnimation(std::string &spriteId, const Vector2 &position, const Vector2 &size, const int &speed,
+                       const std::vector<std::pair<int, int>> &animation) override;
 
 
     void drawBox(const Vector2 *vertices, int32 vertexCount) const override;

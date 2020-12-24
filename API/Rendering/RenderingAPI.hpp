@@ -38,7 +38,8 @@ public:
     virtual void drawTexture(const std::string &textureId, float x, float y, float width, float height, double scale,
                              double r) const = 0;
 
-    virtual SpriteSheet *loadSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const = 0;
+    virtual SpriteSheet *
+    loadSpriteSheet(std::string path, std::string spriteSheetId, int width, int height, int offsetX, int offsetY) const = 0;
 
     virtual bool loadTexture(const std::string &path, const std::string &textureId) = 0;
 
@@ -57,8 +58,8 @@ public:
 
     virtual void render() const = 0;
 
-    virtual void drawAnimation(std::string &spriteId, const Vector2 &position,
-                               const std::vector<std::pair<int, int>> &animation, const int &speed) = 0;
+    virtual void drawAnimation(std::string &spriteId, const Vector2 &position, const Vector2 &size, const int &speed,
+                               const std::vector<std::pair<int, int>> &animation) = 0;
 
 
     virtual void drawBox(const Vector2 *vertices, int32 vertexCount) const = 0;

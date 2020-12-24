@@ -2056,7 +2056,7 @@ namespace Menu
     /**
      * @brief Element type.
      */
-    typedef ::Common::size size_type;
+    typedef ::Common::size1 size_type;
 
     /**
      * @brief Element traits type.
@@ -2977,7 +2977,7 @@ namespace Menu
     /**
      * @brief Element type.
      */
-    typedef ::Common::size size_type;
+    typedef ::Common::size1 size_type;
 
     /**
      * @brief Element traits type.
@@ -3261,7 +3261,7 @@ namespace Menu
     /**
      * @brief Element type.
      */
-    typedef ::Common::size size_type;
+    typedef ::Common::size1 size_type;
 
     /**
      * @brief Element traits type.

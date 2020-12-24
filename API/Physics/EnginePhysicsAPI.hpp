@@ -54,8 +54,8 @@ public:
         _physicsEngineAdapter->setFixedRotation(i, b);
     }
 
-    void addForce(const BodyId i, Vector2 direction) const override {
-        _physicsEngineAdapter->addForce(i, direction);
+    void addForce(const BodyId i, const Vector2 &position, Vector2 force) const override {
+        _physicsEngineAdapter->addForce(i, position, force);
     }
 
     void setAngle(const BodyId i, float angle) const override {
@@ -68,6 +68,10 @@ public:
 
     void setTransform(unsigned int bodyId, Vector2 pos, float angle) const override {
         _physicsEngineAdapter->setTransform(bodyId, pos, angle);
+    }
+
+    void addFixture(unsigned int bodyId, const Box2DBoxData &box2DBoxData) const override {
+        _physicsEngineAdapter->addFixtureToBody(bodyId, box2DBoxData);
     }
 
     void setEnabled(BodyId id, bool b) const override {

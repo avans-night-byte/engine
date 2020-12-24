@@ -50,7 +50,7 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(const Box2DCircleData &box2DC
     b2BodyDef bodyDef;
     bodyDef.type = static_cast<b2BodyType>(static_cast<int>(bodyType));
     bodyDef.position.Set(position.x, position.y);
-    bodyDef.linearDamping = 0.1f;
+    bodyDef.linearDamping = 1.1f;
     bodyDef.angularDamping = 0.1f;
     bodyDef.bullet = box2DCircleData.isBullet;
     bodyDef.enabled = box2DCircleData.isEnabled;
@@ -75,6 +75,21 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(const Box2DCircleData &box2DC
     return availableBodyId;
 }
 
+void Box2DPhysicsEngineAdapter::addFixtureToBody(BodyId id, const Box2DBoxData &box2dBoxData) {
+    Vector2 size = box2dBoxData.size;
+    b2Vec2 center = b2Vec2(box2dBoxData.offset.x, box2dBoxData.offset.y);
+    b2PolygonShape box;
+    box.SetAsBox(size.x, size.y, center, 0);
+
+    b2FixtureDef fixtureDef;
+    fixtureDef.density = 1.0f;
+    fixtureDef.friction = 0.0f;
+    fixtureDef.shape = &box;
+    fixtureDef.isSensor = box2dBoxData.isSensor;
+
+    b2Body *body = this->bodies[id];
+    body->CreateFixture(&fixtureDef);
+}
 
 BodyId Box2DPhysicsEngineAdapter::createBody(const Box2DPolygonData &box2DPolygonData) {
     BodyType bodyType = box2DPolygonData.bodyType;
@@ -151,7 +166,7 @@ void Box2DPhysicsEngineAdapter::debugDraw(const EngineRenderingAdapter &renderin
 }
 
 void Box2DPhysicsEngineAdapter::update(float timeStep) {
-        world.Step(timeStep, _velocityIterations, _positionIterations);
+    world.Step(timeStep, _velocityIterations, _positionIterations);
 }
 
 void Box2DPhysicsEngineAdapter::setLinearVelocity(const BodyId bodyId, const Vector2 &vector2) {
@@ -195,11 +210,12 @@ void Box2DPhysicsEngineAdapter::setTransform(unsigned int bodyId, Vector2 pos, f
     body->SetTransform(p, angle);
 }
 
-void Box2DPhysicsEngineAdapter::addForce(const BodyId i, Vector2 direction) const {
+void Box2DPhysicsEngineAdapter::addForce(const BodyId i, const Vector2 &position, Vector2 force) const {
     b2Body *body = bodies.find(i)->second;
+    b2Vec2 f = b2Vec2(force.x, force.y);
+    b2Vec2 p = b2Vec2(position.x, position.y);
 
-    throw std::runtime_error("Add force is not implemented yet");
-//    body->ApplyForce(direction,  ,true)
+    body->ApplyLinearImpulseToCenter(f, true);
 }
 
 void Box2DPhysicsEngineAdapter::setEnabled(BodyId id, bool b) const {

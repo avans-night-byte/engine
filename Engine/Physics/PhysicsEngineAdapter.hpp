@@ -21,6 +21,7 @@ class Box2DData {
 public:
     BodyType bodyType;
     Vector2 position;
+    Vector2 offset;
     bool isBullet = false;
     bool isSensor = false;
     bool isEnabled = true;
@@ -87,7 +88,7 @@ public:
 
     virtual void getVelocity(Vector2 &velocity, BodyId bodyId) const = 0;
 
-    virtual void addForce(const BodyId i, Vector2 direction) const = 0;
+    virtual void addForce(const BodyId i, const Vector2 &position, Vector2 force) const = 0;
 
     virtual void setLinearVelocity(const BodyId bodyId, const Vector2 &vector2) = 0;
 
@@ -98,6 +99,8 @@ public:
     virtual void setAngle(BodyId bodyId, float angle) const = 0;
 
     virtual void setEnabled(BodyId id, bool b) const = 0;
+
+    virtual void addFixtureToBody(BodyId id, const Box2DBoxData &box2dBoxData) = 0;
 
 
     virtual const b2World& getWorld() const = 0;

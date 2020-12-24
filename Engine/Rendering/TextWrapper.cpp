@@ -18,7 +18,7 @@ TextWrapper* TextWrapper::createText(const RenderingAPI& _renderingAPI,  const s
 
 TextWrapper::TextWrapper(std::string text, const std::string& fontPath, int fontSize, const std::string& hex,
                          std::string textureId, const RenderingAPI &renderingAPI) : _text(std::move(text)), _textureId(std::move(textureId)), _renderingAPI(renderingAPI) {
-    _size = TextureManager::GetInstance()->getDimensions(_textureId);
+    _size = TextureManager::getInstance()->getDimensions(_textureId);
 }
 
 void TextWrapper::render(float x, float y, int width, int height, double scale, double r) {

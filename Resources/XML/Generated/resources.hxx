@@ -581,6 +581,7 @@ namespace GameResources
   class scene;
   class level;
   class objectList;
+  class spriteSheet;
   class pool;
 }
 
@@ -2594,9 +2595,9 @@ namespace GameResources
   {
     public:
     /**
-     * @name definition
+     * @name spriteSheet
      *
-     * @brief Accessor and modifier functions for the %definition
+     * @brief Accessor and modifier functions for the %spriteSheet
      * optional element.
      */
     //@{
@@ -2604,17 +2605,17 @@ namespace GameResources
     /**
      * @brief Element type.
      */
-    typedef ::xml_schema::string definition_type;
+    typedef ::GameResources::spriteSheet spriteSheet_type;
 
     /**
      * @brief Element optional container type.
      */
-    typedef ::xsd::cxx::tree::optional< definition_type > definition_optional;
+    typedef ::xsd::cxx::tree::optional< spriteSheet_type > spriteSheet_optional;
 
     /**
      * @brief Element traits type.
      */
-    typedef ::xsd::cxx::tree::traits< definition_type, char > definition_traits;
+    typedef ::xsd::cxx::tree::traits< spriteSheet_type, char > spriteSheet_traits;
 
     /**
      * @brief Return a read-only (constant) reference to the element
@@ -2622,16 +2623,16 @@ namespace GameResources
      *
      * @return A constant reference to the optional container.
      */
-    const definition_optional&
-    definition () const;
+    const spriteSheet_optional&
+    spriteSheet () const;
 
     /**
      * @brief Return a read-write reference to the element container.
      *
      * @return A reference to the optional container.
      */
-    definition_optional&
-    definition ();
+    spriteSheet_optional&
+    spriteSheet ();
 
     /**
      * @brief Set the element value.
@@ -2642,7 +2643,7 @@ namespace GameResources
      * the new value of the element.
      */
     void
-    definition (const definition_type& x);
+    spriteSheet (const spriteSheet_type& x);
 
     /**
      * @brief Set the element value.
@@ -2654,7 +2655,7 @@ namespace GameResources
      * Otherwise the element container is set the 'not present' state.
      */
     void
-    definition (const definition_optional& x);
+    spriteSheet (const spriteSheet_optional& x);
 
     /**
      * @brief Set the element value without copying.
@@ -2665,7 +2666,7 @@ namespace GameResources
      * of making a copy.
      */
     void
-    definition (::std::unique_ptr< definition_type > p);
+    spriteSheet (::std::unique_ptr< spriteSheet_type > p);
 
     //@}
 
@@ -2680,7 +2681,7 @@ namespace GameResources
     /**
      * @brief Element type.
      */
-    typedef ::Common::size size_type;
+    typedef ::Common::size1 size_type;
 
     /**
      * @brief Element optional container type.
@@ -2827,7 +2828,7 @@ namespace GameResources
            ::xml_schema::flags);
 
     protected:
-    definition_optional definition_;
+    spriteSheet_optional spriteSheet_;
     size_optional size_;
 
     //@endcond
@@ -3476,6 +3477,229 @@ namespace GameResources
 
     protected:
     ::xsd::cxx::tree::one< pool_type > pool_;
+
+    //@endcond
+  };
+
+  /**
+   * @brief Class corresponding to the %spriteSheet schema type.
+   *
+   * @nosubgrouping
+   */
+  class spriteSheet: public ::xml_schema::type
+  {
+    public:
+    /**
+     * @name spriteSize
+     *
+     * @brief Accessor and modifier functions for the %spriteSize
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::Common::size spriteSize_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< spriteSize_type, char > spriteSize_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const spriteSize_type&
+    spriteSize () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    spriteSize_type&
+    spriteSize ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    spriteSize (const spriteSize_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    spriteSize (::std::unique_ptr< spriteSize_type > p);
+
+    //@}
+
+    /**
+     * @name originOffset
+     *
+     * @brief Accessor and modifier functions for the %originOffset
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::Common::size originOffset_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< originOffset_type, char > originOffset_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const originOffset_type&
+    originOffset () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    originOffset_type&
+    originOffset ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    originOffset (const originOffset_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    originOffset (::std::unique_ptr< originOffset_type > p);
+
+    //@}
+
+    /**
+     * @name Constructors
+     */
+    //@{
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    spriteSheet (const spriteSize_type&,
+                 const originOffset_type&);
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes
+     * (::std::unique_ptr version).
+     *
+     * This constructor will try to use the passed values directly
+     * instead of making copies.
+     */
+    spriteSheet (::std::unique_ptr< spriteSize_type >,
+                 ::std::unique_ptr< originOffset_type >);
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    spriteSheet (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    spriteSheet (const spriteSheet& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual spriteSheet*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    spriteSheet&
+    operator= (const spriteSheet& x);
+
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
+    virtual 
+    ~spriteSheet ();
+
+    // Implementation.
+    //
+
+    //@cond
+
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< spriteSize_type > spriteSize_;
+    ::xsd::cxx::tree::one< originOffset_type > originOffset_;
 
     //@endcond
   };
