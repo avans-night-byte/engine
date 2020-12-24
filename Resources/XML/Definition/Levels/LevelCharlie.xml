@@ -631,6 +631,51 @@
 
             </components>
         </object>
+
+        <object>
+            <name>To Shop Outside</name>
+            <objectType>level_change</objectType>
+            <components>
+                <component>
+                    <componentName>TransformComponent</componentName>
+                    <transformComponent>
+                        <common:position>
+                            <x>1</x>
+                            <y>2</y>
+                        </common:position>
+                    </transformComponent>
+                </component>
+
+                <component>
+                    <componentName>NextLevelComponent</componentName>
+
+                    <nextLevelComponent>
+                        <levelName>ShopOutside</levelName>
+                    </nextLevelComponent>
+                </component>
+
+                <component>
+                    <componentName>PhysicsComponent</componentName>
+                    <physicsComponent>
+                        <common:position>
+                            <x>0</x>
+                            <y>0</y>
+                        </common:position>
+                        <friction>0</friction>
+                        <bodyType>Static</bodyType>
+                        <bodyShape>
+                            <box>
+                                <width>50</width>
+                                <height>50</height>
+                            </box>
+                        </bodyShape>
+                        <isSensor>true</isSensor>
+                        <collisionHandler>NextLevelComponent</collisionHandler>
+                    </physicsComponent>
+                </component>
+            </components>
+        </object>
+
     </level>
     <common:preloadResources>
         <resource>crate</resource>

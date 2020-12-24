@@ -72,6 +72,14 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/Rendering/Animation.cpp
         ./Game/Components/Rendering/Animation.hpp
         ./Game/Object/CollisionHandler.hpp
+        ./Game/Components/Wallet/WalletComponent.cpp
+        ./Game/Components/Wallet/WalletComponent.hpp
+        ./Game/Components/Wallet/TransactionData.cpp
+        ./Game/Components/Wallet/WalletComponent.hpp
+        ./Game/Components/Shopkeeper/TradingComponent.cpp
+        ./Game/Components/Shopkeeper/TradingComponent.hpp
+        ./Game/Components/Shopkeeper/ShopkeeperComponent.cpp
+        Game/Components/Shopkeeper/ShopkeeperComponent.hpp
 
         # Engine
         ./Engine/Engine.cpp

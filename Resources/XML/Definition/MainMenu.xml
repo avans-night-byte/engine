@@ -40,7 +40,7 @@
             <common:events>
                 <onClick>
                     <playSound>bonk</playSound>
-                    <loadScene>Level1</loadScene>
+                    <loadScene>ShopOutside</loadScene>
                 </onClick>
             </common:events>
         </button>
