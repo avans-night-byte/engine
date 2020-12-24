@@ -78,7 +78,7 @@ struct SquareGrid {
     };
 
     int width, height;
-    std::unordered_set<GridLocation> walls;
+    std::unordered_set<GridLocation> walls = std::unordered_set<GridLocation>();
 
     SquareGrid(int width_, int height_)
             : width(width_), height(height_) {}
@@ -118,7 +118,6 @@ struct GridWithWeights: SquareGrid {
     std::unordered_set<GridLocation> destructables;
     double cost(GridLocation from_node, GridLocation to_node, GridLocation start, GridLocation goal) const {
 
-
         return destructables.find(to_node) != destructables.end()? 2 : 1;
     }
 
@@ -129,6 +128,7 @@ struct GridWithWeights: SquareGrid {
             for (int x = 0; x < 30; x++) {
                 if(weights[y][x] == 1){
                     grid.walls.emplace(GridLocation{x, y});
+
                 }
 
                 if(weights[y][x] == 2){

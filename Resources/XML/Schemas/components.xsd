@@ -13,6 +13,7 @@
             <xs:pattern value="NextLevelComponent"/>
             <xs:pattern value="RenderComponent"/>
             <xs:pattern value="BulletComponent"/>
+            <xs:pattern value="AIComponent"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -28,6 +29,14 @@
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element ref="common:position"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="AIComponent">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="followingName" type="xs:string"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>

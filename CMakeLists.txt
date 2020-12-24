@@ -119,7 +119,7 @@ add_executable(NightByte ./Main.cpp
         ./API/XMLParser/LevelParserAPI.cpp
         ./API/Physics/BodyHandlerAPI.hpp
         ./API/Helpers/Vector2.hpp
-        Game/Components/Rendering/Animation.cpp Game/Components/Rendering/Animation.hpp Game/Object/CollisionHandler.hpp
+        Game/Components/Rendering/Animation.cpp Game/Components/Rendering/Animation.hpp Game/Object/CollisionHandler.hpp Game/Components/AIComponent.cpp Game/Components/AIComponent.hpp
         ./API/XMLParser/LevelParserAPI.cpp Engine/Astar.cpp Engine/Astar.hpp)
 
 find_package(box2d REQUIRED)

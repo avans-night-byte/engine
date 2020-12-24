@@ -90,3 +90,7 @@ void EngineRenderingAPI::drawAnimation(std::string &spriteId, const Vector2 &pos
 EngineRenderingAdapter &EngineRenderingAPI::getRendererAdapter() {
     return _adapter;
 }
+
+void EngineRenderingAPI::drawBox(const Vector2 *vertices, int32 vertexCount) const{
+    return _adapter.drawBox(vertices, vertexCount);
+}

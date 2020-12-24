@@ -11,6 +11,7 @@ void Astar::search(GridWithWeights graph, GridLocation start, GridLocation goal,
     frontier.put(start, 0);
 
     came_from[start] = start;
+
     cost_so_far[start] = 0;
 
     while (!frontier.empty()) {
@@ -27,6 +28,7 @@ void Astar::search(GridWithWeights graph, GridLocation start, GridLocation goal,
                 cost_so_far[next] = new_cost;
                 double priority = new_cost + heuristic(next, goal);
                 frontier.put(next, priority);
+
                 came_from[next] = current;
             }
         }
@@ -36,7 +38,12 @@ void Astar::search(GridWithWeights graph, GridLocation start, GridLocation goal,
 void Astar::reconstruct_path(std::vector<GridLocation>& path, GridLocation start, GridLocation goal,
                              std::unordered_map<GridLocation, GridLocation> came_from) {
     GridLocation current = goal;
+    std::queue<GridLocation> items;
+
     while (current != start) {
+        if(current.x == 0)
+            break;
+
         path.push_back(current);
         current = came_from[current];
     }

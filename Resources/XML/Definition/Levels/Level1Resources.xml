@@ -16,8 +16,8 @@
                     <componentName>TransformComponent</componentName>
                     <transformComponent>
                         <common:position>
-                            <x>50</x>
-                            <y>50</y>
+                            <x>100</x>
+                            <y>100</y>
                         </common:position>
                     </transformComponent>
                 </component>
@@ -51,6 +51,7 @@
                     </physicsComponent>
                 </component>
 
+
             </components>
         </object>
 
@@ -76,6 +77,8 @@
                     </nextLevelComponent>
                 </component>
 
+
+
                 <component>
                     <componentName>PhysicsComponent</componentName>
                     <physicsComponent>
@@ -95,6 +98,16 @@
                         <collisionHandler>NextLevelComponent</collisionHandler>
                     </physicsComponent>
                 </component>
+
+
+                <component>
+                    <componentName>AIComponent</componentName>
+                    <AIComponent>
+                        <followingName>Sascghsd</followingName>
+                    </AIComponent>
+                </component>
+
+
             </components>
         </object>
     </level>

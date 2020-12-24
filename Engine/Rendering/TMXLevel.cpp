@@ -3,6 +3,8 @@
 #include <include/tmxlite/TileLayer.hpp>
 #include "../../Game/Game.hpp"
 #include "../../Game/Components/NextLevelComponent.hpp"
+#include "../../Game/Components/TransformComponent.hpp"
+
 #include "../Physics/PhysicsEngineAdapter.hpp"
 #include "../../API/Rendering/RenderingAPI.hpp"
 #include <box2d.h>
@@ -259,6 +261,12 @@ void TMXLevel::GetGrid(int **weights) const {
             world.QueryAABB(&queryCallback, aabb);
 
             for(const auto* fixture : queryCallback.fixtures){
+                auto bodyPos = fixture->GetBody()->GetPosition();
+                auto pos = Vector2{bodyPos.x, bodyPos.y};
+                if(pos == Game::getInstance()->getCharacter()->getTransform()->getPosition()){
+                    weights[y][x] = 0;
+                    continue;
+                }
                 if(fixture->GetBody()->GetType() == b2_staticBody){
                     weights[y][x] = 1;
                 }
