@@ -126,18 +126,18 @@
     </scenes>
     <levels>
         <level>
-            <name>Level1</name>
+            <name>ShopOutside</name>
             <path>XML/Definition/Levels/Level1Resources.xml</path>
             <spriteName>Overworld</spriteName>
             <spriteSheetPath>Sprites/Overworld.png</spriteSheetPath>
-            <tmxPath>TMX/example.tmx</tmxPath>
+            <tmxPath>TMX/shop_outside.tmx</tmxPath>
         </level>
         <level>
-            <name>LevelCharlie</name>
+            <name>PlainsOpen</name>
             <path>XML/Definition/Levels/LevelCharlie.xml</path>
             <spriteName>Overworld</spriteName>
             <spriteSheetPath>Sprites/Overworld.png</spriteSheetPath>
-            <tmxPath>TMX/LevelCharlie.tmx</tmxPath>
+            <tmxPath>TMX/plains_open.tmx</tmxPath>
         </level>
     </levels>
     <objectLists>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="30" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="123">
+ <tileset firstgid="1" source="Overworld.tsx"/>
+ <layer id="1" name="Base Layer" width="30" height="25">
+  <data encoding="base64" compression="zlib">
+   eJzNldERwiAMhsEBdAB1DR1AXYc7luk4dRsdQH03PngX/5IQsIJ3/R5KC18SaBq9c5ExMFJjSDRA14Tcut/yr97Q0PnrfC3eUJAzfxfn8XvLudK8N3rvLvBwUyf3luSLMayJjcA24Szxpmpp9aKzt3cw1lk6PzVe73Tv+7kU74sDcRQ4wdp8vubkXq3WubqVkutXwX/Gl9oHnGvdX/yW8JvC2vB6pty4z7VeLS9t3Jqv1hNr+mjwep/kz+b4H1jOM9Y5d57n9mr/ldI4LL1S8tbmae3Ro2/Pmbh04EosF+1ZEbsO7Iknlmwv3g==
+  </data>
+ </layer>
+ <layer id="8" name="PropLayer" width="30" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2DgwRkgPgvE57DI6QKxHn2dAwahQBxGpNq1TBD8iwkhdoiRgeEwI/Xd9ZMJYR828Apo52s89rJQ30l0A9jCGRtgo4JdhMJ5FIyCUTAKRsEooDcAAC7XEDw=
+  </data>
+ </layer>
+ <objectgroup id="9" name="Object Layer">
+  <object id="105" x="436.763" y="113.591" width="42.9714" height="8.994"/>
+  <object id="106" x="437.096" y="162.558" width="42.3051" height="7.32845"/>
+  <object id="107" x="-0.333111" y="161.559" width="43.6376" height="8.32778"/>
+  <object id="108" x="0.999334" y="112.925" width="41.972" height="8.66089"/>
+  <object id="109" x="194.87" y="80.6129" width="41.972" height="8.66089"/>
+  <object id="110" x="310.127" y="89.6069" width="19.3205" height="14.3238">
+   <ellipse/>
+  </object>
+  <object id="111" x="84.9434" y="118.588" width="23.3178" height="16.9887">
+   <ellipse/>
+  </object>
+  <object id="112" x="153.897" y="105.263" width="106.262" height="75.2831"/>
+  <object id="113" x="-0.333111" y="271.486" width="479.567" height="4.33045"/>
+  <object id="114" x="475.403" y="174.883" width="3.66422" height="100.266"/>
+  <object id="115" x="476.903" y="0.166223" width="3.66422" height="112.925"/>
+  <object id="116" x="0" y="0.333111" width="480.401" height="3.99734"/>
+  <object id="117" x="0.333111" y="4.33045" width="3.66422" height="116.256"/>
+  <object id="118" x="0.333111" y="168.221" width="3.99734" height="107.928"/>
+  <object id="119" x="0" y="122.585" width="9.66023" height="40.9727">
+   <properties>
+    <property name="isNextLevel" type="bool" value="true"/>
+    <property name="isSensor" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="120" x="471.906" y="123.585" width="7.99467" height="39.9734">
+   <properties>
+    <property name="isNextLevel" type="bool" value="true"/>
+    <property name="isSensor" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="121" name="To Shop Outside" x="3.99734" y="138.907">
+   <point/>
+  </object>
+  <object id="122" name="To Next Field" x="476.736" y="145.573">
+   <point/>
+  </object>
+ </objectgroup>
+</map>
