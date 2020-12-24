@@ -11,7 +11,8 @@ public:
                              SDL_RendererFlip flip = SDL_FLIP_NONE) = 0;
 
     virtual SpriteSheet *
-    createSpriteSheet(const std::string &path, std::string &spriteSheetId, int width, int height) = 0;
+    createSpriteSheet(const std::string &path, std::string &spriteSheetId, int width, int height, int offsetX,
+                      int offsetY) = 0;
 
     virtual void drawBox(const Vector2 *vertices, int32 vertexCount) const = 0;
 

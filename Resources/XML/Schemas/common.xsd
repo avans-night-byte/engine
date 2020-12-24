@@ -113,6 +113,13 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:complexType name="size">
+        <xs:sequence>
+            <xs:element name="width" type="xs:float"/>
+            <xs:element name="height" type="xs:float"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <!-- Color -->
     <xs:element name="color">
         <xs:complexType>

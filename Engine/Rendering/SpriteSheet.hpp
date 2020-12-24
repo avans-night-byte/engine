@@ -7,7 +7,12 @@
 
 class SpriteSheet {
 public:
-    SpriteSheet(const std::string &path, std::string &spriteSheetId, int width, int height,
+    SpriteSheet(const std::string &path,
+                std::string &spriteSheetId,
+                int width,
+                int height,
+                float offsetX,
+                float offsetY,
                 SDL_Renderer &renderer);
 
     SpriteSheet(const std::string &path, const std::string &jsonPath, std::string &spriteSheetId, SDL_Renderer &renderer);
@@ -22,6 +27,10 @@ public:
 
     inline const std::string& getTextureId() {
         return textureId;
+    }
+
+    inline const SDL_Rect &getClip() {
+        return m_clip;
     }
 
 private:

@@ -16,6 +16,10 @@
             <path>Sprites/Wooden_crate.png</path>
         </texture>
         <texture>
+            <name>bullet</name>
+            <path>Sprites/bullet1.png</path>
+        </texture>
+        <texture>
             <name>boar</name>
             <path>Sprites/boar.png</path>
         </texture>
@@ -68,10 +72,16 @@
         <sprite>
             <name>character</name>
             <path>Sprites/character.png</path>
-            <common:size>
-                <width>1</width>
-                <height>1</height>
-            </common:size>
+            <spriteSheet>
+                <spriteSize>
+                    <width>96</width>
+                    <height>104</height>
+                </spriteSize>
+                <originOffset>
+                    <width>0</width>
+                    <height>20</height>
+                </originOffset>
+            </spriteSheet>
         </sprite>
     </sprites>
     <sounds>

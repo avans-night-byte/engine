@@ -566,12 +566,13 @@ namespace xml_schema
 namespace Common
 {
   class baseResources;
+  class size;
   class alpha;
   class preloadResources;
   class resources;
   class events;
   class position;
-  class size;
+  class size1;
   class color;
   class font;
   class text_type;
@@ -752,6 +753,196 @@ namespace Common
 
     protected:
     ::xsd::cxx::tree::one< default_type > default__;
+
+    //@endcond
+  };
+
+  /**
+   * @brief Class corresponding to the %size schema type.
+   *
+   * @nosubgrouping
+   */
+  class size: public ::xml_schema::type
+  {
+    public:
+    /**
+     * @name width
+     *
+     * @brief Accessor and modifier functions for the %width
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::float_ width_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< width_type, char > width_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const width_type&
+    width () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    width_type&
+    width ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    width (const width_type& x);
+
+    //@}
+
+    /**
+     * @name height
+     *
+     * @brief Accessor and modifier functions for the %height
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::float_ height_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< height_type, char > height_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const height_type&
+    height () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    height_type&
+    height ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    height (const height_type& x);
+
+    //@}
+
+    /**
+     * @name Constructors
+     */
+    //@{
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    size (const width_type&,
+          const height_type&);
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    size (const ::xercesc::DOMElement& e,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    size (const size& x,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual size*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    size&
+    operator= (const size& x);
+
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
+    virtual 
+    ~size ();
+
+    // Implementation.
+    //
+
+    //@cond
+
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< width_type > width_;
+    ::xsd::cxx::tree::one< height_type > height_;
 
     //@endcond
   };
@@ -1822,11 +2013,11 @@ namespace Common
   };
 
   /**
-   * @brief Class corresponding to the %size schema type.
+   * @brief Class corresponding to the %size1 schema type.
    *
    * @nosubgrouping
    */
-  class size: public ::xml_schema::type
+  class size1: public ::xml_schema::type
   {
     public:
     /**
@@ -1932,8 +2123,8 @@ namespace Common
      * @brief Create an instance from the ultimate base and
      * initializers for required elements and attributes.
      */
-    size (const width_type&,
-          const height_type&);
+    size1 (const width_type&,
+           const height_type&);
 
     /**
      * @brief Create an instance from a DOM element.
@@ -1943,9 +2134,9 @@ namespace Common
      * @param c A pointer to the object that will contain the new
      * instance.
      */
-    size (const ::xercesc::DOMElement& e,
-          ::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0);
+    size1 (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
 
     /**
      * @brief Copy constructor.
@@ -1956,9 +2147,9 @@ namespace Common
      *
      * For polymorphic object models use the @c _clone function instead.
      */
-    size (const size& x,
-          ::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0);
+    size1 (const size1& x,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
 
     /**
      * @brief Copy the instance polymorphically.
@@ -1971,7 +2162,7 @@ namespace Common
      * used for copying and should be used for polymorphic object
      * models instead of the copy constructor.
      */
-    virtual size*
+    virtual size1*
     _clone (::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0) const;
 
@@ -1983,8 +2174,8 @@ namespace Common
      *
      * For polymorphic object models use the @c _clone function instead.
      */
-    size&
-    operator= (const size& x);
+    size1&
+    operator= (const size1& x);
 
     //@}
 
@@ -1992,7 +2183,7 @@ namespace Common
      * @brief Destructor.
      */
     virtual 
-    ~size ();
+    ~size1 ();
 
     // Implementation.
     //
@@ -5403,7 +5594,7 @@ namespace Common
    *
    * This function uses exceptions to report parsing errors.
    */
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (const ::std::string& uri,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
@@ -5419,7 +5610,7 @@ namespace Common
    *
    * This function reports parsing errors by calling the error handler.
    */
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (const ::std::string& uri,
          ::xml_schema::error_handler& eh,
          ::xml_schema::flags f = 0,
@@ -5437,7 +5628,7 @@ namespace Common
    *
    * This function reports parsing errors by calling the error handler.
    */
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (const ::std::string& uri,
          ::xercesc::DOMErrorHandler& eh,
          ::xml_schema::flags f = 0,
@@ -5453,7 +5644,7 @@ namespace Common
    *
    * This function uses exceptions to report parsing errors.
    */
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::std::istream& is,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
@@ -5469,7 +5660,7 @@ namespace Common
    *
    * This function reports parsing errors by calling the error handler.
    */
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::std::istream& is,
          ::xml_schema::error_handler& eh,
          ::xml_schema::flags f = 0,
@@ -5487,7 +5678,7 @@ namespace Common
    *
    * This function reports parsing errors by calling the error handler.
    */
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::std::istream& is,
          ::xercesc::DOMErrorHandler& eh,
          ::xml_schema::flags f = 0,
@@ -5507,7 +5698,7 @@ namespace Common
    *
    * This function uses exceptions to report parsing errors.
    */
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::std::istream& is,
          const ::std::string& id,
          ::xml_schema::flags f = 0,
@@ -5529,7 +5720,7 @@ namespace Common
    *
    * This function reports parsing errors by calling the error handler.
    */
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::std::istream& is,
          const ::std::string& id,
          ::xml_schema::error_handler& eh,
@@ -5552,7 +5743,7 @@ namespace Common
    *
    * This function reports parsing errors by calling the error handler.
    */
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::std::istream& is,
          const ::std::string& id,
          ::xercesc::DOMErrorHandler& eh,
@@ -5569,7 +5760,7 @@ namespace Common
    *
    * This function uses exceptions to report parsing errors.
    */
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::xercesc::InputSource& is,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
@@ -5585,7 +5776,7 @@ namespace Common
    *
    * This function reports parsing errors by calling the error handler.
    */
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::xercesc::InputSource& is,
          ::xml_schema::error_handler& eh,
          ::xml_schema::flags f = 0,
@@ -5603,7 +5794,7 @@ namespace Common
    *
    * This function reports parsing errors by calling the error handler.
    */
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::xercesc::InputSource& is,
          ::xercesc::DOMErrorHandler& eh,
          ::xml_schema::flags f = 0,
@@ -5617,7 +5808,7 @@ namespace Common
    * @param p Parsing properties. 
    * @return A pointer to the root of the object model.
    */
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (const ::xercesc::DOMDocument& d,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());
@@ -5634,7 +5825,7 @@ namespace Common
    * own_dom parsing flags to assign ownership of the DOM document
    * to the object model.
    */
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
          ::xml_schema::flags f = 0,
          const ::xml_schema::properties& p = ::xml_schema::properties ());

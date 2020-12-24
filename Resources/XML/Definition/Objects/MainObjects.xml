@@ -5,14 +5,83 @@
                 xmlns:obj="Objects"
                 xmlns:common="Common">
 
-<object>
-    <name>Character</name>
-    <objectType>character</objectType>
-    <components>
-        <component>
-            <componentName>CharacterComponent</componentName>
-            <characterComponent/>
-        </component>
-    </components>
-</object>
+    <object>
+        <name>character</name>
+        <objectType>character</objectType>
+        <components>
+            <component>
+                <componentName>CharacterComponent</componentName>
+                <characterComponent/>
+            </component>
+
+            <component>
+                <componentName>HealthComponent</componentName>
+                <healthComponent/>
+            </component>
+
+            <component>
+                <componentName>TransformComponent</componentName>
+                <transformComponent>
+                    <common:position>
+                        <x>200</x>
+                        <y>200</y>
+                    </common:position>
+                </transformComponent>
+            </component>
+
+            <component>
+                <componentName>WeaponComponent</componentName>
+                <weaponComponent/>
+            </component>
+
+            <component>
+                <componentName>InventoryComponent</componentName>
+                <inventoryComponent/>
+            </component>
+
+            <component>
+                <componentName>PhysicsComponent</componentName>
+                <physicsComponent>
+                    <common:position>
+                        <x>0</x>
+                        <y>0</y>
+                    </common:position>
+                    <friction>0</friction>
+                    <bodyType>Dynamic</bodyType>
+                    <bodyShape>
+                        <circle>
+                            <common:position>
+                                <x>100</x>
+                                <y>100</y>
+                            </common:position>
+                            <radius>20.0</radius>
+                        </circle>
+                    </bodyShape>
+                </physicsComponent>
+            </component>
+
+            <component>
+                <componentName>RenderComponent</componentName>
+                <renderComponent>
+                    <spriteId>character</spriteId>
+                    <size>
+                        <width>96</width>
+                        <height>104</height>
+                    </size>
+                    <offset>
+                        <width>0</width>
+                        <height>20</height>
+                    </offset>
+                </renderComponent>
+            </component>
+
+            <component>
+                <componentName>BuildComponent</componentName>
+                <bulletComponent/>
+            </component>
+        </components>
+    </object>
+    <common:preloadResources>
+        <resource>character</resource>
+    </common:preloadResources>
 </obj:objectList>

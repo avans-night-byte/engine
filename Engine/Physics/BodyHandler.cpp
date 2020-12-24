@@ -1,6 +1,5 @@
 #include "BodyHandler.hpp"
 #include "PhysicsEngineAdapter.hpp"
-
 void BodyHandler::update() {
     if (_physicsAdapter.isWorldLocked())
         return;

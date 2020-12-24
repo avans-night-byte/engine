@@ -21,14 +21,15 @@ public:
 
     void drawTexture(const std::string &textureId, float x, float y, float width, float height, double scale, double r) const override;
 
-    [[nodiscard]] SpriteSheet *loadSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const override;
+    [[nodiscard]] SpriteSheet *
+    loadSpriteSheet(std::string path, std::string spriteSheetId, int width, int height, int offsetX, int offsetY) const override;
 
     void createText(const std::string &fontName, const std::string &text, int fontSize, const std::string &hex,
                     const std::string &textureId) const override;
 
     void drawLine(Vector2 &a, Vector2 &b) const override;
 
-    static TextureManager *GetTextureManager();
+    static TextureManager *getTextureManager();
 
     bool loadTexture(const std::string &path, const std::string &textureId) override;
 

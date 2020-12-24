@@ -13,6 +13,10 @@
             <xs:pattern value="NextLevelComponent"/>
             <xs:pattern value="RenderComponent"/>
             <xs:pattern value="BulletComponent"/>
+            <xs:pattern value="HealthComponent"/>
+            <xs:pattern value="WeaponComponent"/>
+            <xs:pattern value="InventoryComponent"/>
+            <xs:pattern value="BuildComponent"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -34,13 +38,14 @@
 
                 <xs:element name="renderComponent">
                     <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="spriteId" type="xs:string"/>
-                            <xs:element name="spritePath" type="xs:string"/>
-                            <xs:element name="width" type="xs:float"/>
-                            <xs:element name="height" type="xs:float"/>
-
-                        </xs:sequence>
+                        <xs:choice>
+                            <xs:sequence>
+                                <xs:element name="spriteId" type="xs:string"/>
+                                <xs:element name="spritePath" type="xs:string" minOccurs="0"/>
+                                <xs:element name="size" type="common:size"/>
+                                <xs:element name="offset" type="common:size"/>
+                            </xs:sequence>
+                        </xs:choice>
                     </xs:complexType>
                 </xs:element>
 
@@ -54,8 +59,9 @@
                             <xs:element name="bodyShape" type="comp:bodyShape"/>
                             <xs:element name="isBullet" type="xs:boolean" default="false" minOccurs="0"/>
                             <xs:element name="isSensor" type="xs:boolean" default="false" minOccurs="0"/>
-                            <xs:element name="isEnabled" type="xs:boolean" default="true" minOccurs="0" />
-                            <xs:element name="collisionHandler" type="comp:componentName" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element name="isEnabled" type="xs:boolean" default="true" minOccurs="0"/>
+                            <xs:element name="collisionHandler" type="comp:componentName" minOccurs="0"
+                                        maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -63,28 +69,14 @@
                 <!-- Character Component -->
                 <xs:element name="characterComponent">
                     <xs:complexType>
-                        <xs:sequence>
-
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-
-
-                <!-- ExplosionCrate Component -->
-                <xs:element name="explosionCrate">
-                    <xs:complexType>
-                        <xs:sequence>
-
-                        </xs:sequence>
+                        <xs:sequence/>
                     </xs:complexType>
                 </xs:element>
 
                 <!-- ExplosionCrate Component -->
                 <xs:element name="bulletComponent">
                     <xs:complexType>
-                        <xs:sequence>
-
-                        </xs:sequence>
+                        <xs:sequence/>
                     </xs:complexType>
                 </xs:element>
 
@@ -94,6 +86,34 @@
                         <xs:sequence>
                             <xs:element name="levelName" type="xs:string"/>
                         </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- Health Component -->
+                <xs:element name="healthComponent">
+                    <xs:complexType>
+                        <xs:sequence/>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- Weapon Component -->
+                <xs:element name="weaponComponent">
+                    <xs:complexType>
+                        <xs:sequence/>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- InventoryComponent Component -->
+                <xs:element name="inventoryComponent">
+                    <xs:complexType>
+                        <xs:sequence/>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- BuildComponent Component -->
+                <xs:element name="buildComponent">
+                    <xs:complexType>
+                        <xs:sequence/>
                     </xs:complexType>
                 </xs:element>
             </xs:choice>

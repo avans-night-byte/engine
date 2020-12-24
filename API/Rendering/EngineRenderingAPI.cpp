@@ -3,7 +3,7 @@
 
 #include <utility>
 
-TextureManager *EngineRenderingAPI::GetTextureManager() {
+TextureManager *EngineRenderingAPI::getTextureManager() {
     return SDLRenderingAdapter::GetTextureManager();
 }
 
@@ -17,8 +17,9 @@ TextureManager *EngineRenderingAPI::GetTextureManager() {
  * @return SpriteSheet
  */
 SpriteSheet *
-EngineRenderingAPI::loadSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const {
-    return _adapter.createSpriteSheet(path, spriteSheetId, width, height);
+EngineRenderingAPI::loadSpriteSheet(std::string path, std::string spriteSheetId, int width, int height, int offsetX,
+                                    int offsetY) const {
+    return _adapter.createSpriteSheet(path, spriteSheetId, width, height, 0, 0);
 }
 
 void EngineRenderingAPI::createText(const std::string &fontName,
