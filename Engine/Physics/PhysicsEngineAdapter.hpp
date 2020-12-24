@@ -97,5 +97,7 @@ public:
 
     virtual void setEnabled(BodyId id, bool b) const = 0;
 
+    virtual void addFixtureToBody(BodyId id, const Box2DBoxData &box2dBoxData) = 0;
+
     virtual bool isWorldLocked() const = 0;
 };

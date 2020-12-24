@@ -97,31 +97,16 @@
         <objectType>character</objectType>
         <components>
             <component>
-                <componentName>TradingComponent</componentName>
-                <tradingComponent/>
-            </component>
-
-            <component>
-                <componentName>ShopkeeperComponent</componentName>
-                <shopkeeperComponent/>
-            </component>
-
-            <component>
-                <componentName>InventoryComponent</componentName>
-                <inventoryComponent/>
-            </component>
-
-            <component>
                 <componentName>RenderComponent</componentName>
                 <renderComponent>
                     <spriteId>zombie</spriteId>
                     <size>
-                        <width>96</width>
-                        <height>100</height>
+                        <width>144</width>
+                        <height>150</height>
                     </size>
                     <offset>
                         <width>0</width>
-                        <height>20</height>
+                        <height>50</height>
                     </offset>
                 </renderComponent>
             </component>
@@ -159,6 +144,25 @@
                             <radius>20</radius>
                         </circle>
                     </bodyShape>
+                </physicsComponent>
+            </component>
+
+            <component>
+                <componentName>PhysicsComponent</componentName>
+                <physicsComponent>
+                    <common:position>
+                        <x>300</x>
+                        <y>300</y>
+                    </common:position>
+                    <friction>1</friction>
+                    <bodyType>Dynamic</bodyType>
+                    <bodyShape>
+                        <box>
+                            <width>50</width>
+                            <height>100</height>
+                        </box>
+                    </bodyShape>
+                    <isSensor>true</isSensor>
                 </physicsComponent>
             </component>
         </components>
