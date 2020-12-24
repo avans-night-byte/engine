@@ -9,6 +9,7 @@
         <xs:restriction base="xs:string">
             <xs:pattern value="TransformComponent"/>
             <xs:pattern value="CharacterComponent"/>
+            <xs:pattern value="ZombieComponent"/>
             <xs:pattern value="PhysicsComponent"/>
             <xs:pattern value="NextLevelComponent"/>
             <xs:pattern value="RenderComponent"/>
@@ -68,6 +69,13 @@
 
                 <!-- Character Component -->
                 <xs:element name="characterComponent">
+                    <xs:complexType>
+                        <xs:sequence/>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- Character Component -->
+                <xs:element name="zombieComponent">
                     <xs:complexType>
                         <xs:sequence/>
                     </xs:complexType>

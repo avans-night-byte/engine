@@ -165,9 +165,11 @@
             </component>
         </components>
     </object>
+
     <common:preloadResources>
         <resource>boar</resource>
         <resource>crate</resource>
         <resource>bullet</resource>
+        <resource>zombie</resource>
     </common:preloadResources>
 </obj:objectList>

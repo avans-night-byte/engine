@@ -79,7 +79,21 @@
                 </spriteSize>
                 <originOffset>
                     <width>0</width>
-                    <height>20</height>
+                    <height>0</height>
+                </originOffset>
+            </spriteSheet>
+        </sprite>
+        <sprite>
+            <name>zombie</name>
+            <path>Sprites/zombie.png</path>
+            <spriteSheet>
+                <spriteSize>
+                    <width>96</width>
+                    <height>100</height>
+                </spriteSize>
+                <originOffset>
+                    <width>-10</width>
+                    <height>0</height>
                 </originOffset>
             </spriteSheet>
         </sprite>

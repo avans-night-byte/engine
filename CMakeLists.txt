@@ -37,8 +37,8 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/TransformComponent.hpp
         ./Game/Components/PhysicsComponent.cpp
         ./Game/Components/PhysicsComponent.hpp
-        ./Game/Components/CharacterComponent.cpp
-        ./Game/Components/CharacterComponent.hpp
+        Game/Components/Characters/CharacterComponent.cpp
+        Game/Components/Characters/CharacterComponent.hpp
         ./Game/Components/TransformComponent.cpp
         ./Game/Components/NextLevelComponent.cpp
         ./Game/Components/NextLevelComponent.hpp
@@ -121,7 +121,7 @@ add_executable(NightByte ./Main.cpp
         ./API/XMLParser/MenuParserAPI.hpp
         ./API/XMLParser/LevelParserAPI.cpp
         ./API/Physics/BodyHandlerAPI.hpp
-        ./API/Helpers/Vector2.hpp)
+        ./API/Helpers/Vector2.hpp Game/Components/Characters/ZombieComponent.cpp Game/Components/Characters/ZombieComponent.hpp)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)

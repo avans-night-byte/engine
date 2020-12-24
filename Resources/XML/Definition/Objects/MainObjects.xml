@@ -81,6 +81,63 @@
             </component>
         </components>
     </object>
+
+    <object>
+        <name>zombie</name>
+        <objectType>character</objectType>
+        <components>
+            <component>
+                <componentName>RenderComponent</componentName>
+                <renderComponent>
+                    <spriteId>zombie</spriteId>
+                    <size>
+                        <width>96</width>
+                        <height>100</height>
+                    </size>
+                    <offset>
+                        <width>0</width>
+                        <height>20</height>
+                    </offset>
+                </renderComponent>
+            </component>
+
+            <component>
+                <componentName>ZombieComponent</componentName>
+                <zombieComponent/>
+            </component>
+
+            <component>
+                <componentName>TransformComponent</componentName>
+                <transformComponent>
+                    <common:position>
+                        <x>300</x>
+                        <y>300</y>
+                    </common:position>
+                </transformComponent>
+            </component>
+
+            <component>
+                <componentName>PhysicsComponent</componentName>
+                <physicsComponent>
+                    <common:position>
+                        <x>300</x>
+                        <y>300</y>
+                    </common:position>
+                    <friction>1</friction>
+                    <bodyType>Dynamic</bodyType>
+                    <bodyShape>
+                        <circle>
+                            <common:position>
+                                <x>0</x>
+                                <y>0</y>
+                            </common:position>
+                            <radius>20</radius>
+                        </circle>
+                    </bodyShape>
+                </physicsComponent>
+            </component>
+        </components>
+    </object>
     <common:preloadResources>
         <resource>character</resource>
     </common:preloadResources>

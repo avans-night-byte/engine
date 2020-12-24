@@ -31,8 +31,8 @@ public:
     virtual void render() = 0;
 
     virtual void
-    drawAnimation(std::string &spriteId, const Vector2 &position,
-                  const std::vector<std::pair<int, int>> &animation, const int &speed) = 0;
+    drawAnimation(std::string &spriteId, const Vector2 &position, const Vector2 &size, const int &speed,
+                  const std::vector<std::pair<int, int>> &animation) = 0;
 
     virtual void deleteRenderer() = 0;
 };

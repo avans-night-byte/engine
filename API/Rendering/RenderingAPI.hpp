@@ -57,8 +57,8 @@ public:
 
     virtual void render() const = 0;
 
-    virtual void drawAnimation(std::string &spriteId, const Vector2 &position,
-                               const std::vector<std::pair<int, int>> &animation, const int &speed) = 0;
+    virtual void drawAnimation(std::string &spriteId, const Vector2 &position, const Vector2 &size, const int &speed,
+                               const std::vector<std::pair<int, int>> &animation) = 0;
 
     [[nodiscard]] virtual EngineRenderingAdapter &getRendererAdapter() = 0;
 };

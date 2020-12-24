@@ -53,8 +53,8 @@ public:
 
     void render() override;
 
-    void drawAnimation(std::string &spriteId, const Vector2 &position,
-                       const std::vector<std::pair<int, int>> &animation, const int &speed) override;
+    void drawAnimation(std::string &spriteId, const Vector2 &position, const Vector2 &size, const int &speed,
+                       const std::vector<std::pair<int, int>> &animation) override;
 
     void deleteRenderer() override;
 };

@@ -150,27 +150,28 @@ SDL_Renderer &SDLRenderingAdapter::getRenderer() {
     return *_renderer;
 }
 
-void SDLRenderingAdapter::drawAnimation(std::string &spriteId,
-                                        const Vector2 &position,
-                                        const std::vector<std::pair<int, int>> &animation,
-                                        const int &speed) {
+void SDLRenderingAdapter::drawAnimation(std::string &spriteId, const Vector2 &position, const Vector2 &size,
+                                        const int &speed,
+                                        const std::vector<std::pair<int, int>> &animation) {
     auto *spriteSheet = _spriteSheets[spriteId].get();
     const auto& clip = spriteSheet->getClip();
     auto *texture = GetTextureManager()->getTexture(spriteSheet->getTextureId());
     const int &totalFrames = animation.size();
     int frame = (int)(SDL_GetTicks() / speed) % totalFrames;
 
+    // Frame
     SDL_Rect rect;
-    rect.x = frame * 96; // Row
-    rect.y = animation[frame].second * 104; // Collum
+    rect.x = frame * clip.w; // Row
+    rect.y = animation[frame].second * clip.h; // Collum
     rect.w = clip.w;
     rect.h = clip.h;
 
+    // Sprite transform
     SDL_FRect windowRect;
     windowRect.x = position.x + clip.x;
     windowRect.y = position.y + clip.y;
-    windowRect.w = 96; // TODO: This can be 0??
-    windowRect.h = 104; // TODO: This can be 0??
+    windowRect.w = size.x;
+    windowRect.h = size.y;
 
 
     SDL_RenderCopyExF(_renderer, texture, &rect, &windowRect, 0, nullptr, SDL_RendererFlip::SDL_FLIP_NONE);
