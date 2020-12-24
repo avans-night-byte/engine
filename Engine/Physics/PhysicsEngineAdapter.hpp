@@ -19,6 +19,7 @@ class Box2DData {
 public:
     BodyType bodyType;
     Vector2 position;
+    Vector2 offset;
     bool isBullet = false;
     bool isSensor = false;
     bool isEnabled = true;

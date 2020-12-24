@@ -158,8 +158,9 @@
                     <bodyType>Dynamic</bodyType>
                     <bodyShape>
                         <box>
-                            <width>50</width>
-                            <height>100</height>
+                            <width>30</width>
+                            <height>70</height>
+                            <offsetY>-50</offsetY>
                         </box>
                     </bodyShape>
                     <isSensor>true</isSensor>

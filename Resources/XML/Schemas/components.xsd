@@ -183,6 +183,8 @@
                     <xs:sequence>
                         <xs:element name="width" type="xs:float"/>
                         <xs:element name="height" type="xs:float"/>
+                        <xs:element name="offsetX" type="xs:float" minOccurs="0"/>
+                        <xs:element name="offsetY" type="xs:float" minOccurs="0"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>

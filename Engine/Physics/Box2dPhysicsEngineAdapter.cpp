@@ -75,17 +75,17 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(const Box2DCircleData &box2DC
     return availableBodyId;
 }
 
-void Box2DPhysicsEngineAdapter::addFixtureToBody(BodyId id, const Box2DBoxData &box2dBoxData)  {
+void Box2DPhysicsEngineAdapter::addFixtureToBody(BodyId id, const Box2DBoxData &box2dBoxData) {
     Vector2 size = box2dBoxData.size;
+    b2Vec2 center = b2Vec2(box2dBoxData.offset.x, box2dBoxData.offset.y);
     b2PolygonShape box;
-    box.SetAsBox(size.x, size.y);
+    box.SetAsBox(size.x, size.y, center, 0);
 
     b2FixtureDef fixtureDef;
     fixtureDef.density = 1.0f;
     fixtureDef.friction = 0.0f;
     fixtureDef.shape = &box;
     fixtureDef.isSensor = box2dBoxData.isSensor;
-
 
     b2Body *body = this->bodies[id];
     body->CreateFixture(&fixtureDef);
@@ -166,7 +166,7 @@ void Box2DPhysicsEngineAdapter::debugDraw(const EngineRenderingAdapter &renderin
 }
 
 void Box2DPhysicsEngineAdapter::update(float timeStep) {
-        world.Step(timeStep, _velocityIterations, _positionIterations);
+    world.Step(timeStep, _velocityIterations, _positionIterations);
 }
 
 void Box2DPhysicsEngineAdapter::setLinearVelocity(const BodyId bodyId, const Vector2 &vector2) {
