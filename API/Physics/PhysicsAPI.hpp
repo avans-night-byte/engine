@@ -43,7 +43,7 @@ public:
 
     virtual void setFixedRotation(const BodyId i, bool b) const = 0;
 
-    virtual void addForce(const BodyId i, Vector2) const = 0;
+    virtual void addForce(const BodyId i, const Vector2 &position, Vector2) const = 0;
 
     virtual void setAngle(const BodyId i, float rotation) const = 0;
 
