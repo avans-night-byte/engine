@@ -17,8 +17,8 @@ class TMXLevel;
 
 struct LevelData {
 public:
-    LevelData(const std::string _tmxPath,
-              const std::string spriteSheetPath,
+    LevelData(const std::string &_tmxPath,
+              const std::string &spriteSheetPath,
               const std::string &spriteId,
               const std::string &levelResourcePath)
             : tmxPath(_tmxPath), spritesheetPath(spriteSheetPath), spriteId(spriteId),
