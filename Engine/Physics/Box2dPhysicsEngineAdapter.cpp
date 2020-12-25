@@ -68,6 +68,7 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(const Box2DCircleData &box2DC
     fixtureDef.shape = &circle;
     fixtureDef.density = 1.0f;
     fixtureDef.friction = 1.0f;
+    fixtureDef.isSensor = box2DCircleData.isSensor;
     body->CreateFixture(&fixtureDef);
 
     availableBodyId++;

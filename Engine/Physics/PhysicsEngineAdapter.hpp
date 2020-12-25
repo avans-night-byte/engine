@@ -17,9 +17,9 @@ typedef unsigned int BodyId;
 
 class Box2DData {
 public:
-    BodyType bodyType;
-    Vector2 position;
-    Vector2 offset;
+    BodyType bodyType{};
+    Vector2 position{};
+    Vector2 offset{};
     bool isBullet = false;
     bool isSensor = false;
     bool isEnabled = true;
@@ -38,7 +38,7 @@ public:
     ~Box2DBoxData() {
 
     }
-    Vector2 size;
+    Vector2 size{};
 };
 
 class Box2DCircleData : public Box2DData
@@ -48,7 +48,7 @@ public:
     ~Box2DCircleData() {
 
     }
-    float radius;
+    float radius = 0.f;
 };
 
 class Box2DPolygonData : public Box2DData
@@ -58,7 +58,7 @@ public:
 
     }
 
-    std::vector<Vector2> points;
+    std::vector<Vector2> points{};
 };
 
 class PhysicsEngineAdapter {
