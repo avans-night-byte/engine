@@ -21,7 +21,7 @@ public:
     virtual void drawCircle(const Vector2 &center, const float &radius) const = 0;
 
     virtual void
-    drawRectangle(Vector2 &vector2, float width, float height, const std::string &color, float opacity) const = 0;
+    drawRectangle(Vector2 &vector2, float width, float height, const std::string &color, float opacity) = 0;
 
     virtual void createText(const std::string &fontName, const std::string &text, int fontSize, const std::string &hex,
                             const std::string &textureId) = 0;

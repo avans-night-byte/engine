@@ -33,7 +33,7 @@ public:
 
     bool loadTexture(const std::string &path, const std::string &textureId) override;
 
-    void drawRectangle(Vector2 &position, float width, float height, std::string &color, float opacity) const override;
+    void drawRectangle(Vector2 &position, float width, float height, const std::string &color, float opacity) const override;
 
     void drawBackground(std::string &hex, float alpha) const override;
 
