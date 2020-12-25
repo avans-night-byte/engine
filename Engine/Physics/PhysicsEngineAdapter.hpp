@@ -23,36 +23,55 @@ public:
     bool isBullet = false;
     bool isSensor = false;
     bool isEnabled = true;
-    ContactHandler* contactHandler = nullptr;
+    ContactHandler *contactHandler = nullptr;
 
     Box2DData() = default;
+
     virtual ~Box2DData() {
 
     }
 };
 
-class Box2DBoxData : public Box2DData
-{
+class Box2DBoxData : public Box2DData {
 public:
     Box2DBoxData() = default;
+
+    Box2DBoxData(Box2DData &data) {
+        bodyType = data.bodyType;
+        position = data.position;
+        offset = data.offset;
+        isSensor = data.isSensor;
+        isBullet = data.isBullet;
+        isEnabled = data.isEnabled;
+        contactHandler = data.contactHandler;
+    }
+
     ~Box2DBoxData() {
 
     }
+
     Vector2 size{};
 };
 
-class Box2DCircleData : public Box2DData
-{
+class Box2DCircleData : public Box2DData {
 public:
     Box2DCircleData() = default;
-    ~Box2DCircleData() {
 
+    Box2DCircleData(Box2DData &data) {
+        bodyType = data.bodyType;
+        position = data.position;
+        offset = data.offset;
+        isSensor = data.isSensor;
+        isBullet = data.isBullet;
+        isEnabled = data.isEnabled;
+        contactHandler = data.contactHandler;
     }
+
+
     float radius = 0.f;
 };
 
-class Box2DPolygonData : public Box2DData
-{
+class Box2DPolygonData : public Box2DData {
 public:
     Box2DPolygonData() {
 
@@ -70,7 +89,7 @@ public:
 public:
     virtual void update(float timeStep) = 0;
 
-    virtual BodyId createBody(const Box2DBoxData& box2dBoxData) = 0;
+    virtual BodyId createBody(const Box2DBoxData &box2dBoxData) = 0;
 
     virtual BodyId createBody(const Box2DCircleData &box2DCircleData) = 0;
 
