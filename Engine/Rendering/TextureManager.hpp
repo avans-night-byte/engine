@@ -25,5 +25,5 @@ public:
 
     void clearFromTextureMap(std::string &id);
     Vector2 getDimensions(const std::string &id);
-    static TextureManager* GetInstance();
+    static TextureManager* getInstance();
 };

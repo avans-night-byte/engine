@@ -13,12 +13,12 @@ SDLRenderingAdapter::SDLRenderingAdapter(SDL_Renderer *renderer) {
 }
 
 TextureManager *SDLRenderingAdapter::GetTextureManager() {
-    return TextureManager::GetInstance();
+    return TextureManager::getInstance();
 }
 
 void SDLRenderingAdapter::drawTexture(std::string textureId, float x, float y, float width, float height, double scale,
                                       double r, SDL_RendererFlip flip) {
-    TextureManager *textureManager = TextureManager::GetInstance();
+    TextureManager *textureManager = TextureManager::getInstance();
     return textureManager->draw(textureId, x, y, width, height, scale, r, _renderer, flip);
 }
 
@@ -30,16 +30,14 @@ void SDLRenderingAdapter::drawBackground(std::string &color, float alpha) {
 }
 
 SpriteSheet *
-SDLRenderingAdapter::createSpriteSheet(const std::string &path,
-                                       std::string &spriteSheetId,
-                                       int width,
-                                       int height) {
+SDLRenderingAdapter::createSpriteSheet(const std::string &path, std::string &spriteSheetId, int width, int height,
+                                       int offsetX, int offsetY) {
     auto &spriteSheet = _spriteSheets[spriteSheetId];
     if (spriteSheet != nullptr) {
         return spriteSheet.get();
     }
 
-    spriteSheet = std::make_unique<SpriteSheet>(path, spriteSheetId, width, height, *_renderer);
+    spriteSheet = std::make_unique<SpriteSheet>(path, spriteSheetId, width, height, offsetX, offsetY, *_renderer);
     auto *p = spriteSheet.get();
     _spriteSheets[spriteSheetId] = std::move(spriteSheet);
 
@@ -68,8 +66,8 @@ void SDLRenderingAdapter::drawBox(const Vector2 *vertices, int32 vertexCount) co
 }
 
 void SDLRenderingAdapter::drawRectangle(Vector2 &position, float width, float height, const std::string &color,
-                                        float opacity) const {
-    SDL_Color sdlColor = HexToRGB(color, opacity);
+                                        float opacity) {
+    SDL_Color &sdlColor = HexToRGB(color, opacity);
     SDL_SetRenderDrawBlendMode(_renderer, SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(_renderer, sdlColor.r, sdlColor.g, sdlColor.b, sdlColor.a);
     SDL_FRect rectangle;
@@ -83,12 +81,16 @@ void SDLRenderingAdapter::drawRectangle(Vector2 &position, float width, float he
     SDL_SetRenderDrawColor(_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 }
 
-SDL_Color SDLRenderingAdapter::HexToRGB(std::string hex, float opacity) const {
+SDL_Color &SDLRenderingAdapter::HexToRGB(std::string hex, float opacity) {
+
+    std::string key = hex+ std::to_string(opacity);
+    if(_colors[key]) return *_colors[key];
 
     std::regex pattern("#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})");
 
     std::smatch match;
     if (std::regex_match(hex, match, pattern)) {
+
         SDL_Color color;
 
         color.r = std::stoi(match[1].str(), nullptr, 16);
@@ -96,7 +98,9 @@ SDL_Color SDLRenderingAdapter::HexToRGB(std::string hex, float opacity) const {
         color.b = std::stoi(match[3].str(), nullptr, 16);
         color.a = opacity;
 
-        return color;
+        _colors[key] = std::make_unique<SDL_Color>(color);
+
+        return *_colors[key];
     } else {
         throw " is an invalid rgb color\n";
     }
@@ -152,24 +156,28 @@ SDL_Renderer &SDLRenderingAdapter::getRenderer() {
     return *_renderer;
 }
 
-void SDLRenderingAdapter::drawAnimation(std::string &spriteId, const Vector2 &position,
-                                        const std::vector<std::pair<int, int>> &animation, const int &speed) {
+void SDLRenderingAdapter::drawAnimation(std::string &spriteId, const Vector2 &position, const Vector2 &size,
+                                        const int &speed,
+                                        const std::vector<std::pair<int, int>> &animation) {
     auto *spriteSheet = _spriteSheets[spriteId].get();
+    const auto& clip = spriteSheet->getClip();
     auto *texture = GetTextureManager()->getTexture(spriteSheet->getTextureId());
     const int &totalFrames = animation.size();
-    int frame = (SDL_GetTicks() / speed) % totalFrames;
+    int frame = (int)(SDL_GetTicks() / speed) % totalFrames;
 
+    // Frame
     SDL_Rect rect;
-    rect.x = frame * 96; // Row
-    rect.y = animation[frame].second * 104; // Collum
-    rect.w = 96;
-    rect.h = 104;
+    rect.x = frame * clip.w; // Row
+    rect.y = animation[frame].second * clip.h; // Collum
+    rect.w = clip.w;
+    rect.h = clip.h;
 
+    // Sprite transform
     SDL_FRect windowRect;
-    windowRect.x = position.x;
-    windowRect.y = position.y;
-    windowRect.w = 96;
-    windowRect.h = 104;
+    windowRect.x = position.x + clip.x;
+    windowRect.y = position.y + clip.y;
+    windowRect.w = size.x;
+    windowRect.h = size.y;
 
 
     SDL_RenderCopyExF(_renderer, texture, &rect, &windowRect, 0, nullptr, SDL_RendererFlip::SDL_FLIP_NONE);

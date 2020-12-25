@@ -9,9 +9,9 @@ class RenderingAPI;
 class MenuParserAPI {
 public:
     MenuParserAPI(RenderingAPI &renderer, Event<Input>& event);
-    void loadScene(std::string path);
+    void loadScene(const std::string& path);
     void render();
-    void onClick(Input input);
+    void onClick(const Input& input);
     std::map<std::string, std::string> getDynamicFields();
     void setDynamicFieldValue(const std::string &field, const std::string &value);
     Event<std::string> &getCustomEventHandler();

@@ -127,11 +127,28 @@ void ResourceManager::loadResource(const std::string &resource) {
     switch (type) {
         case TEXTURES: {
             auto &texture = _textures[resource];
-            TextureManager::GetInstance()->load((_basePath + texture->path()), texture->name());
+            TextureManager::getInstance()->load((_basePath + texture->path()), texture->name());
             break;
         }
-        case SPRITES:
-            // TODO: Create a new spritesheet
+        case SPRITES: {
+            auto &sprite = _sprites[resource];
+
+            if (sprite->spriteSheet().present()) {
+                auto &spriteSize = sprite->spriteSheet()->spriteSize();
+                auto &offset = sprite->spriteSheet()->originOffset();
+                Game::getInstance()->getRenderingApi().loadSpriteSheet(_basePath + sprite->path(),
+                                                                       sprite->name(),
+                                                                       spriteSize.width(),
+                                                                       spriteSize.height(),
+                                                                       offset.width(),
+                                                                       offset.height());
+            }
+            else
+            {
+                // Sprite without animation ?
+            }
+
+        }
             break;
         case SOUNDS: {
             auto &sound_ = _sounds[resource];
@@ -173,12 +190,10 @@ void ResourceManager::loadResource(const std::string &resource) {
         }
         case OBJECTLIST: {
             auto &objectList = _preObjects[resource];
-
             GlobalObjects::getInstance()->initializeObjects(objectList->name(),
                                                             _basePath + objectList->path(),
                                                             objectList->pool().poolName(),
                                                             _basePath + objectList->pool().poolPath());
-
             break;
         }
     }

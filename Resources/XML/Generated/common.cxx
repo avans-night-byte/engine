@@ -70,6 +70,46 @@ namespace Common
   }
 
 
+  // size
+  // 
+
+  const size::width_type& size::
+  width () const
+  {
+    return this->width_.get ();
+  }
+
+  size::width_type& size::
+  width ()
+  {
+    return this->width_.get ();
+  }
+
+  void size::
+  width (const width_type& x)
+  {
+    this->width_.set (x);
+  }
+
+  const size::height_type& size::
+  height () const
+  {
+    return this->height_.get ();
+  }
+
+  size::height_type& size::
+  height ()
+  {
+    return this->height_.get ();
+  }
+
+  void size::
+  height (const height_type& x)
+  {
+    this->height_.set (x);
+  }
+
+
   // alpha
   // 
 
@@ -324,40 +364,40 @@ namespace Common
   }
 
 
-  // size
+  // size1
   // 
 
-  const size::width_type& size::
+  const size1::width_type& size1::
   width () const
   {
     return this->width_.get ();
   }
 
-  size::width_type& size::
+  size1::width_type& size1::
   width ()
   {
     return this->width_.get ();
   }
 
-  void size::
+  void size1::
   width (const width_type& x)
   {
     this->width_.set (x);
   }
 
-  const size::height_type& size::
+  const size1::height_type& size1::
   height () const
   {
     return this->height_.get ();
   }
 
-  size::height_type& size::
+  size1::height_type& size1::
   height ()
   {
     return this->height_.get ();
   }
 
-  void size::
+  void size1::
   height (const height_type& x)
   {
     this->height_.set (x);
@@ -1090,6 +1130,118 @@ namespace Common
   {
   }
 
+  // size
+  //
+
+  size::
+  size (const width_type& width,
+        const height_type& height)
+  : ::xml_schema::type (),
+    width_ (width, this),
+    height_ (height, this)
+  {
+  }
+
+  size::
+  size (const size& x,
+        ::xml_schema::flags f,
+        ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    width_ (x.width_, f, this),
+    height_ (x.height_, f, this)
+  {
+  }
+
+  size::
+  size (const ::xercesc::DOMElement& e,
+        ::xml_schema::flags f,
+        ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    width_ (this),
+    height_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void size::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // width
+      //
+      if (n.name () == "width" && n.namespace_ ().empty ())
+      {
+        if (!width_.present ())
+        {
+          this->width_.set (width_traits::create (i, f, this));
+          continue;
+        }
+      }
+
+      // height
+      //
+      if (n.name () == "height" && n.namespace_ ().empty ())
+      {
+        if (!height_.present ())
+        {
+          this->height_.set (height_traits::create (i, f, this));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!width_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "width",
+        "");
+    }
+
+    if (!height_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "height",
+        "");
+    }
+  }
+
+  size* size::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class size (*this, f, c);
+  }
+
+  size& size::
+  operator= (const size& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->width_ = x.width_;
+      this->height_ = x.height_;
+    }
+
+    return *this;
+  }
+
+  size::
+  ~size ()
+  {
+  }
+
   // alpha
   //
 
@@ -1550,32 +1702,32 @@ namespace Common
   {
   }
 
-  // size
+  // size1
   //
 
-  size::
-  size (const width_type& width,
-        const height_type& height)
+  size1::
+  size1 (const width_type& width,
+         const height_type& height)
   : ::xml_schema::type (),
     width_ (width, this),
     height_ (height, this)
   {
   }
 
-  size::
-  size (const size& x,
-        ::xml_schema::flags f,
-        ::xml_schema::container* c)
+  size1::
+  size1 (const size1& x,
+         ::xml_schema::flags f,
+         ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
     width_ (x.width_, f, this),
     height_ (x.height_, f, this)
   {
   }
 
-  size::
-  size (const ::xercesc::DOMElement& e,
-        ::xml_schema::flags f,
-        ::xml_schema::container* c)
+  size1::
+  size1 (const ::xercesc::DOMElement& e,
+         ::xml_schema::flags f,
+         ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     width_ (this),
     height_ (this)
@@ -1587,7 +1739,7 @@ namespace Common
     }
   }
 
-  void size::
+  void size1::
   parse (::xsd::cxx::xml::dom::parser< char >& p,
          ::xml_schema::flags f)
   {
@@ -1637,15 +1789,15 @@ namespace Common
     }
   }
 
-  size* size::
+  size1* size1::
   _clone (::xml_schema::flags f,
           ::xml_schema::container* c) const
   {
-    return new class size (*this, f, c);
+    return new class size1 (*this, f, c);
   }
 
-  size& size::
-  operator= (const size& x)
+  size1& size1::
+  operator= (const size1& x)
   {
     if (this != &x)
     {
@@ -1657,8 +1809,8 @@ namespace Common
     return *this;
   }
 
-  size::
-  ~size ()
+  size1::
+  ~size1 ()
   {
   }
 
@@ -3749,7 +3901,7 @@ namespace Common
       "Common");
   }
 
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (const ::std::string& u,
          ::xml_schema::flags f,
          const ::xml_schema::properties& p)
@@ -3766,12 +3918,12 @@ namespace Common
 
     h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
 
-    return ::std::unique_ptr< ::Common::size > (
+    return ::std::unique_ptr< ::Common::size1 > (
       ::Common::size_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (const ::std::string& u,
          ::xml_schema::error_handler& h,
          ::xml_schema::flags f,
@@ -3788,12 +3940,12 @@ namespace Common
     if (!d.get ())
       throw ::xsd::cxx::tree::parsing< char > ();
 
-    return ::std::unique_ptr< ::Common::size > (
+    return ::std::unique_ptr< ::Common::size1 > (
       ::Common::size_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (const ::std::string& u,
          ::xercesc::DOMErrorHandler& h,
          ::xml_schema::flags f,
@@ -3806,12 +3958,12 @@ namespace Common
     if (!d.get ())
       throw ::xsd::cxx::tree::parsing< char > ();
 
-    return ::std::unique_ptr< ::Common::size > (
+    return ::std::unique_ptr< ::Common::size1 > (
       ::Common::size_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::std::istream& is,
          ::xml_schema::flags f,
          const ::xml_schema::properties& p)
@@ -3824,7 +3976,7 @@ namespace Common
     return ::Common::size_ (isrc, f, p);
   }
 
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::std::istream& is,
          ::xml_schema::error_handler& h,
          ::xml_schema::flags f,
@@ -3838,7 +3990,7 @@ namespace Common
     return ::Common::size_ (isrc, h, f, p);
   }
 
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::std::istream& is,
          ::xercesc::DOMErrorHandler& h,
          ::xml_schema::flags f,
@@ -3848,7 +4000,7 @@ namespace Common
     return ::Common::size_ (isrc, h, f, p);
   }
 
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::std::istream& is,
          const ::std::string& sid,
          ::xml_schema::flags f,
@@ -3862,7 +4014,7 @@ namespace Common
     return ::Common::size_ (isrc, f, p);
   }
 
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::std::istream& is,
          const ::std::string& sid,
          ::xml_schema::error_handler& h,
@@ -3877,7 +4029,7 @@ namespace Common
     return ::Common::size_ (isrc, h, f, p);
   }
 
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::std::istream& is,
          const ::std::string& sid,
          ::xercesc::DOMErrorHandler& h,
@@ -3888,7 +4040,7 @@ namespace Common
     return ::Common::size_ (isrc, h, f, p);
   }
 
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::xercesc::InputSource& i,
          ::xml_schema::flags f,
          const ::xml_schema::properties& p)
@@ -3901,12 +4053,12 @@ namespace Common
 
     h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
 
-    return ::std::unique_ptr< ::Common::size > (
+    return ::std::unique_ptr< ::Common::size1 > (
       ::Common::size_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::xercesc::InputSource& i,
          ::xml_schema::error_handler& h,
          ::xml_schema::flags f,
@@ -3919,12 +4071,12 @@ namespace Common
     if (!d.get ())
       throw ::xsd::cxx::tree::parsing< char > ();
 
-    return ::std::unique_ptr< ::Common::size > (
+    return ::std::unique_ptr< ::Common::size1 > (
       ::Common::size_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::xercesc::InputSource& i,
          ::xercesc::DOMErrorHandler& h,
          ::xml_schema::flags f,
@@ -3937,12 +4089,12 @@ namespace Common
     if (!d.get ())
       throw ::xsd::cxx::tree::parsing< char > ();
 
-    return ::std::unique_ptr< ::Common::size > (
+    return ::std::unique_ptr< ::Common::size1 > (
       ::Common::size_ (
         std::move (d), f | ::xml_schema::flags::own_dom, p));
   }
 
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (const ::xercesc::DOMDocument& doc,
          ::xml_schema::flags f,
          const ::xml_schema::properties& p)
@@ -3952,7 +4104,7 @@ namespace Common
       ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
         static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
 
-      return ::std::unique_ptr< ::Common::size > (
+      return ::std::unique_ptr< ::Common::size1 > (
         ::Common::size_ (
           std::move (d), f | ::xml_schema::flags::own_dom, p));
     }
@@ -3964,8 +4116,8 @@ namespace Common
     if (n.name () == "size" &&
         n.namespace_ () == "Common")
     {
-      ::std::unique_ptr< ::Common::size > r (
-        ::xsd::cxx::tree::traits< ::Common::size, char >::create (
+      ::std::unique_ptr< ::Common::size1 > r (
+        ::xsd::cxx::tree::traits< ::Common::size1, char >::create (
           e, f, 0));
       return r;
     }
@@ -3977,7 +4129,7 @@ namespace Common
       "Common");
   }
 
-  ::std::unique_ptr< ::Common::size >
+  ::std::unique_ptr< ::Common::size1 >
   size_ (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
          ::xml_schema::flags f,
          const ::xml_schema::properties&)
@@ -4002,8 +4154,8 @@ namespace Common
     if (n.name () == "size" &&
         n.namespace_ () == "Common")
     {
-      ::std::unique_ptr< ::Common::size > r (
-        ::xsd::cxx::tree::traits< ::Common::size, char >::create (
+      ::std::unique_ptr< ::Common::size1 > r (
+        ::xsd::cxx::tree::traits< ::Common::size1, char >::create (
           e, f, 0));
       return r;
     }

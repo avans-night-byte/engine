@@ -58,7 +58,7 @@ public:
 
     void getVelocity(Vector2 &velocity, BodyId bodyId) const override;
 
-    void addForce(const BodyId i, Vector2 direction) const override;
+    void addForce(const BodyId i, const Vector2 &position, Vector2 force) const override;
 
     void setLinearVelocity(BodyId bodyId, const Vector2 &vector2) override;
 
