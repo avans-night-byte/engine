@@ -46,5 +46,8 @@ public:
     void drawAnimation(std::string &spriteId, const Vector2 &position, const Vector2 &size, const int &speed,
                        const std::vector<std::pair<int, int>> &animation) override;
 
+
+    void drawBox(const Vector2 *vertices, int32 vertexCount) const override;
+
     [[nodiscard]] EngineRenderingAdapter &getRendererAdapter() override;
 };

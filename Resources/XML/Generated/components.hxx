@@ -36,8 +36,8 @@
  * @brief Generated from components.xsd.
  */
 
-#ifndef RESOURCES_XML_SCHEMAS_COMPONENTS_HXX
-#define RESOURCES_XML_SCHEMAS_COMPONENTS_HXX
+#ifndef CXX__RESOURCES_XML_SCHEMAS_COMPONENTS_HXX
+#define CXX__RESOURCES_XML_SCHEMAS_COMPONENTS_HXX
 
 #ifndef XSD_CXX11
 #define XSD_CXX11
@@ -571,6 +571,7 @@ namespace Components
   class bodyType;
   class bodyShape;
   class transformComponent;
+  class AIComponent;
   class renderComponent;
   class physicsComponent;
   class characterComponent;
@@ -862,6 +863,82 @@ namespace Components
      */
     void
     transformComponent (::std::unique_ptr< transformComponent_type > p);
+
+    //@}
+
+    /**
+     * @name AIComponent
+     *
+     * @brief Accessor and modifier functions for the %AIComponent
+     * optional element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::Components::AIComponent AIComponent_type;
+
+    /**
+     * @brief Element optional container type.
+     */
+    typedef ::xsd::cxx::tree::optional< AIComponent_type > AIComponent_optional;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< AIComponent_type, char > AIComponent_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element
+     * container.
+     *
+     * @return A constant reference to the optional container.
+     */
+    const AIComponent_optional&
+    AIComponent () const;
+
+    /**
+     * @brief Return a read-write reference to the element container.
+     *
+     * @return A reference to the optional container.
+     */
+    AIComponent_optional&
+    AIComponent ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    AIComponent (const AIComponent_type& x);
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x An optional container with the new value to set.
+     *
+     * If the value is present in @a x then this function makes a copy 
+     * of this value and sets it as the new value of the element.
+     * Otherwise the element container is set the 'not present' state.
+     */
+    void
+    AIComponent (const AIComponent_optional& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly instead
+     * of making a copy.
+     */
+    void
+    AIComponent (::std::unique_ptr< AIComponent_type > p);
 
     //@}
 
@@ -1936,6 +2013,7 @@ namespace Components
     protected:
     ::xsd::cxx::tree::one< componentName_type > componentName_;
     transformComponent_optional transformComponent_;
+    AIComponent_optional AIComponent_;
     renderComponent_optional renderComponent_;
     physicsComponent_optional physicsComponent_;
     characterComponent_optional characterComponent_;
@@ -2564,6 +2642,158 @@ namespace Components
 
     protected:
     ::xsd::cxx::tree::one< position_type > position_;
+
+    //@endcond
+  };
+
+  /**
+   * @brief Class corresponding to the %AIComponent schema type.
+   *
+   * @nosubgrouping
+   */
+  class AIComponent: public ::xml_schema::type
+  {
+    public:
+    /**
+     * @name followingName
+     *
+     * @brief Accessor and modifier functions for the %followingName
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::string followingName_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< followingName_type, char > followingName_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const followingName_type&
+    followingName () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    followingName_type&
+    followingName ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    followingName (const followingName_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    followingName (::std::unique_ptr< followingName_type > p);
+
+    //@}
+
+    /**
+     * @name Constructors
+     */
+    //@{
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    AIComponent (const followingName_type&);
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    AIComponent (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    AIComponent (const AIComponent& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual AIComponent*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    AIComponent&
+    operator= (const AIComponent& x);
+
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
+    virtual 
+    ~AIComponent ();
+
+    // Implementation.
+    //
+
+    //@cond
+
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< followingName_type > followingName_;
 
     //@endcond
   };
@@ -5205,4 +5435,4 @@ namespace Components
 //
 // End epilogue.
 
-#endif // RESOURCES_XML_SCHEMAS_COMPONENTS_HXX
+#endif // CXX__RESOURCES_XML_SCHEMAS_COMPONENTS_HXX

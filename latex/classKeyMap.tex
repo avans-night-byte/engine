@@ -1,0 +1,96 @@
+\hypertarget{classKeyMap}{}\doxysection{Key\+Map Class Reference}
+\label{classKeyMap}\index{KeyMap@{KeyMap}}
+
+
+{\ttfamily \#include $<$Key\+Map.\+hpp$>$}
+
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::map$<$ S\+D\+L\+\_\+\+Keycode, \mbox{\hyperlink{structInputAction}{Input\+Action}} $>$ \mbox{\hyperlink{classKeyMap_afeb97a0972a7df6c9c3bbb617f948204}{mouse\+Map}}
+\item 
+static std\+::map$<$ S\+D\+L\+\_\+\+Keycode, \mbox{\hyperlink{structInputAction}{Input\+Action}} $>$ \mbox{\hyperlink{classKeyMap_a7254a95d4cff9db22802eef3cff023f0}{controller\+Map}}
+\item 
+static std\+::map$<$ S\+D\+L\+\_\+\+Keycode, \mbox{\hyperlink{structInputAction}{Input\+Action}} $>$ \mbox{\hyperlink{classKeyMap_a26bf20c3d21beb6f78b2d92fe0096f41}{keyboard\+Map}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains mappings for mouse, controller and keyboard. A map contains a S\+D\+L\+\_\+\+Key\+Code and an \mbox{\hyperlink{structInputAction}{Input\+Action}} struct. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classKeyMap_a7254a95d4cff9db22802eef3cff023f0}\label{classKeyMap_a7254a95d4cff9db22802eef3cff023f0}} 
+\index{KeyMap@{KeyMap}!controllerMap@{controllerMap}}
+\index{controllerMap@{controllerMap}!KeyMap@{KeyMap}}
+\doxysubsubsection{\texorpdfstring{controllerMap}{controllerMap}}
+{\footnotesize\ttfamily std\+::map$<$S\+D\+L\+\_\+\+Keycode, \mbox{\hyperlink{structInputAction}{Input\+Action}}$>$ Key\+Map\+::controller\+Map\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{            \{SDL\_CONTROLLER\_BUTTON\_A,             \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}CONTROLLER\_BUTTON\_A"{}}, .action = \textcolor{stringliteral}{"{}JUMP"{}}\}\},}
+\DoxyCodeLine{            \{SDL\_CONTROLLER\_BUTTON\_B,             \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}CONTROLLER\_BUTTON\_B"{}}, .action = \textcolor{stringliteral}{"{}"{}}\}\},}
+\DoxyCodeLine{            \{SDL\_CONTROLLER\_BUTTON\_X,             \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}CONTROLLER\_BUTTON\_X"{}}, .action = \textcolor{stringliteral}{"{}"{}}\}\},}
+\DoxyCodeLine{            \{SDL\_CONTROLLER\_BUTTON\_Y,             \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}CONTROLLER\_BUTTON\_Y"{}}, .action = \textcolor{stringliteral}{"{}"{}}\}\},}
+\DoxyCodeLine{            \{SDL\_CONTROLLER\_BUTTON\_LEFTSHOULDER,  \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}CONTROLLER\_BUTTON\_LB"{}}, .action = \textcolor{stringliteral}{"{}"{}}\}\},}
+\DoxyCodeLine{            \{SDL\_CONTROLLER\_BUTTON\_RIGHTSHOULDER, \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}CONTROLLER\_BUTTON\_RB"{}}, .action = \textcolor{stringliteral}{"{}"{}}\}\},}
+\DoxyCodeLine{            \{SDL\_CONTROLLER\_BUTTON\_BACK,          \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}CONTROLLER\_BUTTON\_SELECT"{}}, .action = \textcolor{stringliteral}{"{}QUIT"{}}\}\},}
+\DoxyCodeLine{            \{SDL\_CONTROLLER\_BUTTON\_START,         \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}CONTROLLER\_BUTTON\_START"{}}, .action = \textcolor{stringliteral}{"{}"{}}\}\},}
+\DoxyCodeLine{            \{SDL\_CONTROLLER\_BUTTON\_LEFTSTICK,     \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}CONTROLLER\_BUTTON\_L3"{}}, .action = \textcolor{stringliteral}{"{}"{}}\}\},}
+\DoxyCodeLine{            \{SDL\_CONTROLLER\_BUTTON\_RIGHTSTICK,    \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}CONTROLLER\_BUTTON\_R3"{}}, .action = \textcolor{stringliteral}{"{}"{}}\}\},}
+\DoxyCodeLine{            \{SDL\_CONTROLLER\_BUTTON\_DPAD\_UP,       \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}CONTOLLER\_DPAD\_UP"{}}, .action = \textcolor{stringliteral}{"{}UP"{}}\}\},}
+\DoxyCodeLine{            \{SDL\_CONTROLLER\_BUTTON\_DPAD\_DOWN,     \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}CONTOLLER\_DPAD\_DOWN"{}}, .action = \textcolor{stringliteral}{"{}DOWN"{}}\}\},}
+\DoxyCodeLine{            \{SDL\_CONTROLLER\_BUTTON\_DPAD\_LEFT,     \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}CONTOLLER\_DPAD\_LEFT"{}}, .action = \textcolor{stringliteral}{"{}LEFT"{}}\}\},}
+\DoxyCodeLine{            \{SDL\_CONTROLLER\_BUTTON\_DPAD\_RIGHT,    \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}CONTOLLER\_DPAD\_RIGHT"{}}, .action = \textcolor{stringliteral}{"{}RIGHT"{}}\}\},}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+Keymap for device 2\+: controller \mbox{\Hypertarget{classKeyMap_a26bf20c3d21beb6f78b2d92fe0096f41}\label{classKeyMap_a26bf20c3d21beb6f78b2d92fe0096f41}} 
+\index{KeyMap@{KeyMap}!keyboardMap@{keyboardMap}}
+\index{keyboardMap@{keyboardMap}!KeyMap@{KeyMap}}
+\doxysubsubsection{\texorpdfstring{keyboardMap}{keyboardMap}}
+{\footnotesize\ttfamily std\+::map$<$S\+D\+L\+\_\+\+Keycode, \mbox{\hyperlink{structInputAction}{Input\+Action}}$>$ Key\+Map\+::keyboard\+Map\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{            \{SDLK\_1,            \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}1"{}}, .action = \textcolor{stringliteral}{"{}1"{}}\}\},}
+\DoxyCodeLine{            \{SDLK\_2,            \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}2"{}}, .action = \textcolor{stringliteral}{"{}2"{}}\}\},}
+\DoxyCodeLine{            \{SDLK\_3,            \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}3"{}}, .action = \textcolor{stringliteral}{"{}3"{}}\}\},}
+\DoxyCodeLine{            \{SDLK\_UP,           \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}UP"{}}, .action = \textcolor{stringliteral}{"{}UP"{}}\}\},}
+\DoxyCodeLine{            \{SDLK\_DOWN,         \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}DOWN"{}}, .action = \textcolor{stringliteral}{"{}DOWN"{}}\}\},}
+\DoxyCodeLine{            \{SDLK\_LEFT,         \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}LEFT"{}}, .action = \textcolor{stringliteral}{"{}LEFT"{}}\}\},}
+\DoxyCodeLine{            \{SDLK\_RIGHT,        \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}RIGHT"{}}, .action = \textcolor{stringliteral}{"{}RIGHT"{}}\}\},}
+\DoxyCodeLine{            \{SDLK\_w,            \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}W"{}}, .action = \textcolor{stringliteral}{"{}UP"{}}\}\},}
+\DoxyCodeLine{            \{SDLK\_s,            \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}S"{}}, .action = \textcolor{stringliteral}{"{}DOWN"{}}\}\},}
+\DoxyCodeLine{            \{SDLK\_a,            \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}A"{}}, .action = \textcolor{stringliteral}{"{}LEFT"{}}\}\},}
+\DoxyCodeLine{            \{SDLK\_d,            \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}D"{}}, .action = \textcolor{stringliteral}{"{}RIGHT"{}}\}\},}
+\DoxyCodeLine{            \{SDLK\_e,            \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}E"{}}, .action = \textcolor{stringliteral}{"{}INTERACT"{}}\}\},}
+\DoxyCodeLine{            \{SDLK\_SPACE,        \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}SPACE"{}}, .action = \textcolor{stringliteral}{"{}JUMP"{}}\}\},}
+\DoxyCodeLine{            \{SDLK\_i,            \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}I"{}}, .action = \textcolor{stringliteral}{"{}INVENTORY"{}}\}\},}
+\DoxyCodeLine{            \{SDLK\_q,            \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}Q"{}}, .action = \textcolor{stringliteral}{"{}QUIT"{}}\}\},}
+\DoxyCodeLine{            \{SDLK\_BACKSLASH,    \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)"{}}, .action = \textcolor{stringliteral}{"{}BACKSLASH"{}}\}\},}
+\DoxyCodeLine{            \{SDLK\_RIGHTBRACKET, \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}]"{}}, .action = \textcolor{stringliteral}{"{}RIGHTBRACKET"{}}\}\},}
+\DoxyCodeLine{            \{SDLK\_ESCAPE,       \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}ESC"{}}, .action = \textcolor{stringliteral}{"{}ESCAPE"{}}\}\},}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+Keymap for device 0\+: keyboard \mbox{\Hypertarget{classKeyMap_afeb97a0972a7df6c9c3bbb617f948204}\label{classKeyMap_afeb97a0972a7df6c9c3bbb617f948204}} 
+\index{KeyMap@{KeyMap}!mouseMap@{mouseMap}}
+\index{mouseMap@{mouseMap}!KeyMap@{KeyMap}}
+\doxysubsubsection{\texorpdfstring{mouseMap}{mouseMap}}
+{\footnotesize\ttfamily std\+::map$<$S\+D\+L\+\_\+\+Keycode, \mbox{\hyperlink{structInputAction}{Input\+Action}}$>$ Key\+Map\+::mouse\+Map\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{            \{SDL\_BUTTON\_LEFT,  \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}MOUSE\_BUTTON\_LEFT"{}}, .action = \textcolor{stringliteral}{"{}CLICK\_LEFT"{}}\}\},}
+\DoxyCodeLine{            \{SDL\_BUTTON\_RIGHT, \mbox{\hyperlink{structInputAction}{InputAction}}\{.\mbox{\hyperlink{structInputAction_a8882f507048e89dd3ebd79e0a39a6be7}{code}} = \textcolor{stringliteral}{"{}MOUSE\_BUTTON\_RIGHT"{}}, .action = \textcolor{stringliteral}{"{}CLICK\_RIGHT"{}}\}\},}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+Keymap for device 1\+: mouse 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Input/Key\+Map.\+hpp\end{DoxyCompactItemize}

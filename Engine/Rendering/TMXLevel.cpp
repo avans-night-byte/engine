@@ -3,8 +3,16 @@
 #include <include/tmxlite/TileLayer.hpp>
 #include "../../Game/Game.hpp"
 #include "../../Game/Components/NextLevelComponent.hpp"
+#include "../../Game/Components/TransformComponent.hpp"
+
 #include "../Physics/PhysicsEngineAdapter.hpp"
 #include "../../API/Rendering/RenderingAPI.hpp"
+#include <box2d.h>
+#include "../../API/Helpers/Vector2.hpp"
+#include "../Astar.hpp"
+#include <unordered_map>
+#include <map>
+#include <future>
 #include "Generated/components.hxx"
 
 
@@ -29,6 +37,8 @@ TMXLevel::TMXLevel(const char *tmxPath,
     }
 
     this->initStaticCollision(); // TODO: Remove this
+
+
 }
 
 void TMXLevel::render(RenderingAPI &renderingAPI) {
@@ -214,4 +224,73 @@ void TMXLevel::cleanup() {
 }
 
 TMXLevel::~TMXLevel() = default;
+
+class MyQueryCallback : public b2QueryCallback {
+private:
+    bool _hasCollider = false;
+public:
+    std::map<Vector2, int> positions;
+    std::vector<b2Fixture*> fixtures;
+
+    bool ReportFixture(b2Fixture* fixture) {
+        fixtures.push_back(fixture);
+        return true;
+    }
+};
+
+/**
+ * @param weights
+ */
+void TMXLevel::GetGrid(int **weights) const {
+    /**
+     * Create a upper and lower bounawdds. Basicly the bounds of the tile and query for objects.
+     * When a static object is within this bound, mark this square as an obstruction.
+     */
+    const auto &world = Game::getInstance()->getPhysicsAPI().getWorld();
+    std::map<Vector2, int> testPositions;
+
+    for(int y = 0; y < 30; y++) {
+        weights[y] = new int[30];
+
+        for(int x = 0; x < 30; x++){
+            b2AABB aabb;
+
+            float xPos = x * (16 * scale);
+            float yPos = y * (16 * scale);
+
+            float upperX = xPos + (16 * scale);
+            float upperY = yPos + (16 * scale);
+            auto queryCallback = MyQueryCallback();
+
+            aabb.lowerBound = b2Vec2{xPos, yPos};
+            aabb.upperBound = b2Vec2{upperX, upperY};
+
+            world.QueryAABB(&queryCallback, aabb);
+
+            for(const auto* fixture : queryCallback.fixtures){
+                auto bodyPos = fixture->GetBody()->GetPosition();
+                auto pos = Vector2{bodyPos.x, bodyPos.y};
+
+                if(fixture->GetBody()->GetType() == b2_staticBody){
+                    weights[y][x] = 1;
+                    break;
+                }
+
+
+                if(fixture->IsSensor()){
+                    weights[y][x] = 0;
+                }
+
+                if(pos == Game::getInstance()->getCharacter()->getTransform()->getPosition()){
+                    weights[y][x] = 0;
+                }
+
+                if(fixture->GetBody()->GetType() == b2_dynamicBody){
+                    weights[y][x] = 0;
+                }
+            }
+        }
+    }
+
+}
 

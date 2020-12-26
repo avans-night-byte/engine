@@ -257,6 +257,13 @@
                     <isSensor>true</isSensor>
                 </physicsComponent>
             </component>
+
+            <component>
+                <componentName>AIComponent</componentName>
+                <AIComponent>
+                    <followingName>dssdasd</followingName>
+                </AIComponent>
+            </component>
         </components>
     </object>
 

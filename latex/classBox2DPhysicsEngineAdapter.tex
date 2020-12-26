@@ -1,0 +1,65 @@
+\hypertarget{classBox2DPhysicsEngineAdapter}{}\doxysection{Box2\+D\+Physics\+Engine\+Adapter Class Reference}
+\label{classBox2DPhysicsEngineAdapter}\index{Box2DPhysicsEngineAdapter@{Box2DPhysicsEngineAdapter}}
+Inheritance diagram for Box2\+D\+Physics\+Engine\+Adapter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classBox2DPhysicsEngineAdapter}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBox2DPhysicsEngineAdapter_a165f0f0487d1009a73ba0b4953680e33}\label{classBox2DPhysicsEngineAdapter_a165f0f0487d1009a73ba0b4953680e33}} 
+void {\bfseries update} (float delta\+Time) override
+\item 
+\mbox{\Hypertarget{classBox2DPhysicsEngineAdapter_a817917782c7c489360f376cc4983fae3}\label{classBox2DPhysicsEngineAdapter_a817917782c7c489360f376cc4983fae3}} 
+Body\+Id {\bfseries create\+Body} (const \mbox{\hyperlink{classBox2DBoxData}{Box2\+D\+Box\+Data}} \&box2d\+Box\+Data) override
+\item 
+\mbox{\Hypertarget{classBox2DPhysicsEngineAdapter_a99a73768a6f41bc3650e664f8a1dd862}\label{classBox2DPhysicsEngineAdapter_a99a73768a6f41bc3650e664f8a1dd862}} 
+Body\+Id {\bfseries create\+Body} (const \mbox{\hyperlink{classBox2DCircleData}{Box2\+D\+Circle\+Data}} \&box2\+D\+Circle\+Data) override
+\item 
+\mbox{\Hypertarget{classBox2DPhysicsEngineAdapter_ac53a5e495da076dff6b02ecc5474c84d}\label{classBox2DPhysicsEngineAdapter_ac53a5e495da076dff6b02ecc5474c84d}} 
+Body\+Id {\bfseries create\+Body} (const \mbox{\hyperlink{classBox2DPolygonData}{Box2\+D\+Polygon\+Data}} \&box2\+D\+Polygon\+Data) override
+\item 
+\mbox{\Hypertarget{classBox2DPhysicsEngineAdapter_abd3ee428a32f4552b5f396dc30ad9c0c}\label{classBox2DPhysicsEngineAdapter_abd3ee428a32f4552b5f396dc30ad9c0c}} 
+void {\bfseries reference\+Position\+To\+Body} (Body\+Id body\+Id, float \&x, float \&y) override
+\item 
+\mbox{\Hypertarget{classBox2DPhysicsEngineAdapter_a0e0ad3119888ca36b3e575d28e8ea03b}\label{classBox2DPhysicsEngineAdapter_a0e0ad3119888ca36b3e575d28e8ea03b}} 
+\mbox{\hyperlink{structRTransform}{R\+Transform}} {\bfseries get\+R\+Position} (Body\+Id body\+Id) override
+\item 
+\mbox{\Hypertarget{classBox2DPhysicsEngineAdapter_a7d3865a484a844e01dde70420f824720}\label{classBox2DPhysicsEngineAdapter_a7d3865a484a844e01dde70420f824720}} 
+void {\bfseries destroy\+Body} (Body\+Id body\+ID) override
+\item 
+\mbox{\Hypertarget{classBox2DPhysicsEngineAdapter_a1e2131b398679ec0fd85fd2d8b811cd1}\label{classBox2DPhysicsEngineAdapter_a1e2131b398679ec0fd85fd2d8b811cd1}} 
+void {\bfseries Debug\+Draw} (const \mbox{\hyperlink{classSDLRenderingAdapter}{S\+D\+L\+Rendering\+Adapter}} \&rendering\+Adapter, S\+D\+L\+\_\+\+Renderer \&renderer) override
+\item 
+\mbox{\Hypertarget{classBox2DPhysicsEngineAdapter_a66e96e81b6b84932f72c696741e4f085}\label{classBox2DPhysicsEngineAdapter_a66e96e81b6b84932f72c696741e4f085}} 
+void {\bfseries get\+Velocity} (\mbox{\hyperlink{structVector2}{Vector2}} \&velocity, Body\+Id body\+Id) const override
+\item 
+\mbox{\Hypertarget{classBox2DPhysicsEngineAdapter_a9679dc5750346010d88846a570f6418b}\label{classBox2DPhysicsEngineAdapter_a9679dc5750346010d88846a570f6418b}} 
+void {\bfseries add\+Force} (const Body\+Id i, \mbox{\hyperlink{structVector2}{Vector2}} direction) const override
+\item 
+\mbox{\Hypertarget{classBox2DPhysicsEngineAdapter_add45cbd46b4e59b38f66ee2c12b089ce}\label{classBox2DPhysicsEngineAdapter_add45cbd46b4e59b38f66ee2c12b089ce}} 
+void {\bfseries set\+Linear\+Velocity} (Body\+Id body\+Id, const \mbox{\hyperlink{structVector2}{Vector2}} \&vector2) override
+\item 
+\mbox{\Hypertarget{classBox2DPhysicsEngineAdapter_a69af42d1635970407697460be72ec632}\label{classBox2DPhysicsEngineAdapter_a69af42d1635970407697460be72ec632}} 
+void {\bfseries set\+Transform} (unsigned int body\+Id, \mbox{\hyperlink{structVector2}{Vector2}} pos, float angle) const override
+\item 
+\mbox{\Hypertarget{classBox2DPhysicsEngineAdapter_aabaf89507ce56947ee6465288da45b40}\label{classBox2DPhysicsEngineAdapter_aabaf89507ce56947ee6465288da45b40}} 
+void {\bfseries set\+Fixed\+Rotation} (Body\+Id body\+Id, bool b) override
+\item 
+\mbox{\Hypertarget{classBox2DPhysicsEngineAdapter_a53ee9a005ac41b716f9fe93c211c94af}\label{classBox2DPhysicsEngineAdapter_a53ee9a005ac41b716f9fe93c211c94af}} 
+void {\bfseries set\+Angle} (Body\+Id body\+Id, float angle) const override
+\item 
+\mbox{\Hypertarget{classBox2DPhysicsEngineAdapter_a0739ca794fc8127df5a40fede38cdd26}\label{classBox2DPhysicsEngineAdapter_a0739ca794fc8127df5a40fede38cdd26}} 
+void {\bfseries set\+Enabled} (Body\+Id id, bool b) const override
+\item 
+\mbox{\Hypertarget{classBox2DPhysicsEngineAdapter_a8c12278b106a25f1527ba646aa2b6db3}\label{classBox2DPhysicsEngineAdapter_a8c12278b106a25f1527ba646aa2b6db3}} 
+bool {\bfseries is\+World\+Locked} () const override
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Physics/Box2\+D\+Physics\+Engine\+Adapter.\+hpp\item 
+Engine/\+Physics/Box2d\+Physics\+Engine\+Adapter.\+cpp\end{DoxyCompactItemize}

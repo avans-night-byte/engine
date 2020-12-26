@@ -1,0 +1,54 @@
+\hypertarget{classInventoryComponent}{}\doxysection{Inventory\+Component Class Reference}
+\label{classInventoryComponent}\index{InventoryComponent@{InventoryComponent}}
+Inheritance diagram for Inventory\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classInventoryComponent}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInventoryComponent_aece811b5a476d911892c4c4b6bf662ab}\label{classInventoryComponent_aece811b5a476d911892c4c4b6bf662ab}} 
+{\bfseries Inventory\+Component} (Entity\+Id id)
+\item 
+\mbox{\Hypertarget{classInventoryComponent_aecdc20b6aa98f8e45ec604b7390a1c95}\label{classInventoryComponent_aecdc20b6aa98f8e45ec604b7390a1c95}} 
+void {\bfseries render} () override
+\item 
+\mbox{\Hypertarget{classInventoryComponent_a9cf39c11719e9879d02441fd1bad8ca5}\label{classInventoryComponent_a9cf39c11719e9879d02441fd1bad8ca5}} 
+void {\bfseries fixed\+Update} (const float \&delta\+Time) override
+\item 
+\mbox{\Hypertarget{classInventoryComponent_acc8ea854d32af65c8fb734ef1aef056b}\label{classInventoryComponent_acc8ea854d32af65c8fb734ef1aef056b}} 
+std\+::string {\bfseries name} () const override
+\item 
+\mbox{\Hypertarget{classInventoryComponent_a886b0f09eab3d57fb1c39a030a03994e}\label{classInventoryComponent_a886b0f09eab3d57fb1c39a030a03994e}} 
+\mbox{\hyperlink{classComponent}{Component}} $\ast$ {\bfseries build} (Entity\+Id entity\+Id, const \mbox{\hyperlink{classComponents_1_1component}{Components\+::component}} $\ast$component) override
+\item 
+\mbox{\Hypertarget{classInventoryComponent_a715994ec8ec4c1419bde10c6dc8ad64e}\label{classInventoryComponent_a715994ec8ec4c1419bde10c6dc8ad64e}} 
+void {\bfseries initialize} (\mbox{\hyperlink{classEntityObject}{Entity\+Object}} \&entity\+Parent) override
+\item 
+\mbox{\Hypertarget{classInventoryComponent_a40f57a590bc8101ec9e481cbba6c66f6}\label{classInventoryComponent_a40f57a590bc8101ec9e481cbba6c66f6}} 
+void {\bfseries update} (const \mbox{\hyperlink{structInput}{Input}} \&input\+System) override
+\item 
+\mbox{\Hypertarget{classInventoryComponent_a7f551eae7a3ce667eac99b6f4ba01890}\label{classInventoryComponent_a7f551eae7a3ce667eac99b6f4ba01890}} 
+void {\bfseries add\+To\+Inventory} (\mbox{\hyperlink{classInventoryItem}{Inventory\+Item}} $\ast$item)
+\item 
+\mbox{\Hypertarget{classInventoryComponent_a9f7eddc04a037f01a12531869d2ba2ba}\label{classInventoryComponent_a9f7eddc04a037f01a12531869d2ba2ba}} 
+void {\bfseries remove\+From\+Inventory} (const std\+::string \&name, int count)
+\item 
+\mbox{\Hypertarget{classInventoryComponent_a981b6a7256f236cae7233f1090b70c75}\label{classInventoryComponent_a981b6a7256f236cae7233f1090b70c75}} 
+int {\bfseries get\+Inventory\+Size} () const
+\item 
+\mbox{\Hypertarget{classInventoryComponent_abdcf394a9f0043bb17ca40507fa00838}\label{classInventoryComponent_abdcf394a9f0043bb17ca40507fa00838}} 
+bool {\bfseries is\+Menu\+Open} () const
+\item 
+\mbox{\Hypertarget{classInventoryComponent_a214e2eab5e7156bcb6101654915ab038}\label{classInventoryComponent_a214e2eab5e7156bcb6101654915ab038}} 
+\mbox{\hyperlink{classEvent}{Event}}$<$ \mbox{\hyperlink{classInventoryItem}{Inventory\+Item}} \& $>$ \& {\bfseries get\+Event\+Manager} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Game/\+Components/\+Inventory/Inventory\+Component.\+hpp\item 
+Game/\+Components/\+Inventory/Inventory\+Component.\+cpp\end{DoxyCompactItemize}

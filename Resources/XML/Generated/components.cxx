@@ -103,6 +103,36 @@ namespace Components
     this->transformComponent_.set (std::move (x));
   }
 
+  const component::AIComponent_optional& component::
+  AIComponent () const
+  {
+    return this->AIComponent_;
+  }
+
+  component::AIComponent_optional& component::
+  AIComponent ()
+  {
+    return this->AIComponent_;
+  }
+
+  void component::
+  AIComponent (const AIComponent_type& x)
+  {
+    this->AIComponent_.set (x);
+  }
+
+  void component::
+  AIComponent (const AIComponent_optional& x)
+  {
+    this->AIComponent_ = x;
+  }
+
+  void component::
+  AIComponent (::std::unique_ptr< AIComponent_type > x)
+  {
+    this->AIComponent_.set (std::move (x));
+  }
+
   const component::renderComponent_optional& component::
   renderComponent () const
   {
@@ -591,6 +621,34 @@ namespace Components
   position (::std::unique_ptr< position_type > x)
   {
     this->position_.set (std::move (x));
+  }
+
+
+  // AIComponent
+  // 
+
+  const AIComponent::followingName_type& AIComponent::
+  followingName () const
+  {
+    return this->followingName_.get ();
+  }
+
+  AIComponent::followingName_type& AIComponent::
+  followingName ()
+  {
+    return this->followingName_.get ();
+  }
+
+  void AIComponent::
+  followingName (const followingName_type& x)
+  {
+    this->followingName_.set (x);
+  }
+
+  void AIComponent::
+  followingName (::std::unique_ptr< followingName_type > x)
+  {
+    this->followingName_.set (std::move (x));
   }
 
 
@@ -1194,6 +1252,7 @@ namespace Components
   : ::xml_schema::type (),
     componentName_ (componentName, this),
     transformComponent_ (this),
+    AIComponent_ (this),
     renderComponent_ (this),
     physicsComponent_ (this),
     characterComponent_ (this),
@@ -1217,6 +1276,7 @@ namespace Components
   : ::xml_schema::type (x, f, c),
     componentName_ (x.componentName_, f, this),
     transformComponent_ (x.transformComponent_, f, this),
+    AIComponent_ (x.AIComponent_, f, this),
     renderComponent_ (x.renderComponent_, f, this),
     physicsComponent_ (x.physicsComponent_, f, this),
     characterComponent_ (x.characterComponent_, f, this),
@@ -1240,6 +1300,7 @@ namespace Components
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     componentName_ (this),
     transformComponent_ (this),
+    AIComponent_ (this),
     renderComponent_ (this),
     physicsComponent_ (this),
     characterComponent_ (this),
@@ -1295,6 +1356,20 @@ namespace Components
         if (!this->transformComponent_)
         {
           this->transformComponent_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // AIComponent
+      //
+      if (n.name () == "AIComponent" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< AIComponent_type > r (
+          AIComponent_traits::create (i, f, this));
+
+        if (!this->AIComponent_)
+        {
+          this->AIComponent_.set (::std::move (r));
           continue;
         }
       }
@@ -1507,6 +1582,7 @@ namespace Components
       static_cast< ::xml_schema::type& > (*this) = x;
       this->componentName_ = x.componentName_;
       this->transformComponent_ = x.transformComponent_;
+      this->AIComponent_ = x.AIComponent_;
       this->renderComponent_ = x.renderComponent_;
       this->physicsComponent_ = x.physicsComponent_;
       this->characterComponent_ = x.characterComponent_;
@@ -1855,6 +1931,98 @@ namespace Components
 
   transformComponent::
   ~transformComponent ()
+  {
+  }
+
+  // AIComponent
+  //
+
+  AIComponent::
+  AIComponent (const followingName_type& followingName)
+  : ::xml_schema::type (),
+    followingName_ (followingName, this)
+  {
+  }
+
+  AIComponent::
+  AIComponent (const AIComponent& x,
+               ::xml_schema::flags f,
+               ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    followingName_ (x.followingName_, f, this)
+  {
+  }
+
+  AIComponent::
+  AIComponent (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f,
+               ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    followingName_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void AIComponent::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // followingName
+      //
+      if (n.name () == "followingName" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< followingName_type > r (
+          followingName_traits::create (i, f, this));
+
+        if (!followingName_.present ())
+        {
+          this->followingName_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!followingName_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "followingName",
+        "");
+    }
+  }
+
+  AIComponent* AIComponent::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class AIComponent (*this, f, c);
+  }
+
+  AIComponent& AIComponent::
+  operator= (const AIComponent& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->followingName_ = x.followingName_;
+    }
+
+    return *this;
+  }
+
+  AIComponent::
+  ~AIComponent ()
   {
   }
 

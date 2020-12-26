@@ -1,0 +1,69 @@
+\hypertarget{classCharacterComponent}{}\doxysection{Character\+Component Class Reference}
+\label{classCharacterComponent}\index{CharacterComponent@{CharacterComponent}}
+Inheritance diagram for Character\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCharacterComponent}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCharacterComponent_adcc1e09f2aac6f30fd5ecc53c9864951}\label{classCharacterComponent_adcc1e09f2aac6f30fd5ecc53c9864951}} 
+{\bfseries Character\+Component} (Entity\+Id id)
+\item 
+\mbox{\Hypertarget{classCharacterComponent_a5c791f7a867dcba2853f3062c2f832e4}\label{classCharacterComponent_a5c791f7a867dcba2853f3062c2f832e4}} 
+{\bfseries Character\+Component} (Entity\+Id id, const \mbox{\hyperlink{structVector2}{Vector2}} \&position)
+\item 
+\mbox{\Hypertarget{classCharacterComponent_ab69cf2bd61931feaf4b4ab87852fa4a8}\label{classCharacterComponent_ab69cf2bd61931feaf4b4ab87852fa4a8}} 
+void {\bfseries get\+Velocity} (\mbox{\hyperlink{structVector2}{Vector2}} \&velocity)
+\item 
+\mbox{\Hypertarget{classCharacterComponent_afab8620e0d155fb28add4c462577c215}\label{classCharacterComponent_afab8620e0d155fb28add4c462577c215}} 
+void {\bfseries set\+Velocity} (const \mbox{\hyperlink{structVector2}{Vector2}} \&velocity)
+\item 
+\mbox{\Hypertarget{classCharacterComponent_ac0ae30e638b72275352ccfd84ff79454}\label{classCharacterComponent_ac0ae30e638b72275352ccfd84ff79454}} 
+float {\bfseries get\+Health} ()
+\item 
+\mbox{\Hypertarget{classCharacterComponent_a05ae57c52cbcd09d9766178b0cb79b2e}\label{classCharacterComponent_a05ae57c52cbcd09d9766178b0cb79b2e}} 
+void {\bfseries set\+Health} (float hp)
+\item 
+\mbox{\Hypertarget{classCharacterComponent_a14588d8ce916ac053c264cb661a15f0f}\label{classCharacterComponent_a14588d8ce916ac053c264cb661a15f0f}} 
+void {\bfseries die} ()
+\item 
+\mbox{\Hypertarget{classCharacterComponent_a80aa2c4a4441f04b12d8713d603075a3}\label{classCharacterComponent_a80aa2c4a4441f04b12d8713d603075a3}} 
+void {\bfseries do\+Damage} (float hp)
+\item 
+\mbox{\Hypertarget{classCharacterComponent_a8baf3e039d419a9b887247e65bfcaa19}\label{classCharacterComponent_a8baf3e039d419a9b887247e65bfcaa19}} 
+void {\bfseries fixed\+Update} (const float \&delta\+Time) override
+\item 
+\mbox{\Hypertarget{classCharacterComponent_a5cef799129c4437f618dddc61c7c3ef1}\label{classCharacterComponent_a5cef799129c4437f618dddc61c7c3ef1}} 
+const \mbox{\hyperlink{classSpritesheet}{Spritesheet}} \& {\bfseries get\+Sprite\+Sheet} ()
+\item 
+\mbox{\Hypertarget{classCharacterComponent_a73f9e601fde255a43e91a9aaf07aa315}\label{classCharacterComponent_a73f9e601fde255a43e91a9aaf07aa315}} 
+\mbox{\hyperlink{classComponent}{Component}} $\ast$ {\bfseries build} (Entity\+Id entity\+Id, const \mbox{\hyperlink{classComponents_1_1component}{Components\+::component}} $\ast$component) override
+\item 
+\mbox{\Hypertarget{classCharacterComponent_afd58ff6a633108fb2639872c08571b70}\label{classCharacterComponent_afd58ff6a633108fb2639872c08571b70}} 
+void {\bfseries initialize} (\mbox{\hyperlink{classEntityObject}{Entity\+Object}} \&entity\+Parent) override
+\item 
+\mbox{\Hypertarget{classCharacterComponent_a6e7e6ba27ccd7b12b123299d1b89b029}\label{classCharacterComponent_a6e7e6ba27ccd7b12b123299d1b89b029}} 
+std\+::string {\bfseries name} () const override
+\item 
+\mbox{\Hypertarget{classCharacterComponent_af81b16509a4555a2f82b92c2a77668da}\label{classCharacterComponent_af81b16509a4555a2f82b92c2a77668da}} 
+void {\bfseries start\+Contact} (b2\+Contact $\ast$contact) override
+\item 
+\mbox{\Hypertarget{classCharacterComponent_a19e6c0ad4e6e049190013069f06c6bf2}\label{classCharacterComponent_a19e6c0ad4e6e049190013069f06c6bf2}} 
+void {\bfseries end\+Contact} (b2\+Contact $\ast$contact) override
+\item 
+\mbox{\Hypertarget{classCharacterComponent_aff12cc4568e8b0eea026af00a6411ebc}\label{classCharacterComponent_aff12cc4568e8b0eea026af00a6411ebc}} 
+void {\bfseries render} () override
+\item 
+\mbox{\Hypertarget{classCharacterComponent_a102baeb28282d8c135c167439701ba76}\label{classCharacterComponent_a102baeb28282d8c135c167439701ba76}} 
+void {\bfseries update} (const \mbox{\hyperlink{structInput}{Input}} \&input\+System) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Game/\+Components/Character\+Component.\+hpp\item 
+Game/\+Components/Character\+Component.\+cpp\end{DoxyCompactItemize}

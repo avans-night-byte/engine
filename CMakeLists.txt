@@ -61,6 +61,8 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/Inventory/InventoryComponent.cpp
         ./Game/Components/Inventory/InventoryComponent.hpp
         ./Game/Components/Inventory/InventoryItem.cpp
+        ./Game/Components/AIComponent.cpp
+        ./Game/Components/AIComponent.hpp
         ./Game/Components/Inventory/InventoryItem.hpp
         ./Game/Components/Build/BuildComponent.cpp
         ./Game/Components/Build/BuildComponent.hpp
@@ -75,13 +77,14 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/Wallet/WalletComponent.cpp
         ./Game/Components/Wallet/WalletComponent.hpp
         ./Game/Components/Wallet/TransactionData.cpp
-        ./Game/Components/Wallet/WalletComponent.hpp
         ./Game/Components/Shopkeeper/TradingComponent.cpp
         ./Game/Components/Shopkeeper/TradingComponent.hpp
         ./Game/Components/Shopkeeper/ShopkeeperComponent.cpp
         ./Game/Components/Shopkeeper/ShopkeeperComponent.hpp
         ./Game/Components/Characters/ZombieComponent.cpp
         ./Game/Components/Characters/ZombieComponent.hpp
+        ./Game/CheatMode.cpp
+        ./Game/CheatMode.hpp
 
         # Engine
         ./Engine/Engine.cpp
@@ -95,7 +98,8 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Audio/AudioType.h
         ./Engine/Physics/PhysicsEngineAdapter.hpp
         ./Engine/Physics/Box2DPhysicsEngineAdapter.hpp
-
+        ./Engine/Astar.cpp
+        ./Engine/Astar.hpp
         ./Engine/Physics/BodyType.hpp
         ./Engine/Physics/Box2dPhysicsEngineAdapter.cpp
         ./Engine/Physics/PhysicsDebug/Box2dDrawDebug.hpp
@@ -142,7 +146,7 @@ add_executable(NightByte ./Main.cpp
         ./API/XMLParser/MenuParserAPI.hpp
         ./API/XMLParser/LevelParserAPI.cpp
         ./API/Physics/BodyHandlerAPI.hpp
-        ./API/Helpers/Vector2.hpp Game/CheatMode.cpp Game/CheatMode.hpp)
+        ./API/Helpers/Vector2.hpp)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)

@@ -36,8 +36,8 @@
  * @brief Generated from common.xsd.
  */
 
-#ifndef RESOURCES_XML_SCHEMAS_COMMON_HXX
-#define RESOURCES_XML_SCHEMAS_COMMON_HXX
+#ifndef CXX__RESOURCES_XML_SCHEMAS_COMMON_HXX
+#define CXX__RESOURCES_XML_SCHEMAS_COMMON_HXX
 
 #ifndef XSD_CXX11
 #define XSD_CXX11
@@ -6599,4 +6599,4 @@ namespace Common
 //
 // End epilogue.
 
-#endif // RESOURCES_XML_SCHEMAS_COMMON_HXX
+#endif // CXX__RESOURCES_XML_SCHEMAS_COMMON_HXX

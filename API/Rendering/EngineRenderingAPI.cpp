@@ -95,6 +95,11 @@ EngineRenderingAdapter &EngineRenderingAPI::getRendererAdapter() {
     return _adapter;
 }
 
+void EngineRenderingAPI::drawBox(const Vector2 *vertices, int32 vertexCount) const{
+    return _adapter.drawBox(vertices, vertexCount);
+}
+
+
 void EngineRenderingAPI::clear() const {
     _adapter.clear();
 }

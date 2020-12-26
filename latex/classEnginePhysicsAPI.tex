@@ -1,0 +1,64 @@
+\hypertarget{classEnginePhysicsAPI}{}\doxysection{Engine\+Physics\+A\+PI Class Reference}
+\label{classEnginePhysicsAPI}\index{EnginePhysicsAPI@{EnginePhysicsAPI}}
+Inheritance diagram for Engine\+Physics\+A\+PI\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classEnginePhysicsAPI}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEnginePhysicsAPI_a86bb9de862dd4867725c6e26096708e2}\label{classEnginePhysicsAPI_a86bb9de862dd4867725c6e26096708e2}} 
+void {\bfseries update} (float time\+Step) override
+\item 
+\mbox{\Hypertarget{classEnginePhysicsAPI_a4df2f280e938613f3f2f3e9f1394b47c}\label{classEnginePhysicsAPI_a4df2f280e938613f3f2f3e9f1394b47c}} 
+Body\+Id {\bfseries create\+Body} (const \mbox{\hyperlink{classBox2DBoxData}{Box2\+D\+Box\+Data}} \&box2\+D\+Box\+Data) const override
+\item 
+\mbox{\Hypertarget{classEnginePhysicsAPI_aed0a374b541ec2f1eaeeaf369690213e}\label{classEnginePhysicsAPI_aed0a374b541ec2f1eaeeaf369690213e}} 
+Body\+Id {\bfseries create\+Body} (const \mbox{\hyperlink{classBox2DCircleData}{Box2\+D\+Circle\+Data}} \&box2\+D\+Circle\+Data) const override
+\item 
+\mbox{\Hypertarget{classEnginePhysicsAPI_ab19774bf79b3191d99e83ed91961ec83}\label{classEnginePhysicsAPI_ab19774bf79b3191d99e83ed91961ec83}} 
+Body\+Id {\bfseries create\+Body} (const \mbox{\hyperlink{classBox2DPolygonData}{Box2\+D\+Polygon\+Data}} \&box2\+D\+Polygon\+Data) const override
+\item 
+\mbox{\Hypertarget{classEnginePhysicsAPI_a0248983c69498ab55c6807202da72016}\label{classEnginePhysicsAPI_a0248983c69498ab55c6807202da72016}} 
+void {\bfseries destroy\+Body} (Body\+Id body\+ID) override
+\item 
+\mbox{\Hypertarget{classEnginePhysicsAPI_a497e7ec07148cd7cafcf347a62e5e2c6}\label{classEnginePhysicsAPI_a497e7ec07148cd7cafcf347a62e5e2c6}} 
+\mbox{\hyperlink{structRTransform}{R\+Transform}} {\bfseries get\+R\+Position} (Body\+Id body\+Id) const override
+\item 
+\mbox{\Hypertarget{classEnginePhysicsAPI_ab78af15154635450b27ac12880c6e568}\label{classEnginePhysicsAPI_ab78af15154635450b27ac12880c6e568}} 
+void {\bfseries Debug\+Draw} (const \mbox{\hyperlink{classRenderingAPI}{Rendering\+A\+PI}} \&rendering\+Api, S\+D\+L\+\_\+\+Renderer \&renderer) override
+\item 
+\mbox{\Hypertarget{classEnginePhysicsAPI_a9c8709abc9a38f90b6fc57ddc277b784}\label{classEnginePhysicsAPI_a9c8709abc9a38f90b6fc57ddc277b784}} 
+void {\bfseries Get\+Velocity} (\mbox{\hyperlink{structVector2}{Vector2}} \&velocity, const Body\+Id body\+Id) const override
+\item 
+\mbox{\Hypertarget{classEnginePhysicsAPI_a48fb84d6cfdaf3ad9da49943d1b20501}\label{classEnginePhysicsAPI_a48fb84d6cfdaf3ad9da49943d1b20501}} 
+void {\bfseries set\+Linear\+Velocity} (const Body\+Id body\+Id, const \mbox{\hyperlink{structVector2}{Vector2}} \&vector2) const override
+\item 
+\mbox{\Hypertarget{classEnginePhysicsAPI_a9cc6ac319249fda8a28e45df2c084f4c}\label{classEnginePhysicsAPI_a9cc6ac319249fda8a28e45df2c084f4c}} 
+void {\bfseries set\+Fixed\+Rotation} (const Body\+Id i, bool b) const override
+\item 
+\mbox{\Hypertarget{classEnginePhysicsAPI_a7a3f94342b7708e2ec2ba99aef5ff8c4}\label{classEnginePhysicsAPI_a7a3f94342b7708e2ec2ba99aef5ff8c4}} 
+void {\bfseries add\+Force} (const Body\+Id i, \mbox{\hyperlink{structVector2}{Vector2}} direction) const override
+\item 
+\mbox{\Hypertarget{classEnginePhysicsAPI_afcf93fdd54f7d03764d60be7059a4469}\label{classEnginePhysicsAPI_afcf93fdd54f7d03764d60be7059a4469}} 
+void {\bfseries set\+Angle} (const Body\+Id i, float angle) const override
+\item 
+\mbox{\Hypertarget{classEnginePhysicsAPI_a9db951432ca0c4238995928c41f7262b}\label{classEnginePhysicsAPI_a9db951432ca0c4238995928c41f7262b}} 
+void {\bfseries destroy\+Body} (Body\+Id i) const override
+\item 
+\mbox{\Hypertarget{classEnginePhysicsAPI_a2b9e3088d85661ea874a8c9b59100189}\label{classEnginePhysicsAPI_a2b9e3088d85661ea874a8c9b59100189}} 
+void {\bfseries set\+Transform} (unsigned int body\+Id, \mbox{\hyperlink{structVector2}{Vector2}} pos, float angle) const override
+\item 
+\mbox{\Hypertarget{classEnginePhysicsAPI_ae092fe5383314c3864e776ec679e7ac5}\label{classEnginePhysicsAPI_ae092fe5383314c3864e776ec679e7ac5}} 
+void {\bfseries set\+Enabled} (Body\+Id id, bool b) const override
+\item 
+\mbox{\Hypertarget{classEnginePhysicsAPI_ab0b33501ec2e4c7b3b3a03b0dde69d97}\label{classEnginePhysicsAPI_ab0b33501ec2e4c7b3b3a03b0dde69d97}} 
+\mbox{\hyperlink{classPhysicsEngineAdapter}{Physics\+Engine\+Adapter}} \& {\bfseries get\+Physics\+Engine\+Adapter} () const override
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+A\+P\+I/\+Physics/Engine\+Physics\+A\+P\+I.\+hpp\end{DoxyCompactItemize}

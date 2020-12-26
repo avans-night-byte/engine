@@ -1,0 +1,100 @@
+\hypertarget{classRenderComponent}{}\doxysection{Render\+Component Class Reference}
+\label{classRenderComponent}\index{RenderComponent@{RenderComponent}}
+Inheritance diagram for Render\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classRenderComponent}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRenderComponent_a424778e3fbe913160d87c0f72e448574}\label{classRenderComponent_a424778e3fbe913160d87c0f72e448574}} 
+void {\bfseries update} (const \mbox{\hyperlink{structInput}{Input}} \&input\+System) override
+\item 
+\mbox{\Hypertarget{classRenderComponent_a45c5927c03b895fcd873cb8ab0170d6f}\label{classRenderComponent_a45c5927c03b895fcd873cb8ab0170d6f}} 
+void {\bfseries fixed\+Update} (const float \&delta\+Time) override
+\item 
+void \mbox{\hyperlink{classRenderComponent_ad0c486b442c47f3275a6214f955d3ba4}{set\+Color}} (int red, int blue, int green)
+\item 
+void \mbox{\hyperlink{classRenderComponent_ae94080696b9599596f32be8c146f00ae}{render}} () override
+\item 
+\mbox{\hyperlink{classRenderComponent_a56a27cdc7422382c78ed7dd47d863d0a}{Render\+Component}} (Entity\+Id id)
+\item 
+\mbox{\hyperlink{classRenderComponent_a65d310c825f87d72f07c219a9e4790a5}{Render\+Component}} (Entity\+Id id, \mbox{\hyperlink{classTransformComponent}{Transform\+Component}} $\ast$transform, const std\+::string \&texture\+Path, std\+::string texture\+Id)
+\item 
+\mbox{\Hypertarget{classRenderComponent_ad852d6dddfbf42452bf8b5c1d027f5be}\label{classRenderComponent_ad852d6dddfbf42452bf8b5c1d027f5be}} 
+{\bfseries Render\+Component} (Entity\+Id id, \mbox{\hyperlink{classTransformComponent}{Transform\+Component}} $\ast$position\+Component, std\+::string texture\+Id)
+\item 
+\mbox{\Hypertarget{classRenderComponent_aaa7d02a9a326305633aa3c13ed32c652}\label{classRenderComponent_aaa7d02a9a326305633aa3c13ed32c652}} 
+std\+::string {\bfseries name} () const override
+\item 
+\mbox{\Hypertarget{classRenderComponent_a191e52d706a0763e7786d74d0046cffc}\label{classRenderComponent_a191e52d706a0763e7786d74d0046cffc}} 
+\mbox{\hyperlink{classComponent}{Component}} $\ast$ {\bfseries build} (Entity\+Id entity\+Id, const \mbox{\hyperlink{classComponents_1_1component}{Components\+::component}} $\ast$component) override
+\item 
+\mbox{\Hypertarget{classRenderComponent_a9ab340a0a6d9e9179085d8449f2f64f5}\label{classRenderComponent_a9ab340a0a6d9e9179085d8449f2f64f5}} 
+void {\bfseries initialize} (\mbox{\hyperlink{classEntityObject}{Entity\+Object}} \&entity\+Parent) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRenderComponent_a56a27cdc7422382c78ed7dd47d863d0a}\label{classRenderComponent_a56a27cdc7422382c78ed7dd47d863d0a}} 
+\index{RenderComponent@{RenderComponent}!RenderComponent@{RenderComponent}}
+\index{RenderComponent@{RenderComponent}!RenderComponent@{RenderComponent}}
+\doxysubsubsection{\texorpdfstring{RenderComponent()}{RenderComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Render\+Component\+::\+Render\+Component (\begin{DoxyParamCaption}\item[{Entity\+Id}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+This is a sample component, this one renders an imahe on the screen. \mbox{\Hypertarget{classRenderComponent_a65d310c825f87d72f07c219a9e4790a5}\label{classRenderComponent_a65d310c825f87d72f07c219a9e4790a5}} 
+\index{RenderComponent@{RenderComponent}!RenderComponent@{RenderComponent}}
+\index{RenderComponent@{RenderComponent}!RenderComponent@{RenderComponent}}
+\doxysubsubsection{\texorpdfstring{RenderComponent()}{RenderComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Render\+Component\+::\+Render\+Component (\begin{DoxyParamCaption}\item[{Entity\+Id}]{id,  }\item[{\mbox{\hyperlink{classTransformComponent}{Transform\+Component}} $\ast$}]{transform,  }\item[{const std\+::string \&}]{texture\+Path,  }\item[{std\+::string}]{texture\+Id }\end{DoxyParamCaption})}
+
+Instantiates the rendering and passes any needed variables like the engine\+Rendering\+Api 
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em transform} & \\
+\hline
+{\em texture\+Path} & \\
+\hline
+{\em texture\+Id} & \\
+\hline
+{\em engine\+Rendering\+Api} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRenderComponent_ae94080696b9599596f32be8c146f00ae}\label{classRenderComponent_ae94080696b9599596f32be8c146f00ae}} 
+\index{RenderComponent@{RenderComponent}!render@{render}}
+\index{render@{render}!RenderComponent@{RenderComponent}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Render\+Component\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Sample rendering function, the \+\_\+components are pretty much a poc. 
+
+Implements \mbox{\hyperlink{classComponent}{Component}}.
+
+\mbox{\Hypertarget{classRenderComponent_ad0c486b442c47f3275a6214f955d3ba4}\label{classRenderComponent_ad0c486b442c47f3275a6214f955d3ba4}} 
+\index{RenderComponent@{RenderComponent}!setColor@{setColor}}
+\index{setColor@{setColor}!RenderComponent@{RenderComponent}}
+\doxysubsubsection{\texorpdfstring{setColor()}{setColor()}}
+{\footnotesize\ttfamily void Render\+Component\+::set\+Color (\begin{DoxyParamCaption}\item[{int}]{red,  }\item[{int}]{blue,  }\item[{int}]{green }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em red} & \\
+\hline
+{\em blue} & \\
+\hline
+{\em green} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Game/\+Components/Render\+Component.\+hpp\item 
+Game/\+Components/Render\+Component.\+cpp\end{DoxyCompactItemize}
