@@ -36,8 +36,8 @@
  * @brief Generated from wall.xsd.
  */
 
-#ifndef CXX__RESOURCES_XML_SCHEMAS_WALL_HXX
-#define CXX__RESOURCES_XML_SCHEMAS_WALL_HXX
+#ifndef RESOURCES_XML_SCHEMAS_WALL_HXX
+#define RESOURCES_XML_SCHEMAS_WALL_HXX
 
 #ifndef XSD_CXX11
 #define XSD_CXX11
@@ -2512,4 +2512,4 @@ namespace Walls
 //
 // End epilogue.
 
-#endif // CXX__RESOURCES_XML_SCHEMAS_WALL_HXX
+#endif // RESOURCES_XML_SCHEMAS_WALL_HXX

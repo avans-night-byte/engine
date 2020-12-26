@@ -36,8 +36,8 @@
  * @brief Generated from objects.xsd.
  */
 
-#ifndef CXX__RESOURCES_XML_SCHEMAS_OBJECTS_HXX
-#define CXX__RESOURCES_XML_SCHEMAS_OBJECTS_HXX
+#ifndef RESOURCES_XML_SCHEMAS_OBJECTS_HXX
+#define RESOURCES_XML_SCHEMAS_OBJECTS_HXX
 
 #ifndef XSD_CXX11
 #define XSD_CXX11
@@ -1534,4 +1534,4 @@ namespace Objects
 //
 // End epilogue.
 
-#endif // CXX__RESOURCES_XML_SCHEMAS_OBJECTS_HXX
+#endif // RESOURCES_XML_SCHEMAS_OBJECTS_HXX

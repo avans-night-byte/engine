@@ -36,8 +36,8 @@
  * @brief Generated from menu.xsd.
  */
 
-#ifndef CXX__RESOURCES_XML_SCHEMAS_MENU_HXX
-#define CXX__RESOURCES_XML_SCHEMAS_MENU_HXX
+#ifndef RESOURCES_XML_SCHEMAS_MENU_HXX
+#define RESOURCES_XML_SCHEMAS_MENU_HXX
 
 #ifndef XSD_CXX11
 #define XSD_CXX11
@@ -4269,4 +4269,4 @@ namespace Menu
 //
 // End epilogue.
 
-#endif // CXX__RESOURCES_XML_SCHEMAS_MENU_HXX
+#endif // RESOURCES_XML_SCHEMAS_MENU_HXX

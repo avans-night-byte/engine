@@ -36,8 +36,8 @@
  * @brief Generated from resources.xsd.
  */
 
-#ifndef CXX__RESOURCES_XML_SCHEMAS_RESOURCES_HXX
-#define CXX__RESOURCES_XML_SCHEMAS_RESOURCES_HXX
+#ifndef RESOURCES_XML_SCHEMAS_RESOURCES_HXX
+#define RESOURCES_XML_SCHEMAS_RESOURCES_HXX
 
 #ifndef XSD_CXX11
 #define XSD_CXX11
@@ -4186,4 +4186,4 @@ namespace GameResources
 //
 // End epilogue.
 
-#endif // CXX__RESOURCES_XML_SCHEMAS_RESOURCES_HXX
+#endif // RESOURCES_XML_SCHEMAS_RESOURCES_HXX

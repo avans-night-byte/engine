@@ -1,9 +1,4 @@
-//
-// Created by sascha on 12/20/20.
-//
-
-#ifndef NIGHTBYTE_ASTAR_HPP
-#define NIGHTBYTE_ASTAR_HPP
+#pragma once
 
 #include <array>
 #include <hash_map>
@@ -175,15 +170,3 @@ public:
             std::unordered_map<GridLocation, GridLocation> came_from
     );
 };
-
-
-
-
-
-
-
-
-
-
-
-#endif //NIGHTBYTE_ASTAR_HPP
