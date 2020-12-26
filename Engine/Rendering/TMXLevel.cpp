@@ -262,8 +262,8 @@ void TMXLevel::GetGrid(int **weights) const {
             float upperY = yPos + (16 * scale);
             auto queryCallback = MyQueryCallback();
 
-            aabb.lowerBound = b2Vec2{xPos + 2, yPos + 2};
-            aabb.upperBound = b2Vec2{upperX - 2, upperY - 2};
+            aabb.lowerBound = b2Vec2{xPos, yPos};
+            aabb.upperBound = b2Vec2{upperX, upperY};
 
             world.QueryAABB(&queryCallback, aabb);
 
@@ -286,7 +286,7 @@ void TMXLevel::GetGrid(int **weights) const {
                 }
 
                 if(fixture->GetBody()->GetType() == b2_dynamicBody){
-                    weights[y][x] = 2;
+                    weights[y][x] = 0;
                 }
             }
         }
