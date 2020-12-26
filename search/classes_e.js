@@ -1,16 +1,17 @@
 var searchData=
 [
-  ['scene_772',['scene',['../classGameResources_1_1scene.html',1,'GameResources']]],
-  ['scenes_773',['scenes',['../classGameResources_1_1scenes.html',1,'GameResources']]],
-  ['sdlaudioengineadapter_774',['SDLAudioEngineAdapter',['../classSDLAudioEngineAdapter.html',1,'']]],
-  ['sdlinputengineadapter_775',['SDLInputEngineAdapter',['../classSDLInputEngineAdapter.html',1,'']]],
-  ['sdlrenderingadapter_776',['SDLRenderingAdapter',['../classSDLRenderingAdapter.html',1,'']]],
-  ['sentry_777',['sentry',['../classSentry_1_1sentry.html',1,'Sentry']]],
-  ['size_778',['size',['../classCommon_1_1size.html',1,'Common']]],
-  ['size1_779',['size1',['../classCommon_1_1size1.html',1,'Common']]],
-  ['sound_780',['sound',['../classGameResources_1_1sound.html',1,'GameResources']]],
-  ['sounds_781',['sounds',['../classGameResources_1_1sounds.html',1,'GameResources']]],
-  ['sprite_782',['sprite',['../classGameResources_1_1sprite.html',1,'GameResources']]],
-  ['sprites_783',['sprites',['../classGameResources_1_1sprites.html',1,'GameResources']]],
-  ['spritesheet_784',['SpriteSheet',['../classSpriteSheet.html',1,'SpriteSheet'],['../classGameResources_1_1spriteSheet.html',1,'GameResources::spriteSheet']]]
+  ['scene_800',['scene',['../classGameResources_1_1scene.html',1,'GameResources']]],
+  ['scenes_801',['scenes',['../classGameResources_1_1scenes.html',1,'GameResources']]],
+  ['sdlaudioengineadapter_802',['SDLAudioEngineAdapter',['../classSDLAudioEngineAdapter.html',1,'']]],
+  ['sdlinputengineadapter_803',['SDLInputEngineAdapter',['../classSDLInputEngineAdapter.html',1,'']]],
+  ['sdlrenderingadapter_804',['SDLRenderingAdapter',['../classSDLRenderingAdapter.html',1,'']]],
+  ['sentry_805',['sentry',['../classSentry_1_1sentry.html',1,'Sentry']]],
+  ['shopkeepercomponent_806',['shopkeeperComponent',['../classComponents_1_1shopkeeperComponent.html',1,'Components']]],
+  ['size_807',['size',['../classCommon_1_1size.html',1,'Common']]],
+  ['size1_808',['size1',['../classCommon_1_1size1.html',1,'Common']]],
+  ['sound_809',['sound',['../classGameResources_1_1sound.html',1,'GameResources']]],
+  ['sounds_810',['sounds',['../classGameResources_1_1sounds.html',1,'GameResources']]],
+  ['sprite_811',['sprite',['../classGameResources_1_1sprite.html',1,'GameResources']]],
+  ['sprites_812',['sprites',['../classGameResources_1_1sprites.html',1,'GameResources']]],
+  ['spritesheet_813',['SpriteSheet',['../classSpriteSheet.html',1,'SpriteSheet'],['../classGameResources_1_1spriteSheet.html',1,'GameResources::spriteSheet']]]
 ];
