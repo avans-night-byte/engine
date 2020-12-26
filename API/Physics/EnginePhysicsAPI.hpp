@@ -70,6 +70,10 @@ public:
         _physicsEngineAdapter->setTransform(bodyId, pos, angle);
     }
 
+    void addFixture(unsigned int bodyId, const Box2DBoxData &box2DBoxData) const override {
+        _physicsEngineAdapter->addFixtureToBody(bodyId, box2DBoxData);
+    }
+
     void setEnabled(BodyId id, bool b) const override {
         _physicsEngineAdapter->setEnabled(id, b);
     }

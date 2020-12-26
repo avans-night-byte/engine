@@ -53,5 +53,7 @@ public:
 
     virtual void setTransform(unsigned int bodyId, Vector2 pos, float angle) const = 0;
 
+    virtual void addFixture(unsigned int bodyId, const Box2DBoxData &box2DBoxData) const = 0;
+
     virtual void setEnabled(BodyId id, bool b) const = 0;
 };

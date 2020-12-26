@@ -63,7 +63,7 @@
                     <hex>ffffff</hex>
                     <alpha>255</alpha>
                 </common:color>
-                <content>Quit</content>
+                <content>Main Menu</content>
             </text>
             <common:color>
                 <hex>000000</hex>

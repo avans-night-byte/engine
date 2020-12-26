@@ -78,7 +78,6 @@ void SDLRenderingAdapter::drawRectangle(Vector2 &position, float width, float he
     rectangle.h = height;
 
     SDL_RenderFillRectF(_renderer, &rectangle);
-    SDL_SetRenderDrawColor(_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 }
 
 SDL_Color &SDLRenderingAdapter::HexToRGB(std::string hex, float opacity) {

@@ -3,7 +3,6 @@
 #include "Adapter/SDLRenderingAdapter.hpp"
 
 #include <iostream>
-#include <debugapi.h>
 
 TextureManager* TextureManager::instance = nullptr;
 

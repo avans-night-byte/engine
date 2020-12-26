@@ -37,7 +37,7 @@ Box2DPhysicsEngineAdapter::createBody(const Box2DBoxData &box2dBoxData) {
     body->CreateFixture(&fixtureDef);
 
     availableBodyId++;
-    bodies[availableBodyId] = (body);
+    bodies[availableBodyId] = body;
     return availableBodyId;
 }
 
@@ -68,13 +68,29 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(const Box2DCircleData &box2DC
     fixtureDef.shape = &circle;
     fixtureDef.density = 1.0f;
     fixtureDef.friction = 1.0f;
+    fixtureDef.isSensor = box2DCircleData.isSensor;
     body->CreateFixture(&fixtureDef);
 
     availableBodyId++;
-    bodies[availableBodyId] = (body);
+    bodies[availableBodyId] = body;
     return availableBodyId;
 }
 
+void Box2DPhysicsEngineAdapter::addFixtureToBody(BodyId id, const Box2DBoxData &box2dBoxData) {
+    Vector2 size = box2dBoxData.size;
+    b2Vec2 center = b2Vec2(box2dBoxData.offset.x, box2dBoxData.offset.y);
+    b2PolygonShape box;
+    box.SetAsBox(size.x, size.y, center, 0);
+
+    b2FixtureDef fixtureDef;
+    fixtureDef.density = 1.0f;
+    fixtureDef.friction = 0.0f;
+    fixtureDef.shape = &box;
+    fixtureDef.isSensor = box2dBoxData.isSensor;
+
+    b2Body *body = this->bodies[id];
+    body->CreateFixture(&fixtureDef);
+}
 
 BodyId Box2DPhysicsEngineAdapter::createBody(const Box2DPolygonData &box2DPolygonData) {
     BodyType bodyType = box2DPolygonData.bodyType;
@@ -115,7 +131,7 @@ BodyId Box2DPhysicsEngineAdapter::createBody(const Box2DPolygonData &box2DPolygo
     body->CreateFixture(&fixtureDef);
 
     availableBodyId++;
-    bodies[availableBodyId] = (body);
+    bodies[availableBodyId] = body;
     return availableBodyId;
 }
 
@@ -151,7 +167,7 @@ void Box2DPhysicsEngineAdapter::debugDraw(const EngineRenderingAdapter &renderin
 }
 
 void Box2DPhysicsEngineAdapter::update(float timeStep) {
-        world.Step(timeStep, _velocityIterations, _positionIterations);
+    world.Step(timeStep, _velocityIterations, _positionIterations);
 }
 
 void Box2DPhysicsEngineAdapter::setLinearVelocity(const BodyId bodyId, const Vector2 &vector2) {
