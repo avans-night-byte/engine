@@ -68,6 +68,7 @@ void SDLRenderingAdapter::drawBox(const Vector2 *vertices, int32 vertexCount) co
 void SDLRenderingAdapter::drawRectangle(Vector2 &position, float width, float height, const std::string &color,
                                         float opacity) {
     SDL_Color &sdlColor = HexToRGB(color, opacity);
+    SDL_SetRenderDrawBlendMode(_renderer, SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(_renderer, sdlColor.r, sdlColor.g, sdlColor.b, sdlColor.a);
     SDL_FRect rectangle;
 
