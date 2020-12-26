@@ -19,36 +19,36 @@ enum ResourceType {
 
 class ResourceManager {
 private:
-    std::string _basePath;
-    bool _debug;
+    std::string _basePath{};
+    bool _debug = false;
 
 
     // Resources
-    std::vector<std::string> _loadedResources;
-    std::map<std::string, ResourceType> _resources;
+    std::vector<std::string> _loadedResources{};
+    std::map<std::string, ResourceType> _resources{};
 
 
     // Textures
-    std::map<std::string, std::unique_ptr<GameResources::texture>> _textures;
+    std::map<std::string, std::unique_ptr<GameResources::texture>> _textures{};
     // std::map<std::string, std::unique_ptr<f>> _loadedTextures;
 
     // Sprites
-    std::map<std::string, std::unique_ptr<GameResources::sprite>> _sprites;
+    std::map<std::string, std::unique_ptr<GameResources::sprite>> _sprites{};
 
     // Sounds
-    std::map<std::string, std::unique_ptr<GameResources::sound>> _sounds;
+    std::map<std::string, std::unique_ptr<GameResources::sound>> _sounds{};
 
     // Music
-    std::map<std::string, std::unique_ptr<GameResources::music1>> _music;
+    std::map<std::string, std::unique_ptr<GameResources::music1>> _music{};
 
     // Scenes
-    std::map<std::string, std::unique_ptr<GameResources::scene>> _scenes;
+    std::map<std::string, std::unique_ptr<GameResources::scene>> _scenes{};
 
     // Levels
-    std::map<std::string, std::unique_ptr<GameResources::level>> _levels;
+    std::map<std::string, std::unique_ptr<GameResources::level>> _levels{};
 
     // PreObject
-    std::map<std::string, std::unique_ptr<GameResources::objectList>> _preObjects;
+    std::map<std::string, std::unique_ptr<GameResources::objectList>> _preObjects{};
 
     // Verification
     void verifyFile(const std::string& type, const ResourceType& resourceType, const std::string& name, const std::string& path);

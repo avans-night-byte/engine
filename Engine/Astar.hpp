@@ -161,6 +161,7 @@ struct GridWithWeights: SquareGrid {
     }
 };
 
+
 class Astar {
 public:
     static void search(GridWithWeights graph, GridLocation start, GridLocation goal,

@@ -234,7 +234,7 @@ public:
 
     bool ReportFixture(b2Fixture* fixture) {
         fixtures.push_back(fixture);
-        return false;
+        return true;
     }
 };
 
@@ -258,30 +258,36 @@ void TMXLevel::GetGrid(int **weights) const {
             float xPos = x * (16 * scale);
             float yPos = y * (16 * scale);
 
-            float lowerX = xPos + (16 * scale);
-            float lowerY = yPos + (16 * scale);
+            float upperX = xPos + (16 * scale);
+            float upperY = yPos + (16 * scale);
             auto queryCallback = MyQueryCallback();
 
-            aabb.lowerBound = b2Vec2{xPos, yPos};
-            aabb.upperBound = b2Vec2{lowerX, lowerY};
+            aabb.lowerBound = b2Vec2{xPos + 2, yPos + 2};
+            aabb.upperBound = b2Vec2{upperX - 2, upperY - 2};
 
             world.QueryAABB(&queryCallback, aabb);
 
             for(const auto* fixture : queryCallback.fixtures){
                 auto bodyPos = fixture->GetBody()->GetPosition();
                 auto pos = Vector2{bodyPos.x, bodyPos.y};
-                if(pos == Game::getInstance()->getCharacter()->getTransform()->getPosition()){
-                    weights[y][x] = 0;
-                    continue;
-                }
+
                 if(fixture->GetBody()->GetType() == b2_staticBody){
                     weights[y][x] = 1;
+                    break;
                 }
+
+
+                if(fixture->IsSensor()){
+                    weights[y][x] = 0;
+                }
+
+                if(pos == Game::getInstance()->getCharacter()->getTransform()->getPosition()){
+                    weights[y][x] = 0;
+                }
+
                 if(fixture->GetBody()->GetType() == b2_dynamicBody){
                     weights[y][x] = 2;
                 }
-
-                break;
             }
         }
     }

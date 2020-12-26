@@ -19,10 +19,10 @@ class EntityXMLParser {
 public:
     struct ObjectData{
     public:
-        std::string name;
-        std::string type;
+        std::string name{};
+        std::string type{};
 
-        std::vector<Components::component*> xmlComponents;
+        std::vector<Components::component*> xmlComponents{};
 
         ObjectData(std::string name, std::string type) : name(std::move(name)), type(std::move(type)) {
 
