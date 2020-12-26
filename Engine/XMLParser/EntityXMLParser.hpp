@@ -27,6 +27,13 @@ public:
         ObjectData(std::string name, std::string type) : name(std::move(name)), type(std::move(type)) {
 
         }
+
+        void clearRawData() {
+            for (auto *comp : xmlComponents) {
+                delete comp;
+            }
+            xmlComponents.clear();
+        }
     };
 
     static void createEntities(std::vector<ObjectData> &outObjectData,

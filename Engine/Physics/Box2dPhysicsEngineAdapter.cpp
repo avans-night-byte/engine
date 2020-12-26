@@ -37,7 +37,7 @@ Box2DPhysicsEngineAdapter::createBody(const Box2DBoxData &box2dBoxData) {
     body->CreateFixture(&fixtureDef);
 
     availableBodyId++;
-    bodies[availableBodyId] = (body);
+    bodies[availableBodyId] = body;
     return availableBodyId;
 }
 
@@ -68,10 +68,11 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(const Box2DCircleData &box2DC
     fixtureDef.shape = &circle;
     fixtureDef.density = 1.0f;
     fixtureDef.friction = 1.0f;
+    fixtureDef.isSensor = box2DCircleData.isSensor;
     body->CreateFixture(&fixtureDef);
 
     availableBodyId++;
-    bodies[availableBodyId] = (body);
+    bodies[availableBodyId] = body;
     return availableBodyId;
 }
 
@@ -130,7 +131,7 @@ BodyId Box2DPhysicsEngineAdapter::createBody(const Box2DPolygonData &box2DPolygo
     body->CreateFixture(&fixtureDef);
 
     availableBodyId++;
-    bodies[availableBodyId] = (body);
+    bodies[availableBodyId] = body;
     return availableBodyId;
 }
 

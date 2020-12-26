@@ -66,8 +66,9 @@ void SDLRenderingAdapter::drawBox(const Vector2 *vertices, int32 vertexCount) co
 }
 
 void SDLRenderingAdapter::drawRectangle(Vector2 &position, float width, float height, const std::string &color,
-                                        float opacity) const {
-    SDL_Color sdlColor = HexToRGB(color, opacity);
+                                        float opacity) {
+    SDL_Color &sdlColor = HexToRGB(color, opacity);
+    SDL_SetRenderDrawBlendMode(_renderer, SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(_renderer, sdlColor.r, sdlColor.g, sdlColor.b, sdlColor.a);
     SDL_FRect rectangle;
 
@@ -79,12 +80,16 @@ void SDLRenderingAdapter::drawRectangle(Vector2 &position, float width, float he
     SDL_RenderFillRectF(_renderer, &rectangle);
 }
 
-SDL_Color SDLRenderingAdapter::HexToRGB(std::string hex, float opacity) const {
+SDL_Color &SDLRenderingAdapter::HexToRGB(std::string hex, float opacity) {
+
+    std::string key = hex+ std::to_string(opacity);
+    if(_colors[key]) return *_colors[key];
 
     std::regex pattern("#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})");
 
     std::smatch match;
     if (std::regex_match(hex, match, pattern)) {
+
         SDL_Color color;
 
         color.r = std::stoi(match[1].str(), nullptr, 16);
@@ -92,7 +97,9 @@ SDL_Color SDLRenderingAdapter::HexToRGB(std::string hex, float opacity) const {
         color.b = std::stoi(match[3].str(), nullptr, 16);
         color.a = opacity;
 
-        return color;
+        _colors[key] = std::make_unique<SDL_Color>(color);
+
+        return *_colors[key];
     } else {
         throw " is an invalid rgb color\n";
     }

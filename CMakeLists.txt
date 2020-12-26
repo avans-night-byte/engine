@@ -37,8 +37,8 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/TransformComponent.hpp
         ./Game/Components/PhysicsComponent.cpp
         ./Game/Components/PhysicsComponent.hpp
-        Game/Components/Characters/CharacterComponent.cpp
-        Game/Components/Characters/CharacterComponent.hpp
+        ./Game/Components/Characters/CharacterComponent.cpp
+        ./Game/Components/Characters/CharacterComponent.hpp
         ./Game/Components/TransformComponent.cpp
         ./Game/Components/NextLevelComponent.cpp
         ./Game/Components/NextLevelComponent.hpp

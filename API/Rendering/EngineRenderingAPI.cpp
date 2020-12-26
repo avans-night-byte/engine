@@ -55,7 +55,7 @@ bool EngineRenderingAPI::loadTexture(const std::string &path, const std::string 
     return SDLRenderingAdapter::GetTextureManager()->load(path, textureId);
 }
 
-void EngineRenderingAPI::drawRectangle(Vector2 &position, float width, float height, std::string &color,
+void EngineRenderingAPI::drawRectangle(Vector2 &position, float width, float height, const std::string &color,
                                        float opacity) const {
     _adapter.drawRectangle(position, width, height, color, opacity);
 

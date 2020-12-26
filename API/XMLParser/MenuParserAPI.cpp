@@ -6,7 +6,7 @@ MenuParserAPI::MenuParserAPI(RenderingAPI &renderer, Event<Input>& event){
     event += std::bind(&MenuParserAPI::onClick, this, std::placeholders::_1);
 }
 
-void MenuParserAPI::loadScene(std::string path) {
+void MenuParserAPI::loadScene(const std::string& path) {
     return menuParser->initialize(path);
 }
 
@@ -14,7 +14,7 @@ void MenuParserAPI::render() {
     menuParser->render();
 }
 
-void MenuParserAPI::onClick(Input input) {
+void MenuParserAPI::onClick(const Input& input) {
     menuParser->onClick(input);
 }
 
