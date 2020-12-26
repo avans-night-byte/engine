@@ -27,3 +27,6 @@
 [submodule "SDL_ttf"]
 	path = Libraries/SDL_ttf
 	url = https://github.com/avans-night-byte/SDL_ttf
+[submodule "Libraries/imgui"]
+	path = Libraries/imgui
+	url = https://github.com/ocornut/imgui
