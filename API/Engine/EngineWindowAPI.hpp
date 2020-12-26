@@ -13,4 +13,6 @@ public:
 
     void initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT) const override;
     void closeWindow() const override;
+
+    void renderImGui(bool &cheatMode) const override;
 };

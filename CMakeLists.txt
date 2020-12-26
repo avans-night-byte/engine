@@ -79,7 +79,9 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/Shopkeeper/TradingComponent.cpp
         ./Game/Components/Shopkeeper/TradingComponent.hpp
         ./Game/Components/Shopkeeper/ShopkeeperComponent.cpp
-        Game/Components/Shopkeeper/ShopkeeperComponent.hpp
+        ./Game/Components/Shopkeeper/ShopkeeperComponent.hpp
+        ./Game/Components/Characters/ZombieComponent.cpp
+        ./Game/Components/Characters/ZombieComponent.hpp
 
         # Engine
         ./Engine/Engine.cpp
@@ -113,6 +115,17 @@ add_executable(NightByte ./Main.cpp
         ./Engine/Physics/BodyHandler.hpp
         ./Engine/Rendering/Adapter/EngineRenderingAdapter.hpp
 
+        # IMGUI
+        ./Libraries/imgui/imgui.h
+        ./Libraries/imgui/imgui.cpp
+        ./Libraries/imgui/imgui_tables.cpp
+        ./Libraries/imgui/imgui_internal.h
+        ./Libraries/imgui/imgui_widgets.cpp
+        ./Libraries/imgui/imgui_draw.cpp
+        ./Libraries/imgui/imgui_demo.cpp
+        ./Libraries/imgui/backends/imgui_impl_sdl.h
+        ./Libraries/imgui/backends/imgui_impl_sdl.cpp
+        ./Libraries/imgui/backends/imgui_impl_opengl3.cpp
 
         # API
         ./API/Input/EngineInputAPI.cpp
@@ -129,11 +142,18 @@ add_executable(NightByte ./Main.cpp
         ./API/XMLParser/MenuParserAPI.hpp
         ./API/XMLParser/LevelParserAPI.cpp
         ./API/Physics/BodyHandlerAPI.hpp
-        ./API/Helpers/Vector2.hpp Game/Components/Characters/ZombieComponent.cpp Game/Components/Characters/ZombieComponent.hpp)
+        ./API/Helpers/Vector2.hpp Game/CheatMode.cpp Game/CheatMode.hpp)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)
 find_package(Xsd REQUIRED)
+find_package(OpenGL REQUIRED)
+
+add_library("glloader" "./Libraries/glad/src/glad.c")
+
+include_directories(
+        "./Libraries/glad/include"
+)
 
 target_include_directories(NightByte PUBLIC
         ${SDL2_SOURCE_DIR}/include
@@ -143,7 +163,10 @@ target_include_directories(NightByte PUBLIC
         ${TMXLITE_SOURCE_DIR}
         ${SDL2TTF_SOURCE_DIR}
         ./Engine/Physics
+        ./Libraries/imgui
+        ./Libraries/imgui/backends
         )
+
 
 add_library(XMLResources SHARED
         ./Resources/XML/Generated/wall.hxx
@@ -164,7 +187,7 @@ add_library(XMLResources SHARED
 target_link_libraries(XMLResources PUBLIC XercesC::XercesC )
 target_include_directories(XMLResources PUBLIC ${XSD_INCLUDE_DIR} ./Resources/XML/)
 
-target_link_libraries(NightByte SDL2 box2d  SDL2::image SDL2_mixer tmxlite SDL2_ttf XMLResources)
+target_link_libraries(NightByte ${OPENGL_gl_LIBRARY} "glloader" SDL2 box2d  SDL2::image SDL2_mixer tmxlite SDL2_ttf XMLResources)
 
 if (MSVC OR MSYS OR MINGW)
     target_link_libraries(NightByte winpthread)

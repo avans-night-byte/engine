@@ -6,6 +6,7 @@
 #include <mutex>
 #include <memory>
 
+
 class TextureManager;
 
 class EngineRenderingAdapter;
@@ -34,4 +35,8 @@ public:
     void closeWindow();
 
     [[nodiscard]] EngineRenderingAdapter &getRenderingAdapter();
+
+    static void renderImGui(bool &cheatMode);
+
+    void beforeRender();
 };

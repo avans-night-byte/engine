@@ -151,6 +151,10 @@ void SDLRenderingAdapter::render() {
     SDL_RenderClear(_renderer);
 }
 
+void SDLRenderingAdapter::clear() {
+    SDL_RenderClear(_renderer);
+}
+
 SDL_Renderer &SDLRenderingAdapter::getRenderer() {
     return *_renderer;
 }

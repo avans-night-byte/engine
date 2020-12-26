@@ -9,3 +9,7 @@ void EngineWindowAPI::initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT) const {
 void EngineWindowAPI::closeWindow() const {
     return _engine.closeWindow();
 }
+
+void EngineWindowAPI::renderImGui(bool &cheatMode) const {
+    Engine::renderImGui(cheatMode);
+}
