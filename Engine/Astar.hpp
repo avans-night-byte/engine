@@ -1,11 +1,12 @@
 #pragma once
 
 #include <array>
-#include <hash_map>
+#include <unordered_map>
 #include <unordered_set>
 #include <queue>
 #include <cmath>
 #include <iostream>
+#include <algorithm>
 
 struct GridLocation {
     int x = 0 , y = 0;
