@@ -1,7 +1,3 @@
-//
-// Created by sascha on 12/20/20.
-//
-
 #include "Astar.hpp"
 
 

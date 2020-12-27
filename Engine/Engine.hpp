@@ -39,4 +39,6 @@ public:
     static void renderImGui(bool &cheatMode);
     static void clearImGui();
     static bool ShowCheckBox(const std::string& label, bool *value);
+    static bool InputFloat(const std::string &label, float *value);
+    static bool InputInt(const std::string &label, int *value);
 };

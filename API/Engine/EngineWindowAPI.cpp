@@ -21,3 +21,11 @@ void EngineWindowAPI::clearCheatMenu() const {
 bool EngineWindowAPI::showCheckBox(const std::string &label, bool *value) const {
     return Engine::ShowCheckBox(label, value);
 }
+
+bool EngineWindowAPI::showInputFloat(const std::string &label, float *value) const {
+    return Engine::InputFloat(label, value);
+}
+
+bool EngineWindowAPI::showInputInt(const std::string &label, int *value) const {
+    return Engine::InputInt(label, value);;
+}

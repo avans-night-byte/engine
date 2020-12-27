@@ -163,7 +163,6 @@ void Engine::renderImGui(bool &cheatMode) {
 }
 
 
-
 void Engine::clearImGui() {
     ImGui::End();
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -175,4 +174,12 @@ void Engine::clearImGui() {
 
 bool Engine::ShowCheckBox(const std::string &label, bool *value) {
     return ImGui::Checkbox(label.c_str(), value);
+}
+
+bool Engine::InputFloat(const std::string &label, float *value) {
+    return ImGui::InputFloat(label.c_str(), value);
+}
+
+bool Engine::InputInt(const std::string &label, int *value) {
+    return ImGui::InputInt(label.c_str(), value);
 }

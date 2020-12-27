@@ -12,4 +12,6 @@ public:
     virtual void renderCheatMenu(bool &cheatMode) const = 0;
     virtual void clearCheatMenu() const = 0;
     virtual bool showCheckBox(const std::string &label, bool *value) const = 0;
+    virtual bool showInputFloat(const std::string &label, float *value) const = 0;
+    virtual bool showInputInt(const std::string &label, int *value) const = 0;
 };

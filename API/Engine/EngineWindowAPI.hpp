@@ -20,4 +20,8 @@ public:
     void clearCheatMenu() const override;
 
     bool showCheckBox(const std::string &label, bool *value) const override;
+
+    bool showInputFloat(const std::string &label, float *value) const override;
+
+    bool showInputInt(const std::string &label, int *value) const override;
 };
