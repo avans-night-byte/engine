@@ -10,6 +10,14 @@ void EngineWindowAPI::closeWindow() const {
     return _engine.closeWindow();
 }
 
-void EngineWindowAPI::renderImGui(bool &cheatMode) const {
+void EngineWindowAPI::renderCheatMenu(bool &cheatMode) const {
     Engine::renderImGui(cheatMode);
+}
+
+void EngineWindowAPI::clearCheatMenu() const {
+    Engine::clearImGui();
+}
+
+bool EngineWindowAPI::showCheckBox(const std::string &label, bool *value) const {
+    return Engine::ShowCheckBox(label, value);
 }

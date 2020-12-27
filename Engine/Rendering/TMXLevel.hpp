@@ -5,7 +5,6 @@
 #include <tmxlite/Map.hpp>
 #include "../../API/Helpers/Vector2.hpp"
 #include "../XMLParser/EntityXMLParser.hpp"
-#include "../Astar.hpp"
 
 class RenderingAPI;
 class SpriteSheet;

@@ -160,9 +160,19 @@ void Engine::renderImGui(bool &cheatMode) {
     ImGui::Begin("Nightbyte CheatMode", &cheatMode, ImGuiWindowFlags_MenuBar);
 
 
+}
+
+
+
+void Engine::clearImGui() {
+    ImGui::End();
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     ImGui::Render();
     glViewport(0, 0, (int) ImGui::GetIO().DisplaySize.x, (int) ImGui::GetIO().DisplaySize.y);
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     SDL_GL_SwapWindow(window);
+}
+
+bool Engine::ShowCheckBox(const std::string &label, bool *value) {
+    return ImGui::Checkbox(label.c_str(), value);
 }

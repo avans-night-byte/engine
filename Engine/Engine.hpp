@@ -37,6 +37,6 @@ public:
     [[nodiscard]] EngineRenderingAdapter &getRenderingAdapter();
 
     static void renderImGui(bool &cheatMode);
-
-    void beforeRender();
+    static void clearImGui();
+    static bool ShowCheckBox(const std::string& label, bool *value);
 };

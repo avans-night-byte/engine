@@ -4,17 +4,11 @@
 #include "../../Game/Game.hpp"
 #include "../../Game/Components/NextLevelComponent.hpp"
 #include "../../Game/Components/TransformComponent.hpp"
-
-#include "../Physics/PhysicsEngineAdapter.hpp"
-#include "../../API/Rendering/RenderingAPI.hpp"
-#include <box2d.h>
-#include "../../API/Helpers/Vector2.hpp"
 #include "../Astar.hpp"
-#include <unordered_map>
+
+#include <box2d.h>
 #include <map>
 #include <future>
-#include "Generated/components.hxx"
-
 
 TMXLevel::TMXLevel(const char *tmxPath,
                    const char *spritesheetPath,
