@@ -24,4 +24,8 @@ public:
     bool showInputFloat(const std::string &label, float *value) const override;
 
     bool showInputInt(const std::string &label, int *value) const override;
+
+    bool showInputText(const std::string &label, char *value, int bufferSize) const override;
+
+    [[nodiscard]] bool button(const std::string &label) const override;
 };

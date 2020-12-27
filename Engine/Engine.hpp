@@ -41,4 +41,6 @@ public:
     static bool ShowCheckBox(const std::string& label, bool *value);
     static bool InputFloat(const std::string &label, float *value);
     static bool InputInt(const std::string &label, int *value);
+    static bool InputText(const std::string &label, char *value, int bufferSize);
+    static bool Button(const std::string &label);
 };

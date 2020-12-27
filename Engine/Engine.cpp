@@ -183,3 +183,11 @@ bool Engine::InputFloat(const std::string &label, float *value) {
 bool Engine::InputInt(const std::string &label, int *value) {
     return ImGui::InputInt(label.c_str(), value);
 }
+
+bool Engine::InputText(const std::string &label, char *value, int bufferSize) {
+    return ImGui::InputText(label.c_str(), value, bufferSize);
+}
+
+bool Engine::Button(const std::string &label) {
+    return ImGui::Button(label.c_str());
+}

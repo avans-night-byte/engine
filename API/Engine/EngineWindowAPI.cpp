@@ -27,5 +27,13 @@ bool EngineWindowAPI::showInputFloat(const std::string &label, float *value) con
 }
 
 bool EngineWindowAPI::showInputInt(const std::string &label, int *value) const {
-    return Engine::InputInt(label, value);;
+    return Engine::InputInt(label, value);
+}
+
+bool EngineWindowAPI::showInputText(const std::string &label, char *value, int bufferSize) const {
+    return Engine::InputText(label, value, bufferSize);
+}
+
+bool EngineWindowAPI::button(const std::string &label) const {
+    return Engine::Button(label);
 }

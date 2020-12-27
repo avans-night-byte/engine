@@ -14,4 +14,6 @@ public:
     virtual bool showCheckBox(const std::string &label, bool *value) const = 0;
     virtual bool showInputFloat(const std::string &label, float *value) const = 0;
     virtual bool showInputInt(const std::string &label, int *value) const = 0;
+    virtual bool showInputText(const std::string &label, char *value, int bufferSize) const = 0;
+    virtual bool button(const std::string &label) const = 0;
 };

@@ -99,7 +99,6 @@
                         <collisionHandler>NextLevelComponent</collisionHandler>
                     </physicsComponent>
                 </component>
-
             </components>
         </object>
     </level>
