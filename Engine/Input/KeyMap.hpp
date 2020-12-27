@@ -12,6 +12,7 @@ public:
     /** Keymap for device 1: mouse */
     inline static std::map<SDL_Keycode, InputAction> mouseMap = {
             {SDL_BUTTON_LEFT,  InputAction{.code = "MOUSE_BUTTON_LEFT", .action = "CLICK_LEFT"}},
+            {SDL_BUTTON_MIDDLE,  InputAction{.code = "MOUSE_BUTTON_MIDDLE", .action = "CLICK_MIDDLE"}},
             {SDL_BUTTON_RIGHT, InputAction{.code = "MOUSE_BUTTON_RIGHT", .action = "CLICK_RIGHT"}},
     };
 
