@@ -55,8 +55,6 @@
                         <isSensor>false</isSensor>
                     </physicsComponent>
                 </component>
-
-
             </components>
         </object>
 
@@ -82,8 +80,6 @@
                     </nextLevelComponent>
                 </component>
 
-
-
                 <component>
                     <componentName>PhysicsComponent</componentName>
                     <physicsComponent>
@@ -104,12 +100,8 @@
                     </physicsComponent>
                 </component>
 
-
-
-
             </components>
         </object>
-
     </level>
     <common:preloadResources>
         <resource>crate</resource>
