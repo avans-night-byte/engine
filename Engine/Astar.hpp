@@ -8,7 +8,7 @@
 #include <iostream>
 
 struct GridLocation {
-    int x, y;
+    int x = 0 , y = 0;
 
 
     bool operator==(const GridLocation& a) const
@@ -48,7 +48,7 @@ template<typename T, typename priority_t>
 struct PriorityQueue {
     typedef std::pair<priority_t, T> PQElement;
     std::priority_queue<PQElement, std::vector<PQElement>,
-            std::greater<PQElement>> elements;
+            std::greater<PQElement>> elements{};
 
     inline bool empty() const {
         return elements.empty();
@@ -89,7 +89,7 @@ struct SquareGrid {
 
 
     virtual std::vector<GridLocation> neighbors(GridLocation id) const {
-        std::vector<GridLocation> results;
+        std::vector<GridLocation> results{};
 
         for (GridLocation dir : DIRS) {
             GridLocation next{id.x + dir.x, id.y + dir.y};
@@ -110,7 +110,7 @@ struct SquareGrid {
 
 struct GridWithWeights: SquareGrid {
     GridWithWeights(int w, int h): SquareGrid(w, h) {}
-    std::unordered_set<GridLocation> destructables;
+    std::unordered_set<GridLocation> destructables{};
     double cost(GridLocation from_node, GridLocation to_node, GridLocation start, GridLocation goal) const {
 
         return destructables.find(to_node) != destructables.end()? 2 : 1;
@@ -135,7 +135,7 @@ struct GridWithWeights: SquareGrid {
     }
 
     std::vector<GridLocation> neighbors(GridLocation id) const override {
-        std::vector<GridLocation> results;
+        std::vector<GridLocation> results{};
 
 
 

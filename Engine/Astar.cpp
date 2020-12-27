@@ -40,10 +40,10 @@ void Astar::reconstruct_path(std::vector<GridLocation>& path, GridLocation start
     GridLocation current = goal;
     std::queue<GridLocation> items;
 
-    while (current != start) {
-        if(current.x == 0)
-            break;
+    std::cout << start.x << " , " << goal.x << std::endl;
+    std::cout << start.y << " , " << goal.y << std::endl;
 
+    while (current != start) {
         path.push_back(current);
         current = came_from[current];
     }
