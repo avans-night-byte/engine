@@ -129,7 +129,7 @@ add_executable(NightByte ./Main.cpp
         ./API/XMLParser/MenuParserAPI.hpp
         ./API/XMLParser/LevelParserAPI.cpp
         ./API/Physics/BodyHandlerAPI.hpp
-        ./API/Helpers/Vector2.hpp Game/Components/Characters/ZombieComponent.cpp Game/Components/Characters/ZombieComponent.hpp)
+        ./API/Helpers/Vector2.hpp Game/Components/Characters/ZombieComponent.cpp Game/Components/Characters/ZombieComponent.hpp Game/Save/SaveSystem.cpp Game/Save/SaveSystem.hpp)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)
