@@ -1035,6 +1035,30 @@ namespace Components
     this->levelName_.set (std::move (x));
   }
 
+  const nextLevelComponent::spawnPointName_type& nextLevelComponent::
+  spawnPointName () const
+  {
+    return this->spawnPointName_.get ();
+  }
+
+  nextLevelComponent::spawnPointName_type& nextLevelComponent::
+  spawnPointName ()
+  {
+    return this->spawnPointName_.get ();
+  }
+
+  void nextLevelComponent::
+  spawnPointName (const spawnPointName_type& x)
+  {
+    this->spawnPointName_.set (x);
+  }
+
+  void nextLevelComponent::
+  spawnPointName (::std::unique_ptr< spawnPointName_type > x)
+  {
+    this->spawnPointName_.set (std::move (x));
+  }
+
 
   // healthComponent
   // 
@@ -2689,9 +2713,11 @@ namespace Components
   //
 
   nextLevelComponent::
-  nextLevelComponent (const levelName_type& levelName)
+  nextLevelComponent (const levelName_type& levelName,
+                      const spawnPointName_type& spawnPointName)
   : ::xml_schema::type (),
-    levelName_ (levelName, this)
+    levelName_ (levelName, this),
+    spawnPointName_ (spawnPointName, this)
   {
   }
 
@@ -2700,7 +2726,8 @@ namespace Components
                       ::xml_schema::flags f,
                       ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
-    levelName_ (x.levelName_, f, this)
+    levelName_ (x.levelName_, f, this),
+    spawnPointName_ (x.spawnPointName_, f, this)
   {
   }
 
@@ -2709,7 +2736,8 @@ namespace Components
                       ::xml_schema::flags f,
                       ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-    levelName_ (this)
+    levelName_ (this),
+    spawnPointName_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -2742,6 +2770,20 @@ namespace Components
         }
       }
 
+      // spawnPointName
+      //
+      if (n.name () == "spawnPointName" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< spawnPointName_type > r (
+          spawnPointName_traits::create (i, f, this));
+
+        if (!spawnPointName_.present ())
+        {
+          this->spawnPointName_.set (::std::move (r));
+          continue;
+        }
+      }
+
       break;
     }
 
@@ -2749,6 +2791,13 @@ namespace Components
     {
       throw ::xsd::cxx::tree::expected_element< char > (
         "levelName",
+        "");
+    }
+
+    if (!spawnPointName_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "spawnPointName",
         "");
     }
   }
@@ -2767,6 +2816,7 @@ namespace Components
     {
       static_cast< ::xml_schema::type& > (*this) = x;
       this->levelName_ = x.levelName_;
+      this->spawnPointName_ = x.spawnPointName_;
     }
 
     return *this;

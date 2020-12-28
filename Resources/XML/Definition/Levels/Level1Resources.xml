@@ -7,7 +7,7 @@
         xmlns:common="Common">
     <level>
         <!-- TODO: Global Resource like: bullets -->
-        <name>Level1</name>
+        <name>Shop Outside</name>
         <background-music>battle</background-music>
         <object>
             <name>Sascha Varken</name>
@@ -78,7 +78,7 @@
 
                     <nextLevelComponent>
                         <levelName>PlainsOpen</levelName>
-                        <spawnPointName>FromNextLevel</spawnPointName>
+                        <spawnPointName>FromShopOutside</spawnPointName>
                     </nextLevelComponent>
                 </component>
 
@@ -118,13 +118,6 @@
                     </transformComponent>
                 </component>
 
-                <component>
-                    <componentName>NextLevelComponent</componentName>
-
-                    <nextLevelComponent>
-                        <levelName>ShopInside</levelName>
-                    </nextLevelComponent>
-                </component>
 
                 <component>
                     <componentName>PhysicsComponent</componentName>
@@ -144,6 +137,29 @@
                         <isSensor>true</isSensor>
                         <collisionHandler>NextLevelComponent</collisionHandler>
                     </physicsComponent>
+                </component>
+            </components>
+        </object>
+
+        <object>
+            <name>FromPlainsOpen</name>
+            <objectType>object</objectType>
+            <components>
+                <component>
+                    <componentName>TransformComponent</componentName>
+                    <transformComponent>
+                        <common:position>
+                            <x>0</x>
+                            <y>0</y>
+                        </common:position>
+                    </transformComponent>
+                </component>
+                
+                <component>
+                    <componentName>PlayerSpawnerComponent</componentName>
+                    <playerSpawnerComponent>
+                        <pointName>FromPlainsOpen</pointName>
+                    </playerSpawnerComponent>
                 </component>
             </components>
         </object>
