@@ -977,6 +977,36 @@ namespace Components
     return isEnabled_type (true);
   }
 
+  const physicsComponent::isRotationLocked_optional& physicsComponent::
+  isRotationLocked () const
+  {
+    return this->isRotationLocked_;
+  }
+
+  physicsComponent::isRotationLocked_optional& physicsComponent::
+  isRotationLocked ()
+  {
+    return this->isRotationLocked_;
+  }
+
+  void physicsComponent::
+  isRotationLocked (const isRotationLocked_type& x)
+  {
+    this->isRotationLocked_.set (x);
+  }
+
+  void physicsComponent::
+  isRotationLocked (const isRotationLocked_optional& x)
+  {
+    this->isRotationLocked_ = x;
+  }
+
+  physicsComponent::isRotationLocked_type physicsComponent::
+  isRotationLocked_default_value ()
+  {
+    return isRotationLocked_type (true);
+  }
+
   const physicsComponent::collisionHandler_sequence& physicsComponent::
   collisionHandler () const
   {
@@ -2316,6 +2346,7 @@ namespace Components
     isBullet_ (this),
     isSensor_ (this),
     isEnabled_ (this),
+    isRotationLocked_ (this),
     collisionHandler_ (this)
   {
   }
@@ -2333,6 +2364,7 @@ namespace Components
     isBullet_ (this),
     isSensor_ (this),
     isEnabled_ (this),
+    isRotationLocked_ (this),
     collisionHandler_ (this)
   {
   }
@@ -2349,6 +2381,7 @@ namespace Components
     isBullet_ (x.isBullet_, f, this),
     isSensor_ (x.isSensor_, f, this),
     isEnabled_ (x.isEnabled_, f, this),
+    isRotationLocked_ (x.isRotationLocked_, f, this),
     collisionHandler_ (x.collisionHandler_, f, this)
   {
   }
@@ -2365,6 +2398,7 @@ namespace Components
     isBullet_ (this),
     isSensor_ (this),
     isEnabled_ (this),
+    isRotationLocked_ (this),
     collisionHandler_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
@@ -2473,6 +2507,17 @@ namespace Components
         }
       }
 
+      // isRotationLocked
+      //
+      if (n.name () == "isRotationLocked" && n.namespace_ ().empty ())
+      {
+        if (!this->isRotationLocked_)
+        {
+          this->isRotationLocked_.set (isRotationLocked_traits::create (i, f, this));
+          continue;
+        }
+      }
+
       // collisionHandler
       //
       if (n.name () == "collisionHandler" && n.namespace_ ().empty ())
@@ -2536,6 +2581,7 @@ namespace Components
       this->isBullet_ = x.isBullet_;
       this->isSensor_ = x.isSensor_;
       this->isEnabled_ = x.isEnabled_;
+      this->isRotationLocked_ = x.isRotationLocked_;
       this->collisionHandler_ = x.collisionHandler_;
     }
 
