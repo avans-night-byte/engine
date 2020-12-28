@@ -134,6 +134,14 @@
             <path>Sounds/welcome.wav</path>
         </sound>
         <sound>
+            <name>comeback</name>
+            <path>Sounds/comeback.wav</path>
+        </sound>
+        <sound>
+            <name>drop</name>
+            <path>Sounds/drop.wav</path>
+        </sound>
+        <sound>
             <name>shot</name>
             <path>Sounds/shot.wav</path>
         </sound>

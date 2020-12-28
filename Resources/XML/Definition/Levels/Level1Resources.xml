@@ -201,6 +201,7 @@
         <resource>shot</resource>
         <resource>boar</resource>
         <resource>battle</resource>
+        <resource>drop</resource>
         <resource>open_inventory</resource>
         <resource>inventory_slot</resource>
     </common:preloadResources>
