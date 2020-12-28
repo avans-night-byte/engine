@@ -8,7 +8,7 @@
     <level>
         <!-- TODO: Global Resource like: bullets -->
         <name>Level1</name>
-        <background-music>mainmenu_music</background-music>
+        <background-music>battle</background-music>
         <object>
             <name>Sascha Varken</name>
             <objectType>object</objectType>
@@ -151,7 +151,7 @@
     <common:preloadResources>
         <resource>crate</resource>
         <resource>boar</resource>
-        <resource>mainmenu_music</resource>
+        <resource>battle</resource>
         <resource>inventory_slot</resource>
     </common:preloadResources>
 </lr:level-resources>

@@ -132,6 +132,10 @@
             <path>Sounds/background_2.wav</path>
         </music>
         <music>
+            <name>battle</name>
+            <path>Sounds/battle.wav</path>
+        </music>
+        <music>
             <name>shop_music</name>
             <path>Sounds/shop_music.wav</path>
         </music>

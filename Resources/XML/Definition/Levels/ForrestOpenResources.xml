@@ -7,7 +7,7 @@
         xmlns:common="Common">
     <level>
         <name>ForrestOpen</name>
-        <background-music>mainmenu_music</background-music>
+        <background-music>battle</background-music>
 
         <object>
             <name>To Plains Open</name>
@@ -56,9 +56,7 @@
     </level>
     <common:preloadResources>
         <resource>crate</resource>
-        <resource>shopkeeper</resource>
         <resource>boar</resource>
-        <resource>mainmenu_music</resource>
         <resource>inventory_slot</resource>
     </common:preloadResources>
 </lr:level-resources>
