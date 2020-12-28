@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:cmn="Common"
+        xmlns:res="Save"
+        targetNamespace="Save">
+    <xs:import schemaLocation="common.xsd"
+               namespace="Common"/>
+
+    <xs:element name="save">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="playerData">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="cmn:position"/>
+                            <xs:element name="health" type="xs:float"/>
+                            <xs:element name="money" type="xs:int"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="inventoryData">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="item" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="name" type="xs:string"/>
+                                        <xs:element name="quantity" type="xs:int"/>
+                                        <xs:element name="type" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="objectData">
+                    <xs:complexType>
+                        <xs:sequence>
+
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

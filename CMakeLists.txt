@@ -151,7 +151,9 @@ add_library(XMLResources SHARED
         ./Resources/XML/Generated/components.hxx
         ./Resources/XML/Generated/components.cxx
         ./Resources/XML/Generated/objects.hxx
-        ./Resources/XML/Generated/objects.cxx)
+        ./Resources/XML/Generated/objects.cxx
+        ./Resources/XML/Generated/save.cxx
+        ./Resources/XML/Generated/save.hxx)
 
 target_link_libraries(XMLResources PUBLIC XercesC::XercesC )
 target_include_directories(XMLResources PUBLIC ${XSD_INCLUDE_DIR} ./Resources/XML/)

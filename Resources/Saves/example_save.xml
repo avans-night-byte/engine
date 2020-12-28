@@ -1,0 +1,24 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<sv:save
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="Save  ../XML/Schemas/save.xsd
+                            Common ../XML/Schemas/common.xsd"
+        xmlns:common="Common"
+        xmlns:sv="Save">
+    <playerData>
+        <common:position>
+            <x>100</x>
+            <y>300</y>
+        </common:position>
+        <health>50</health>
+        <money>30000</money>
+    </playerData>
+    <inventoryData>
+        <item>
+            <name>crate</name>
+            <quantity>3</quantity>
+            <type>resource</type>
+        </item>
+    </inventoryData>
+    <objectData/>
+</sv:save>
