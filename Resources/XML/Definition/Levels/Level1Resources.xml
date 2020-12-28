@@ -118,6 +118,14 @@
                     </transformComponent>
                 </component>
 
+                <component>
+                    <componentName>NextLevelComponent</componentName>
+
+                    <nextLevelComponent>
+                        <levelName>ShopInside</levelName>
+                        <spawnPointName>FromShopOutside</spawnPointName>
+                    </nextLevelComponent>
+                </component>
 
                 <component>
                     <componentName>PhysicsComponent</componentName>
@@ -159,6 +167,29 @@
                     <componentName>PlayerSpawnerComponent</componentName>
                     <playerSpawnerComponent>
                         <pointName>FromPlainsOpen</pointName>
+                    </playerSpawnerComponent>
+                </component>
+            </components>
+        </object>
+
+        <object>
+            <name>FromShopInside</name>
+            <objectType>object</objectType>
+            <components>
+                <component>
+                    <componentName>TransformComponent</componentName>
+                    <transformComponent>
+                        <common:position>
+                            <x>0</x>
+                            <y>0</y>
+                        </common:position>
+                    </transformComponent>
+                </component>
+
+                <component>
+                    <componentName>PlayerSpawnerComponent</componentName>
+                    <playerSpawnerComponent>
+                        <pointName>FromShopInside</pointName>
                     </playerSpawnerComponent>
                 </component>
             </components>
