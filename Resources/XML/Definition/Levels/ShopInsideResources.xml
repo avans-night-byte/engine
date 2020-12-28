@@ -124,6 +124,7 @@
         <resource>shopkeeper</resource>
         <resource>boar</resource>
         <resource>inventory_slot</resource>
+        <resource>welcome</resource>
         <resource>shop_music</resource>
     </common:preloadResources>
 </lr:level-resources>

@@ -150,8 +150,10 @@
     </level>
     <common:preloadResources>
         <resource>crate</resource>
+        <resource>shot</resource>
         <resource>boar</resource>
         <resource>battle</resource>
+        <resource>open_inventory</resource>
         <resource>inventory_slot</resource>
     </common:preloadResources>
 </lr:level-resources>
