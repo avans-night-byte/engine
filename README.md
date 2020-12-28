@@ -9,7 +9,7 @@
 * Clion
 * Deleaker
 
-Deleaker is a very useful tool which is a Visual C++ extension and standalone application for memory leak detection - memory, GDI, and handles so far.
+[Deleaker](http://deleaker.com/) is a very useful tool which is a Visual C++ extension and standalone application for memory leak detection - memory, GDI, and handles so far.
 
 ## Run the executable
 
