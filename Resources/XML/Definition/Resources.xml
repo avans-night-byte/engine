@@ -13,7 +13,7 @@
         </texture>
         <texture>
             <name>crate</name>
-            <path>Sprites/Wooden_crate.png</path>
+            <path>Sprites/Wooden_Crate.png</path>
         </texture>
         <texture>
             <name>bullet</name>

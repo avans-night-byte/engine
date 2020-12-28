@@ -1,6 +1,9 @@
 #include "SDLInputEngineAdapter.hpp"
 
 #include <iostream>
+#include <imgui_impl_opengl3.h>
+#include <SDL_opengl.h>
+#include <imgui_impl_sdl.h>
 
 #include "SDL_events.h"
 #include "../Input.hpp"
@@ -27,6 +30,8 @@ Input SDLInputEngineAdapter::getInput() {
     Input i = Input{.device = Input::NONE, .x = -1, .y = -1, .keyMap = InputAction{.code = "", .action = ""}};
     while (SDL_PollEvent(&e))
     {
+        ImGui_ImplSDL2_ProcessEvent(&e);
+
         switch (e.type)
         {
         case SDL_KEYDOWN:
@@ -66,6 +71,9 @@ Input SDLInputEngineAdapter::getInput() {
             return i;
         }
     }
+
+
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
     return i;
 }

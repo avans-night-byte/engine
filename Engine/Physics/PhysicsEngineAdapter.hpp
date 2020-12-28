@@ -10,6 +10,8 @@
 
 #include <vector>
 
+class b2World;
+
 
 typedef signed int int32;
 typedef unsigned int BodyId;
@@ -119,5 +121,7 @@ public:
 
     virtual void addFixtureToBody(BodyId id, const Box2DBoxData &box2dBoxData) = 0;
 
+
+    virtual const b2World& getWorld() const = 0;
     virtual bool isWorldLocked() const = 0;
 };

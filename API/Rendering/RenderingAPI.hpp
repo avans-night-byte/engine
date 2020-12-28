@@ -14,6 +14,7 @@ class TMXLevel;
 
 #include <string>
 #include <vector>
+typedef signed int int32;
 
 struct LevelData {
 public:
@@ -57,8 +58,13 @@ public:
 
     virtual void render() const = 0;
 
+    virtual void clear() const = 0;
+
     virtual void drawAnimation(std::string &spriteId, const Vector2 &position, const Vector2 &size, const int &speed,
                                const std::vector<std::pair<int, int>> &animation) = 0;
+
+
+    virtual void drawBox(const Vector2 *vertices, int32 vertexCount) const = 0;
 
     [[nodiscard]] virtual EngineRenderingAdapter &getRendererAdapter() = 0;
 };

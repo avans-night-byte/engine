@@ -18,12 +18,12 @@ class RenderingAPI;
 class MenuParser {
 
 private:
-    std::map<std::string, TextWrapper*> _textItems;
-    std::map<std::string, std::string> _dynamicTextItems;
+    std::map<std::string, TextWrapper*> _textItems{};
+    std::map<std::string, std::string> _dynamicTextItems{};
 
     const RenderingAPI &_renderer;
-    std::unique_ptr<Menu::menu> _menu;
-    std::string _previousSong;
+    std::unique_ptr<Menu::menu> _menu = nullptr;
+    std::string _previousSong{};
 
     const std::string _buttonPrefix = "button_";
     const std::string _textPrefix = "text_";
@@ -33,10 +33,10 @@ private:
     static std::map<std::string, SDL_Color> _colors;
 
     ResourceManager *_resourceManager = nullptr;
-    Event<std::string> _customEventHandler;
+    Event<std::string> _customEventHandler{};
 public:
 
-    std::stack<std::string> PreviousScenes;
+    std::stack<std::string> PreviousScenes{};
 
     MenuParser(MenuParser &other) = delete;
 
