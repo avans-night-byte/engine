@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="2020.11.25" orientation="orthogonal" renderorder="right-down" width="30" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="125">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="30" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="125">
  <tileset firstgid="1" source="Overworld.tsx"/>
  <layer id="1" name="Base Layer" width="30" height="25">
   <data encoding="base64" compression="zlib">
@@ -47,10 +47,10 @@
   <object id="122" name="To Forrest Open" x="475.236" y="145.573">
    <point/>
   </object>
-  <object id="123" name="ShopOutside" x="50.6329" y="147.901">
+  <object id="123" name="ShopOutside" x="40.1329" y="147.401">
    <point/>
   </object>
-  <object id="124" name="FromForrestOpen" x="434.377" y="149.9">
+  <object id="124" name="FromForrestOpen" x="436.877" y="147.9">
    <point/>
   </object>
  </objectgroup>

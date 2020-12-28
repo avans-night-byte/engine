@@ -138,6 +138,26 @@
             <path>Sounds/comeback.wav</path>
         </sound>
         <sound>
+            <name>zombie_roar1</name>
+            <path>Sounds/zombie_roar1.wav</path>
+        </sound>
+        <sound>
+            <name>zombie_roar2</name>
+            <path>Sounds/zombie_roar2.wav</path>
+        </sound>
+        <sound>
+            <name>zombie_roar3</name>
+            <path>Sounds/zombie_roar3.wav</path>
+        </sound>
+        <sound>
+            <name>zombie_die1</name>
+            <path>Sounds/zombie_die1.wav</path>
+        </sound>
+        <sound>
+            <name>zombie_die2</name>
+            <path>Sounds/zombie_die2.wav</path>
+        </sound>
+        <sound>
             <name>drop</name>
             <path>Sounds/drop.wav</path>
         </sound>
