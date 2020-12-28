@@ -59,9 +59,12 @@ public:
 
     void toggleSounds() override;
 
+    std::string &getCurrentPlayingMusic();
+
     static SDLAudioEngineAdapter &getInstance();
 
 private:
     std::map<std::string, Mix_Music *> _musicTracks;
     std::map<std::string, Mix_Chunk *> _sounds;
+    std::string _currentPlayingMusic;
 };

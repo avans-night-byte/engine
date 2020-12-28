@@ -142,8 +142,7 @@ target_include_directories(NightByte PUBLIC
         ${SDL2IMAGE_SOURCE_DIR}
         ${TMXLITE_SOURCE_DIR}
         ${SDL2TTF_SOURCE_DIR}
-        ./Engine/Physics
-        )
+        ./Engine/Physics)
 
 add_library(XMLResources SHARED
         ./Resources/XML/Generated/wall.hxx

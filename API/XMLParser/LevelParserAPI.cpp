@@ -13,7 +13,7 @@ void LevelParserAPI::loadEntities(std::vector<EntityXMLParser::ObjectData> &outE
 
 TMXLevel *LevelParserAPI::loadLevel(std::vector<EntityXMLParser::ObjectData> &outEntities, const LevelData &levelData) {
 
-    auto &renderingApi = Game::getInstance()->getRenderingApi();
+    auto &renderingApi = Game::getInstance()->getRenderingAPI();
     auto &physicsApi = Game::getInstance()->getPhysicsAPI();
     auto xmlLevel = LevelResources::level_resources_(levelData.levelResourcePath);
 
@@ -21,6 +21,13 @@ TMXLevel *LevelParserAPI::loadLevel(std::vector<EntityXMLParser::ObjectData> &ou
 
     for (auto &resource : xmlLevel->preloadResources().resource()) {
         ResourceManager::getInstance()->loadResource(resource);
+    }
+
+    auto &audioAdapter = SDLAudioEngineAdapter::getInstance();
+    std::string musicTrack = xmlLevel->level().background_music().c_str();
+
+    if (audioAdapter.getCurrentPlayingMusic() != musicTrack) {
+        audioAdapter.playFromMemory(musicTrack);
     }
 
     auto tmxLevel = renderingApi.loadTMX(levelData, physicsApi.getPhysicsEngineAdapter());

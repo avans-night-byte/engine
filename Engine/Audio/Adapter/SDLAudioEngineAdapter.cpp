@@ -62,8 +62,14 @@ std::vector<std::string> SDLAudioEngineAdapter::getAudioNames() {
 void SDLAudioEngineAdapter::playFromMemory(const std::string &name) {
 
     if (_musicTracks.count(name) > 0) {
-        Mix_Music *music = _musicTracks.at(name);
-        Mix_PlayMusic(music, -1);
+        try {
+            Mix_Music *music = _musicTracks.at(name);
+            Mix_PlayMusic(music, -1);
+            _currentPlayingMusic = name;
+        } catch (std::exception &e) {
+            std::cout << Mix_GetError() << std::endl;
+        }
+
         return;
     }
 
@@ -234,6 +240,10 @@ void SDLAudioEngineAdapter::toggleSounds() {
         Mix_Pause(-1);
     else
         Mix_Resume(-1);
+}
+
+std::string &SDLAudioEngineAdapter::getCurrentPlayingMusic(){
+    return _currentPlayingMusic;
 }
 
 SDLAudioEngineAdapter *SDLAudioEngineAdapter::_instance = nullptr;

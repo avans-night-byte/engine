@@ -27,6 +27,7 @@ void SDLRenderingAdapter::drawBackground(std::string &color, float alpha) {
     SDL_SetRenderDrawColor(_renderer, c.r, c.g, c.b, c.a);
 
     SDL_RenderClear(_renderer);
+    SDL_SetRenderDrawColor(_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 }
 
 SpriteSheet *
@@ -78,6 +79,7 @@ void SDLRenderingAdapter::drawRectangle(Vector2 &position, float width, float he
     rectangle.h = height;
 
     SDL_RenderFillRectF(_renderer, &rectangle);
+    SDL_SetRenderDrawColor(_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 }
 
 SDL_Color &SDLRenderingAdapter::HexToRGB(std::string hex, float opacity) {
@@ -135,6 +137,7 @@ void SDLRenderingAdapter::drawCircle(const Vector2 &center, const float &radius)
     SDL_RenderDrawPointF(renderer, x - 1, y);
     SDL_RenderDrawPointF(renderer, x, y + 1);
     SDL_RenderDrawPointF(renderer, x, y - 1);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 }
 
 void SDLRenderingAdapter::createText(const std::string &fontName, const std::string &text, const int fontSize,
@@ -147,6 +150,7 @@ void SDLRenderingAdapter::createText(const std::string &fontName, const std::str
 }
 
 void SDLRenderingAdapter::render() {
+    SDL_SetRenderDrawColor(_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
     SDL_RenderPresent(_renderer);
     SDL_RenderClear(_renderer);
 }
