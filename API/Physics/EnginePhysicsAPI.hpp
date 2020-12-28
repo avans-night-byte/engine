@@ -81,4 +81,8 @@ public:
     inline PhysicsEngineAdapter &getPhysicsEngineAdapter() const override {
         return *_physicsEngineAdapter.get();
     }
+
+    const b2World &getWorld() const override {
+        return _physicsEngineAdapter->getWorld();
+    }
 };

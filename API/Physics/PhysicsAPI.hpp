@@ -21,6 +21,7 @@ struct RTransform;
 
 class Vector2;
 
+class b2World;
 class PhysicsAPI {
 public:
     virtual void update(float deltaTime) = 0;
@@ -53,6 +54,7 @@ public:
 
     virtual void setTransform(unsigned int bodyId, Vector2 pos, float angle) const = 0;
 
+    virtual const b2World& getWorld() const = 0;
     virtual void addFixture(unsigned int bodyId, const Box2DBoxData &box2DBoxData) const = 0;
 
     virtual void setEnabled(BodyId id, bool b) const = 0;

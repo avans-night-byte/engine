@@ -54,6 +54,9 @@ public:
 
     void render() override;
 
+    void clear() override;
+
+
     void drawAnimation(std::string &spriteId, const Vector2 &position, const Vector2 &size, const int &speed,
                        const std::vector<std::pair<int, int>> &animation) override;
 

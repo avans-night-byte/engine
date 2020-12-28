@@ -26,7 +26,6 @@ private:
     std::map<int, Vector2> _tSpriteMap;
     std::vector<unsigned int> bodies{};
     PhysicsEngineAdapter& physicsEngineAdapter;
-
 public:
     TMXLevel(const char *tmxPath,
              const char *spritesheetPath,
@@ -43,4 +42,6 @@ public:
     void getObjectPositions(std::vector<EntityXMLParser::ObjectData> &outEntities);
 
     void initStaticCollision();
+
+    std::vector< std::vector<int>> GetGrid() const;
 };
