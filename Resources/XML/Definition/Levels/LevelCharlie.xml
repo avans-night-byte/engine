@@ -651,6 +651,7 @@
 
                     <nextLevelComponent>
                         <levelName>ShopOutside</levelName>
+                        <spawnPointName>FromCharlie</spawnPointName>
                     </nextLevelComponent>
                 </component>
 

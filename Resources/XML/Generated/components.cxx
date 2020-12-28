@@ -523,6 +523,36 @@ namespace Components
     this->shopkeeperComponent_.set (std::move (x));
   }
 
+  const component::playerSpawnerComponent_optional& component::
+  playerSpawnerComponent () const
+  {
+    return this->playerSpawnerComponent_;
+  }
+
+  component::playerSpawnerComponent_optional& component::
+  playerSpawnerComponent ()
+  {
+    return this->playerSpawnerComponent_;
+  }
+
+  void component::
+  playerSpawnerComponent (const playerSpawnerComponent_type& x)
+  {
+    this->playerSpawnerComponent_.set (x);
+  }
+
+  void component::
+  playerSpawnerComponent (const playerSpawnerComponent_optional& x)
+  {
+    this->playerSpawnerComponent_ = x;
+  }
+
+  void component::
+  playerSpawnerComponent (::std::unique_ptr< playerSpawnerComponent_type > x)
+  {
+    this->playerSpawnerComponent_.set (std::move (x));
+  }
+
 
   // floatCap
   // 
@@ -1034,6 +1064,34 @@ namespace Components
   // 
 
 
+  // playerSpawnerComponent
+  // 
+
+  const playerSpawnerComponent::pointName_type& playerSpawnerComponent::
+  pointName () const
+  {
+    return this->pointName_.get ();
+  }
+
+  playerSpawnerComponent::pointName_type& playerSpawnerComponent::
+  pointName ()
+  {
+    return this->pointName_.get ();
+  }
+
+  void playerSpawnerComponent::
+  pointName (const pointName_type& x)
+  {
+    this->pointName_.set (x);
+  }
+
+  void playerSpawnerComponent::
+  pointName (::std::unique_ptr< pointName_type > x)
+  {
+    this->pointName_.set (std::move (x));
+  }
+
+
   // circle
   // 
 
@@ -1265,7 +1323,8 @@ namespace Components
     buildComponent_ (this),
     walletComponent_ (this),
     tradingComponent_ (this),
-    shopkeeperComponent_ (this)
+    shopkeeperComponent_ (this),
+    playerSpawnerComponent_ (this)
   {
   }
 
@@ -1289,7 +1348,8 @@ namespace Components
     buildComponent_ (x.buildComponent_, f, this),
     walletComponent_ (x.walletComponent_, f, this),
     tradingComponent_ (x.tradingComponent_, f, this),
-    shopkeeperComponent_ (x.shopkeeperComponent_, f, this)
+    shopkeeperComponent_ (x.shopkeeperComponent_, f, this),
+    playerSpawnerComponent_ (x.playerSpawnerComponent_, f, this)
   {
   }
 
@@ -1313,7 +1373,8 @@ namespace Components
     buildComponent_ (this),
     walletComponent_ (this),
     tradingComponent_ (this),
-    shopkeeperComponent_ (this)
+    shopkeeperComponent_ (this),
+    playerSpawnerComponent_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -1556,6 +1617,20 @@ namespace Components
         }
       }
 
+      // playerSpawnerComponent
+      //
+      if (n.name () == "playerSpawnerComponent" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< playerSpawnerComponent_type > r (
+          playerSpawnerComponent_traits::create (i, f, this));
+
+        if (!this->playerSpawnerComponent_)
+        {
+          this->playerSpawnerComponent_.set (::std::move (r));
+          continue;
+        }
+      }
+
       break;
     }
 
@@ -1596,6 +1671,7 @@ namespace Components
       this->walletComponent_ = x.walletComponent_;
       this->tradingComponent_ = x.tradingComponent_;
       this->shopkeeperComponent_ = x.shopkeeperComponent_;
+      this->playerSpawnerComponent_ = x.playerSpawnerComponent_;
     }
 
     return *this;
@@ -3076,6 +3152,98 @@ namespace Components
 
   shopkeeperComponent::
   ~shopkeeperComponent ()
+  {
+  }
+
+  // playerSpawnerComponent
+  //
+
+  playerSpawnerComponent::
+  playerSpawnerComponent (const pointName_type& pointName)
+  : ::xml_schema::type (),
+    pointName_ (pointName, this)
+  {
+  }
+
+  playerSpawnerComponent::
+  playerSpawnerComponent (const playerSpawnerComponent& x,
+                          ::xml_schema::flags f,
+                          ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    pointName_ (x.pointName_, f, this)
+  {
+  }
+
+  playerSpawnerComponent::
+  playerSpawnerComponent (const ::xercesc::DOMElement& e,
+                          ::xml_schema::flags f,
+                          ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    pointName_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void playerSpawnerComponent::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // pointName
+      //
+      if (n.name () == "pointName" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< pointName_type > r (
+          pointName_traits::create (i, f, this));
+
+        if (!pointName_.present ())
+        {
+          this->pointName_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!pointName_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "pointName",
+        "");
+    }
+  }
+
+  playerSpawnerComponent* playerSpawnerComponent::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class playerSpawnerComponent (*this, f, c);
+  }
+
+  playerSpawnerComponent& playerSpawnerComponent::
+  operator= (const playerSpawnerComponent& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->pointName_ = x.pointName_;
+    }
+
+    return *this;
+  }
+
+  playerSpawnerComponent::
+  ~playerSpawnerComponent ()
   {
   }
 

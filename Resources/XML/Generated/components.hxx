@@ -585,6 +585,7 @@ namespace Components
   class walletComponent;
   class tradingComponent;
   class shopkeeperComponent;
+  class playerSpawnerComponent;
   class circle;
   class box;
 }
@@ -1931,6 +1932,82 @@ namespace Components
     //@}
 
     /**
+     * @name playerSpawnerComponent
+     *
+     * @brief Accessor and modifier functions for the %playerSpawnerComponent
+     * optional element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::Components::playerSpawnerComponent playerSpawnerComponent_type;
+
+    /**
+     * @brief Element optional container type.
+     */
+    typedef ::xsd::cxx::tree::optional< playerSpawnerComponent_type > playerSpawnerComponent_optional;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< playerSpawnerComponent_type, char > playerSpawnerComponent_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element
+     * container.
+     *
+     * @return A constant reference to the optional container.
+     */
+    const playerSpawnerComponent_optional&
+    playerSpawnerComponent () const;
+
+    /**
+     * @brief Return a read-write reference to the element container.
+     *
+     * @return A reference to the optional container.
+     */
+    playerSpawnerComponent_optional&
+    playerSpawnerComponent ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    playerSpawnerComponent (const playerSpawnerComponent_type& x);
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x An optional container with the new value to set.
+     *
+     * If the value is present in @a x then this function makes a copy 
+     * of this value and sets it as the new value of the element.
+     * Otherwise the element container is set the 'not present' state.
+     */
+    void
+    playerSpawnerComponent (const playerSpawnerComponent_optional& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly instead
+     * of making a copy.
+     */
+    void
+    playerSpawnerComponent (::std::unique_ptr< playerSpawnerComponent_type > p);
+
+    //@}
+
+    /**
      * @name Constructors
      */
     //@{
@@ -2027,6 +2104,7 @@ namespace Components
     walletComponent_optional walletComponent_;
     tradingComponent_optional tradingComponent_;
     shopkeeperComponent_optional shopkeeperComponent_;
+    playerSpawnerComponent_optional playerSpawnerComponent_;
 
     //@endcond
   };
@@ -4881,6 +4959,158 @@ namespace Components
      */
     virtual 
     ~shopkeeperComponent ();
+  };
+
+  /**
+   * @brief Class corresponding to the %playerSpawnerComponent schema type.
+   *
+   * @nosubgrouping
+   */
+  class playerSpawnerComponent: public ::xml_schema::type
+  {
+    public:
+    /**
+     * @name pointName
+     *
+     * @brief Accessor and modifier functions for the %pointName
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::string pointName_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< pointName_type, char > pointName_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const pointName_type&
+    pointName () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    pointName_type&
+    pointName ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    pointName (const pointName_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    pointName (::std::unique_ptr< pointName_type > p);
+
+    //@}
+
+    /**
+     * @name Constructors
+     */
+    //@{
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    playerSpawnerComponent (const pointName_type&);
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    playerSpawnerComponent (const ::xercesc::DOMElement& e,
+                            ::xml_schema::flags f = 0,
+                            ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    playerSpawnerComponent (const playerSpawnerComponent& x,
+                            ::xml_schema::flags f = 0,
+                            ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual playerSpawnerComponent*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    playerSpawnerComponent&
+    operator= (const playerSpawnerComponent& x);
+
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
+    virtual 
+    ~playerSpawnerComponent ();
+
+    // Implementation.
+    //
+
+    //@cond
+
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< pointName_type > pointName_;
+
+    //@endcond
   };
 
   /**
