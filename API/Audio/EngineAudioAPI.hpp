@@ -17,11 +17,11 @@ public:
 
     EngineAudioAPI();
 
-    EngineAudioAPI(const EngineAudioAPI &other) = default;
+    EngineAudioAPI(const EngineAudioAPI &other) = delete;
 
     EngineAudioAPI(EngineAudioAPI &&other) noexcept = default;
 
-    EngineAudioAPI &operator=(const EngineAudioAPI &other) = default;
+    EngineAudioAPI &operator=(const EngineAudioAPI &other) = delete;
 
     EngineAudioAPI &operator=(EngineAudioAPI &&other) noexcept = default;
 

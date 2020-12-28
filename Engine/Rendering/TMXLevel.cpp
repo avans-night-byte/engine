@@ -14,7 +14,7 @@ TMXLevel::TMXLevel(const char *tmxPath,
                    const RenderingAPI &renderingAPI,
                    PhysicsEngineAdapter &physicsEngineAdapter) : physicsEngineAdapter(physicsEngineAdapter) {
     _tSpritesheet = renderingAPI.loadSpriteSheet(spritesheetPath,
-                                                 spritesheetId, 16, 16);
+                                                 spritesheetId, 16, 16, 0, 0);
     if (!_tmap.load(tmxPath)) {
         return;
     }

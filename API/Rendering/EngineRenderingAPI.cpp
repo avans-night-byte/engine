@@ -3,7 +3,7 @@
 
 #include <utility>
 
-TextureManager *EngineRenderingAPI::GetTextureManager() {
+TextureManager *EngineRenderingAPI::getTextureManager() {
     return SDLRenderingAdapter::GetTextureManager();
 }
 
@@ -17,8 +17,9 @@ TextureManager *EngineRenderingAPI::GetTextureManager() {
  * @return SpriteSheet
  */
 SpriteSheet *
-EngineRenderingAPI::loadSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const {
-    return _adapter.createSpriteSheet(path, spriteSheetId, width, height);
+EngineRenderingAPI::loadSpriteSheet(std::string path, std::string spriteSheetId, int width, int height, int offsetX,
+                                    int offsetY) const {
+    return _adapter.createSpriteSheet(path, spriteSheetId, width, height, offsetX, offsetY);
 }
 
 void EngineRenderingAPI::createText(const std::string &fontName,
@@ -54,7 +55,7 @@ bool EngineRenderingAPI::loadTexture(const std::string &path, const std::string 
     return SDLRenderingAdapter::GetTextureManager()->load(path, textureId);
 }
 
-void EngineRenderingAPI::drawRectangle(Vector2 &position, float width, float height, std::string &color,
+void EngineRenderingAPI::drawRectangle(Vector2 &position, float width, float height, const std::string &color,
                                        float opacity) const {
     _adapter.drawRectangle(position, width, height, color, opacity);
 
@@ -82,9 +83,10 @@ void EngineRenderingAPI::render() const {
     _adapter.render();
 }
 
-void EngineRenderingAPI::drawAnimation(std::string &spriteId, const Vector2 &position,
-                                       const std::vector<std::pair<int, int>> &animation, const int &speed) {
-    _adapter.drawAnimation(spriteId, position, animation, speed);
+void
+EngineRenderingAPI::drawAnimation(std::string &spriteId, const Vector2 &position, const Vector2 &size, const int &speed,
+                                  const std::vector<std::pair<int, int>> &animation) {
+    _adapter.drawAnimation(spriteId, position, size, speed, animation);
 }
 
 EngineRenderingAdapter &EngineRenderingAPI::getRendererAdapter() {

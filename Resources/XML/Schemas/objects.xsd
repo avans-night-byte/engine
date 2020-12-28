@@ -2,16 +2,22 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:obj="Objects"
            xmlns:comp="Components"
+           xmlns:common="Common"
            targetNamespace="Objects">
 
     <xs:import schemaLocation="components.xsd"
                namespace="Components"/>
+
+    <xs:import schemaLocation="common.xsd"
+               namespace="Common"/>
 
     <xs:element name="objectList">
         <xs:complexType>
             <xs:sequence>
                 <!-- TODO: Make a list of objects which have to be pooled -->
                 <xs:element name="object" type="obj:object" minOccurs="0" maxOccurs="unbounded"/>
+
+                <xs:element ref="common:preloadResources"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

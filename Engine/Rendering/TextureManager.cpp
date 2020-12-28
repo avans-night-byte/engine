@@ -3,11 +3,10 @@
 #include "Adapter/SDLRenderingAdapter.hpp"
 
 #include <iostream>
-#include <debugapi.h>
 
 TextureManager* TextureManager::instance = nullptr;
 
-TextureManager* TextureManager::GetInstance() {
+TextureManager* TextureManager::getInstance() {
     if(instance == nullptr){
         instance = new TextureManager();
     }
@@ -56,11 +55,11 @@ void TextureManager::draw(std::string &textureId, int x, int y, int width, int h
     auto texture = TextureMap[textureId];
 
     if(width == 0 && height == 0){
-        SDL_QueryTexture(texture, NULL,NULL, &width, &height);
+        SDL_QueryTexture(texture, nullptr,nullptr, &width, &height);
     }
     SDL_Rect destRect = { x, y , width, height };
 
-    SDL_RenderCopyEx(renderer, texture, NULL, &destRect, r, NULL,  flip);
+    SDL_RenderCopyEx(renderer, texture, nullptr, &destRect, r, nullptr,  flip);
 }
 
 void

@@ -17,8 +17,8 @@ class TMXLevel;
 
 struct LevelData {
 public:
-    LevelData(const std::string _tmxPath,
-              const std::string spriteSheetPath,
+    LevelData(const std::string &_tmxPath,
+              const std::string &spriteSheetPath,
               const std::string &spriteId,
               const std::string &levelResourcePath)
             : tmxPath(_tmxPath), spritesheetPath(spriteSheetPath), spriteId(spriteId),
@@ -37,12 +37,13 @@ public:
     virtual void drawTexture(const std::string &textureId, float x, float y, float width, float height, double scale,
                              double r) const = 0;
 
-    virtual SpriteSheet *loadSpriteSheet(std::string path, std::string spriteSheetId, int width, int height) const = 0;
+    virtual SpriteSheet *
+    loadSpriteSheet(std::string path, std::string spriteSheetId, int width, int height, int offsetX, int offsetY) const = 0;
 
     virtual bool loadTexture(const std::string &path, const std::string &textureId) = 0;
 
     virtual void
-    drawRectangle(Vector2 &position, float width, float height, std::string &color, float opacity = 255) const = 0;
+    drawRectangle(Vector2 &position, float width, float height, const std::string &color, float opacity = 255) const = 0;
 
     virtual void
     createText(const std::string &fontPath, const std::string &text, const int fontSize, const std::string &hex,
@@ -56,8 +57,8 @@ public:
 
     virtual void render() const = 0;
 
-    virtual void drawAnimation(std::string &spriteId, const Vector2 &position,
-                               const std::vector<std::pair<int, int>> &animation, const int &speed) = 0;
+    virtual void drawAnimation(std::string &spriteId, const Vector2 &position, const Vector2 &size, const int &speed,
+                               const std::vector<std::pair<int, int>> &animation) = 0;
 
     [[nodiscard]] virtual EngineRenderingAdapter &getRendererAdapter() = 0;
 };

@@ -4,6 +4,13 @@
   <img src="https://raw.githubusercontent.com/avans-night-byte/engine/develop/NightByte.png" height="400px;" />
 </p>
 
+## Used Tools
+
+* Clion
+* Deleaker
+
+[Deleaker](http://deleaker.com/) is a very useful tool which is a Visual C++ extension and standalone application for memory leak detection - memory, GDI, and handles so far.
+
 ## Run the executable
 
 Run the latest executable provided in the `builds` folder or download the executable from the [latest release](https://github.com/avans-night-byte/engine/releases).

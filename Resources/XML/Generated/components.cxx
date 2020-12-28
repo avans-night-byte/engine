@@ -193,34 +193,34 @@ namespace Components
     this->characterComponent_.set (std::move (x));
   }
 
-  const component::explosionCrate_optional& component::
-  explosionCrate () const
+  const component::zombieComponent_optional& component::
+  zombieComponent () const
   {
-    return this->explosionCrate_;
+    return this->zombieComponent_;
   }
 
-  component::explosionCrate_optional& component::
-  explosionCrate ()
+  component::zombieComponent_optional& component::
+  zombieComponent ()
   {
-    return this->explosionCrate_;
-  }
-
-  void component::
-  explosionCrate (const explosionCrate_type& x)
-  {
-    this->explosionCrate_.set (x);
+    return this->zombieComponent_;
   }
 
   void component::
-  explosionCrate (const explosionCrate_optional& x)
+  zombieComponent (const zombieComponent_type& x)
   {
-    this->explosionCrate_ = x;
+    this->zombieComponent_.set (x);
   }
 
   void component::
-  explosionCrate (::std::unique_ptr< explosionCrate_type > x)
+  zombieComponent (const zombieComponent_optional& x)
   {
-    this->explosionCrate_.set (std::move (x));
+    this->zombieComponent_ = x;
+  }
+
+  void component::
+  zombieComponent (::std::unique_ptr< zombieComponent_type > x)
+  {
+    this->zombieComponent_.set (std::move (x));
   }
 
   const component::bulletComponent_optional& component::
@@ -281,6 +281,216 @@ namespace Components
   nextLevelComponent (::std::unique_ptr< nextLevelComponent_type > x)
   {
     this->nextLevelComponent_.set (std::move (x));
+  }
+
+  const component::healthComponent_optional& component::
+  healthComponent () const
+  {
+    return this->healthComponent_;
+  }
+
+  component::healthComponent_optional& component::
+  healthComponent ()
+  {
+    return this->healthComponent_;
+  }
+
+  void component::
+  healthComponent (const healthComponent_type& x)
+  {
+    this->healthComponent_.set (x);
+  }
+
+  void component::
+  healthComponent (const healthComponent_optional& x)
+  {
+    this->healthComponent_ = x;
+  }
+
+  void component::
+  healthComponent (::std::unique_ptr< healthComponent_type > x)
+  {
+    this->healthComponent_.set (std::move (x));
+  }
+
+  const component::weaponComponent_optional& component::
+  weaponComponent () const
+  {
+    return this->weaponComponent_;
+  }
+
+  component::weaponComponent_optional& component::
+  weaponComponent ()
+  {
+    return this->weaponComponent_;
+  }
+
+  void component::
+  weaponComponent (const weaponComponent_type& x)
+  {
+    this->weaponComponent_.set (x);
+  }
+
+  void component::
+  weaponComponent (const weaponComponent_optional& x)
+  {
+    this->weaponComponent_ = x;
+  }
+
+  void component::
+  weaponComponent (::std::unique_ptr< weaponComponent_type > x)
+  {
+    this->weaponComponent_.set (std::move (x));
+  }
+
+  const component::inventoryComponent_optional& component::
+  inventoryComponent () const
+  {
+    return this->inventoryComponent_;
+  }
+
+  component::inventoryComponent_optional& component::
+  inventoryComponent ()
+  {
+    return this->inventoryComponent_;
+  }
+
+  void component::
+  inventoryComponent (const inventoryComponent_type& x)
+  {
+    this->inventoryComponent_.set (x);
+  }
+
+  void component::
+  inventoryComponent (const inventoryComponent_optional& x)
+  {
+    this->inventoryComponent_ = x;
+  }
+
+  void component::
+  inventoryComponent (::std::unique_ptr< inventoryComponent_type > x)
+  {
+    this->inventoryComponent_.set (std::move (x));
+  }
+
+  const component::buildComponent_optional& component::
+  buildComponent () const
+  {
+    return this->buildComponent_;
+  }
+
+  component::buildComponent_optional& component::
+  buildComponent ()
+  {
+    return this->buildComponent_;
+  }
+
+  void component::
+  buildComponent (const buildComponent_type& x)
+  {
+    this->buildComponent_.set (x);
+  }
+
+  void component::
+  buildComponent (const buildComponent_optional& x)
+  {
+    this->buildComponent_ = x;
+  }
+
+  void component::
+  buildComponent (::std::unique_ptr< buildComponent_type > x)
+  {
+    this->buildComponent_.set (std::move (x));
+  }
+
+  const component::walletComponent_optional& component::
+  walletComponent () const
+  {
+    return this->walletComponent_;
+  }
+
+  component::walletComponent_optional& component::
+  walletComponent ()
+  {
+    return this->walletComponent_;
+  }
+
+  void component::
+  walletComponent (const walletComponent_type& x)
+  {
+    this->walletComponent_.set (x);
+  }
+
+  void component::
+  walletComponent (const walletComponent_optional& x)
+  {
+    this->walletComponent_ = x;
+  }
+
+  void component::
+  walletComponent (::std::unique_ptr< walletComponent_type > x)
+  {
+    this->walletComponent_.set (std::move (x));
+  }
+
+  const component::tradingComponent_optional& component::
+  tradingComponent () const
+  {
+    return this->tradingComponent_;
+  }
+
+  component::tradingComponent_optional& component::
+  tradingComponent ()
+  {
+    return this->tradingComponent_;
+  }
+
+  void component::
+  tradingComponent (const tradingComponent_type& x)
+  {
+    this->tradingComponent_.set (x);
+  }
+
+  void component::
+  tradingComponent (const tradingComponent_optional& x)
+  {
+    this->tradingComponent_ = x;
+  }
+
+  void component::
+  tradingComponent (::std::unique_ptr< tradingComponent_type > x)
+  {
+    this->tradingComponent_.set (std::move (x));
+  }
+
+  const component::shopkeeperComponent_optional& component::
+  shopkeeperComponent () const
+  {
+    return this->shopkeeperComponent_;
+  }
+
+  component::shopkeeperComponent_optional& component::
+  shopkeeperComponent ()
+  {
+    return this->shopkeeperComponent_;
+  }
+
+  void component::
+  shopkeeperComponent (const shopkeeperComponent_type& x)
+  {
+    this->shopkeeperComponent_.set (x);
+  }
+
+  void component::
+  shopkeeperComponent (const shopkeeperComponent_optional& x)
+  {
+    this->shopkeeperComponent_ = x;
+  }
+
+  void component::
+  shopkeeperComponent (::std::unique_ptr< shopkeeperComponent_type > x)
+  {
+    this->shopkeeperComponent_.set (std::move (x));
   }
 
 
@@ -411,16 +621,16 @@ namespace Components
     this->spriteId_.set (std::move (x));
   }
 
-  const renderComponent::spritePath_type& renderComponent::
+  const renderComponent::spritePath_optional& renderComponent::
   spritePath () const
   {
-    return this->spritePath_.get ();
+    return this->spritePath_;
   }
 
-  renderComponent::spritePath_type& renderComponent::
+  renderComponent::spritePath_optional& renderComponent::
   spritePath ()
   {
-    return this->spritePath_.get ();
+    return this->spritePath_;
   }
 
   void renderComponent::
@@ -430,45 +640,63 @@ namespace Components
   }
 
   void renderComponent::
+  spritePath (const spritePath_optional& x)
+  {
+    this->spritePath_ = x;
+  }
+
+  void renderComponent::
   spritePath (::std::unique_ptr< spritePath_type > x)
   {
     this->spritePath_.set (std::move (x));
   }
 
-  const renderComponent::width_type& renderComponent::
-  width () const
+  const renderComponent::size_type& renderComponent::
+  size () const
   {
-    return this->width_.get ();
+    return this->size_.get ();
   }
 
-  renderComponent::width_type& renderComponent::
-  width ()
+  renderComponent::size_type& renderComponent::
+  size ()
   {
-    return this->width_.get ();
-  }
-
-  void renderComponent::
-  width (const width_type& x)
-  {
-    this->width_.set (x);
-  }
-
-  const renderComponent::height_type& renderComponent::
-  height () const
-  {
-    return this->height_.get ();
-  }
-
-  renderComponent::height_type& renderComponent::
-  height ()
-  {
-    return this->height_.get ();
+    return this->size_.get ();
   }
 
   void renderComponent::
-  height (const height_type& x)
+  size (const size_type& x)
   {
-    this->height_.set (x);
+    this->size_.set (x);
+  }
+
+  void renderComponent::
+  size (::std::unique_ptr< size_type > x)
+  {
+    this->size_.set (std::move (x));
+  }
+
+  const renderComponent::offset_type& renderComponent::
+  offset () const
+  {
+    return this->offset_.get ();
+  }
+
+  renderComponent::offset_type& renderComponent::
+  offset ()
+  {
+    return this->offset_.get ();
+  }
+
+  void renderComponent::
+  offset (const offset_type& x)
+  {
+    this->offset_.set (x);
+  }
+
+  void renderComponent::
+  offset (::std::unique_ptr< offset_type > x)
+  {
+    this->offset_.set (std::move (x));
   }
 
 
@@ -684,7 +912,7 @@ namespace Components
   // 
 
 
-  // explosionCrate
+  // zombieComponent
   // 
 
 
@@ -718,6 +946,34 @@ namespace Components
   {
     this->levelName_.set (std::move (x));
   }
+
+
+  // healthComponent
+  // 
+
+
+  // weaponComponent
+  // 
+
+
+  // inventoryComponent
+  // 
+
+
+  // buildComponent
+  // 
+
+
+  // walletComponent
+  // 
+
+
+  // tradingComponent
+  // 
+
+
+  // shopkeeperComponent
+  // 
 
 
   // circle
@@ -803,6 +1059,54 @@ namespace Components
   height (const height_type& x)
   {
     this->height_.set (x);
+  }
+
+  const box::offsetX_optional& box::
+  offsetX () const
+  {
+    return this->offsetX_;
+  }
+
+  box::offsetX_optional& box::
+  offsetX ()
+  {
+    return this->offsetX_;
+  }
+
+  void box::
+  offsetX (const offsetX_type& x)
+  {
+    this->offsetX_.set (x);
+  }
+
+  void box::
+  offsetX (const offsetX_optional& x)
+  {
+    this->offsetX_ = x;
+  }
+
+  const box::offsetY_optional& box::
+  offsetY () const
+  {
+    return this->offsetY_;
+  }
+
+  box::offsetY_optional& box::
+  offsetY ()
+  {
+    return this->offsetY_;
+  }
+
+  void box::
+  offsetY (const offsetY_type& x)
+  {
+    this->offsetY_.set (x);
+  }
+
+  void box::
+  offsetY (const offsetY_optional& x)
+  {
+    this->offsetY_ = x;
   }
 }
 
@@ -893,9 +1197,16 @@ namespace Components
     renderComponent_ (this),
     physicsComponent_ (this),
     characterComponent_ (this),
-    explosionCrate_ (this),
+    zombieComponent_ (this),
     bulletComponent_ (this),
-    nextLevelComponent_ (this)
+    nextLevelComponent_ (this),
+    healthComponent_ (this),
+    weaponComponent_ (this),
+    inventoryComponent_ (this),
+    buildComponent_ (this),
+    walletComponent_ (this),
+    tradingComponent_ (this),
+    shopkeeperComponent_ (this)
   {
   }
 
@@ -909,9 +1220,16 @@ namespace Components
     renderComponent_ (x.renderComponent_, f, this),
     physicsComponent_ (x.physicsComponent_, f, this),
     characterComponent_ (x.characterComponent_, f, this),
-    explosionCrate_ (x.explosionCrate_, f, this),
+    zombieComponent_ (x.zombieComponent_, f, this),
     bulletComponent_ (x.bulletComponent_, f, this),
-    nextLevelComponent_ (x.nextLevelComponent_, f, this)
+    nextLevelComponent_ (x.nextLevelComponent_, f, this),
+    healthComponent_ (x.healthComponent_, f, this),
+    weaponComponent_ (x.weaponComponent_, f, this),
+    inventoryComponent_ (x.inventoryComponent_, f, this),
+    buildComponent_ (x.buildComponent_, f, this),
+    walletComponent_ (x.walletComponent_, f, this),
+    tradingComponent_ (x.tradingComponent_, f, this),
+    shopkeeperComponent_ (x.shopkeeperComponent_, f, this)
   {
   }
 
@@ -925,9 +1243,16 @@ namespace Components
     renderComponent_ (this),
     physicsComponent_ (this),
     characterComponent_ (this),
-    explosionCrate_ (this),
+    zombieComponent_ (this),
     bulletComponent_ (this),
-    nextLevelComponent_ (this)
+    nextLevelComponent_ (this),
+    healthComponent_ (this),
+    weaponComponent_ (this),
+    inventoryComponent_ (this),
+    buildComponent_ (this),
+    walletComponent_ (this),
+    tradingComponent_ (this),
+    shopkeeperComponent_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -1016,16 +1341,16 @@ namespace Components
         }
       }
 
-      // explosionCrate
+      // zombieComponent
       //
-      if (n.name () == "explosionCrate" && n.namespace_ ().empty ())
+      if (n.name () == "zombieComponent" && n.namespace_ ().empty ())
       {
-        ::std::unique_ptr< explosionCrate_type > r (
-          explosionCrate_traits::create (i, f, this));
+        ::std::unique_ptr< zombieComponent_type > r (
+          zombieComponent_traits::create (i, f, this));
 
-        if (!this->explosionCrate_)
+        if (!this->zombieComponent_)
         {
-          this->explosionCrate_.set (::std::move (r));
+          this->zombieComponent_.set (::std::move (r));
           continue;
         }
       }
@@ -1054,6 +1379,104 @@ namespace Components
         if (!this->nextLevelComponent_)
         {
           this->nextLevelComponent_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // healthComponent
+      //
+      if (n.name () == "healthComponent" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< healthComponent_type > r (
+          healthComponent_traits::create (i, f, this));
+
+        if (!this->healthComponent_)
+        {
+          this->healthComponent_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // weaponComponent
+      //
+      if (n.name () == "weaponComponent" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< weaponComponent_type > r (
+          weaponComponent_traits::create (i, f, this));
+
+        if (!this->weaponComponent_)
+        {
+          this->weaponComponent_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // inventoryComponent
+      //
+      if (n.name () == "inventoryComponent" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< inventoryComponent_type > r (
+          inventoryComponent_traits::create (i, f, this));
+
+        if (!this->inventoryComponent_)
+        {
+          this->inventoryComponent_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // buildComponent
+      //
+      if (n.name () == "buildComponent" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< buildComponent_type > r (
+          buildComponent_traits::create (i, f, this));
+
+        if (!this->buildComponent_)
+        {
+          this->buildComponent_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // walletComponent
+      //
+      if (n.name () == "walletComponent" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< walletComponent_type > r (
+          walletComponent_traits::create (i, f, this));
+
+        if (!this->walletComponent_)
+        {
+          this->walletComponent_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // tradingComponent
+      //
+      if (n.name () == "tradingComponent" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< tradingComponent_type > r (
+          tradingComponent_traits::create (i, f, this));
+
+        if (!this->tradingComponent_)
+        {
+          this->tradingComponent_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // shopkeeperComponent
+      //
+      if (n.name () == "shopkeeperComponent" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< shopkeeperComponent_type > r (
+          shopkeeperComponent_traits::create (i, f, this));
+
+        if (!this->shopkeeperComponent_)
+        {
+          this->shopkeeperComponent_.set (::std::move (r));
           continue;
         }
       }
@@ -1087,9 +1510,16 @@ namespace Components
       this->renderComponent_ = x.renderComponent_;
       this->physicsComponent_ = x.physicsComponent_;
       this->characterComponent_ = x.characterComponent_;
-      this->explosionCrate_ = x.explosionCrate_;
+      this->zombieComponent_ = x.zombieComponent_;
       this->bulletComponent_ = x.bulletComponent_;
       this->nextLevelComponent_ = x.nextLevelComponent_;
+      this->healthComponent_ = x.healthComponent_;
+      this->weaponComponent_ = x.weaponComponent_;
+      this->inventoryComponent_ = x.inventoryComponent_;
+      this->buildComponent_ = x.buildComponent_;
+      this->walletComponent_ = x.walletComponent_;
+      this->tradingComponent_ = x.tradingComponent_;
+      this->shopkeeperComponent_ = x.shopkeeperComponent_;
     }
 
     return *this;
@@ -1433,14 +1863,25 @@ namespace Components
 
   renderComponent::
   renderComponent (const spriteId_type& spriteId,
-                   const spritePath_type& spritePath,
-                   const width_type& width,
-                   const height_type& height)
+                   const size_type& size,
+                   const offset_type& offset)
   : ::xml_schema::type (),
     spriteId_ (spriteId, this),
-    spritePath_ (spritePath, this),
-    width_ (width, this),
-    height_ (height, this)
+    spritePath_ (this),
+    size_ (size, this),
+    offset_ (offset, this)
+  {
+  }
+
+  renderComponent::
+  renderComponent (const spriteId_type& spriteId,
+                   ::std::unique_ptr< size_type > size,
+                   ::std::unique_ptr< offset_type > offset)
+  : ::xml_schema::type (),
+    spriteId_ (spriteId, this),
+    spritePath_ (this),
+    size_ (std::move (size), this),
+    offset_ (std::move (offset), this)
   {
   }
 
@@ -1451,8 +1892,8 @@ namespace Components
   : ::xml_schema::type (x, f, c),
     spriteId_ (x.spriteId_, f, this),
     spritePath_ (x.spritePath_, f, this),
-    width_ (x.width_, f, this),
-    height_ (x.height_, f, this)
+    size_ (x.size_, f, this),
+    offset_ (x.offset_, f, this)
   {
   }
 
@@ -1463,8 +1904,8 @@ namespace Components
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     spriteId_ (this),
     spritePath_ (this),
-    width_ (this),
-    height_ (this)
+    size_ (this),
+    offset_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -1504,31 +1945,37 @@ namespace Components
         ::std::unique_ptr< spritePath_type > r (
           spritePath_traits::create (i, f, this));
 
-        if (!spritePath_.present ())
+        if (!this->spritePath_)
         {
           this->spritePath_.set (::std::move (r));
           continue;
         }
       }
 
-      // width
+      // size
       //
-      if (n.name () == "width" && n.namespace_ ().empty ())
+      if (n.name () == "size" && n.namespace_ ().empty ())
       {
-        if (!width_.present ())
+        ::std::unique_ptr< size_type > r (
+          size_traits::create (i, f, this));
+
+        if (!size_.present ())
         {
-          this->width_.set (width_traits::create (i, f, this));
+          this->size_.set (::std::move (r));
           continue;
         }
       }
 
-      // height
+      // offset
       //
-      if (n.name () == "height" && n.namespace_ ().empty ())
+      if (n.name () == "offset" && n.namespace_ ().empty ())
       {
-        if (!height_.present ())
+        ::std::unique_ptr< offset_type > r (
+          offset_traits::create (i, f, this));
+
+        if (!offset_.present ())
         {
-          this->height_.set (height_traits::create (i, f, this));
+          this->offset_.set (::std::move (r));
           continue;
         }
       }
@@ -1543,24 +1990,17 @@ namespace Components
         "");
     }
 
-    if (!spritePath_.present ())
+    if (!size_.present ())
     {
       throw ::xsd::cxx::tree::expected_element< char > (
-        "spritePath",
+        "size",
         "");
     }
 
-    if (!width_.present ())
+    if (!offset_.present ())
     {
       throw ::xsd::cxx::tree::expected_element< char > (
-        "width",
-        "");
-    }
-
-    if (!height_.present ())
-    {
-      throw ::xsd::cxx::tree::expected_element< char > (
-        "height",
+        "offset",
         "");
     }
   }
@@ -1580,8 +2020,8 @@ namespace Components
       static_cast< ::xml_schema::type& > (*this) = x;
       this->spriteId_ = x.spriteId_;
       this->spritePath_ = x.spritePath_;
-      this->width_ = x.width_;
-      this->height_ = x.height_;
+      this->size_ = x.size_;
+      this->offset_ = x.offset_;
     }
 
     return *this;
@@ -1893,57 +2333,57 @@ namespace Components
   {
   }
 
-  // explosionCrate
+  // zombieComponent
   //
 
-  explosionCrate::
-  explosionCrate ()
+  zombieComponent::
+  zombieComponent ()
   : ::xml_schema::type ()
   {
   }
 
-  explosionCrate::
-  explosionCrate (const explosionCrate& x,
-                  ::xml_schema::flags f,
-                  ::xml_schema::container* c)
+  zombieComponent::
+  zombieComponent (const zombieComponent& x,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c)
   {
   }
 
-  explosionCrate::
-  explosionCrate (const ::xercesc::DOMElement& e,
-                  ::xml_schema::flags f,
-                  ::xml_schema::container* c)
+  zombieComponent::
+  zombieComponent (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
   : ::xml_schema::type (e, f, c)
   {
   }
 
-  explosionCrate::
-  explosionCrate (const ::xercesc::DOMAttr& a,
-                  ::xml_schema::flags f,
-                  ::xml_schema::container* c)
+  zombieComponent::
+  zombieComponent (const ::xercesc::DOMAttr& a,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
   : ::xml_schema::type (a, f, c)
   {
   }
 
-  explosionCrate::
-  explosionCrate (const ::std::string& s,
-                  const ::xercesc::DOMElement* e,
-                  ::xml_schema::flags f,
-                  ::xml_schema::container* c)
+  zombieComponent::
+  zombieComponent (const ::std::string& s,
+                   const ::xercesc::DOMElement* e,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
   : ::xml_schema::type (s, e, f, c)
   {
   }
 
-  explosionCrate* explosionCrate::
+  zombieComponent* zombieComponent::
   _clone (::xml_schema::flags f,
           ::xml_schema::container* c) const
   {
-    return new class explosionCrate (*this, f, c);
+    return new class zombieComponent (*this, f, c);
   }
 
-  explosionCrate::
-  ~explosionCrate ()
+  zombieComponent::
+  ~zombieComponent ()
   {
   }
 
@@ -2093,6 +2533,384 @@ namespace Components
   {
   }
 
+  // healthComponent
+  //
+
+  healthComponent::
+  healthComponent ()
+  : ::xml_schema::type ()
+  {
+  }
+
+  healthComponent::
+  healthComponent (const healthComponent& x,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c)
+  {
+  }
+
+  healthComponent::
+  healthComponent (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (e, f, c)
+  {
+  }
+
+  healthComponent::
+  healthComponent (const ::xercesc::DOMAttr& a,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (a, f, c)
+  {
+  }
+
+  healthComponent::
+  healthComponent (const ::std::string& s,
+                   const ::xercesc::DOMElement* e,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (s, e, f, c)
+  {
+  }
+
+  healthComponent* healthComponent::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class healthComponent (*this, f, c);
+  }
+
+  healthComponent::
+  ~healthComponent ()
+  {
+  }
+
+  // weaponComponent
+  //
+
+  weaponComponent::
+  weaponComponent ()
+  : ::xml_schema::type ()
+  {
+  }
+
+  weaponComponent::
+  weaponComponent (const weaponComponent& x,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c)
+  {
+  }
+
+  weaponComponent::
+  weaponComponent (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (e, f, c)
+  {
+  }
+
+  weaponComponent::
+  weaponComponent (const ::xercesc::DOMAttr& a,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (a, f, c)
+  {
+  }
+
+  weaponComponent::
+  weaponComponent (const ::std::string& s,
+                   const ::xercesc::DOMElement* e,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (s, e, f, c)
+  {
+  }
+
+  weaponComponent* weaponComponent::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class weaponComponent (*this, f, c);
+  }
+
+  weaponComponent::
+  ~weaponComponent ()
+  {
+  }
+
+  // inventoryComponent
+  //
+
+  inventoryComponent::
+  inventoryComponent ()
+  : ::xml_schema::type ()
+  {
+  }
+
+  inventoryComponent::
+  inventoryComponent (const inventoryComponent& x,
+                      ::xml_schema::flags f,
+                      ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c)
+  {
+  }
+
+  inventoryComponent::
+  inventoryComponent (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f,
+                      ::xml_schema::container* c)
+  : ::xml_schema::type (e, f, c)
+  {
+  }
+
+  inventoryComponent::
+  inventoryComponent (const ::xercesc::DOMAttr& a,
+                      ::xml_schema::flags f,
+                      ::xml_schema::container* c)
+  : ::xml_schema::type (a, f, c)
+  {
+  }
+
+  inventoryComponent::
+  inventoryComponent (const ::std::string& s,
+                      const ::xercesc::DOMElement* e,
+                      ::xml_schema::flags f,
+                      ::xml_schema::container* c)
+  : ::xml_schema::type (s, e, f, c)
+  {
+  }
+
+  inventoryComponent* inventoryComponent::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class inventoryComponent (*this, f, c);
+  }
+
+  inventoryComponent::
+  ~inventoryComponent ()
+  {
+  }
+
+  // buildComponent
+  //
+
+  buildComponent::
+  buildComponent ()
+  : ::xml_schema::type ()
+  {
+  }
+
+  buildComponent::
+  buildComponent (const buildComponent& x,
+                  ::xml_schema::flags f,
+                  ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c)
+  {
+  }
+
+  buildComponent::
+  buildComponent (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f,
+                  ::xml_schema::container* c)
+  : ::xml_schema::type (e, f, c)
+  {
+  }
+
+  buildComponent::
+  buildComponent (const ::xercesc::DOMAttr& a,
+                  ::xml_schema::flags f,
+                  ::xml_schema::container* c)
+  : ::xml_schema::type (a, f, c)
+  {
+  }
+
+  buildComponent::
+  buildComponent (const ::std::string& s,
+                  const ::xercesc::DOMElement* e,
+                  ::xml_schema::flags f,
+                  ::xml_schema::container* c)
+  : ::xml_schema::type (s, e, f, c)
+  {
+  }
+
+  buildComponent* buildComponent::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class buildComponent (*this, f, c);
+  }
+
+  buildComponent::
+  ~buildComponent ()
+  {
+  }
+
+  // walletComponent
+  //
+
+  walletComponent::
+  walletComponent ()
+  : ::xml_schema::type ()
+  {
+  }
+
+  walletComponent::
+  walletComponent (const walletComponent& x,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c)
+  {
+  }
+
+  walletComponent::
+  walletComponent (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (e, f, c)
+  {
+  }
+
+  walletComponent::
+  walletComponent (const ::xercesc::DOMAttr& a,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (a, f, c)
+  {
+  }
+
+  walletComponent::
+  walletComponent (const ::std::string& s,
+                   const ::xercesc::DOMElement* e,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+  : ::xml_schema::type (s, e, f, c)
+  {
+  }
+
+  walletComponent* walletComponent::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class walletComponent (*this, f, c);
+  }
+
+  walletComponent::
+  ~walletComponent ()
+  {
+  }
+
+  // tradingComponent
+  //
+
+  tradingComponent::
+  tradingComponent ()
+  : ::xml_schema::type ()
+  {
+  }
+
+  tradingComponent::
+  tradingComponent (const tradingComponent& x,
+                    ::xml_schema::flags f,
+                    ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c)
+  {
+  }
+
+  tradingComponent::
+  tradingComponent (const ::xercesc::DOMElement& e,
+                    ::xml_schema::flags f,
+                    ::xml_schema::container* c)
+  : ::xml_schema::type (e, f, c)
+  {
+  }
+
+  tradingComponent::
+  tradingComponent (const ::xercesc::DOMAttr& a,
+                    ::xml_schema::flags f,
+                    ::xml_schema::container* c)
+  : ::xml_schema::type (a, f, c)
+  {
+  }
+
+  tradingComponent::
+  tradingComponent (const ::std::string& s,
+                    const ::xercesc::DOMElement* e,
+                    ::xml_schema::flags f,
+                    ::xml_schema::container* c)
+  : ::xml_schema::type (s, e, f, c)
+  {
+  }
+
+  tradingComponent* tradingComponent::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class tradingComponent (*this, f, c);
+  }
+
+  tradingComponent::
+  ~tradingComponent ()
+  {
+  }
+
+  // shopkeeperComponent
+  //
+
+  shopkeeperComponent::
+  shopkeeperComponent ()
+  : ::xml_schema::type ()
+  {
+  }
+
+  shopkeeperComponent::
+  shopkeeperComponent (const shopkeeperComponent& x,
+                       ::xml_schema::flags f,
+                       ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c)
+  {
+  }
+
+  shopkeeperComponent::
+  shopkeeperComponent (const ::xercesc::DOMElement& e,
+                       ::xml_schema::flags f,
+                       ::xml_schema::container* c)
+  : ::xml_schema::type (e, f, c)
+  {
+  }
+
+  shopkeeperComponent::
+  shopkeeperComponent (const ::xercesc::DOMAttr& a,
+                       ::xml_schema::flags f,
+                       ::xml_schema::container* c)
+  : ::xml_schema::type (a, f, c)
+  {
+  }
+
+  shopkeeperComponent::
+  shopkeeperComponent (const ::std::string& s,
+                       const ::xercesc::DOMElement* e,
+                       ::xml_schema::flags f,
+                       ::xml_schema::container* c)
+  : ::xml_schema::type (s, e, f, c)
+  {
+  }
+
+  shopkeeperComponent* shopkeeperComponent::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class shopkeeperComponent (*this, f, c);
+  }
+
+  shopkeeperComponent::
+  ~shopkeeperComponent ()
+  {
+  }
+
   // circle
   //
 
@@ -2225,7 +3043,9 @@ namespace Components
        const height_type& height)
   : ::xml_schema::type (),
     width_ (width, this),
-    height_ (height, this)
+    height_ (height, this),
+    offsetX_ (this),
+    offsetY_ (this)
   {
   }
 
@@ -2235,7 +3055,9 @@ namespace Components
        ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
     width_ (x.width_, f, this),
-    height_ (x.height_, f, this)
+    height_ (x.height_, f, this),
+    offsetX_ (x.offsetX_, f, this),
+    offsetY_ (x.offsetY_, f, this)
   {
   }
 
@@ -2245,7 +3067,9 @@ namespace Components
        ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     width_ (this),
-    height_ (this)
+    height_ (this),
+    offsetX_ (this),
+    offsetY_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -2286,6 +3110,28 @@ namespace Components
         }
       }
 
+      // offsetX
+      //
+      if (n.name () == "offsetX" && n.namespace_ ().empty ())
+      {
+        if (!this->offsetX_)
+        {
+          this->offsetX_.set (offsetX_traits::create (i, f, this));
+          continue;
+        }
+      }
+
+      // offsetY
+      //
+      if (n.name () == "offsetY" && n.namespace_ ().empty ())
+      {
+        if (!this->offsetY_)
+        {
+          this->offsetY_.set (offsetY_traits::create (i, f, this));
+          continue;
+        }
+      }
+
       break;
     }
 
@@ -2319,6 +3165,8 @@ namespace Components
       static_cast< ::xml_schema::type& > (*this) = x;
       this->width_ = x.width_;
       this->height_ = x.height_;
+      this->offsetX_ = x.offsetX_;
+      this->offsetY_ = x.offsetY_;
     }
 
     return *this;
