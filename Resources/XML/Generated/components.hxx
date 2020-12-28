@@ -3619,6 +3619,79 @@ namespace Components
     //@}
 
     /**
+     * @name isRotationLocked
+     *
+     * @brief Accessor and modifier functions for the %isRotationLocked
+     * optional element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::boolean isRotationLocked_type;
+
+    /**
+     * @brief Element optional container type.
+     */
+    typedef ::xsd::cxx::tree::optional< isRotationLocked_type > isRotationLocked_optional;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< isRotationLocked_type, char > isRotationLocked_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element
+     * container.
+     *
+     * @return A constant reference to the optional container.
+     */
+    const isRotationLocked_optional&
+    isRotationLocked () const;
+
+    /**
+     * @brief Return a read-write reference to the element container.
+     *
+     * @return A reference to the optional container.
+     */
+    isRotationLocked_optional&
+    isRotationLocked ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    isRotationLocked (const isRotationLocked_type& x);
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x An optional container with the new value to set.
+     *
+     * If the value is present in @a x then this function makes a copy 
+     * of this value and sets it as the new value of the element.
+     * Otherwise the element container is set the 'not present' state.
+     */
+    void
+    isRotationLocked (const isRotationLocked_optional& x);
+
+    /**
+     * @brief Return the default value for the element.
+     *
+     * @return The element's default value.
+     */
+    static isRotationLocked_type
+    isRotationLocked_default_value ();
+
+    //@}
+
+    /**
      * @name collisionHandler
      *
      * @brief Accessor and modifier functions for the %collisionHandler
@@ -3786,6 +3859,7 @@ namespace Components
     isBullet_optional isBullet_;
     isSensor_optional isSensor_;
     isEnabled_optional isEnabled_;
+    isRotationLocked_optional isRotationLocked_;
     collisionHandler_sequence collisionHandler_;
 
     //@endcond

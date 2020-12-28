@@ -73,6 +73,7 @@
                             <xs:element name="isBullet" type="xs:boolean" default="false" minOccurs="0"/>
                             <xs:element name="isSensor" type="xs:boolean" default="false" minOccurs="0"/>
                             <xs:element name="isEnabled" type="xs:boolean" default="true" minOccurs="0"/>
+                            <xs:element name="isRotationLocked" type="xs:boolean" default="true" minOccurs="0"/>
                             <xs:element name="collisionHandler" type="comp:componentName" minOccurs="0"
                                         maxOccurs="unbounded"/>
                         </xs:sequence>
