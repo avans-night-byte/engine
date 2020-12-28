@@ -28,6 +28,7 @@
 
                     <nextLevelComponent>
                         <levelName>PlainsOpen</levelName>
+                        <spawnPointName>FromForrestOpen</spawnPointName>
                     </nextLevelComponent>
                 </component>
 
@@ -52,7 +53,29 @@
                 </component>
             </components>
         </object>
+        
+        <object>
+            <name>SpawnPlainsOpen</name>
+            <objectType>object</objectType>
+            <components>
+                <component>
+                    <componentName>TransformComponent</componentName>
+                    <transformComponent>
+                        <common:position>
+                            <x>0</x>
+                            <y>0</y>
+                        </common:position>
+                    </transformComponent>
+                </component>
 
+                <component>
+                    <componentName>PlayerSpawnerComponent</componentName>
+                    <playerSpawnerComponent>
+                        <pointName>PlainsOpen</pointName>
+                    </playerSpawnerComponent>
+                </component>
+            </components>
+        </object>
     </level>
     <common:preloadResources>
         <resource>crate</resource>
