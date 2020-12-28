@@ -1,0 +1,129 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<lr:level-resources
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="LevelResources  ../../Schemas/level-resources.xsd
+                            Common ../../Schemas/common.xsd"
+        xmlns:lr="LevelResources"
+        xmlns:common="Common">
+    <level>
+        <name>ShopInside</name>
+        <background-music>shop_music</background-music>
+        <object>
+            <name>Shopkeeper</name>
+            <objectType>character</objectType>
+            <components>
+                <component>
+                    <componentName>RenderComponent</componentName>
+                    <renderComponent>
+                        <spriteId>shopkeeper</spriteId>
+                        <size>
+                            <width>70</width>
+                            <height>100</height>
+                        </size>
+                        <offset>
+                            <width>0</width>
+                            <height>0</height>
+                        </offset>
+                    </renderComponent>
+                </component>
+
+                <component>
+                    <componentName>TransformComponent</componentName>
+                    <transformComponent>
+                        <common:position>
+                            <x>300</x>
+                            <y>300</y>
+                        </common:position>
+                    </transformComponent>
+                </component>
+
+                <component>
+                    <componentName>PhysicsComponent</componentName>
+                    <physicsComponent>
+                        <common:position>
+                            <x>0</x>
+                            <y>0</y>
+                        </common:position>
+                        <friction>0.5</friction>
+                        <bodyType>Static</bodyType>
+                        <bodyShape>
+                            <box>
+                                <width>50</width>
+                                <height>50</height>
+                            </box>
+                        </bodyShape>
+                        <isSensor>false</isSensor>
+                    </physicsComponent>
+                </component>
+
+                <component>
+                    <componentName>InventoryComponent</componentName>
+                    <inventoryComponent/>
+                </component>
+
+                <component>
+                    <componentName>TradingComponent</componentName>
+                    <tradingComponent/>
+                </component>
+
+                <component>
+                    <componentName>ShopkeeperComponent</componentName>
+                    <shopkeeperComponent/>
+                </component>
+
+            </components>
+        </object>
+
+        <object>
+            <name>To Shop Outside</name>
+            <objectType>level_change</objectType>
+            <components>
+                <component>
+                    <componentName>TransformComponent</componentName>
+                    <transformComponent>
+                        <common:position>
+                            <x>1</x>
+                            <y>2</y>
+                        </common:position>
+                    </transformComponent>
+                </component>
+
+                <component>
+                    <componentName>NextLevelComponent</componentName>
+
+                    <nextLevelComponent>
+                        <levelName>ShopOutside</levelName>
+                    </nextLevelComponent>
+                </component>
+
+                <component>
+                    <componentName>PhysicsComponent</componentName>
+                    <physicsComponent>
+                        <common:position>
+                            <x>0</x>
+                            <y>0</y>
+                        </common:position>
+                        <friction>0</friction>
+                        <bodyType>Static</bodyType>
+                        <bodyShape>
+                            <box>
+                                <width>50</width>
+                                <height>50</height>
+                            </box>
+                        </bodyShape>
+                        <isSensor>true</isSensor>
+                        <collisionHandler>NextLevelComponent</collisionHandler>
+                    </physicsComponent>
+                </component>
+            </components>
+        </object>
+
+    </level>
+    <common:preloadResources>
+        <resource>crate</resource>
+        <resource>shopkeeper</resource>
+        <resource>boar</resource>
+        <resource>inventory_slot</resource>
+        <resource>shop_music</resource>
+    </common:preloadResources>
+</lr:level-resources>

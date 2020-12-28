@@ -168,8 +168,7 @@ target_include_directories(NightByte PUBLIC
         ${SDL2TTF_SOURCE_DIR}
         ./Engine/Physics
         ./Libraries/imgui
-        ./Libraries/imgui/backends
-        )
+        ./Libraries/imgui/backends)
 
 
 add_library(XMLResources SHARED
