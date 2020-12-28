@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="2020.11.25" orientation="orthogonal" renderorder="right-down" width="30" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="139">
+ <tileset firstgid="1" source="Overworld.tsx"/>
+ <layer id="1" name="Base Layer" width="30" height="25">
+  <data encoding="base64" compression="zlib">
+   eJzNlVEOgjAMQIfZt95Gb7Vkx1D/uYf6r+dQ/vUath8ktY6uxbGZ8EJgtG8dsMbOuUjoCal7nKgAji9yeX/lX72honPpejXeYKiZPsvj6LXmu+Lxe+/cQQl3Uq+lXjyfIN9ZCZ/H0c9/vxYv59LY2yvXuaQXc0vecTwwStQrOam3RL3oHHzeWXqd0UtzSV7+LyF3iH8wLN4Rq5fvR4jkHuc2+M94jVfaE6k7xVSMtE/SsRL9IFdrap1T8Ut6pb5inYemN0x559ap7UnXrj434NmAF7Be1WcDbBuwA9786GMA
+  </data>
+ </layer>
+ <layer id="8" name="PropLayer" width="30" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBg+4A0Qv8VDo4M2JgaGdibK7bVhZGCwZcRNo4N1QDvXU8FeMaDZ4oy4aWoDaoUXqYBa4UVLsJYJgn8BcTEW+UPA+DhMhThBj4M0IDsdivuQcD9UzSugna+pYC96HIDsTUOzE9leXOASEpucMEEOZ2LABSxi1AoTYsAlwkoY8oA4F4u4IZ3SfB4a34RMe9HjE1vY4wPk2ktqfKLnIXLtJRWg5yF62YsOYPY2AuloJNyE5p5GPHKE9KPLgXDMIC/DR8EoGCoAAMqgOFI=
+  </data>
+ </layer>
+ <objectgroup id="9" name="Object Layer">
+  <object id="107" x="-0.333111" y="161.559" width="43.6376" height="8.32778"/>
+  <object id="108" x="0.999334" y="112.925" width="41.972" height="8.66089"/>
+  <object id="113" x="-0.333111" y="271.486" width="479.567" height="4.33045"/>
+  <object id="115" x="476.903" y="0.166223" width="3.66422" height="275.425"/>
+  <object id="116" x="0" y="0.333111" width="480.401" height="3.99734"/>
+  <object id="117" x="0.333111" y="4.33045" width="3.66422" height="116.256"/>
+  <object id="118" x="0.333111" y="168.221" width="3.99734" height="107.928"/>
+  <object id="119" x="0" y="122.585" width="21.1602" height="40.9727">
+   <properties>
+    <property name="isNextLevel" type="bool" value="true"/>
+    <property name="isSensor" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="121" name="To Plains Open" x="9.99734" y="145.907">
+   <point/>
+  </object>
+  <object id="123" x="343.5" y="20.5" width="112" height="25.5"/>
+  <object id="124" x="306.5" y="65.5" width="26.5" height="19"/>
+  <object id="125" x="418" y="113.5" width="27.5" height="18.5"/>
+  <object id="126" x="402.5" y="225.5" width="26" height="19.5"/>
+  <object id="127" x="464.5" y="176" width="12.5" height="95.5"/>
+  <object id="128" x="129" y="118" width="28.5" height="16.5"/>
+  <object id="129" x="195" y="162" width="10" height="9.5"/>
+  <object id="130" x="227" y="149.5" width="8" height="6"/>
+  <object id="131" x="228.5" y="181" width="8.5" height="7.5"/>
+  <object id="133" x="209" y="215.5" width="27" height="16.5"/>
+  <object id="134" x="274.5" y="211" width="11" height="6.5"/>
+  <object id="135" x="272" y="150.5" width="31" height="15"/>
+  <object id="136" x="48.5" y="33" width="29.5" height="18.5"/>
+  <object id="138" name="SpawnPlainsOpen" x="56.2958" y="144.237">
+   <point/>
+  </object>
+ </objectgroup>
+</map>

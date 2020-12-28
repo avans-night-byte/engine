@@ -77,8 +77,8 @@
                     <bodyType>Dynamic</bodyType>
                     <bodyShape>
                         <box>
-                            <width>64</width>
-                            <height>64</height>
+                            <width>49</width>
+                            <height>49</height>
                         </box>
                     </bodyShape>
                     <isBullet>false</isBullet>
@@ -102,8 +102,61 @@
                 <renderComponent>
                     <spriteId>crate</spriteId>
                     <size>
-                        <width>128</width>
-                        <height>128</height>
+                        <width>50</width>
+                        <height>50</height>
+                    </size>
+                    <offset>
+                        <width>0</width>
+                        <height>0</height>
+                    </offset>
+                </renderComponent>
+            </component>
+        </components>
+    </object>
+
+    <object>
+        <name>wall</name>
+        <objectType>object</objectType>
+        <components>
+            <component>
+                <componentName>PhysicsComponent</componentName>
+                <physicsComponent>
+                    <common:position>
+                        <x>200</x>
+                        <y>200</y>
+                    </common:position>
+                    <friction>1</friction>
+                    <bodyType>Static</bodyType>
+                    <bodyShape>
+                        <box>
+                            <width>30</width>
+                            <height>30</height>
+                        </box>
+                    </bodyShape>
+                    <isBullet>false</isBullet>
+                    <isSensor>false</isSensor>
+                    <isEnabled>false</isEnabled>
+                    <isRotationLocked>true</isRotationLocked>
+                </physicsComponent>
+            </component>
+
+            <component>
+                <componentName>TransformComponent</componentName>
+                <transformComponent>
+                    <common:position>
+                        <x>200</x>
+                        <y>200</y>
+                    </common:position>
+                </transformComponent>
+            </component>
+
+            <component>
+                <componentName>RenderComponent</componentName>
+                <renderComponent>
+                    <spriteId>wall</spriteId>
+                    <size>
+                        <width>60</width>
+                        <height>60</height>
                     </size>
                     <offset>
                         <width>0</width>
@@ -270,6 +323,7 @@
     <common:preloadResources>
         <resource>boar</resource>
         <resource>crate</resource>
+        <resource>wall</resource>
         <resource>bullet</resource>
         <resource>zombie</resource>
     </common:preloadResources>

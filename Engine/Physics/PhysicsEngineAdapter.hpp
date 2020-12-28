@@ -25,6 +25,8 @@ public:
     bool isBullet = false;
     bool isSensor = false;
     bool isEnabled = true;
+    bool isRotationLocked = false;
+
     ContactHandler *contactHandler = nullptr;
 
     Box2DData() = default;

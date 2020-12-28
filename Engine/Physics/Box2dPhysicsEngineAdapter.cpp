@@ -16,6 +16,7 @@ Box2DPhysicsEngineAdapter::createBody(const Box2DBoxData &box2dBoxData) {
     bodyDef.angularDamping = 0.1f;
     bodyDef.bullet = box2dBoxData.isBullet;
     bodyDef.enabled = box2dBoxData.isEnabled;
+    bodyDef.fixedRotation = box2dBoxData.isRotationLocked;
 
     b2BodyUserData bodyUserData;
     bodyUserData.contactHandler = box2dBoxData.contactHandler;
@@ -54,6 +55,8 @@ unsigned int Box2DPhysicsEngineAdapter::createBody(const Box2DCircleData &box2DC
     bodyDef.angularDamping = 0.1f;
     bodyDef.bullet = box2DCircleData.isBullet;
     bodyDef.enabled = box2DCircleData.isEnabled;
+    bodyDef.fixedRotation = box2DCircleData.isRotationLocked;
+
 
     b2BodyUserData bodyUserData;
     bodyUserData.contactHandler = box2DCircleData.contactHandler;
@@ -102,6 +105,7 @@ BodyId Box2DPhysicsEngineAdapter::createBody(const Box2DPolygonData &box2DPolygo
     bodyDef.position.Set(position.x, position.y);
     bodyDef.bullet = box2DPolygonData.isBullet;
     bodyDef.enabled = box2DPolygonData.isEnabled;
+    bodyDef.fixedRotation = box2DPolygonData.isRotationLocked;
 
     b2BodyUserData bodyUserData;
     bodyUserData.contactHandler = box2DPolygonData.contactHandler;

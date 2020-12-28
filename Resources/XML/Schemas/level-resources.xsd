@@ -11,9 +11,11 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="level">
+
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="name" type="xs:string"/>
+                            <xs:element name="background-music" type="xs:string"/>
                             <xs:element name="object" type="obj:object" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>

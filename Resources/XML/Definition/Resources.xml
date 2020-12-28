@@ -16,6 +16,10 @@
             <path>Sprites/Wooden_Crate.png</path>
         </texture>
         <texture>
+            <name>wall</name>
+            <path>Sprites/wall.png</path>
+        </texture>
+        <texture>
             <name>bullet</name>
             <path>Sprites/bullet1.png</path>
         </texture>
@@ -84,6 +88,20 @@
             </spriteSheet>
         </sprite>
         <sprite>
+            <name>shopkeeper</name>
+            <path>Sprites/Shopkeeper.png</path>
+            <spriteSheet>
+                <spriteSize>
+                    <width>96</width>
+                    <height>104</height>
+                </spriteSize>
+                <originOffset>
+                    <width>0</width>
+                    <height>0</height>
+                </originOffset>
+            </spriteSheet>
+        </sprite>
+        <sprite>
             <name>zombie</name>
             <path>Sprites/zombie.png</path>
             <spriteSheet>
@@ -116,6 +134,14 @@
         <music>
             <name>background_2</name>
             <path>Sounds/background_2.wav</path>
+        </music>
+        <music>
+            <name>battle</name>
+            <path>Sounds/battle.wav</path>
+        </music>
+        <music>
+            <name>shop_music</name>
+            <path>Sounds/shop_music.wav</path>
         </music>
     </music>
     <scenes>
@@ -157,11 +183,25 @@
             <tmxPath>TMX/shop_outside.tmx</tmxPath>
         </level>
         <level>
+            <name>ShopInside</name>
+            <path>XML/Definition/Levels/ShopInsideResources.xml</path>
+            <spriteName>Overworld</spriteName>
+            <spriteSheetPath>Sprites/Overworld.png</spriteSheetPath>
+            <tmxPath>TMX/shop_inside.tmx</tmxPath>
+        </level>
+        <level>
             <name>PlainsOpen</name>
             <path>XML/Definition/Levels/LevelCharlie.xml</path>
             <spriteName>Overworld</spriteName>
             <spriteSheetPath>Sprites/Overworld.png</spriteSheetPath>
             <tmxPath>TMX/plains_open.tmx</tmxPath>
+        </level>
+        <level>
+            <name>ForrestOpen</name>
+            <path>XML/Definition/Levels/ForrestOpenResources.xml</path>
+            <spriteName>Overworld</spriteName>
+            <spriteSheetPath>Sprites/Overworld.png</spriteSheetPath>
+            <tmxPath>TMX/forrest_open.tmx</tmxPath>
         </level>
     </levels>
     <objectLists>

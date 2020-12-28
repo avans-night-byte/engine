@@ -884,6 +884,64 @@ namespace LevelResources
     //@}
 
     /**
+     * @name background-music
+     *
+     * @brief Accessor and modifier functions for the %background-music
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::string background_music_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< background_music_type, char > background_music_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const background_music_type&
+    background_music () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    background_music_type&
+    background_music ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    background_music (const background_music_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    background_music (::std::unique_ptr< background_music_type > p);
+
+    //@}
+
+    /**
      * @name object
      *
      * @brief Accessor and modifier functions for the %object
@@ -956,7 +1014,8 @@ namespace LevelResources
      * @brief Create an instance from the ultimate base and
      * initializers for required elements and attributes.
      */
-    level (const name_type&);
+    level (const name_type&,
+           const background_music_type&);
 
     /**
      * @brief Create an instance from a DOM element.
@@ -1029,6 +1088,7 @@ namespace LevelResources
 
     protected:
     ::xsd::cxx::tree::one< name_type > name_;
+    ::xsd::cxx::tree::one< background_music_type > background_music_;
     object_sequence object_;
 
     //@endcond
