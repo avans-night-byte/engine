@@ -43,5 +43,5 @@ public:
 
     void initStaticCollision();
 
-    void GetGrid(int** weights) const;
+    std::vector< std::vector<int>> GetGrid() const;
 };

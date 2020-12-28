@@ -116,7 +116,7 @@ struct GridWithWeights: SquareGrid {
         return destructables.find(to_node) != destructables.end()? 2 : 1;
     }
 
-    static GridWithWeights fromArray(int** weights) {
+    static GridWithWeights fromArray(std::vector< std::vector<int>> weights) {
         GridWithWeights grid = GridWithWeights(30, 30);
 
         for(int y = 0; y < 30; y++){
@@ -137,11 +137,10 @@ struct GridWithWeights: SquareGrid {
     std::vector<GridLocation> neighbors(GridLocation id) const override {
         std::vector<GridLocation> results{};
 
-
-
         // This needs some checking things break when collider is on the end.
         for (GridLocation dir : DIRS) {
             GridLocation next{id.x + dir.x, id.y + dir.y};
+
             if (in_bounds(next) && passable(next)) {
                 results.push_back(next);
             }
@@ -149,7 +148,7 @@ struct GridWithWeights: SquareGrid {
 
         if ((id.x + id.y) % 2 == 0) {
             // see "Ugly paths" section for an explanation:
-            std::reverse(results.begin(), results.end());
+//            std::reverse(results.begin(), results.end());
         }
 
         return results;
@@ -167,6 +166,6 @@ public:
         return std::abs(a.x - b.x) + std::abs(a.y - b.y);
     }
     static void reconstruct_path(std::vector<GridLocation>& path, GridLocation start, GridLocation goal,
-            std::unordered_map<GridLocation, GridLocation> came_from
+            std::unordered_map<GridLocation, GridLocation>& came_from
     );
 };
