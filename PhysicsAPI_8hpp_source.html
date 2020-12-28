@@ -92,53 +92,51 @@ $(function() {
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">class </span><a class="code" href="structVector2.html">Vector2</a>;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">class </span>b2World;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classPhysicsAPI.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPhysicsAPI.html">PhysicsAPI</a> {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> update(<span class="keywordtype">float</span> deltaTime) = 0;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> BodyId createBody(<span class="keyword">const</span> <a class="code" href="classBox2DBoxData.html">Box2DBoxData</a> &amp;box2DBoxData) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> BodyId createBody(<span class="keyword">const</span> <a class="code" href="classBox2DCircleData.html">Box2DCircleData</a> &amp;box2DCircleData) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> BodyId createBody(<span class="keyword">const</span> <a class="code" href="classBox2DPolygonData.html">Box2DPolygonData</a> &amp;box2DPolygonData) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> destroyBody(BodyId bodyId) = 0;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structRTransform.html">RTransform</a> getRPosition(BodyId bodyId) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> debugDraw(<a class="code" href="classRenderingAPI.html">RenderingAPI</a> &amp;renderingApi) = 0;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> GetVelocity(<a class="code" href="structVector2.html">Vector2</a> &amp;velocity, <span class="keyword">const</span> BodyId bodyId) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setLinearVelocity(<span class="keyword">const</span> BodyId bodyId, <span class="keyword">const</span> <a class="code" href="structVector2.html">Vector2</a> &amp;vector2) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setFixedRotation(<span class="keyword">const</span> BodyId i, <span class="keywordtype">bool</span> b) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> addForce(<span class="keyword">const</span> BodyId i, <span class="keyword">const</span> <a class="code" href="structVector2.html">Vector2</a> &amp;position, <a class="code" href="structVector2.html">Vector2</a>) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setAngle(<span class="keyword">const</span> BodyId i, <span class="keywordtype">float</span> rotation) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> destroyBody(BodyId i) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a> &amp;getPhysicsEngineAdapter() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setTransform(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bodyId, <a class="code" href="structVector2.html">Vector2</a> pos, <span class="keywordtype">float</span> angle) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> b2World&amp; getWorld() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> addFixture(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bodyId, <span class="keyword">const</span> <a class="code" href="classBox2DBoxData.html">Box2DBoxData</a> &amp;box2DBoxData) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setEnabled(BodyId <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> b) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classPhysicsAPI.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPhysicsAPI.html">PhysicsAPI</a> {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> update(<span class="keywordtype">float</span> deltaTime) = 0;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> BodyId createBody(<span class="keyword">const</span> <a class="code" href="classBox2DBoxData.html">Box2DBoxData</a> &amp;box2DBoxData) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> BodyId createBody(<span class="keyword">const</span> <a class="code" href="classBox2DCircleData.html">Box2DCircleData</a> &amp;box2DCircleData) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> BodyId createBody(<span class="keyword">const</span> <a class="code" href="classBox2DPolygonData.html">Box2DPolygonData</a> &amp;box2DPolygonData) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> destroyBody(BodyId bodyId) = 0;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structRTransform.html">RTransform</a> getRPosition(BodyId bodyId) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> debugDraw(<a class="code" href="classRenderingAPI.html">RenderingAPI</a> &amp;renderingApi) = 0;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> GetVelocity(<a class="code" href="structVector2.html">Vector2</a> &amp;velocity, <span class="keyword">const</span> BodyId bodyId) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setLinearVelocity(<span class="keyword">const</span> BodyId bodyId, <span class="keyword">const</span> <a class="code" href="structVector2.html">Vector2</a> &amp;vector2) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setFixedRotation(<span class="keyword">const</span> BodyId i, <span class="keywordtype">bool</span> b) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> addForce(<span class="keyword">const</span> BodyId i, <span class="keyword">const</span> <a class="code" href="structVector2.html">Vector2</a> &amp;position, <a class="code" href="structVector2.html">Vector2</a>) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setAngle(<span class="keyword">const</span> BodyId i, <span class="keywordtype">float</span> rotation) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> destroyBody(BodyId i) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a> &amp;getPhysicsEngineAdapter() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setTransform(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bodyId, <a class="code" href="structVector2.html">Vector2</a> pos, <span class="keywordtype">float</span> angle) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> addFixture(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bodyId, <span class="keyword">const</span> <a class="code" href="classBox2DBoxData.html">Box2DBoxData</a> &amp;box2DBoxData) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setEnabled(BodyId <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> b) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassPhysicsEngineAdapter_html"><div class="ttname"><a href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:85</div></div>
-<div class="ttc" id="aclassRenderingAPI_html"><div class="ttname"><a href="classRenderingAPI.html">RenderingAPI</a></div><div class="ttdef"><b>Definition:</b> RenderingAPI.hpp:36</div></div>
-<div class="ttc" id="aclassBox2DBoxData_html"><div class="ttname"><a href="classBox2DBoxData.html">Box2DBoxData</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:37</div></div>
-<div class="ttc" id="aclassBox2DPolygonData_html"><div class="ttname"><a href="classBox2DPolygonData.html">Box2DPolygonData</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:76</div></div>
+<div class="ttc" id="aclassPhysicsEngineAdapter_html"><div class="ttname"><a href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:83</div></div>
+<div class="ttc" id="aclassRenderingAPI_html"><div class="ttname"><a href="classRenderingAPI.html">RenderingAPI</a></div><div class="ttdef"><b>Definition:</b> RenderingAPI.hpp:35</div></div>
+<div class="ttc" id="aclassBox2DBoxData_html"><div class="ttname"><a href="classBox2DBoxData.html">Box2DBoxData</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:35</div></div>
+<div class="ttc" id="aclassBox2DPolygonData_html"><div class="ttname"><a href="classBox2DPolygonData.html">Box2DPolygonData</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:74</div></div>
 <div class="ttc" id="astructVector2_html"><div class="ttname"><a href="structVector2.html">Vector2</a></div><div class="ttdef"><b>Definition:</b> Vector2.hpp:4</div></div>
-<div class="ttc" id="aclassPhysicsAPI_html"><div class="ttname"><a href="classPhysicsAPI.html">PhysicsAPI</a></div><div class="ttdef"><b>Definition:</b> PhysicsAPI.hpp:25</div></div>
+<div class="ttc" id="aclassPhysicsAPI_html"><div class="ttname"><a href="classPhysicsAPI.html">PhysicsAPI</a></div><div class="ttdef"><b>Definition:</b> PhysicsAPI.hpp:24</div></div>
 <div class="ttc" id="astructRTransform_html"><div class="ttname"><a href="structRTransform.html">RTransform</a></div><div class="ttdef"><b>Definition:</b> RTransform.hpp:4</div></div>
-<div class="ttc" id="aclassBox2DCircleData_html"><div class="ttname"><a href="classBox2DCircleData.html">Box2DCircleData</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:58</div></div>
+<div class="ttc" id="aclassBox2DCircleData_html"><div class="ttname"><a href="classBox2DCircleData.html">Box2DCircleData</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:56</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

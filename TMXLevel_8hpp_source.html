@@ -97,31 +97,29 @@ $(function() {
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    std::map&lt;int, Vector2&gt; _tSpriteMap;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::vector&lt;unsigned int&gt; bodies{};</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a>&amp; physicsEngineAdapter;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classTMXLevel.html">TMXLevel</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *tmxPath,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;             <span class="keyword">const</span> <span class="keywordtype">char</span> *spritesheetPath,</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;             <span class="keyword">const</span> <span class="keywordtype">char</span> *spritesheetId,</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;             <span class="keyword">const</span> <a class="code" href="classRenderingAPI.html">RenderingAPI</a> &amp;renderingApi,</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;             <a class="code" href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a>&amp; physicsEngineAdapter);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    ~<a class="code" href="classTMXLevel.html">TMXLevel</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> render(<a class="code" href="classRenderingAPI.html">RenderingAPI</a> &amp;renderingApi);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> cleanup();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> getObjectPositions(std::vector&lt;EntityXMLParser::ObjectData&gt; &amp;outEntities);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> initStaticCollision();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTMXLevel.html#a16baa6ccb99c914fcc173eb99537ea1f">GetGrid</a>(<span class="keywordtype">int</span>** weights) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classTMXLevel.html">TMXLevel</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *tmxPath,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;             <span class="keyword">const</span> <span class="keywordtype">char</span> *spritesheetPath,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;             <span class="keyword">const</span> <span class="keywordtype">char</span> *spritesheetId,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;             <span class="keyword">const</span> <a class="code" href="classRenderingAPI.html">RenderingAPI</a> &amp;renderingApi,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;             <a class="code" href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a>&amp; physicsEngineAdapter);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    ~<a class="code" href="classTMXLevel.html">TMXLevel</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> render(<a class="code" href="classRenderingAPI.html">RenderingAPI</a> &amp;renderingApi);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> cleanup();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> getObjectPositions(std::vector&lt;EntityXMLParser::ObjectData&gt; &amp;outEntities);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> initStaticCollision();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassPhysicsEngineAdapter_html"><div class="ttname"><a href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:85</div></div>
-<div class="ttc" id="aclassRenderingAPI_html"><div class="ttname"><a href="classRenderingAPI.html">RenderingAPI</a></div><div class="ttdef"><b>Definition:</b> RenderingAPI.hpp:36</div></div>
+<div class="ttc" id="aclassPhysicsEngineAdapter_html"><div class="ttname"><a href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a></div><div class="ttdef"><b>Definition:</b> PhysicsEngineAdapter.hpp:83</div></div>
+<div class="ttc" id="aclassRenderingAPI_html"><div class="ttname"><a href="classRenderingAPI.html">RenderingAPI</a></div><div class="ttdef"><b>Definition:</b> RenderingAPI.hpp:35</div></div>
 <div class="ttc" id="aclassTMXLevel_html"><div class="ttname"><a href="classTMXLevel.html">TMXLevel</a></div><div class="ttdef"><b>Definition:</b> TMXLevel.hpp:20</div></div>
 <div class="ttc" id="aclassSpriteSheet_html"><div class="ttname"><a href="classSpriteSheet.html">SpriteSheet</a></div><div class="ttdef"><b>Definition:</b> SpriteSheet.hpp:8</div></div>
-<div class="ttc" id="aclassTMXLevel_html_a16baa6ccb99c914fcc173eb99537ea1f"><div class="ttname"><a href="classTMXLevel.html#a16baa6ccb99c914fcc173eb99537ea1f">TMXLevel::GetGrid</a></div><div class="ttdeci">void GetGrid(int **weights) const</div><div class="ttdef"><b>Definition:</b> TMXLevel.cpp:238</div></div>
 <div class="ttc" id="aclassEngineRenderingAPI_html"><div class="ttname"><a href="classEngineRenderingAPI.html">EngineRenderingAPI</a></div><div class="ttdef"><b>Definition:</b> EngineRenderingAPI.hpp:13</div></div>
 <div class="ttc" id="anamespaceComponents_html"><div class="ttname"><a href="namespaceComponents.html">Components</a></div><div class="ttdoc">C++ namespace for the Components schema namespace.</div><div class="ttdef"><b>Definition:</b> LevelParserAPI.hpp:9</div></div>
 <!-- start footer part -->

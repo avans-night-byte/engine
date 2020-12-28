@@ -77,50 +77,40 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;mutex&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span><a class="code" href="classTextureManager.html">TextureManager</a>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">class </span><a class="code" href="classEngineRenderingAdapter.html">EngineRenderingAdapter</a>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classEngine.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEngine.html">Engine</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">static</span> <a class="code" href="classEngine.html">Engine</a> *instance_;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">static</span> std::mutex mutex_;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::unique_ptr&lt;EngineRenderingAdapter&gt; _renderingAdapter;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classEngine.html">Engine</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    ~<a class="code" href="classEngine.html">Engine</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="classEngine.html">Engine</a>(<a class="code" href="classEngine.html">Engine</a> &amp;other) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> operator=(<span class="keyword">const</span> <a class="code" href="classEngine.html">Engine</a> &amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">static</span> <a class="code" href="classEngine.html">Engine</a> *getInstance();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classEngine.html#a1549e2457045ed531c273033ea8b06bb">initWindow</a>(<span class="keywordtype">int</span> SCREEN_WIDTH, <span class="keywordtype">int</span> SCREEN_HEIGHT);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classEngine.html#af10f694feeadd7137aa42c8a086dbbd3">closeWindow</a>();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    [[nodiscard]] <a class="code" href="classEngineRenderingAdapter.html">EngineRenderingAdapter</a> &amp;getRenderingAdapter();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> renderImGui(<span class="keywordtype">bool</span> &amp;cheatMode);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> clearImGui();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> ShowCheckBox(<span class="keyword">const</span> <a class="code" href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">std::string</a>&amp; label, <span class="keywordtype">bool</span> *value);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> InputFloat(<span class="keyword">const</span> <a class="code" href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">std::string</a> &amp;label, <span class="keywordtype">float</span> *value);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> InputInt(<span class="keyword">const</span> <a class="code" href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">std::string</a> &amp;label, <span class="keywordtype">int</span> *value);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> InputText(<span class="keyword">const</span> <a class="code" href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">std::string</a> &amp;label, <span class="keywordtype">char</span> *value, <span class="keywordtype">int</span> bufferSize);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> Button(<span class="keyword">const</span> <a class="code" href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">std::string</a> &amp;label);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">class </span><a class="code" href="classTextureManager.html">TextureManager</a>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span><a class="code" href="classEngineRenderingAdapter.html">EngineRenderingAdapter</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classEngine.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEngine.html">Engine</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">static</span> <a class="code" href="classEngine.html">Engine</a> *instance_;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">static</span> std::mutex mutex_;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::unique_ptr&lt;EngineRenderingAdapter&gt; _renderingAdapter;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classEngine.html">Engine</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    ~<a class="code" href="classEngine.html">Engine</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classEngine.html">Engine</a>(<a class="code" href="classEngine.html">Engine</a> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> operator=(<span class="keyword">const</span> <a class="code" href="classEngine.html">Engine</a> &amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">static</span> <a class="code" href="classEngine.html">Engine</a> *getInstance();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classEngine.html#a1549e2457045ed531c273033ea8b06bb">initWindow</a>(<span class="keywordtype">int</span> SCREEN_WIDTH, <span class="keywordtype">int</span> SCREEN_HEIGHT);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classEngine.html#af10f694feeadd7137aa42c8a086dbbd3">closeWindow</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    [[nodiscard]] <a class="code" href="classEngineRenderingAdapter.html">EngineRenderingAdapter</a> &amp;getRenderingAdapter();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassEngine_html"><div class="ttname"><a href="classEngine.html">Engine</a></div><div class="ttdef"><b>Definition:</b> Engine.hpp:14</div></div>
-<div class="ttc" id="anamespacexml__schema_html_ac0cec83a330f0024e4e318b3deac5104"><div class="ttname"><a href="namespacexml__schema.html#ac0cec83a330f0024e4e318b3deac5104">xml_schema::string</a></div><div class="ttdeci">::xsd::cxx::tree::string&lt; char, simple_type &gt; string</div><div class="ttdoc">C++ type corresponding to the string XML Schema built-in type.</div><div class="ttdef"><b>Definition:</b> common.hxx:255</div></div>
-<div class="ttc" id="aclassEngine_html_a1549e2457045ed531c273033ea8b06bb"><div class="ttname"><a href="classEngine.html#a1549e2457045ed531c273033ea8b06bb">Engine::initWindow</a></div><div class="ttdeci">void initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT)</div><div class="ttdef"><b>Definition:</b> Engine.cpp:37</div></div>
+<div class="ttc" id="aclassEngine_html"><div class="ttname"><a href="classEngine.html">Engine</a></div><div class="ttdef"><b>Definition:</b> Engine.hpp:13</div></div>
+<div class="ttc" id="aclassEngine_html_a1549e2457045ed531c273033ea8b06bb"><div class="ttname"><a href="classEngine.html#a1549e2457045ed531c273033ea8b06bb">Engine::initWindow</a></div><div class="ttdeci">void initWindow(int SCREEN_WIDTH, int SCREEN_HEIGHT)</div><div class="ttdef"><b>Definition:</b> Engine.cpp:28</div></div>
 <div class="ttc" id="aclassTextureManager_html"><div class="ttname"><a href="classTextureManager.html">TextureManager</a></div><div class="ttdef"><b>Definition:</b> TextureManager.hpp:9</div></div>
-<div class="ttc" id="aclassEngine_html_af10f694feeadd7137aa42c8a086dbbd3"><div class="ttname"><a href="classEngine.html#af10f694feeadd7137aa42c8a086dbbd3">Engine::closeWindow</a></div><div class="ttdeci">void closeWindow()</div><div class="ttdef"><b>Definition:</b> Engine.cpp:131</div></div>
+<div class="ttc" id="aclassEngine_html_af10f694feeadd7137aa42c8a086dbbd3"><div class="ttname"><a href="classEngine.html#af10f694feeadd7137aa42c8a086dbbd3">Engine::closeWindow</a></div><div class="ttdeci">void closeWindow()</div><div class="ttdef"><b>Definition:</b> Engine.cpp:65</div></div>
 <div class="ttc" id="aclassEngineRenderingAdapter_html"><div class="ttname"><a href="classEngineRenderingAdapter.html">EngineRenderingAdapter</a></div><div class="ttdef"><b>Definition:</b> EngineRenderingAdapter.hpp:8</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
