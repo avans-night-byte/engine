@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['healthcomponent_756',['healthComponent',['../classComponents_1_1healthComponent.html',1,'Components']]]
+  ['gridlocation_774',['GridLocation',['../structGridLocation.html',1,'']]],
+  ['gridwithweights_775',['GridWithWeights',['../structGridWithWeights.html',1,'']]]
 ];
