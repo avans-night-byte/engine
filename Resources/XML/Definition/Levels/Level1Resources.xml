@@ -16,8 +16,8 @@
                     <componentName>TransformComponent</componentName>
                     <transformComponent>
                         <common:position>
-                            <x>50</x>
-                            <y>50</y>
+                            <x>100</x>
+                            <y>100</y>
                         </common:position>
                     </transformComponent>
                 </component>
@@ -55,7 +55,6 @@
                         <isSensor>false</isSensor>
                     </physicsComponent>
                 </component>
-
             </components>
         </object>
 
@@ -102,7 +101,6 @@
                 </component>
             </components>
         </object>
-
     </level>
     <common:preloadResources>
         <resource>crate</resource>

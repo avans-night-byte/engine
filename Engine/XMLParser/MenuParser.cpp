@@ -6,6 +6,7 @@
 
 
 MenuParser *MenuParser::_instance = nullptr;
+std::map<std::string, SDL_Color> MenuParser::_colors{};
 
 MenuParser::MenuParser(const RenderingAPI &renderer) : _renderer(renderer) {
     if (_instance != nullptr) {

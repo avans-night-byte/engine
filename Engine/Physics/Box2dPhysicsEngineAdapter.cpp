@@ -224,3 +224,8 @@ void Box2DPhysicsEngineAdapter::setEnabled(BodyId id, bool b) const {
 
     body->SetEnabled(b);
 }
+
+
+const b2World& Box2DPhysicsEngineAdapter::getWorld() const{
+    return world;
+}

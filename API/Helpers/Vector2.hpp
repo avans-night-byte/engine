@@ -3,15 +3,17 @@
 struct Vector2
 {
 public:
-    float x;
-    float y;
+    float x = 0;
+    float y = 0;
 
-    Vector2(float x, float y) : x(x), y(y)
-    {
+
+    Vector2(){
 
     }
 
-    Vector2() :x(0), y(0) {
+
+    Vector2(float x, float y) : x(x), y(y)
+    {
 
     }
 
@@ -34,4 +36,11 @@ public:
     bool operator==(const Vector2& other) {
         return x == other.x && y == other.y;
     }
+
+    bool operator<(const Vector2& other) const
+    {
+        return (x < other.x) && (y < other.y);
+    }
 };
+
+

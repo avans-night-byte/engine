@@ -70,6 +70,8 @@ public:
 
     void setEnabled(BodyId id, bool b) const override;
 
+    [[nodiscard]] const b2World& getWorld() const override;
+
     void addFixtureToBody(BodyId id, const Box2DBoxData &box2dBoxData)  override;
 
     [[nodiscard]] bool isWorldLocked() const override;
