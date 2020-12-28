@@ -235,16 +235,16 @@ public:
 /**
  * @param weights
  */
-void TMXLevel::GetGrid(int **weights) const {
+std::vector< std::vector<int>> TMXLevel::GetGrid() const {
     /**
      * Create a upper and lower bounawdds. Basicly the bounds of the tile and query for objects.
      * When a static object is within this bound, mark this square as an obstruction.
      */
     const auto &world = Game::getInstance()->getPhysicsAPI().getWorld();
     std::map<Vector2, int> testPositions;
+    std::vector< std::vector<int> > weights(30, std::vector<int>(30, 0));
 
     for(int y = 0; y < 30; y++) {
-        weights[y] = new int[30];
 
         for(int x = 0; x < 30; x++){
             b2AABB aabb;
@@ -280,11 +280,12 @@ void TMXLevel::GetGrid(int **weights) const {
                 }
 
                 if(fixture->GetBody()->GetType() == b2_dynamicBody){
-                    weights[y][x] = 0;
+                    weights[y][x] = 2;
                 }
             }
         }
     }
 
+    return weights;
 }
 
