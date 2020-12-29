@@ -146,7 +146,7 @@ add_executable(NightByte ./Main.cpp
         ./API/XMLParser/MenuParserAPI.hpp
         ./API/XMLParser/LevelParserAPI.cpp
         ./API/Physics/BodyHandlerAPI.hpp
-        ./API/Helpers/Vector2.hpp Game/Components/PlayerSpawnerComponent.cpp Game/Components/PlayerSpawnerComponent.hpp)
+        ./API/Helpers/Vector2.hpp Game/Components/PlayerSpawnerComponent.cpp Game/Components/PlayerSpawnerComponent.hpp Game/Components/WaveComponent.cpp Game/Components/WaveComponent.hpp Game/Helpers/WaveManager.cpp Game/Helpers/WaveManager.hpp)
 
 find_package(box2d REQUIRED)
 find_package(XercesC REQUIRED)
