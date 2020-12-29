@@ -198,8 +198,16 @@
     </level>
     <common:preloadResources>
         <resource>crate</resource>
+        <resource>shot</resource>
         <resource>boar</resource>
         <resource>battle</resource>
+        <resource>drop</resource>
+        <resource>zombie_roar1</resource>
+        <resource>zombie_roar2</resource>
+        <resource>zombie_roar3</resource>
+        <resource>zombie_die1</resource>
+        <resource>zombie_die2</resource>
+        <resource>open_inventory</resource>
         <resource>inventory_slot</resource>
     </common:preloadResources>
 </lr:level-resources>
