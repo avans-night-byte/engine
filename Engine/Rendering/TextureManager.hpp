@@ -23,7 +23,7 @@ public:
     void drawFrame(std::string &id, SDL_Rect *srcRect, float x, float y, SDL_Renderer *pRenderer, SDL_RendererFlip flip,
                    float scale = 1, float rotation = 0, SDL_FPoint *pivot = nullptr );
 
-    void clearFromTextureMap(std::string &id);
+    void clearFromTextureMap(const std::string &id);
     Vector2 getDimensions(const std::string &id);
     static TextureManager* getInstance();
 };

@@ -29,3 +29,9 @@ void TextWrapper::render(float x, float y) {
     _renderingAPI.drawTexture(_textureId, x, y, _size.x, _size.y, 1, 0);
 }
 
+TextWrapper::~TextWrapper() {
+    TextureManager::getInstance()->clearFromTextureMap(_textureId);
+}
+
+
+

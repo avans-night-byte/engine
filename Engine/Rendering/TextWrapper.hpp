@@ -12,7 +12,7 @@ private:
     const std::string _text;
     Vector2 _size;
     TextWrapper(std::string text, const std::string& fontPath, int fontSize, const std::string& hex, std::string textureId, const RenderingAPI& renderingAPI);
-
+    ~TextWrapper();
 public:
     Vector2 getSize();
     std::string getTextureId();
