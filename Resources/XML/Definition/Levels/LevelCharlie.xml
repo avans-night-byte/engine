@@ -100,7 +100,7 @@
         </object>
 
         <object>
-            <name>ZombieSpawner</name>
+            <name>ZombieSpawner1</name>
             <objectType>object</objectType>
             <components>
 
@@ -124,7 +124,7 @@
 
 
         <object>
-            <name>ZombieSpawner_1</name>
+            <name>ZombieSpawner2</name>
             <objectType>object</objectType>
             <components>
 
@@ -146,7 +146,54 @@
             </components>
         </object>
 
-        
+
+        <object>
+            <name>ZombieSpawner3</name>
+            <objectType>object</objectType>
+            <components>
+
+                <component>
+                    <componentName>TransformComponent</componentName>
+                    <transformComponent>
+                        <common:position>
+                            <x>1900</x>
+                            <y>100</y>
+                        </common:position>
+                    </transformComponent>
+                </component>
+                <component>
+                    <componentName>WaveComponent</componentName>
+                    <WaveComponent>
+                        <poolName>zombie</poolName>
+                    </WaveComponent>
+                </component>
+            </components>
+        </object>
+
+
+        <object>
+            <name>ZombieSpawner4</name>
+            <objectType>object</objectType>
+            <components>
+
+                <component>
+                    <componentName>TransformComponent</componentName>
+                    <transformComponent>
+                        <common:position>
+                            <x>1900</x>
+                            <y>100</y>
+                        </common:position>
+                    </transformComponent>
+                </component>
+                <component>
+                    <componentName>WaveComponent</componentName>
+                    <WaveComponent>
+                        <poolName>zombie</poolName>
+                    </WaveComponent>
+                </component>
+            </components>
+        </object>
+
         <object>
             <name>ShopOutside</name>
             <objectType>object</objectType>
