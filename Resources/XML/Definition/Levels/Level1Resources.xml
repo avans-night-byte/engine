@@ -192,9 +192,106 @@
                         <pointName>FromShopInside</pointName>
                     </playerSpawnerComponent>
                 </component>
+
+
             </components>
         </object>
 
+
+        <object>
+            <name>ZombieSpawner1</name>
+            <objectType>object</objectType>
+            <components>
+
+                <component>
+                    <componentName>TransformComponent</componentName>
+                    <transformComponent>
+                        <common:position>
+                            <x>100</x>
+                            <y>100</y>
+                        </common:position>
+                    </transformComponent>
+                </component>
+                <component>
+                    <componentName>WaveComponent</componentName>
+                    <WaveComponent>
+                        <poolName>zombie</poolName>
+                    </WaveComponent>
+                </component>
+            </components>
+        </object>
+
+
+        <object>
+            <name>ZombieSpawner2</name>
+            <objectType>object</objectType>
+            <components>
+
+                <component>
+                    <componentName>TransformComponent</componentName>
+                    <transformComponent>
+                        <common:position>
+                            <x>1900</x>
+                            <y>100</y>
+                        </common:position>
+                    </transformComponent>
+                </component>
+                <component>
+                    <componentName>WaveComponent</componentName>
+                    <WaveComponent>
+                        <poolName>zombie</poolName>
+                    </WaveComponent>
+                </component>
+            </components>
+        </object>
+
+
+        <object>
+            <name>ZombieSpawner3</name>
+            <objectType>object</objectType>
+            <components>
+
+                <component>
+                    <componentName>TransformComponent</componentName>
+                    <transformComponent>
+                        <common:position>
+                            <x>1900</x>
+                            <y>100</y>
+                        </common:position>
+                    </transformComponent>
+                </component>
+                <component>
+                    <componentName>WaveComponent</componentName>
+                    <WaveComponent>
+                        <poolName>zombie</poolName>
+                    </WaveComponent>
+                </component>
+            </components>
+        </object>
+
+
+        <object>
+            <name>ZombieSpawner4</name>
+            <objectType>object</objectType>
+            <components>
+
+                <component>
+                    <componentName>TransformComponent</componentName>
+                    <transformComponent>
+                        <common:position>
+                            <x>1900</x>
+                            <y>100</y>
+                        </common:position>
+                    </transformComponent>
+                </component>
+                <component>
+                    <componentName>WaveComponent</componentName>
+                    <WaveComponent>
+                        <poolName>zombie</poolName>
+                    </WaveComponent>
+                </component>
+            </components>
+        </object>
     </level>
     <common:preloadResources>
         <resource>crate</resource>

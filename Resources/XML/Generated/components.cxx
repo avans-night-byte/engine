@@ -103,6 +103,36 @@ namespace Components
     this->transformComponent_.set (std::move (x));
   }
 
+  const component::WaveComponent_optional& component::
+  WaveComponent () const
+  {
+    return this->WaveComponent_;
+  }
+
+  component::WaveComponent_optional& component::
+  WaveComponent ()
+  {
+    return this->WaveComponent_;
+  }
+
+  void component::
+  WaveComponent (const WaveComponent_type& x)
+  {
+    this->WaveComponent_.set (x);
+  }
+
+  void component::
+  WaveComponent (const WaveComponent_optional& x)
+  {
+    this->WaveComponent_ = x;
+  }
+
+  void component::
+  WaveComponent (::std::unique_ptr< WaveComponent_type > x)
+  {
+    this->WaveComponent_.set (std::move (x));
+  }
+
   const component::AIComponent_optional& component::
   AIComponent () const
   {
@@ -651,6 +681,34 @@ namespace Components
   position (::std::unique_ptr< position_type > x)
   {
     this->position_.set (std::move (x));
+  }
+
+
+  // WaveComponent
+  // 
+
+  const WaveComponent::poolName_type& WaveComponent::
+  poolName () const
+  {
+    return this->poolName_.get ();
+  }
+
+  WaveComponent::poolName_type& WaveComponent::
+  poolName ()
+  {
+    return this->poolName_.get ();
+  }
+
+  void WaveComponent::
+  poolName (const poolName_type& x)
+  {
+    this->poolName_.set (x);
+  }
+
+  void WaveComponent::
+  poolName (::std::unique_ptr< poolName_type > x)
+  {
+    this->poolName_.set (std::move (x));
   }
 
 
@@ -1364,6 +1422,7 @@ namespace Components
   : ::xml_schema::type (),
     componentName_ (componentName, this),
     transformComponent_ (this),
+    WaveComponent_ (this),
     AIComponent_ (this),
     renderComponent_ (this),
     physicsComponent_ (this),
@@ -1389,6 +1448,7 @@ namespace Components
   : ::xml_schema::type (x, f, c),
     componentName_ (x.componentName_, f, this),
     transformComponent_ (x.transformComponent_, f, this),
+    WaveComponent_ (x.WaveComponent_, f, this),
     AIComponent_ (x.AIComponent_, f, this),
     renderComponent_ (x.renderComponent_, f, this),
     physicsComponent_ (x.physicsComponent_, f, this),
@@ -1414,6 +1474,7 @@ namespace Components
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     componentName_ (this),
     transformComponent_ (this),
+    WaveComponent_ (this),
     AIComponent_ (this),
     renderComponent_ (this),
     physicsComponent_ (this),
@@ -1471,6 +1532,20 @@ namespace Components
         if (!this->transformComponent_)
         {
           this->transformComponent_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // WaveComponent
+      //
+      if (n.name () == "WaveComponent" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< WaveComponent_type > r (
+          WaveComponent_traits::create (i, f, this));
+
+        if (!this->WaveComponent_)
+        {
+          this->WaveComponent_.set (::std::move (r));
           continue;
         }
       }
@@ -1711,6 +1786,7 @@ namespace Components
       static_cast< ::xml_schema::type& > (*this) = x;
       this->componentName_ = x.componentName_;
       this->transformComponent_ = x.transformComponent_;
+      this->WaveComponent_ = x.WaveComponent_;
       this->AIComponent_ = x.AIComponent_;
       this->renderComponent_ = x.renderComponent_;
       this->physicsComponent_ = x.physicsComponent_;
@@ -2061,6 +2137,98 @@ namespace Components
 
   transformComponent::
   ~transformComponent ()
+  {
+  }
+
+  // WaveComponent
+  //
+
+  WaveComponent::
+  WaveComponent (const poolName_type& poolName)
+  : ::xml_schema::type (),
+    poolName_ (poolName, this)
+  {
+  }
+
+  WaveComponent::
+  WaveComponent (const WaveComponent& x,
+                 ::xml_schema::flags f,
+                 ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    poolName_ (x.poolName_, f, this)
+  {
+  }
+
+  WaveComponent::
+  WaveComponent (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f,
+                 ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    poolName_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void WaveComponent::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // poolName
+      //
+      if (n.name () == "poolName" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< poolName_type > r (
+          poolName_traits::create (i, f, this));
+
+        if (!poolName_.present ())
+        {
+          this->poolName_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!poolName_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "poolName",
+        "");
+    }
+  }
+
+  WaveComponent* WaveComponent::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class WaveComponent (*this, f, c);
+  }
+
+  WaveComponent& WaveComponent::
+  operator= (const WaveComponent& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->poolName_ = x.poolName_;
+    }
+
+    return *this;
+  }
+
+  WaveComponent::
+  ~WaveComponent ()
   {
   }
 
