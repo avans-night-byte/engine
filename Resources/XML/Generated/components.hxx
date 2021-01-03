@@ -571,6 +571,7 @@ namespace Components
   class bodyType;
   class bodyShape;
   class transformComponent;
+  class WaveComponent;
   class AIComponent;
   class renderComponent;
   class physicsComponent;
@@ -864,6 +865,82 @@ namespace Components
      */
     void
     transformComponent (::std::unique_ptr< transformComponent_type > p);
+
+    //@}
+
+    /**
+     * @name WaveComponent
+     *
+     * @brief Accessor and modifier functions for the %WaveComponent
+     * optional element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::Components::WaveComponent WaveComponent_type;
+
+    /**
+     * @brief Element optional container type.
+     */
+    typedef ::xsd::cxx::tree::optional< WaveComponent_type > WaveComponent_optional;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< WaveComponent_type, char > WaveComponent_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element
+     * container.
+     *
+     * @return A constant reference to the optional container.
+     */
+    const WaveComponent_optional&
+    WaveComponent () const;
+
+    /**
+     * @brief Return a read-write reference to the element container.
+     *
+     * @return A reference to the optional container.
+     */
+    WaveComponent_optional&
+    WaveComponent ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    WaveComponent (const WaveComponent_type& x);
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x An optional container with the new value to set.
+     *
+     * If the value is present in @a x then this function makes a copy 
+     * of this value and sets it as the new value of the element.
+     * Otherwise the element container is set the 'not present' state.
+     */
+    void
+    WaveComponent (const WaveComponent_optional& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly instead
+     * of making a copy.
+     */
+    void
+    WaveComponent (::std::unique_ptr< WaveComponent_type > p);
 
     //@}
 
@@ -2090,6 +2167,7 @@ namespace Components
     protected:
     ::xsd::cxx::tree::one< componentName_type > componentName_;
     transformComponent_optional transformComponent_;
+    WaveComponent_optional WaveComponent_;
     AIComponent_optional AIComponent_;
     renderComponent_optional renderComponent_;
     physicsComponent_optional physicsComponent_;
@@ -2720,6 +2798,158 @@ namespace Components
 
     protected:
     ::xsd::cxx::tree::one< position_type > position_;
+
+    //@endcond
+  };
+
+  /**
+   * @brief Class corresponding to the %WaveComponent schema type.
+   *
+   * @nosubgrouping
+   */
+  class WaveComponent: public ::xml_schema::type
+  {
+    public:
+    /**
+     * @name poolName
+     *
+     * @brief Accessor and modifier functions for the %poolName
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::string poolName_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< poolName_type, char > poolName_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const poolName_type&
+    poolName () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    poolName_type&
+    poolName ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    poolName (const poolName_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    poolName (::std::unique_ptr< poolName_type > p);
+
+    //@}
+
+    /**
+     * @name Constructors
+     */
+    //@{
+
+    /**
+     * @brief Create an instance from the ultimate base and
+     * initializers for required elements and attributes.
+     */
+    WaveComponent (const poolName_type&);
+
+    /**
+     * @brief Create an instance from a DOM element.
+     *
+     * @param e A DOM element to extract the data from.
+     * @param f Flags to create the new instance with.
+     * @param c A pointer to the object that will contain the new
+     * instance.
+     */
+    WaveComponent (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy constructor.
+     *
+     * @param x An instance to make a copy of.
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    WaveComponent (const WaveComponent& x,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+    /**
+     * @brief Copy the instance polymorphically.
+     *
+     * @param f Flags to create the copy with.
+     * @param c A pointer to the object that will contain the copy.
+     * @return A pointer to the dynamically allocated copy.
+     *
+     * This function ensures that the dynamic type of the instance is
+     * used for copying and should be used for polymorphic object
+     * models instead of the copy constructor.
+     */
+    virtual WaveComponent*
+    _clone (::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0) const;
+
+    /**
+     * @brief Copy assignment operator.
+     *
+     * @param x An instance to make a copy of.
+     * @return A reference to itself.
+     *
+     * For polymorphic object models use the @c _clone function instead.
+     */
+    WaveComponent&
+    operator= (const WaveComponent& x);
+
+    //@}
+
+    /**
+     * @brief Destructor.
+     */
+    virtual 
+    ~WaveComponent ();
+
+    // Implementation.
+    //
+
+    //@cond
+
+    protected:
+    void
+    parse (::xsd::cxx::xml::dom::parser< char >&,
+           ::xml_schema::flags);
+
+    protected:
+    ::xsd::cxx::tree::one< poolName_type > poolName_;
 
     //@endcond
   };
