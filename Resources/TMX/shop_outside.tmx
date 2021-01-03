@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="30" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="82">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="30" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="86">
  <tileset firstgid="1" source="Overworld.tsx"/>
  <layer id="1" name="Base layer" width="30" height="25">
   <data encoding="base64" compression="zlib">
@@ -58,6 +58,18 @@
    <point/>
   </object>
   <object id="81" name="FromShopInside" x="183.417" y="169.208">
+   <point/>
+  </object>
+  <object id="82" name="ZombieSpawner1" x="34" y="38">
+   <point/>
+  </object>
+  <object id="83" name="ZombieSpawner2" x="24" y="246.667">
+   <point/>
+  </object>
+  <object id="84" name="ZombieSpawner3" x="375.333" y="27.3333">
+   <point/>
+  </object>
+  <object id="85" name="ZombieSpawner4" x="370.667" y="239.333">
    <point/>
   </object>
  </objectgroup>

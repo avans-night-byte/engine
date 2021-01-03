@@ -98,7 +98,6 @@
                 </component>
             </components>
         </object>
-
         <object>
             <name>ZombieSpawner1</name>
             <objectType>object</objectType>
