@@ -136,7 +136,7 @@ void ResourceManager::loadResource(const std::string &resource) {
             if (sprite->spriteSheet().present()) {
                 auto &spriteSize = sprite->spriteSheet()->spriteSize();
                 auto &offset = sprite->spriteSheet()->originOffset();
-                Game::getInstance()->getRenderingApi().loadSpriteSheet(_basePath + sprite->path(),
+                Game::getInstance()->getRenderingAPI().loadSpriteSheet(_basePath + sprite->path(),
                                                                        sprite->name(),
                                                                        spriteSize.width(),
                                                                        spriteSize.height(),
@@ -183,6 +183,8 @@ void ResourceManager::loadResource(const std::string &resource) {
                                                 _basePath + level->spriteSheetPath(),
                                                 level->spriteName(),
                                                 _basePath + level->path());
+
+
 
             Game::getInstance()->initializeLeveL(level->name().c_str(), tmxData);
             _currentLevel = level->name().c_str();

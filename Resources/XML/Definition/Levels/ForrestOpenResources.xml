@@ -1,0 +1,85 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<lr:level-resources
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="LevelResources  ../../Schemas/level-resources.xsd
+                            Common ../../Schemas/common.xsd"
+        xmlns:lr="LevelResources"
+        xmlns:common="Common">
+    <level>
+        <name>ForrestOpen</name>
+        <background-music>battle</background-music>
+
+        <object>
+            <name>To Plains Open</name>
+            <objectType>level_change</objectType>
+            <components>
+                <component>
+                    <componentName>TransformComponent</componentName>
+                    <transformComponent>
+                        <common:position>
+                            <x>1</x>
+                            <y>2</y>
+                        </common:position>
+                    </transformComponent>
+                </component>
+
+                <component>
+                    <componentName>NextLevelComponent</componentName>
+
+                    <nextLevelComponent>
+                        <levelName>PlainsOpen</levelName>
+                        <spawnPointName>FromForrestOpen</spawnPointName>
+                    </nextLevelComponent>
+                </component>
+
+                <component>
+                    <componentName>PhysicsComponent</componentName>
+                    <physicsComponent>
+                        <common:position>
+                            <x>0</x>
+                            <y>0</y>
+                        </common:position>
+                        <friction>0</friction>
+                        <bodyType>Static</bodyType>
+                        <bodyShape>
+                            <box>
+                                <width>50</width>
+                                <height>50</height>
+                            </box>
+                        </bodyShape>
+                        <isSensor>true</isSensor>
+                        <collisionHandler>NextLevelComponent</collisionHandler>
+                    </physicsComponent>
+                </component>
+            </components>
+        </object>
+        
+        <object>
+            <name>SpawnPlainsOpen</name>
+            <objectType>object</objectType>
+            <components>
+                <component>
+                    <componentName>TransformComponent</componentName>
+                    <transformComponent>
+                        <common:position>
+                            <x>0</x>
+                            <y>0</y>
+                        </common:position>
+                    </transformComponent>
+                </component>
+
+                <component>
+                    <componentName>PlayerSpawnerComponent</componentName>
+                    <playerSpawnerComponent>
+                        <pointName>PlainsOpen</pointName>
+                    </playerSpawnerComponent>
+                </component>
+            </components>
+        </object>
+    </level>
+    <common:preloadResources>
+        <resource>crate</resource>
+        <resource>boar</resource>
+        <resource>inventory_slot</resource>
+    </common:preloadResources>
+</lr:level-resources>

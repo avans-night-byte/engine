@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="30" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="78">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="30" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="82">
  <tileset firstgid="1" source="Overworld.tsx"/>
  <layer id="1" name="Base layer" width="30" height="25">
   <data encoding="base64" compression="zlib">
@@ -8,19 +8,18 @@
  </layer>
  <layer id="2" name="Prop Layer" width="30" height="25">
   <data encoding="base64" compression="zlib">
-   eJztlD9SwkAUhxMH/8INxDOg4g3EVktFWyhttQR0Bhs9AjVgUC9gpQdQRr2BlZZq75eZ50zcebuYcSENb+abZH9J3rebf9FMEFyNkQFo9WLJfZXZfy4j76jct3dWxrkxeO/CILgPda9tPmsO/zwswCIsQd5y3hvO95TedYe3BKvx3OLzoCx5DUc9tF72q3/Okru8u7AHVdiHA8nPcV780WvLXd4GNKEFJ3DqVqXyVh3eLvSgD5cQpfA+Wf4n2nzaZGcZfNfXZDdG3uA5NqE14nn+x6tVF18P+or3Az6FL7hNHItS3GetHvA9wlDxLpMVhRV4NdZ1qPTz8b8yvYXE3OL+RRlvs90J/Xk36VURtmDD8HZkfMT2WPZt77kvnhPrnXT9eDsT9me93ql36vVZQyX7Bu/zZPc=
+   eJztlEsOwUAYx1vx5gju4HkOll5blrYsqyRsOIK1Rz0uYMUBaHADKy7h32SajGZmtOnQjS/5pZ2/+n5TX9UIKcrmi6wBq26cXFY5+0cD8n7KZXsjZB3+gvegKspRZXt5+8kL/DEQBwmQBCnOdQ84nx69BYE3C3LW3qzrQJHkLTjaKvdrb/3DnFzkrYIaqIMGaJJ8AufUpZeXi7wa6AMdDMBQrPLkrQu8c7AAS7AChgfvhfM+Ye1nhGwcwP96i2znyDXMsQ/0D/P042XVHL4FWLrw7qlzw8PvzKoTfGdgOrz2TOjZ3KnPrf4dRj+/7yt7JvRs0tTerP4Zsi7jWFHleFlVcnhnZN3FsUfOec+5LK7U/f66bO/sx/6g7/fv/XtllsnIXlINZA8=
   </data>
  </layer>
  <objectgroup id="3" name="Object Layer">
   <object id="6" x="155.499" y="157.166">
    <polygon points="-7,-26 -6,-58 8.32458,-68.6103 28.5455,-76.9091 47.1526,-69.7277 63,-60 64.6364,-26.3182"/>
   </object>
-  <object id="9" x="80.5" y="160.5" width="31" height="31"/>
-  <object id="10" x="32.5" y="81.5" width="15" height="77.5"/>
-  <object id="32" x="244" y="97.5" width="24.5" height="28.5"/>
-  <object id="33" x="304" y="70" width="32" height="24"/>
-  <object id="34" x="336.5" y="200" width="15.5" height="49"/>
-  <object id="35" x="282" y="201.667" width="43" height="44.3333"/>
+  <object id="9" x="80.5" y="160.5" width="31" height="21.6667"/>
+  <object id="10" x="32.5" y="81.5" width="15" height="73.1667"/>
+  <object id="32" x="244" y="97.5" width="24.5" height="22.1667"/>
+  <object id="33" x="304" y="70" width="32" height="17.3333"/>
+  <object id="34" x="336.5" y="200" width="15.5" height="41"/>
   <object id="40" x="177.413" y="135.175" width="13.5909" height="19.3522">
    <properties>
     <property name="isNextLevel" type="bool" value="true"/>
@@ -30,8 +29,8 @@
   <object id="43" x="0" y="0.333111" width="9.9082" height="269.935"/>
   <object id="44" x="9.94082" y="260.282" width="379.402" height="11.0784"/>
   <object id="46" x="0.333111" y="0.999334" width="392.738" height="12.7447"/>
-  <object id="47" x="151.818" y="131.273" width="24.9091" height="24"/>
-  <object id="48" x="191.273" y="131.455" width="25.4545" height="24"/>
+  <object id="47" x="151.818" y="131.273" width="24.9091" height="18.6667"/>
+  <object id="48" x="191.273" y="131.455" width="25.4545" height="18.6667"/>
   <object id="49" x="160.545" y="175.636" width="47.4545" height="45.0909">
    <ellipse/>
   </object>
@@ -41,7 +40,7 @@
   <object id="65" name="Sascha Varken" x="95.3266" y="136.216">
    <point/>
   </object>
-  <object id="72" name="To Shop" x="184.635" y="145.584">
+  <object id="72" name="To Shop Inside" x="184.635" y="145.584">
    <point/>
   </object>
   <object id="74" x="388.311" y="194.332" width="9.1866" height="73.8462"/>
@@ -52,6 +51,13 @@
    </properties>
   </object>
   <object id="77" name="To Level Charlie" x="473.817" y="173.485">
+   <point/>
+  </object>
+  <object id="79" x="255.667" y="208" width="64.3333" height="23.6667"/>
+  <object id="80" name="FromPlainsOpen" x="440.706" y="178.215">
+   <point/>
+  </object>
+  <object id="81" name="FromShopInside" x="183.417" y="169.208">
    <point/>
   </object>
  </objectgroup>

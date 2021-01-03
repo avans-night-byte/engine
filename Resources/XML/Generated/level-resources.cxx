@@ -121,6 +121,30 @@ namespace LevelResources
     this->name_.set (std::move (x));
   }
 
+  const level::background_music_type& level::
+  background_music () const
+  {
+    return this->background_music_.get ();
+  }
+
+  level::background_music_type& level::
+  background_music ()
+  {
+    return this->background_music_.get ();
+  }
+
+  void level::
+  background_music (const background_music_type& x)
+  {
+    this->background_music_.set (x);
+  }
+
+  void level::
+  background_music (::std::unique_ptr< background_music_type > x)
+  {
+    this->background_music_.set (std::move (x));
+  }
+
   const level::object_sequence& level::
   object () const
   {
@@ -275,9 +299,11 @@ namespace LevelResources
   //
 
   level::
-  level (const name_type& name)
+  level (const name_type& name,
+         const background_music_type& background_music)
   : ::xml_schema::type (),
     name_ (name, this),
+    background_music_ (background_music, this),
     object_ (this)
   {
   }
@@ -288,6 +314,7 @@ namespace LevelResources
          ::xml_schema::container* c)
   : ::xml_schema::type (x, f, c),
     name_ (x.name_, f, this),
+    background_music_ (x.background_music_, f, this),
     object_ (x.object_, f, this)
   {
   }
@@ -298,6 +325,7 @@ namespace LevelResources
          ::xml_schema::container* c)
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     name_ (this),
+    background_music_ (this),
     object_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
@@ -331,6 +359,20 @@ namespace LevelResources
         }
       }
 
+      // background-music
+      //
+      if (n.name () == "background-music" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< background_music_type > r (
+          background_music_traits::create (i, f, this));
+
+        if (!background_music_.present ())
+        {
+          this->background_music_.set (::std::move (r));
+          continue;
+        }
+      }
+
       // object
       //
       if (n.name () == "object" && n.namespace_ ().empty ())
@@ -351,6 +393,13 @@ namespace LevelResources
         "name",
         "");
     }
+
+    if (!background_music_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "background-music",
+        "");
+    }
   }
 
   level* level::
@@ -367,6 +416,7 @@ namespace LevelResources
     {
       static_cast< ::xml_schema::type& > (*this) = x;
       this->name_ = x.name_;
+      this->background_music_ = x.background_music_;
       this->object_ = x.object_;
     }
 

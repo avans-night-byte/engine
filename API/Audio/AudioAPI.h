@@ -5,7 +5,7 @@
 #include "../../Engine/Audio/AudioType.h"
 
 class AudioAPI{
-
+public:
    virtual std::vector<std::string> getAudioNames() = 0;
 
    virtual void playFromMemory(const std::string &name) = 0;

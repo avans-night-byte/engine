@@ -60,5 +60,5 @@ public:
     void toggleSounds() override;
 
 private:
-    std::unique_ptr<SDLAudioEngineAdapter> _adapter;
+    SDLAudioEngineAdapter &_adapter;
 };
