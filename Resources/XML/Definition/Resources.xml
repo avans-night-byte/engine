@@ -194,6 +194,10 @@
             <path>XML/Definition/MainMenu.xml</path>
         </scene>
         <scene>
+            <name>MainMenuContinue</name>
+            <path>XML/Definition/MainMenu_Continue.xml</path>
+        </scene>
+        <scene>
             <name>Loading</name>
             <path>XML/Definition/Loading.xml</path>
         </scene>

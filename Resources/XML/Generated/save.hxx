@@ -1040,6 +1040,64 @@ namespace Save
     //@}
 
     /**
+     * @name level
+     *
+     * @brief Accessor and modifier functions for the %level
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::string level_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< level_type, char > level_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const level_type&
+    level () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    level_type&
+    level ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    level (const level_type& x);
+
+    /**
+     * @brief Set the element value without copying.
+     *
+     * @param p A new value to use.
+     *
+     * This function will try to use the passed value directly
+     * instead of making a copy.
+     */
+    void
+    level (::std::unique_ptr< level_type > p);
+
+    //@}
+
+    /**
      * @name Constructors
      */
     //@{
@@ -1050,7 +1108,8 @@ namespace Save
      */
     playerData (const position_type&,
                 const health_type&,
-                const money_type&);
+                const money_type&,
+                const level_type&);
 
     /**
      * @brief Create an instance from the ultimate base and
@@ -1062,7 +1121,8 @@ namespace Save
      */
     playerData (::std::unique_ptr< position_type >,
                 const health_type&,
-                const money_type&);
+                const money_type&,
+                const level_type&);
 
     /**
      * @brief Create an instance from a DOM element.
@@ -1137,6 +1197,7 @@ namespace Save
     ::xsd::cxx::tree::one< position_type > position_;
     ::xsd::cxx::tree::one< health_type > health_;
     ::xsd::cxx::tree::one< money_type > money_;
+    ::xsd::cxx::tree::one< level_type > level_;
 
     //@endcond
   };

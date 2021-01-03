@@ -181,6 +181,30 @@ namespace Save
     this->money_.set (x);
   }
 
+  const playerData::level_type& playerData::
+  level () const
+  {
+    return this->level_.get ();
+  }
+
+  playerData::level_type& playerData::
+  level ()
+  {
+    return this->level_.get ();
+  }
+
+  void playerData::
+  level (const level_type& x)
+  {
+    this->level_.set (x);
+  }
+
+  void playerData::
+  level (::std::unique_ptr< level_type > x)
+  {
+    this->level_.set (std::move (x));
+  }
+
 
   // inventoryData
   // 
@@ -443,22 +467,26 @@ namespace Save
   playerData::
   playerData (const position_type& position,
               const health_type& health,
-              const money_type& money)
+              const money_type& money,
+              const level_type& level)
   : ::xml_schema::type (),
     position_ (position, this),
     health_ (health, this),
-    money_ (money, this)
+    money_ (money, this),
+    level_ (level, this)
   {
   }
 
   playerData::
   playerData (::std::unique_ptr< position_type > position,
               const health_type& health,
-              const money_type& money)
+              const money_type& money,
+              const level_type& level)
   : ::xml_schema::type (),
     position_ (std::move (position), this),
     health_ (health, this),
-    money_ (money, this)
+    money_ (money, this),
+    level_ (level, this)
   {
   }
 
@@ -469,7 +497,8 @@ namespace Save
   : ::xml_schema::type (x, f, c),
     position_ (x.position_, f, this),
     health_ (x.health_, f, this),
-    money_ (x.money_, f, this)
+    money_ (x.money_, f, this),
+    level_ (x.level_, f, this)
   {
   }
 
@@ -480,7 +509,8 @@ namespace Save
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     position_ (this),
     health_ (this),
-    money_ (this)
+    money_ (this),
+    level_ (this)
   {
     if ((f & ::xml_schema::flags::base) == 0)
     {
@@ -535,6 +565,20 @@ namespace Save
         }
       }
 
+      // level
+      //
+      if (n.name () == "level" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< level_type > r (
+          level_traits::create (i, f, this));
+
+        if (!level_.present ())
+        {
+          this->level_.set (::std::move (r));
+          continue;
+        }
+      }
+
       break;
     }
 
@@ -558,6 +602,13 @@ namespace Save
         "money",
         "");
     }
+
+    if (!level_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "level",
+        "");
+    }
   }
 
   playerData* playerData::
@@ -576,6 +627,7 @@ namespace Save
       this->position_ = x.position_;
       this->health_ = x.health_;
       this->money_ = x.money_;
+      this->level_ = x.level_;
     }
 
     return *this;

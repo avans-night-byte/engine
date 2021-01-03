@@ -7,14 +7,24 @@
         xmlns:sv="Save">
     <playerData>
         <common:position>
-            <x>363.732941</x>
-            <y>621.993713</y>
+            <x>769.397278</x>
+            <y>391.912811</y>
         </common:position>
         <health>100.000000</health>
-        <money>500</money>
-        <level>ShopOutside</level>
+        <money>240</money>
+        <level>PlainsOpen</level>
     </playerData>
     <inventoryData>
+        <item>
+            <name>boar</name>
+            <quantity>8</quantity>
+            <type>resource</type>
+        </item>
+        <item>
+            <name>wall</name>
+            <quantity>80</quantity>
+            <type>object</type>
+        </item>
     </inventoryData>
     <objectData/>
 </sv:save>
