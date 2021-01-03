@@ -67,6 +67,10 @@
             <name>yannick</name>
             <path>Sprites/Yannick.png</path>
         </texture>
+        <texture>
+            <name>ad</name>
+            <path>Sprites/ad.png</path>
+        </texture>
     </textures>
     <sprites>
         <sprite>

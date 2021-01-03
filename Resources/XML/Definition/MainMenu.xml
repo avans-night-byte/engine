@@ -137,8 +137,46 @@
                 </onClick>
             </common:events>
         </button>
+        <button>
+            <common:position>
+                <x>1000</x>
+                <y>200</y>
+            </common:position>
+            <common:size>
+                <width>750</width>
+                <height>500</height>
+            </common:size>
+            <resources>
+                <default>ad</default>
+            </resources>
+            <common:events>
+                <onClick>
+                    <loadURL>https://landing.coolermaster.com/kfconsole/</loadURL>
+                </onClick>
+            </common:events>
+        </button>
     </buttons>
-    <texts/>
+    <texts>
+        <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
+            <common:position>
+                <x>1000</x>
+                <y>725</y>
+            </common:position>
+            <common:color>
+                <hex>ffffff</hex>
+                <alpha>255</alpha>
+            </common:color>
+            <common:font>
+                <family>Montserrat</family>
+                <weight>Bold</weight>
+                <size>28</size>
+            </common:font>
+            <content>Sponsored by: KFConsole with Chicken Chamber</content>
+        </text>
+    </texts>
     <images>
         <image>
             <common:position>
@@ -179,5 +217,6 @@
         <resource>background_2</resource>
         <resource>nightbyte_logo</resource>
         <resource>minion</resource>
+        <resource>ad</resource>
     </common:preloadResources>
 </menu:menu>
