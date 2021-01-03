@@ -231,6 +231,24 @@ namespace Save
   // objectData
   // 
 
+  const objectData::object_sequence& objectData::
+  object () const
+  {
+    return this->object_;
+  }
+
+  objectData::object_sequence& objectData::
+  object ()
+  {
+    return this->object_;
+  }
+
+  void objectData::
+  object (const object_sequence& s)
+  {
+    this->object_ = s;
+  }
+
 
   // item
   // 
@@ -300,6 +318,82 @@ namespace Save
   {
     this->type_.set (std::move (x));
   }
+
+
+  // object
+  // 
+
+  const object::type_type& object::
+  type () const
+  {
+    return this->type_.get ();
+  }
+
+  object::type_type& object::
+  type ()
+  {
+    return this->type_.get ();
+  }
+
+  void object::
+  type (const type_type& x)
+  {
+    this->type_.set (x);
+  }
+
+  void object::
+  type (::std::unique_ptr< type_type > x)
+  {
+    this->type_.set (std::move (x));
+  }
+
+  const object::level_type& object::
+  level () const
+  {
+    return this->level_.get ();
+  }
+
+  object::level_type& object::
+  level ()
+  {
+    return this->level_.get ();
+  }
+
+  void object::
+  level (const level_type& x)
+  {
+    this->level_.set (x);
+  }
+
+  void object::
+  level (::std::unique_ptr< level_type > x)
+  {
+    this->level_.set (std::move (x));
+  }
+
+  const object::position_type& object::
+  position () const
+  {
+    return this->position_.get ();
+  }
+
+  object::position_type& object::
+  position ()
+  {
+    return this->position_.get ();
+  }
+
+  void object::
+  position (const position_type& x)
+  {
+    this->position_.set (x);
+  }
+
+  void object::
+  position (::std::unique_ptr< position_type > x)
+  {
+    this->position_.set (std::move (x));
+  }
 }
 
 #include <xsd/cxx/xml/dom/parsing-source.hxx>
@@ -323,11 +417,11 @@ namespace Save
   save::
   save (::std::unique_ptr< playerData_type > playerData,
         ::std::unique_ptr< inventoryData_type > inventoryData,
-        const objectData_type& objectData)
+        ::std::unique_ptr< objectData_type > objectData)
   : ::xml_schema::type (),
     playerData_ (std::move (playerData), this),
     inventoryData_ (std::move (inventoryData), this),
-    objectData_ (objectData, this)
+    objectData_ (std::move (objectData), this)
   {
   }
 
@@ -725,7 +819,8 @@ namespace Save
 
   objectData::
   objectData ()
-  : ::xml_schema::type ()
+  : ::xml_schema::type (),
+    object_ (this)
   {
   }
 
@@ -733,7 +828,8 @@ namespace Save
   objectData (const objectData& x,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-  : ::xml_schema::type (x, f, c)
+  : ::xml_schema::type (x, f, c),
+    object_ (x.object_, f, this)
   {
   }
 
@@ -741,25 +837,39 @@ namespace Save
   objectData (const ::xercesc::DOMElement& e,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-  : ::xml_schema::type (e, f, c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    object_ (this)
   {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
   }
 
-  objectData::
-  objectData (const ::xercesc::DOMAttr& a,
-              ::xml_schema::flags f,
-              ::xml_schema::container* c)
-  : ::xml_schema::type (a, f, c)
+  void objectData::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
   {
-  }
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
 
-  objectData::
-  objectData (const ::std::string& s,
-              const ::xercesc::DOMElement* e,
-              ::xml_schema::flags f,
-              ::xml_schema::container* c)
-  : ::xml_schema::type (s, e, f, c)
-  {
+      // object
+      //
+      if (n.name () == "object" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< object_type > r (
+          object_traits::create (i, f, this));
+
+        this->object_.push_back (::std::move (r));
+        continue;
+      }
+
+      break;
+    }
   }
 
   objectData* objectData::
@@ -767,6 +877,18 @@ namespace Save
           ::xml_schema::container* c) const
   {
     return new class objectData (*this, f, c);
+  }
+
+  objectData& objectData::
+  operator= (const objectData& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->object_ = x.object_;
+    }
+
+    return *this;
   }
 
   objectData::
@@ -912,6 +1034,161 @@ namespace Save
 
   item::
   ~item ()
+  {
+  }
+
+  // object
+  //
+
+  object::
+  object (const type_type& type,
+          const level_type& level,
+          const position_type& position)
+  : ::xml_schema::type (),
+    type_ (type, this),
+    level_ (level, this),
+    position_ (position, this)
+  {
+  }
+
+  object::
+  object (const type_type& type,
+          const level_type& level,
+          ::std::unique_ptr< position_type > position)
+  : ::xml_schema::type (),
+    type_ (type, this),
+    level_ (level, this),
+    position_ (std::move (position), this)
+  {
+  }
+
+  object::
+  object (const object& x,
+          ::xml_schema::flags f,
+          ::xml_schema::container* c)
+  : ::xml_schema::type (x, f, c),
+    type_ (x.type_, f, this),
+    level_ (x.level_, f, this),
+    position_ (x.position_, f, this)
+  {
+  }
+
+  object::
+  object (const ::xercesc::DOMElement& e,
+          ::xml_schema::flags f,
+          ::xml_schema::container* c)
+  : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+    type_ (this),
+    level_ (this),
+    position_ (this)
+  {
+    if ((f & ::xml_schema::flags::base) == 0)
+    {
+      ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+      this->parse (p, f);
+    }
+  }
+
+  void object::
+  parse (::xsd::cxx::xml::dom::parser< char >& p,
+         ::xml_schema::flags f)
+  {
+    for (; p.more_content (); p.next_content (false))
+    {
+      const ::xercesc::DOMElement& i (p.cur_element ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (i));
+
+      // type
+      //
+      if (n.name () == "type" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< type_type > r (
+          type_traits::create (i, f, this));
+
+        if (!type_.present ())
+        {
+          this->type_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // level
+      //
+      if (n.name () == "level" && n.namespace_ ().empty ())
+      {
+        ::std::unique_ptr< level_type > r (
+          level_traits::create (i, f, this));
+
+        if (!level_.present ())
+        {
+          this->level_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      // position
+      //
+      if (n.name () == "position" && n.namespace_ () == "Common")
+      {
+        ::std::unique_ptr< position_type > r (
+          position_traits::create (i, f, this));
+
+        if (!position_.present ())
+        {
+          this->position_.set (::std::move (r));
+          continue;
+        }
+      }
+
+      break;
+    }
+
+    if (!type_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "type",
+        "");
+    }
+
+    if (!level_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "level",
+        "");
+    }
+
+    if (!position_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "position",
+        "Common");
+    }
+  }
+
+  object* object::
+  _clone (::xml_schema::flags f,
+          ::xml_schema::container* c) const
+  {
+    return new class object (*this, f, c);
+  }
+
+  object& object::
+  operator= (const object& x)
+  {
+    if (this != &x)
+    {
+      static_cast< ::xml_schema::type& > (*this) = x;
+      this->type_ = x.type_;
+      this->level_ = x.level_;
+      this->position_ = x.position_;
+    }
+
+    return *this;
+  }
+
+  object::
+  ~object ()
   {
   }
 }
