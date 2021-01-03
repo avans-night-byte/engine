@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['gridlocation_798',['GridLocation',['../structGridLocation.html',1,'']]],
-  ['gridwithweights_799',['GridWithWeights',['../structGridWithWeights.html',1,'']]]
+  ['gridlocation_831',['GridLocation',['../structGridLocation.html',1,'']]],
+  ['gridwithweights_832',['GridWithWeights',['../structGridWithWeights.html',1,'']]]
 ];
