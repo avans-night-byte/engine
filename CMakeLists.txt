@@ -85,6 +85,8 @@ add_executable(NightByte ./Main.cpp
         ./Game/Components/Characters/ZombieComponent.hpp
         ./Game/CheatMode.cpp
         ./Game/CheatMode.hpp
+        ./Game/Save/SaveSystem.cpp
+        ./Game/Save/SaveSystem.hpp
         ./Game/Components/PlayerSpawnerComponent.hpp
         ./Game/Components/WaveComponent.cpp
         ./Game/Components/WaveComponent.hpp
@@ -190,7 +192,9 @@ add_library(XMLResources SHARED
         ./Resources/XML/Generated/components.hxx
         ./Resources/XML/Generated/components.cxx
         ./Resources/XML/Generated/objects.hxx
-        ./Resources/XML/Generated/objects.cxx)
+        ./Resources/XML/Generated/objects.cxx
+        ./Resources/XML/Generated/save.cxx
+        ./Resources/XML/Generated/save.hxx)
 
 target_link_libraries(XMLResources PUBLIC XercesC::XercesC )
 target_include_directories(XMLResources PUBLIC ${XSD_INCLUDE_DIR} ./Resources/XML/)
