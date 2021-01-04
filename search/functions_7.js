@@ -1,13 +1,21 @@
 var searchData=
 [
-  ['getaudionames_988',['getAudioNames',['../classSDLAudioEngineAdapter.html#abb7927ee614f14bc29614b3880a1fa40',1,'SDLAudioEngineAdapter']]],
-  ['getchannelsaveragevolume_989',['getChannelsAverageVolume',['../classSDLAudioEngineAdapter.html#a6dd805577cc96a9042380ce2df78c464',1,'SDLAudioEngineAdapter']]],
-  ['getchannelvolume_990',['getChannelVolume',['../classSDLAudioEngineAdapter.html#affd5ed920b072a87de929717ec239a9d',1,'SDLAudioEngineAdapter']]],
-  ['getcontrollerinput_991',['getControllerInput',['../classSDLInputEngineAdapter.html#a12a188984b769c6210335481e2062c37',1,'SDLInputEngineAdapter']]],
-  ['getcontrollermotioninput_992',['getControllerMotionInput',['../classSDLInputEngineAdapter.html#a2ee77f44322c6fa425fb73d8a1a31bea',1,'SDLInputEngineAdapter']]],
-  ['getgrid_993',['GetGrid',['../classTMXLevel.html#a4bc4cb1dddc7a7b3b4ddfa199b92569f',1,'TMXLevel']]],
-  ['getinput_994',['getInput',['../classSDLInputEngineAdapter.html#af4dff5dabe2a8918fbefca4e945606a6',1,'SDLInputEngineAdapter']]],
-  ['getkeyinput_995',['getKeyInput',['../classSDLInputEngineAdapter.html#a247bdda44c11b932ea53f7b33e8356d5',1,'SDLInputEngineAdapter']]],
-  ['getmouseinput_996',['getMouseInput',['../classSDLInputEngineAdapter.html#ac0a1eafdc5a3ff0bdc06130e9b1cab95',1,'SDLInputEngineAdapter']]],
-  ['getmusicvolume_997',['getMusicVolume',['../classSDLAudioEngineAdapter.html#a274cf82a1f15a2029c96e898bd840348',1,'SDLAudioEngineAdapter']]]
+  ['getaudionames_1035',['getAudioNames',['../classEngineAudioAPI.html#ab667148eca418c7afffb2a45748edd75',1,'EngineAudioAPI::getAudioNames()'],['../classSDLAudioEngineAdapter.html#abb7927ee614f14bc29614b3880a1fa40',1,'SDLAudioEngineAdapter::getAudioNames()']]],
+  ['getchannelsaveragevolume_1036',['getChannelsAverageVolume',['../classSDLAudioEngineAdapter.html#a6dd805577cc96a9042380ce2df78c464',1,'SDLAudioEngineAdapter']]],
+  ['getchannelvolume_1037',['getChannelVolume',['../classSDLAudioEngineAdapter.html#affd5ed920b072a87de929717ec239a9d',1,'SDLAudioEngineAdapter']]],
+  ['getcontrollerinput_1038',['getControllerInput',['../classSDLInputEngineAdapter.html#a12a188984b769c6210335481e2062c37',1,'SDLInputEngineAdapter']]],
+  ['getcontrollermotioninput_1039',['getControllerMotionInput',['../classSDLInputEngineAdapter.html#a2ee77f44322c6fa425fb73d8a1a31bea',1,'SDLInputEngineAdapter']]],
+  ['getcustomeventhandler_1040',['getCustomEventHandler',['../classMenuParserAPI.html#ac18254657795a9ee70a07627220e825d',1,'MenuParserAPI']]],
+  ['getdynamicfields_1041',['getDynamicFields',['../classMenuParserAPI.html#a8011a0034b89a3d89ce179a9c030ff12',1,'MenuParserAPI']]],
+  ['getgrid_1042',['GetGrid',['../classTMXLevel.html#a4bc4cb1dddc7a7b3b4ddfa199b92569f',1,'TMXLevel']]],
+  ['getinput_1043',['getInput',['../classSDLInputEngineAdapter.html#af4dff5dabe2a8918fbefca4e945606a6',1,'SDLInputEngineAdapter']]],
+  ['getkeyinput_1044',['getKeyInput',['../classSDLInputEngineAdapter.html#a247bdda44c11b932ea53f7b33e8356d5',1,'SDLInputEngineAdapter']]],
+  ['getmouseinput_1045',['getMouseInput',['../classSDLInputEngineAdapter.html#ac0a1eafdc5a3ff0bdc06130e9b1cab95',1,'SDLInputEngineAdapter']]],
+  ['getmouseposition_1046',['getMousePosition',['../classEngineInputAPI.html#ad69a1a5ac619ef13a927be8946e151b2',1,'EngineInputAPI']]],
+  ['getmusicvolume_1047',['getMusicVolume',['../classSDLAudioEngineAdapter.html#a274cf82a1f15a2029c96e898bd840348',1,'SDLAudioEngineAdapter']]],
+  ['getphysicsengineadapter_1048',['getPhysicsEngineAdapter',['../classEnginePhysicsAPI.html#ab0b33501ec2e4c7b3b3a03b0dde69d97',1,'EnginePhysicsAPI::getPhysicsEngineAdapter()'],['../classPhysicsAPI.html#a6b57e7d9cf99fe11de4d7e60ea172234',1,'PhysicsAPI::getPhysicsEngineAdapter()']]],
+  ['getrendereradapter_1049',['getRendererAdapter',['../classEngineRenderingAPI.html#a2c86e52289be29994a4820159b0b0188',1,'EngineRenderingAPI']]],
+  ['getrposition_1050',['getRPosition',['../classEnginePhysicsAPI.html#a497e7ec07148cd7cafcf347a62e5e2c6',1,'EnginePhysicsAPI::getRPosition()'],['../classPhysicsAPI.html#aa0338bfe8f1db55e123785f8e868118f',1,'PhysicsAPI::getRPosition()']]],
+  ['getvelocity_1051',['GetVelocity',['../classEnginePhysicsAPI.html#a9c8709abc9a38f90b6fc57ddc277b784',1,'EnginePhysicsAPI::GetVelocity()'],['../classPhysicsAPI.html#abab2f9790e547bc3a3fde714fcd0ef2f',1,'PhysicsAPI::GetVelocity()']]],
+  ['getworld_1052',['getWorld',['../classEnginePhysicsAPI.html#a1d7788d68184444d78e23f40a5264ca9',1,'EnginePhysicsAPI::getWorld()'],['../classPhysicsAPI.html#ab7b271a2867cd9343f8a0f192094ec4e',1,'PhysicsAPI::getWorld()']]]
 ];

@@ -1,0 +1,11 @@
+digraph "API/Physics" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_19ea4dbfe8f0e4681f60b9b97f7b5d11 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="API" fontname="Helvetica", fontsize="10", URL="dir_19ea4dbfe8f0e4681f60b9b97f7b5d11.html"]
+  dir_6cc1e1437ec9e54a046563217a894615 [shape=box, label="Physics", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_6cc1e1437ec9e54a046563217a894615.html"];
+  }
+  dir_3d85aa185a11d37872a03be06d73e543 [shape=box label="Rendering" URL="dir_3d85aa185a11d37872a03be06d73e543.html"];
+  dir_6cc1e1437ec9e54a046563217a894615->dir_3d85aa185a11d37872a03be06d73e543 [headlabel="1", labeldistance=1.5 headhref="dir_000005_000006.html"];
+}
