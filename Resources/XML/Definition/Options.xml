@@ -10,7 +10,6 @@
     <common:resources>
         <default>mainmenu_background</default>
     </common:resources>
-    <backgroundMusic>mainmenu_music</backgroundMusic>
     <buttons>
         <button>
             <common:position>
