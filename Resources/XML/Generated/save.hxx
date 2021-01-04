@@ -994,6 +994,100 @@ namespace Save
     //@}
 
     /**
+     * @name xp
+     *
+     * @brief Accessor and modifier functions for the %xp
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::int_ xp_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< xp_type, char > xp_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const xp_type&
+    xp () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    xp_type&
+    xp ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    xp (const xp_type& x);
+
+    //@}
+
+    /**
+     * @name score
+     *
+     * @brief Accessor and modifier functions for the %score
+     * required element.
+     */
+    //@{
+
+    /**
+     * @brief Element type.
+     */
+    typedef ::xml_schema::int_ score_type;
+
+    /**
+     * @brief Element traits type.
+     */
+    typedef ::xsd::cxx::tree::traits< score_type, char > score_traits;
+
+    /**
+     * @brief Return a read-only (constant) reference to the element.
+     *
+     * @return A constant reference to the element.
+     */
+    const score_type&
+    score () const;
+
+    /**
+     * @brief Return a read-write reference to the element.
+     *
+     * @return A reference to the element.
+     */
+    score_type&
+    score ();
+
+    /**
+     * @brief Set the element value.
+     *
+     * @param x A new value to set.
+     *
+     * This function makes a copy of its argument and sets it as
+     * the new value of the element.
+     */
+    void
+    score (const score_type& x);
+
+    //@}
+
+    /**
      * @name money
      *
      * @brief Accessor and modifier functions for the %money
@@ -1109,6 +1203,8 @@ namespace Save
      */
     playerData (const position_type&,
                 const health_type&,
+                const xp_type&,
+                const score_type&,
                 const money_type&,
                 const level_type&);
 
@@ -1122,6 +1218,8 @@ namespace Save
      */
     playerData (::std::unique_ptr< position_type >,
                 const health_type&,
+                const xp_type&,
+                const score_type&,
                 const money_type&,
                 const level_type&);
 
@@ -1197,6 +1295,8 @@ namespace Save
     protected:
     ::xsd::cxx::tree::one< position_type > position_;
     ::xsd::cxx::tree::one< health_type > health_;
+    ::xsd::cxx::tree::one< xp_type > xp_;
+    ::xsd::cxx::tree::one< score_type > score_;
     ::xsd::cxx::tree::one< money_type > money_;
     ::xsd::cxx::tree::one< level_type > level_;
 

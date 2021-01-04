@@ -7,12 +7,14 @@
         xmlns:sv="Save">
     <playerData>
         <common:position>
-            <x>1826.189941</x>
-            <y>712.888123</y>
+            <x>490.215637</x>
+            <y>863.327332</y>
         </common:position>
         <health>100.000000</health>
-        <money>270</money>
-        <level>PlainsOpen</level>
+        <xp>0</xp>
+        <score>1500</score>
+        <money>150</money>
+        <level>ShopOutside</level>
     </playerData>
     <inventoryData>
     </inventoryData>
@@ -21,40 +23,40 @@
             <type>zombie</type>
             <level>ShopOutside</level>
             <common:position>
-                <x>1053.158691</x>
-                <y>752.300232</y>
+                <x>903.785767</x>
+                <y>373.504333</y>
             </common:position>
         </object>
         <object>
             <type>zombie</type>
             <level>ShopOutside</level>
             <common:position>
-                <x>682.842834</x>
-                <y>294.880890</y>
+                <x>1310.960327</x>
+                <y>746.126892</y>
             </common:position>
         </object>
         <object>
             <type>zombie</type>
             <level>ShopOutside</level>
             <common:position>
-                <x>307.591797</x>
-                <y>159.306213</y>
+                <x>106.695610</x>
+                <y>983.543945</y>
             </common:position>
         </object>
         <object>
             <type>zombie</type>
             <level>ShopOutside</level>
             <common:position>
-                <x>236.094330</x>
-                <y>935.108765</y>
+                <x>1490.311279</x>
+                <y>108.371628</y>
             </common:position>
         </object>
         <object>
             <type>zombie</type>
             <level>ShopOutside</level>
             <common:position>
-                <x>1533.239136</x>
-                <y>797.131958</y>
+                <x>1483.576172</x>
+                <y>946.702698</y>
             </common:position>
         </object>
     </objectData>

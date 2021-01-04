@@ -163,6 +163,42 @@ namespace Save
     this->health_.set (x);
   }
 
+  const playerData::xp_type& playerData::
+  xp () const
+  {
+    return this->xp_.get ();
+  }
+
+  playerData::xp_type& playerData::
+  xp ()
+  {
+    return this->xp_.get ();
+  }
+
+  void playerData::
+  xp (const xp_type& x)
+  {
+    this->xp_.set (x);
+  }
+
+  const playerData::score_type& playerData::
+  score () const
+  {
+    return this->score_.get ();
+  }
+
+  playerData::score_type& playerData::
+  score ()
+  {
+    return this->score_.get ();
+  }
+
+  void playerData::
+  score (const score_type& x)
+  {
+    this->score_.set (x);
+  }
+
   const playerData::money_type& playerData::
   money () const
   {
@@ -561,11 +597,15 @@ namespace Save
   playerData::
   playerData (const position_type& position,
               const health_type& health,
+              const xp_type& xp,
+              const score_type& score,
               const money_type& money,
               const level_type& level)
   : ::xml_schema::type (),
     position_ (position, this),
     health_ (health, this),
+    xp_ (xp, this),
+    score_ (score, this),
     money_ (money, this),
     level_ (level, this)
   {
@@ -574,11 +614,15 @@ namespace Save
   playerData::
   playerData (::std::unique_ptr< position_type > position,
               const health_type& health,
+              const xp_type& xp,
+              const score_type& score,
               const money_type& money,
               const level_type& level)
   : ::xml_schema::type (),
     position_ (std::move (position), this),
     health_ (health, this),
+    xp_ (xp, this),
+    score_ (score, this),
     money_ (money, this),
     level_ (level, this)
   {
@@ -591,6 +635,8 @@ namespace Save
   : ::xml_schema::type (x, f, c),
     position_ (x.position_, f, this),
     health_ (x.health_, f, this),
+    xp_ (x.xp_, f, this),
+    score_ (x.score_, f, this),
     money_ (x.money_, f, this),
     level_ (x.level_, f, this)
   {
@@ -603,6 +649,8 @@ namespace Save
   : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
     position_ (this),
     health_ (this),
+    xp_ (this),
+    score_ (this),
     money_ (this),
     level_ (this)
   {
@@ -644,6 +692,28 @@ namespace Save
         if (!health_.present ())
         {
           this->health_.set (health_traits::create (i, f, this));
+          continue;
+        }
+      }
+
+      // xp
+      //
+      if (n.name () == "xp" && n.namespace_ ().empty ())
+      {
+        if (!xp_.present ())
+        {
+          this->xp_.set (xp_traits::create (i, f, this));
+          continue;
+        }
+      }
+
+      // score
+      //
+      if (n.name () == "score" && n.namespace_ ().empty ())
+      {
+        if (!score_.present ())
+        {
+          this->score_.set (score_traits::create (i, f, this));
           continue;
         }
       }
@@ -690,6 +760,20 @@ namespace Save
         "");
     }
 
+    if (!xp_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "xp",
+        "");
+    }
+
+    if (!score_.present ())
+    {
+      throw ::xsd::cxx::tree::expected_element< char > (
+        "score",
+        "");
+    }
+
     if (!money_.present ())
     {
       throw ::xsd::cxx::tree::expected_element< char > (
@@ -720,6 +804,8 @@ namespace Save
       static_cast< ::xml_schema::type& > (*this) = x;
       this->position_ = x.position_;
       this->health_ = x.health_;
+      this->xp_ = x.xp_;
+      this->score_ = x.score_;
       this->money_ = x.money_;
       this->level_ = x.level_;
     }
