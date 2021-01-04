@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: EngineAudioAPI Class Reference</title>
+<title>NightByte: EngineAudioAPI Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Webp.net-resizeimage(1).png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">NightByte
+   &#160;<span id="projectnumber">1.0</span>
    </div>
+   <div id="projectbrief">A game and game engine created by group Charlie</div>
   </td>
  </tr>
  </tbody>
@@ -73,13 +76,12 @@ $(function() {
 <div class="dynheader">
 Inheritance diagram for EngineAudioAPI:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_engine_audio_a_p_i__inherit__graph.png" border="0" usemap="#a_engine_audio_a_p_i_inherit__map" alt="Inheritance graph"/></div>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for EngineAudioAPI:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_engine_audio_a_p_i__coll__graph.png" border="0" usemap="#a_engine_audio_a_p_i_coll__map" alt="Collaboration graph"/></div>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+ <div class="center">
+  <img src="class_engine_audio_a_p_i.png" usemap="#EngineAudioAPI_map" alt=""/>
+  <map id="EngineAudioAPI_map" name="EngineAudioAPI_map">
+<area href="class_audio_a_p_i.html" alt="AudioAPI" shape="rect" coords="0,0,104,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -343,6 +345,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return a list of all audio names loaded in memory. </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p>Implements <a class="el" href="class_audio_a_p_i.html#aba1777ac89b08314703e1993296feeb8">AudioAPI</a>.</p>
 
@@ -469,6 +472,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Load the specified audio into memory. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td></td></tr>
+    <tr><td class="paramname">name</td><td></td></tr>
+    <tr><td class="paramname">type</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="class_audio_a_p_i.html#a9e83c09e5ae3a4c25a0888944ab6a160">AudioAPI</a>.</p>
 
@@ -549,6 +560,12 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Play a file from memory specified by name. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="class_audio_a_p_i.html#a6e804e0134c520efc68b6b67e813ae3c">AudioAPI</a>.</p>
 
@@ -587,6 +604,13 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Play a audio file straight from the specified path. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td></td></tr>
+    <tr><td class="paramname">type</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="class_audio_a_p_i.html#a88273cf36ed4e19ee5fd3bb3dd25da94">AudioAPI</a>.</p>
 
@@ -614,6 +638,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Stops all the audio that is currently playing. </p>
 
 <p>Implements <a class="el" href="class_audio_a_p_i.html#a889dc88bb8af7ae70f99931c4f572b2e">AudioAPI</a>.</p>
 
@@ -641,6 +666,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Stops all the music that is currently playing. </p>
 
 <p>Implements <a class="el" href="class_audio_a_p_i.html#aa625cf2e13ba48a410e87a6cdf74f0cf">AudioAPI</a>.</p>
 
@@ -669,6 +695,12 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Stop the sound that is playing in the specified channel. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="class_audio_a_p_i.html#af22b1c6767b148b68bc2bf2e82a7b69a">AudioAPI</a>.</p>
 
@@ -696,6 +728,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Stops all the channel sounds except the music. </p>
 
 <p>Implements <a class="el" href="class_audio_a_p_i.html#a0e3d8ba8397e97ff4f51f38c6ed85ea9">AudioAPI</a>.</p>
 
@@ -723,6 +756,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Pauses/Plays music. </p>
 
 <p>Implements <a class="el" href="class_audio_a_p_i.html#a7eead22c486603aea4ed6bafa6c80c82">AudioAPI</a>.</p>
 
@@ -751,6 +785,12 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Pauses/Plays the specified channel. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="class_audio_a_p_i.html#a8cdffe1e9a1873311362ce3927523cf4">AudioAPI</a>.</p>
 
@@ -778,6 +818,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Pauses/resumes all the sound channels </p>
 
 <p>Implements <a class="el" href="class_audio_a_p_i.html#a15481d7fccacdeb653d30dca8c6a9e59">AudioAPI</a>.</p>
 
