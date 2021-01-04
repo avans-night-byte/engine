@@ -7,13 +7,13 @@
         xmlns:sv="Save">
     <playerData>
         <common:position>
-            <x>490.215637</x>
-            <y>863.327332</y>
+            <x>375.367676</x>
+            <y>410.490906</y>
         </common:position>
-        <health>100.000000</health>
+        <health>20.000000</health>
         <xp>0</xp>
-        <score>1500</score>
-        <money>150</money>
+        <score>300</score>
+        <money>30</money>
         <level>ShopOutside</level>
     </playerData>
     <inventoryData>
@@ -23,40 +23,72 @@
             <type>zombie</type>
             <level>ShopOutside</level>
             <common:position>
-                <x>903.785767</x>
-                <y>373.504333</y>
+                <x>200.602005</x>
+                <y>793.857971</y>
             </common:position>
         </object>
         <object>
             <type>zombie</type>
             <level>ShopOutside</level>
             <common:position>
-                <x>1310.960327</x>
-                <y>746.126892</y>
+                <x>1284.965088</x>
+                <y>152.836411</y>
             </common:position>
         </object>
         <object>
             <type>zombie</type>
             <level>ShopOutside</level>
             <common:position>
-                <x>106.695610</x>
-                <y>983.543945</y>
+                <x>1419.076172</x>
+                <y>754.426758</y>
             </common:position>
         </object>
         <object>
             <type>zombie</type>
             <level>ShopOutside</level>
             <common:position>
-                <x>1490.311279</x>
-                <y>108.371628</y>
+                <x>200.602005</x>
+                <y>793.857971</y>
             </common:position>
         </object>
         <object>
             <type>zombie</type>
             <level>ShopOutside</level>
             <common:position>
-                <x>1483.576172</x>
-                <y>946.702698</y>
+                <x>1284.965088</x>
+                <y>152.836411</y>
+            </common:position>
+        </object>
+        <object>
+            <type>zombie</type>
+            <level>ShopOutside</level>
+            <common:position>
+                <x>1419.076172</x>
+                <y>754.426758</y>
+            </common:position>
+        </object>
+        <object>
+            <type>zombie</type>
+            <level>ShopOutside</level>
+            <common:position>
+                <x>199.666748</x>
+                <y>861.676270</y>
+            </common:position>
+        </object>
+        <object>
+            <type>zombie</type>
+            <level>ShopOutside</level>
+            <common:position>
+                <x>1355.618530</x>
+                <y>194.090195</y>
+            </common:position>
+        </object>
+        <object>
+            <type>zombie</type>
+            <level>ShopOutside</level>
+            <common:position>
+                <x>1501.895508</x>
+                <y>777.659790</y>
             </common:position>
         </object>
     </objectData>
