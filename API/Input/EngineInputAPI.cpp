@@ -11,6 +11,11 @@ EngineInputAPI::~EngineInputAPI() {
     delete _adapter;
 }
 
+/**
+ * Returns the mouse position as a reference.
+ * @param x
+ * @param y
+ */
 void EngineInputAPI::getMousePosition(int &x, int &y) const {
     return _adapter->getMousePosition(x,y);
 }

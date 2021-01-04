@@ -8,6 +8,8 @@ TextureManager *EngineRenderingAPI::getTextureManager() {
 }
 
 /**
+ * Loads a spritesheet into memory
+ *
  * @param path
  * @param spriteSheetId
  * @param rows
@@ -32,6 +34,8 @@ void EngineRenderingAPI::createText(const std::string &fontName,
 
 
 /**
+ * Draw a texture from a textureId, this means that the texture is assigned an id in the TextureManager.
+ *
  * @param textureId
  * @param x
  * @param y
@@ -47,6 +51,8 @@ EngineRenderingAPI::drawTexture(const std::string &textureId, float x, float y, 
 }
 
 /**
+ * Load a texture into the TextureManager and assign a id.
+ *
  * @param path
  * @param textureId
  * @return success
@@ -55,12 +61,27 @@ bool EngineRenderingAPI::loadTexture(const std::string &path, const std::string 
     return SDLRenderingAdapter::GetTextureManager()->load(path, textureId);
 }
 
+/**
+ * Draw a solid rectangle.
+ * @param position
+ * @param width
+ * @param height
+ * @param color
+ * @param opacity
+ */
 void EngineRenderingAPI::drawRectangle(Vector2 &position, float width, float height, const std::string &color,
                                        float opacity) const {
     _adapter.drawRectangle(position, width, height, color, opacity);
-
 }
 
+
+/**
+ * Load a tiled spritesheet.
+ *
+ * @param levelData
+ * @param physicsEngineAdapter
+ * @return
+ */
 TMXLevel *EngineRenderingAPI::loadTMX(const LevelData &levelData, PhysicsEngineAdapter &physicsEngineAdapter) {
     return new TMXLevel(levelData.tmxPath.c_str(),
                         levelData.spritesheetPath.c_str(),
@@ -69,20 +90,33 @@ TMXLevel *EngineRenderingAPI::loadTMX(const LevelData &levelData, PhysicsEngineA
                         physicsEngineAdapter);
 }
 
+
+/**
+ * Draw a color over the whole screen.
+ * @param hex
+ * @param alpha
+ */
 void EngineRenderingAPI::drawBackground(std::string &hex, float alpha) const {
     _adapter.drawBackground(hex, alpha);
 
 }
 
-
+/**
+ * Draw a line from point a to point b.
+ * @param a
+ * @param b
+ */
 void EngineRenderingAPI::drawLine(Vector2 &a, Vector2 &b) const {
     _adapter.drawLine(a, b);
 }
 
+
+/**
+ * Clears the buffer and actually draws the queued calls.
+ */
 void EngineRenderingAPI::render() const {
     _adapter.render();
 }
-
 
 
 void
@@ -91,15 +125,26 @@ EngineRenderingAPI::drawAnimation(std::string &spriteId, const Vector2 &position
     _adapter.drawAnimation(spriteId, position, size, speed, animation);
 }
 
+/**
+ * Returns the adapter linked to this api.
+ * @return EngineRenderingAdapter
+ */
 EngineRenderingAdapter &EngineRenderingAPI::getRendererAdapter() {
     return _adapter;
 }
 
+/**
+ * Draws a box consisting from lines.
+ * @param vertices
+ * @param vertexCount
+ */
 void EngineRenderingAPI::drawBox(const Vector2 *vertices, int32 vertexCount) const{
     return _adapter.drawBox(vertices, vertexCount);
 }
 
-
+/**
+ * Calls a renderClear command clearing the buffer.
+ */
 void EngineRenderingAPI::clear() const {
     _adapter.clear();
 }
