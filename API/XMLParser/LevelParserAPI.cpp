@@ -6,11 +6,25 @@
 #include <Generated/level-resources.hxx>
 
 
+/**
+ * Loads box2d and dynamic entities from our xml.
+ * @param outEntities
+ * @param objects
+ */
 void LevelParserAPI::loadEntities(std::vector<EntityXMLParser::ObjectData> &outEntities,
                                        xsd::cxx::tree::sequence<Objects::object> &objects) {
     EntityXMLParser::createEntities(outEntities, objects);
 }
 
+
+
+/**
+ * Creates a TMXLevel and parses any box2d bodies inside this level.
+ * This uses our own level definition.
+ * @param outEntities
+ * @param levelData
+ * @return
+ */
 TMXLevel *LevelParserAPI::loadLevel(std::vector<EntityXMLParser::ObjectData> &outEntities, const LevelData &levelData) {
 
     auto &renderingApi = Game::getInstance()->getRenderingAPI();
