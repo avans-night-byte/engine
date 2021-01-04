@@ -1,5 +1,8 @@
 #pragma once
 
+/**
+ * Helper class that holds a x and y float value, useful for 2d positions and forces.
+ */
 struct Vector2
 {
 public:
