@@ -71,7 +71,7 @@
             </common:text_type>
             <common:position>
                 <x>100</x>
-                <y>190</y>
+                <y>200</y>
             </common:position>
             <common:color>
                 <hex>ffffff</hex>
@@ -90,7 +90,7 @@
             </common:text_type>
             <common:position>
                 <x>100</x>
-                <y>280</y>
+                <y>250</y>
             </common:position>
             <common:color>
                 <hex>ffffff</hex>
@@ -101,7 +101,7 @@
                 <weight>Regular</weight>
                 <size>32</size>
             </common:font>
-            <content>E: Open/Close inventory</content>
+            <content>I: Open/Close inventory</content>
         </text>
         <text>
             <common:text_type>
@@ -109,7 +109,7 @@
             </common:text_type>
             <common:position>
                 <x>100</x>
-                <y>460</y>
+                <y>300</y>
             </common:position>
             <common:color>
                 <hex>ffffff</hex>
@@ -120,7 +120,7 @@
                 <weight>Regular</weight>
                 <size>32</size>
             </common:font>
-            <content>R: Reload gun</content>
+            <content>E: Interact</content>
         </text>
         <text>
             <common:text_type>
@@ -128,7 +128,7 @@
             </common:text_type>
             <common:position>
                 <x>100</x>
-                <y>370</y>
+                <y>350</y>
             </common:position>
             <common:color>
                 <hex>ffffff</hex>
@@ -139,7 +139,121 @@
                 <weight>Regular</weight>
                 <size>32</size>
             </common:font>
-            <content>Mouse1: Shoot/Place item</content>
+            <content>Mouse1: Shoot</content>
+        </text>
+        <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
+            <common:position>
+                <x>100</x>
+                <y>400</y>
+            </common:position>
+            <common:color>
+                <hex>ffffff</hex>
+                <alpha>255</alpha>
+            </common:color>
+            <common:font>
+                <family>Montserrat</family>
+                <weight>Regular</weight>
+                <size>32</size>
+            </common:font>
+            <content>Mouse2: Place</content>
+        </text>
+        <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
+            <common:position>
+                <x>100</x>
+                <y>450</y>
+            </common:position>
+            <common:color>
+                <hex>ffffff</hex>
+                <alpha>255</alpha>
+            </common:color>
+            <common:font>
+                <family>Montserrat</family>
+                <weight>Regular</weight>
+                <size>32</size>
+            </common:font>
+            <content>`: Cheat Menu</content>
+        </text>
+        <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
+            <common:position>
+                <x>100</x>
+                <y>500</y>
+            </common:position>
+            <common:color>
+                <hex>ffffff</hex>
+                <alpha>255</alpha>
+            </common:color>
+            <common:font>
+                <family>Montserrat</family>
+                <weight>Regular</weight>
+                <size>32</size>
+            </common:font>
+            <content>ESC: Pause</content>
+        </text>
+        <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
+            <common:position>
+                <x>100</x>
+                <y>550</y>
+            </common:position>
+            <common:color>
+                <hex>ffffff</hex>
+                <alpha>255</alpha>
+            </common:color>
+            <common:font>
+                <family>Montserrat</family>
+                <weight>Regular</weight>
+                <size>32</size>
+            </common:font>
+            <content>-: Decrease Game Speed</content>
+        </text>
+        <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
+            <common:position>
+                <x>100</x>
+                <y>600</y>
+            </common:position>
+            <common:color>
+                <hex>ffffff</hex>
+                <alpha>255</alpha>
+            </common:color>
+            <common:font>
+                <family>Montserrat</family>
+                <weight>Regular</weight>
+                <size>32</size>
+            </common:font>
+            <content>=: Increase Game Speed</content>
+        </text>
+        <text>
+            <common:text_type>
+                <static/>
+            </common:text_type>
+            <common:position>
+                <x>100</x>
+                <y>700</y>
+            </common:position>
+            <common:color>
+                <hex>ffffff</hex>
+                <alpha>255</alpha>
+            </common:color>
+            <common:font>
+                <family>Montserrat</family>
+                <weight>Bold</weight>
+                <size>32</size>
+            </common:font>
+            <content>Goal: Survive as long as you can, each round will get harder. What is the highest you can go?</content>
         </text>
     </texts>
     <images/>

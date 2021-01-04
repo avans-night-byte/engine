@@ -53,6 +53,8 @@ public:
             {SDLK_q,            InputAction{.code = "Q", .action = "QUIT"}},
             {SDLK_BACKSLASH,    InputAction{.code = "\\", .action = "BACKSLASH"}},
             {SDLK_RIGHTBRACKET, InputAction{.code = "]", .action = "RIGHTBRACKET"}},
+            {SDLK_EQUALS, InputAction{.code = "=", .action = "PLUS"}},
+            {SDLK_MINUS, InputAction{.code = "-", .action = "MINUS"}},
             {SDLK_ESCAPE,       InputAction{.code = "ESC", .action = "ESCAPE"}},
             {SDLK_g,            InputAction{.code = "G", .action = "G"}},
             {SDLK_BACKQUOTE,            InputAction{.code = "`", .action = "`"}},
