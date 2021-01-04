@@ -22,7 +22,7 @@ MenuParser::~MenuParser() {
 }
 
 void MenuParser::initialize(const std::string &path) {
-    AudioEngineAdapter &audioEngineAdapter = SDLAudioEngineAdapter::getInstance();
+    SDLAudioEngineAdapter &audioEngineAdapter = SDLAudioEngineAdapter::getInstance();
 
     _menu = Menu::menu_(path);
     _textItems = std::map<std::string, TextWrapper*>();
@@ -68,7 +68,7 @@ void MenuParser::initialize(const std::string &path) {
     }
 
 
-    if (_menu->backgroundMusic().present() && _previousSong != _menu->backgroundMusic()->c_str()) {
+    if (_menu->backgroundMusic().present() && audioEngineAdapter.getCurrentPlayingMusic() != _menu->backgroundMusic()->c_str()) {
         audioEngineAdapter.playFromMemory(_menu->backgroundMusic()->c_str());
         _previousSong = _menu->backgroundMusic()->c_str();
     }
