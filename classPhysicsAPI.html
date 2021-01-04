@@ -68,6 +68,8 @@ $(function() {
 <div class="title">PhysicsAPI Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="PhysicsAPI_8hpp_source.html">PhysicsAPI.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for PhysicsAPI:</div>
 <div class="dyncontent">
@@ -80,61 +82,751 @@ Inheritance diagram for PhysicsAPI:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af76fc3f79370b3f8e2573a607ced22c7"><td class="memItemLeft" align="right" valign="top"><a id="af76fc3f79370b3f8e2573a607ced22c7"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (float deltaTime)=0</td></tr>
+<tr class="memitem:af76fc3f79370b3f8e2573a607ced22c7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsAPI.html#af76fc3f79370b3f8e2573a607ced22c7">update</a> (float deltaTime)=0</td></tr>
 <tr class="separator:af76fc3f79370b3f8e2573a607ced22c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab94f34d23afa153063db574382c57569"><td class="memItemLeft" align="right" valign="top"><a id="ab94f34d23afa153063db574382c57569"></a>
-virtual BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (const <a class="el" href="classBox2DBoxData.html">Box2DBoxData</a> &amp;box2DBoxData) const =0</td></tr>
+<tr class="memitem:ab94f34d23afa153063db574382c57569"><td class="memItemLeft" align="right" valign="top">virtual BodyId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsAPI.html#ab94f34d23afa153063db574382c57569">createBody</a> (const <a class="el" href="classBox2DBoxData.html">Box2DBoxData</a> &amp;box2DBoxData) const =0</td></tr>
 <tr class="separator:ab94f34d23afa153063db574382c57569"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a806299011b5d489206357e0a56a08a7a"><td class="memItemLeft" align="right" valign="top"><a id="a806299011b5d489206357e0a56a08a7a"></a>
-virtual BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (const <a class="el" href="classBox2DCircleData.html">Box2DCircleData</a> &amp;box2DCircleData) const =0</td></tr>
+<tr class="memitem:a806299011b5d489206357e0a56a08a7a"><td class="memItemLeft" align="right" valign="top">virtual BodyId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsAPI.html#a806299011b5d489206357e0a56a08a7a">createBody</a> (const <a class="el" href="classBox2DCircleData.html">Box2DCircleData</a> &amp;box2DCircleData) const =0</td></tr>
 <tr class="separator:a806299011b5d489206357e0a56a08a7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa00c4e81178ac080721e791b3bf8f27"><td class="memItemLeft" align="right" valign="top"><a id="aaa00c4e81178ac080721e791b3bf8f27"></a>
-virtual BodyId&#160;</td><td class="memItemRight" valign="bottom"><b>createBody</b> (const <a class="el" href="classBox2DPolygonData.html">Box2DPolygonData</a> &amp;box2DPolygonData) const =0</td></tr>
+<tr class="memitem:aaa00c4e81178ac080721e791b3bf8f27"><td class="memItemLeft" align="right" valign="top">virtual BodyId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsAPI.html#aaa00c4e81178ac080721e791b3bf8f27">createBody</a> (const <a class="el" href="classBox2DPolygonData.html">Box2DPolygonData</a> &amp;box2DPolygonData) const =0</td></tr>
 <tr class="separator:aaa00c4e81178ac080721e791b3bf8f27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b49bd33353920bdeeedb8e838a0c9f5"><td class="memItemLeft" align="right" valign="top"><a id="a8b49bd33353920bdeeedb8e838a0c9f5"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>destroyBody</b> (BodyId bodyId)=0</td></tr>
+<tr class="memitem:a8b49bd33353920bdeeedb8e838a0c9f5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsAPI.html#a8b49bd33353920bdeeedb8e838a0c9f5">destroyBody</a> (BodyId bodyId)=0</td></tr>
 <tr class="separator:a8b49bd33353920bdeeedb8e838a0c9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0338bfe8f1db55e123785f8e868118f"><td class="memItemLeft" align="right" valign="top"><a id="aa0338bfe8f1db55e123785f8e868118f"></a>
-virtual <a class="el" href="structRTransform.html">RTransform</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getRPosition</b> (BodyId bodyId) const =0</td></tr>
+<tr class="memitem:aa0338bfe8f1db55e123785f8e868118f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structRTransform.html">RTransform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsAPI.html#aa0338bfe8f1db55e123785f8e868118f">getRPosition</a> (BodyId bodyId) const =0</td></tr>
 <tr class="separator:aa0338bfe8f1db55e123785f8e868118f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa51a8598cac6fa7706edfda2a906ecc9"><td class="memItemLeft" align="right" valign="top"><a id="aa51a8598cac6fa7706edfda2a906ecc9"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>debugDraw</b> (<a class="el" href="classRenderingAPI.html">RenderingAPI</a> &amp;renderingApi)=0</td></tr>
+<tr class="memitem:aa51a8598cac6fa7706edfda2a906ecc9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsAPI.html#aa51a8598cac6fa7706edfda2a906ecc9">debugDraw</a> (<a class="el" href="classRenderingAPI.html">RenderingAPI</a> &amp;renderingApi)=0</td></tr>
 <tr class="separator:aa51a8598cac6fa7706edfda2a906ecc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abab2f9790e547bc3a3fde714fcd0ef2f"><td class="memItemLeft" align="right" valign="top"><a id="abab2f9790e547bc3a3fde714fcd0ef2f"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>GetVelocity</b> (<a class="el" href="structVector2.html">Vector2</a> &amp;velocity, const BodyId bodyId) const =0</td></tr>
+<tr class="memitem:abab2f9790e547bc3a3fde714fcd0ef2f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsAPI.html#abab2f9790e547bc3a3fde714fcd0ef2f">GetVelocity</a> (<a class="el" href="structVector2.html">Vector2</a> &amp;velocity, const BodyId bodyId) const =0</td></tr>
 <tr class="separator:abab2f9790e547bc3a3fde714fcd0ef2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbf99eb29e654c29218ef9926009e57c"><td class="memItemLeft" align="right" valign="top"><a id="afbf99eb29e654c29218ef9926009e57c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setLinearVelocity</b> (const BodyId bodyId, const <a class="el" href="structVector2.html">Vector2</a> &amp;vector2) const =0</td></tr>
+<tr class="memitem:afbf99eb29e654c29218ef9926009e57c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsAPI.html#afbf99eb29e654c29218ef9926009e57c">setLinearVelocity</a> (const BodyId bodyId, const <a class="el" href="structVector2.html">Vector2</a> &amp;vector2) const =0</td></tr>
 <tr class="separator:afbf99eb29e654c29218ef9926009e57c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b0f4f88935f111ad52208064e9a03cd"><td class="memItemLeft" align="right" valign="top"><a id="a3b0f4f88935f111ad52208064e9a03cd"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setFixedRotation</b> (const BodyId i, bool b) const =0</td></tr>
+<tr class="memitem:a3b0f4f88935f111ad52208064e9a03cd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsAPI.html#a3b0f4f88935f111ad52208064e9a03cd">setFixedRotation</a> (const BodyId i, bool b) const =0</td></tr>
 <tr class="separator:a3b0f4f88935f111ad52208064e9a03cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afaa18334dba30ef0ca38ad324de2e845"><td class="memItemLeft" align="right" valign="top"><a id="afaa18334dba30ef0ca38ad324de2e845"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addForce</b> (const BodyId i, const <a class="el" href="structVector2.html">Vector2</a> &amp;position, <a class="el" href="structVector2.html">Vector2</a>) const =0</td></tr>
+<tr class="memitem:afaa18334dba30ef0ca38ad324de2e845"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsAPI.html#afaa18334dba30ef0ca38ad324de2e845">addForce</a> (const BodyId i, const <a class="el" href="structVector2.html">Vector2</a> &amp;position, <a class="el" href="structVector2.html">Vector2</a>) const =0</td></tr>
 <tr class="separator:afaa18334dba30ef0ca38ad324de2e845"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1c7cff29e9bbef5b6f1d91fb7fc16bb"><td class="memItemLeft" align="right" valign="top"><a id="ae1c7cff29e9bbef5b6f1d91fb7fc16bb"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setAngle</b> (const BodyId i, float rotation) const =0</td></tr>
+<tr class="memitem:ae1c7cff29e9bbef5b6f1d91fb7fc16bb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsAPI.html#ae1c7cff29e9bbef5b6f1d91fb7fc16bb">setAngle</a> (const BodyId i, float rotation) const =0</td></tr>
 <tr class="separator:ae1c7cff29e9bbef5b6f1d91fb7fc16bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02efbbe992c3415a86822451be6b54df"><td class="memItemLeft" align="right" valign="top"><a id="a02efbbe992c3415a86822451be6b54df"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>destroyBody</b> (BodyId i) const =0</td></tr>
+<tr class="memitem:a02efbbe992c3415a86822451be6b54df"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsAPI.html#a02efbbe992c3415a86822451be6b54df">destroyBody</a> (BodyId i) const =0</td></tr>
 <tr class="separator:a02efbbe992c3415a86822451be6b54df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b57e7d9cf99fe11de4d7e60ea172234"><td class="memItemLeft" align="right" valign="top"><a id="a6b57e7d9cf99fe11de4d7e60ea172234"></a>
-virtual <a class="el" href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getPhysicsEngineAdapter</b> () const =0</td></tr>
+<tr class="memitem:a6b57e7d9cf99fe11de4d7e60ea172234"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsAPI.html#a6b57e7d9cf99fe11de4d7e60ea172234">getPhysicsEngineAdapter</a> () const =0</td></tr>
 <tr class="separator:a6b57e7d9cf99fe11de4d7e60ea172234"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b9632978ea898b55332f7dfed368a4c"><td class="memItemLeft" align="right" valign="top"><a id="a8b9632978ea898b55332f7dfed368a4c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setTransform</b> (unsigned int bodyId, <a class="el" href="structVector2.html">Vector2</a> pos, float angle) const =0</td></tr>
+<tr class="memitem:a8b9632978ea898b55332f7dfed368a4c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsAPI.html#a8b9632978ea898b55332f7dfed368a4c">setTransform</a> (unsigned int bodyId, <a class="el" href="structVector2.html">Vector2</a> pos, float angle) const =0</td></tr>
 <tr class="separator:a8b9632978ea898b55332f7dfed368a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7b271a2867cd9343f8a0f192094ec4e"><td class="memItemLeft" align="right" valign="top"><a id="ab7b271a2867cd9343f8a0f192094ec4e"></a>
-virtual const b2World &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getWorld</b> () const =0</td></tr>
+<tr class="memitem:ab7b271a2867cd9343f8a0f192094ec4e"><td class="memItemLeft" align="right" valign="top">virtual const b2World &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsAPI.html#ab7b271a2867cd9343f8a0f192094ec4e">getWorld</a> () const =0</td></tr>
 <tr class="separator:ab7b271a2867cd9343f8a0f192094ec4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a824c08d9b583e683d77c492d3590bb87"><td class="memItemLeft" align="right" valign="top"><a id="a824c08d9b583e683d77c492d3590bb87"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>addFixture</b> (unsigned int bodyId, const <a class="el" href="classBox2DBoxData.html">Box2DBoxData</a> &amp;box2DBoxData) const =0</td></tr>
+<tr class="memitem:a824c08d9b583e683d77c492d3590bb87"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsAPI.html#a824c08d9b583e683d77c492d3590bb87">addFixture</a> (unsigned int bodyId, const <a class="el" href="classBox2DBoxData.html">Box2DBoxData</a> &amp;box2DBoxData) const =0</td></tr>
 <tr class="separator:a824c08d9b583e683d77c492d3590bb87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa03a3ee57e324d18e706b6da89ce45c0"><td class="memItemLeft" align="right" valign="top"><a id="aa03a3ee57e324d18e706b6da89ce45c0"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setEnabled</b> (BodyId id, bool b) const =0</td></tr>
+<tr class="memitem:aa03a3ee57e324d18e706b6da89ce45c0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsAPI.html#aa03a3ee57e324d18e706b6da89ce45c0">setEnabled</a> (BodyId id, bool b) const =0</td></tr>
 <tr class="separator:aa03a3ee57e324d18e706b6da89ce45c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class is a api to the PhysicsAdapter, which handles all our physics interaction using box2d. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a824c08d9b583e683d77c492d3590bb87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a824c08d9b583e683d77c492d3590bb87">&#9670;&nbsp;</a></span>addFixture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void PhysicsAPI::addFixture </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>bodyId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classBox2DBoxData.html">Box2DBoxData</a> &amp;&#160;</td>
+          <td class="paramname"><em>box2DBoxData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Add a fixture to a body, this allows bodies to use multiple colliders, triggers. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bodyId</td><td></td></tr>
+    <tr><td class="paramname">box2DBoxData</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classEnginePhysicsAPI.html#ade1b5ab45894f937865cb677f7b60182">EnginePhysicsAPI</a>.</p>
+
+</div>
+</div>
+<a id="afaa18334dba30ef0ca38ad324de2e845"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaa18334dba30ef0ca38ad324de2e845">&#9670;&nbsp;</a></span>addForce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void PhysicsAPI::addForce </td>
+          <td>(</td>
+          <td class="paramtype">const BodyId&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structVector2.html">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structVector2.html">Vector2</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Add force as a impulse to the specified body. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td></td></tr>
+    <tr><td class="paramname">position</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classEnginePhysicsAPI.html#a55fff18754ee8af18937ecae7e69693f">EnginePhysicsAPI</a>.</p>
+
+</div>
+</div>
+<a id="ab94f34d23afa153063db574382c57569"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab94f34d23afa153063db574382c57569">&#9670;&nbsp;</a></span>createBody() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual BodyId PhysicsAPI::createBody </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classBox2DBoxData.html">Box2DBoxData</a> &amp;&#160;</td>
+          <td class="paramname"><em>box2DBoxData</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Create a box physics body. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">box2DBoxData</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implemented in <a class="el" href="classEnginePhysicsAPI.html#a4df2f280e938613f3f2f3e9f1394b47c">EnginePhysicsAPI</a>.</p>
+
+</div>
+</div>
+<a id="a806299011b5d489206357e0a56a08a7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a806299011b5d489206357e0a56a08a7a">&#9670;&nbsp;</a></span>createBody() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual BodyId PhysicsAPI::createBody </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classBox2DCircleData.html">Box2DCircleData</a> &amp;&#160;</td>
+          <td class="paramname"><em>box2DCircleData</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Create a circle physics body. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">box2DCircleData</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implemented in <a class="el" href="classEnginePhysicsAPI.html#aed0a374b541ec2f1eaeeaf369690213e">EnginePhysicsAPI</a>.</p>
+
+</div>
+</div>
+<a id="aaa00c4e81178ac080721e791b3bf8f27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa00c4e81178ac080721e791b3bf8f27">&#9670;&nbsp;</a></span>createBody() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual BodyId PhysicsAPI::createBody </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classBox2DPolygonData.html">Box2DPolygonData</a> &amp;&#160;</td>
+          <td class="paramname"><em>box2DPolygonData</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Create a polygon physics body. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">box2DPolygonData</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implemented in <a class="el" href="classEnginePhysicsAPI.html#ab19774bf79b3191d99e83ed91961ec83">EnginePhysicsAPI</a>.</p>
+
+</div>
+</div>
+<a id="aa51a8598cac6fa7706edfda2a906ecc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa51a8598cac6fa7706edfda2a906ecc9">&#9670;&nbsp;</a></span>debugDraw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void PhysicsAPI::debugDraw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classRenderingAPI.html">RenderingAPI</a> &amp;&#160;</td>
+          <td class="paramname"><em>renderingApi</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Specify a rendering API to the physics api in order to debug physics bodies. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderingApi</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classEnginePhysicsAPI.html#ab76caf4081581ac167e7bf870aeb5eff">EnginePhysicsAPI</a>.</p>
+
+</div>
+</div>
+<a id="a8b49bd33353920bdeeedb8e838a0c9f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b49bd33353920bdeeedb8e838a0c9f5">&#9670;&nbsp;</a></span>destroyBody() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void PhysicsAPI::destroyBody </td>
+          <td>(</td>
+          <td class="paramtype">BodyId&#160;</td>
+          <td class="paramname"><em>bodyId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Destroy the body with the specified id. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bodyId</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classEnginePhysicsAPI.html#a0248983c69498ab55c6807202da72016">EnginePhysicsAPI</a>.</p>
+
+</div>
+</div>
+<a id="a02efbbe992c3415a86822451be6b54df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02efbbe992c3415a86822451be6b54df">&#9670;&nbsp;</a></span>destroyBody() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void PhysicsAPI::destroyBody </td>
+          <td>(</td>
+          <td class="paramtype">BodyId&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Destroy the specified body. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classEnginePhysicsAPI.html#a9db951432ca0c4238995928c41f7262b">EnginePhysicsAPI</a>.</p>
+
+</div>
+</div>
+<a id="a6b57e7d9cf99fe11de4d7e60ea172234"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b57e7d9cf99fe11de4d7e60ea172234">&#9670;&nbsp;</a></span>getPhysicsEngineAdapter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classPhysicsEngineAdapter.html">PhysicsEngineAdapter</a>&amp; PhysicsAPI::getPhysicsEngineAdapter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the api its adapter. </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implemented in <a class="el" href="classEnginePhysicsAPI.html#ab0b33501ec2e4c7b3b3a03b0dde69d97">EnginePhysicsAPI</a>.</p>
+
+</div>
+</div>
+<a id="aa0338bfe8f1db55e123785f8e868118f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0338bfe8f1db55e123785f8e868118f">&#9670;&nbsp;</a></span>getRPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="structRTransform.html">RTransform</a> PhysicsAPI::getRPosition </td>
+          <td>(</td>
+          <td class="paramtype">BodyId&#160;</td>
+          <td class="paramname"><em>bodyId</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get a reference position of the specified body. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bodyId</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implemented in <a class="el" href="classEnginePhysicsAPI.html#a497e7ec07148cd7cafcf347a62e5e2c6">EnginePhysicsAPI</a>.</p>
+
+</div>
+</div>
+<a id="abab2f9790e547bc3a3fde714fcd0ef2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abab2f9790e547bc3a3fde714fcd0ef2f">&#9670;&nbsp;</a></span>GetVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void PhysicsAPI::GetVelocity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structVector2.html">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>velocity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const BodyId&#160;</td>
+          <td class="paramname"><em>bodyId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the velocity of the specified object in the specified reference. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">velocity</td><td></td></tr>
+    <tr><td class="paramname">bodyId</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classEnginePhysicsAPI.html#a9c8709abc9a38f90b6fc57ddc277b784">EnginePhysicsAPI</a>.</p>
+
+</div>
+</div>
+<a id="ab7b271a2867cd9343f8a0f192094ec4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7b271a2867cd9343f8a0f192094ec4e">&#9670;&nbsp;</a></span>getWorld()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const b2World&amp; PhysicsAPI::getWorld </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the box2d world. </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implemented in <a class="el" href="classEnginePhysicsAPI.html#a1d7788d68184444d78e23f40a5264ca9">EnginePhysicsAPI</a>.</p>
+
+</div>
+</div>
+<a id="ae1c7cff29e9bbef5b6f1d91fb7fc16bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1c7cff29e9bbef5b6f1d91fb7fc16bb">&#9670;&nbsp;</a></span>setAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void PhysicsAPI::setAngle </td>
+          <td>(</td>
+          <td class="paramtype">const BodyId&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rotation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the angle of the specified body. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td></td></tr>
+    <tr><td class="paramname">rotation</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classEnginePhysicsAPI.html#afcf93fdd54f7d03764d60be7059a4469">EnginePhysicsAPI</a>.</p>
+
+</div>
+</div>
+<a id="aa03a3ee57e324d18e706b6da89ce45c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa03a3ee57e324d18e706b6da89ce45c0">&#9670;&nbsp;</a></span>setEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void PhysicsAPI::setEnabled </td>
+          <td>(</td>
+          <td class="paramtype">BodyId&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Enable or disable a body, useful for pooling objects. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td></td></tr>
+    <tr><td class="paramname">b</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classEnginePhysicsAPI.html#ae092fe5383314c3864e776ec679e7ac5">EnginePhysicsAPI</a>.</p>
+
+</div>
+</div>
+<a id="a3b0f4f88935f111ad52208064e9a03cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b0f4f88935f111ad52208064e9a03cd">&#9670;&nbsp;</a></span>setFixedRotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void PhysicsAPI::setFixedRotation </td>
+          <td>(</td>
+          <td class="paramtype">const BodyId&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Specify if rotation of the specified object should be locked. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td></td></tr>
+    <tr><td class="paramname">b</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classEnginePhysicsAPI.html#a9cc6ac319249fda8a28e45df2c084f4c">EnginePhysicsAPI</a>.</p>
+
+</div>
+</div>
+<a id="afbf99eb29e654c29218ef9926009e57c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbf99eb29e654c29218ef9926009e57c">&#9670;&nbsp;</a></span>setLinearVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void PhysicsAPI::setLinearVelocity </td>
+          <td>(</td>
+          <td class="paramtype">const BodyId&#160;</td>
+          <td class="paramname"><em>bodyId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structVector2.html">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>vector2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the body its velocity as a vector. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bodyId</td><td></td></tr>
+    <tr><td class="paramname">vector2</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classEnginePhysicsAPI.html#a48fb84d6cfdaf3ad9da49943d1b20501">EnginePhysicsAPI</a>.</p>
+
+</div>
+</div>
+<a id="a8b9632978ea898b55332f7dfed368a4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b9632978ea898b55332f7dfed368a4c">&#9670;&nbsp;</a></span>setTransform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void PhysicsAPI::setTransform </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>bodyId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structVector2.html">Vector2</a>&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>angle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the rotation and position of the specified body. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bodyId</td><td></td></tr>
+    <tr><td class="paramname">pos</td><td></td></tr>
+    <tr><td class="paramname">angle</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classEnginePhysicsAPI.html#a2b9e3088d85661ea874a8c9b59100189">EnginePhysicsAPI</a>.</p>
+
+</div>
+</div>
+<a id="af76fc3f79370b3f8e2573a607ced22c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af76fc3f79370b3f8e2573a607ced22c7">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void PhysicsAPI::update </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Update the physics for the specified physics engine. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">deltaTime</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classEnginePhysicsAPI.html#a86bb9de862dd4867725c6e26096708e2">EnginePhysicsAPI</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>API/Physics/<a class="el" href="PhysicsAPI_8hpp_source.html">PhysicsAPI.hpp</a></li>
 </ul>
